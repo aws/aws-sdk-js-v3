@@ -1,4 +1,8 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -42,7 +46,7 @@ export interface Event {
    *       <code>eventValue</code> being the rating. The <code>numberOfRatings</code> would match the
    *       'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>
    */
-  properties: string | undefined;
+  properties: __LazyJsonString | string | undefined;
 
   /**
    * <p>The timestamp on the client side when the event occurred.</p>
@@ -52,7 +56,7 @@ export interface Event {
 
 export namespace Event {
   export function isa(o: any): o is Event {
-    return _smithy.isa(o, "Event");
+    return __isa(o, "Event");
   }
 }
 
@@ -83,7 +87,7 @@ export interface PutEventsRequest {
 
 export namespace PutEventsRequest {
   export function isa(o: any): o is PutEventsRequest {
-    return _smithy.isa(o, "PutEventsRequest");
+    return __isa(o, "PutEventsRequest");
   }
 }
 
@@ -91,7 +95,7 @@ export namespace PutEventsRequest {
  * <p>Provide a valid value for the field or parameter.</p>
  */
 export interface InvalidInputException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
@@ -100,6 +104,6 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
+    return __isa(o, "InvalidInputException");
   }
 }

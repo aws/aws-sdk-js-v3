@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +9,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>
  */
 export interface AWSServiceAccessNotEnabledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AWSServiceAccessNotEnabledException";
   $fault: "client";
@@ -15,7 +18,7 @@ export interface AWSServiceAccessNotEnabledException
 
 export namespace AWSServiceAccessNotEnabledException {
   export function isa(o: any): o is AWSServiceAccessNotEnabledException {
-    return _smithy.isa(o, "AWSServiceAccessNotEnabledException");
+    return __isa(o, "AWSServiceAccessNotEnabledException");
   }
 }
 
@@ -23,7 +26,7 @@ export namespace AWSServiceAccessNotEnabledException {
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -32,7 +35,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -42,7 +45,7 @@ export interface AssociateServiceQuotaTemplateRequest {
 
 export namespace AssociateServiceQuotaTemplateRequest {
   export function isa(o: any): o is AssociateServiceQuotaTemplateRequest {
-    return _smithy.isa(o, "AssociateServiceQuotaTemplateRequest");
+    return __isa(o, "AssociateServiceQuotaTemplateRequest");
   }
 }
 
@@ -52,7 +55,7 @@ export interface AssociateServiceQuotaTemplateResponse extends $MetadataBearer {
 
 export namespace AssociateServiceQuotaTemplateResponse {
   export function isa(o: any): o is AssociateServiceQuotaTemplateResponse {
-    return _smithy.isa(o, "AssociateServiceQuotaTemplateResponse");
+    return __isa(o, "AssociateServiceQuotaTemplateResponse");
   }
 }
 
@@ -78,10 +81,7 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
   export function isa(
     o: any
   ): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-    return _smithy.isa(
-      o,
-      "DeleteServiceQuotaIncreaseRequestFromTemplateRequest"
-    );
+    return __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateRequest");
   }
 }
 
@@ -94,10 +94,7 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
   export function isa(
     o: any
   ): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-    return _smithy.isa(
-      o,
-      "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
-    );
+    return __isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateResponse");
   }
 }
 
@@ -105,7 +102,7 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
  * <p>You can't perform this action because a dependency does not have access.</p>
  */
 export interface DependencyAccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DependencyAccessDeniedException";
   $fault: "client";
@@ -114,7 +111,7 @@ export interface DependencyAccessDeniedException
 
 export namespace DependencyAccessDeniedException {
   export function isa(o: any): o is DependencyAccessDeniedException {
-    return _smithy.isa(o, "DependencyAccessDeniedException");
+    return __isa(o, "DependencyAccessDeniedException");
   }
 }
 
@@ -124,7 +121,7 @@ export interface DisassociateServiceQuotaTemplateRequest {
 
 export namespace DisassociateServiceQuotaTemplateRequest {
   export function isa(o: any): o is DisassociateServiceQuotaTemplateRequest {
-    return _smithy.isa(o, "DisassociateServiceQuotaTemplateRequest");
+    return __isa(o, "DisassociateServiceQuotaTemplateRequest");
   }
 }
 
@@ -135,7 +132,7 @@ export interface DisassociateServiceQuotaTemplateResponse
 
 export namespace DisassociateServiceQuotaTemplateResponse {
   export function isa(o: any): o is DisassociateServiceQuotaTemplateResponse {
-    return _smithy.isa(o, "DisassociateServiceQuotaTemplateResponse");
+    return __isa(o, "DisassociateServiceQuotaTemplateResponse");
   }
 }
 
@@ -178,7 +175,7 @@ export interface ErrorReason {
 
 export namespace ErrorReason {
   export function isa(o: any): o is ErrorReason {
-    return _smithy.isa(o, "ErrorReason");
+    return __isa(o, "ErrorReason");
   }
 }
 
@@ -197,7 +194,7 @@ export interface GetAWSDefaultServiceQuotaRequest {
 
 export namespace GetAWSDefaultServiceQuotaRequest {
   export function isa(o: any): o is GetAWSDefaultServiceQuotaRequest {
-    return _smithy.isa(o, "GetAWSDefaultServiceQuotaRequest");
+    return __isa(o, "GetAWSDefaultServiceQuotaRequest");
   }
 }
 
@@ -212,7 +209,7 @@ export interface GetAWSDefaultServiceQuotaResponse extends $MetadataBearer {
 
 export namespace GetAWSDefaultServiceQuotaResponse {
   export function isa(o: any): o is GetAWSDefaultServiceQuotaResponse {
-    return _smithy.isa(o, "GetAWSDefaultServiceQuotaResponse");
+    return __isa(o, "GetAWSDefaultServiceQuotaResponse");
   }
 }
 
@@ -224,7 +221,7 @@ export namespace GetAssociationForServiceQuotaTemplateRequest {
   export function isa(
     o: any
   ): o is GetAssociationForServiceQuotaTemplateRequest {
-    return _smithy.isa(o, "GetAssociationForServiceQuotaTemplateRequest");
+    return __isa(o, "GetAssociationForServiceQuotaTemplateRequest");
   }
 }
 
@@ -245,7 +242,7 @@ export namespace GetAssociationForServiceQuotaTemplateResponse {
   export function isa(
     o: any
   ): o is GetAssociationForServiceQuotaTemplateResponse {
-    return _smithy.isa(o, "GetAssociationForServiceQuotaTemplateResponse");
+    return __isa(o, "GetAssociationForServiceQuotaTemplateResponse");
   }
 }
 
@@ -259,7 +256,7 @@ export interface GetRequestedServiceQuotaChangeRequest {
 
 export namespace GetRequestedServiceQuotaChangeRequest {
   export function isa(o: any): o is GetRequestedServiceQuotaChangeRequest {
-    return _smithy.isa(o, "GetRequestedServiceQuotaChangeRequest");
+    return __isa(o, "GetRequestedServiceQuotaChangeRequest");
   }
 }
 
@@ -275,7 +272,7 @@ export interface GetRequestedServiceQuotaChangeResponse
 
 export namespace GetRequestedServiceQuotaChangeResponse {
   export function isa(o: any): o is GetRequestedServiceQuotaChangeResponse {
-    return _smithy.isa(o, "GetRequestedServiceQuotaChangeResponse");
+    return __isa(o, "GetRequestedServiceQuotaChangeResponse");
   }
 }
 
@@ -301,7 +298,7 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
   export function isa(
     o: any
   ): o is GetServiceQuotaIncreaseRequestFromTemplateRequest {
-    return _smithy.isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
+    return __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
   }
 }
 
@@ -318,7 +315,7 @@ export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
   export function isa(
     o: any
   ): o is GetServiceQuotaIncreaseRequestFromTemplateResponse {
-    return _smithy.isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
+    return __isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
   }
 }
 
@@ -337,7 +334,7 @@ export interface GetServiceQuotaRequest {
 
 export namespace GetServiceQuotaRequest {
   export function isa(o: any): o is GetServiceQuotaRequest {
-    return _smithy.isa(o, "GetServiceQuotaRequest");
+    return __isa(o, "GetServiceQuotaRequest");
   }
 }
 
@@ -352,7 +349,7 @@ export interface GetServiceQuotaResponse extends $MetadataBearer {
 
 export namespace GetServiceQuotaResponse {
   export function isa(o: any): o is GetServiceQuotaResponse {
-    return _smithy.isa(o, "GetServiceQuotaResponse");
+    return __isa(o, "GetServiceQuotaResponse");
   }
 }
 
@@ -360,7 +357,7 @@ export namespace GetServiceQuotaResponse {
  * <p>Invalid input was provided. </p>
  */
 export interface IllegalArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IllegalArgumentException";
   $fault: "client";
@@ -369,7 +366,7 @@ export interface IllegalArgumentException
 
 export namespace IllegalArgumentException {
   export function isa(o: any): o is IllegalArgumentException {
-    return _smithy.isa(o, "IllegalArgumentException");
+    return __isa(o, "IllegalArgumentException");
   }
 }
 
@@ -377,7 +374,7 @@ export namespace IllegalArgumentException {
  * <p>Invalid input was provided.</p>
  */
 export interface InvalidPaginationTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
@@ -386,7 +383,7 @@ export interface InvalidPaginationTokenException
 
 export namespace InvalidPaginationTokenException {
   export function isa(o: any): o is InvalidPaginationTokenException {
-    return _smithy.isa(o, "InvalidPaginationTokenException");
+    return __isa(o, "InvalidPaginationTokenException");
   }
 }
 
@@ -394,7 +391,7 @@ export namespace InvalidPaginationTokenException {
  * <p>Invalid input was provided for the . </p>
  */
 export interface InvalidResourceStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidResourceStateException";
   $fault: "client";
@@ -403,7 +400,7 @@ export interface InvalidResourceStateException
 
 export namespace InvalidResourceStateException {
   export function isa(o: any): o is InvalidResourceStateException {
-    return _smithy.isa(o, "InvalidResourceStateException");
+    return __isa(o, "InvalidResourceStateException");
   }
 }
 
@@ -440,7 +437,7 @@ export interface ListAWSDefaultServiceQuotasRequest {
 
 export namespace ListAWSDefaultServiceQuotasRequest {
   export function isa(o: any): o is ListAWSDefaultServiceQuotasRequest {
-    return _smithy.isa(o, "ListAWSDefaultServiceQuotasRequest");
+    return __isa(o, "ListAWSDefaultServiceQuotasRequest");
   }
 }
 
@@ -462,7 +459,7 @@ export interface ListAWSDefaultServiceQuotasResponse extends $MetadataBearer {
 
 export namespace ListAWSDefaultServiceQuotasResponse {
   export function isa(o: any): o is ListAWSDefaultServiceQuotasResponse {
-    return _smithy.isa(o, "ListAWSDefaultServiceQuotasResponse");
+    return __isa(o, "ListAWSDefaultServiceQuotasResponse");
   }
 }
 
@@ -507,10 +504,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
   export function isa(
     o: any
   ): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-    return _smithy.isa(
-      o,
-      "ListRequestedServiceQuotaChangeHistoryByQuotaRequest"
-    );
+    return __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaRequest");
   }
 }
 
@@ -537,10 +531,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
   export function isa(
     o: any
   ): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-    return _smithy.isa(
-      o,
-      "ListRequestedServiceQuotaChangeHistoryByQuotaResponse"
-    );
+    return __isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaResponse");
   }
 }
 
@@ -580,7 +571,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryRequest {
   export function isa(
     o: any
   ): o is ListRequestedServiceQuotaChangeHistoryRequest {
-    return _smithy.isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
+    return __isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
   }
 }
 
@@ -607,7 +598,7 @@ export namespace ListRequestedServiceQuotaChangeHistoryResponse {
   export function isa(
     o: any
   ): o is ListRequestedServiceQuotaChangeHistoryResponse {
-    return _smithy.isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
+    return __isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
   }
 }
 
@@ -648,7 +639,7 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
   export function isa(
     o: any
   ): o is ListServiceQuotaIncreaseRequestsInTemplateRequest {
-    return _smithy.isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
+    return __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
   }
 }
 
@@ -677,7 +668,7 @@ export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
   export function isa(
     o: any
   ): o is ListServiceQuotaIncreaseRequestsInTemplateResponse {
-    return _smithy.isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
+    return __isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
   }
 }
 
@@ -711,7 +702,7 @@ export interface ListServiceQuotasRequest {
 
 export namespace ListServiceQuotasRequest {
   export function isa(o: any): o is ListServiceQuotasRequest {
-    return _smithy.isa(o, "ListServiceQuotasRequest");
+    return __isa(o, "ListServiceQuotasRequest");
   }
 }
 
@@ -736,7 +727,7 @@ export interface ListServiceQuotasResponse extends $MetadataBearer {
 
 export namespace ListServiceQuotasResponse {
   export function isa(o: any): o is ListServiceQuotasResponse {
-    return _smithy.isa(o, "ListServiceQuotasResponse");
+    return __isa(o, "ListServiceQuotasResponse");
   }
 }
 
@@ -764,7 +755,7 @@ export interface ListServicesRequest {
 
 export namespace ListServicesRequest {
   export function isa(o: any): o is ListServicesRequest {
-    return _smithy.isa(o, "ListServicesRequest");
+    return __isa(o, "ListServicesRequest");
   }
 }
 
@@ -788,7 +779,7 @@ export interface ListServicesResponse extends $MetadataBearer {
 
 export namespace ListServicesResponse {
   export function isa(o: any): o is ListServicesResponse {
-    return _smithy.isa(o, "ListServicesResponse");
+    return __isa(o, "ListServicesResponse");
   }
 }
 
@@ -827,7 +818,7 @@ export interface MetricInfo {
 
 export namespace MetricInfo {
   export function isa(o: any): o is MetricInfo {
-    return _smithy.isa(o, "MetricInfo");
+    return __isa(o, "MetricInfo");
   }
 }
 
@@ -835,7 +826,7 @@ export namespace MetricInfo {
  * <p>The account making this call is not a member of an organization.</p>
  */
 export interface NoAvailableOrganizationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoAvailableOrganizationException";
   $fault: "client";
@@ -844,7 +835,7 @@ export interface NoAvailableOrganizationException
 
 export namespace NoAvailableOrganizationException {
   export function isa(o: any): o is NoAvailableOrganizationException {
-    return _smithy.isa(o, "NoAvailableOrganizationException");
+    return __isa(o, "NoAvailableOrganizationException");
   }
 }
 
@@ -852,7 +843,7 @@ export namespace NoAvailableOrganizationException {
  * <p>The specified resource does not exist.</p>
  */
 export interface NoSuchResourceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoSuchResourceException";
   $fault: "client";
@@ -861,7 +852,7 @@ export interface NoSuchResourceException
 
 export namespace NoSuchResourceException {
   export function isa(o: any): o is NoSuchResourceException {
-    return _smithy.isa(o, "NoSuchResourceException");
+    return __isa(o, "NoSuchResourceException");
   }
 }
 
@@ -870,7 +861,7 @@ export namespace NoSuchResourceException {
  *       features mode, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html">EnableAllFeatures</a>.</p>
  */
 export interface OrganizationNotInAllFeaturesModeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
@@ -879,7 +870,7 @@ export interface OrganizationNotInAllFeaturesModeException
 
 export namespace OrganizationNotInAllFeaturesModeException {
   export function isa(o: any): o is OrganizationNotInAllFeaturesModeException {
-    return _smithy.isa(o, "OrganizationNotInAllFeaturesModeException");
+    return __isa(o, "OrganizationNotInAllFeaturesModeException");
   }
 }
 
@@ -920,7 +911,7 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
   export function isa(
     o: any
   ): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-    return _smithy.isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
+    return __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
   }
 }
 
@@ -937,7 +928,7 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
   export function isa(
     o: any
   ): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-    return _smithy.isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
+    return __isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
   }
 }
 
@@ -946,7 +937,7 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
  *       relevant resources, or use Service Quotas to request a service quota increase.</p>
  */
 export interface QuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "QuotaExceededException";
   $fault: "client";
@@ -955,7 +946,7 @@ export interface QuotaExceededException
 
 export namespace QuotaExceededException {
   export function isa(o: any): o is QuotaExceededException {
-    return _smithy.isa(o, "QuotaExceededException");
+    return __isa(o, "QuotaExceededException");
   }
 }
 
@@ -977,7 +968,7 @@ export interface QuotaPeriod {
 
 export namespace QuotaPeriod {
   export function isa(o: any): o is QuotaPeriod {
-    return _smithy.isa(o, "QuotaPeriod");
+    return __isa(o, "QuotaPeriod");
   }
 }
 
@@ -1001,7 +992,7 @@ export interface RequestServiceQuotaIncreaseRequest {
 
 export namespace RequestServiceQuotaIncreaseRequest {
   export function isa(o: any): o is RequestServiceQuotaIncreaseRequest {
-    return _smithy.isa(o, "RequestServiceQuotaIncreaseRequest");
+    return __isa(o, "RequestServiceQuotaIncreaseRequest");
   }
 }
 
@@ -1015,7 +1006,7 @@ export interface RequestServiceQuotaIncreaseResponse extends $MetadataBearer {
 
 export namespace RequestServiceQuotaIncreaseResponse {
   export function isa(o: any): o is RequestServiceQuotaIncreaseResponse {
-    return _smithy.isa(o, "RequestServiceQuotaIncreaseResponse");
+    return __isa(o, "RequestServiceQuotaIncreaseResponse");
   }
 }
 
@@ -1106,7 +1097,7 @@ export interface RequestedServiceQuotaChange {
 
 export namespace RequestedServiceQuotaChange {
   export function isa(o: any): o is RequestedServiceQuotaChange {
-    return _smithy.isa(o, "RequestedServiceQuotaChange");
+    return __isa(o, "RequestedServiceQuotaChange");
   }
 }
 
@@ -1114,7 +1105,7 @@ export namespace RequestedServiceQuotaChange {
  * <p>The specified resource already exists.</p>
  */
 export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
@@ -1123,16 +1114,14 @@ export interface ResourceAlreadyExistsException
 
 export namespace ResourceAlreadyExistsException {
   export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
+    return __isa(o, "ResourceAlreadyExistsException");
   }
 }
 
 /**
  * <p>Something went wrong. </p>
  */
-export interface ServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -1140,7 +1129,7 @@ export interface ServiceException
 
 export namespace ServiceException {
   export function isa(o: any): o is ServiceException {
-    return _smithy.isa(o, "ServiceException");
+    return __isa(o, "ServiceException");
   }
 }
 
@@ -1163,7 +1152,7 @@ export interface ServiceInfo {
 
 export namespace ServiceInfo {
   export function isa(o: any): o is ServiceInfo {
-    return _smithy.isa(o, "ServiceInfo");
+    return __isa(o, "ServiceInfo");
   }
 }
 
@@ -1236,7 +1225,7 @@ export interface ServiceQuota {
 
 export namespace ServiceQuota {
   export function isa(o: any): o is ServiceQuota {
-    return _smithy.isa(o, "ServiceQuota");
+    return __isa(o, "ServiceQuota");
   }
 }
 
@@ -1288,7 +1277,7 @@ export interface ServiceQuotaIncreaseRequestInTemplate {
 
 export namespace ServiceQuotaIncreaseRequestInTemplate {
   export function isa(o: any): o is ServiceQuotaIncreaseRequestInTemplate {
-    return _smithy.isa(o, "ServiceQuotaIncreaseRequestInTemplate");
+    return __isa(o, "ServiceQuotaIncreaseRequestInTemplate");
   }
 }
 
@@ -1302,7 +1291,7 @@ export enum ServiceQuotaTemplateAssociationStatus {
  *          <p>To use the template, call <a>AssociateServiceQuotaTemplate</a>. </p>
  */
 export interface ServiceQuotaTemplateNotInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaTemplateNotInUseException";
   $fault: "client";
@@ -1311,7 +1300,7 @@ export interface ServiceQuotaTemplateNotInUseException
 
 export namespace ServiceQuotaTemplateNotInUseException {
   export function isa(o: any): o is ServiceQuotaTemplateNotInUseException {
-    return _smithy.isa(o, "ServiceQuotaTemplateNotInUseException");
+    return __isa(o, "ServiceQuotaTemplateNotInUseException");
   }
 }
 
@@ -1320,7 +1309,7 @@ export namespace ServiceQuotaTemplateNotInUseException {
  *       request. Please make the request in us-east-1. </p>
  */
 export interface TemplatesNotAvailableInRegionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TemplatesNotAvailableInRegionException";
   $fault: "client";
@@ -1329,7 +1318,7 @@ export interface TemplatesNotAvailableInRegionException
 
 export namespace TemplatesNotAvailableInRegionException {
   export function isa(o: any): o is TemplatesNotAvailableInRegionException {
-    return _smithy.isa(o, "TemplatesNotAvailableInRegionException");
+    return __isa(o, "TemplatesNotAvailableInRegionException");
   }
 }
 
@@ -1338,7 +1327,7 @@ export namespace TemplatesNotAvailableInRegionException {
  *       an increase for this quota. </p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -1347,6 +1336,6 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }

@@ -1471,6 +1471,7 @@ export async function deserializeAws_json1_1AssignInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssignInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AssignInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1529,6 +1530,7 @@ export async function deserializeAws_json1_1AssignVolumeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssignVolumeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AssignVolumeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1590,6 +1592,7 @@ export async function deserializeAws_json1_1AssociateElasticIpCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AssociateElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1651,6 +1654,7 @@ export async function deserializeAws_json1_1AttachElasticLoadBalancerCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AttachElasticLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2136,6 +2140,7 @@ export async function deserializeAws_json1_1DeleteAppCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAppCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2194,6 +2199,7 @@ export async function deserializeAws_json1_1DeleteInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2252,6 +2258,7 @@ export async function deserializeAws_json1_1DeleteLayerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLayerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteLayerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2310,6 +2317,7 @@ export async function deserializeAws_json1_1DeleteStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteStackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2368,6 +2376,7 @@ export async function deserializeAws_json1_1DeleteUserProfileCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteUserProfileCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2429,6 +2438,7 @@ export async function deserializeAws_json1_1DeregisterEcsClusterCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeregisterEcsClusterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2490,6 +2500,7 @@ export async function deserializeAws_json1_1DeregisterElasticIpCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeregisterElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2551,6 +2562,7 @@ export async function deserializeAws_json1_1DeregisterInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2612,6 +2624,7 @@ export async function deserializeAws_json1_1DeregisterRdsDbInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeregisterRdsDbInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2670,6 +2683,7 @@ export async function deserializeAws_json1_1DeregisterVolumeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeregisterVolumeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeregisterVolumeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4152,6 +4166,7 @@ export async function deserializeAws_json1_1DetachElasticLoadBalancerCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DetachElasticLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4206,6 +4221,7 @@ export async function deserializeAws_json1_1DisassociateElasticIpCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisassociateElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4456,6 +4472,7 @@ export async function deserializeAws_json1_1RebootInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RebootInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RebootInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4709,6 +4726,7 @@ export async function deserializeAws_json1_1RegisterRdsDbInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RegisterRdsDbInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4833,6 +4851,7 @@ export async function deserializeAws_json1_1SetLoadBasedAutoScalingCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetLoadBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4891,6 +4910,7 @@ export async function deserializeAws_json1_1SetPermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SetPermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetPermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4952,6 +4972,7 @@ export async function deserializeAws_json1_1SetTimeBasedAutoScalingCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetTimeBasedAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5010,6 +5031,7 @@ export async function deserializeAws_json1_1StartInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StartInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5068,6 +5090,7 @@ export async function deserializeAws_json1_1StartStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartStackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StartStackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5126,6 +5149,7 @@ export async function deserializeAws_json1_1StopInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5184,6 +5208,7 @@ export async function deserializeAws_json1_1StopStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopStackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopStackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5242,6 +5267,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5300,6 +5326,7 @@ export async function deserializeAws_json1_1UnassignInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UnassignInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UnassignInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5358,6 +5385,7 @@ export async function deserializeAws_json1_1UnassignVolumeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UnassignVolumeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UnassignVolumeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5416,6 +5444,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5474,6 +5503,7 @@ export async function deserializeAws_json1_1UpdateAppCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAppCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateAppCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5532,6 +5562,7 @@ export async function deserializeAws_json1_1UpdateElasticIpCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateElasticIpCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateElasticIpCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5590,6 +5621,7 @@ export async function deserializeAws_json1_1UpdateInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5648,6 +5680,7 @@ export async function deserializeAws_json1_1UpdateLayerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateLayerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateLayerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5709,6 +5742,7 @@ export async function deserializeAws_json1_1UpdateMyUserProfileCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateMyUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5763,6 +5797,7 @@ export async function deserializeAws_json1_1UpdateRdsDbInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateRdsDbInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5821,6 +5856,7 @@ export async function deserializeAws_json1_1UpdateStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateStackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5879,6 +5915,7 @@ export async function deserializeAws_json1_1UpdateUserProfileCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateUserProfileCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5937,6 +5974,7 @@ export async function deserializeAws_json1_1UpdateVolumeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateVolumeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateVolumeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

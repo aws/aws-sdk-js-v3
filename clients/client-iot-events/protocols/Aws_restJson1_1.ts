@@ -107,7 +107,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -204,7 +207,7 @@ export async function serializeAws_restJson1_1DeleteDetectorModelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: string = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
@@ -212,7 +215,7 @@ export async function serializeAws_restJson1_1DeleteDetectorModelCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -236,13 +239,13 @@ export async function serializeAws_restJson1_1DeleteInputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
-    const labelValue: string = input.inputName.toString();
+    const labelValue: string = input.inputName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
     resolvedPath = resolvedPath.replace(
       "{inputName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
@@ -264,7 +267,7 @@ export async function serializeAws_restJson1_1DescribeDetectorModelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: string = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
@@ -272,7 +275,7 @@ export async function serializeAws_restJson1_1DescribeDetectorModelCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -281,7 +284,9 @@ export async function serializeAws_restJson1_1DescribeDetectorModelCommand(
   }
   const query: any = {};
   if (input.detectorModelVersion !== undefined) {
-    query["version"] = input.detectorModelVersion.toString();
+    query[
+      __extendedEncodeURIComponent("version")
+    ] = __extendedEncodeURIComponent(input.detectorModelVersion);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -301,13 +306,13 @@ export async function serializeAws_restJson1_1DescribeInputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
-    const labelValue: string = input.inputName.toString();
+    const labelValue: string = input.inputName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
     resolvedPath = resolvedPath.replace(
       "{inputName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
@@ -345,7 +350,7 @@ export async function serializeAws_restJson1_1ListDetectorModelVersionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector-models/{detectorModelName}/versions";
   if (input.detectorModelName !== undefined) {
-    const labelValue: string = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
@@ -353,7 +358,7 @@ export async function serializeAws_restJson1_1ListDetectorModelVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -362,10 +367,14 @@ export async function serializeAws_restJson1_1ListDetectorModelVersionsCommand(
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -386,10 +395,14 @@ export async function serializeAws_restJson1_1ListDetectorModelsCommand(
   let resolvedPath = "/detector-models";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -410,10 +423,14 @@ export async function serializeAws_restJson1_1ListInputsCommand(
   let resolvedPath = "/inputs";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -434,7 +451,9 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -481,7 +500,9 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   let body: any;
   const bodyParams: any = {};
@@ -509,10 +530,14 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   let resolvedPath = "/tags";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -532,7 +557,7 @@ export async function serializeAws_restJson1_1UpdateDetectorModelCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector-models/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: string = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
@@ -540,7 +565,7 @@ export async function serializeAws_restJson1_1UpdateDetectorModelCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -585,13 +610,13 @@ export async function serializeAws_restJson1_1UpdateInputCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/inputs/{inputName}";
   if (input.inputName !== undefined) {
-    const labelValue: string = input.inputName.toString();
+    const labelValue: string = input.inputName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
     resolvedPath = resolvedPath.replace(
       "{inputName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
@@ -823,6 +848,7 @@ export async function deserializeAws_restJson1_1DeleteDetectorModelCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteDetectorModelResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -906,6 +932,7 @@ export async function deserializeAws_restJson1_1DeleteInputCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteInputResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1599,6 +1626,7 @@ export async function deserializeAws_restJson1_1PutLoggingOptionsCommand(
   const contents: PutLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1682,6 +1710,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1765,6 +1794,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

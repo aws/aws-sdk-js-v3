@@ -1,12 +1,13 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p> An internal failure occurred. </p>
  */
-export interface InternalFailure
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalFailure extends __SmithyException, $MetadataBearer {
   name: "InternalFailure";
   $fault: "server";
   Message?: string;
@@ -14,7 +15,7 @@ export interface InternalFailure
 
 export namespace InternalFailure {
   export function isa(o: any): o is InternalFailure {
-    return _smithy.isa(o, "InternalFailure");
+    return __isa(o, "InternalFailure");
   }
 }
 
@@ -64,7 +65,7 @@ export interface InvokeEndpointInput {
 
 export namespace InvokeEndpointInput {
   export function isa(o: any): o is InvokeEndpointInput {
-    return _smithy.isa(o, "InvokeEndpointInput");
+    return __isa(o, "InvokeEndpointInput");
   }
 }
 
@@ -105,7 +106,7 @@ export interface InvokeEndpointOutput extends $MetadataBearer {
 
 export namespace InvokeEndpointOutput {
   export function isa(o: any): o is InvokeEndpointOutput {
-    return _smithy.isa(o, "InvokeEndpointOutput");
+    return __isa(o, "InvokeEndpointOutput");
   }
 }
 
@@ -113,7 +114,7 @@ export namespace InvokeEndpointOutput {
  * <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
  *         </p>
  */
-export interface ModelError extends _smithy.SmithyException, $MetadataBearer {
+export interface ModelError extends __SmithyException, $MetadataBearer {
   name: "ModelError";
   $fault: "client";
   /**
@@ -135,16 +136,14 @@ export interface ModelError extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace ModelError {
   export function isa(o: any): o is ModelError {
-    return _smithy.isa(o, "ModelError");
+    return __isa(o, "ModelError");
   }
 }
 
 /**
  * <p> The service is unavailable. Try your call again. </p>
  */
-export interface ServiceUnavailable
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailable";
   $fault: "server";
   Message?: string;
@@ -152,16 +151,14 @@ export interface ServiceUnavailable
 
 export namespace ServiceUnavailable {
   export function isa(o: any): o is ServiceUnavailable {
-    return _smithy.isa(o, "ServiceUnavailable");
+    return __isa(o, "ServiceUnavailable");
   }
 }
 
 /**
  * <p> Inspect your request and try again. </p>
  */
-export interface ValidationError
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ValidationError extends __SmithyException, $MetadataBearer {
   name: "ValidationError";
   $fault: "client";
   Message?: string;
@@ -169,6 +166,6 @@ export interface ValidationError
 
 export namespace ValidationError {
   export function isa(o: any): o is ValidationError {
-    return _smithy.isa(o, "ValidationError");
+    return __isa(o, "ValidationError");
   }
 }

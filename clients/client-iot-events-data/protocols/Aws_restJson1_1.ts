@@ -38,7 +38,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -106,7 +109,7 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detectors/{detectorModelName}/keyValues";
   if (input.detectorModelName !== undefined) {
-    const labelValue: string = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
@@ -114,7 +117,7 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -123,7 +126,9 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
   }
   const query: any = {};
   if (input.keyValue !== undefined) {
-    query["keyValue"] = input.keyValue.toString();
+    query[
+      __extendedEncodeURIComponent("keyValue")
+    ] = __extendedEncodeURIComponent(input.keyValue);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -143,7 +148,7 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detectors/{detectorModelName}";
   if (input.detectorModelName !== undefined) {
-    const labelValue: string = input.detectorModelName.toString();
+    const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: detectorModelName."
@@ -151,7 +156,7 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{detectorModelName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -160,13 +165,19 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   if (input.stateName !== undefined) {
-    query["stateName"] = input.stateName.toString();
+    query[
+      __extendedEncodeURIComponent("stateName")
+    ] = __extendedEncodeURIComponent(input.stateName);
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AdjustmentType {
@@ -25,7 +28,7 @@ export interface Alarm {
 
 export namespace Alarm {
   export function isa(o: any): o is Alarm {
-    return _smithy.isa(o, "Alarm");
+    return __isa(o, "Alarm");
   }
 }
 
@@ -34,7 +37,7 @@ export namespace Alarm {
  *          Application Auto Scaling resource that already has a pending update.</p>
  */
 export interface ConcurrentUpdateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentUpdateException";
   $fault: "server";
@@ -43,7 +46,7 @@ export interface ConcurrentUpdateException
 
 export namespace ConcurrentUpdateException {
   export function isa(o: any): o is ConcurrentUpdateException {
-    return _smithy.isa(o, "ConcurrentUpdateException");
+    return __isa(o, "ConcurrentUpdateException");
   }
 }
 
@@ -99,7 +102,7 @@ export interface CustomizedMetricSpecification {
 
 export namespace CustomizedMetricSpecification {
   export function isa(o: any): o is CustomizedMetricSpecification {
-    return _smithy.isa(o, "CustomizedMetricSpecification");
+    return __isa(o, "CustomizedMetricSpecification");
   }
 }
 
@@ -231,7 +234,7 @@ export interface DeleteScalingPolicyRequest {
 
 export namespace DeleteScalingPolicyRequest {
   export function isa(o: any): o is DeleteScalingPolicyRequest {
-    return _smithy.isa(o, "DeleteScalingPolicyRequest");
+    return __isa(o, "DeleteScalingPolicyRequest");
   }
 }
 
@@ -241,7 +244,7 @@ export interface DeleteScalingPolicyResponse extends $MetadataBearer {
 
 export namespace DeleteScalingPolicyResponse {
   export function isa(o: any): o is DeleteScalingPolicyResponse {
-    return _smithy.isa(o, "DeleteScalingPolicyResponse");
+    return __isa(o, "DeleteScalingPolicyResponse");
   }
 }
 
@@ -373,7 +376,7 @@ export interface DeleteScheduledActionRequest {
 
 export namespace DeleteScheduledActionRequest {
   export function isa(o: any): o is DeleteScheduledActionRequest {
-    return _smithy.isa(o, "DeleteScheduledActionRequest");
+    return __isa(o, "DeleteScheduledActionRequest");
   }
 }
 
@@ -383,7 +386,7 @@ export interface DeleteScheduledActionResponse extends $MetadataBearer {
 
 export namespace DeleteScheduledActionResponse {
   export function isa(o: any): o is DeleteScheduledActionResponse {
-    return _smithy.isa(o, "DeleteScheduledActionResponse");
+    return __isa(o, "DeleteScheduledActionResponse");
   }
 }
 
@@ -511,7 +514,7 @@ export interface DeregisterScalableTargetRequest {
 
 export namespace DeregisterScalableTargetRequest {
   export function isa(o: any): o is DeregisterScalableTargetRequest {
-    return _smithy.isa(o, "DeregisterScalableTargetRequest");
+    return __isa(o, "DeregisterScalableTargetRequest");
   }
 }
 
@@ -521,7 +524,7 @@ export interface DeregisterScalableTargetResponse extends $MetadataBearer {
 
 export namespace DeregisterScalableTargetResponse {
   export function isa(o: any): o is DeregisterScalableTargetResponse {
-    return _smithy.isa(o, "DeregisterScalableTargetResponse");
+    return __isa(o, "DeregisterScalableTargetResponse");
   }
 }
 
@@ -665,7 +668,7 @@ export interface DescribeScalableTargetsRequest {
 
 export namespace DescribeScalableTargetsRequest {
   export function isa(o: any): o is DescribeScalableTargetsRequest {
-    return _smithy.isa(o, "DescribeScalableTargetsRequest");
+    return __isa(o, "DescribeScalableTargetsRequest");
   }
 }
 
@@ -685,7 +688,7 @@ export interface DescribeScalableTargetsResponse extends $MetadataBearer {
 
 export namespace DescribeScalableTargetsResponse {
   export function isa(o: any): o is DescribeScalableTargetsResponse {
-    return _smithy.isa(o, "DescribeScalableTargetsResponse");
+    return __isa(o, "DescribeScalableTargetsResponse");
   }
 }
 
@@ -829,7 +832,7 @@ export interface DescribeScalingActivitiesRequest {
 
 export namespace DescribeScalingActivitiesRequest {
   export function isa(o: any): o is DescribeScalingActivitiesRequest {
-    return _smithy.isa(o, "DescribeScalingActivitiesRequest");
+    return __isa(o, "DescribeScalingActivitiesRequest");
   }
 }
 
@@ -849,7 +852,7 @@ export interface DescribeScalingActivitiesResponse extends $MetadataBearer {
 
 export namespace DescribeScalingActivitiesResponse {
   export function isa(o: any): o is DescribeScalingActivitiesResponse {
-    return _smithy.isa(o, "DescribeScalingActivitiesResponse");
+    return __isa(o, "DescribeScalingActivitiesResponse");
   }
 }
 
@@ -998,7 +1001,7 @@ export interface DescribeScalingPoliciesRequest {
 
 export namespace DescribeScalingPoliciesRequest {
   export function isa(o: any): o is DescribeScalingPoliciesRequest {
-    return _smithy.isa(o, "DescribeScalingPoliciesRequest");
+    return __isa(o, "DescribeScalingPoliciesRequest");
   }
 }
 
@@ -1018,7 +1021,7 @@ export interface DescribeScalingPoliciesResponse extends $MetadataBearer {
 
 export namespace DescribeScalingPoliciesResponse {
   export function isa(o: any): o is DescribeScalingPoliciesResponse {
-    return _smithy.isa(o, "DescribeScalingPoliciesResponse");
+    return __isa(o, "DescribeScalingPoliciesResponse");
   }
 }
 
@@ -1167,7 +1170,7 @@ export interface DescribeScheduledActionsRequest {
 
 export namespace DescribeScheduledActionsRequest {
   export function isa(o: any): o is DescribeScheduledActionsRequest {
-    return _smithy.isa(o, "DescribeScheduledActionsRequest");
+    return __isa(o, "DescribeScheduledActionsRequest");
   }
 }
 
@@ -1187,7 +1190,7 @@ export interface DescribeScheduledActionsResponse extends $MetadataBearer {
 
 export namespace DescribeScheduledActionsResponse {
   export function isa(o: any): o is DescribeScheduledActionsResponse {
-    return _smithy.isa(o, "DescribeScheduledActionsResponse");
+    return __isa(o, "DescribeScheduledActionsResponse");
   }
 }
 
@@ -1198,7 +1201,7 @@ export namespace DescribeScheduledActionsResponse {
  *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
  */
 export interface FailedResourceAccessException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "FailedResourceAccessException";
   $fault: "client";
@@ -1207,7 +1210,7 @@ export interface FailedResourceAccessException
 
 export namespace FailedResourceAccessException {
   export function isa(o: any): o is FailedResourceAccessException {
-    return _smithy.isa(o, "FailedResourceAccessException");
+    return __isa(o, "FailedResourceAccessException");
   }
 }
 
@@ -1215,7 +1218,7 @@ export namespace FailedResourceAccessException {
  * <p>The service encountered an internal error.</p>
  */
 export interface InternalServiceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
@@ -1224,7 +1227,7 @@ export interface InternalServiceException
 
 export namespace InternalServiceException {
   export function isa(o: any): o is InternalServiceException {
-    return _smithy.isa(o, "InternalServiceException");
+    return __isa(o, "InternalServiceException");
   }
 }
 
@@ -1232,7 +1235,7 @@ export namespace InternalServiceException {
  * <p>The next token supplied was invalid.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -1241,7 +1244,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -1249,7 +1252,7 @@ export namespace InvalidNextTokenException {
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -1258,7 +1261,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -1286,7 +1289,7 @@ export interface MetricDimension {
 
 export namespace MetricDimension {
   export function isa(o: any): o is MetricDimension {
-    return _smithy.isa(o, "MetricDimension");
+    return __isa(o, "MetricDimension");
   }
 }
 
@@ -1323,7 +1326,7 @@ export enum MetricType {
  *          found.</p>
  */
 export interface ObjectNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ObjectNotFoundException";
   $fault: "client";
@@ -1332,7 +1335,7 @@ export interface ObjectNotFoundException
 
 export namespace ObjectNotFoundException {
   export function isa(o: any): o is ObjectNotFoundException {
-    return _smithy.isa(o, "ObjectNotFoundException");
+    return __isa(o, "ObjectNotFoundException");
   }
 }
 
@@ -1377,7 +1380,7 @@ export interface PredefinedMetricSpecification {
 
 export namespace PredefinedMetricSpecification {
   export function isa(o: any): o is PredefinedMetricSpecification {
-    return _smithy.isa(o, "PredefinedMetricSpecification");
+    return __isa(o, "PredefinedMetricSpecification");
   }
 }
 
@@ -1535,7 +1538,7 @@ export interface PutScalingPolicyRequest {
 
 export namespace PutScalingPolicyRequest {
   export function isa(o: any): o is PutScalingPolicyRequest {
-    return _smithy.isa(o, "PutScalingPolicyRequest");
+    return __isa(o, "PutScalingPolicyRequest");
   }
 }
 
@@ -1554,7 +1557,7 @@ export interface PutScalingPolicyResponse extends $MetadataBearer {
 
 export namespace PutScalingPolicyResponse {
   export function isa(o: any): o is PutScalingPolicyResponse {
-    return _smithy.isa(o, "PutScalingPolicyResponse");
+    return __isa(o, "PutScalingPolicyResponse");
   }
 }
 
@@ -1725,7 +1728,7 @@ export interface PutScheduledActionRequest {
 
 export namespace PutScheduledActionRequest {
   export function isa(o: any): o is PutScheduledActionRequest {
-    return _smithy.isa(o, "PutScheduledActionRequest");
+    return __isa(o, "PutScheduledActionRequest");
   }
 }
 
@@ -1735,7 +1738,7 @@ export interface PutScheduledActionResponse extends $MetadataBearer {
 
 export namespace PutScheduledActionResponse {
   export function isa(o: any): o is PutScheduledActionResponse {
-    return _smithy.isa(o, "PutScheduledActionResponse");
+    return __isa(o, "PutScheduledActionResponse");
   }
 }
 
@@ -1912,7 +1915,7 @@ export interface RegisterScalableTargetRequest {
 
 export namespace RegisterScalableTargetRequest {
   export function isa(o: any): o is RegisterScalableTargetRequest {
-    return _smithy.isa(o, "RegisterScalableTargetRequest");
+    return __isa(o, "RegisterScalableTargetRequest");
   }
 }
 
@@ -1922,7 +1925,7 @@ export interface RegisterScalableTargetResponse extends $MetadataBearer {
 
 export namespace RegisterScalableTargetResponse {
   export function isa(o: any): o is RegisterScalableTargetResponse {
-    return _smithy.isa(o, "RegisterScalableTargetResponse");
+    return __isa(o, "RegisterScalableTargetResponse");
   }
 }
 
@@ -2096,7 +2099,7 @@ export interface ScalableTarget {
 
 export namespace ScalableTarget {
   export function isa(o: any): o is ScalableTarget {
-    return _smithy.isa(o, "ScalableTarget");
+    return __isa(o, "ScalableTarget");
   }
 }
 
@@ -2118,7 +2121,7 @@ export interface ScalableTargetAction {
 
 export namespace ScalableTargetAction {
   export function isa(o: any): o is ScalableTargetAction {
-    return _smithy.isa(o, "ScalableTargetAction");
+    return __isa(o, "ScalableTargetAction");
   }
 }
 
@@ -2288,7 +2291,7 @@ export interface ScalingActivity {
 
 export namespace ScalingActivity {
   export function isa(o: any): o is ScalingActivity {
-    return _smithy.isa(o, "ScalingActivity");
+    return __isa(o, "ScalingActivity");
   }
 }
 
@@ -2462,7 +2465,7 @@ export interface ScalingPolicy {
 
 export namespace ScalingPolicy {
   export function isa(o: any): o is ScalingPolicy {
-    return _smithy.isa(o, "ScalingPolicy");
+    return __isa(o, "ScalingPolicy");
   }
 }
 
@@ -2646,7 +2649,7 @@ export interface ScheduledAction {
 
 export namespace ScheduledAction {
   export function isa(o: any): o is ScheduledAction {
-    return _smithy.isa(o, "ScheduledAction");
+    return __isa(o, "ScheduledAction");
   }
 }
 
@@ -2730,7 +2733,7 @@ export interface StepAdjustment {
 
 export namespace StepAdjustment {
   export function isa(o: any): o is StepAdjustment {
-    return _smithy.isa(o, "StepAdjustment");
+    return __isa(o, "StepAdjustment");
   }
 }
 
@@ -2793,7 +2796,7 @@ export interface StepScalingPolicyConfiguration {
 
 export namespace StepScalingPolicyConfiguration {
   export function isa(o: any): o is StepScalingPolicyConfiguration {
-    return _smithy.isa(o, "StepScalingPolicyConfiguration");
+    return __isa(o, "StepScalingPolicyConfiguration");
   }
 }
 
@@ -2827,7 +2830,7 @@ export interface SuspendedState {
 
 export namespace SuspendedState {
   export function isa(o: any): o is SuspendedState {
-    return _smithy.isa(o, "SuspendedState");
+    return __isa(o, "SuspendedState");
   }
 }
 
@@ -2886,7 +2889,7 @@ export interface TargetTrackingScalingPolicyConfiguration {
 
 export namespace TargetTrackingScalingPolicyConfiguration {
   export function isa(o: any): o is TargetTrackingScalingPolicyConfiguration {
-    return _smithy.isa(o, "TargetTrackingScalingPolicyConfiguration");
+    return __isa(o, "TargetTrackingScalingPolicyConfiguration");
   }
 }
 
@@ -2895,7 +2898,7 @@ export namespace TargetTrackingScalingPolicyConfiguration {
  *          API request.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -2904,6 +2907,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

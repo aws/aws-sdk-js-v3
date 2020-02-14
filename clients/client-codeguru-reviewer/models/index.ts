@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -49,7 +52,7 @@ export interface AssociateRepositoryRequest {
 
 export namespace AssociateRepositoryRequest {
   export function isa(o: any): o is AssociateRepositoryRequest {
-    return _smithy.isa(o, "AssociateRepositoryRequest");
+    return __isa(o, "AssociateRepositoryRequest");
   }
 }
 
@@ -63,7 +66,7 @@ export interface AssociateRepositoryResponse extends $MetadataBearer {
 
 export namespace AssociateRepositoryResponse {
   export function isa(o: any): o is AssociateRepositoryResponse {
-    return _smithy.isa(o, "AssociateRepositoryResponse");
+    return __isa(o, "AssociateRepositoryResponse");
   }
 }
 
@@ -80,7 +83,7 @@ export interface CodeCommitRepository {
 
 export namespace CodeCommitRepository {
   export function isa(o: any): o is CodeCommitRepository {
-    return _smithy.isa(o, "CodeCommitRepository");
+    return __isa(o, "CodeCommitRepository");
   }
 }
 
@@ -90,9 +93,7 @@ export namespace CodeCommitRepository {
  *         before retrying this request.
  *       </p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -100,7 +101,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -114,7 +115,7 @@ export interface DescribeRepositoryAssociationRequest {
 
 export namespace DescribeRepositoryAssociationRequest {
   export function isa(o: any): o is DescribeRepositoryAssociationRequest {
-    return _smithy.isa(o, "DescribeRepositoryAssociationRequest");
+    return __isa(o, "DescribeRepositoryAssociationRequest");
   }
 }
 
@@ -128,7 +129,7 @@ export interface DescribeRepositoryAssociationResponse extends $MetadataBearer {
 
 export namespace DescribeRepositoryAssociationResponse {
   export function isa(o: any): o is DescribeRepositoryAssociationResponse {
-    return _smithy.isa(o, "DescribeRepositoryAssociationResponse");
+    return __isa(o, "DescribeRepositoryAssociationResponse");
   }
 }
 
@@ -142,7 +143,7 @@ export interface DisassociateRepositoryRequest {
 
 export namespace DisassociateRepositoryRequest {
   export function isa(o: any): o is DisassociateRepositoryRequest {
-    return _smithy.isa(o, "DisassociateRepositoryRequest");
+    return __isa(o, "DisassociateRepositoryRequest");
   }
 }
 
@@ -156,7 +157,7 @@ export interface DisassociateRepositoryResponse extends $MetadataBearer {
 
 export namespace DisassociateRepositoryResponse {
   export function isa(o: any): o is DisassociateRepositoryResponse {
-    return _smithy.isa(o, "DisassociateRepositoryResponse");
+    return __isa(o, "DisassociateRepositoryResponse");
   }
 }
 
@@ -164,7 +165,7 @@ export namespace DisassociateRepositoryResponse {
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -173,7 +174,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -228,7 +229,7 @@ export interface ListRepositoryAssociationsRequest {
 
 export namespace ListRepositoryAssociationsRequest {
   export function isa(o: any): o is ListRepositoryAssociationsRequest {
-    return _smithy.isa(o, "ListRepositoryAssociationsRequest");
+    return __isa(o, "ListRepositoryAssociationsRequest");
   }
 }
 
@@ -250,16 +251,14 @@ export interface ListRepositoryAssociationsResponse extends $MetadataBearer {
 
 export namespace ListRepositoryAssociationsResponse {
   export function isa(o: any): o is ListRepositoryAssociationsResponse {
-    return _smithy.isa(o, "ListRepositoryAssociationsResponse");
+    return __isa(o, "ListRepositoryAssociationsResponse");
   }
 }
 
 /**
  * <p>The resource specified in the request was not found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -267,7 +266,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -289,7 +288,7 @@ export interface Repository {
 
 export namespace Repository {
   export function isa(o: any): o is Repository {
-    return _smithy.isa(o, "Repository");
+    return __isa(o, "Repository");
   }
 }
 
@@ -346,7 +345,7 @@ export interface RepositoryAssociation {
 
 export namespace RepositoryAssociation {
   export function isa(o: any): o is RepositoryAssociation {
-    return _smithy.isa(o, "RepositoryAssociation");
+    return __isa(o, "RepositoryAssociation");
   }
 }
 
@@ -425,7 +424,7 @@ export interface RepositoryAssociationSummary {
 
 export namespace RepositoryAssociationSummary {
   export function isa(o: any): o is RepositoryAssociationSummary {
-    return _smithy.isa(o, "RepositoryAssociationSummary");
+    return __isa(o, "RepositoryAssociationSummary");
   }
 }
 
@@ -433,7 +432,7 @@ export namespace RepositoryAssociationSummary {
  * <p>The request was denied due to request throttling.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -442,7 +441,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -450,7 +449,7 @@ export namespace ThrottlingException {
  * <p>The input fails to satisfy the specified constraints.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -459,6 +458,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

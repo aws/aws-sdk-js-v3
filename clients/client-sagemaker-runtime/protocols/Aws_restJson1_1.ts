@@ -12,7 +12,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -27,22 +30,20 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (input.Accept !== undefined) {
-    headers["Accept"] = input.Accept.toString();
+    headers["Accept"] = input.Accept;
   }
   if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType.toString();
+    headers["Content-Type"] = input.ContentType;
   }
   if (input.CustomAttributes !== undefined) {
-    headers[
-      "X-Amzn-SageMaker-Custom-Attributes"
-    ] = input.CustomAttributes.toString();
+    headers["X-Amzn-SageMaker-Custom-Attributes"] = input.CustomAttributes;
   }
   if (input.TargetModel !== undefined) {
-    headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel.toString();
+    headers["X-Amzn-SageMaker-Target-Model"] = input.TargetModel;
   }
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {
-    const labelValue: string = input.EndpointName.toString();
+    const labelValue: string = input.EndpointName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EndpointName."
@@ -50,7 +51,7 @@ export async function serializeAws_restJson1_1InvokeEndpointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EndpointName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EndpointName.");

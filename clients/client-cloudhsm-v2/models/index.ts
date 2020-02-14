@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -62,7 +65,7 @@ export interface Backup {
 
 export namespace Backup {
   export function isa(o: any): o is Backup {
-    return _smithy.isa(o, "Backup");
+    return __isa(o, "Backup");
   }
 }
 
@@ -112,7 +115,7 @@ export interface Certificates {
 
 export namespace Certificates {
   export function isa(o: any): o is Certificates {
-    return _smithy.isa(o, "Certificates");
+    return __isa(o, "Certificates");
   }
 }
 
@@ -192,7 +195,7 @@ export interface Cluster {
 
 export namespace Cluster {
   export function isa(o: any): o is Cluster {
-    return _smithy.isa(o, "Cluster");
+    return __isa(o, "Cluster");
   }
 }
 
@@ -225,7 +228,7 @@ export interface CopyBackupToRegionRequest {
 
 export namespace CopyBackupToRegionRequest {
   export function isa(o: any): o is CopyBackupToRegionRequest {
-    return _smithy.isa(o, "CopyBackupToRegionRequest");
+    return __isa(o, "CopyBackupToRegionRequest");
   }
 }
 
@@ -244,7 +247,7 @@ export interface CopyBackupToRegionResponse extends $MetadataBearer {
 
 export namespace CopyBackupToRegionResponse {
   export function isa(o: any): o is CopyBackupToRegionResponse {
-    return _smithy.isa(o, "CopyBackupToRegionResponse");
+    return __isa(o, "CopyBackupToRegionResponse");
   }
 }
 
@@ -282,7 +285,7 @@ export interface CreateClusterRequest {
 
 export namespace CreateClusterRequest {
   export function isa(o: any): o is CreateClusterRequest {
-    return _smithy.isa(o, "CreateClusterRequest");
+    return __isa(o, "CreateClusterRequest");
   }
 }
 
@@ -296,7 +299,7 @@ export interface CreateClusterResponse extends $MetadataBearer {
 
 export namespace CreateClusterResponse {
   export function isa(o: any): o is CreateClusterResponse {
-    return _smithy.isa(o, "CreateClusterResponse");
+    return __isa(o, "CreateClusterResponse");
   }
 }
 
@@ -323,7 +326,7 @@ export interface CreateHsmRequest {
 
 export namespace CreateHsmRequest {
   export function isa(o: any): o is CreateHsmRequest {
-    return _smithy.isa(o, "CreateHsmRequest");
+    return __isa(o, "CreateHsmRequest");
   }
 }
 
@@ -337,7 +340,7 @@ export interface CreateHsmResponse extends $MetadataBearer {
 
 export namespace CreateHsmResponse {
   export function isa(o: any): o is CreateHsmResponse {
-    return _smithy.isa(o, "CreateHsmResponse");
+    return __isa(o, "CreateHsmResponse");
   }
 }
 
@@ -351,7 +354,7 @@ export interface DeleteBackupRequest {
 
 export namespace DeleteBackupRequest {
   export function isa(o: any): o is DeleteBackupRequest {
-    return _smithy.isa(o, "DeleteBackupRequest");
+    return __isa(o, "DeleteBackupRequest");
   }
 }
 
@@ -365,7 +368,7 @@ export interface DeleteBackupResponse extends $MetadataBearer {
 
 export namespace DeleteBackupResponse {
   export function isa(o: any): o is DeleteBackupResponse {
-    return _smithy.isa(o, "DeleteBackupResponse");
+    return __isa(o, "DeleteBackupResponse");
   }
 }
 
@@ -380,7 +383,7 @@ export interface DeleteClusterRequest {
 
 export namespace DeleteClusterRequest {
   export function isa(o: any): o is DeleteClusterRequest {
-    return _smithy.isa(o, "DeleteClusterRequest");
+    return __isa(o, "DeleteClusterRequest");
   }
 }
 
@@ -394,7 +397,7 @@ export interface DeleteClusterResponse extends $MetadataBearer {
 
 export namespace DeleteClusterResponse {
   export function isa(o: any): o is DeleteClusterResponse {
-    return _smithy.isa(o, "DeleteClusterResponse");
+    return __isa(o, "DeleteClusterResponse");
   }
 }
 
@@ -426,7 +429,7 @@ export interface DeleteHsmRequest {
 
 export namespace DeleteHsmRequest {
   export function isa(o: any): o is DeleteHsmRequest {
-    return _smithy.isa(o, "DeleteHsmRequest");
+    return __isa(o, "DeleteHsmRequest");
   }
 }
 
@@ -440,7 +443,7 @@ export interface DeleteHsmResponse extends $MetadataBearer {
 
 export namespace DeleteHsmResponse {
   export function isa(o: any): o is DeleteHsmResponse {
-    return _smithy.isa(o, "DeleteHsmResponse");
+    return __isa(o, "DeleteHsmResponse");
   }
 }
 
@@ -480,7 +483,7 @@ export interface DescribeBackupsRequest {
 
 export namespace DescribeBackupsRequest {
   export function isa(o: any): o is DescribeBackupsRequest {
-    return _smithy.isa(o, "DescribeBackupsRequest");
+    return __isa(o, "DescribeBackupsRequest");
   }
 }
 
@@ -501,7 +504,7 @@ export interface DescribeBackupsResponse extends $MetadataBearer {
 
 export namespace DescribeBackupsResponse {
   export function isa(o: any): o is DescribeBackupsResponse {
-    return _smithy.isa(o, "DescribeBackupsResponse");
+    return __isa(o, "DescribeBackupsResponse");
   }
 }
 
@@ -533,7 +536,7 @@ export interface DescribeClustersRequest {
 
 export namespace DescribeClustersRequest {
   export function isa(o: any): o is DescribeClustersRequest {
-    return _smithy.isa(o, "DescribeClustersRequest");
+    return __isa(o, "DescribeClustersRequest");
   }
 }
 
@@ -554,7 +557,7 @@ export interface DescribeClustersResponse extends $MetadataBearer {
 
 export namespace DescribeClustersResponse {
   export function isa(o: any): o is DescribeClustersResponse {
-    return _smithy.isa(o, "DescribeClustersResponse");
+    return __isa(o, "DescribeClustersResponse");
   }
 }
 
@@ -586,7 +589,7 @@ export interface DestinationBackup {
 
 export namespace DestinationBackup {
   export function isa(o: any): o is DestinationBackup {
-    return _smithy.isa(o, "DestinationBackup");
+    return __isa(o, "DestinationBackup");
   }
 }
 
@@ -639,7 +642,7 @@ export interface Hsm {
 
 export namespace Hsm {
   export function isa(o: any): o is Hsm {
-    return _smithy.isa(o, "Hsm");
+    return __isa(o, "Hsm");
   }
 }
 
@@ -676,7 +679,7 @@ export interface InitializeClusterRequest {
 
 export namespace InitializeClusterRequest {
   export function isa(o: any): o is InitializeClusterRequest {
-    return _smithy.isa(o, "InitializeClusterRequest");
+    return __isa(o, "InitializeClusterRequest");
   }
 }
 
@@ -695,7 +698,7 @@ export interface InitializeClusterResponse extends $MetadataBearer {
 
 export namespace InitializeClusterResponse {
   export function isa(o: any): o is InitializeClusterResponse {
-    return _smithy.isa(o, "InitializeClusterResponse");
+    return __isa(o, "InitializeClusterResponse");
   }
 }
 
@@ -722,7 +725,7 @@ export interface ListTagsRequest {
 
 export namespace ListTagsRequest {
   export function isa(o: any): o is ListTagsRequest {
-    return _smithy.isa(o, "ListTagsRequest");
+    return __isa(o, "ListTagsRequest");
   }
 }
 
@@ -742,7 +745,7 @@ export interface ListTagsResponse extends $MetadataBearer {
 
 export namespace ListTagsResponse {
   export function isa(o: any): o is ListTagsResponse {
-    return _smithy.isa(o, "ListTagsResponse");
+    return __isa(o, "ListTagsResponse");
   }
 }
 
@@ -756,7 +759,7 @@ export interface RestoreBackupRequest {
 
 export namespace RestoreBackupRequest {
   export function isa(o: any): o is RestoreBackupRequest {
-    return _smithy.isa(o, "RestoreBackupRequest");
+    return __isa(o, "RestoreBackupRequest");
   }
 }
 
@@ -770,7 +773,7 @@ export interface RestoreBackupResponse extends $MetadataBearer {
 
 export namespace RestoreBackupResponse {
   export function isa(o: any): o is RestoreBackupResponse {
-    return _smithy.isa(o, "RestoreBackupResponse");
+    return __isa(o, "RestoreBackupResponse");
   }
 }
 
@@ -792,7 +795,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -812,7 +815,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -822,7 +825,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -843,7 +846,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -853,7 +856,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -862,7 +865,7 @@ export namespace UntagResourceResponse {
  *       requested operation.</p>
  */
 export interface CloudHsmAccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmAccessDeniedException";
   $fault: "client";
@@ -871,7 +874,7 @@ export interface CloudHsmAccessDeniedException
 
 export namespace CloudHsmAccessDeniedException {
   export function isa(o: any): o is CloudHsmAccessDeniedException {
-    return _smithy.isa(o, "CloudHsmAccessDeniedException");
+    return __isa(o, "CloudHsmAccessDeniedException");
   }
 }
 
@@ -880,7 +883,7 @@ export namespace CloudHsmAccessDeniedException {
  *       be retried.</p>
  */
 export interface CloudHsmInternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmInternalFailureException";
   $fault: "server";
@@ -889,7 +892,7 @@ export interface CloudHsmInternalFailureException
 
 export namespace CloudHsmInternalFailureException {
   export function isa(o: any): o is CloudHsmInternalFailureException {
-    return _smithy.isa(o, "CloudHsmInternalFailureException");
+    return __isa(o, "CloudHsmInternalFailureException");
   }
 }
 
@@ -897,7 +900,7 @@ export namespace CloudHsmInternalFailureException {
  * <p>The request was rejected because it is not a valid request.</p>
  */
 export interface CloudHsmInvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmInvalidRequestException";
   $fault: "client";
@@ -906,7 +909,7 @@ export interface CloudHsmInvalidRequestException
 
 export namespace CloudHsmInvalidRequestException {
   export function isa(o: any): o is CloudHsmInvalidRequestException {
-    return _smithy.isa(o, "CloudHsmInvalidRequestException");
+    return __isa(o, "CloudHsmInvalidRequestException");
   }
 }
 
@@ -915,7 +918,7 @@ export namespace CloudHsmInvalidRequestException {
  *       found.</p>
  */
 export interface CloudHsmResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmResourceNotFoundException";
   $fault: "client";
@@ -924,7 +927,7 @@ export interface CloudHsmResourceNotFoundException
 
 export namespace CloudHsmResourceNotFoundException {
   export function isa(o: any): o is CloudHsmResourceNotFoundException {
-    return _smithy.isa(o, "CloudHsmResourceNotFoundException");
+    return __isa(o, "CloudHsmResourceNotFoundException");
   }
 }
 
@@ -932,7 +935,7 @@ export namespace CloudHsmResourceNotFoundException {
  * <p>The request was rejected because an error occurred.</p>
  */
 export interface CloudHsmServiceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmServiceException";
   $fault: "client";
@@ -941,12 +944,12 @@ export interface CloudHsmServiceException
 
 export namespace CloudHsmServiceException {
   export function isa(o: any): o is CloudHsmServiceException {
-    return _smithy.isa(o, "CloudHsmServiceException");
+    return __isa(o, "CloudHsmServiceException");
   }
 }
 
 export interface CloudHsmTagException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmTagException";
   $fault: "client";
@@ -955,6 +958,6 @@ export interface CloudHsmTagException
 
 export namespace CloudHsmTagException {
   export function isa(o: any): o is CloudHsmTagException {
-    return _smithy.isa(o, "CloudHsmTagException");
+    return __isa(o, "CloudHsmTagException");
   }
 }

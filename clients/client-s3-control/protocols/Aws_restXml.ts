@@ -103,7 +103,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -124,17 +127,17 @@ export async function serializeAws_restXmlCreateAccessPointCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -186,7 +189,7 @@ export async function serializeAws_restXmlCreateJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/jobs";
   let body: any;
@@ -262,17 +265,17 @@ export async function serializeAws_restXmlDeleteAccessPointCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -293,17 +296,17 @@ export async function serializeAws_restXmlDeleteAccessPointPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -324,7 +327,7 @@ export async function serializeAws_restXmlDeletePublicAccessBlockCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   return new __HttpRequest({
@@ -343,17 +346,17 @@ export async function serializeAws_restXmlDescribeJobCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/jobs/{JobId}";
   if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId.toString();
+    const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
@@ -374,17 +377,17 @@ export async function serializeAws_restXmlGetAccessPointCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -405,17 +408,17 @@ export async function serializeAws_restXmlGetAccessPointPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -436,17 +439,17 @@ export async function serializeAws_restXmlGetAccessPointPolicyStatusCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policyStatus";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -467,7 +470,7 @@ export async function serializeAws_restXmlGetPublicAccessBlockCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   return new __HttpRequest({
@@ -486,18 +489,24 @@ export async function serializeAws_restXmlListAccessPointsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint";
   const query: any = {};
   if (input.Bucket !== undefined) {
-    query["bucket"] = input.Bucket.toString();
+    query[
+      __extendedEncodeURIComponent("bucket")
+    ] = __extendedEncodeURIComponent(input.Bucket);
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -516,18 +525,24 @@ export async function serializeAws_restXmlListJobsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/jobs";
   const query: any = {};
   if (input.JobStatuses !== undefined) {
-    query["jobStatuses"] = input.JobStatuses;
+    query[
+      __extendedEncodeURIComponent("jobStatuses")
+    ] = input.JobStatuses.map(entry => __extendedEncodeURIComponent(entry));
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -546,17 +561,17 @@ export async function serializeAws_restXmlPutAccessPointPolicyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/accesspoint/{Name}/policy";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -592,7 +607,7 @@ export async function serializeAws_restXmlPutPublicAccessBlockCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -626,24 +641,26 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/jobs/{JobId}/priority";
   if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId.toString();
+    const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   const query: any = {};
   if (input.Priority !== undefined) {
-    query["priority"] = input.Priority.toString();
+    query[
+      __extendedEncodeURIComponent("priority")
+    ] = __extendedEncodeURIComponent(input.Priority.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -662,27 +679,31 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.AccountId !== undefined) {
-    headers["x-amz-account-id"] = input.AccountId.toString();
+    headers["x-amz-account-id"] = input.AccountId;
   }
   let resolvedPath = "/v20180820/jobs/{JobId}/status";
   if (input.JobId !== undefined) {
-    const labelValue: string = input.JobId.toString();
+    const labelValue: string = input.JobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: JobId.");
     }
     resolvedPath = resolvedPath.replace(
       "{JobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: JobId.");
   }
   const query: any = {};
   if (input.RequestedJobStatus !== undefined) {
-    query["requestedJobStatus"] = input.RequestedJobStatus.toString();
+    query[
+      __extendedEncodeURIComponent("requestedJobStatus")
+    ] = __extendedEncodeURIComponent(input.RequestedJobStatus);
   }
   if (input.StatusUpdateReason !== undefined) {
-    query["statusUpdateReason"] = input.StatusUpdateReason.toString();
+    query[
+      __extendedEncodeURIComponent("statusUpdateReason")
+    ] = __extendedEncodeURIComponent(input.StatusUpdateReason);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -704,6 +725,7 @@ export async function deserializeAws_restXmlCreateAccessPointCommand(
   const contents: CreateAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -824,6 +846,7 @@ export async function deserializeAws_restXmlDeleteAccessPointCommand(
   const contents: DeleteAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -870,6 +893,7 @@ export async function deserializeAws_restXmlDeleteAccessPointPolicyCommand(
   const contents: DeleteAccessPointPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -916,6 +940,7 @@ export async function deserializeAws_restXmlDeletePublicAccessBlockCommand(
   const contents: DeletePublicAccessBlockCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1433,6 +1458,7 @@ export async function deserializeAws_restXmlPutAccessPointPolicyCommand(
   const contents: PutAccessPointPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1479,6 +1505,7 @@ export async function deserializeAws_restXmlPutPublicAccessBlockCommand(
   const contents: PutPublicAccessBlockCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

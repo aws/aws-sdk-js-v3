@@ -1101,6 +1101,7 @@ export async function deserializeAws_json1_1CreateAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateAliasCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1638,6 +1639,7 @@ export async function deserializeAws_json1_1DeleteAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAliasCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1793,6 +1795,7 @@ export async function deserializeAws_json1_1DeleteImportedKeyMaterialCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteImportedKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2025,6 +2028,7 @@ export async function deserializeAws_json1_1DisableKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisableKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DisableKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2107,6 +2111,7 @@ export async function deserializeAws_json1_1DisableKeyRotationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisableKeyRotationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2276,6 +2281,7 @@ export async function deserializeAws_json1_1EnableKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: EnableKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2362,6 +2368,7 @@ export async function deserializeAws_json1_1EnableKeyRotationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableKeyRotationCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: EnableKeyRotationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4078,6 +4085,7 @@ export async function deserializeAws_json1_1PutKeyPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutKeyPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutKeyPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4297,6 +4305,7 @@ export async function deserializeAws_json1_1RetireGrantCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RetireGrantCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RetireGrantCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4390,6 +4399,7 @@ export async function deserializeAws_json1_1RevokeGrantCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RevokeGrantCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RevokeGrantCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4668,6 +4678,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4754,6 +4765,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4833,6 +4845,7 @@ export async function deserializeAws_json1_1UpdateAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAliasCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5016,6 +5029,7 @@ export async function deserializeAws_json1_1UpdateKeyDescriptionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateKeyDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

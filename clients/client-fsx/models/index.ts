@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,7 +22,7 @@ export interface ActiveDirectoryBackupAttributes {
 
 export namespace ActiveDirectoryBackupAttributes {
   export function isa(o: any): o is ActiveDirectoryBackupAttributes {
-    return _smithy.isa(o, "ActiveDirectoryBackupAttributes");
+    return __isa(o, "ActiveDirectoryBackupAttributes");
   }
 }
 
@@ -27,7 +30,7 @@ export namespace ActiveDirectoryBackupAttributes {
  * <p>An Active Directory error.</p>
  */
 export interface ActiveDirectoryError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ActiveDirectoryError";
   $fault: "client";
@@ -49,7 +52,7 @@ export interface ActiveDirectoryError
 
 export namespace ActiveDirectoryError {
   export function isa(o: any): o is ActiveDirectoryError {
-    return _smithy.isa(o, "ActiveDirectoryError");
+    return __isa(o, "ActiveDirectoryError");
   }
 }
 
@@ -127,7 +130,7 @@ export interface Backup {
 
 export namespace Backup {
   export function isa(o: any): o is Backup {
-    return _smithy.isa(o, "Backup");
+    return __isa(o, "Backup");
   }
 }
 
@@ -145,7 +148,7 @@ export interface BackupFailureDetails {
 
 export namespace BackupFailureDetails {
   export function isa(o: any): o is BackupFailureDetails {
-    return _smithy.isa(o, "BackupFailureDetails");
+    return __isa(o, "BackupFailureDetails");
   }
 }
 
@@ -153,9 +156,7 @@ export namespace BackupFailureDetails {
  * <p>Another backup is already under way. Wait for completion before initiating
  *             additional backups of this file system.</p>
  */
-export interface BackupInProgress
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupInProgress extends __SmithyException, $MetadataBearer {
   name: "BackupInProgress";
   $fault: "client";
   /**
@@ -166,7 +167,7 @@ export interface BackupInProgress
 
 export namespace BackupInProgress {
   export function isa(o: any): o is BackupInProgress {
-    return _smithy.isa(o, "BackupInProgress");
+    return __isa(o, "BackupInProgress");
   }
 }
 
@@ -180,9 +181,7 @@ export enum BackupLifecycle {
 /**
  * <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
  */
-export interface BackupNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupNotFound extends __SmithyException, $MetadataBearer {
   name: "BackupNotFound";
   $fault: "client";
   /**
@@ -193,7 +192,7 @@ export interface BackupNotFound
 
 export namespace BackupNotFound {
   export function isa(o: any): o is BackupNotFound {
-    return _smithy.isa(o, "BackupNotFound");
+    return __isa(o, "BackupNotFound");
   }
 }
 
@@ -201,9 +200,7 @@ export namespace BackupNotFound {
  * <p>You can't delete a backup while it's being used to restore a file
  *             system.</p>
  */
-export interface BackupRestoring
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface BackupRestoring extends __SmithyException, $MetadataBearer {
   name: "BackupRestoring";
   $fault: "client";
   /**
@@ -219,7 +216,7 @@ export interface BackupRestoring
 
 export namespace BackupRestoring {
   export function isa(o: any): o is BackupRestoring {
-    return _smithy.isa(o, "BackupRestoring");
+    return __isa(o, "BackupRestoring");
   }
 }
 
@@ -231,7 +228,7 @@ export enum BackupType {
 /**
  * <p>A generic error indicating a failure with a client request.</p>
  */
-export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequest extends __SmithyException, $MetadataBearer {
   name: "BadRequest";
   $fault: "client";
   /**
@@ -242,7 +239,7 @@ export interface BadRequest extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace BadRequest {
   export function isa(o: any): o is BadRequest {
-    return _smithy.isa(o, "BadRequest");
+    return __isa(o, "BadRequest");
   }
 }
 
@@ -259,7 +256,7 @@ export interface CancelDataRepositoryTaskRequest {
 
 export namespace CancelDataRepositoryTaskRequest {
   export function isa(o: any): o is CancelDataRepositoryTaskRequest {
-    return _smithy.isa(o, "CancelDataRepositoryTaskRequest");
+    return __isa(o, "CancelDataRepositoryTaskRequest");
   }
 }
 
@@ -305,7 +302,7 @@ export interface CancelDataRepositoryTaskResponse extends $MetadataBearer {
 
 export namespace CancelDataRepositoryTaskResponse {
   export function isa(o: any): o is CancelDataRepositoryTaskResponse {
-    return _smithy.isa(o, "CancelDataRepositoryTaskResponse");
+    return __isa(o, "CancelDataRepositoryTaskResponse");
   }
 }
 
@@ -350,7 +347,7 @@ export interface CompletionReport {
 
 export namespace CompletionReport {
   export function isa(o: any): o is CompletionReport {
-    return _smithy.isa(o, "CompletionReport");
+    return __isa(o, "CompletionReport");
   }
 }
 
@@ -380,7 +377,7 @@ export interface CreateBackupRequest {
 
 export namespace CreateBackupRequest {
   export function isa(o: any): o is CreateBackupRequest {
-    return _smithy.isa(o, "CreateBackupRequest");
+    return __isa(o, "CreateBackupRequest");
   }
 }
 
@@ -397,7 +394,7 @@ export interface CreateBackupResponse extends $MetadataBearer {
 
 export namespace CreateBackupResponse {
   export function isa(o: any): o is CreateBackupResponse {
-    return _smithy.isa(o, "CreateBackupResponse");
+    return __isa(o, "CreateBackupResponse");
   }
 }
 
@@ -442,7 +439,7 @@ export interface CreateDataRepositoryTaskRequest {
 
 export namespace CreateDataRepositoryTaskRequest {
   export function isa(o: any): o is CreateDataRepositoryTaskRequest {
-    return _smithy.isa(o, "CreateDataRepositoryTaskRequest");
+    return __isa(o, "CreateDataRepositoryTaskRequest");
   }
 }
 
@@ -456,7 +453,7 @@ export interface CreateDataRepositoryTaskResponse extends $MetadataBearer {
 
 export namespace CreateDataRepositoryTaskResponse {
   export function isa(o: any): o is CreateDataRepositoryTaskResponse {
-    return _smithy.isa(o, "CreateDataRepositoryTaskResponse");
+    return __isa(o, "CreateDataRepositoryTaskResponse");
   }
 }
 
@@ -507,7 +504,7 @@ export interface CreateFileSystemFromBackupRequest {
 
 export namespace CreateFileSystemFromBackupRequest {
   export function isa(o: any): o is CreateFileSystemFromBackupRequest {
-    return _smithy.isa(o, "CreateFileSystemFromBackupRequest");
+    return __isa(o, "CreateFileSystemFromBackupRequest");
   }
 }
 
@@ -525,7 +522,7 @@ export interface CreateFileSystemFromBackupResponse extends $MetadataBearer {
 
 export namespace CreateFileSystemFromBackupResponse {
   export function isa(o: any): o is CreateFileSystemFromBackupResponse {
-    return _smithy.isa(o, "CreateFileSystemFromBackupResponse");
+    return __isa(o, "CreateFileSystemFromBackupResponse");
   }
 }
 
@@ -584,7 +581,7 @@ export interface CreateFileSystemLustreConfiguration {
 
 export namespace CreateFileSystemLustreConfiguration {
   export function isa(o: any): o is CreateFileSystemLustreConfiguration {
-    return _smithy.isa(o, "CreateFileSystemLustreConfiguration");
+    return __isa(o, "CreateFileSystemLustreConfiguration");
   }
 }
 
@@ -658,7 +655,7 @@ export interface CreateFileSystemRequest {
 
 export namespace CreateFileSystemRequest {
   export function isa(o: any): o is CreateFileSystemRequest {
-    return _smithy.isa(o, "CreateFileSystemRequest");
+    return __isa(o, "CreateFileSystemRequest");
   }
 }
 
@@ -675,7 +672,7 @@ export interface CreateFileSystemResponse extends $MetadataBearer {
 
 export namespace CreateFileSystemResponse {
   export function isa(o: any): o is CreateFileSystemResponse {
-    return _smithy.isa(o, "CreateFileSystemResponse");
+    return __isa(o, "CreateFileSystemResponse");
   }
 }
 
@@ -762,7 +759,7 @@ export interface CreateFileSystemWindowsConfiguration {
 
 export namespace CreateFileSystemWindowsConfiguration {
   export function isa(o: any): o is CreateFileSystemWindowsConfiguration {
-    return _smithy.isa(o, "CreateFileSystemWindowsConfiguration");
+    return __isa(o, "CreateFileSystemWindowsConfiguration");
   }
 }
 
@@ -801,7 +798,7 @@ export interface DataRepositoryConfiguration {
 
 export namespace DataRepositoryConfiguration {
   export function isa(o: any): o is DataRepositoryConfiguration {
-    return _smithy.isa(o, "DataRepositoryConfiguration");
+    return __isa(o, "DataRepositoryConfiguration");
   }
 }
 
@@ -923,7 +920,7 @@ export interface DataRepositoryTask {
 
 export namespace DataRepositoryTask {
   export function isa(o: any): o is DataRepositoryTask {
-    return _smithy.isa(o, "DataRepositoryTask");
+    return __isa(o, "DataRepositoryTask");
   }
 }
 
@@ -931,7 +928,7 @@ export namespace DataRepositoryTask {
  * <p>The data repository task could not be canceled because the task has already ended.</p>
  */
 export interface DataRepositoryTaskEnded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DataRepositoryTaskEnded";
   $fault: "client";
@@ -943,7 +940,7 @@ export interface DataRepositoryTaskEnded
 
 export namespace DataRepositoryTaskEnded {
   export function isa(o: any): o is DataRepositoryTaskEnded {
-    return _smithy.isa(o, "DataRepositoryTaskEnded");
+    return __isa(o, "DataRepositoryTaskEnded");
   }
 }
 
@@ -952,7 +949,7 @@ export namespace DataRepositoryTaskEnded {
  *         Wait until the existing task has completed, then create the new task.</p>
  */
 export interface DataRepositoryTaskExecuting
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DataRepositoryTaskExecuting";
   $fault: "client";
@@ -964,7 +961,7 @@ export interface DataRepositoryTaskExecuting
 
 export namespace DataRepositoryTaskExecuting {
   export function isa(o: any): o is DataRepositoryTaskExecuting {
-    return _smithy.isa(o, "DataRepositoryTaskExecuting");
+    return __isa(o, "DataRepositoryTaskExecuting");
   }
 }
 
@@ -981,7 +978,7 @@ export interface DataRepositoryTaskFailureDetails {
 
 export namespace DataRepositoryTaskFailureDetails {
   export function isa(o: any): o is DataRepositoryTaskFailureDetails {
-    return _smithy.isa(o, "DataRepositoryTaskFailureDetails");
+    return __isa(o, "DataRepositoryTaskFailureDetails");
   }
 }
 
@@ -1015,7 +1012,7 @@ export interface DataRepositoryTaskFilter {
 
 export namespace DataRepositoryTaskFilter {
   export function isa(o: any): o is DataRepositoryTaskFilter {
-    return _smithy.isa(o, "DataRepositoryTaskFilter");
+    return __isa(o, "DataRepositoryTaskFilter");
   }
 }
 
@@ -1037,7 +1034,7 @@ export enum DataRepositoryTaskLifecycle {
  * <p>The data repository task or tasks you specified could not be found.</p>
  */
 export interface DataRepositoryTaskNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DataRepositoryTaskNotFound";
   $fault: "client";
@@ -1049,7 +1046,7 @@ export interface DataRepositoryTaskNotFound
 
 export namespace DataRepositoryTaskNotFound {
   export function isa(o: any): o is DataRepositoryTaskNotFound {
-    return _smithy.isa(o, "DataRepositoryTaskNotFound");
+    return __isa(o, "DataRepositoryTaskNotFound");
   }
 }
 
@@ -1084,7 +1081,7 @@ export interface DataRepositoryTaskStatus {
 
 export namespace DataRepositoryTaskStatus {
   export function isa(o: any): o is DataRepositoryTaskStatus {
-    return _smithy.isa(o, "DataRepositoryTaskStatus");
+    return __isa(o, "DataRepositoryTaskStatus");
   }
 }
 
@@ -1112,7 +1109,7 @@ export interface DeleteBackupRequest {
 
 export namespace DeleteBackupRequest {
   export function isa(o: any): o is DeleteBackupRequest {
-    return _smithy.isa(o, "DeleteBackupRequest");
+    return __isa(o, "DeleteBackupRequest");
   }
 }
 
@@ -1134,7 +1131,7 @@ export interface DeleteBackupResponse extends $MetadataBearer {
 
 export namespace DeleteBackupResponse {
   export function isa(o: any): o is DeleteBackupResponse {
-    return _smithy.isa(o, "DeleteBackupResponse");
+    return __isa(o, "DeleteBackupResponse");
   }
 }
 
@@ -1164,7 +1161,7 @@ export interface DeleteFileSystemRequest {
 
 export namespace DeleteFileSystemRequest {
   export function isa(o: any): o is DeleteFileSystemRequest {
-    return _smithy.isa(o, "DeleteFileSystemRequest");
+    return __isa(o, "DeleteFileSystemRequest");
   }
 }
 
@@ -1193,7 +1190,7 @@ export interface DeleteFileSystemResponse extends $MetadataBearer {
 
 export namespace DeleteFileSystemResponse {
   export function isa(o: any): o is DeleteFileSystemResponse {
-    return _smithy.isa(o, "DeleteFileSystemResponse");
+    return __isa(o, "DeleteFileSystemResponse");
   }
 }
 
@@ -1219,7 +1216,7 @@ export interface DeleteFileSystemWindowsConfiguration {
 
 export namespace DeleteFileSystemWindowsConfiguration {
   export function isa(o: any): o is DeleteFileSystemWindowsConfiguration {
-    return _smithy.isa(o, "DeleteFileSystemWindowsConfiguration");
+    return __isa(o, "DeleteFileSystemWindowsConfiguration");
   }
 }
 
@@ -1242,7 +1239,7 @@ export interface DeleteFileSystemWindowsResponse {
 
 export namespace DeleteFileSystemWindowsResponse {
   export function isa(o: any): o is DeleteFileSystemWindowsResponse {
-    return _smithy.isa(o, "DeleteFileSystemWindowsResponse");
+    return __isa(o, "DeleteFileSystemWindowsResponse");
   }
 }
 
@@ -1281,7 +1278,7 @@ export interface DescribeBackupsRequest {
 
 export namespace DescribeBackupsRequest {
   export function isa(o: any): o is DescribeBackupsRequest {
-    return _smithy.isa(o, "DescribeBackupsRequest");
+    return __isa(o, "DescribeBackupsRequest");
   }
 }
 
@@ -1305,7 +1302,7 @@ export interface DescribeBackupsResponse extends $MetadataBearer {
 
 export namespace DescribeBackupsResponse {
   export function isa(o: any): o is DescribeBackupsResponse {
-    return _smithy.isa(o, "DescribeBackupsResponse");
+    return __isa(o, "DescribeBackupsResponse");
   }
 }
 
@@ -1339,7 +1336,7 @@ export interface DescribeDataRepositoryTasksRequest {
 
 export namespace DescribeDataRepositoryTasksRequest {
   export function isa(o: any): o is DescribeDataRepositoryTasksRequest {
-    return _smithy.isa(o, "DescribeDataRepositoryTasksRequest");
+    return __isa(o, "DescribeDataRepositoryTasksRequest");
   }
 }
 
@@ -1360,7 +1357,7 @@ export interface DescribeDataRepositoryTasksResponse extends $MetadataBearer {
 
 export namespace DescribeDataRepositoryTasksResponse {
   export function isa(o: any): o is DescribeDataRepositoryTasksResponse {
-    return _smithy.isa(o, "DescribeDataRepositoryTasksResponse");
+    return __isa(o, "DescribeDataRepositoryTasksResponse");
   }
 }
 
@@ -1393,7 +1390,7 @@ export interface DescribeFileSystemsRequest {
 
 export namespace DescribeFileSystemsRequest {
   export function isa(o: any): o is DescribeFileSystemsRequest {
-    return _smithy.isa(o, "DescribeFileSystemsRequest");
+    return __isa(o, "DescribeFileSystemsRequest");
   }
 }
 
@@ -1417,7 +1414,7 @@ export interface DescribeFileSystemsResponse extends $MetadataBearer {
 
 export namespace DescribeFileSystemsResponse {
   export function isa(o: any): o is DescribeFileSystemsResponse {
-    return _smithy.isa(o, "DescribeFileSystemsResponse");
+    return __isa(o, "DescribeFileSystemsResponse");
   }
 }
 
@@ -1554,7 +1551,7 @@ export interface FileSystem {
 
 export namespace FileSystem {
   export function isa(o: any): o is FileSystem {
-    return _smithy.isa(o, "FileSystem");
+    return __isa(o, "FileSystem");
   }
 }
 
@@ -1572,7 +1569,7 @@ export interface FileSystemFailureDetails {
 
 export namespace FileSystemFailureDetails {
   export function isa(o: any): o is FileSystemFailureDetails {
-    return _smithy.isa(o, "FileSystemFailureDetails");
+    return __isa(o, "FileSystemFailureDetails");
   }
 }
 
@@ -1593,9 +1590,7 @@ export enum FileSystemMaintenanceOperation {
 /**
  * <p>No Amazon FSx file systems were found based upon supplied parameters.</p>
  */
-export interface FileSystemNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
   name: "FileSystemNotFound";
   $fault: "client";
   /**
@@ -1606,7 +1601,7 @@ export interface FileSystemNotFound
 
 export namespace FileSystemNotFound {
   export function isa(o: any): o is FileSystemNotFound {
-    return _smithy.isa(o, "FileSystemNotFound");
+    return __isa(o, "FileSystemNotFound");
   }
 }
 
@@ -1635,7 +1630,7 @@ export interface Filter {
 
 export namespace Filter {
   export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
+    return __isa(o, "Filter");
   }
 }
 
@@ -1650,7 +1645,7 @@ export enum FilterName {
  *             identify a single request.</p>
  */
 export interface IncompatibleParameterError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncompatibleParameterError";
   $fault: "client";
@@ -1667,7 +1662,7 @@ export interface IncompatibleParameterError
 
 export namespace IncompatibleParameterError {
   export function isa(o: any): o is IncompatibleParameterError {
-    return _smithy.isa(o, "IncompatibleParameterError");
+    return __isa(o, "IncompatibleParameterError");
   }
 }
 
@@ -1675,7 +1670,7 @@ export namespace IncompatibleParameterError {
  * <p>A generic error indicating a server-side failure.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -1687,16 +1682,14 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
 /**
  * <p>The path provided for data repository export isn't valid.</p>
  */
-export interface InvalidExportPath
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidExportPath extends __SmithyException, $MetadataBearer {
   name: "InvalidExportPath";
   $fault: "client";
   /**
@@ -1707,16 +1700,14 @@ export interface InvalidExportPath
 
 export namespace InvalidExportPath {
   export function isa(o: any): o is InvalidExportPath {
-    return _smithy.isa(o, "InvalidExportPath");
+    return __isa(o, "InvalidExportPath");
   }
 }
 
 /**
  * <p>The path provided for data repository import isn't valid.</p>
  */
-export interface InvalidImportPath
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidImportPath extends __SmithyException, $MetadataBearer {
   name: "InvalidImportPath";
   $fault: "client";
   /**
@@ -1727,7 +1718,7 @@ export interface InvalidImportPath
 
 export namespace InvalidImportPath {
   export function isa(o: any): o is InvalidImportPath {
-    return _smithy.isa(o, "InvalidImportPath");
+    return __isa(o, "InvalidImportPath");
   }
 }
 
@@ -1740,7 +1731,7 @@ export namespace InvalidImportPath {
  *             that are either invalid or not part of the VPC specified.</p>
  */
 export interface InvalidNetworkSettings
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNetworkSettings";
   $fault: "client";
@@ -1769,7 +1760,7 @@ export interface InvalidNetworkSettings
 
 export namespace InvalidNetworkSettings {
   export function isa(o: any): o is InvalidNetworkSettings {
-    return _smithy.isa(o, "InvalidNetworkSettings");
+    return __isa(o, "InvalidNetworkSettings");
   }
 }
 
@@ -1801,7 +1792,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -1825,7 +1816,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -1848,7 +1839,7 @@ export interface LustreFileSystemConfiguration {
 
 export namespace LustreFileSystemConfiguration {
   export function isa(o: any): o is LustreFileSystemConfiguration {
-    return _smithy.isa(o, "LustreFileSystemConfiguration");
+    return __isa(o, "LustreFileSystemConfiguration");
   }
 }
 
@@ -1856,7 +1847,7 @@ export namespace LustreFileSystemConfiguration {
  * <p>File system configuration is required for this operation.</p>
  */
 export interface MissingFileSystemConfiguration
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MissingFileSystemConfiguration";
   $fault: "client";
@@ -1868,7 +1859,7 @@ export interface MissingFileSystemConfiguration
 
 export namespace MissingFileSystemConfiguration {
   export function isa(o: any): o is MissingFileSystemConfiguration {
-    return _smithy.isa(o, "MissingFileSystemConfiguration");
+    return __isa(o, "MissingFileSystemConfiguration");
   }
 }
 
@@ -1877,7 +1868,7 @@ export namespace MissingFileSystemConfiguration {
  *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
  */
 export interface NotServiceResourceError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotServiceResourceError";
   $fault: "client";
@@ -1894,7 +1885,7 @@ export interface NotServiceResourceError
 
 export namespace NotServiceResourceError {
   export function isa(o: any): o is NotServiceResourceError {
-    return _smithy.isa(o, "NotServiceResourceError");
+    return __isa(o, "NotServiceResourceError");
   }
 }
 
@@ -1910,7 +1901,7 @@ export enum ReportScope {
  * <p>The resource specified does not support tagging. </p>
  */
 export interface ResourceDoesNotSupportTagging
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceDoesNotSupportTagging";
   $fault: "client";
@@ -1928,16 +1919,14 @@ export interface ResourceDoesNotSupportTagging
 
 export namespace ResourceDoesNotSupportTagging {
   export function isa(o: any): o is ResourceDoesNotSupportTagging {
-    return _smithy.isa(o, "ResourceDoesNotSupportTagging");
+    return __isa(o, "ResourceDoesNotSupportTagging");
   }
 }
 
 /**
  * <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
  */
-export interface ResourceNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFound";
   $fault: "client";
   /**
@@ -1953,7 +1942,7 @@ export interface ResourceNotFound
 
 export namespace ResourceNotFound {
   export function isa(o: any): o is ResourceNotFound {
-    return _smithy.isa(o, "ResourceNotFound");
+    return __isa(o, "ResourceNotFound");
   }
 }
 
@@ -1995,7 +1984,7 @@ export interface SelfManagedActiveDirectoryAttributes {
 
 export namespace SelfManagedActiveDirectoryAttributes {
   export function isa(o: any): o is SelfManagedActiveDirectoryAttributes {
-    return _smithy.isa(o, "SelfManagedActiveDirectoryAttributes");
+    return __isa(o, "SelfManagedActiveDirectoryAttributes");
   }
 }
 
@@ -2072,7 +2061,7 @@ export interface SelfManagedActiveDirectoryConfiguration {
 
 export namespace SelfManagedActiveDirectoryConfiguration {
   export function isa(o: any): o is SelfManagedActiveDirectoryConfiguration {
-    return _smithy.isa(o, "SelfManagedActiveDirectoryConfiguration");
+    return __isa(o, "SelfManagedActiveDirectoryConfiguration");
   }
 }
 
@@ -2107,7 +2096,7 @@ export namespace SelfManagedActiveDirectoryConfigurationUpdates {
   export function isa(
     o: any
   ): o is SelfManagedActiveDirectoryConfigurationUpdates {
-    return _smithy.isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
+    return __isa(o, "SelfManagedActiveDirectoryConfigurationUpdates");
   }
 }
 
@@ -2124,7 +2113,7 @@ export enum ServiceLimit {
  *             </p>
  */
 export interface ServiceLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceLimitExceeded";
   $fault: "client";
@@ -2141,7 +2130,7 @@ export interface ServiceLimitExceeded
 
 export namespace ServiceLimitExceeded {
   export function isa(o: any): o is ServiceLimitExceeded {
-    return _smithy.isa(o, "ServiceLimitExceeded");
+    return __isa(o, "ServiceLimitExceeded");
   }
 }
 
@@ -2167,7 +2156,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -2191,7 +2180,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -2204,7 +2193,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -2212,7 +2201,7 @@ export namespace TagResourceResponse {
  * <p>The requested operation is not supported for this resource or API.</p>
  */
 export interface UnsupportedOperation
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedOperation";
   $fault: "client";
@@ -2224,7 +2213,7 @@ export interface UnsupportedOperation
 
 export namespace UnsupportedOperation {
   export function isa(o: any): o is UnsupportedOperation {
-    return _smithy.isa(o, "UnsupportedOperation");
+    return __isa(o, "UnsupportedOperation");
   }
 }
 
@@ -2247,7 +2236,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -2260,7 +2249,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -2278,7 +2267,7 @@ export interface UpdateFileSystemLustreConfiguration {
 
 export namespace UpdateFileSystemLustreConfiguration {
   export function isa(o: any): o is UpdateFileSystemLustreConfiguration {
-    return _smithy.isa(o, "UpdateFileSystemLustreConfiguration");
+    return __isa(o, "UpdateFileSystemLustreConfiguration");
   }
 }
 
@@ -2314,7 +2303,7 @@ export interface UpdateFileSystemRequest {
 
 export namespace UpdateFileSystemRequest {
   export function isa(o: any): o is UpdateFileSystemRequest {
-    return _smithy.isa(o, "UpdateFileSystemRequest");
+    return __isa(o, "UpdateFileSystemRequest");
   }
 }
 
@@ -2331,7 +2320,7 @@ export interface UpdateFileSystemResponse extends $MetadataBearer {
 
 export namespace UpdateFileSystemResponse {
   export function isa(o: any): o is UpdateFileSystemResponse {
-    return _smithy.isa(o, "UpdateFileSystemResponse");
+    return __isa(o, "UpdateFileSystemResponse");
   }
 }
 
@@ -2368,7 +2357,7 @@ export interface UpdateFileSystemWindowsConfiguration {
 
 export namespace UpdateFileSystemWindowsConfiguration {
   export function isa(o: any): o is UpdateFileSystemWindowsConfiguration {
-    return _smithy.isa(o, "UpdateFileSystemWindowsConfiguration");
+    return __isa(o, "UpdateFileSystemWindowsConfiguration");
   }
 }
 
@@ -2481,6 +2470,6 @@ export interface WindowsFileSystemConfiguration {
 
 export namespace WindowsFileSystemConfiguration {
   export function isa(o: any): o is WindowsFileSystemConfiguration {
-    return _smithy.isa(o, "WindowsFileSystemConfiguration");
+    return __isa(o, "WindowsFileSystemConfiguration");
   }
 }

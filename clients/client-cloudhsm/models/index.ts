@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsToResourceRequest {
@@ -16,7 +19,7 @@ export interface AddTagsToResourceRequest {
 
 export namespace AddTagsToResourceRequest {
   export function isa(o: any): o is AddTagsToResourceRequest {
-    return _smithy.isa(o, "AddTagsToResourceRequest");
+    return __isa(o, "AddTagsToResourceRequest");
   }
 }
 
@@ -30,7 +33,7 @@ export interface AddTagsToResourceResponse extends $MetadataBearer {
 
 export namespace AddTagsToResourceResponse {
   export function isa(o: any): o is AddTagsToResourceResponse {
-    return _smithy.isa(o, "AddTagsToResourceResponse");
+    return __isa(o, "AddTagsToResourceResponse");
   }
 }
 
@@ -43,7 +46,7 @@ export enum ClientVersion {
  * <p>Indicates that an internal error occurred.</p>
  */
 export interface CloudHsmInternalException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmInternalException";
   $fault: "server";
@@ -60,7 +63,7 @@ export interface CloudHsmInternalException
 
 export namespace CloudHsmInternalException {
   export function isa(o: any): o is CloudHsmInternalException {
-    return _smithy.isa(o, "CloudHsmInternalException");
+    return __isa(o, "CloudHsmInternalException");
   }
 }
 
@@ -74,7 +77,7 @@ export enum CloudHsmObjectState {
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
 export interface CloudHsmServiceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudHsmServiceException";
   $fault: "client";
@@ -91,7 +94,7 @@ export interface CloudHsmServiceException
 
 export namespace CloudHsmServiceException {
   export function isa(o: any): o is CloudHsmServiceException {
-    return _smithy.isa(o, "CloudHsmServiceException");
+    return __isa(o, "CloudHsmServiceException");
   }
 }
 
@@ -108,7 +111,7 @@ export interface CreateHapgRequest {
 
 export namespace CreateHapgRequest {
   export function isa(o: any): o is CreateHapgRequest {
-    return _smithy.isa(o, "CreateHapgRequest");
+    return __isa(o, "CreateHapgRequest");
   }
 }
 
@@ -125,7 +128,7 @@ export interface CreateHapgResponse extends $MetadataBearer {
 
 export namespace CreateHapgResponse {
   export function isa(o: any): o is CreateHapgResponse {
-    return _smithy.isa(o, "CreateHapgResponse");
+    return __isa(o, "CreateHapgResponse");
   }
 }
 
@@ -194,7 +197,7 @@ export interface CreateHsmRequest {
 
 export namespace CreateHsmRequest {
   export function isa(o: any): o is CreateHsmRequest {
-    return _smithy.isa(o, "CreateHsmRequest");
+    return __isa(o, "CreateHsmRequest");
   }
 }
 
@@ -211,7 +214,7 @@ export interface CreateHsmResponse extends $MetadataBearer {
 
 export namespace CreateHsmResponse {
   export function isa(o: any): o is CreateHsmResponse {
-    return _smithy.isa(o, "CreateHsmResponse");
+    return __isa(o, "CreateHsmResponse");
   }
 }
 
@@ -234,7 +237,7 @@ export interface CreateLunaClientRequest {
 
 export namespace CreateLunaClientRequest {
   export function isa(o: any): o is CreateLunaClientRequest {
-    return _smithy.isa(o, "CreateLunaClientRequest");
+    return __isa(o, "CreateLunaClientRequest");
   }
 }
 
@@ -251,7 +254,7 @@ export interface CreateLunaClientResponse extends $MetadataBearer {
 
 export namespace CreateLunaClientResponse {
   export function isa(o: any): o is CreateLunaClientResponse {
-    return _smithy.isa(o, "CreateLunaClientResponse");
+    return __isa(o, "CreateLunaClientResponse");
   }
 }
 
@@ -268,7 +271,7 @@ export interface DeleteHapgRequest {
 
 export namespace DeleteHapgRequest {
   export function isa(o: any): o is DeleteHapgRequest {
-    return _smithy.isa(o, "DeleteHapgRequest");
+    return __isa(o, "DeleteHapgRequest");
   }
 }
 
@@ -285,7 +288,7 @@ export interface DeleteHapgResponse extends $MetadataBearer {
 
 export namespace DeleteHapgResponse {
   export function isa(o: any): o is DeleteHapgResponse {
-    return _smithy.isa(o, "DeleteHapgResponse");
+    return __isa(o, "DeleteHapgResponse");
   }
 }
 
@@ -302,7 +305,7 @@ export interface DeleteHsmRequest {
 
 export namespace DeleteHsmRequest {
   export function isa(o: any): o is DeleteHsmRequest {
-    return _smithy.isa(o, "DeleteHsmRequest");
+    return __isa(o, "DeleteHsmRequest");
   }
 }
 
@@ -319,7 +322,7 @@ export interface DeleteHsmResponse extends $MetadataBearer {
 
 export namespace DeleteHsmResponse {
   export function isa(o: any): o is DeleteHsmResponse {
-    return _smithy.isa(o, "DeleteHsmResponse");
+    return __isa(o, "DeleteHsmResponse");
   }
 }
 
@@ -333,7 +336,7 @@ export interface DeleteLunaClientRequest {
 
 export namespace DeleteLunaClientRequest {
   export function isa(o: any): o is DeleteLunaClientRequest {
-    return _smithy.isa(o, "DeleteLunaClientRequest");
+    return __isa(o, "DeleteLunaClientRequest");
   }
 }
 
@@ -347,7 +350,7 @@ export interface DeleteLunaClientResponse extends $MetadataBearer {
 
 export namespace DeleteLunaClientResponse {
   export function isa(o: any): o is DeleteLunaClientResponse {
-    return _smithy.isa(o, "DeleteLunaClientResponse");
+    return __isa(o, "DeleteLunaClientResponse");
   }
 }
 
@@ -364,7 +367,7 @@ export interface DescribeHapgRequest {
 
 export namespace DescribeHapgRequest {
   export function isa(o: any): o is DescribeHapgRequest {
-    return _smithy.isa(o, "DescribeHapgRequest");
+    return __isa(o, "DescribeHapgRequest");
   }
 }
 
@@ -422,7 +425,7 @@ export interface DescribeHapgResponse extends $MetadataBearer {
 
 export namespace DescribeHapgResponse {
   export function isa(o: any): o is DescribeHapgResponse {
-    return _smithy.isa(o, "DescribeHapgResponse");
+    return __isa(o, "DescribeHapgResponse");
   }
 }
 
@@ -446,7 +449,7 @@ export interface DescribeHsmRequest {
 
 export namespace DescribeHsmRequest {
   export function isa(o: any): o is DescribeHsmRequest {
-    return _smithy.isa(o, "DescribeHsmRequest");
+    return __isa(o, "DescribeHsmRequest");
   }
 }
 
@@ -575,7 +578,7 @@ export interface DescribeHsmResponse extends $MetadataBearer {
 
 export namespace DescribeHsmResponse {
   export function isa(o: any): o is DescribeHsmResponse {
-    return _smithy.isa(o, "DescribeHsmResponse");
+    return __isa(o, "DescribeHsmResponse");
   }
 }
 
@@ -594,7 +597,7 @@ export interface DescribeLunaClientRequest {
 
 export namespace DescribeLunaClientRequest {
   export function isa(o: any): o is DescribeLunaClientRequest {
-    return _smithy.isa(o, "DescribeLunaClientRequest");
+    return __isa(o, "DescribeLunaClientRequest");
   }
 }
 
@@ -628,7 +631,7 @@ export interface DescribeLunaClientResponse extends $MetadataBearer {
 
 export namespace DescribeLunaClientResponse {
   export function isa(o: any): o is DescribeLunaClientResponse {
-    return _smithy.isa(o, "DescribeLunaClientResponse");
+    return __isa(o, "DescribeLunaClientResponse");
   }
 }
 
@@ -653,7 +656,7 @@ export interface GetConfigRequest {
 
 export namespace GetConfigRequest {
   export function isa(o: any): o is GetConfigRequest {
-    return _smithy.isa(o, "GetConfigRequest");
+    return __isa(o, "GetConfigRequest");
   }
 }
 
@@ -677,7 +680,7 @@ export interface GetConfigResponse extends $MetadataBearer {
 
 export namespace GetConfigResponse {
   export function isa(o: any): o is GetConfigResponse {
-    return _smithy.isa(o, "GetConfigResponse");
+    return __isa(o, "GetConfigResponse");
   }
 }
 
@@ -695,7 +698,7 @@ export enum HsmStatus {
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -712,7 +715,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -725,7 +728,7 @@ export interface ListAvailableZonesRequest {
 
 export namespace ListAvailableZonesRequest {
   export function isa(o: any): o is ListAvailableZonesRequest {
-    return _smithy.isa(o, "ListAvailableZonesRequest");
+    return __isa(o, "ListAvailableZonesRequest");
   }
 }
 
@@ -739,7 +742,7 @@ export interface ListAvailableZonesResponse extends $MetadataBearer {
 
 export namespace ListAvailableZonesResponse {
   export function isa(o: any): o is ListAvailableZonesResponse {
-    return _smithy.isa(o, "ListAvailableZonesResponse");
+    return __isa(o, "ListAvailableZonesResponse");
   }
 }
 
@@ -754,7 +757,7 @@ export interface ListHapgsRequest {
 
 export namespace ListHapgsRequest {
   export function isa(o: any): o is ListHapgsRequest {
-    return _smithy.isa(o, "ListHapgsRequest");
+    return __isa(o, "ListHapgsRequest");
   }
 }
 
@@ -774,7 +777,7 @@ export interface ListHapgsResponse extends $MetadataBearer {
 
 export namespace ListHapgsResponse {
   export function isa(o: any): o is ListHapgsResponse {
-    return _smithy.isa(o, "ListHapgsResponse");
+    return __isa(o, "ListHapgsResponse");
   }
 }
 
@@ -789,7 +792,7 @@ export interface ListHsmsRequest {
 
 export namespace ListHsmsRequest {
   export function isa(o: any): o is ListHsmsRequest {
-    return _smithy.isa(o, "ListHsmsRequest");
+    return __isa(o, "ListHsmsRequest");
   }
 }
 
@@ -812,7 +815,7 @@ export interface ListHsmsResponse extends $MetadataBearer {
 
 export namespace ListHsmsResponse {
   export function isa(o: any): o is ListHsmsResponse {
-    return _smithy.isa(o, "ListHsmsResponse");
+    return __isa(o, "ListHsmsResponse");
   }
 }
 
@@ -827,7 +830,7 @@ export interface ListLunaClientsRequest {
 
 export namespace ListLunaClientsRequest {
   export function isa(o: any): o is ListLunaClientsRequest {
-    return _smithy.isa(o, "ListLunaClientsRequest");
+    return __isa(o, "ListLunaClientsRequest");
   }
 }
 
@@ -847,7 +850,7 @@ export interface ListLunaClientsResponse extends $MetadataBearer {
 
 export namespace ListLunaClientsResponse {
   export function isa(o: any): o is ListLunaClientsResponse {
-    return _smithy.isa(o, "ListLunaClientsResponse");
+    return __isa(o, "ListLunaClientsResponse");
   }
 }
 
@@ -861,7 +864,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -875,7 +878,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -900,7 +903,7 @@ export interface ModifyHapgRequest {
 
 export namespace ModifyHapgRequest {
   export function isa(o: any): o is ModifyHapgRequest {
-    return _smithy.isa(o, "ModifyHapgRequest");
+    return __isa(o, "ModifyHapgRequest");
   }
 }
 
@@ -914,7 +917,7 @@ export interface ModifyHapgResponse extends $MetadataBearer {
 
 export namespace ModifyHapgResponse {
   export function isa(o: any): o is ModifyHapgResponse {
-    return _smithy.isa(o, "ModifyHapgResponse");
+    return __isa(o, "ModifyHapgResponse");
   }
 }
 
@@ -961,7 +964,7 @@ export interface ModifyHsmRequest {
 
 export namespace ModifyHsmRequest {
   export function isa(o: any): o is ModifyHsmRequest {
-    return _smithy.isa(o, "ModifyHsmRequest");
+    return __isa(o, "ModifyHsmRequest");
   }
 }
 
@@ -978,7 +981,7 @@ export interface ModifyHsmResponse extends $MetadataBearer {
 
 export namespace ModifyHsmResponse {
   export function isa(o: any): o is ModifyHsmResponse {
-    return _smithy.isa(o, "ModifyHsmResponse");
+    return __isa(o, "ModifyHsmResponse");
   }
 }
 
@@ -997,7 +1000,7 @@ export interface ModifyLunaClientRequest {
 
 export namespace ModifyLunaClientRequest {
   export function isa(o: any): o is ModifyLunaClientRequest {
-    return _smithy.isa(o, "ModifyLunaClientRequest");
+    return __isa(o, "ModifyLunaClientRequest");
   }
 }
 
@@ -1011,7 +1014,7 @@ export interface ModifyLunaClientResponse extends $MetadataBearer {
 
 export namespace ModifyLunaClientResponse {
   export function isa(o: any): o is ModifyLunaClientResponse {
-    return _smithy.isa(o, "ModifyLunaClientResponse");
+    return __isa(o, "ModifyLunaClientResponse");
   }
 }
 
@@ -1032,7 +1035,7 @@ export interface RemoveTagsFromResourceRequest {
 
 export namespace RemoveTagsFromResourceRequest {
   export function isa(o: any): o is RemoveTagsFromResourceRequest {
-    return _smithy.isa(o, "RemoveTagsFromResourceRequest");
+    return __isa(o, "RemoveTagsFromResourceRequest");
   }
 }
 
@@ -1046,7 +1049,7 @@ export interface RemoveTagsFromResourceResponse extends $MetadataBearer {
 
 export namespace RemoveTagsFromResourceResponse {
   export function isa(o: any): o is RemoveTagsFromResourceResponse {
-    return _smithy.isa(o, "RemoveTagsFromResourceResponse");
+    return __isa(o, "RemoveTagsFromResourceResponse");
   }
 }
 
@@ -1073,6 +1076,6 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CloseTunnelRequest {
@@ -17,7 +20,7 @@ export interface CloseTunnelRequest {
 
 export namespace CloseTunnelRequest {
   export function isa(o: any): o is CloseTunnelRequest {
-    return _smithy.isa(o, "CloseTunnelRequest");
+    return __isa(o, "CloseTunnelRequest");
   }
 }
 
@@ -27,7 +30,7 @@ export interface CloseTunnelResponse extends $MetadataBearer {
 
 export namespace CloseTunnelResponse {
   export function isa(o: any): o is CloseTunnelResponse {
-    return _smithy.isa(o, "CloseTunnelResponse");
+    return __isa(o, "CloseTunnelResponse");
   }
 }
 
@@ -50,7 +53,7 @@ export interface ConnectionState {
 
 export namespace ConnectionState {
   export function isa(o: any): o is ConnectionState {
-    return _smithy.isa(o, "ConnectionState");
+    return __isa(o, "ConnectionState");
   }
 }
 
@@ -69,7 +72,7 @@ export interface DescribeTunnelRequest {
 
 export namespace DescribeTunnelRequest {
   export function isa(o: any): o is DescribeTunnelRequest {
-    return _smithy.isa(o, "DescribeTunnelRequest");
+    return __isa(o, "DescribeTunnelRequest");
   }
 }
 
@@ -83,7 +86,7 @@ export interface DescribeTunnelResponse extends $MetadataBearer {
 
 export namespace DescribeTunnelResponse {
   export function isa(o: any): o is DescribeTunnelResponse {
-    return _smithy.isa(o, "DescribeTunnelResponse");
+    return __isa(o, "DescribeTunnelResponse");
   }
 }
 
@@ -109,7 +112,7 @@ export interface DestinationConfig {
 
 export namespace DestinationConfig {
   export function isa(o: any): o is DestinationConfig {
-    return _smithy.isa(o, "DestinationConfig");
+    return __isa(o, "DestinationConfig");
   }
 }
 
@@ -117,7 +120,7 @@ export namespace DestinationConfig {
  * <p>Thrown when a tunnel limit is exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -126,7 +129,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -140,7 +143,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -154,7 +157,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -178,7 +181,7 @@ export interface ListTunnelsRequest {
 
 export namespace ListTunnelsRequest {
   export function isa(o: any): o is ListTunnelsRequest {
-    return _smithy.isa(o, "ListTunnelsRequest");
+    return __isa(o, "ListTunnelsRequest");
   }
 }
 
@@ -197,7 +200,7 @@ export interface ListTunnelsResponse extends $MetadataBearer {
 
 export namespace ListTunnelsResponse {
   export function isa(o: any): o is ListTunnelsResponse {
-    return _smithy.isa(o, "ListTunnelsResponse");
+    return __isa(o, "ListTunnelsResponse");
   }
 }
 
@@ -226,7 +229,7 @@ export interface OpenTunnelRequest {
 
 export namespace OpenTunnelRequest {
   export function isa(o: any): o is OpenTunnelRequest {
-    return _smithy.isa(o, "OpenTunnelRequest");
+    return __isa(o, "OpenTunnelRequest");
   }
 }
 
@@ -259,7 +262,7 @@ export interface OpenTunnelResponse extends $MetadataBearer {
 
 export namespace OpenTunnelResponse {
   export function isa(o: any): o is OpenTunnelResponse {
-    return _smithy.isa(o, "OpenTunnelResponse");
+    return __isa(o, "OpenTunnelResponse");
   }
 }
 
@@ -267,7 +270,7 @@ export namespace OpenTunnelResponse {
  * <p>Thrown when an operation is attempted on a resource that does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -276,7 +279,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -299,7 +302,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -318,7 +321,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -328,7 +331,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -347,7 +350,7 @@ export interface TimeoutConfig {
 
 export namespace TimeoutConfig {
   export function isa(o: any): o is TimeoutConfig {
-    return _smithy.isa(o, "TimeoutConfig");
+    return __isa(o, "TimeoutConfig");
   }
 }
 
@@ -418,7 +421,7 @@ export interface Tunnel {
 
 export namespace Tunnel {
   export function isa(o: any): o is Tunnel {
-    return _smithy.isa(o, "Tunnel");
+    return __isa(o, "Tunnel");
   }
 }
 
@@ -467,7 +470,7 @@ export interface TunnelSummary {
 
 export namespace TunnelSummary {
   export function isa(o: any): o is TunnelSummary {
-    return _smithy.isa(o, "TunnelSummary");
+    return __isa(o, "TunnelSummary");
   }
 }
 
@@ -486,7 +489,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -496,6 +499,6 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }

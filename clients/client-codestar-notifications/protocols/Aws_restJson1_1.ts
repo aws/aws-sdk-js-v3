@@ -655,6 +655,7 @@ export async function deserializeAws_restJson1_1DeleteTargetCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteTargetResult"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1269,6 +1270,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResult"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1334,6 +1336,7 @@ export async function deserializeAws_restJson1_1UpdateNotificationRuleCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateNotificationRuleResult"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

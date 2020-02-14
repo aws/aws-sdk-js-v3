@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have permission to perform this operation.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -48,7 +51,7 @@ export interface CreateOutpostInput {
 
 export namespace CreateOutpostInput {
   export function isa(o: any): o is CreateOutpostInput {
-    return _smithy.isa(o, "CreateOutpostInput");
+    return __isa(o, "CreateOutpostInput");
   }
 }
 
@@ -62,7 +65,7 @@ export interface CreateOutpostOutput extends $MetadataBearer {
 
 export namespace CreateOutpostOutput {
   export function isa(o: any): o is CreateOutpostOutput {
-    return _smithy.isa(o, "CreateOutpostOutput");
+    return __isa(o, "CreateOutpostOutput");
   }
 }
 
@@ -76,7 +79,7 @@ export interface GetOutpostInput {
 
 export namespace GetOutpostInput {
   export function isa(o: any): o is GetOutpostInput {
-    return _smithy.isa(o, "GetOutpostInput");
+    return __isa(o, "GetOutpostInput");
   }
 }
 
@@ -100,7 +103,7 @@ export interface GetOutpostInstanceTypesInput {
 
 export namespace GetOutpostInstanceTypesInput {
   export function isa(o: any): o is GetOutpostInstanceTypesInput {
-    return _smithy.isa(o, "GetOutpostInstanceTypesInput");
+    return __isa(o, "GetOutpostInstanceTypesInput");
   }
 }
 
@@ -129,7 +132,7 @@ export interface GetOutpostInstanceTypesOutput extends $MetadataBearer {
 
 export namespace GetOutpostInstanceTypesOutput {
   export function isa(o: any): o is GetOutpostInstanceTypesOutput {
-    return _smithy.isa(o, "GetOutpostInstanceTypesOutput");
+    return __isa(o, "GetOutpostInstanceTypesOutput");
   }
 }
 
@@ -143,7 +146,7 @@ export interface GetOutpostOutput extends $MetadataBearer {
 
 export namespace GetOutpostOutput {
   export function isa(o: any): o is GetOutpostOutput {
-    return _smithy.isa(o, "GetOutpostOutput");
+    return __isa(o, "GetOutpostOutput");
   }
 }
 
@@ -160,7 +163,7 @@ export interface InstanceTypeItem {
 
 export namespace InstanceTypeItem {
   export function isa(o: any): o is InstanceTypeItem {
-    return _smithy.isa(o, "InstanceTypeItem");
+    return __isa(o, "InstanceTypeItem");
   }
 }
 
@@ -168,7 +171,7 @@ export namespace InstanceTypeItem {
  * <p>An internal error has occurred.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -177,7 +180,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -196,7 +199,7 @@ export interface ListOutpostsInput {
 
 export namespace ListOutpostsInput {
   export function isa(o: any): o is ListOutpostsInput {
-    return _smithy.isa(o, "ListOutpostsInput");
+    return __isa(o, "ListOutpostsInput");
   }
 }
 
@@ -215,7 +218,7 @@ export interface ListOutpostsOutput extends $MetadataBearer {
 
 export namespace ListOutpostsOutput {
   export function isa(o: any): o is ListOutpostsOutput {
-    return _smithy.isa(o, "ListOutpostsOutput");
+    return __isa(o, "ListOutpostsOutput");
   }
 }
 
@@ -234,7 +237,7 @@ export interface ListSitesInput {
 
 export namespace ListSitesInput {
   export function isa(o: any): o is ListSitesInput {
-    return _smithy.isa(o, "ListSitesInput");
+    return __isa(o, "ListSitesInput");
   }
 }
 
@@ -253,16 +256,14 @@ export interface ListSitesOutput extends $MetadataBearer {
 
 export namespace ListSitesOutput {
   export function isa(o: any): o is ListSitesOutput {
-    return _smithy.isa(o, "ListSitesOutput");
+    return __isa(o, "ListSitesOutput");
   }
 }
 
 /**
  * <p>The specified request is not valid.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -270,7 +271,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -327,7 +328,7 @@ export interface Outpost {
 
 export namespace Outpost {
   export function isa(o: any): o is Outpost {
-    return _smithy.isa(o, "Outpost");
+    return __isa(o, "Outpost");
   }
 }
 
@@ -335,7 +336,7 @@ export namespace Outpost {
  * <p>You have exceeded a service quota.</p>
  */
 export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -344,7 +345,7 @@ export interface ServiceQuotaExceededException
 
 export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
-    return _smithy.isa(o, "ServiceQuotaExceededException");
+    return __isa(o, "ServiceQuotaExceededException");
   }
 }
 
@@ -376,7 +377,7 @@ export interface Site {
 
 export namespace Site {
   export function isa(o: any): o is Site {
-    return _smithy.isa(o, "Site");
+    return __isa(o, "Site");
   }
 }
 
@@ -384,7 +385,7 @@ export namespace Site {
  * <p>A parameter is not valid.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -393,6 +394,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

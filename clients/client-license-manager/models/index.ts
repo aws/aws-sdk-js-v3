@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Access to resource denied.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -23,7 +26,7 @@ export namespace AccessDeniedException {
  *          policy associated with this account.</p>
  */
 export interface AuthorizationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AuthorizationException";
   $fault: "client";
@@ -32,7 +35,7 @@ export interface AuthorizationException
 
 export namespace AuthorizationException {
   export function isa(o: any): o is AuthorizationException {
-    return _smithy.isa(o, "AuthorizationException");
+    return __isa(o, "AuthorizationException");
   }
 }
 
@@ -49,7 +52,7 @@ export interface AutomatedDiscoveryInformation {
 
 export namespace AutomatedDiscoveryInformation {
   export function isa(o: any): o is AutomatedDiscoveryInformation {
-    return _smithy.isa(o, "AutomatedDiscoveryInformation");
+    return __isa(o, "AutomatedDiscoveryInformation");
   }
 }
 
@@ -71,7 +74,7 @@ export interface ConsumedLicenseSummary {
 
 export namespace ConsumedLicenseSummary {
   export function isa(o: any): o is ConsumedLicenseSummary {
-    return _smithy.isa(o, "ConsumedLicenseSummary");
+    return __isa(o, "ConsumedLicenseSummary");
   }
 }
 
@@ -146,7 +149,7 @@ export interface CreateLicenseConfigurationRequest {
 
 export namespace CreateLicenseConfigurationRequest {
   export function isa(o: any): o is CreateLicenseConfigurationRequest {
-    return _smithy.isa(o, "CreateLicenseConfigurationRequest");
+    return __isa(o, "CreateLicenseConfigurationRequest");
   }
 }
 
@@ -160,7 +163,7 @@ export interface CreateLicenseConfigurationResponse extends $MetadataBearer {
 
 export namespace CreateLicenseConfigurationResponse {
   export function isa(o: any): o is CreateLicenseConfigurationResponse {
-    return _smithy.isa(o, "CreateLicenseConfigurationResponse");
+    return __isa(o, "CreateLicenseConfigurationResponse");
   }
 }
 
@@ -174,7 +177,7 @@ export interface DeleteLicenseConfigurationRequest {
 
 export namespace DeleteLicenseConfigurationRequest {
   export function isa(o: any): o is DeleteLicenseConfigurationRequest {
-    return _smithy.isa(o, "DeleteLicenseConfigurationRequest");
+    return __isa(o, "DeleteLicenseConfigurationRequest");
   }
 }
 
@@ -184,7 +187,7 @@ export interface DeleteLicenseConfigurationResponse extends $MetadataBearer {
 
 export namespace DeleteLicenseConfigurationResponse {
   export function isa(o: any): o is DeleteLicenseConfigurationResponse {
-    return _smithy.isa(o, "DeleteLicenseConfigurationResponse");
+    return __isa(o, "DeleteLicenseConfigurationResponse");
   }
 }
 
@@ -192,7 +195,7 @@ export namespace DeleteLicenseConfigurationResponse {
  * <p>A dependency required to run the API is missing.</p>
  */
 export interface FailedDependencyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "FailedDependencyException";
   $fault: "client";
@@ -201,7 +204,7 @@ export interface FailedDependencyException
 
 export namespace FailedDependencyException {
   export function isa(o: any): o is FailedDependencyException {
-    return _smithy.isa(o, "FailedDependencyException");
+    return __isa(o, "FailedDependencyException");
   }
 }
 
@@ -225,7 +228,7 @@ export interface Filter {
 
 export namespace Filter {
   export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
+    return __isa(o, "Filter");
   }
 }
 
@@ -233,7 +236,7 @@ export namespace Filter {
  * <p>The request uses too many filters or too many filter values.</p>
  */
 export interface FilterLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "FilterLimitExceededException";
   $fault: "client";
@@ -242,7 +245,7 @@ export interface FilterLimitExceededException
 
 export namespace FilterLimitExceededException {
   export function isa(o: any): o is FilterLimitExceededException {
-    return _smithy.isa(o, "FilterLimitExceededException");
+    return __isa(o, "FilterLimitExceededException");
   }
 }
 
@@ -256,7 +259,7 @@ export interface GetLicenseConfigurationRequest {
 
 export namespace GetLicenseConfigurationRequest {
   export function isa(o: any): o is GetLicenseConfigurationRequest {
-    return _smithy.isa(o, "GetLicenseConfigurationRequest");
+    return __isa(o, "GetLicenseConfigurationRequest");
   }
 }
 
@@ -345,7 +348,7 @@ export interface GetLicenseConfigurationResponse extends $MetadataBearer {
 
 export namespace GetLicenseConfigurationResponse {
   export function isa(o: any): o is GetLicenseConfigurationResponse {
-    return _smithy.isa(o, "GetLicenseConfigurationResponse");
+    return __isa(o, "GetLicenseConfigurationResponse");
   }
 }
 
@@ -355,7 +358,7 @@ export interface GetServiceSettingsRequest {
 
 export namespace GetServiceSettingsRequest {
   export function isa(o: any): o is GetServiceSettingsRequest {
-    return _smithy.isa(o, "GetServiceSettingsRequest");
+    return __isa(o, "GetServiceSettingsRequest");
   }
 }
 
@@ -392,7 +395,7 @@ export interface GetServiceSettingsResponse extends $MetadataBearer {
 
 export namespace GetServiceSettingsResponse {
   export function isa(o: any): o is GetServiceSettingsResponse {
-    return _smithy.isa(o, "GetServiceSettingsResponse");
+    return __isa(o, "GetServiceSettingsResponse");
   }
 }
 
@@ -400,7 +403,7 @@ export namespace GetServiceSettingsResponse {
  * <p>One or more parameter values are not valid.</p>
  */
 export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
@@ -409,7 +412,7 @@ export interface InvalidParameterValueException
 
 export namespace InvalidParameterValueException {
   export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
+    return __isa(o, "InvalidParameterValueException");
   }
 }
 
@@ -419,7 +422,7 @@ export namespace InvalidParameterValueException {
  *          down.</p>
  */
 export interface InvalidResourceStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidResourceStateException";
   $fault: "client";
@@ -428,7 +431,7 @@ export interface InvalidResourceStateException
 
 export namespace InvalidResourceStateException {
   export function isa(o: any): o is InvalidResourceStateException {
-    return _smithy.isa(o, "InvalidResourceStateException");
+    return __isa(o, "InvalidResourceStateException");
   }
 }
 
@@ -455,7 +458,7 @@ export interface InventoryFilter {
 
 export namespace InventoryFilter {
   export function isa(o: any): o is InventoryFilter {
-    return _smithy.isa(o, "InventoryFilter");
+    return __isa(o, "InventoryFilter");
   }
 }
 
@@ -553,7 +556,7 @@ export interface LicenseConfiguration {
 
 export namespace LicenseConfiguration {
   export function isa(o: any): o is LicenseConfiguration {
-    return _smithy.isa(o, "LicenseConfiguration");
+    return __isa(o, "LicenseConfiguration");
   }
 }
 
@@ -585,7 +588,7 @@ export interface LicenseConfigurationAssociation {
 
 export namespace LicenseConfigurationAssociation {
   export function isa(o: any): o is LicenseConfigurationAssociation {
-    return _smithy.isa(o, "LicenseConfigurationAssociation");
+    return __isa(o, "LicenseConfigurationAssociation");
   }
 }
 
@@ -632,7 +635,7 @@ export interface LicenseConfigurationUsage {
 
 export namespace LicenseConfigurationUsage {
   export function isa(o: any): o is LicenseConfigurationUsage {
-    return _smithy.isa(o, "LicenseConfigurationUsage");
+    return __isa(o, "LicenseConfigurationUsage");
   }
 }
 
@@ -691,7 +694,7 @@ export interface LicenseOperationFailure {
 
 export namespace LicenseOperationFailure {
   export function isa(o: any): o is LicenseOperationFailure {
-    return _smithy.isa(o, "LicenseOperationFailure");
+    return __isa(o, "LicenseOperationFailure");
   }
 }
 
@@ -708,7 +711,7 @@ export interface LicenseSpecification {
 
 export namespace LicenseSpecification {
   export function isa(o: any): o is LicenseSpecification {
-    return _smithy.isa(o, "LicenseSpecification");
+    return __isa(o, "LicenseSpecification");
   }
 }
 
@@ -716,7 +719,7 @@ export namespace LicenseSpecification {
  * <p>You do not have enough licenses available to support a new resource launch.</p>
  */
 export interface LicenseUsageException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LicenseUsageException";
   $fault: "client";
@@ -725,7 +728,7 @@ export interface LicenseUsageException
 
 export namespace LicenseUsageException {
   export function isa(o: any): o is LicenseUsageException {
-    return _smithy.isa(o, "LicenseUsageException");
+    return __isa(o, "LicenseUsageException");
   }
 }
 
@@ -751,7 +754,7 @@ export namespace ListAssociationsForLicenseConfigurationRequest {
   export function isa(
     o: any
   ): o is ListAssociationsForLicenseConfigurationRequest {
-    return _smithy.isa(o, "ListAssociationsForLicenseConfigurationRequest");
+    return __isa(o, "ListAssociationsForLicenseConfigurationRequest");
   }
 }
 
@@ -773,7 +776,7 @@ export namespace ListAssociationsForLicenseConfigurationResponse {
   export function isa(
     o: any
   ): o is ListAssociationsForLicenseConfigurationResponse {
-    return _smithy.isa(o, "ListAssociationsForLicenseConfigurationResponse");
+    return __isa(o, "ListAssociationsForLicenseConfigurationResponse");
   }
 }
 
@@ -799,10 +802,7 @@ export namespace ListFailuresForLicenseConfigurationOperationsRequest {
   export function isa(
     o: any
   ): o is ListFailuresForLicenseConfigurationOperationsRequest {
-    return _smithy.isa(
-      o,
-      "ListFailuresForLicenseConfigurationOperationsRequest"
-    );
+    return __isa(o, "ListFailuresForLicenseConfigurationOperationsRequest");
   }
 }
 
@@ -824,10 +824,7 @@ export namespace ListFailuresForLicenseConfigurationOperationsResponse {
   export function isa(
     o: any
   ): o is ListFailuresForLicenseConfigurationOperationsResponse {
-    return _smithy.isa(
-      o,
-      "ListFailuresForLicenseConfigurationOperationsResponse"
-    );
+    return __isa(o, "ListFailuresForLicenseConfigurationOperationsResponse");
   }
 }
 
@@ -874,7 +871,7 @@ export interface ListLicenseConfigurationsRequest {
 
 export namespace ListLicenseConfigurationsRequest {
   export function isa(o: any): o is ListLicenseConfigurationsRequest {
-    return _smithy.isa(o, "ListLicenseConfigurationsRequest");
+    return __isa(o, "ListLicenseConfigurationsRequest");
   }
 }
 
@@ -893,7 +890,7 @@ export interface ListLicenseConfigurationsResponse extends $MetadataBearer {
 
 export namespace ListLicenseConfigurationsResponse {
   export function isa(o: any): o is ListLicenseConfigurationsResponse {
-    return _smithy.isa(o, "ListLicenseConfigurationsResponse");
+    return __isa(o, "ListLicenseConfigurationsResponse");
   }
 }
 
@@ -919,7 +916,7 @@ export namespace ListLicenseSpecificationsForResourceRequest {
   export function isa(
     o: any
   ): o is ListLicenseSpecificationsForResourceRequest {
-    return _smithy.isa(o, "ListLicenseSpecificationsForResourceRequest");
+    return __isa(o, "ListLicenseSpecificationsForResourceRequest");
   }
 }
 
@@ -941,7 +938,7 @@ export namespace ListLicenseSpecificationsForResourceResponse {
   export function isa(
     o: any
   ): o is ListLicenseSpecificationsForResourceResponse {
-    return _smithy.isa(o, "ListLicenseSpecificationsForResourceResponse");
+    return __isa(o, "ListLicenseSpecificationsForResourceResponse");
   }
 }
 
@@ -997,7 +994,7 @@ export interface ListResourceInventoryRequest {
 
 export namespace ListResourceInventoryRequest {
   export function isa(o: any): o is ListResourceInventoryRequest {
-    return _smithy.isa(o, "ListResourceInventoryRequest");
+    return __isa(o, "ListResourceInventoryRequest");
   }
 }
 
@@ -1016,7 +1013,7 @@ export interface ListResourceInventoryResponse extends $MetadataBearer {
 
 export namespace ListResourceInventoryResponse {
   export function isa(o: any): o is ListResourceInventoryResponse {
-    return _smithy.isa(o, "ListResourceInventoryResponse");
+    return __isa(o, "ListResourceInventoryResponse");
   }
 }
 
@@ -1030,7 +1027,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -1044,7 +1041,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -1091,7 +1088,7 @@ export interface ListUsageForLicenseConfigurationRequest {
 
 export namespace ListUsageForLicenseConfigurationRequest {
   export function isa(o: any): o is ListUsageForLicenseConfigurationRequest {
-    return _smithy.isa(o, "ListUsageForLicenseConfigurationRequest");
+    return __isa(o, "ListUsageForLicenseConfigurationRequest");
   }
 }
 
@@ -1111,7 +1108,7 @@ export interface ListUsageForLicenseConfigurationResponse
 
 export namespace ListUsageForLicenseConfigurationResponse {
   export function isa(o: any): o is ListUsageForLicenseConfigurationResponse {
-    return _smithy.isa(o, "ListUsageForLicenseConfigurationResponse");
+    return __isa(o, "ListUsageForLicenseConfigurationResponse");
   }
 }
 
@@ -1133,7 +1130,7 @@ export interface ManagedResourceSummary {
 
 export namespace ManagedResourceSummary {
   export function isa(o: any): o is ManagedResourceSummary {
-    return _smithy.isa(o, "ManagedResourceSummary");
+    return __isa(o, "ManagedResourceSummary");
   }
 }
 
@@ -1155,7 +1152,7 @@ export interface Metadata {
 
 export namespace Metadata {
   export function isa(o: any): o is Metadata {
-    return _smithy.isa(o, "Metadata");
+    return __isa(o, "Metadata");
   }
 }
 
@@ -1172,7 +1169,7 @@ export interface OrganizationConfiguration {
 
 export namespace OrganizationConfiguration {
   export function isa(o: any): o is OrganizationConfiguration {
-    return _smithy.isa(o, "OrganizationConfiguration");
+    return __isa(o, "OrganizationConfiguration");
   }
 }
 
@@ -1231,7 +1228,7 @@ export interface ProductInformation {
 
 export namespace ProductInformation {
   export function isa(o: any): o is ProductInformation {
-    return _smithy.isa(o, "ProductInformation");
+    return __isa(o, "ProductInformation");
   }
 }
 
@@ -1258,7 +1255,7 @@ export interface ProductInformationFilter {
 
 export namespace ProductInformationFilter {
   export function isa(o: any): o is ProductInformationFilter {
-    return _smithy.isa(o, "ProductInformationFilter");
+    return __isa(o, "ProductInformationFilter");
   }
 }
 
@@ -1266,7 +1263,7 @@ export namespace ProductInformationFilter {
  * <p>Too many requests have been submitted. Try again after a brief wait.</p>
  */
 export interface RateLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RateLimitExceededException";
   $fault: "client";
@@ -1275,7 +1272,7 @@ export interface RateLimitExceededException
 
 export namespace RateLimitExceededException {
   export function isa(o: any): o is RateLimitExceededException {
-    return _smithy.isa(o, "RateLimitExceededException");
+    return __isa(o, "RateLimitExceededException");
   }
 }
 
@@ -1317,7 +1314,7 @@ export interface ResourceInventory {
 
 export namespace ResourceInventory {
   export function isa(o: any): o is ResourceInventory {
-    return _smithy.isa(o, "ResourceInventory");
+    return __isa(o, "ResourceInventory");
   }
 }
 
@@ -1325,7 +1322,7 @@ export namespace ResourceInventory {
  * <p>Your resource limits have been exceeded.</p>
  */
 export interface ResourceLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
@@ -1334,7 +1331,7 @@ export interface ResourceLimitExceededException
 
 export namespace ResourceLimitExceededException {
   export function isa(o: any): o is ResourceLimitExceededException {
-    return _smithy.isa(o, "ResourceLimitExceededException");
+    return __isa(o, "ResourceLimitExceededException");
   }
 }
 
@@ -1350,7 +1347,7 @@ export enum ResourceType {
  * <p>The server experienced an internal error. Try again.</p>
  */
 export interface ServerInternalException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServerInternalException";
   $fault: "server";
@@ -1359,7 +1356,7 @@ export interface ServerInternalException
 
 export namespace ServerInternalException {
   export function isa(o: any): o is ServerInternalException {
-    return _smithy.isa(o, "ServerInternalException");
+    return __isa(o, "ServerInternalException");
   }
 }
 
@@ -1381,7 +1378,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1400,7 +1397,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1410,7 +1407,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1429,7 +1426,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1439,7 +1436,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1488,7 +1485,7 @@ export interface UpdateLicenseConfigurationRequest {
 
 export namespace UpdateLicenseConfigurationRequest {
   export function isa(o: any): o is UpdateLicenseConfigurationRequest {
-    return _smithy.isa(o, "UpdateLicenseConfigurationRequest");
+    return __isa(o, "UpdateLicenseConfigurationRequest");
   }
 }
 
@@ -1498,7 +1495,7 @@ export interface UpdateLicenseConfigurationResponse extends $MetadataBearer {
 
 export namespace UpdateLicenseConfigurationResponse {
   export function isa(o: any): o is UpdateLicenseConfigurationResponse {
-    return _smithy.isa(o, "UpdateLicenseConfigurationResponse");
+    return __isa(o, "UpdateLicenseConfigurationResponse");
   }
 }
 
@@ -1524,7 +1521,7 @@ export namespace UpdateLicenseSpecificationsForResourceRequest {
   export function isa(
     o: any
   ): o is UpdateLicenseSpecificationsForResourceRequest {
-    return _smithy.isa(o, "UpdateLicenseSpecificationsForResourceRequest");
+    return __isa(o, "UpdateLicenseSpecificationsForResourceRequest");
   }
 }
 
@@ -1537,7 +1534,7 @@ export namespace UpdateLicenseSpecificationsForResourceResponse {
   export function isa(
     o: any
   ): o is UpdateLicenseSpecificationsForResourceResponse {
-    return _smithy.isa(o, "UpdateLicenseSpecificationsForResourceResponse");
+    return __isa(o, "UpdateLicenseSpecificationsForResourceResponse");
   }
 }
 
@@ -1566,7 +1563,7 @@ export interface UpdateServiceSettingsRequest {
 
 export namespace UpdateServiceSettingsRequest {
   export function isa(o: any): o is UpdateServiceSettingsRequest {
-    return _smithy.isa(o, "UpdateServiceSettingsRequest");
+    return __isa(o, "UpdateServiceSettingsRequest");
   }
 }
 
@@ -1576,6 +1573,6 @@ export interface UpdateServiceSettingsResponse extends $MetadataBearer {
 
 export namespace UpdateServiceSettingsResponse {
   export function isa(o: any): o is UpdateServiceSettingsResponse {
-    return _smithy.isa(o, "UpdateServiceSettingsResponse");
+    return __isa(o, "UpdateServiceSettingsResponse");
   }
 }

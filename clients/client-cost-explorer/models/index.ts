@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccountScope {
@@ -10,7 +13,7 @@ export enum AccountScope {
  * <p>The requested report expired. Update the date interval and try again.</p>
  */
 export interface BillExpirationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BillExpirationException";
   $fault: "client";
@@ -19,7 +22,7 @@ export interface BillExpirationException
 
 export namespace BillExpirationException {
   export function isa(o: any): o is BillExpirationException {
-    return _smithy.isa(o, "BillExpirationException");
+    return __isa(o, "BillExpirationException");
   }
 }
 
@@ -80,7 +83,7 @@ export interface CostCategory {
 
 export namespace CostCategory {
   export function isa(o: any): o is CostCategory {
-    return _smithy.isa(o, "CostCategory");
+    return __isa(o, "CostCategory");
   }
 }
 
@@ -124,7 +127,7 @@ export interface CostCategoryReference {
 
 export namespace CostCategoryReference {
   export function isa(o: any): o is CostCategoryReference {
-    return _smithy.isa(o, "CostCategoryReference");
+    return __isa(o, "CostCategoryReference");
   }
 }
 
@@ -154,7 +157,7 @@ export interface CostCategoryRule {
 
 export namespace CostCategoryRule {
   export function isa(o: any): o is CostCategoryRule {
-    return _smithy.isa(o, "CostCategoryRule");
+    return __isa(o, "CostCategoryRule");
   }
 }
 
@@ -187,7 +190,7 @@ export interface CostCategoryValues {
 
 export namespace CostCategoryValues {
   export function isa(o: any): o is CostCategoryValues {
-    return _smithy.isa(o, "CostCategoryValues");
+    return __isa(o, "CostCategoryValues");
   }
 }
 
@@ -215,7 +218,7 @@ export interface Coverage {
 
 export namespace Coverage {
   export function isa(o: any): o is Coverage {
-    return _smithy.isa(o, "Coverage");
+    return __isa(o, "Coverage");
   }
 }
 
@@ -244,7 +247,7 @@ export interface CoverageByTime {
 
 export namespace CoverageByTime {
   export function isa(o: any): o is CoverageByTime {
-    return _smithy.isa(o, "CoverageByTime");
+    return __isa(o, "CoverageByTime");
   }
 }
 
@@ -261,7 +264,7 @@ export interface CoverageCost {
 
 export namespace CoverageCost {
   export function isa(o: any): o is CoverageCost {
-    return _smithy.isa(o, "CoverageCost");
+    return __isa(o, "CoverageCost");
   }
 }
 
@@ -293,7 +296,7 @@ export interface CoverageHours {
 
 export namespace CoverageHours {
   export function isa(o: any): o is CoverageHours {
-    return _smithy.isa(o, "CoverageHours");
+    return __isa(o, "CoverageHours");
   }
 }
 
@@ -335,7 +338,7 @@ export interface CoverageNormalizedUnits {
 
 export namespace CoverageNormalizedUnits {
   export function isa(o: any): o is CoverageNormalizedUnits {
-    return _smithy.isa(o, "CoverageNormalizedUnits");
+    return __isa(o, "CoverageNormalizedUnits");
   }
 }
 
@@ -364,7 +367,7 @@ export interface CreateCostCategoryDefinitionRequest {
 
 export namespace CreateCostCategoryDefinitionRequest {
   export function isa(o: any): o is CreateCostCategoryDefinitionRequest {
-    return _smithy.isa(o, "CreateCostCategoryDefinitionRequest");
+    return __isa(o, "CreateCostCategoryDefinitionRequest");
   }
 }
 
@@ -387,7 +390,7 @@ export interface CreateCostCategoryDefinitionResponse extends $MetadataBearer {
 
 export namespace CreateCostCategoryDefinitionResponse {
   export function isa(o: any): o is CreateCostCategoryDefinitionResponse {
-    return _smithy.isa(o, "CreateCostCategoryDefinitionResponse");
+    return __isa(o, "CreateCostCategoryDefinitionResponse");
   }
 }
 
@@ -449,7 +452,7 @@ export interface CurrentInstance {
 
 export namespace CurrentInstance {
   export function isa(o: any): o is CurrentInstance {
-    return _smithy.isa(o, "CurrentInstance");
+    return __isa(o, "CurrentInstance");
   }
 }
 
@@ -457,7 +460,7 @@ export namespace CurrentInstance {
  * <p>The requested data is unavailable.</p>
  */
 export interface DataUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DataUnavailableException";
   $fault: "client";
@@ -466,7 +469,7 @@ export interface DataUnavailableException
 
 export namespace DataUnavailableException {
   export function isa(o: any): o is DataUnavailableException {
-    return _smithy.isa(o, "DataUnavailableException");
+    return __isa(o, "DataUnavailableException");
   }
 }
 
@@ -495,7 +498,7 @@ export interface DateInterval {
 
 export namespace DateInterval {
   export function isa(o: any): o is DateInterval {
-    return _smithy.isa(o, "DateInterval");
+    return __isa(o, "DateInterval");
   }
 }
 
@@ -511,7 +514,7 @@ export interface DeleteCostCategoryDefinitionRequest {
 
 export namespace DeleteCostCategoryDefinitionRequest {
   export function isa(o: any): o is DeleteCostCategoryDefinitionRequest {
-    return _smithy.isa(o, "DeleteCostCategoryDefinitionRequest");
+    return __isa(o, "DeleteCostCategoryDefinitionRequest");
   }
 }
 
@@ -534,7 +537,7 @@ export interface DeleteCostCategoryDefinitionResponse extends $MetadataBearer {
 
 export namespace DeleteCostCategoryDefinitionResponse {
   export function isa(o: any): o is DeleteCostCategoryDefinitionResponse {
-    return _smithy.isa(o, "DeleteCostCategoryDefinitionResponse");
+    return __isa(o, "DeleteCostCategoryDefinitionResponse");
   }
 }
 
@@ -557,7 +560,7 @@ export interface DescribeCostCategoryDefinitionRequest {
 
 export namespace DescribeCostCategoryDefinitionRequest {
   export function isa(o: any): o is DescribeCostCategoryDefinitionRequest {
-    return _smithy.isa(o, "DescribeCostCategoryDefinitionRequest");
+    return __isa(o, "DescribeCostCategoryDefinitionRequest");
   }
 }
 
@@ -579,7 +582,7 @@ export interface DescribeCostCategoryDefinitionResponse
 
 export namespace DescribeCostCategoryDefinitionResponse {
   export function isa(o: any): o is DescribeCostCategoryDefinitionResponse {
-    return _smithy.isa(o, "DescribeCostCategoryDefinitionResponse");
+    return __isa(o, "DescribeCostCategoryDefinitionResponse");
   }
 }
 
@@ -640,7 +643,7 @@ export interface DimensionValues {
 
 export namespace DimensionValues {
   export function isa(o: any): o is DimensionValues {
-    return _smithy.isa(o, "DimensionValues");
+    return __isa(o, "DimensionValues");
   }
 }
 
@@ -663,7 +666,7 @@ export interface DimensionValuesWithAttributes {
 
 export namespace DimensionValuesWithAttributes {
   export function isa(o: any): o is DimensionValuesWithAttributes {
-    return _smithy.isa(o, "DimensionValuesWithAttributes");
+    return __isa(o, "DimensionValuesWithAttributes");
   }
 }
 
@@ -716,7 +719,7 @@ export interface EC2InstanceDetails {
 
 export namespace EC2InstanceDetails {
   export function isa(o: any): o is EC2InstanceDetails {
-    return _smithy.isa(o, "EC2InstanceDetails");
+    return __isa(o, "EC2InstanceDetails");
   }
 }
 
@@ -773,7 +776,7 @@ export interface EC2ResourceDetails {
 
 export namespace EC2ResourceDetails {
   export function isa(o: any): o is EC2ResourceDetails {
-    return _smithy.isa(o, "EC2ResourceDetails");
+    return __isa(o, "EC2ResourceDetails");
   }
 }
 
@@ -800,7 +803,7 @@ export interface EC2ResourceUtilization {
 
 export namespace EC2ResourceUtilization {
   export function isa(o: any): o is EC2ResourceUtilization {
-    return _smithy.isa(o, "EC2ResourceUtilization");
+    return __isa(o, "EC2ResourceUtilization");
   }
 }
 
@@ -819,7 +822,7 @@ export interface EC2Specification {
 
 export namespace EC2Specification {
   export function isa(o: any): o is EC2Specification {
-    return _smithy.isa(o, "EC2Specification");
+    return __isa(o, "EC2Specification");
   }
 }
 
@@ -857,7 +860,7 @@ export interface ESInstanceDetails {
 
 export namespace ESInstanceDetails {
   export function isa(o: any): o is ESInstanceDetails {
-    return _smithy.isa(o, "ESInstanceDetails");
+    return __isa(o, "ESInstanceDetails");
   }
 }
 
@@ -900,7 +903,7 @@ export interface ElastiCacheInstanceDetails {
 
 export namespace ElastiCacheInstanceDetails {
   export function isa(o: any): o is ElastiCacheInstanceDetails {
-    return _smithy.isa(o, "ElastiCacheInstanceDetails");
+    return __isa(o, "ElastiCacheInstanceDetails");
   }
 }
 
@@ -997,7 +1000,7 @@ export interface Expression {
 
 export namespace Expression {
   export function isa(o: any): o is Expression {
-    return _smithy.isa(o, "Expression");
+    return __isa(o, "Expression");
   }
 }
 
@@ -1029,7 +1032,7 @@ export interface ForecastResult {
 
 export namespace ForecastResult {
   export function isa(o: any): o is ForecastResult {
-    return _smithy.isa(o, "ForecastResult");
+    return __isa(o, "ForecastResult");
   }
 }
 
@@ -1090,7 +1093,7 @@ export interface GetCostAndUsageRequest {
 
 export namespace GetCostAndUsageRequest {
   export function isa(o: any): o is GetCostAndUsageRequest {
-    return _smithy.isa(o, "GetCostAndUsageRequest");
+    return __isa(o, "GetCostAndUsageRequest");
   }
 }
 
@@ -1114,7 +1117,7 @@ export interface GetCostAndUsageResponse extends $MetadataBearer {
 
 export namespace GetCostAndUsageResponse {
   export function isa(o: any): o is GetCostAndUsageResponse {
-    return _smithy.isa(o, "GetCostAndUsageResponse");
+    return __isa(o, "GetCostAndUsageResponse");
   }
 }
 
@@ -1178,7 +1181,7 @@ export interface GetCostAndUsageWithResourcesRequest {
 
 export namespace GetCostAndUsageWithResourcesRequest {
   export function isa(o: any): o is GetCostAndUsageWithResourcesRequest {
-    return _smithy.isa(o, "GetCostAndUsageWithResourcesRequest");
+    return __isa(o, "GetCostAndUsageWithResourcesRequest");
   }
 }
 
@@ -1203,7 +1206,7 @@ export interface GetCostAndUsageWithResourcesResponse extends $MetadataBearer {
 
 export namespace GetCostAndUsageWithResourcesResponse {
   export function isa(o: any): o is GetCostAndUsageWithResourcesResponse {
-    return _smithy.isa(o, "GetCostAndUsageWithResourcesResponse");
+    return __isa(o, "GetCostAndUsageWithResourcesResponse");
   }
 }
 
@@ -1260,7 +1263,7 @@ export interface GetCostForecastRequest {
 
 export namespace GetCostForecastRequest {
   export function isa(o: any): o is GetCostForecastRequest {
-    return _smithy.isa(o, "GetCostForecastRequest");
+    return __isa(o, "GetCostForecastRequest");
   }
 }
 
@@ -1280,7 +1283,7 @@ export interface GetCostForecastResponse extends $MetadataBearer {
 
 export namespace GetCostForecastResponse {
   export function isa(o: any): o is GetCostForecastResponse {
-    return _smithy.isa(o, "GetCostForecastResponse");
+    return __isa(o, "GetCostForecastResponse");
   }
 }
 
@@ -1428,7 +1431,7 @@ export interface GetDimensionValuesRequest {
 
 export namespace GetDimensionValuesRequest {
   export function isa(o: any): o is GetDimensionValuesRequest {
-    return _smithy.isa(o, "GetDimensionValuesRequest");
+    return __isa(o, "GetDimensionValuesRequest");
   }
 }
 
@@ -1564,7 +1567,7 @@ export interface GetDimensionValuesResponse extends $MetadataBearer {
 
 export namespace GetDimensionValuesResponse {
   export function isa(o: any): o is GetDimensionValuesResponse {
-    return _smithy.isa(o, "GetDimensionValuesResponse");
+    return __isa(o, "GetDimensionValuesResponse");
   }
 }
 
@@ -1688,7 +1691,7 @@ export interface GetReservationCoverageRequest {
 
 export namespace GetReservationCoverageRequest {
   export function isa(o: any): o is GetReservationCoverageRequest {
-    return _smithy.isa(o, "GetReservationCoverageRequest");
+    return __isa(o, "GetReservationCoverageRequest");
   }
 }
 
@@ -1712,7 +1715,7 @@ export interface GetReservationCoverageResponse extends $MetadataBearer {
 
 export namespace GetReservationCoverageResponse {
   export function isa(o: any): o is GetReservationCoverageResponse {
-    return _smithy.isa(o, "GetReservationCoverageResponse");
+    return __isa(o, "GetReservationCoverageResponse");
   }
 }
 
@@ -1771,7 +1774,7 @@ export namespace GetReservationPurchaseRecommendationRequest {
   export function isa(
     o: any
   ): o is GetReservationPurchaseRecommendationRequest {
-    return _smithy.isa(o, "GetReservationPurchaseRecommendationRequest");
+    return __isa(o, "GetReservationPurchaseRecommendationRequest");
   }
 }
 
@@ -1798,7 +1801,7 @@ export namespace GetReservationPurchaseRecommendationResponse {
   export function isa(
     o: any
   ): o is GetReservationPurchaseRecommendationResponse {
-    return _smithy.isa(o, "GetReservationPurchaseRecommendationResponse");
+    return __isa(o, "GetReservationPurchaseRecommendationResponse");
   }
 }
 
@@ -1876,7 +1879,7 @@ export interface GetReservationUtilizationRequest {
 
 export namespace GetReservationUtilizationRequest {
   export function isa(o: any): o is GetReservationUtilizationRequest {
-    return _smithy.isa(o, "GetReservationUtilizationRequest");
+    return __isa(o, "GetReservationUtilizationRequest");
   }
 }
 
@@ -1900,7 +1903,7 @@ export interface GetReservationUtilizationResponse extends $MetadataBearer {
 
 export namespace GetReservationUtilizationResponse {
   export function isa(o: any): o is GetReservationUtilizationResponse {
-    return _smithy.isa(o, "GetReservationUtilizationResponse");
+    return __isa(o, "GetReservationUtilizationResponse");
   }
 }
 
@@ -1980,7 +1983,7 @@ export interface GetRightsizingRecommendationRequest {
 
 export namespace GetRightsizingRecommendationRequest {
   export function isa(o: any): o is GetRightsizingRecommendationRequest {
-    return _smithy.isa(o, "GetRightsizingRecommendationRequest");
+    return __isa(o, "GetRightsizingRecommendationRequest");
   }
 }
 
@@ -2009,7 +2012,7 @@ export interface GetRightsizingRecommendationResponse extends $MetadataBearer {
 
 export namespace GetRightsizingRecommendationResponse {
   export function isa(o: any): o is GetRightsizingRecommendationResponse {
-    return _smithy.isa(o, "GetRightsizingRecommendationResponse");
+    return __isa(o, "GetRightsizingRecommendationResponse");
   }
 }
 
@@ -2080,7 +2083,7 @@ export interface GetSavingsPlansCoverageRequest {
 
 export namespace GetSavingsPlansCoverageRequest {
   export function isa(o: any): o is GetSavingsPlansCoverageRequest {
-    return _smithy.isa(o, "GetSavingsPlansCoverageRequest");
+    return __isa(o, "GetSavingsPlansCoverageRequest");
   }
 }
 
@@ -2099,7 +2102,7 @@ export interface GetSavingsPlansCoverageResponse extends $MetadataBearer {
 
 export namespace GetSavingsPlansCoverageResponse {
   export function isa(o: any): o is GetSavingsPlansCoverageResponse {
-    return _smithy.isa(o, "GetSavingsPlansCoverageResponse");
+    return __isa(o, "GetSavingsPlansCoverageResponse");
   }
 }
 
@@ -2140,7 +2143,7 @@ export namespace GetSavingsPlansPurchaseRecommendationRequest {
   export function isa(
     o: any
   ): o is GetSavingsPlansPurchaseRecommendationRequest {
-    return _smithy.isa(o, "GetSavingsPlansPurchaseRecommendationRequest");
+    return __isa(o, "GetSavingsPlansPurchaseRecommendationRequest");
   }
 }
 
@@ -2167,7 +2170,7 @@ export namespace GetSavingsPlansPurchaseRecommendationResponse {
   export function isa(
     o: any
   ): o is GetSavingsPlansPurchaseRecommendationResponse {
-    return _smithy.isa(o, "GetSavingsPlansPurchaseRecommendationResponse");
+    return __isa(o, "GetSavingsPlansPurchaseRecommendationResponse");
   }
 }
 
@@ -2227,7 +2230,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
 
 export namespace GetSavingsPlansUtilizationDetailsRequest {
   export function isa(o: any): o is GetSavingsPlansUtilizationDetailsRequest {
-    return _smithy.isa(o, "GetSavingsPlansUtilizationDetailsRequest");
+    return __isa(o, "GetSavingsPlansUtilizationDetailsRequest");
   }
 }
 
@@ -2260,7 +2263,7 @@ export interface GetSavingsPlansUtilizationDetailsResponse
 
 export namespace GetSavingsPlansUtilizationDetailsResponse {
   export function isa(o: any): o is GetSavingsPlansUtilizationDetailsResponse {
-    return _smithy.isa(o, "GetSavingsPlansUtilizationDetailsResponse");
+    return __isa(o, "GetSavingsPlansUtilizationDetailsResponse");
   }
 }
 
@@ -2321,7 +2324,7 @@ export interface GetSavingsPlansUtilizationRequest {
 
 export namespace GetSavingsPlansUtilizationRequest {
   export function isa(o: any): o is GetSavingsPlansUtilizationRequest {
-    return _smithy.isa(o, "GetSavingsPlansUtilizationRequest");
+    return __isa(o, "GetSavingsPlansUtilizationRequest");
   }
 }
 
@@ -2340,7 +2343,7 @@ export interface GetSavingsPlansUtilizationResponse extends $MetadataBearer {
 
 export namespace GetSavingsPlansUtilizationResponse {
   export function isa(o: any): o is GetSavingsPlansUtilizationResponse {
-    return _smithy.isa(o, "GetSavingsPlansUtilizationResponse");
+    return __isa(o, "GetSavingsPlansUtilizationResponse");
   }
 }
 
@@ -2370,7 +2373,7 @@ export interface GetTagsRequest {
 
 export namespace GetTagsRequest {
   export function isa(o: any): o is GetTagsRequest {
-    return _smithy.isa(o, "GetTagsRequest");
+    return __isa(o, "GetTagsRequest");
   }
 }
 
@@ -2399,7 +2402,7 @@ export interface GetTagsResponse extends $MetadataBearer {
 
 export namespace GetTagsResponse {
   export function isa(o: any): o is GetTagsResponse {
-    return _smithy.isa(o, "GetTagsResponse");
+    return __isa(o, "GetTagsResponse");
   }
 }
 
@@ -2446,7 +2449,7 @@ export interface GetUsageForecastRequest {
 
 export namespace GetUsageForecastRequest {
   export function isa(o: any): o is GetUsageForecastRequest {
-    return _smithy.isa(o, "GetUsageForecastRequest");
+    return __isa(o, "GetUsageForecastRequest");
   }
 }
 
@@ -2466,7 +2469,7 @@ export interface GetUsageForecastResponse extends $MetadataBearer {
 
 export namespace GetUsageForecastResponse {
   export function isa(o: any): o is GetUsageForecastResponse {
-    return _smithy.isa(o, "GetUsageForecastResponse");
+    return __isa(o, "GetUsageForecastResponse");
   }
 }
 
@@ -2494,7 +2497,7 @@ export interface Group {
 
 export namespace Group {
   export function isa(o: any): o is Group {
-    return _smithy.isa(o, "Group");
+    return __isa(o, "Group");
   }
 }
 
@@ -2517,7 +2520,7 @@ export interface GroupDefinition {
 
 export namespace GroupDefinition {
   export function isa(o: any): o is GroupDefinition {
-    return _smithy.isa(o, "GroupDefinition");
+    return __isa(o, "GroupDefinition");
   }
 }
 
@@ -2560,7 +2563,7 @@ export interface InstanceDetails {
 
 export namespace InstanceDetails {
   export function isa(o: any): o is InstanceDetails {
-    return _smithy.isa(o, "InstanceDetails");
+    return __isa(o, "InstanceDetails");
   }
 }
 
@@ -2568,7 +2571,7 @@ export namespace InstanceDetails {
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -2577,7 +2580,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -2585,7 +2588,7 @@ export namespace InvalidNextTokenException {
  * <p>You made too many calls in a short period of time. Try again later.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -2594,7 +2597,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -2618,7 +2621,7 @@ export interface ListCostCategoryDefinitionsRequest {
 
 export namespace ListCostCategoryDefinitionsRequest {
   export function isa(o: any): o is ListCostCategoryDefinitionsRequest {
-    return _smithy.isa(o, "ListCostCategoryDefinitionsRequest");
+    return __isa(o, "ListCostCategoryDefinitionsRequest");
   }
 }
 
@@ -2641,7 +2644,7 @@ export interface ListCostCategoryDefinitionsResponse extends $MetadataBearer {
 
 export namespace ListCostCategoryDefinitionsResponse {
   export function isa(o: any): o is ListCostCategoryDefinitionsResponse {
-    return _smithy.isa(o, "ListCostCategoryDefinitionsResponse");
+    return __isa(o, "ListCostCategoryDefinitionsResponse");
   }
 }
 
@@ -2679,7 +2682,7 @@ export interface MetricValue {
 
 export namespace MetricValue {
   export function isa(o: any): o is MetricValue {
-    return _smithy.isa(o, "MetricValue");
+    return __isa(o, "MetricValue");
   }
 }
 
@@ -2696,7 +2699,7 @@ export interface ModifyRecommendationDetail {
 
 export namespace ModifyRecommendationDetail {
   export function isa(o: any): o is ModifyRecommendationDetail {
-    return _smithy.isa(o, "ModifyRecommendationDetail");
+    return __isa(o, "ModifyRecommendationDetail");
   }
 }
 
@@ -2769,7 +2772,7 @@ export interface RDSInstanceDetails {
 
 export namespace RDSInstanceDetails {
   export function isa(o: any): o is RDSInstanceDetails {
-    return _smithy.isa(o, "RDSInstanceDetails");
+    return __isa(o, "RDSInstanceDetails");
   }
 }
 
@@ -2807,7 +2810,7 @@ export interface RedshiftInstanceDetails {
 
 export namespace RedshiftInstanceDetails {
   export function isa(o: any): o is RedshiftInstanceDetails {
-    return _smithy.isa(o, "RedshiftInstanceDetails");
+    return __isa(o, "RedshiftInstanceDetails");
   }
 }
 
@@ -2816,7 +2819,7 @@ export namespace RedshiftInstanceDetails {
  *             without a pagination token.</p>
  */
 export interface RequestChangedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RequestChangedException";
   $fault: "client";
@@ -2825,7 +2828,7 @@ export interface RequestChangedException
 
 export namespace RequestChangedException {
   export function isa(o: any): o is RequestChangedException {
-    return _smithy.isa(o, "RequestChangedException");
+    return __isa(o, "RequestChangedException");
   }
 }
 
@@ -2919,7 +2922,7 @@ export interface ReservationAggregates {
 
 export namespace ReservationAggregates {
   export function isa(o: any): o is ReservationAggregates {
-    return _smithy.isa(o, "ReservationAggregates");
+    return __isa(o, "ReservationAggregates");
   }
 }
 
@@ -2942,7 +2945,7 @@ export interface ReservationCoverageGroup {
 
 export namespace ReservationCoverageGroup {
   export function isa(o: any): o is ReservationCoverageGroup {
-    return _smithy.isa(o, "ReservationCoverageGroup");
+    return __isa(o, "ReservationCoverageGroup");
   }
 }
 
@@ -2994,7 +2997,7 @@ export interface ReservationPurchaseRecommendation {
 
 export namespace ReservationPurchaseRecommendation {
   export function isa(o: any): o is ReservationPurchaseRecommendation {
-    return _smithy.isa(o, "ReservationPurchaseRecommendation");
+    return __isa(o, "ReservationPurchaseRecommendation");
   }
 }
 
@@ -3117,7 +3120,7 @@ export interface ReservationPurchaseRecommendationDetail {
 
 export namespace ReservationPurchaseRecommendationDetail {
   export function isa(o: any): o is ReservationPurchaseRecommendationDetail {
-    return _smithy.isa(o, "ReservationPurchaseRecommendationDetail");
+    return __isa(o, "ReservationPurchaseRecommendationDetail");
   }
 }
 
@@ -3140,7 +3143,7 @@ export interface ReservationPurchaseRecommendationMetadata {
 
 export namespace ReservationPurchaseRecommendationMetadata {
   export function isa(o: any): o is ReservationPurchaseRecommendationMetadata {
-    return _smithy.isa(o, "ReservationPurchaseRecommendationMetadata");
+    return __isa(o, "ReservationPurchaseRecommendationMetadata");
   }
 }
 
@@ -3171,7 +3174,7 @@ export interface ReservationPurchaseRecommendationSummary {
 
 export namespace ReservationPurchaseRecommendationSummary {
   export function isa(o: any): o is ReservationPurchaseRecommendationSummary {
-    return _smithy.isa(o, "ReservationPurchaseRecommendationSummary");
+    return __isa(o, "ReservationPurchaseRecommendationSummary");
   }
 }
 
@@ -3203,7 +3206,7 @@ export interface ReservationUtilizationGroup {
 
 export namespace ReservationUtilizationGroup {
   export function isa(o: any): o is ReservationUtilizationGroup {
-    return _smithy.isa(o, "ReservationUtilizationGroup");
+    return __isa(o, "ReservationUtilizationGroup");
   }
 }
 
@@ -3220,7 +3223,7 @@ export interface ResourceDetails {
 
 export namespace ResourceDetails {
   export function isa(o: any): o is ResourceDetails {
-    return _smithy.isa(o, "ResourceDetails");
+    return __isa(o, "ResourceDetails");
   }
 }
 
@@ -3230,7 +3233,7 @@ export namespace ResourceDetails {
  *         </p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -3239,7 +3242,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -3256,7 +3259,7 @@ export interface ResourceUtilization {
 
 export namespace ResourceUtilization {
   export function isa(o: any): o is ResourceUtilization {
-    return _smithy.isa(o, "ResourceUtilization");
+    return __isa(o, "ResourceUtilization");
   }
 }
 
@@ -3289,7 +3292,7 @@ export interface ResultByTime {
 
 export namespace ResultByTime {
   export function isa(o: any): o is ResultByTime {
-    return _smithy.isa(o, "ResultByTime");
+    return __isa(o, "ResultByTime");
   }
 }
 
@@ -3326,7 +3329,7 @@ export interface RightsizingRecommendation {
 
 export namespace RightsizingRecommendation {
   export function isa(o: any): o is RightsizingRecommendation {
-    return _smithy.isa(o, "RightsizingRecommendation");
+    return __isa(o, "RightsizingRecommendation");
   }
 }
 
@@ -3353,7 +3356,7 @@ export interface RightsizingRecommendationMetadata {
 
 export namespace RightsizingRecommendationMetadata {
   export function isa(o: any): o is RightsizingRecommendationMetadata {
-    return _smithy.isa(o, "RightsizingRecommendationMetadata");
+    return __isa(o, "RightsizingRecommendationMetadata");
   }
 }
 
@@ -3385,7 +3388,7 @@ export interface RightsizingRecommendationSummary {
 
 export namespace RightsizingRecommendationSummary {
   export function isa(o: any): o is RightsizingRecommendationSummary {
-    return _smithy.isa(o, "RightsizingRecommendationSummary");
+    return __isa(o, "RightsizingRecommendationSummary");
   }
 }
 
@@ -3417,7 +3420,7 @@ export interface SavingsPlansAmortizedCommitment {
 
 export namespace SavingsPlansAmortizedCommitment {
   export function isa(o: any): o is SavingsPlansAmortizedCommitment {
-    return _smithy.isa(o, "SavingsPlansAmortizedCommitment");
+    return __isa(o, "SavingsPlansAmortizedCommitment");
   }
 }
 
@@ -3445,7 +3448,7 @@ export interface SavingsPlansCoverage {
 
 export namespace SavingsPlansCoverage {
   export function isa(o: any): o is SavingsPlansCoverage {
-    return _smithy.isa(o, "SavingsPlansCoverage");
+    return __isa(o, "SavingsPlansCoverage");
   }
 }
 
@@ -3477,7 +3480,7 @@ export interface SavingsPlansCoverageData {
 
 export namespace SavingsPlansCoverageData {
   export function isa(o: any): o is SavingsPlansCoverageData {
-    return _smithy.isa(o, "SavingsPlansCoverageData");
+    return __isa(o, "SavingsPlansCoverageData");
   }
 }
 
@@ -3504,7 +3507,7 @@ export interface SavingsPlansDetails {
 
 export namespace SavingsPlansDetails {
   export function isa(o: any): o is SavingsPlansDetails {
-    return _smithy.isa(o, "SavingsPlansDetails");
+    return __isa(o, "SavingsPlansDetails");
   }
 }
 
@@ -3548,7 +3551,7 @@ export interface SavingsPlansPurchaseRecommendation {
 
 export namespace SavingsPlansPurchaseRecommendation {
   export function isa(o: any): o is SavingsPlansPurchaseRecommendation {
-    return _smithy.isa(o, "SavingsPlansPurchaseRecommendation");
+    return __isa(o, "SavingsPlansPurchaseRecommendation");
   }
 }
 
@@ -3642,7 +3645,7 @@ export interface SavingsPlansPurchaseRecommendationDetail {
 
 export namespace SavingsPlansPurchaseRecommendationDetail {
   export function isa(o: any): o is SavingsPlansPurchaseRecommendationDetail {
-    return _smithy.isa(o, "SavingsPlansPurchaseRecommendationDetail");
+    return __isa(o, "SavingsPlansPurchaseRecommendationDetail");
   }
 }
 
@@ -3664,7 +3667,7 @@ export interface SavingsPlansPurchaseRecommendationMetadata {
 
 export namespace SavingsPlansPurchaseRecommendationMetadata {
   export function isa(o: any): o is SavingsPlansPurchaseRecommendationMetadata {
-    return _smithy.isa(o, "SavingsPlansPurchaseRecommendationMetadata");
+    return __isa(o, "SavingsPlansPurchaseRecommendationMetadata");
   }
 }
 
@@ -3733,7 +3736,7 @@ export interface SavingsPlansPurchaseRecommendationSummary {
 
 export namespace SavingsPlansPurchaseRecommendationSummary {
   export function isa(o: any): o is SavingsPlansPurchaseRecommendationSummary {
-    return _smithy.isa(o, "SavingsPlansPurchaseRecommendationSummary");
+    return __isa(o, "SavingsPlansPurchaseRecommendationSummary");
   }
 }
 
@@ -3757,7 +3760,7 @@ export interface SavingsPlansSavings {
 
 export namespace SavingsPlansSavings {
   export function isa(o: any): o is SavingsPlansSavings {
-    return _smithy.isa(o, "SavingsPlansSavings");
+    return __isa(o, "SavingsPlansSavings");
   }
 }
 
@@ -3789,7 +3792,7 @@ export interface SavingsPlansUtilization {
 
 export namespace SavingsPlansUtilization {
   export function isa(o: any): o is SavingsPlansUtilization {
-    return _smithy.isa(o, "SavingsPlansUtilization");
+    return __isa(o, "SavingsPlansUtilization");
   }
 }
 
@@ -3816,7 +3819,7 @@ export interface SavingsPlansUtilizationAggregates {
 
 export namespace SavingsPlansUtilizationAggregates {
   export function isa(o: any): o is SavingsPlansUtilizationAggregates {
-    return _smithy.isa(o, "SavingsPlansUtilizationAggregates");
+    return __isa(o, "SavingsPlansUtilizationAggregates");
   }
 }
 
@@ -3849,7 +3852,7 @@ export interface SavingsPlansUtilizationByTime {
 
 export namespace SavingsPlansUtilizationByTime {
   export function isa(o: any): o is SavingsPlansUtilizationByTime {
-    return _smithy.isa(o, "SavingsPlansUtilizationByTime");
+    return __isa(o, "SavingsPlansUtilizationByTime");
   }
 }
 
@@ -3886,7 +3889,7 @@ export interface SavingsPlansUtilizationDetail {
 
 export namespace SavingsPlansUtilizationDetail {
   export function isa(o: any): o is SavingsPlansUtilizationDetail {
-    return _smithy.isa(o, "SavingsPlansUtilizationDetail");
+    return __isa(o, "SavingsPlansUtilizationDetail");
   }
 }
 
@@ -3896,7 +3899,7 @@ export namespace SavingsPlansUtilizationDetail {
  *         </p>
  */
 export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -3905,7 +3908,7 @@ export interface ServiceQuotaExceededException
 
 export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
-    return _smithy.isa(o, "ServiceQuotaExceededException");
+    return __isa(o, "ServiceQuotaExceededException");
   }
 }
 
@@ -3924,7 +3927,7 @@ export interface ServiceSpecification {
 
 export namespace ServiceSpecification {
   export function isa(o: any): o is ServiceSpecification {
-    return _smithy.isa(o, "ServiceSpecification");
+    return __isa(o, "ServiceSpecification");
   }
 }
 
@@ -3951,7 +3954,7 @@ export interface TagValues {
 
 export namespace TagValues {
   export function isa(o: any): o is TagValues {
-    return _smithy.isa(o, "TagValues");
+    return __isa(o, "TagValues");
   }
 }
 
@@ -3993,7 +3996,7 @@ export interface TargetInstance {
 
 export namespace TargetInstance {
   export function isa(o: any): o is TargetInstance {
-    return _smithy.isa(o, "TargetInstance");
+    return __isa(o, "TargetInstance");
   }
 }
 
@@ -4020,7 +4023,7 @@ export interface TerminateRecommendationDetail {
 
 export namespace TerminateRecommendationDetail {
   export function isa(o: any): o is TerminateRecommendationDetail {
-    return _smithy.isa(o, "TerminateRecommendationDetail");
+    return __isa(o, "TerminateRecommendationDetail");
   }
 }
 
@@ -4028,7 +4031,7 @@ export namespace TerminateRecommendationDetail {
  * <p>Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units, for example: <code>hours</code>.</p>
  */
 export interface UnresolvableUsageUnitException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnresolvableUsageUnitException";
   $fault: "client";
@@ -4037,7 +4040,7 @@ export interface UnresolvableUsageUnitException
 
 export namespace UnresolvableUsageUnitException {
   export function isa(o: any): o is UnresolvableUsageUnitException {
-    return _smithy.isa(o, "UnresolvableUsageUnitException");
+    return __isa(o, "UnresolvableUsageUnitException");
   }
 }
 
@@ -4065,7 +4068,7 @@ export interface UpdateCostCategoryDefinitionRequest {
 
 export namespace UpdateCostCategoryDefinitionRequest {
   export function isa(o: any): o is UpdateCostCategoryDefinitionRequest {
-    return _smithy.isa(o, "UpdateCostCategoryDefinitionRequest");
+    return __isa(o, "UpdateCostCategoryDefinitionRequest");
   }
 }
 
@@ -4088,7 +4091,7 @@ export interface UpdateCostCategoryDefinitionResponse extends $MetadataBearer {
 
 export namespace UpdateCostCategoryDefinitionResponse {
   export function isa(o: any): o is UpdateCostCategoryDefinitionResponse {
-    return _smithy.isa(o, "UpdateCostCategoryDefinitionResponse");
+    return __isa(o, "UpdateCostCategoryDefinitionResponse");
   }
 }
 
@@ -4115,6 +4118,6 @@ export interface UtilizationByTime {
 
 export namespace UtilizationByTime {
   export function isa(o: any): o is UtilizationByTime {
-    return _smithy.isa(o, "UtilizationByTime");
+    return __isa(o, "UtilizationByTime");
   }
 }

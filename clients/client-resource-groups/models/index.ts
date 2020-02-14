@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The request does not comply with validation rules that are defined for the request parameters.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -47,7 +50,7 @@ export interface CreateGroupInput {
 
 export namespace CreateGroupInput {
   export function isa(o: any): o is CreateGroupInput {
-    return _smithy.isa(o, "CreateGroupInput");
+    return __isa(o, "CreateGroupInput");
   }
 }
 
@@ -71,7 +74,7 @@ export interface CreateGroupOutput extends $MetadataBearer {
 
 export namespace CreateGroupOutput {
   export function isa(o: any): o is CreateGroupOutput {
-    return _smithy.isa(o, "CreateGroupOutput");
+    return __isa(o, "CreateGroupOutput");
   }
 }
 
@@ -85,7 +88,7 @@ export interface DeleteGroupInput {
 
 export namespace DeleteGroupInput {
   export function isa(o: any): o is DeleteGroupInput {
-    return _smithy.isa(o, "DeleteGroupInput");
+    return __isa(o, "DeleteGroupInput");
   }
 }
 
@@ -99,16 +102,14 @@ export interface DeleteGroupOutput extends $MetadataBearer {
 
 export namespace DeleteGroupOutput {
   export function isa(o: any): o is DeleteGroupOutput {
-    return _smithy.isa(o, "DeleteGroupOutput");
+    return __isa(o, "DeleteGroupOutput");
   }
 }
 
 /**
  * <p>The caller is not authorized to make the request.</p>
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   Message?: string;
@@ -116,7 +117,7 @@ export interface ForbiddenException
 
 export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
-    return _smithy.isa(o, "ForbiddenException");
+    return __isa(o, "ForbiddenException");
   }
 }
 
@@ -130,7 +131,7 @@ export interface GetGroupInput {
 
 export namespace GetGroupInput {
   export function isa(o: any): o is GetGroupInput {
-    return _smithy.isa(o, "GetGroupInput");
+    return __isa(o, "GetGroupInput");
   }
 }
 
@@ -144,7 +145,7 @@ export interface GetGroupOutput extends $MetadataBearer {
 
 export namespace GetGroupOutput {
   export function isa(o: any): o is GetGroupOutput {
-    return _smithy.isa(o, "GetGroupOutput");
+    return __isa(o, "GetGroupOutput");
   }
 }
 
@@ -158,7 +159,7 @@ export interface GetGroupQueryInput {
 
 export namespace GetGroupQueryInput {
   export function isa(o: any): o is GetGroupQueryInput {
-    return _smithy.isa(o, "GetGroupQueryInput");
+    return __isa(o, "GetGroupQueryInput");
   }
 }
 
@@ -172,7 +173,7 @@ export interface GetGroupQueryOutput extends $MetadataBearer {
 
 export namespace GetGroupQueryOutput {
   export function isa(o: any): o is GetGroupQueryOutput {
-    return _smithy.isa(o, "GetGroupQueryOutput");
+    return __isa(o, "GetGroupQueryOutput");
   }
 }
 
@@ -186,7 +187,7 @@ export interface GetTagsInput {
 
 export namespace GetTagsInput {
   export function isa(o: any): o is GetTagsInput {
-    return _smithy.isa(o, "GetTagsInput");
+    return __isa(o, "GetTagsInput");
   }
 }
 
@@ -205,7 +206,7 @@ export interface GetTagsOutput extends $MetadataBearer {
 
 export namespace GetTagsOutput {
   export function isa(o: any): o is GetTagsOutput {
-    return _smithy.isa(o, "GetTagsOutput");
+    return __isa(o, "GetTagsOutput");
   }
 }
 
@@ -232,7 +233,7 @@ export interface Group {
 
 export namespace Group {
   export function isa(o: any): o is Group {
-    return _smithy.isa(o, "Group");
+    return __isa(o, "Group");
   }
 }
 
@@ -254,7 +255,7 @@ export interface GroupFilter {
 
 export namespace GroupFilter {
   export function isa(o: any): o is GroupFilter {
-    return _smithy.isa(o, "GroupFilter");
+    return __isa(o, "GroupFilter");
   }
 }
 
@@ -280,7 +281,7 @@ export interface GroupIdentifier {
 
 export namespace GroupIdentifier {
   export function isa(o: any): o is GroupIdentifier {
-    return _smithy.isa(o, "GroupIdentifier");
+    return __isa(o, "GroupIdentifier");
   }
 }
 
@@ -302,7 +303,7 @@ export interface GroupQuery {
 
 export namespace GroupQuery {
   export function isa(o: any): o is GroupQuery {
-    return _smithy.isa(o, "GroupQuery");
+    return __isa(o, "GroupQuery");
   }
 }
 
@@ -310,7 +311,7 @@ export namespace GroupQuery {
  * <p>An internal error occurred while processing the request.</p>
  */
 export interface InternalServerErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
@@ -319,7 +320,7 @@ export interface InternalServerErrorException
 
 export namespace InternalServerErrorException {
   export function isa(o: any): o is InternalServerErrorException {
-    return _smithy.isa(o, "InternalServerErrorException");
+    return __isa(o, "InternalServerErrorException");
   }
 }
 
@@ -355,7 +356,7 @@ export interface ListGroupResourcesInput {
 
 export namespace ListGroupResourcesInput {
   export function isa(o: any): o is ListGroupResourcesInput {
-    return _smithy.isa(o, "ListGroupResourcesInput");
+    return __isa(o, "ListGroupResourcesInput");
   }
 }
 
@@ -381,7 +382,7 @@ export interface ListGroupResourcesOutput extends $MetadataBearer {
 
 export namespace ListGroupResourcesOutput {
   export function isa(o: any): o is ListGroupResourcesOutput {
-    return _smithy.isa(o, "ListGroupResourcesOutput");
+    return __isa(o, "ListGroupResourcesOutput");
   }
 }
 
@@ -412,7 +413,7 @@ export interface ListGroupsInput {
 
 export namespace ListGroupsInput {
   export function isa(o: any): o is ListGroupsInput {
-    return _smithy.isa(o, "ListGroupsInput");
+    return __isa(o, "ListGroupsInput");
   }
 }
 
@@ -436,7 +437,7 @@ export interface ListGroupsOutput extends $MetadataBearer {
 
 export namespace ListGroupsOutput {
   export function isa(o: any): o is ListGroupsOutput {
-    return _smithy.isa(o, "ListGroupsOutput");
+    return __isa(o, "ListGroupsOutput");
   }
 }
 
@@ -444,7 +445,7 @@ export namespace ListGroupsOutput {
  * <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
  */
 export interface MethodNotAllowedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MethodNotAllowedException";
   $fault: "client";
@@ -453,16 +454,14 @@ export interface MethodNotAllowedException
 
 export namespace MethodNotAllowedException {
   export function isa(o: any): o is MethodNotAllowedException {
-    return _smithy.isa(o, "MethodNotAllowedException");
+    return __isa(o, "MethodNotAllowedException");
   }
 }
 
 /**
  * <p>One or more resources specified in the request do not exist.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -470,7 +469,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -501,7 +500,7 @@ export interface QueryError {
 
 export namespace QueryError {
   export function isa(o: any): o is QueryError {
-    return _smithy.isa(o, "QueryError");
+    return __isa(o, "QueryError");
   }
 }
 
@@ -533,7 +532,7 @@ export interface ResourceFilter {
 
 export namespace ResourceFilter {
   export function isa(o: any): o is ResourceFilter {
-    return _smithy.isa(o, "ResourceFilter");
+    return __isa(o, "ResourceFilter");
   }
 }
 
@@ -559,7 +558,7 @@ export interface ResourceIdentifier {
 
 export namespace ResourceIdentifier {
   export function isa(o: any): o is ResourceIdentifier {
-    return _smithy.isa(o, "ResourceIdentifier");
+    return __isa(o, "ResourceIdentifier");
   }
 }
 
@@ -614,7 +613,7 @@ export interface ResourceQuery {
 
 export namespace ResourceQuery {
   export function isa(o: any): o is ResourceQuery {
-    return _smithy.isa(o, "ResourceQuery");
+    return __isa(o, "ResourceQuery");
   }
 }
 
@@ -639,7 +638,7 @@ export interface SearchResourcesInput {
 
 export namespace SearchResourcesInput {
   export function isa(o: any): o is SearchResourcesInput {
-    return _smithy.isa(o, "SearchResourcesInput");
+    return __isa(o, "SearchResourcesInput");
   }
 }
 
@@ -666,7 +665,7 @@ export interface SearchResourcesOutput extends $MetadataBearer {
 
 export namespace SearchResourcesOutput {
   export function isa(o: any): o is SearchResourcesOutput {
-    return _smithy.isa(o, "SearchResourcesOutput");
+    return __isa(o, "SearchResourcesOutput");
   }
 }
 
@@ -686,7 +685,7 @@ export interface TagInput {
 
 export namespace TagInput {
   export function isa(o: any): o is TagInput {
-    return _smithy.isa(o, "TagInput");
+    return __isa(o, "TagInput");
   }
 }
 
@@ -705,7 +704,7 @@ export interface TagOutput extends $MetadataBearer {
 
 export namespace TagOutput {
   export function isa(o: any): o is TagOutput {
-    return _smithy.isa(o, "TagOutput");
+    return __isa(o, "TagOutput");
   }
 }
 
@@ -713,7 +712,7 @@ export namespace TagOutput {
  * <p>The caller has exceeded throttling limits.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -722,7 +721,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -730,7 +729,7 @@ export namespace TooManyRequestsException {
  * <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
  */
 export interface UnauthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
@@ -739,7 +738,7 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
+    return __isa(o, "UnauthorizedException");
   }
 }
 
@@ -758,7 +757,7 @@ export interface UntagInput {
 
 export namespace UntagInput {
   export function isa(o: any): o is UntagInput {
-    return _smithy.isa(o, "UntagInput");
+    return __isa(o, "UntagInput");
   }
 }
 
@@ -777,7 +776,7 @@ export interface UntagOutput extends $MetadataBearer {
 
 export namespace UntagOutput {
   export function isa(o: any): o is UntagOutput {
-    return _smithy.isa(o, "UntagOutput");
+    return __isa(o, "UntagOutput");
   }
 }
 
@@ -797,7 +796,7 @@ export interface UpdateGroupInput {
 
 export namespace UpdateGroupInput {
   export function isa(o: any): o is UpdateGroupInput {
-    return _smithy.isa(o, "UpdateGroupInput");
+    return __isa(o, "UpdateGroupInput");
   }
 }
 
@@ -811,7 +810,7 @@ export interface UpdateGroupOutput extends $MetadataBearer {
 
 export namespace UpdateGroupOutput {
   export function isa(o: any): o is UpdateGroupOutput {
-    return _smithy.isa(o, "UpdateGroupOutput");
+    return __isa(o, "UpdateGroupOutput");
   }
 }
 
@@ -830,7 +829,7 @@ export interface UpdateGroupQueryInput {
 
 export namespace UpdateGroupQueryInput {
   export function isa(o: any): o is UpdateGroupQueryInput {
-    return _smithy.isa(o, "UpdateGroupQueryInput");
+    return __isa(o, "UpdateGroupQueryInput");
   }
 }
 
@@ -844,6 +843,6 @@ export interface UpdateGroupQueryOutput extends $MetadataBearer {
 
 export namespace UpdateGroupQueryOutput {
   export function isa(o: any): o is UpdateGroupQueryOutput {
-    return _smithy.isa(o, "UpdateGroupQueryOutput");
+    return __isa(o, "UpdateGroupQueryOutput");
   }
 }

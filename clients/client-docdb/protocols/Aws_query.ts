@@ -1085,6 +1085,7 @@ export async function deserializeAws_queryAddTagsToResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddTagsToResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2039,6 +2040,7 @@ export async function deserializeAws_queryDeleteDBClusterParameterGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDBClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2250,6 +2252,7 @@ export async function deserializeAws_queryDeleteDBSubnetGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteDBSubnetGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDBSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3835,6 +3838,7 @@ export async function deserializeAws_queryRemoveTagsFromResourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DescribeSavingsPlansOfferingRatesRequest {
@@ -57,7 +60,7 @@ export interface DescribeSavingsPlansOfferingRatesRequest {
 
 export namespace DescribeSavingsPlansOfferingRatesRequest {
   export function isa(o: any): o is DescribeSavingsPlansOfferingRatesRequest {
-    return _smithy.isa(o, "DescribeSavingsPlansOfferingRatesRequest");
+    return __isa(o, "DescribeSavingsPlansOfferingRatesRequest");
   }
 }
 
@@ -78,7 +81,7 @@ export interface DescribeSavingsPlansOfferingRatesResponse
 
 export namespace DescribeSavingsPlansOfferingRatesResponse {
   export function isa(o: any): o is DescribeSavingsPlansOfferingRatesResponse {
-    return _smithy.isa(o, "DescribeSavingsPlansOfferingRatesResponse");
+    return __isa(o, "DescribeSavingsPlansOfferingRatesResponse");
   }
 }
 
@@ -153,7 +156,7 @@ export interface DescribeSavingsPlansOfferingsRequest {
 
 export namespace DescribeSavingsPlansOfferingsRequest {
   export function isa(o: any): o is DescribeSavingsPlansOfferingsRequest {
-    return _smithy.isa(o, "DescribeSavingsPlansOfferingsRequest");
+    return __isa(o, "DescribeSavingsPlansOfferingsRequest");
   }
 }
 
@@ -173,7 +176,7 @@ export interface DescribeSavingsPlansOfferingsResponse extends $MetadataBearer {
 
 export namespace DescribeSavingsPlansOfferingsResponse {
   export function isa(o: any): o is DescribeSavingsPlansOfferingsResponse {
-    return _smithy.isa(o, "DescribeSavingsPlansOfferingsResponse");
+    return __isa(o, "DescribeSavingsPlansOfferingsResponse");
   }
 }
 
@@ -215,7 +218,7 @@ export interface ParentSavingsPlanOffering {
 
 export namespace ParentSavingsPlanOffering {
   export function isa(o: any): o is ParentSavingsPlanOffering {
-    return _smithy.isa(o, "ParentSavingsPlanOffering");
+    return __isa(o, "ParentSavingsPlanOffering");
   }
 }
 
@@ -282,7 +285,7 @@ export interface SavingsPlanOffering {
 
 export namespace SavingsPlanOffering {
   export function isa(o: any): o is SavingsPlanOffering {
-    return _smithy.isa(o, "SavingsPlanOffering");
+    return __isa(o, "SavingsPlanOffering");
   }
 }
 
@@ -309,7 +312,7 @@ export interface SavingsPlanOfferingFilterElement {
 
 export namespace SavingsPlanOfferingFilterElement {
   export function isa(o: any): o is SavingsPlanOfferingFilterElement {
-    return _smithy.isa(o, "SavingsPlanOfferingFilterElement");
+    return __isa(o, "SavingsPlanOfferingFilterElement");
   }
 }
 
@@ -331,7 +334,7 @@ export interface SavingsPlanOfferingProperty {
 
 export namespace SavingsPlanOfferingProperty {
   export function isa(o: any): o is SavingsPlanOfferingProperty {
-    return _smithy.isa(o, "SavingsPlanOfferingProperty");
+    return __isa(o, "SavingsPlanOfferingProperty");
   }
 }
 
@@ -388,7 +391,7 @@ export interface SavingsPlanOfferingRate {
 
 export namespace SavingsPlanOfferingRate {
   export function isa(o: any): o is SavingsPlanOfferingRate {
-    return _smithy.isa(o, "SavingsPlanOfferingRate");
+    return __isa(o, "SavingsPlanOfferingRate");
   }
 }
 
@@ -410,7 +413,7 @@ export interface SavingsPlanOfferingRateFilterElement {
 
 export namespace SavingsPlanOfferingRateFilterElement {
   export function isa(o: any): o is SavingsPlanOfferingRateFilterElement {
-    return _smithy.isa(o, "SavingsPlanOfferingRateFilterElement");
+    return __isa(o, "SavingsPlanOfferingRateFilterElement");
   }
 }
 
@@ -432,7 +435,7 @@ export interface SavingsPlanOfferingRateProperty {
 
 export namespace SavingsPlanOfferingRateProperty {
   export function isa(o: any): o is SavingsPlanOfferingRateProperty {
-    return _smithy.isa(o, "SavingsPlanOfferingRateProperty");
+    return __isa(o, "SavingsPlanOfferingRateProperty");
   }
 }
 
@@ -480,7 +483,7 @@ export interface SavingsPlanRateProperty {
 
 export namespace SavingsPlanRateProperty {
   export function isa(o: any): o is SavingsPlanRateProperty {
-    return _smithy.isa(o, "SavingsPlanRateProperty");
+    return __isa(o, "SavingsPlanRateProperty");
   }
 }
 
@@ -534,7 +537,7 @@ export interface CreateSavingsPlanRequest {
 
 export namespace CreateSavingsPlanRequest {
   export function isa(o: any): o is CreateSavingsPlanRequest {
-    return _smithy.isa(o, "CreateSavingsPlanRequest");
+    return __isa(o, "CreateSavingsPlanRequest");
   }
 }
 
@@ -548,7 +551,7 @@ export interface CreateSavingsPlanResponse extends $MetadataBearer {
 
 export namespace CreateSavingsPlanResponse {
   export function isa(o: any): o is CreateSavingsPlanResponse {
-    return _smithy.isa(o, "CreateSavingsPlanResponse");
+    return __isa(o, "CreateSavingsPlanResponse");
   }
 }
 
@@ -578,7 +581,7 @@ export interface DescribeSavingsPlanRatesRequest {
 
 export namespace DescribeSavingsPlanRatesRequest {
   export function isa(o: any): o is DescribeSavingsPlanRatesRequest {
-    return _smithy.isa(o, "DescribeSavingsPlanRatesRequest");
+    return __isa(o, "DescribeSavingsPlanRatesRequest");
   }
 }
 
@@ -603,7 +606,7 @@ export interface DescribeSavingsPlanRatesResponse extends $MetadataBearer {
 
 export namespace DescribeSavingsPlanRatesResponse {
   export function isa(o: any): o is DescribeSavingsPlanRatesResponse {
-    return _smithy.isa(o, "DescribeSavingsPlanRatesResponse");
+    return __isa(o, "DescribeSavingsPlanRatesResponse");
   }
 }
 
@@ -643,7 +646,7 @@ export interface DescribeSavingsPlansRequest {
 
 export namespace DescribeSavingsPlansRequest {
   export function isa(o: any): o is DescribeSavingsPlansRequest {
-    return _smithy.isa(o, "DescribeSavingsPlansRequest");
+    return __isa(o, "DescribeSavingsPlansRequest");
   }
 }
 
@@ -663,7 +666,7 @@ export interface DescribeSavingsPlansResponse extends $MetadataBearer {
 
 export namespace DescribeSavingsPlansResponse {
   export function isa(o: any): o is DescribeSavingsPlansResponse {
-    return _smithy.isa(o, "DescribeSavingsPlansResponse");
+    return __isa(o, "DescribeSavingsPlansResponse");
   }
 }
 
@@ -671,7 +674,7 @@ export namespace DescribeSavingsPlansResponse {
  * <p>An unexpected error occurred.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -680,7 +683,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -694,7 +697,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -708,7 +711,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -716,7 +719,7 @@ export namespace ListTagsForResourceResponse {
  * <p>The specified resource was not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -725,7 +728,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -827,7 +830,7 @@ export interface SavingsPlan {
 
 export namespace SavingsPlan {
   export function isa(o: any): o is SavingsPlan {
-    return _smithy.isa(o, "SavingsPlan");
+    return __isa(o, "SavingsPlan");
   }
 }
 
@@ -849,7 +852,7 @@ export interface SavingsPlanFilter {
 
 export namespace SavingsPlanFilter {
   export function isa(o: any): o is SavingsPlanFilter {
-    return _smithy.isa(o, "SavingsPlanFilter");
+    return __isa(o, "SavingsPlanFilter");
   }
 }
 
@@ -901,7 +904,7 @@ export interface SavingsPlanRate {
 
 export namespace SavingsPlanRate {
   export function isa(o: any): o is SavingsPlanRate {
-    return _smithy.isa(o, "SavingsPlanRate");
+    return __isa(o, "SavingsPlanRate");
   }
 }
 
@@ -923,7 +926,7 @@ export interface SavingsPlanRateFilter {
 
 export namespace SavingsPlanRateFilter {
   export function isa(o: any): o is SavingsPlanRateFilter {
-    return _smithy.isa(o, "SavingsPlanRateFilter");
+    return __isa(o, "SavingsPlanRateFilter");
   }
 }
 
@@ -961,7 +964,7 @@ export enum SavingsPlansFilterName {
  * <p>A service quota has been exceeded.</p>
  */
 export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -970,7 +973,7 @@ export interface ServiceQuotaExceededException
 
 export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
-    return _smithy.isa(o, "ServiceQuotaExceededException");
+    return __isa(o, "ServiceQuotaExceededException");
   }
 }
 
@@ -989,7 +992,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -999,7 +1002,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1018,7 +1021,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1028,7 +1031,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1036,7 +1039,7 @@ export namespace UntagResourceResponse {
  * <p>One of the input parameters is not valid.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -1045,6 +1048,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

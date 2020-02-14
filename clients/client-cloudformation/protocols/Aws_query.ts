@@ -1320,6 +1320,7 @@ export async function deserializeAws_queryCancelUpdateStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryCancelUpdateStackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CancelUpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1640,6 +1641,7 @@ export async function deserializeAws_queryDeleteStackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteStackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3271,6 +3273,7 @@ export async function deserializeAws_querySetStackPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySetStackPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetStackPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3382,6 +3385,7 @@ export async function deserializeAws_querySignalResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySignalResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SignalResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

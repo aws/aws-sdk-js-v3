@@ -1264,6 +1264,7 @@ export async function deserializeAws_queryAttachInstancesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachInstancesCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AttachInstancesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1654,6 +1655,7 @@ export async function deserializeAws_queryCreateAutoScalingGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: CreateAutoScalingGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1728,6 +1730,7 @@ export async function deserializeAws_queryCreateLaunchConfigurationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: CreateLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1792,6 +1795,7 @@ export async function deserializeAws_queryCreateOrUpdateTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateOrUpdateTagsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateOrUpdateTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1866,6 +1870,7 @@ export async function deserializeAws_queryDeleteAutoScalingGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteAutoScalingGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1933,6 +1938,7 @@ export async function deserializeAws_queryDeleteLaunchConfigurationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2051,6 +2057,7 @@ export async function deserializeAws_queryDeleteNotificationConfigurationCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteNotificationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2101,6 +2108,7 @@ export async function deserializeAws_queryDeletePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeletePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2161,6 +2169,7 @@ export async function deserializeAws_queryDeleteScheduledActionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2211,6 +2220,7 @@ export async function deserializeAws_queryDeleteTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteTagsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3600,6 +3610,7 @@ export async function deserializeAws_queryDisableMetricsCollectionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisableMetricsCollectionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3653,6 +3664,7 @@ export async function deserializeAws_queryEnableMetricsCollectionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: EnableMetricsCollectionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3761,6 +3773,7 @@ export async function deserializeAws_queryExecutePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryExecutePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ExecutePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3944,6 +3957,7 @@ export async function deserializeAws_queryPutNotificationConfigurationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutNotificationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4083,6 +4097,7 @@ export async function deserializeAws_queryPutScheduledUpdateGroupActionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutScheduledUpdateGroupActionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4208,6 +4223,7 @@ export async function deserializeAws_queryResumeProcessesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryResumeProcessesCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ResumeProcessesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4265,6 +4281,7 @@ export async function deserializeAws_querySetDesiredCapacityCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySetDesiredCapacityCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetDesiredCapacityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4322,6 +4339,7 @@ export async function deserializeAws_querySetInstanceHealthCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySetInstanceHealthCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetInstanceHealthCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4440,6 +4458,7 @@ export async function deserializeAws_querySuspendProcessesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySuspendProcessesCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SuspendProcessesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4568,6 +4587,7 @@ export async function deserializeAws_queryUpdateAutoScalingGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateAutoScalingGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

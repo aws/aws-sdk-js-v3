@@ -30,7 +30,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -46,13 +49,13 @@ export async function serializeAws_restJson1_1DeleteThingShadowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -74,13 +77,13 @@ export async function serializeAws_restJson1_1GetThingShadowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -102,20 +105,22 @@ export async function serializeAws_restJson1_1PublishCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/topics/{topic}";
   if (input.topic !== undefined) {
-    const labelValue: string = input.topic.toString();
+    const labelValue: string = input.topic;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: topic.");
     }
     resolvedPath = resolvedPath.replace(
       "{topic}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: topic.");
   }
   const query: any = {};
   if (input.qos !== undefined) {
-    query["qos"] = input.qos.toString();
+    query[__extendedEncodeURIComponent("qos")] = __extendedEncodeURIComponent(
+      input.qos.toString()
+    );
   }
   let body: any;
   if (input.payload !== undefined) {
@@ -140,13 +145,13 @@ export async function serializeAws_restJson1_1UpdateThingShadowCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/things/{thingName}/shadow";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -381,6 +386,7 @@ export async function deserializeAws_restJson1_1PublishCommand(
   const contents: PublishCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateLifecyclePolicyRequest {
@@ -31,7 +34,7 @@ export interface CreateLifecyclePolicyRequest {
 
 export namespace CreateLifecyclePolicyRequest {
   export function isa(o: any): o is CreateLifecyclePolicyRequest {
-    return _smithy.isa(o, "CreateLifecyclePolicyRequest");
+    return __isa(o, "CreateLifecyclePolicyRequest");
   }
 }
 
@@ -45,7 +48,7 @@ export interface CreateLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace CreateLifecyclePolicyResponse {
   export function isa(o: any): o is CreateLifecyclePolicyResponse {
-    return _smithy.isa(o, "CreateLifecyclePolicyResponse");
+    return __isa(o, "CreateLifecyclePolicyResponse");
   }
 }
 
@@ -72,7 +75,7 @@ export interface CreateRule {
 
 export namespace CreateRule {
   export function isa(o: any): o is CreateRule {
-    return _smithy.isa(o, "CreateRule");
+    return __isa(o, "CreateRule");
   }
 }
 
@@ -94,7 +97,7 @@ export interface CrossRegionCopyRetainRule {
 
 export namespace CrossRegionCopyRetainRule {
   export function isa(o: any): o is CrossRegionCopyRetainRule {
-    return _smithy.isa(o, "CrossRegionCopyRetainRule");
+    return __isa(o, "CrossRegionCopyRetainRule");
   }
 }
 
@@ -131,7 +134,7 @@ export interface CrossRegionCopyRule {
 
 export namespace CrossRegionCopyRule {
   export function isa(o: any): o is CrossRegionCopyRule {
-    return _smithy.isa(o, "CrossRegionCopyRule");
+    return __isa(o, "CrossRegionCopyRule");
   }
 }
 
@@ -145,7 +148,7 @@ export interface DeleteLifecyclePolicyRequest {
 
 export namespace DeleteLifecyclePolicyRequest {
   export function isa(o: any): o is DeleteLifecyclePolicyRequest {
-    return _smithy.isa(o, "DeleteLifecyclePolicyRequest");
+    return __isa(o, "DeleteLifecyclePolicyRequest");
   }
 }
 
@@ -155,7 +158,7 @@ export interface DeleteLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace DeleteLifecyclePolicyResponse {
   export function isa(o: any): o is DeleteLifecyclePolicyResponse {
-    return _smithy.isa(o, "DeleteLifecyclePolicyResponse");
+    return __isa(o, "DeleteLifecyclePolicyResponse");
   }
 }
 
@@ -187,7 +190,7 @@ export interface FastRestoreRule {
 
 export namespace FastRestoreRule {
   export function isa(o: any): o is FastRestoreRule {
-    return _smithy.isa(o, "FastRestoreRule");
+    return __isa(o, "FastRestoreRule");
   }
 }
 
@@ -221,7 +224,7 @@ export interface GetLifecyclePoliciesRequest {
 
 export namespace GetLifecyclePoliciesRequest {
   export function isa(o: any): o is GetLifecyclePoliciesRequest {
-    return _smithy.isa(o, "GetLifecyclePoliciesRequest");
+    return __isa(o, "GetLifecyclePoliciesRequest");
   }
 }
 
@@ -235,7 +238,7 @@ export interface GetLifecyclePoliciesResponse extends $MetadataBearer {
 
 export namespace GetLifecyclePoliciesResponse {
   export function isa(o: any): o is GetLifecyclePoliciesResponse {
-    return _smithy.isa(o, "GetLifecyclePoliciesResponse");
+    return __isa(o, "GetLifecyclePoliciesResponse");
   }
 }
 
@@ -249,7 +252,7 @@ export interface GetLifecyclePolicyRequest {
 
 export namespace GetLifecyclePolicyRequest {
   export function isa(o: any): o is GetLifecyclePolicyRequest {
-    return _smithy.isa(o, "GetLifecyclePolicyRequest");
+    return __isa(o, "GetLifecyclePolicyRequest");
   }
 }
 
@@ -263,7 +266,7 @@ export interface GetLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace GetLifecyclePolicyResponse {
   export function isa(o: any): o is GetLifecyclePolicyResponse {
-    return _smithy.isa(o, "GetLifecyclePolicyResponse");
+    return __isa(o, "GetLifecyclePolicyResponse");
   }
 }
 
@@ -277,7 +280,7 @@ export enum GettablePolicyStateValues {
  * <p>The service failed in an unexpected way.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -287,7 +290,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -299,7 +302,7 @@ export enum IntervalUnitValues {
  * <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -318,7 +321,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -380,7 +383,7 @@ export interface LifecyclePolicy {
 
 export namespace LifecyclePolicy {
   export function isa(o: any): o is LifecyclePolicy {
-    return _smithy.isa(o, "LifecyclePolicy");
+    return __isa(o, "LifecyclePolicy");
   }
 }
 
@@ -412,7 +415,7 @@ export interface LifecyclePolicySummary {
 
 export namespace LifecyclePolicySummary {
   export function isa(o: any): o is LifecyclePolicySummary {
-    return _smithy.isa(o, "LifecyclePolicySummary");
+    return __isa(o, "LifecyclePolicySummary");
   }
 }
 
@@ -420,7 +423,7 @@ export namespace LifecyclePolicySummary {
  * <p>The request failed because a limit was exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -434,7 +437,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -448,7 +451,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -462,7 +465,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -479,7 +482,7 @@ export interface _Parameters {
 
 export namespace _Parameters {
   export function isa(o: any): o is _Parameters {
-    return _smithy.isa(o, "Parameters");
+    return __isa(o, "Parameters");
   }
 }
 
@@ -516,7 +519,7 @@ export interface PolicyDetails {
 
 export namespace PolicyDetails {
   export function isa(o: any): o is PolicyDetails {
-    return _smithy.isa(o, "PolicyDetails");
+    return __isa(o, "PolicyDetails");
   }
 }
 
@@ -528,7 +531,7 @@ export enum PolicyTypeValues {
  * <p>A requested resource was not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -547,7 +550,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -579,7 +582,7 @@ export interface RetainRule {
 
 export namespace RetainRule {
   export function isa(o: any): o is RetainRule {
-    return _smithy.isa(o, "RetainRule");
+    return __isa(o, "RetainRule");
   }
 }
 
@@ -638,7 +641,7 @@ export interface Schedule {
 
 export namespace Schedule {
   export function isa(o: any): o is Schedule {
-    return _smithy.isa(o, "Schedule");
+    return __isa(o, "Schedule");
   }
 }
 
@@ -665,7 +668,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -684,7 +687,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -694,7 +697,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -713,7 +716,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -723,7 +726,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -757,7 +760,7 @@ export interface UpdateLifecyclePolicyRequest {
 
 export namespace UpdateLifecyclePolicyRequest {
   export function isa(o: any): o is UpdateLifecyclePolicyRequest {
-    return _smithy.isa(o, "UpdateLifecyclePolicyRequest");
+    return __isa(o, "UpdateLifecyclePolicyRequest");
   }
 }
 
@@ -767,6 +770,6 @@ export interface UpdateLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace UpdateLifecyclePolicyResponse {
   export function isa(o: any): o is UpdateLifecyclePolicyResponse {
-    return _smithy.isa(o, "UpdateLifecyclePolicyResponse");
+    return __isa(o, "UpdateLifecyclePolicyResponse");
   }
 }

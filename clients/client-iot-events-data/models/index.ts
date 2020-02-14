@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An internal failure occured.</p>
  */
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -17,7 +20,7 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
@@ -25,7 +28,7 @@ export namespace InternalFailureException {
  * <p>The request was invalid.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -37,7 +40,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -45,7 +48,7 @@ export namespace InvalidRequestException {
  * <p>The resource was not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -57,7 +60,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -65,7 +68,7 @@ export namespace ResourceNotFoundException {
  * <p>The service is currently unavailable.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -77,7 +80,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -85,7 +88,7 @@ export namespace ServiceUnavailableException {
  * <p>The request could not be completed due to throttling.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -97,7 +100,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -125,7 +128,7 @@ export interface BatchPutMessageErrorEntry {
 
 export namespace BatchPutMessageErrorEntry {
   export function isa(o: any): o is BatchPutMessageErrorEntry {
-    return _smithy.isa(o, "BatchPutMessageErrorEntry");
+    return __isa(o, "BatchPutMessageErrorEntry");
   }
 }
 
@@ -141,7 +144,7 @@ export interface BatchPutMessageRequest {
 
 export namespace BatchPutMessageRequest {
   export function isa(o: any): o is BatchPutMessageRequest {
-    return _smithy.isa(o, "BatchPutMessageRequest");
+    return __isa(o, "BatchPutMessageRequest");
   }
 }
 
@@ -155,7 +158,7 @@ export interface BatchPutMessageResponse extends $MetadataBearer {
 
 export namespace BatchPutMessageResponse {
   export function isa(o: any): o is BatchPutMessageResponse {
-    return _smithy.isa(o, "BatchPutMessageResponse");
+    return __isa(o, "BatchPutMessageResponse");
   }
 }
 
@@ -183,7 +186,7 @@ export interface BatchUpdateDetectorErrorEntry {
 
 export namespace BatchUpdateDetectorErrorEntry {
   export function isa(o: any): o is BatchUpdateDetectorErrorEntry {
-    return _smithy.isa(o, "BatchUpdateDetectorErrorEntry");
+    return __isa(o, "BatchUpdateDetectorErrorEntry");
   }
 }
 
@@ -197,7 +200,7 @@ export interface BatchUpdateDetectorRequest {
 
 export namespace BatchUpdateDetectorRequest {
   export function isa(o: any): o is BatchUpdateDetectorRequest {
-    return _smithy.isa(o, "BatchUpdateDetectorRequest");
+    return __isa(o, "BatchUpdateDetectorRequest");
   }
 }
 
@@ -212,7 +215,7 @@ export interface BatchUpdateDetectorResponse extends $MetadataBearer {
 
 export namespace BatchUpdateDetectorResponse {
   export function isa(o: any): o is BatchUpdateDetectorResponse {
-    return _smithy.isa(o, "BatchUpdateDetectorResponse");
+    return __isa(o, "BatchUpdateDetectorResponse");
   }
 }
 
@@ -231,7 +234,7 @@ export interface DescribeDetectorRequest {
 
 export namespace DescribeDetectorRequest {
   export function isa(o: any): o is DescribeDetectorRequest {
-    return _smithy.isa(o, "DescribeDetectorRequest");
+    return __isa(o, "DescribeDetectorRequest");
   }
 }
 
@@ -245,7 +248,7 @@ export interface DescribeDetectorResponse extends $MetadataBearer {
 
 export namespace DescribeDetectorResponse {
   export function isa(o: any): o is DescribeDetectorResponse {
-    return _smithy.isa(o, "DescribeDetectorResponse");
+    return __isa(o, "DescribeDetectorResponse");
   }
 }
 
@@ -288,7 +291,7 @@ export interface Detector {
 
 export namespace Detector {
   export function isa(o: any): o is Detector {
-    return _smithy.isa(o, "Detector");
+    return __isa(o, "Detector");
   }
 }
 
@@ -315,7 +318,7 @@ export interface DetectorState {
 
 export namespace DetectorState {
   export function isa(o: any): o is DetectorState {
-    return _smithy.isa(o, "DetectorState");
+    return __isa(o, "DetectorState");
   }
 }
 
@@ -343,7 +346,7 @@ export interface DetectorStateDefinition {
 
 export namespace DetectorStateDefinition {
   export function isa(o: any): o is DetectorStateDefinition {
-    return _smithy.isa(o, "DetectorStateDefinition");
+    return __isa(o, "DetectorStateDefinition");
   }
 }
 
@@ -360,7 +363,7 @@ export interface DetectorStateSummary {
 
 export namespace DetectorStateSummary {
   export function isa(o: any): o is DetectorStateSummary {
-    return _smithy.isa(o, "DetectorStateSummary");
+    return __isa(o, "DetectorStateSummary");
   }
 }
 
@@ -403,7 +406,7 @@ export interface DetectorSummary {
 
 export namespace DetectorSummary {
   export function isa(o: any): o is DetectorSummary {
-    return _smithy.isa(o, "DetectorSummary");
+    return __isa(o, "DetectorSummary");
   }
 }
 
@@ -440,7 +443,7 @@ export interface ListDetectorsRequest {
 
 export namespace ListDetectorsRequest {
   export function isa(o: any): o is ListDetectorsRequest {
-    return _smithy.isa(o, "ListDetectorsRequest");
+    return __isa(o, "ListDetectorsRequest");
   }
 }
 
@@ -460,7 +463,7 @@ export interface ListDetectorsResponse extends $MetadataBearer {
 
 export namespace ListDetectorsResponse {
   export function isa(o: any): o is ListDetectorsResponse {
-    return _smithy.isa(o, "ListDetectorsResponse");
+    return __isa(o, "ListDetectorsResponse");
   }
 }
 
@@ -489,7 +492,7 @@ export interface Message {
 
 export namespace Message {
   export function isa(o: any): o is Message {
-    return _smithy.isa(o, "Message");
+    return __isa(o, "Message");
   }
 }
 
@@ -511,7 +514,7 @@ export interface Timer {
 
 export namespace Timer {
   export function isa(o: any): o is Timer {
-    return _smithy.isa(o, "Timer");
+    return __isa(o, "Timer");
   }
 }
 
@@ -533,7 +536,7 @@ export interface TimerDefinition {
 
 export namespace TimerDefinition {
   export function isa(o: any): o is TimerDefinition {
-    return _smithy.isa(o, "TimerDefinition");
+    return __isa(o, "TimerDefinition");
   }
 }
 
@@ -567,7 +570,7 @@ export interface UpdateDetectorRequest {
 
 export namespace UpdateDetectorRequest {
   export function isa(o: any): o is UpdateDetectorRequest {
-    return _smithy.isa(o, "UpdateDetectorRequest");
+    return __isa(o, "UpdateDetectorRequest");
   }
 }
 
@@ -589,7 +592,7 @@ export interface Variable {
 
 export namespace Variable {
   export function isa(o: any): o is Variable {
-    return _smithy.isa(o, "Variable");
+    return __isa(o, "Variable");
   }
 }
 
@@ -611,6 +614,6 @@ export interface VariableDefinition {
 
 export namespace VariableDefinition {
   export function isa(o: any): o is VariableDefinition {
-    return _smithy.isa(o, "VariableDefinition");
+    return __isa(o, "VariableDefinition");
   }
 }

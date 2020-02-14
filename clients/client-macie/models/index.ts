@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have required permissions to access the requested resource.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -18,7 +21,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -33,7 +36,7 @@ export interface AssociateMemberAccountRequest {
 
 export namespace AssociateMemberAccountRequest {
   export function isa(o: any): o is AssociateMemberAccountRequest {
-    return _smithy.isa(o, "AssociateMemberAccountRequest");
+    return __isa(o, "AssociateMemberAccountRequest");
   }
 }
 
@@ -54,7 +57,7 @@ export interface AssociateS3ResourcesRequest {
 
 export namespace AssociateS3ResourcesRequest {
   export function isa(o: any): o is AssociateS3ResourcesRequest {
-    return _smithy.isa(o, "AssociateS3ResourcesRequest");
+    return __isa(o, "AssociateS3ResourcesRequest");
   }
 }
 
@@ -69,7 +72,7 @@ export interface AssociateS3ResourcesResult extends $MetadataBearer {
 
 export namespace AssociateS3ResourcesResult {
   export function isa(o: any): o is AssociateS3ResourcesResult {
-    return _smithy.isa(o, "AssociateS3ResourcesResult");
+    return __isa(o, "AssociateS3ResourcesResult");
   }
 }
 
@@ -95,7 +98,7 @@ export interface ClassificationType {
 
 export namespace ClassificationType {
   export function isa(o: any): o is ClassificationType {
-    return _smithy.isa(o, "ClassificationType");
+    return __isa(o, "ClassificationType");
   }
 }
 
@@ -121,7 +124,7 @@ export interface ClassificationTypeUpdate {
 
 export namespace ClassificationTypeUpdate {
   export function isa(o: any): o is ClassificationTypeUpdate {
-    return _smithy.isa(o, "ClassificationTypeUpdate");
+    return __isa(o, "ClassificationTypeUpdate");
   }
 }
 
@@ -135,7 +138,7 @@ export interface DisassociateMemberAccountRequest {
 
 export namespace DisassociateMemberAccountRequest {
   export function isa(o: any): o is DisassociateMemberAccountRequest {
-    return _smithy.isa(o, "DisassociateMemberAccountRequest");
+    return __isa(o, "DisassociateMemberAccountRequest");
   }
 }
 
@@ -156,7 +159,7 @@ export interface DisassociateS3ResourcesRequest {
 
 export namespace DisassociateS3ResourcesRequest {
   export function isa(o: any): o is DisassociateS3ResourcesRequest {
-    return _smithy.isa(o, "DisassociateS3ResourcesRequest");
+    return __isa(o, "DisassociateS3ResourcesRequest");
   }
 }
 
@@ -171,7 +174,7 @@ export interface DisassociateS3ResourcesResult extends $MetadataBearer {
 
 export namespace DisassociateS3ResourcesResult {
   export function isa(o: any): o is DisassociateS3ResourcesResult {
-    return _smithy.isa(o, "DisassociateS3ResourcesResult");
+    return __isa(o, "DisassociateS3ResourcesResult");
   }
 }
 
@@ -198,16 +201,14 @@ export interface FailedS3Resource {
 
 export namespace FailedS3Resource {
   export function isa(o: any): o is FailedS3Resource {
-    return _smithy.isa(o, "FailedS3Resource");
+    return __isa(o, "FailedS3Resource");
   }
 }
 
 /**
  * <p>Internal server error.</p>
  */
-export interface InternalException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
   $fault: "server";
   /**
@@ -220,7 +221,7 @@ export interface InternalException
 
 export namespace InternalException {
   export function isa(o: any): o is InternalException {
-    return _smithy.isa(o, "InternalException");
+    return __isa(o, "InternalException");
   }
 }
 
@@ -229,7 +230,7 @@ export namespace InternalException {
  *       input parameter. </p>
  */
 export interface InvalidInputException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
@@ -248,7 +249,7 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
+    return __isa(o, "InvalidInputException");
   }
 }
 
@@ -257,7 +258,7 @@ export namespace InvalidInputException {
  *       AWS account limits. The error code describes the limit exceeded. </p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -275,7 +276,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -298,7 +299,7 @@ export interface ListMemberAccountsRequest {
 
 export namespace ListMemberAccountsRequest {
   export function isa(o: any): o is ListMemberAccountsRequest {
-    return _smithy.isa(o, "ListMemberAccountsRequest");
+    return __isa(o, "ListMemberAccountsRequest");
   }
 }
 
@@ -321,7 +322,7 @@ export interface ListMemberAccountsResult extends $MetadataBearer {
 
 export namespace ListMemberAccountsResult {
   export function isa(o: any): o is ListMemberAccountsResult {
-    return _smithy.isa(o, "ListMemberAccountsResult");
+    return __isa(o, "ListMemberAccountsResult");
   }
 }
 
@@ -349,7 +350,7 @@ export interface ListS3ResourcesRequest {
 
 export namespace ListS3ResourcesRequest {
   export function isa(o: any): o is ListS3ResourcesRequest {
-    return _smithy.isa(o, "ListS3ResourcesRequest");
+    return __isa(o, "ListS3ResourcesRequest");
   }
 }
 
@@ -371,7 +372,7 @@ export interface ListS3ResourcesResult extends $MetadataBearer {
 
 export namespace ListS3ResourcesResult {
   export function isa(o: any): o is ListS3ResourcesResult {
-    return _smithy.isa(o, "ListS3ResourcesResult");
+    return __isa(o, "ListS3ResourcesResult");
   }
 }
 
@@ -388,7 +389,7 @@ export interface MemberAccount {
 
 export namespace MemberAccount {
   export function isa(o: any): o is MemberAccount {
-    return _smithy.isa(o, "MemberAccount");
+    return __isa(o, "MemberAccount");
   }
 }
 
@@ -421,7 +422,7 @@ export interface S3Resource {
 
 export namespace S3Resource {
   export function isa(o: any): o is S3Resource {
-    return _smithy.isa(o, "S3Resource");
+    return __isa(o, "S3Resource");
   }
 }
 
@@ -451,7 +452,7 @@ export interface S3ResourceClassification {
 
 export namespace S3ResourceClassification {
   export function isa(o: any): o is S3ResourceClassification {
-    return _smithy.isa(o, "S3ResourceClassification");
+    return __isa(o, "S3ResourceClassification");
   }
 }
 
@@ -480,7 +481,7 @@ export interface S3ResourceClassificationUpdate {
 
 export namespace S3ResourceClassificationUpdate {
   export function isa(o: any): o is S3ResourceClassificationUpdate {
-    return _smithy.isa(o, "S3ResourceClassificationUpdate");
+    return __isa(o, "S3ResourceClassificationUpdate");
   }
 }
 
@@ -500,7 +501,7 @@ export interface UpdateS3ResourcesRequest {
 
 export namespace UpdateS3ResourcesRequest {
   export function isa(o: any): o is UpdateS3ResourcesRequest {
-    return _smithy.isa(o, "UpdateS3ResourcesRequest");
+    return __isa(o, "UpdateS3ResourcesRequest");
   }
 }
 
@@ -515,6 +516,6 @@ export interface UpdateS3ResourcesResult extends $MetadataBearer {
 
 export namespace UpdateS3ResourcesResult {
   export function isa(o: any): o is UpdateS3ResourcesResult {
-    return _smithy.isa(o, "UpdateS3ResourcesResult");
+    return __isa(o, "UpdateS3ResourcesResult");
   }
 }

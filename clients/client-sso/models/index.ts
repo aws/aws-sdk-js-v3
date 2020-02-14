@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -24,7 +27,7 @@ export interface AccountInfo {
 
 export namespace AccountInfo {
   export function isa(o: any): o is AccountInfo {
-    return _smithy.isa(o, "AccountInfo");
+    return __isa(o, "AccountInfo");
   }
 }
 
@@ -49,7 +52,7 @@ export interface GetRoleCredentialsRequest {
 
 export namespace GetRoleCredentialsRequest {
   export function isa(o: any): o is GetRoleCredentialsRequest {
-    return _smithy.isa(o, "GetRoleCredentialsRequest");
+    return __isa(o, "GetRoleCredentialsRequest");
   }
 }
 
@@ -63,7 +66,7 @@ export interface GetRoleCredentialsResponse extends $MetadataBearer {
 
 export namespace GetRoleCredentialsResponse {
   export function isa(o: any): o is GetRoleCredentialsResponse {
-    return _smithy.isa(o, "GetRoleCredentialsResponse");
+    return __isa(o, "GetRoleCredentialsResponse");
   }
 }
 
@@ -72,7 +75,7 @@ export namespace GetRoleCredentialsResponse {
  *       parameter might be missing or out of range.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -81,7 +84,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -111,7 +114,7 @@ export interface ListAccountRolesRequest {
 
 export namespace ListAccountRolesRequest {
   export function isa(o: any): o is ListAccountRolesRequest {
-    return _smithy.isa(o, "ListAccountRolesRequest");
+    return __isa(o, "ListAccountRolesRequest");
   }
 }
 
@@ -130,7 +133,7 @@ export interface ListAccountRolesResponse extends $MetadataBearer {
 
 export namespace ListAccountRolesResponse {
   export function isa(o: any): o is ListAccountRolesResponse {
-    return _smithy.isa(o, "ListAccountRolesResponse");
+    return __isa(o, "ListAccountRolesResponse");
   }
 }
 
@@ -155,7 +158,7 @@ export interface ListAccountsRequest {
 
 export namespace ListAccountsRequest {
   export function isa(o: any): o is ListAccountsRequest {
-    return _smithy.isa(o, "ListAccountsRequest");
+    return __isa(o, "ListAccountsRequest");
   }
 }
 
@@ -174,7 +177,7 @@ export interface ListAccountsResponse extends $MetadataBearer {
 
 export namespace ListAccountsResponse {
   export function isa(o: any): o is ListAccountsResponse {
-    return _smithy.isa(o, "ListAccountsResponse");
+    return __isa(o, "ListAccountsResponse");
   }
 }
 
@@ -189,7 +192,7 @@ export interface LogoutRequest {
 
 export namespace LogoutRequest {
   export function isa(o: any): o is LogoutRequest {
-    return _smithy.isa(o, "LogoutRequest");
+    return __isa(o, "LogoutRequest");
   }
 }
 
@@ -197,7 +200,7 @@ export namespace LogoutRequest {
  * <p>The specified resource doesn't exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -206,7 +209,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -242,7 +245,7 @@ export interface RoleCredentials {
 
 export namespace RoleCredentials {
   export function isa(o: any): o is RoleCredentials {
-    return _smithy.isa(o, "RoleCredentials");
+    return __isa(o, "RoleCredentials");
   }
 }
 
@@ -264,7 +267,7 @@ export interface RoleInfo {
 
 export namespace RoleInfo {
   export function isa(o: any): o is RoleInfo {
-    return _smithy.isa(o, "RoleInfo");
+    return __isa(o, "RoleInfo");
   }
 }
 
@@ -272,7 +275,7 @@ export namespace RoleInfo {
  * <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -281,7 +284,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -289,7 +292,7 @@ export namespace TooManyRequestsException {
  * <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
  */
 export interface UnauthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
@@ -298,6 +301,6 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
+    return __isa(o, "UnauthorizedException");
   }
 }

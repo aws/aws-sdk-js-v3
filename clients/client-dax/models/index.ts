@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Two or more incompatible parameters were specified.</p>
  */
 export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface InvalidParameterCombinationException
 
 export namespace InvalidParameterCombinationException {
   export function isa(o: any): o is InvalidParameterCombinationException {
-    return _smithy.isa(o, "InvalidParameterCombinationException");
+    return __isa(o, "InvalidParameterCombinationException");
   }
 }
 
@@ -22,7 +25,7 @@ export namespace InvalidParameterCombinationException {
  * <p>The value for a parameter is invalid.</p>
  */
 export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
@@ -31,7 +34,7 @@ export interface InvalidParameterValueException
 
 export namespace InvalidParameterValueException {
   export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
+    return __isa(o, "InvalidParameterValueException");
   }
 }
 
@@ -142,7 +145,7 @@ export interface Cluster {
 
 export namespace Cluster {
   export function isa(o: any): o is Cluster {
-    return _smithy.isa(o, "Cluster");
+    return __isa(o, "Cluster");
   }
 }
 
@@ -302,7 +305,7 @@ export interface CreateClusterRequest {
 
 export namespace CreateClusterRequest {
   export function isa(o: any): o is CreateClusterRequest {
-    return _smithy.isa(o, "CreateClusterRequest");
+    return __isa(o, "CreateClusterRequest");
   }
 }
 
@@ -316,7 +319,7 @@ export interface CreateClusterResponse extends $MetadataBearer {
 
 export namespace CreateClusterResponse {
   export function isa(o: any): o is CreateClusterResponse {
-    return _smithy.isa(o, "CreateClusterResponse");
+    return __isa(o, "CreateClusterResponse");
   }
 }
 
@@ -336,7 +339,7 @@ export interface CreateParameterGroupRequest {
 
 export namespace CreateParameterGroupRequest {
   export function isa(o: any): o is CreateParameterGroupRequest {
-    return _smithy.isa(o, "CreateParameterGroupRequest");
+    return __isa(o, "CreateParameterGroupRequest");
   }
 }
 
@@ -351,7 +354,7 @@ export interface CreateParameterGroupResponse extends $MetadataBearer {
 
 export namespace CreateParameterGroupResponse {
   export function isa(o: any): o is CreateParameterGroupResponse {
-    return _smithy.isa(o, "CreateParameterGroupResponse");
+    return __isa(o, "CreateParameterGroupResponse");
   }
 }
 
@@ -375,7 +378,7 @@ export interface CreateSubnetGroupRequest {
 
 export namespace CreateSubnetGroupRequest {
   export function isa(o: any): o is CreateSubnetGroupRequest {
-    return _smithy.isa(o, "CreateSubnetGroupRequest");
+    return __isa(o, "CreateSubnetGroupRequest");
   }
 }
 
@@ -390,7 +393,7 @@ export interface CreateSubnetGroupResponse extends $MetadataBearer {
 
 export namespace CreateSubnetGroupResponse {
   export function isa(o: any): o is CreateSubnetGroupResponse {
-    return _smithy.isa(o, "CreateSubnetGroupResponse");
+    return __isa(o, "CreateSubnetGroupResponse");
   }
 }
 
@@ -419,7 +422,7 @@ export interface DecreaseReplicationFactorRequest {
 
 export namespace DecreaseReplicationFactorRequest {
   export function isa(o: any): o is DecreaseReplicationFactorRequest {
-    return _smithy.isa(o, "DecreaseReplicationFactorRequest");
+    return __isa(o, "DecreaseReplicationFactorRequest");
   }
 }
 
@@ -434,7 +437,7 @@ export interface DecreaseReplicationFactorResponse extends $MetadataBearer {
 
 export namespace DecreaseReplicationFactorResponse {
   export function isa(o: any): o is DecreaseReplicationFactorResponse {
-    return _smithy.isa(o, "DecreaseReplicationFactorResponse");
+    return __isa(o, "DecreaseReplicationFactorResponse");
   }
 }
 
@@ -448,7 +451,7 @@ export interface DeleteClusterRequest {
 
 export namespace DeleteClusterRequest {
   export function isa(o: any): o is DeleteClusterRequest {
-    return _smithy.isa(o, "DeleteClusterRequest");
+    return __isa(o, "DeleteClusterRequest");
   }
 }
 
@@ -462,7 +465,7 @@ export interface DeleteClusterResponse extends $MetadataBearer {
 
 export namespace DeleteClusterResponse {
   export function isa(o: any): o is DeleteClusterResponse {
-    return _smithy.isa(o, "DeleteClusterResponse");
+    return __isa(o, "DeleteClusterResponse");
   }
 }
 
@@ -476,7 +479,7 @@ export interface DeleteParameterGroupRequest {
 
 export namespace DeleteParameterGroupRequest {
   export function isa(o: any): o is DeleteParameterGroupRequest {
-    return _smithy.isa(o, "DeleteParameterGroupRequest");
+    return __isa(o, "DeleteParameterGroupRequest");
   }
 }
 
@@ -491,7 +494,7 @@ export interface DeleteParameterGroupResponse extends $MetadataBearer {
 
 export namespace DeleteParameterGroupResponse {
   export function isa(o: any): o is DeleteParameterGroupResponse {
-    return _smithy.isa(o, "DeleteParameterGroupResponse");
+    return __isa(o, "DeleteParameterGroupResponse");
   }
 }
 
@@ -505,7 +508,7 @@ export interface DeleteSubnetGroupRequest {
 
 export namespace DeleteSubnetGroupRequest {
   export function isa(o: any): o is DeleteSubnetGroupRequest {
-    return _smithy.isa(o, "DeleteSubnetGroupRequest");
+    return __isa(o, "DeleteSubnetGroupRequest");
   }
 }
 
@@ -520,7 +523,7 @@ export interface DeleteSubnetGroupResponse extends $MetadataBearer {
 
 export namespace DeleteSubnetGroupResponse {
   export function isa(o: any): o is DeleteSubnetGroupResponse {
-    return _smithy.isa(o, "DeleteSubnetGroupResponse");
+    return __isa(o, "DeleteSubnetGroupResponse");
   }
 }
 
@@ -550,7 +553,7 @@ export interface DescribeClustersRequest {
 
 export namespace DescribeClustersRequest {
   export function isa(o: any): o is DescribeClustersRequest {
-    return _smithy.isa(o, "DescribeClustersRequest");
+    return __isa(o, "DescribeClustersRequest");
   }
 }
 
@@ -570,7 +573,7 @@ export interface DescribeClustersResponse extends $MetadataBearer {
 
 export namespace DescribeClustersResponse {
   export function isa(o: any): o is DescribeClustersResponse {
-    return _smithy.isa(o, "DescribeClustersResponse");
+    return __isa(o, "DescribeClustersResponse");
   }
 }
 
@@ -595,7 +598,7 @@ export interface DescribeDefaultParametersRequest {
 
 export namespace DescribeDefaultParametersRequest {
   export function isa(o: any): o is DescribeDefaultParametersRequest {
-    return _smithy.isa(o, "DescribeDefaultParametersRequest");
+    return __isa(o, "DescribeDefaultParametersRequest");
   }
 }
 
@@ -614,7 +617,7 @@ export interface DescribeDefaultParametersResponse extends $MetadataBearer {
 
 export namespace DescribeDefaultParametersResponse {
   export function isa(o: any): o is DescribeDefaultParametersResponse {
-    return _smithy.isa(o, "DescribeDefaultParametersResponse");
+    return __isa(o, "DescribeDefaultParametersResponse");
   }
 }
 
@@ -668,7 +671,7 @@ export interface DescribeEventsRequest {
 
 export namespace DescribeEventsRequest {
   export function isa(o: any): o is DescribeEventsRequest {
-    return _smithy.isa(o, "DescribeEventsRequest");
+    return __isa(o, "DescribeEventsRequest");
   }
 }
 
@@ -687,7 +690,7 @@ export interface DescribeEventsResponse extends $MetadataBearer {
 
 export namespace DescribeEventsResponse {
   export function isa(o: any): o is DescribeEventsResponse {
-    return _smithy.isa(o, "DescribeEventsResponse");
+    return __isa(o, "DescribeEventsResponse");
   }
 }
 
@@ -717,7 +720,7 @@ export interface DescribeParameterGroupsRequest {
 
 export namespace DescribeParameterGroupsRequest {
   export function isa(o: any): o is DescribeParameterGroupsRequest {
-    return _smithy.isa(o, "DescribeParameterGroupsRequest");
+    return __isa(o, "DescribeParameterGroupsRequest");
   }
 }
 
@@ -736,7 +739,7 @@ export interface DescribeParameterGroupsResponse extends $MetadataBearer {
 
 export namespace DescribeParameterGroupsResponse {
   export function isa(o: any): o is DescribeParameterGroupsResponse {
-    return _smithy.isa(o, "DescribeParameterGroupsResponse");
+    return __isa(o, "DescribeParameterGroupsResponse");
   }
 }
 
@@ -772,7 +775,7 @@ export interface DescribeParametersRequest {
 
 export namespace DescribeParametersRequest {
   export function isa(o: any): o is DescribeParametersRequest {
-    return _smithy.isa(o, "DescribeParametersRequest");
+    return __isa(o, "DescribeParametersRequest");
   }
 }
 
@@ -791,7 +794,7 @@ export interface DescribeParametersResponse extends $MetadataBearer {
 
 export namespace DescribeParametersResponse {
   export function isa(o: any): o is DescribeParametersResponse {
-    return _smithy.isa(o, "DescribeParametersResponse");
+    return __isa(o, "DescribeParametersResponse");
   }
 }
 
@@ -821,7 +824,7 @@ export interface DescribeSubnetGroupsRequest {
 
 export namespace DescribeSubnetGroupsRequest {
   export function isa(o: any): o is DescribeSubnetGroupsRequest {
-    return _smithy.isa(o, "DescribeSubnetGroupsRequest");
+    return __isa(o, "DescribeSubnetGroupsRequest");
   }
 }
 
@@ -840,7 +843,7 @@ export interface DescribeSubnetGroupsResponse extends $MetadataBearer {
 
 export namespace DescribeSubnetGroupsResponse {
   export function isa(o: any): o is DescribeSubnetGroupsResponse {
-    return _smithy.isa(o, "DescribeSubnetGroupsResponse");
+    return __isa(o, "DescribeSubnetGroupsResponse");
   }
 }
 
@@ -864,7 +867,7 @@ export interface Endpoint {
 
 export namespace Endpoint {
   export function isa(o: any): o is Endpoint {
-    return _smithy.isa(o, "Endpoint");
+    return __isa(o, "Endpoint");
   }
 }
 
@@ -900,7 +903,7 @@ export interface Event {
 
 export namespace Event {
   export function isa(o: any): o is Event {
-    return _smithy.isa(o, "Event");
+    return __isa(o, "Event");
   }
 }
 
@@ -926,7 +929,7 @@ export interface IncreaseReplicationFactorRequest {
 
 export namespace IncreaseReplicationFactorRequest {
   export function isa(o: any): o is IncreaseReplicationFactorRequest {
-    return _smithy.isa(o, "IncreaseReplicationFactorRequest");
+    return __isa(o, "IncreaseReplicationFactorRequest");
   }
 }
 
@@ -940,7 +943,7 @@ export interface IncreaseReplicationFactorResponse extends $MetadataBearer {
 
 export namespace IncreaseReplicationFactorResponse {
   export function isa(o: any): o is IncreaseReplicationFactorResponse {
-    return _smithy.isa(o, "IncreaseReplicationFactorResponse");
+    return __isa(o, "IncreaseReplicationFactorResponse");
   }
 }
 
@@ -963,7 +966,7 @@ export interface ListTagsRequest {
 
 export namespace ListTagsRequest {
   export function isa(o: any): o is ListTagsRequest {
-    return _smithy.isa(o, "ListTagsRequest");
+    return __isa(o, "ListTagsRequest");
   }
 }
 
@@ -983,7 +986,7 @@ export interface ListTagsResponse extends $MetadataBearer {
 
 export namespace ListTagsResponse {
   export function isa(o: any): o is ListTagsResponse {
-    return _smithy.isa(o, "ListTagsResponse");
+    return __isa(o, "ListTagsResponse");
   }
 }
 
@@ -1029,7 +1032,7 @@ export interface Node {
 
 export namespace Node {
   export function isa(o: any): o is Node {
-    return _smithy.isa(o, "Node");
+    return __isa(o, "Node");
   }
 }
 
@@ -1052,7 +1055,7 @@ export interface NodeTypeSpecificValue {
 
 export namespace NodeTypeSpecificValue {
   export function isa(o: any): o is NodeTypeSpecificValue {
-    return _smithy.isa(o, "NodeTypeSpecificValue");
+    return __isa(o, "NodeTypeSpecificValue");
   }
 }
 
@@ -1076,7 +1079,7 @@ export interface NotificationConfiguration {
 
 export namespace NotificationConfiguration {
   export function isa(o: any): o is NotificationConfiguration {
-    return _smithy.isa(o, "NotificationConfiguration");
+    return __isa(o, "NotificationConfiguration");
   }
 }
 
@@ -1143,7 +1146,7 @@ export interface Parameter {
 
 export namespace Parameter {
   export function isa(o: any): o is Parameter {
-    return _smithy.isa(o, "Parameter");
+    return __isa(o, "Parameter");
   }
 }
 
@@ -1166,7 +1169,7 @@ export interface ParameterGroup {
 
 export namespace ParameterGroup {
   export function isa(o: any): o is ParameterGroup {
-    return _smithy.isa(o, "ParameterGroup");
+    return __isa(o, "ParameterGroup");
   }
 }
 
@@ -1193,7 +1196,7 @@ export interface ParameterGroupStatus {
 
 export namespace ParameterGroupStatus {
   export function isa(o: any): o is ParameterGroupStatus {
-    return _smithy.isa(o, "ParameterGroupStatus");
+    return __isa(o, "ParameterGroupStatus");
   }
 }
 
@@ -1215,7 +1218,7 @@ export interface ParameterNameValue {
 
 export namespace ParameterNameValue {
   export function isa(o: any): o is ParameterNameValue {
-    return _smithy.isa(o, "ParameterNameValue");
+    return __isa(o, "ParameterNameValue");
   }
 }
 
@@ -1236,7 +1239,7 @@ export interface RebootNodeRequest {
 
 export namespace RebootNodeRequest {
   export function isa(o: any): o is RebootNodeRequest {
-    return _smithy.isa(o, "RebootNodeRequest");
+    return __isa(o, "RebootNodeRequest");
   }
 }
 
@@ -1250,7 +1253,7 @@ export interface RebootNodeResponse extends $MetadataBearer {
 
 export namespace RebootNodeResponse {
   export function isa(o: any): o is RebootNodeResponse {
-    return _smithy.isa(o, "RebootNodeResponse");
+    return __isa(o, "RebootNodeResponse");
   }
 }
 
@@ -1285,7 +1288,7 @@ export interface SSEDescription {
 
 export namespace SSEDescription {
   export function isa(o: any): o is SSEDescription {
-    return _smithy.isa(o, "SSEDescription");
+    return __isa(o, "SSEDescription");
   }
 }
 
@@ -1302,7 +1305,7 @@ export interface SSESpecification {
 
 export namespace SSESpecification {
   export function isa(o: any): o is SSESpecification {
-    return _smithy.isa(o, "SSESpecification");
+    return __isa(o, "SSESpecification");
   }
 }
 
@@ -1326,7 +1329,7 @@ export interface SecurityGroupMembership {
 
 export namespace SecurityGroupMembership {
   export function isa(o: any): o is SecurityGroupMembership {
-    return _smithy.isa(o, "SecurityGroupMembership");
+    return __isa(o, "SecurityGroupMembership");
   }
 }
 
@@ -1352,7 +1355,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export function isa(o: any): o is Subnet {
-    return _smithy.isa(o, "Subnet");
+    return __isa(o, "Subnet");
   }
 }
 
@@ -1396,7 +1399,7 @@ export interface SubnetGroup {
 
 export namespace SubnetGroup {
   export function isa(o: any): o is SubnetGroup {
-    return _smithy.isa(o, "SubnetGroup");
+    return __isa(o, "SubnetGroup");
   }
 }
 
@@ -1425,7 +1428,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1444,7 +1447,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1458,7 +1461,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1477,7 +1480,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1491,7 +1494,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1538,7 +1541,7 @@ export interface UpdateClusterRequest {
 
 export namespace UpdateClusterRequest {
   export function isa(o: any): o is UpdateClusterRequest {
-    return _smithy.isa(o, "UpdateClusterRequest");
+    return __isa(o, "UpdateClusterRequest");
   }
 }
 
@@ -1552,7 +1555,7 @@ export interface UpdateClusterResponse extends $MetadataBearer {
 
 export namespace UpdateClusterResponse {
   export function isa(o: any): o is UpdateClusterResponse {
-    return _smithy.isa(o, "UpdateClusterResponse");
+    return __isa(o, "UpdateClusterResponse");
   }
 }
 
@@ -1572,7 +1575,7 @@ export interface UpdateParameterGroupRequest {
 
 export namespace UpdateParameterGroupRequest {
   export function isa(o: any): o is UpdateParameterGroupRequest {
-    return _smithy.isa(o, "UpdateParameterGroupRequest");
+    return __isa(o, "UpdateParameterGroupRequest");
   }
 }
 
@@ -1586,7 +1589,7 @@ export interface UpdateParameterGroupResponse extends $MetadataBearer {
 
 export namespace UpdateParameterGroupResponse {
   export function isa(o: any): o is UpdateParameterGroupResponse {
-    return _smithy.isa(o, "UpdateParameterGroupResponse");
+    return __isa(o, "UpdateParameterGroupResponse");
   }
 }
 
@@ -1610,7 +1613,7 @@ export interface UpdateSubnetGroupRequest {
 
 export namespace UpdateSubnetGroupRequest {
   export function isa(o: any): o is UpdateSubnetGroupRequest {
-    return _smithy.isa(o, "UpdateSubnetGroupRequest");
+    return __isa(o, "UpdateSubnetGroupRequest");
   }
 }
 
@@ -1624,7 +1627,7 @@ export interface UpdateSubnetGroupResponse extends $MetadataBearer {
 
 export namespace UpdateSubnetGroupResponse {
   export function isa(o: any): o is UpdateSubnetGroupResponse {
-    return _smithy.isa(o, "UpdateSubnetGroupResponse");
+    return __isa(o, "UpdateSubnetGroupResponse");
   }
 }
 
@@ -1632,7 +1635,7 @@ export namespace UpdateSubnetGroupResponse {
  * <p>You already have a DAX cluster with the given identifier.</p>
  */
 export interface ClusterAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClusterAlreadyExistsFault";
   $fault: "client";
@@ -1641,7 +1644,7 @@ export interface ClusterAlreadyExistsFault
 
 export namespace ClusterAlreadyExistsFault {
   export function isa(o: any): o is ClusterAlreadyExistsFault {
-    return _smithy.isa(o, "ClusterAlreadyExistsFault");
+    return __isa(o, "ClusterAlreadyExistsFault");
   }
 }
 
@@ -1649,7 +1652,7 @@ export namespace ClusterAlreadyExistsFault {
  * <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
  */
 export interface ClusterNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClusterNotFoundFault";
   $fault: "client";
@@ -1658,7 +1661,7 @@ export interface ClusterNotFoundFault
 
 export namespace ClusterNotFoundFault {
   export function isa(o: any): o is ClusterNotFoundFault {
-    return _smithy.isa(o, "ClusterNotFoundFault");
+    return __isa(o, "ClusterNotFoundFault");
   }
 }
 
@@ -1667,7 +1670,7 @@ export namespace ClusterNotFoundFault {
  *             account.</p>
  */
 export interface ClusterQuotaForCustomerExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
@@ -1676,7 +1679,7 @@ export interface ClusterQuotaForCustomerExceededFault
 
 export namespace ClusterQuotaForCustomerExceededFault {
   export function isa(o: any): o is ClusterQuotaForCustomerExceededFault {
-    return _smithy.isa(o, "ClusterQuotaForCustomerExceededFault");
+    return __isa(o, "ClusterQuotaForCustomerExceededFault");
   }
 }
 
@@ -1685,7 +1688,7 @@ export namespace ClusterQuotaForCustomerExceededFault {
  *             resize an already-existing cluster). </p>
  */
 export interface InsufficientClusterCapacityFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientClusterCapacityFault";
   $fault: "client";
@@ -1694,16 +1697,14 @@ export interface InsufficientClusterCapacityFault
 
 export namespace InsufficientClusterCapacityFault {
   export function isa(o: any): o is InsufficientClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientClusterCapacityFault");
+    return __isa(o, "InsufficientClusterCapacityFault");
   }
 }
 
 /**
  * <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
  */
-export interface InvalidARNFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
   name: "InvalidARNFault";
   $fault: "client";
   message?: string;
@@ -1711,7 +1712,7 @@ export interface InvalidARNFault
 
 export namespace InvalidARNFault {
   export function isa(o: any): o is InvalidARNFault {
-    return _smithy.isa(o, "InvalidARNFault");
+    return __isa(o, "InvalidARNFault");
   }
 }
 
@@ -1720,7 +1721,7 @@ export namespace InvalidARNFault {
  *             state.</p>
  */
 export interface InvalidClusterStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidClusterStateFault";
   $fault: "client";
@@ -1729,7 +1730,7 @@ export interface InvalidClusterStateFault
 
 export namespace InvalidClusterStateFault {
   export function isa(o: any): o is InvalidClusterStateFault {
-    return _smithy.isa(o, "InvalidClusterStateFault");
+    return __isa(o, "InvalidClusterStateFault");
   }
 }
 
@@ -1737,7 +1738,7 @@ export namespace InvalidClusterStateFault {
  * <p>One or more parameters in a parameter group are in an invalid state.</p>
  */
 export interface InvalidParameterGroupStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterGroupStateFault";
   $fault: "client";
@@ -1746,16 +1747,14 @@ export interface InvalidParameterGroupStateFault
 
 export namespace InvalidParameterGroupStateFault {
   export function isa(o: any): o is InvalidParameterGroupStateFault {
-    return _smithy.isa(o, "InvalidParameterGroupStateFault");
+    return __isa(o, "InvalidParameterGroupStateFault");
   }
 }
 
 /**
  * <p>An invalid subnet identifier was specified.</p>
  */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnet";
   $fault: "client";
   message?: string;
@@ -1763,7 +1762,7 @@ export interface InvalidSubnet
 
 export namespace InvalidSubnet {
   export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
+    return __isa(o, "InvalidSubnet");
   }
 }
 
@@ -1771,7 +1770,7 @@ export namespace InvalidSubnet {
  * <p>The VPC network is in an invalid state.</p>
  */
 export interface InvalidVPCNetworkStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
@@ -1780,16 +1779,14 @@ export interface InvalidVPCNetworkStateFault
 
 export namespace InvalidVPCNetworkStateFault {
   export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
+    return __isa(o, "InvalidVPCNetworkStateFault");
   }
 }
 
 /**
  * <p>None of the nodes in the cluster have the given node ID.</p>
  */
-export interface NodeNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NodeNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "NodeNotFoundFault";
   $fault: "client";
   message?: string;
@@ -1797,7 +1794,7 @@ export interface NodeNotFoundFault
 
 export namespace NodeNotFoundFault {
   export function isa(o: any): o is NodeNotFoundFault {
-    return _smithy.isa(o, "NodeNotFoundFault");
+    return __isa(o, "NodeNotFoundFault");
   }
 }
 
@@ -1806,7 +1803,7 @@ export namespace NodeNotFoundFault {
  *             cluster.</p>
  */
 export interface NodeQuotaForClusterExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NodeQuotaForClusterExceededFault";
   $fault: "client";
@@ -1815,7 +1812,7 @@ export interface NodeQuotaForClusterExceededFault
 
 export namespace NodeQuotaForClusterExceededFault {
   export function isa(o: any): o is NodeQuotaForClusterExceededFault {
-    return _smithy.isa(o, "NodeQuotaForClusterExceededFault");
+    return __isa(o, "NodeQuotaForClusterExceededFault");
   }
 }
 
@@ -1824,7 +1821,7 @@ export namespace NodeQuotaForClusterExceededFault {
  *             account.</p>
  */
 export interface NodeQuotaForCustomerExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
@@ -1833,7 +1830,7 @@ export interface NodeQuotaForCustomerExceededFault
 
 export namespace NodeQuotaForCustomerExceededFault {
   export function isa(o: any): o is NodeQuotaForCustomerExceededFault {
-    return _smithy.isa(o, "NodeQuotaForCustomerExceededFault");
+    return __isa(o, "NodeQuotaForCustomerExceededFault");
   }
 }
 
@@ -1841,7 +1838,7 @@ export namespace NodeQuotaForCustomerExceededFault {
  * <p>The specified parameter group already exists.</p>
  */
 export interface ParameterGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ParameterGroupAlreadyExistsFault";
   $fault: "client";
@@ -1850,7 +1847,7 @@ export interface ParameterGroupAlreadyExistsFault
 
 export namespace ParameterGroupAlreadyExistsFault {
   export function isa(o: any): o is ParameterGroupAlreadyExistsFault {
-    return _smithy.isa(o, "ParameterGroupAlreadyExistsFault");
+    return __isa(o, "ParameterGroupAlreadyExistsFault");
   }
 }
 
@@ -1858,7 +1855,7 @@ export namespace ParameterGroupAlreadyExistsFault {
  * <p>The specified parameter group does not exist.</p>
  */
 export interface ParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ParameterGroupNotFoundFault";
   $fault: "client";
@@ -1867,7 +1864,7 @@ export interface ParameterGroupNotFoundFault
 
 export namespace ParameterGroupNotFoundFault {
   export function isa(o: any): o is ParameterGroupNotFoundFault {
-    return _smithy.isa(o, "ParameterGroupNotFoundFault");
+    return __isa(o, "ParameterGroupNotFoundFault");
   }
 }
 
@@ -1875,7 +1872,7 @@ export namespace ParameterGroupNotFoundFault {
  * <p>You have attempted to exceed the maximum number of parameter groups.</p>
  */
 export interface ParameterGroupQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ParameterGroupQuotaExceededFault";
   $fault: "client";
@@ -1884,7 +1881,7 @@ export interface ParameterGroupQuotaExceededFault
 
 export namespace ParameterGroupQuotaExceededFault {
   export function isa(o: any): o is ParameterGroupQuotaExceededFault {
-    return _smithy.isa(o, "ParameterGroupQuotaExceededFault");
+    return __isa(o, "ParameterGroupQuotaExceededFault");
   }
 }
 
@@ -1892,7 +1889,7 @@ export namespace ParameterGroupQuotaExceededFault {
  * <p>The specified service linked role (SLR) was not found.</p>
  */
 export interface ServiceLinkedRoleNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceLinkedRoleNotFoundFault";
   $fault: "client";
@@ -1901,7 +1898,7 @@ export interface ServiceLinkedRoleNotFoundFault
 
 export namespace ServiceLinkedRoleNotFoundFault {
   export function isa(o: any): o is ServiceLinkedRoleNotFoundFault {
-    return _smithy.isa(o, "ServiceLinkedRoleNotFoundFault");
+    return __isa(o, "ServiceLinkedRoleNotFoundFault");
   }
 }
 
@@ -1909,7 +1906,7 @@ export namespace ServiceLinkedRoleNotFoundFault {
  * <p>The specified subnet group already exists.</p>
  */
 export interface SubnetGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubnetGroupAlreadyExistsFault";
   $fault: "client";
@@ -1918,7 +1915,7 @@ export interface SubnetGroupAlreadyExistsFault
 
 export namespace SubnetGroupAlreadyExistsFault {
   export function isa(o: any): o is SubnetGroupAlreadyExistsFault {
-    return _smithy.isa(o, "SubnetGroupAlreadyExistsFault");
+    return __isa(o, "SubnetGroupAlreadyExistsFault");
   }
 }
 
@@ -1926,7 +1923,7 @@ export namespace SubnetGroupAlreadyExistsFault {
  * <p>The specified subnet group is currently in use.</p>
  */
 export interface SubnetGroupInUseFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubnetGroupInUseFault";
   $fault: "client";
@@ -1935,7 +1932,7 @@ export interface SubnetGroupInUseFault
 
 export namespace SubnetGroupInUseFault {
   export function isa(o: any): o is SubnetGroupInUseFault {
-    return _smithy.isa(o, "SubnetGroupInUseFault");
+    return __isa(o, "SubnetGroupInUseFault");
   }
 }
 
@@ -1944,7 +1941,7 @@ export namespace SubnetGroupInUseFault {
  *             group.</p>
  */
 export interface SubnetGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubnetGroupNotFoundFault";
   $fault: "client";
@@ -1953,7 +1950,7 @@ export interface SubnetGroupNotFoundFault
 
 export namespace SubnetGroupNotFoundFault {
   export function isa(o: any): o is SubnetGroupNotFoundFault {
-    return _smithy.isa(o, "SubnetGroupNotFoundFault");
+    return __isa(o, "SubnetGroupNotFoundFault");
   }
 }
 
@@ -1962,7 +1959,7 @@ export namespace SubnetGroupNotFoundFault {
  *             subnets in a subnet group.</p>
  */
 export interface SubnetGroupQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubnetGroupQuotaExceededFault";
   $fault: "client";
@@ -1971,14 +1968,14 @@ export interface SubnetGroupQuotaExceededFault
 
 export namespace SubnetGroupQuotaExceededFault {
   export function isa(o: any): o is SubnetGroupQuotaExceededFault {
-    return _smithy.isa(o, "SubnetGroupQuotaExceededFault");
+    return __isa(o, "SubnetGroupQuotaExceededFault");
   }
 }
 
 /**
  * <p>The requested subnet is being used by another subnet group.</p>
  */
-export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetInUse extends __SmithyException, $MetadataBearer {
   name: "SubnetInUse";
   $fault: "client";
   message?: string;
@@ -1986,7 +1983,7 @@ export interface SubnetInUse extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace SubnetInUse {
   export function isa(o: any): o is SubnetInUse {
-    return _smithy.isa(o, "SubnetInUse");
+    return __isa(o, "SubnetInUse");
   }
 }
 
@@ -1995,7 +1992,7 @@ export namespace SubnetInUse {
  *             subnets in a subnet group.</p>
  */
 export interface SubnetQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubnetQuotaExceededFault";
   $fault: "client";
@@ -2004,16 +2001,14 @@ export interface SubnetQuotaExceededFault
 
 export namespace SubnetQuotaExceededFault {
   export function isa(o: any): o is SubnetQuotaExceededFault {
-    return _smithy.isa(o, "SubnetQuotaExceededFault");
+    return __isa(o, "SubnetQuotaExceededFault");
   }
 }
 
 /**
  * <p>The tag does not exist.</p>
  */
-export interface TagNotFoundFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "TagNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2021,7 +2016,7 @@ export interface TagNotFoundFault
 
 export namespace TagNotFoundFault {
   export function isa(o: any): o is TagNotFoundFault {
-    return _smithy.isa(o, "TagNotFoundFault");
+    return __isa(o, "TagNotFoundFault");
   }
 }
 
@@ -2029,7 +2024,7 @@ export namespace TagNotFoundFault {
  * <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
  */
 export interface TagQuotaPerResourceExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TagQuotaPerResourceExceeded";
   $fault: "client";
@@ -2038,6 +2033,6 @@ export interface TagQuotaPerResourceExceeded
 
 export namespace TagQuotaPerResourceExceeded {
   export function isa(o: any): o is TagQuotaPerResourceExceeded {
-    return _smithy.isa(o, "TagQuotaPerResourceExceeded");
+    return __isa(o, "TagQuotaPerResourceExceeded");
   }
 }

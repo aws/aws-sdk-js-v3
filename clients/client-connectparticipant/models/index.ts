@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -33,7 +36,7 @@ export interface CreateParticipantConnectionRequest {
 
 export namespace CreateParticipantConnectionRequest {
   export function isa(o: any): o is CreateParticipantConnectionRequest {
-    return _smithy.isa(o, "CreateParticipantConnectionRequest");
+    return __isa(o, "CreateParticipantConnectionRequest");
   }
 }
 
@@ -53,7 +56,7 @@ export interface CreateParticipantConnectionResponse extends $MetadataBearer {
 
 export namespace CreateParticipantConnectionResponse {
   export function isa(o: any): o is CreateParticipantConnectionResponse {
-    return _smithy.isa(o, "CreateParticipantConnectionResponse");
+    return __isa(o, "CreateParticipantConnectionResponse");
   }
 }
 
@@ -73,7 +76,7 @@ export interface DisconnectParticipantRequest {
 
 export namespace DisconnectParticipantRequest {
   export function isa(o: any): o is DisconnectParticipantRequest {
-    return _smithy.isa(o, "DisconnectParticipantRequest");
+    return __isa(o, "DisconnectParticipantRequest");
   }
 }
 
@@ -83,7 +86,7 @@ export interface DisconnectParticipantResponse extends $MetadataBearer {
 
 export namespace DisconnectParticipantResponse {
   export function isa(o: any): o is DisconnectParticipantResponse {
-    return _smithy.isa(o, "DisconnectParticipantResponse");
+    return __isa(o, "DisconnectParticipantResponse");
   }
 }
 
@@ -129,7 +132,7 @@ export interface GetTranscriptRequest {
 
 export namespace GetTranscriptRequest {
   export function isa(o: any): o is GetTranscriptRequest {
-    return _smithy.isa(o, "GetTranscriptRequest");
+    return __isa(o, "GetTranscriptRequest");
   }
 }
 
@@ -154,7 +157,7 @@ export interface GetTranscriptResponse extends $MetadataBearer {
 
 export namespace GetTranscriptResponse {
   export function isa(o: any): o is GetTranscriptResponse {
-    return _smithy.isa(o, "GetTranscriptResponse");
+    return __isa(o, "GetTranscriptResponse");
   }
 }
 
@@ -162,7 +165,7 @@ export namespace GetTranscriptResponse {
  * <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -171,7 +174,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -211,7 +214,7 @@ export interface SendEventRequest {
 
 export namespace SendEventRequest {
   export function isa(o: any): o is SendEventRequest {
-    return _smithy.isa(o, "SendEventRequest");
+    return __isa(o, "SendEventRequest");
   }
 }
 
@@ -232,7 +235,7 @@ export interface SendEventResponse extends $MetadataBearer {
 
 export namespace SendEventResponse {
   export function isa(o: any): o is SendEventResponse {
-    return _smithy.isa(o, "SendEventResponse");
+    return __isa(o, "SendEventResponse");
   }
 }
 
@@ -262,7 +265,7 @@ export interface SendMessageRequest {
 
 export namespace SendMessageRequest {
   export function isa(o: any): o is SendMessageRequest {
-    return _smithy.isa(o, "SendMessageRequest");
+    return __isa(o, "SendMessageRequest");
   }
 }
 
@@ -283,7 +286,7 @@ export interface SendMessageResponse extends $MetadataBearer {
 
 export namespace SendMessageResponse {
   export function isa(o: any): o is SendMessageResponse {
-    return _smithy.isa(o, "SendMessageResponse");
+    return __isa(o, "SendMessageResponse");
   }
 }
 
@@ -291,7 +294,7 @@ export namespace SendMessageResponse {
  * <p>The request was denied due to request throttling.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -300,7 +303,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -308,7 +311,7 @@ export namespace ThrottlingException {
  * <p>The input fails to satisfy the constraints specified by Amazon Connect.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -317,7 +320,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }
 
@@ -377,7 +380,7 @@ export interface Item {
 
 export namespace Item {
   export function isa(o: any): o is Item {
-    return _smithy.isa(o, "Item");
+    return __isa(o, "Item");
   }
 }
 
@@ -417,7 +420,7 @@ export interface StartPosition {
 
 export namespace StartPosition {
   export function isa(o: any): o is StartPosition {
-    return _smithy.isa(o, "StartPosition");
+    return __isa(o, "StartPosition");
   }
 }
 
@@ -441,7 +444,7 @@ export interface ConnectionCredentials {
 
 export namespace ConnectionCredentials {
   export function isa(o: any): o is ConnectionCredentials {
-    return _smithy.isa(o, "ConnectionCredentials");
+    return __isa(o, "ConnectionCredentials");
   }
 }
 
@@ -476,6 +479,6 @@ export interface Websocket {
 
 export namespace Websocket {
   export function isa(o: any): o is Websocket {
-    return _smithy.isa(o, "Websocket");
+    return __isa(o, "Websocket");
   }
 }

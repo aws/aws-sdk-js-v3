@@ -693,6 +693,7 @@ export async function deserializeAws_restJson1_1CancelJobCommand(
     $metadata: deserializeMetadata(output),
     __type: "CancelJobResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -891,6 +892,7 @@ export async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteComputeEnvironmentResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -949,6 +951,7 @@ export async function deserializeAws_restJson1_1DeleteJobQueueCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteJobQueueResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1007,6 +1010,7 @@ export async function deserializeAws_restJson1_1DeregisterJobDefinitionCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeregisterJobDefinitionResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1537,6 +1541,7 @@ export async function deserializeAws_restJson1_1TerminateJobCommand(
     $metadata: deserializeMetadata(output),
     __type: "TerminateJobResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

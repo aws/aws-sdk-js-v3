@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddApplicationCloudWatchLoggingOptionRequest {
@@ -25,7 +28,7 @@ export namespace AddApplicationCloudWatchLoggingOptionRequest {
   export function isa(
     o: any
   ): o is AddApplicationCloudWatchLoggingOptionRequest {
-    return _smithy.isa(o, "AddApplicationCloudWatchLoggingOptionRequest");
+    return __isa(o, "AddApplicationCloudWatchLoggingOptionRequest");
   }
 }
 
@@ -38,7 +41,7 @@ export namespace AddApplicationCloudWatchLoggingOptionResponse {
   export function isa(
     o: any
   ): o is AddApplicationCloudWatchLoggingOptionResponse {
-    return _smithy.isa(o, "AddApplicationCloudWatchLoggingOptionResponse");
+    return __isa(o, "AddApplicationCloudWatchLoggingOptionResponse");
   }
 }
 
@@ -72,7 +75,7 @@ export namespace AddApplicationInputProcessingConfigurationRequest {
   export function isa(
     o: any
   ): o is AddApplicationInputProcessingConfigurationRequest {
-    return _smithy.isa(o, "AddApplicationInputProcessingConfigurationRequest");
+    return __isa(o, "AddApplicationInputProcessingConfigurationRequest");
   }
 }
 
@@ -85,7 +88,7 @@ export namespace AddApplicationInputProcessingConfigurationResponse {
   export function isa(
     o: any
   ): o is AddApplicationInputProcessingConfigurationResponse {
-    return _smithy.isa(o, "AddApplicationInputProcessingConfigurationResponse");
+    return __isa(o, "AddApplicationInputProcessingConfigurationResponse");
   }
 }
 
@@ -113,7 +116,7 @@ export interface AddApplicationInputRequest {
 
 export namespace AddApplicationInputRequest {
   export function isa(o: any): o is AddApplicationInputRequest {
-    return _smithy.isa(o, "AddApplicationInputRequest");
+    return __isa(o, "AddApplicationInputRequest");
   }
 }
 
@@ -126,7 +129,7 @@ export interface AddApplicationInputResponse extends $MetadataBearer {
 
 export namespace AddApplicationInputResponse {
   export function isa(o: any): o is AddApplicationInputResponse {
-    return _smithy.isa(o, "AddApplicationInputResponse");
+    return __isa(o, "AddApplicationInputResponse");
   }
 }
 
@@ -159,7 +162,7 @@ export interface AddApplicationOutputRequest {
 
 export namespace AddApplicationOutputRequest {
   export function isa(o: any): o is AddApplicationOutputRequest {
-    return _smithy.isa(o, "AddApplicationOutputRequest");
+    return __isa(o, "AddApplicationOutputRequest");
   }
 }
 
@@ -172,7 +175,7 @@ export interface AddApplicationOutputResponse extends $MetadataBearer {
 
 export namespace AddApplicationOutputResponse {
   export function isa(o: any): o is AddApplicationOutputResponse {
-    return _smithy.isa(o, "AddApplicationOutputResponse");
+    return __isa(o, "AddApplicationOutputResponse");
   }
 }
 
@@ -202,7 +205,7 @@ export interface AddApplicationReferenceDataSourceRequest {
 
 export namespace AddApplicationReferenceDataSourceRequest {
   export function isa(o: any): o is AddApplicationReferenceDataSourceRequest {
-    return _smithy.isa(o, "AddApplicationReferenceDataSourceRequest");
+    return __isa(o, "AddApplicationReferenceDataSourceRequest");
   }
 }
 
@@ -216,7 +219,7 @@ export interface AddApplicationReferenceDataSourceResponse
 
 export namespace AddApplicationReferenceDataSourceResponse {
   export function isa(o: any): o is AddApplicationReferenceDataSourceResponse {
-    return _smithy.isa(o, "AddApplicationReferenceDataSourceResponse");
+    return __isa(o, "AddApplicationReferenceDataSourceResponse");
   }
 }
 
@@ -309,7 +312,7 @@ export interface ApplicationDetail {
 
 export namespace ApplicationDetail {
   export function isa(o: any): o is ApplicationDetail {
-    return _smithy.isa(o, "ApplicationDetail");
+    return __isa(o, "ApplicationDetail");
   }
 }
 
@@ -348,7 +351,7 @@ export interface ApplicationSummary {
 
 export namespace ApplicationSummary {
   export function isa(o: any): o is ApplicationSummary {
-    return _smithy.isa(o, "ApplicationSummary");
+    return __isa(o, "ApplicationSummary");
   }
 }
 
@@ -385,7 +388,7 @@ export interface ApplicationUpdate {
 
 export namespace ApplicationUpdate {
   export function isa(o: any): o is ApplicationUpdate {
-    return _smithy.isa(o, "ApplicationUpdate");
+    return __isa(o, "ApplicationUpdate");
   }
 }
 
@@ -417,7 +420,7 @@ export interface CSVMappingParameters {
 
 export namespace CSVMappingParameters {
   export function isa(o: any): o is CSVMappingParameters {
-    return _smithy.isa(o, "CSVMappingParameters");
+    return __isa(o, "CSVMappingParameters");
   }
 }
 
@@ -442,7 +445,7 @@ export interface CloudWatchLoggingOption {
 
 export namespace CloudWatchLoggingOption {
   export function isa(o: any): o is CloudWatchLoggingOption {
-    return _smithy.isa(o, "CloudWatchLoggingOption");
+    return __isa(o, "CloudWatchLoggingOption");
   }
 }
 
@@ -469,7 +472,7 @@ export interface CloudWatchLoggingOptionDescription {
 
 export namespace CloudWatchLoggingOptionDescription {
   export function isa(o: any): o is CloudWatchLoggingOptionDescription {
-    return _smithy.isa(o, "CloudWatchLoggingOptionDescription");
+    return __isa(o, "CloudWatchLoggingOptionDescription");
   }
 }
 
@@ -496,7 +499,7 @@ export interface CloudWatchLoggingOptionUpdate {
 
 export namespace CloudWatchLoggingOptionUpdate {
   export function isa(o: any): o is CloudWatchLoggingOptionUpdate {
-    return _smithy.isa(o, "CloudWatchLoggingOptionUpdate");
+    return __isa(o, "CloudWatchLoggingOptionUpdate");
   }
 }
 
@@ -504,7 +507,7 @@ export namespace CloudWatchLoggingOptionUpdate {
  * <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
  */
 export interface CodeValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CodeValidationException";
   $fault: "client";
@@ -516,7 +519,7 @@ export interface CodeValidationException
 
 export namespace CodeValidationException {
   export function isa(o: any): o is CodeValidationException {
-    return _smithy.isa(o, "CodeValidationException");
+    return __isa(o, "CodeValidationException");
   }
 }
 
@@ -524,7 +527,7 @@ export namespace CodeValidationException {
  * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
  */
 export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
@@ -536,7 +539,7 @@ export interface ConcurrentModificationException
 
 export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
+    return __isa(o, "ConcurrentModificationException");
   }
 }
 
@@ -614,7 +617,7 @@ export interface CreateApplicationRequest {
 
 export namespace CreateApplicationRequest {
   export function isa(o: any): o is CreateApplicationRequest {
-    return _smithy.isa(o, "CreateApplicationRequest");
+    return __isa(o, "CreateApplicationRequest");
   }
 }
 
@@ -633,7 +636,7 @@ export interface CreateApplicationResponse extends $MetadataBearer {
 
 export namespace CreateApplicationResponse {
   export function isa(o: any): o is CreateApplicationResponse {
-    return _smithy.isa(o, "CreateApplicationResponse");
+    return __isa(o, "CreateApplicationResponse");
   }
 }
 
@@ -660,7 +663,7 @@ export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
   export function isa(
     o: any
   ): o is DeleteApplicationCloudWatchLoggingOptionRequest {
-    return _smithy.isa(o, "DeleteApplicationCloudWatchLoggingOptionRequest");
+    return __isa(o, "DeleteApplicationCloudWatchLoggingOptionRequest");
   }
 }
 
@@ -673,7 +676,7 @@ export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
   export function isa(
     o: any
   ): o is DeleteApplicationCloudWatchLoggingOptionResponse {
-    return _smithy.isa(o, "DeleteApplicationCloudWatchLoggingOptionResponse");
+    return __isa(o, "DeleteApplicationCloudWatchLoggingOptionResponse");
   }
 }
 
@@ -700,10 +703,7 @@ export namespace DeleteApplicationInputProcessingConfigurationRequest {
   export function isa(
     o: any
   ): o is DeleteApplicationInputProcessingConfigurationRequest {
-    return _smithy.isa(
-      o,
-      "DeleteApplicationInputProcessingConfigurationRequest"
-    );
+    return __isa(o, "DeleteApplicationInputProcessingConfigurationRequest");
   }
 }
 
@@ -716,10 +716,7 @@ export namespace DeleteApplicationInputProcessingConfigurationResponse {
   export function isa(
     o: any
   ): o is DeleteApplicationInputProcessingConfigurationResponse {
-    return _smithy.isa(
-      o,
-      "DeleteApplicationInputProcessingConfigurationResponse"
-    );
+    return __isa(o, "DeleteApplicationInputProcessingConfigurationResponse");
   }
 }
 
@@ -757,7 +754,7 @@ export interface DeleteApplicationOutputRequest {
 
 export namespace DeleteApplicationOutputRequest {
   export function isa(o: any): o is DeleteApplicationOutputRequest {
-    return _smithy.isa(o, "DeleteApplicationOutputRequest");
+    return __isa(o, "DeleteApplicationOutputRequest");
   }
 }
 
@@ -770,7 +767,7 @@ export interface DeleteApplicationOutputResponse extends $MetadataBearer {
 
 export namespace DeleteApplicationOutputResponse {
   export function isa(o: any): o is DeleteApplicationOutputResponse {
-    return _smithy.isa(o, "DeleteApplicationOutputResponse");
+    return __isa(o, "DeleteApplicationOutputResponse");
   }
 }
 
@@ -803,7 +800,7 @@ export namespace DeleteApplicationReferenceDataSourceRequest {
   export function isa(
     o: any
   ): o is DeleteApplicationReferenceDataSourceRequest {
-    return _smithy.isa(o, "DeleteApplicationReferenceDataSourceRequest");
+    return __isa(o, "DeleteApplicationReferenceDataSourceRequest");
   }
 }
 
@@ -816,7 +813,7 @@ export namespace DeleteApplicationReferenceDataSourceResponse {
   export function isa(
     o: any
   ): o is DeleteApplicationReferenceDataSourceResponse {
-    return _smithy.isa(o, "DeleteApplicationReferenceDataSourceResponse");
+    return __isa(o, "DeleteApplicationReferenceDataSourceResponse");
   }
 }
 
@@ -840,7 +837,7 @@ export interface DeleteApplicationRequest {
 
 export namespace DeleteApplicationRequest {
   export function isa(o: any): o is DeleteApplicationRequest {
-    return _smithy.isa(o, "DeleteApplicationRequest");
+    return __isa(o, "DeleteApplicationRequest");
   }
 }
 
@@ -853,7 +850,7 @@ export interface DeleteApplicationResponse extends $MetadataBearer {
 
 export namespace DeleteApplicationResponse {
   export function isa(o: any): o is DeleteApplicationResponse {
-    return _smithy.isa(o, "DeleteApplicationResponse");
+    return __isa(o, "DeleteApplicationResponse");
   }
 }
 
@@ -870,7 +867,7 @@ export interface DescribeApplicationRequest {
 
 export namespace DescribeApplicationRequest {
   export function isa(o: any): o is DescribeApplicationRequest {
-    return _smithy.isa(o, "DescribeApplicationRequest");
+    return __isa(o, "DescribeApplicationRequest");
   }
 }
 
@@ -887,7 +884,7 @@ export interface DescribeApplicationResponse extends $MetadataBearer {
 
 export namespace DescribeApplicationResponse {
   export function isa(o: any): o is DescribeApplicationResponse {
-    return _smithy.isa(o, "DescribeApplicationResponse");
+    return __isa(o, "DescribeApplicationResponse");
   }
 }
 
@@ -909,7 +906,7 @@ export interface DestinationSchema {
 
 export namespace DestinationSchema {
   export function isa(o: any): o is DestinationSchema {
-    return _smithy.isa(o, "DestinationSchema");
+    return __isa(o, "DestinationSchema");
   }
 }
 
@@ -944,7 +941,7 @@ export interface DiscoverInputSchemaRequest {
 
 export namespace DiscoverInputSchemaRequest {
   export function isa(o: any): o is DiscoverInputSchemaRequest {
-    return _smithy.isa(o, "DiscoverInputSchemaRequest");
+    return __isa(o, "DiscoverInputSchemaRequest");
   }
 }
 
@@ -976,7 +973,7 @@ export interface DiscoverInputSchemaResponse extends $MetadataBearer {
 
 export namespace DiscoverInputSchemaResponse {
   export function isa(o: any): o is DiscoverInputSchemaResponse {
-    return _smithy.isa(o, "DiscoverInputSchemaResponse");
+    return __isa(o, "DiscoverInputSchemaResponse");
   }
 }
 
@@ -1036,7 +1033,7 @@ export interface Input {
 
 export namespace Input {
   export function isa(o: any): o is Input {
-    return _smithy.isa(o, "Input");
+    return __isa(o, "Input");
   }
 }
 
@@ -1064,7 +1061,7 @@ export interface InputConfiguration {
 
 export namespace InputConfiguration {
   export function isa(o: any): o is InputConfiguration {
-    return _smithy.isa(o, "InputConfiguration");
+    return __isa(o, "InputConfiguration");
   }
 }
 
@@ -1133,7 +1130,7 @@ export interface InputDescription {
 
 export namespace InputDescription {
   export function isa(o: any): o is InputDescription {
-    return _smithy.isa(o, "InputDescription");
+    return __isa(o, "InputDescription");
   }
 }
 
@@ -1162,7 +1159,7 @@ export interface InputLambdaProcessor {
 
 export namespace InputLambdaProcessor {
   export function isa(o: any): o is InputLambdaProcessor {
-    return _smithy.isa(o, "InputLambdaProcessor");
+    return __isa(o, "InputLambdaProcessor");
   }
 }
 
@@ -1186,7 +1183,7 @@ export interface InputLambdaProcessorDescription {
 
 export namespace InputLambdaProcessorDescription {
   export function isa(o: any): o is InputLambdaProcessorDescription {
-    return _smithy.isa(o, "InputLambdaProcessorDescription");
+    return __isa(o, "InputLambdaProcessorDescription");
   }
 }
 
@@ -1214,7 +1211,7 @@ export interface InputLambdaProcessorUpdate {
 
 export namespace InputLambdaProcessorUpdate {
   export function isa(o: any): o is InputLambdaProcessorUpdate {
-    return _smithy.isa(o, "InputLambdaProcessorUpdate");
+    return __isa(o, "InputLambdaProcessorUpdate");
   }
 }
 
@@ -1236,7 +1233,7 @@ export interface InputParallelism {
 
 export namespace InputParallelism {
   export function isa(o: any): o is InputParallelism {
-    return _smithy.isa(o, "InputParallelism");
+    return __isa(o, "InputParallelism");
   }
 }
 
@@ -1254,7 +1251,7 @@ export interface InputParallelismUpdate {
 
 export namespace InputParallelismUpdate {
   export function isa(o: any): o is InputParallelismUpdate {
-    return _smithy.isa(o, "InputParallelismUpdate");
+    return __isa(o, "InputParallelismUpdate");
   }
 }
 
@@ -1275,7 +1272,7 @@ export interface InputProcessingConfiguration {
 
 export namespace InputProcessingConfiguration {
   export function isa(o: any): o is InputProcessingConfiguration {
-    return _smithy.isa(o, "InputProcessingConfiguration");
+    return __isa(o, "InputProcessingConfiguration");
   }
 }
 
@@ -1293,7 +1290,7 @@ export interface InputProcessingConfigurationDescription {
 
 export namespace InputProcessingConfigurationDescription {
   export function isa(o: any): o is InputProcessingConfigurationDescription {
-    return _smithy.isa(o, "InputProcessingConfigurationDescription");
+    return __isa(o, "InputProcessingConfigurationDescription");
   }
 }
 
@@ -1310,7 +1307,7 @@ export interface InputProcessingConfigurationUpdate {
 
 export namespace InputProcessingConfigurationUpdate {
   export function isa(o: any): o is InputProcessingConfigurationUpdate {
-    return _smithy.isa(o, "InputProcessingConfigurationUpdate");
+    return __isa(o, "InputProcessingConfigurationUpdate");
   }
 }
 
@@ -1338,7 +1335,7 @@ export interface InputSchemaUpdate {
 
 export namespace InputSchemaUpdate {
   export function isa(o: any): o is InputSchemaUpdate {
-    return _smithy.isa(o, "InputSchemaUpdate");
+    return __isa(o, "InputSchemaUpdate");
   }
 }
 
@@ -1381,7 +1378,7 @@ export interface InputStartingPositionConfiguration {
 
 export namespace InputStartingPositionConfiguration {
   export function isa(o: any): o is InputStartingPositionConfiguration {
-    return _smithy.isa(o, "InputStartingPositionConfiguration");
+    return __isa(o, "InputStartingPositionConfiguration");
   }
 }
 
@@ -1434,7 +1431,7 @@ export interface InputUpdate {
 
 export namespace InputUpdate {
   export function isa(o: any): o is InputUpdate {
-    return _smithy.isa(o, "InputUpdate");
+    return __isa(o, "InputUpdate");
   }
 }
 
@@ -1442,7 +1439,7 @@ export namespace InputUpdate {
  * <p>User-provided application configuration is not valid.</p>
  */
 export interface InvalidApplicationConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidApplicationConfigurationException";
   $fault: "client";
@@ -1454,7 +1451,7 @@ export interface InvalidApplicationConfigurationException
 
 export namespace InvalidApplicationConfigurationException {
   export function isa(o: any): o is InvalidApplicationConfigurationException {
-    return _smithy.isa(o, "InvalidApplicationConfigurationException");
+    return __isa(o, "InvalidApplicationConfigurationException");
   }
 }
 
@@ -1462,7 +1459,7 @@ export namespace InvalidApplicationConfigurationException {
  * <p>Specified input parameter value is invalid.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -1474,7 +1471,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -1491,7 +1488,7 @@ export interface JSONMappingParameters {
 
 export namespace JSONMappingParameters {
   export function isa(o: any): o is JSONMappingParameters {
-    return _smithy.isa(o, "JSONMappingParameters");
+    return __isa(o, "JSONMappingParameters");
   }
 }
 
@@ -1517,7 +1514,7 @@ export interface KinesisFirehoseInput {
 
 export namespace KinesisFirehoseInput {
   export function isa(o: any): o is KinesisFirehoseInput {
-    return _smithy.isa(o, "KinesisFirehoseInput");
+    return __isa(o, "KinesisFirehoseInput");
   }
 }
 
@@ -1542,7 +1539,7 @@ export interface KinesisFirehoseInputDescription {
 
 export namespace KinesisFirehoseInputDescription {
   export function isa(o: any): o is KinesisFirehoseInputDescription {
-    return _smithy.isa(o, "KinesisFirehoseInputDescription");
+    return __isa(o, "KinesisFirehoseInputDescription");
   }
 }
 
@@ -1567,7 +1564,7 @@ export interface KinesisFirehoseInputUpdate {
 
 export namespace KinesisFirehoseInputUpdate {
   export function isa(o: any): o is KinesisFirehoseInputUpdate {
-    return _smithy.isa(o, "KinesisFirehoseInputUpdate");
+    return __isa(o, "KinesisFirehoseInputUpdate");
   }
 }
 
@@ -1592,7 +1589,7 @@ export interface KinesisFirehoseOutput {
 
 export namespace KinesisFirehoseOutput {
   export function isa(o: any): o is KinesisFirehoseOutput {
-    return _smithy.isa(o, "KinesisFirehoseOutput");
+    return __isa(o, "KinesisFirehoseOutput");
   }
 }
 
@@ -1617,7 +1614,7 @@ export interface KinesisFirehoseOutputDescription {
 
 export namespace KinesisFirehoseOutputDescription {
   export function isa(o: any): o is KinesisFirehoseOutputDescription {
-    return _smithy.isa(o, "KinesisFirehoseOutputDescription");
+    return __isa(o, "KinesisFirehoseOutputDescription");
   }
 }
 
@@ -1645,7 +1642,7 @@ export interface KinesisFirehoseOutputUpdate {
 
 export namespace KinesisFirehoseOutputUpdate {
   export function isa(o: any): o is KinesisFirehoseOutputUpdate {
-    return _smithy.isa(o, "KinesisFirehoseOutputUpdate");
+    return __isa(o, "KinesisFirehoseOutputUpdate");
   }
 }
 
@@ -1669,7 +1666,7 @@ export interface KinesisStreamsInput {
 
 export namespace KinesisStreamsInput {
   export function isa(o: any): o is KinesisStreamsInput {
-    return _smithy.isa(o, "KinesisStreamsInput");
+    return __isa(o, "KinesisStreamsInput");
   }
 }
 
@@ -1694,7 +1691,7 @@ export interface KinesisStreamsInputDescription {
 
 export namespace KinesisStreamsInputDescription {
   export function isa(o: any): o is KinesisStreamsInputDescription {
-    return _smithy.isa(o, "KinesisStreamsInputDescription");
+    return __isa(o, "KinesisStreamsInputDescription");
   }
 }
 
@@ -1717,7 +1714,7 @@ export interface KinesisStreamsInputUpdate {
 
 export namespace KinesisStreamsInputUpdate {
   export function isa(o: any): o is KinesisStreamsInputUpdate {
-    return _smithy.isa(o, "KinesisStreamsInputUpdate");
+    return __isa(o, "KinesisStreamsInputUpdate");
   }
 }
 
@@ -1741,7 +1738,7 @@ export interface KinesisStreamsOutput {
 
 export namespace KinesisStreamsOutput {
   export function isa(o: any): o is KinesisStreamsOutput {
-    return _smithy.isa(o, "KinesisStreamsOutput");
+    return __isa(o, "KinesisStreamsOutput");
   }
 }
 
@@ -1766,7 +1763,7 @@ export interface KinesisStreamsOutputDescription {
 
 export namespace KinesisStreamsOutputDescription {
   export function isa(o: any): o is KinesisStreamsOutputDescription {
-    return _smithy.isa(o, "KinesisStreamsOutputDescription");
+    return __isa(o, "KinesisStreamsOutputDescription");
   }
 }
 
@@ -1793,7 +1790,7 @@ export interface KinesisStreamsOutputUpdate {
 
 export namespace KinesisStreamsOutputUpdate {
   export function isa(o: any): o is KinesisStreamsOutputUpdate {
-    return _smithy.isa(o, "KinesisStreamsOutputUpdate");
+    return __isa(o, "KinesisStreamsOutputUpdate");
   }
 }
 
@@ -1822,7 +1819,7 @@ export interface LambdaOutput {
 
 export namespace LambdaOutput {
   export function isa(o: any): o is LambdaOutput {
-    return _smithy.isa(o, "LambdaOutput");
+    return __isa(o, "LambdaOutput");
   }
 }
 
@@ -1845,7 +1842,7 @@ export interface LambdaOutputDescription {
 
 export namespace LambdaOutputDescription {
   export function isa(o: any): o is LambdaOutputDescription {
-    return _smithy.isa(o, "LambdaOutputDescription");
+    return __isa(o, "LambdaOutputDescription");
   }
 }
 
@@ -1873,7 +1870,7 @@ export interface LambdaOutputUpdate {
 
 export namespace LambdaOutputUpdate {
   export function isa(o: any): o is LambdaOutputUpdate {
-    return _smithy.isa(o, "LambdaOutputUpdate");
+    return __isa(o, "LambdaOutputUpdate");
   }
 }
 
@@ -1881,7 +1878,7 @@ export namespace LambdaOutputUpdate {
  * <p>Exceeded the number of applications allowed.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -1893,7 +1890,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -1915,7 +1912,7 @@ export interface ListApplicationsRequest {
 
 export namespace ListApplicationsRequest {
   export function isa(o: any): o is ListApplicationsRequest {
-    return _smithy.isa(o, "ListApplicationsRequest");
+    return __isa(o, "ListApplicationsRequest");
   }
 }
 
@@ -1937,7 +1934,7 @@ export interface ListApplicationsResponse extends $MetadataBearer {
 
 export namespace ListApplicationsResponse {
   export function isa(o: any): o is ListApplicationsResponse {
-    return _smithy.isa(o, "ListApplicationsResponse");
+    return __isa(o, "ListApplicationsResponse");
   }
 }
 
@@ -1951,7 +1948,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -1965,7 +1962,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -1992,7 +1989,7 @@ export interface MappingParameters {
 
 export namespace MappingParameters {
   export function isa(o: any): o is MappingParameters {
-    return _smithy.isa(o, "MappingParameters");
+    return __isa(o, "MappingParameters");
   }
 }
 
@@ -2041,7 +2038,7 @@ export interface Output {
 
 export namespace Output {
   export function isa(o: any): o is Output {
-    return _smithy.isa(o, "Output");
+    return __isa(o, "Output");
   }
 }
 
@@ -2090,7 +2087,7 @@ export interface OutputDescription {
 
 export namespace OutputDescription {
   export function isa(o: any): o is OutputDescription {
-    return _smithy.isa(o, "OutputDescription");
+    return __isa(o, "OutputDescription");
   }
 }
 
@@ -2138,7 +2135,7 @@ export interface OutputUpdate {
 
 export namespace OutputUpdate {
   export function isa(o: any): o is OutputUpdate {
-    return _smithy.isa(o, "OutputUpdate");
+    return __isa(o, "OutputUpdate");
   }
 }
 
@@ -2168,7 +2165,7 @@ export interface RecordColumn {
 
 export namespace RecordColumn {
   export function isa(o: any): o is RecordColumn {
-    return _smithy.isa(o, "RecordColumn");
+    return __isa(o, "RecordColumn");
   }
 }
 
@@ -2193,7 +2190,7 @@ export interface RecordFormat {
 
 export namespace RecordFormat {
   export function isa(o: any): o is RecordFormat {
-    return _smithy.isa(o, "RecordFormat");
+    return __isa(o, "RecordFormat");
   }
 }
 
@@ -2227,7 +2224,7 @@ export interface ReferenceDataSource {
 
 export namespace ReferenceDataSource {
   export function isa(o: any): o is ReferenceDataSource {
-    return _smithy.isa(o, "ReferenceDataSource");
+    return __isa(o, "ReferenceDataSource");
   }
 }
 
@@ -2263,7 +2260,7 @@ export interface ReferenceDataSourceDescription {
 
 export namespace ReferenceDataSourceDescription {
   export function isa(o: any): o is ReferenceDataSourceDescription {
-    return _smithy.isa(o, "ReferenceDataSourceDescription");
+    return __isa(o, "ReferenceDataSourceDescription");
   }
 }
 
@@ -2296,7 +2293,7 @@ export interface ReferenceDataSourceUpdate {
 
 export namespace ReferenceDataSourceUpdate {
   export function isa(o: any): o is ReferenceDataSourceUpdate {
-    return _smithy.isa(o, "ReferenceDataSourceUpdate");
+    return __isa(o, "ReferenceDataSourceUpdate");
   }
 }
 
@@ -2304,7 +2301,7 @@ export namespace ReferenceDataSourceUpdate {
  * <p>Application is not available for this operation.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -2316,7 +2313,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -2324,7 +2321,7 @@ export namespace ResourceInUseException {
  * <p>Specified application can't be found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -2336,7 +2333,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -2348,7 +2345,7 @@ export namespace ResourceNotFoundException {
  *             in the Amazon Kinesis Streams API Reference.</p>
  */
 export interface ResourceProvisionedThroughputExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceProvisionedThroughputExceededException";
   $fault: "client";
@@ -2359,7 +2356,7 @@ export namespace ResourceProvisionedThroughputExceededException {
   export function isa(
     o: any
   ): o is ResourceProvisionedThroughputExceededException {
-    return _smithy.isa(o, "ResourceProvisionedThroughputExceededException");
+    return __isa(o, "ResourceProvisionedThroughputExceededException");
   }
 }
 
@@ -2388,7 +2385,7 @@ export interface S3Configuration {
 
 export namespace S3Configuration {
   export function isa(o: any): o is S3Configuration {
-    return _smithy.isa(o, "S3Configuration");
+    return __isa(o, "S3Configuration");
   }
 }
 
@@ -2418,7 +2415,7 @@ export interface S3ReferenceDataSource {
 
 export namespace S3ReferenceDataSource {
   export function isa(o: any): o is S3ReferenceDataSource {
-    return _smithy.isa(o, "S3ReferenceDataSource");
+    return __isa(o, "S3ReferenceDataSource");
   }
 }
 
@@ -2445,7 +2442,7 @@ export interface S3ReferenceDataSourceDescription {
 
 export namespace S3ReferenceDataSourceDescription {
   export function isa(o: any): o is S3ReferenceDataSourceDescription {
-    return _smithy.isa(o, "S3ReferenceDataSourceDescription");
+    return __isa(o, "S3ReferenceDataSourceDescription");
   }
 }
 
@@ -2472,7 +2469,7 @@ export interface S3ReferenceDataSourceUpdate {
 
 export namespace S3ReferenceDataSourceUpdate {
   export function isa(o: any): o is S3ReferenceDataSourceUpdate {
-    return _smithy.isa(o, "S3ReferenceDataSourceUpdate");
+    return __isa(o, "S3ReferenceDataSourceUpdate");
   }
 }
 
@@ -2480,7 +2477,7 @@ export namespace S3ReferenceDataSourceUpdate {
  * <p>The service is unavailable. Back off and retry the operation. </p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -2489,7 +2486,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -2516,7 +2513,7 @@ export interface SourceSchema {
 
 export namespace SourceSchema {
   export function isa(o: any): o is SourceSchema {
-    return _smithy.isa(o, "SourceSchema");
+    return __isa(o, "SourceSchema");
   }
 }
 
@@ -2538,7 +2535,7 @@ export interface StartApplicationRequest {
 
 export namespace StartApplicationRequest {
   export function isa(o: any): o is StartApplicationRequest {
-    return _smithy.isa(o, "StartApplicationRequest");
+    return __isa(o, "StartApplicationRequest");
   }
 }
 
@@ -2551,7 +2548,7 @@ export interface StartApplicationResponse extends $MetadataBearer {
 
 export namespace StartApplicationResponse {
   export function isa(o: any): o is StartApplicationResponse {
-    return _smithy.isa(o, "StartApplicationResponse");
+    return __isa(o, "StartApplicationResponse");
   }
 }
 
@@ -2568,7 +2565,7 @@ export interface StopApplicationRequest {
 
 export namespace StopApplicationRequest {
   export function isa(o: any): o is StopApplicationRequest {
-    return _smithy.isa(o, "StopApplicationRequest");
+    return __isa(o, "StopApplicationRequest");
   }
 }
 
@@ -2581,7 +2578,7 @@ export interface StopApplicationResponse extends $MetadataBearer {
 
 export namespace StopApplicationResponse {
   export function isa(o: any): o is StopApplicationResponse {
-    return _smithy.isa(o, "StopApplicationResponse");
+    return __isa(o, "StopApplicationResponse");
   }
 }
 
@@ -2605,7 +2602,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -2624,7 +2621,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -2634,7 +2631,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -2642,7 +2639,7 @@ export namespace TagResourceResponse {
  * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
 export interface TooManyTagsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
@@ -2651,7 +2648,7 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export function isa(o: any): o is TooManyTagsException {
-    return _smithy.isa(o, "TooManyTagsException");
+    return __isa(o, "TooManyTagsException");
   }
 }
 
@@ -2660,7 +2657,7 @@ export namespace TooManyTagsException {
  *             the given streaming source.</p>
  */
 export interface UnableToDetectSchemaException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnableToDetectSchemaException";
   $fault: "client";
@@ -2671,7 +2668,7 @@ export interface UnableToDetectSchemaException
 
 export namespace UnableToDetectSchemaException {
   export function isa(o: any): o is UnableToDetectSchemaException {
-    return _smithy.isa(o, "UnableToDetectSchemaException");
+    return __isa(o, "UnableToDetectSchemaException");
   }
 }
 
@@ -2679,7 +2676,7 @@ export namespace UnableToDetectSchemaException {
  * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  */
 export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedOperationException";
   $fault: "client";
@@ -2688,7 +2685,7 @@ export interface UnsupportedOperationException
 
 export namespace UnsupportedOperationException {
   export function isa(o: any): o is UnsupportedOperationException {
-    return _smithy.isa(o, "UnsupportedOperationException");
+    return __isa(o, "UnsupportedOperationException");
   }
 }
 
@@ -2707,7 +2704,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -2717,7 +2714,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -2742,7 +2739,7 @@ export interface UpdateApplicationRequest {
 
 export namespace UpdateApplicationRequest {
   export function isa(o: any): o is UpdateApplicationRequest {
-    return _smithy.isa(o, "UpdateApplicationRequest");
+    return __isa(o, "UpdateApplicationRequest");
   }
 }
 
@@ -2752,6 +2749,6 @@ export interface UpdateApplicationResponse extends $MetadataBearer {
 
 export namespace UpdateApplicationResponse {
   export function isa(o: any): o is UpdateApplicationResponse {
-    return _smithy.isa(o, "UpdateApplicationResponse");
+    return __isa(o, "UpdateApplicationResponse");
   }
 }

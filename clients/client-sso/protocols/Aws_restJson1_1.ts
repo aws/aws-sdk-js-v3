@@ -27,7 +27,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -42,15 +45,19 @@ export async function serializeAws_restJson1_1GetRoleCredentialsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken.toString();
+    headers["x-amz-sso_bearer_token"] = input.accessToken;
   }
   let resolvedPath = "/federation/credentials";
   const query: any = {};
   if (input.accountId !== undefined) {
-    query["account_id"] = input.accountId.toString();
+    query[
+      __extendedEncodeURIComponent("account_id")
+    ] = __extendedEncodeURIComponent(input.accountId);
   }
   if (input.roleName !== undefined) {
-    query["role_name"] = input.roleName.toString();
+    query[
+      __extendedEncodeURIComponent("role_name")
+    ] = __extendedEncodeURIComponent(input.roleName);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -69,18 +76,24 @@ export async function serializeAws_restJson1_1ListAccountRolesCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken.toString();
+    headers["x-amz-sso_bearer_token"] = input.accessToken;
   }
   let resolvedPath = "/assignment/roles";
   const query: any = {};
   if (input.accountId !== undefined) {
-    query["account_id"] = input.accountId.toString();
+    query[
+      __extendedEncodeURIComponent("account_id")
+    ] = __extendedEncodeURIComponent(input.accountId);
   }
   if (input.maxResults !== undefined) {
-    query["max_result"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_result")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["next_token"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -99,15 +112,19 @@ export async function serializeAws_restJson1_1ListAccountsCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken.toString();
+    headers["x-amz-sso_bearer_token"] = input.accessToken;
   }
   let resolvedPath = "/assignment/accounts";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["max_result"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_result")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["next_token"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -126,7 +143,7 @@ export async function serializeAws_restJson1_1LogoutCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.accessToken !== undefined) {
-    headers["x-amz-sso_bearer_token"] = input.accessToken.toString();
+    headers["x-amz-sso_bearer_token"] = input.accessToken;
   }
   let resolvedPath = "/logout";
   return new __HttpRequest({
@@ -393,6 +410,7 @@ export async function deserializeAws_restJson1_1LogoutCommand(
   const contents: LogoutCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -20,7 +23,7 @@ export interface DataPoint {
 
 export namespace DataPoint {
   export function isa(o: any): o is DataPoint {
-    return _smithy.isa(o, "DataPoint");
+    return __isa(o, "DataPoint");
   }
 }
 
@@ -50,7 +53,7 @@ export interface Forecast {
 
 export namespace Forecast {
   export function isa(o: any): o is Forecast {
-    return _smithy.isa(o, "Forecast");
+    return __isa(o, "Forecast");
   }
 }
 
@@ -58,7 +61,7 @@ export namespace Forecast {
  * <p>The value is invalid or is too long.</p>
  */
 export interface InvalidInputException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
@@ -67,7 +70,7 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
+    return __isa(o, "InvalidInputException");
   }
 }
 
@@ -75,7 +78,7 @@ export namespace InvalidInputException {
  * <p>The token is not valid. Tokens expire after 24 hours.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -84,7 +87,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -92,7 +95,7 @@ export namespace InvalidNextTokenException {
  * <p>The limit on the number of requests per second has been exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -101,7 +104,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -147,7 +150,7 @@ export interface QueryForecastRequest {
 
 export namespace QueryForecastRequest {
   export function isa(o: any): o is QueryForecastRequest {
-    return _smithy.isa(o, "QueryForecastRequest");
+    return __isa(o, "QueryForecastRequest");
   }
 }
 
@@ -161,7 +164,7 @@ export interface QueryForecastResponse extends $MetadataBearer {
 
 export namespace QueryForecastResponse {
   export function isa(o: any): o is QueryForecastResponse {
-    return _smithy.isa(o, "QueryForecastResponse");
+    return __isa(o, "QueryForecastResponse");
   }
 }
 
@@ -169,7 +172,7 @@ export namespace QueryForecastResponse {
  * <p>The specified resource is in use.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -178,7 +181,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -187,7 +190,7 @@ export namespace ResourceInUseException {
  *       again.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -196,6 +199,6 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }

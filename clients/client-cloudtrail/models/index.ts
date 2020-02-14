@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -22,7 +25,7 @@ export interface AddTagsRequest {
 
 export namespace AddTagsRequest {
   export function isa(o: any): o is AddTagsRequest {
-    return _smithy.isa(o, "AddTagsRequest");
+    return __isa(o, "AddTagsRequest");
   }
 }
 
@@ -35,7 +38,7 @@ export interface AddTagsResponse extends $MetadataBearer {
 
 export namespace AddTagsResponse {
   export function isa(o: any): o is AddTagsResponse {
-    return _smithy.isa(o, "AddTagsResponse");
+    return __isa(o, "AddTagsResponse");
   }
 }
 
@@ -46,7 +49,7 @@ export namespace AddTagsResponse {
  *          </p>
  */
 export interface CloudTrailARNInvalidException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudTrailARNInvalidException";
   $fault: "client";
@@ -58,7 +61,7 @@ export interface CloudTrailARNInvalidException
 
 export namespace CloudTrailARNInvalidException {
   export function isa(o: any): o is CloudTrailARNInvalidException {
-    return _smithy.isa(o, "CloudTrailARNInvalidException");
+    return __isa(o, "CloudTrailARNInvalidException");
   }
 }
 
@@ -68,7 +71,7 @@ export namespace CloudTrailARNInvalidException {
  *          and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
  */
 export interface CloudTrailAccessNotEnabledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudTrailAccessNotEnabledException";
   $fault: "client";
@@ -80,7 +83,7 @@ export interface CloudTrailAccessNotEnabledException
 
 export namespace CloudTrailAccessNotEnabledException {
   export function isa(o: any): o is CloudTrailAccessNotEnabledException {
-    return _smithy.isa(o, "CloudTrailAccessNotEnabledException");
+    return __isa(o, "CloudTrailAccessNotEnabledException");
   }
 }
 
@@ -88,7 +91,7 @@ export namespace CloudTrailAccessNotEnabledException {
  * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  */
 export interface CloudWatchLogsDeliveryUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CloudWatchLogsDeliveryUnavailableException";
   $fault: "client";
@@ -100,7 +103,7 @@ export interface CloudWatchLogsDeliveryUnavailableException
 
 export namespace CloudWatchLogsDeliveryUnavailableException {
   export function isa(o: any): o is CloudWatchLogsDeliveryUnavailableException {
-    return _smithy.isa(o, "CloudWatchLogsDeliveryUnavailableException");
+    return __isa(o, "CloudWatchLogsDeliveryUnavailableException");
   }
 }
 
@@ -215,7 +218,7 @@ export interface CreateTrailRequest {
 
 export namespace CreateTrailRequest {
   export function isa(o: any): o is CreateTrailRequest {
-    return _smithy.isa(o, "CreateTrailRequest");
+    return __isa(o, "CreateTrailRequest");
   }
 }
 
@@ -303,7 +306,7 @@ export interface CreateTrailResponse extends $MetadataBearer {
 
 export namespace CreateTrailResponse {
   export function isa(o: any): o is CreateTrailResponse {
-    return _smithy.isa(o, "CreateTrailResponse");
+    return __isa(o, "CreateTrailResponse");
   }
 }
 
@@ -410,7 +413,7 @@ export interface DataResource {
 
 export namespace DataResource {
   export function isa(o: any): o is DataResource {
-    return _smithy.isa(o, "DataResource");
+    return __isa(o, "DataResource");
   }
 }
 
@@ -430,7 +433,7 @@ export interface DeleteTrailRequest {
 
 export namespace DeleteTrailRequest {
   export function isa(o: any): o is DeleteTrailRequest {
-    return _smithy.isa(o, "DeleteTrailRequest");
+    return __isa(o, "DeleteTrailRequest");
   }
 }
 
@@ -443,7 +446,7 @@ export interface DeleteTrailResponse extends $MetadataBearer {
 
 export namespace DeleteTrailResponse {
   export function isa(o: any): o is DeleteTrailResponse {
-    return _smithy.isa(o, "DeleteTrailResponse");
+    return __isa(o, "DeleteTrailResponse");
   }
 }
 
@@ -484,7 +487,7 @@ export interface DescribeTrailsRequest {
 
 export namespace DescribeTrailsRequest {
   export function isa(o: any): o is DescribeTrailsRequest {
-    return _smithy.isa(o, "DescribeTrailsRequest");
+    return __isa(o, "DescribeTrailsRequest");
   }
 }
 
@@ -503,7 +506,7 @@ export interface DescribeTrailsResponse extends $MetadataBearer {
 
 export namespace DescribeTrailsResponse {
   export function isa(o: any): o is DescribeTrailsResponse {
-    return _smithy.isa(o, "DescribeTrailsResponse");
+    return __isa(o, "DescribeTrailsResponse");
   }
 }
 
@@ -561,7 +564,7 @@ export interface Event {
 
 export namespace Event {
   export function isa(o: any): o is Event {
-    return _smithy.isa(o, "Event");
+    return __isa(o, "Event");
   }
 }
 
@@ -615,7 +618,7 @@ export interface EventSelector {
 
 export namespace EventSelector {
   export function isa(o: any): o is EventSelector {
-    return _smithy.isa(o, "EventSelector");
+    return __isa(o, "EventSelector");
   }
 }
 
@@ -652,7 +655,7 @@ export interface GetEventSelectorsRequest {
 
 export namespace GetEventSelectorsRequest {
   export function isa(o: any): o is GetEventSelectorsRequest {
-    return _smithy.isa(o, "GetEventSelectorsRequest");
+    return __isa(o, "GetEventSelectorsRequest");
   }
 }
 
@@ -671,7 +674,7 @@ export interface GetEventSelectorsResponse extends $MetadataBearer {
 
 export namespace GetEventSelectorsResponse {
   export function isa(o: any): o is GetEventSelectorsResponse {
-    return _smithy.isa(o, "GetEventSelectorsResponse");
+    return __isa(o, "GetEventSelectorsResponse");
   }
 }
 
@@ -708,7 +711,7 @@ export interface GetInsightSelectorsRequest {
 
 export namespace GetInsightSelectorsRequest {
   export function isa(o: any): o is GetInsightSelectorsRequest {
-    return _smithy.isa(o, "GetInsightSelectorsRequest");
+    return __isa(o, "GetInsightSelectorsRequest");
   }
 }
 
@@ -727,7 +730,7 @@ export interface GetInsightSelectorsResponse extends $MetadataBearer {
 
 export namespace GetInsightSelectorsResponse {
   export function isa(o: any): o is GetInsightSelectorsResponse {
-    return _smithy.isa(o, "GetInsightSelectorsResponse");
+    return __isa(o, "GetInsightSelectorsResponse");
   }
 }
 
@@ -741,7 +744,7 @@ export interface GetTrailRequest {
 
 export namespace GetTrailRequest {
   export function isa(o: any): o is GetTrailRequest {
-    return _smithy.isa(o, "GetTrailRequest");
+    return __isa(o, "GetTrailRequest");
   }
 }
 
@@ -755,7 +758,7 @@ export interface GetTrailResponse extends $MetadataBearer {
 
 export namespace GetTrailResponse {
   export function isa(o: any): o is GetTrailResponse {
-    return _smithy.isa(o, "GetTrailResponse");
+    return __isa(o, "GetTrailResponse");
   }
 }
 
@@ -775,7 +778,7 @@ export interface GetTrailStatusRequest {
 
 export namespace GetTrailStatusRequest {
   export function isa(o: any): o is GetTrailStatusRequest {
-    return _smithy.isa(o, "GetTrailStatusRequest");
+    return __isa(o, "GetTrailStatusRequest");
   }
 }
 
@@ -890,7 +893,7 @@ export interface GetTrailStatusResponse extends $MetadataBearer {
 
 export namespace GetTrailStatusResponse {
   export function isa(o: any): o is GetTrailStatusResponse {
-    return _smithy.isa(o, "GetTrailStatusResponse");
+    return __isa(o, "GetTrailStatusResponse");
   }
 }
 
@@ -898,7 +901,7 @@ export namespace GetTrailStatusResponse {
  * <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.</p>
  */
 export interface InsightNotEnabledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsightNotEnabledException";
   $fault: "client";
@@ -910,7 +913,7 @@ export interface InsightNotEnabledException
 
 export namespace InsightNotEnabledException {
   export function isa(o: any): o is InsightNotEnabledException {
-    return _smithy.isa(o, "InsightNotEnabledException");
+    return __isa(o, "InsightNotEnabledException");
   }
 }
 
@@ -927,7 +930,7 @@ export interface InsightSelector {
 
 export namespace InsightSelector {
   export function isa(o: any): o is InsightSelector {
-    return _smithy.isa(o, "InsightSelector");
+    return __isa(o, "InsightSelector");
   }
 }
 
@@ -941,7 +944,7 @@ export enum InsightType {
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
 export interface InsufficientDependencyServiceAccessPermissionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientDependencyServiceAccessPermissionException";
   $fault: "client";
@@ -955,10 +958,7 @@ export namespace InsufficientDependencyServiceAccessPermissionException {
   export function isa(
     o: any
   ): o is InsufficientDependencyServiceAccessPermissionException {
-    return _smithy.isa(
-      o,
-      "InsufficientDependencyServiceAccessPermissionException"
-    );
+    return __isa(o, "InsufficientDependencyServiceAccessPermissionException");
   }
 }
 
@@ -966,7 +966,7 @@ export namespace InsufficientDependencyServiceAccessPermissionException {
  * <p>This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.</p>
  */
 export interface InsufficientEncryptionPolicyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientEncryptionPolicyException";
   $fault: "client";
@@ -978,7 +978,7 @@ export interface InsufficientEncryptionPolicyException
 
 export namespace InsufficientEncryptionPolicyException {
   export function isa(o: any): o is InsufficientEncryptionPolicyException {
-    return _smithy.isa(o, "InsufficientEncryptionPolicyException");
+    return __isa(o, "InsufficientEncryptionPolicyException");
   }
 }
 
@@ -986,7 +986,7 @@ export namespace InsufficientEncryptionPolicyException {
  * <p>This exception is thrown when the policy on the S3 bucket is not sufficient.</p>
  */
 export interface InsufficientS3BucketPolicyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientS3BucketPolicyException";
   $fault: "client";
@@ -998,7 +998,7 @@ export interface InsufficientS3BucketPolicyException
 
 export namespace InsufficientS3BucketPolicyException {
   export function isa(o: any): o is InsufficientS3BucketPolicyException {
-    return _smithy.isa(o, "InsufficientS3BucketPolicyException");
+    return __isa(o, "InsufficientS3BucketPolicyException");
   }
 }
 
@@ -1006,7 +1006,7 @@ export namespace InsufficientS3BucketPolicyException {
  * <p>This exception is thrown when the policy on the SNS topic is not sufficient.</p>
  */
 export interface InsufficientSnsTopicPolicyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientSnsTopicPolicyException";
   $fault: "client";
@@ -1018,7 +1018,7 @@ export interface InsufficientSnsTopicPolicyException
 
 export namespace InsufficientSnsTopicPolicyException {
   export function isa(o: any): o is InsufficientSnsTopicPolicyException {
-    return _smithy.isa(o, "InsufficientSnsTopicPolicyException");
+    return __isa(o, "InsufficientSnsTopicPolicyException");
   }
 }
 
@@ -1026,7 +1026,7 @@ export namespace InsufficientSnsTopicPolicyException {
  * <p>This exception is thrown when the provided CloudWatch log group is not valid.</p>
  */
 export interface InvalidCloudWatchLogsLogGroupArnException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidCloudWatchLogsLogGroupArnException";
   $fault: "client";
@@ -1038,7 +1038,7 @@ export interface InvalidCloudWatchLogsLogGroupArnException
 
 export namespace InvalidCloudWatchLogsLogGroupArnException {
   export function isa(o: any): o is InvalidCloudWatchLogsLogGroupArnException {
-    return _smithy.isa(o, "InvalidCloudWatchLogsLogGroupArnException");
+    return __isa(o, "InvalidCloudWatchLogsLogGroupArnException");
   }
 }
 
@@ -1046,7 +1046,7 @@ export namespace InvalidCloudWatchLogsLogGroupArnException {
  * <p>This exception is thrown when the provided role is not valid.</p>
  */
 export interface InvalidCloudWatchLogsRoleArnException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidCloudWatchLogsRoleArnException";
   $fault: "client";
@@ -1058,7 +1058,7 @@ export interface InvalidCloudWatchLogsRoleArnException
 
 export namespace InvalidCloudWatchLogsRoleArnException {
   export function isa(o: any): o is InvalidCloudWatchLogsRoleArnException {
-    return _smithy.isa(o, "InvalidCloudWatchLogsRoleArnException");
+    return __isa(o, "InvalidCloudWatchLogsRoleArnException");
   }
 }
 
@@ -1066,7 +1066,7 @@ export namespace InvalidCloudWatchLogsRoleArnException {
  * <p>Occurs if an event category that is not valid is specified as a value of <code>EventCategory</code>.</p>
  */
 export interface InvalidEventCategoryException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidEventCategoryException";
   $fault: "client";
@@ -1078,7 +1078,7 @@ export interface InvalidEventCategoryException
 
 export namespace InvalidEventCategoryException {
   export function isa(o: any): o is InvalidEventCategoryException {
-    return _smithy.isa(o, "InvalidEventCategoryException");
+    return __isa(o, "InvalidEventCategoryException");
   }
 }
 
@@ -1104,7 +1104,7 @@ export namespace InvalidEventCategoryException {
  *          </ul>
  */
 export interface InvalidEventSelectorsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidEventSelectorsException";
   $fault: "client";
@@ -1116,7 +1116,7 @@ export interface InvalidEventSelectorsException
 
 export namespace InvalidEventSelectorsException {
   export function isa(o: any): o is InvalidEventSelectorsException {
-    return _smithy.isa(o, "InvalidEventSelectorsException");
+    return __isa(o, "InvalidEventSelectorsException");
   }
 }
 
@@ -1124,7 +1124,7 @@ export namespace InvalidEventSelectorsException {
  * <p>This exception is thrown when an operation is called on a trail from a region other than the region in which the trail was created.</p>
  */
 export interface InvalidHomeRegionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidHomeRegionException";
   $fault: "client";
@@ -1136,7 +1136,7 @@ export interface InvalidHomeRegionException
 
 export namespace InvalidHomeRegionException {
   export function isa(o: any): o is InvalidHomeRegionException {
-    return _smithy.isa(o, "InvalidHomeRegionException");
+    return __isa(o, "InvalidHomeRegionException");
   }
 }
 
@@ -1145,7 +1145,7 @@ export namespace InvalidHomeRegionException {
  *          is not valid, or the specified insight type in the <code>InsightSelectors</code> statement is not a valid insight type.</p>
  */
 export interface InvalidInsightSelectorsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidInsightSelectorsException";
   $fault: "client";
@@ -1157,7 +1157,7 @@ export interface InvalidInsightSelectorsException
 
 export namespace InvalidInsightSelectorsException {
   export function isa(o: any): o is InvalidInsightSelectorsException {
-    return _smithy.isa(o, "InvalidInsightSelectorsException");
+    return __isa(o, "InvalidInsightSelectorsException");
   }
 }
 
@@ -1165,7 +1165,7 @@ export namespace InvalidInsightSelectorsException {
  * <p>This exception is thrown when the KMS key ARN is invalid.</p>
  */
 export interface InvalidKmsKeyIdException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidKmsKeyIdException";
   $fault: "client";
@@ -1177,7 +1177,7 @@ export interface InvalidKmsKeyIdException
 
 export namespace InvalidKmsKeyIdException {
   export function isa(o: any): o is InvalidKmsKeyIdException {
-    return _smithy.isa(o, "InvalidKmsKeyIdException");
+    return __isa(o, "InvalidKmsKeyIdException");
   }
 }
 
@@ -1185,7 +1185,7 @@ export namespace InvalidKmsKeyIdException {
  * <p>Occurs when an invalid lookup attribute is specified.</p>
  */
 export interface InvalidLookupAttributesException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidLookupAttributesException";
   $fault: "client";
@@ -1197,7 +1197,7 @@ export interface InvalidLookupAttributesException
 
 export namespace InvalidLookupAttributesException {
   export function isa(o: any): o is InvalidLookupAttributesException {
-    return _smithy.isa(o, "InvalidLookupAttributesException");
+    return __isa(o, "InvalidLookupAttributesException");
   }
 }
 
@@ -1205,7 +1205,7 @@ export namespace InvalidLookupAttributesException {
  * <p>This exception is thrown if the limit specified is invalid.</p>
  */
 export interface InvalidMaxResultsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
@@ -1217,7 +1217,7 @@ export interface InvalidMaxResultsException
 
 export namespace InvalidMaxResultsException {
   export function isa(o: any): o is InvalidMaxResultsException {
-    return _smithy.isa(o, "InvalidMaxResultsException");
+    return __isa(o, "InvalidMaxResultsException");
   }
 }
 
@@ -1225,7 +1225,7 @@ export namespace InvalidMaxResultsException {
  * <p>Invalid token or token that was previously used in a request with different parameters. This exception is thrown if the token is invalid.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -1237,7 +1237,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -1245,7 +1245,7 @@ export namespace InvalidNextTokenException {
  * <p>This exception is thrown when the combination of parameters provided is not valid.</p>
  */
 export interface InvalidParameterCombinationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
@@ -1257,7 +1257,7 @@ export interface InvalidParameterCombinationException
 
 export namespace InvalidParameterCombinationException {
   export function isa(o: any): o is InvalidParameterCombinationException {
-    return _smithy.isa(o, "InvalidParameterCombinationException");
+    return __isa(o, "InvalidParameterCombinationException");
   }
 }
 
@@ -1265,7 +1265,7 @@ export namespace InvalidParameterCombinationException {
  * <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  */
 export interface InvalidS3BucketNameException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidS3BucketNameException";
   $fault: "client";
@@ -1277,7 +1277,7 @@ export interface InvalidS3BucketNameException
 
 export namespace InvalidS3BucketNameException {
   export function isa(o: any): o is InvalidS3BucketNameException {
-    return _smithy.isa(o, "InvalidS3BucketNameException");
+    return __isa(o, "InvalidS3BucketNameException");
   }
 }
 
@@ -1285,7 +1285,7 @@ export namespace InvalidS3BucketNameException {
  * <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  */
 export interface InvalidS3PrefixException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidS3PrefixException";
   $fault: "client";
@@ -1297,7 +1297,7 @@ export interface InvalidS3PrefixException
 
 export namespace InvalidS3PrefixException {
   export function isa(o: any): o is InvalidS3PrefixException {
-    return _smithy.isa(o, "InvalidS3PrefixException");
+    return __isa(o, "InvalidS3PrefixException");
   }
 }
 
@@ -1305,7 +1305,7 @@ export namespace InvalidS3PrefixException {
  * <p>This exception is thrown when the provided SNS topic name is not valid.</p>
  */
 export interface InvalidSnsTopicNameException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidSnsTopicNameException";
   $fault: "client";
@@ -1317,7 +1317,7 @@ export interface InvalidSnsTopicNameException
 
 export namespace InvalidSnsTopicNameException {
   export function isa(o: any): o is InvalidSnsTopicNameException {
-    return _smithy.isa(o, "InvalidSnsTopicNameException");
+    return __isa(o, "InvalidSnsTopicNameException");
   }
 }
 
@@ -1326,7 +1326,7 @@ export namespace InvalidSnsTopicNameException {
  *          It can also occur if there are duplicate tags or too many tags on the resource.</p>
  */
 export interface InvalidTagParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTagParameterException";
   $fault: "client";
@@ -1338,7 +1338,7 @@ export interface InvalidTagParameterException
 
 export namespace InvalidTagParameterException {
   export function isa(o: any): o is InvalidTagParameterException {
-    return _smithy.isa(o, "InvalidTagParameterException");
+    return __isa(o, "InvalidTagParameterException");
   }
 }
 
@@ -1346,7 +1346,7 @@ export namespace InvalidTagParameterException {
  * <p>Occurs if the timestamp values are invalid. Either the start time occurs after the end time or the time range is outside the range of possible values.</p>
  */
 export interface InvalidTimeRangeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTimeRangeException";
   $fault: "client";
@@ -1358,7 +1358,7 @@ export interface InvalidTimeRangeException
 
 export namespace InvalidTimeRangeException {
   export function isa(o: any): o is InvalidTimeRangeException {
-    return _smithy.isa(o, "InvalidTimeRangeException");
+    return __isa(o, "InvalidTimeRangeException");
   }
 }
 
@@ -1366,7 +1366,7 @@ export namespace InvalidTimeRangeException {
  * <p>Reserved for future use.</p>
  */
 export interface InvalidTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTokenException";
   $fault: "client";
@@ -1378,7 +1378,7 @@ export interface InvalidTokenException
 
 export namespace InvalidTokenException {
   export function isa(o: any): o is InvalidTokenException {
-    return _smithy.isa(o, "InvalidTokenException");
+    return __isa(o, "InvalidTokenException");
   }
 }
 
@@ -1404,7 +1404,7 @@ export namespace InvalidTokenException {
  *          </ul>
  */
 export interface InvalidTrailNameException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTrailNameException";
   $fault: "client";
@@ -1416,14 +1416,14 @@ export interface InvalidTrailNameException
 
 export namespace InvalidTrailNameException {
   export function isa(o: any): o is InvalidTrailNameException {
-    return _smithy.isa(o, "InvalidTrailNameException");
+    return __isa(o, "InvalidTrailNameException");
   }
 }
 
 /**
  * <p>This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.</p>
  */
-export interface KmsException extends _smithy.SmithyException, $MetadataBearer {
+export interface KmsException extends __SmithyException, $MetadataBearer {
   name: "KmsException";
   $fault: "client";
   /**
@@ -1434,7 +1434,7 @@ export interface KmsException extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace KmsException {
   export function isa(o: any): o is KmsException {
-    return _smithy.isa(o, "KmsException");
+    return __isa(o, "KmsException");
   }
 }
 
@@ -1442,7 +1442,7 @@ export namespace KmsException {
  * <p>This exception is no longer in use.</p>
  */
 export interface KmsKeyDisabledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KmsKeyDisabledException";
   $fault: "client";
@@ -1454,7 +1454,7 @@ export interface KmsKeyDisabledException
 
 export namespace KmsKeyDisabledException {
   export function isa(o: any): o is KmsKeyDisabledException {
-    return _smithy.isa(o, "KmsKeyDisabledException");
+    return __isa(o, "KmsKeyDisabledException");
   }
 }
 
@@ -1462,7 +1462,7 @@ export namespace KmsKeyDisabledException {
  * <p>This exception is thrown when the KMS key does not exist, or when the S3 bucket and the KMS key are not in the same region.</p>
  */
 export interface KmsKeyNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KmsKeyNotFoundException";
   $fault: "client";
@@ -1474,7 +1474,7 @@ export interface KmsKeyNotFoundException
 
 export namespace KmsKeyNotFoundException {
   export function isa(o: any): o is KmsKeyNotFoundException {
-    return _smithy.isa(o, "KmsKeyNotFoundException");
+    return __isa(o, "KmsKeyNotFoundException");
   }
 }
 
@@ -1501,7 +1501,7 @@ export interface ListPublicKeysRequest {
 
 export namespace ListPublicKeysRequest {
   export function isa(o: any): o is ListPublicKeysRequest {
-    return _smithy.isa(o, "ListPublicKeysRequest");
+    return __isa(o, "ListPublicKeysRequest");
   }
 }
 
@@ -1526,7 +1526,7 @@ export interface ListPublicKeysResponse extends $MetadataBearer {
 
 export namespace ListPublicKeysResponse {
   export function isa(o: any): o is ListPublicKeysResponse {
-    return _smithy.isa(o, "ListPublicKeysResponse");
+    return __isa(o, "ListPublicKeysResponse");
   }
 }
 
@@ -1551,7 +1551,7 @@ export interface ListTagsRequest {
 
 export namespace ListTagsRequest {
   export function isa(o: any): o is ListTagsRequest {
-    return _smithy.isa(o, "ListTagsRequest");
+    return __isa(o, "ListTagsRequest");
   }
 }
 
@@ -1573,7 +1573,7 @@ export interface ListTagsResponse extends $MetadataBearer {
 
 export namespace ListTagsResponse {
   export function isa(o: any): o is ListTagsResponse {
-    return _smithy.isa(o, "ListTagsResponse");
+    return __isa(o, "ListTagsResponse");
   }
 }
 
@@ -1590,7 +1590,7 @@ export interface ListTrailsRequest {
 
 export namespace ListTrailsRequest {
   export function isa(o: any): o is ListTrailsRequest {
-    return _smithy.isa(o, "ListTrailsRequest");
+    return __isa(o, "ListTrailsRequest");
   }
 }
 
@@ -1612,7 +1612,7 @@ export interface ListTrailsResponse extends $MetadataBearer {
 
 export namespace ListTrailsResponse {
   export function isa(o: any): o is ListTrailsResponse {
-    return _smithy.isa(o, "ListTrailsResponse");
+    return __isa(o, "ListTrailsResponse");
   }
 }
 
@@ -1634,7 +1634,7 @@ export interface LookupAttribute {
 
 export namespace LookupAttribute {
   export function isa(o: any): o is LookupAttribute {
-    return _smithy.isa(o, "LookupAttribute");
+    return __isa(o, "LookupAttribute");
   }
 }
 
@@ -1689,7 +1689,7 @@ export interface LookupEventsRequest {
 
 export namespace LookupEventsRequest {
   export function isa(o: any): o is LookupEventsRequest {
-    return _smithy.isa(o, "LookupEventsRequest");
+    return __isa(o, "LookupEventsRequest");
   }
 }
 
@@ -1714,7 +1714,7 @@ export interface LookupEventsResponse extends $MetadataBearer {
 
 export namespace LookupEventsResponse {
   export function isa(o: any): o is LookupEventsResponse {
-    return _smithy.isa(o, "LookupEventsResponse");
+    return __isa(o, "LookupEventsResponse");
   }
 }
 
@@ -1722,7 +1722,7 @@ export namespace LookupEventsResponse {
  * <p>This exception is thrown when the maximum number of trails is reached.</p>
  */
 export interface MaximumNumberOfTrailsExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MaximumNumberOfTrailsExceededException";
   $fault: "client";
@@ -1734,7 +1734,7 @@ export interface MaximumNumberOfTrailsExceededException
 
 export namespace MaximumNumberOfTrailsExceededException {
   export function isa(o: any): o is MaximumNumberOfTrailsExceededException {
-    return _smithy.isa(o, "MaximumNumberOfTrailsExceededException");
+    return __isa(o, "MaximumNumberOfTrailsExceededException");
   }
 }
 
@@ -1744,7 +1744,7 @@ export namespace MaximumNumberOfTrailsExceededException {
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
 export interface NotOrganizationMasterAccountException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotOrganizationMasterAccountException";
   $fault: "client";
@@ -1756,7 +1756,7 @@ export interface NotOrganizationMasterAccountException
 
 export namespace NotOrganizationMasterAccountException {
   export function isa(o: any): o is NotOrganizationMasterAccountException {
-    return _smithy.isa(o, "NotOrganizationMasterAccountException");
+    return __isa(o, "NotOrganizationMasterAccountException");
   }
 }
 
@@ -1764,7 +1764,7 @@ export namespace NotOrganizationMasterAccountException {
  * <p>This exception is thrown when the requested operation is not permitted.</p>
  */
 export interface OperationNotPermittedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
@@ -1776,7 +1776,7 @@ export interface OperationNotPermittedException
 
 export namespace OperationNotPermittedException {
   export function isa(o: any): o is OperationNotPermittedException {
-    return _smithy.isa(o, "OperationNotPermittedException");
+    return __isa(o, "OperationNotPermittedException");
   }
 }
 
@@ -1786,7 +1786,7 @@ export namespace OperationNotPermittedException {
  *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
  */
 export interface OrganizationNotInAllFeaturesModeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
@@ -1798,7 +1798,7 @@ export interface OrganizationNotInAllFeaturesModeException
 
 export namespace OrganizationNotInAllFeaturesModeException {
   export function isa(o: any): o is OrganizationNotInAllFeaturesModeException {
-    return _smithy.isa(o, "OrganizationNotInAllFeaturesModeException");
+    return __isa(o, "OrganizationNotInAllFeaturesModeException");
   }
 }
 
@@ -1807,7 +1807,7 @@ export namespace OrganizationNotInAllFeaturesModeException {
  *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
  */
 export interface OrganizationsNotInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OrganizationsNotInUseException";
   $fault: "client";
@@ -1819,7 +1819,7 @@ export interface OrganizationsNotInUseException
 
 export namespace OrganizationsNotInUseException {
   export function isa(o: any): o is OrganizationsNotInUseException {
-    return _smithy.isa(o, "OrganizationsNotInUseException");
+    return __isa(o, "OrganizationsNotInUseException");
   }
 }
 
@@ -1851,7 +1851,7 @@ export interface PublicKey {
 
 export namespace PublicKey {
   export function isa(o: any): o is PublicKey {
-    return _smithy.isa(o, "PublicKey");
+    return __isa(o, "PublicKey");
   }
 }
 
@@ -1893,7 +1893,7 @@ export interface PutEventSelectorsRequest {
 
 export namespace PutEventSelectorsRequest {
   export function isa(o: any): o is PutEventSelectorsRequest {
-    return _smithy.isa(o, "PutEventSelectorsRequest");
+    return __isa(o, "PutEventSelectorsRequest");
   }
 }
 
@@ -1916,7 +1916,7 @@ export interface PutEventSelectorsResponse extends $MetadataBearer {
 
 export namespace PutEventSelectorsResponse {
   export function isa(o: any): o is PutEventSelectorsResponse {
-    return _smithy.isa(o, "PutEventSelectorsResponse");
+    return __isa(o, "PutEventSelectorsResponse");
   }
 }
 
@@ -1935,7 +1935,7 @@ export interface PutInsightSelectorsRequest {
 
 export namespace PutInsightSelectorsRequest {
   export function isa(o: any): o is PutInsightSelectorsRequest {
-    return _smithy.isa(o, "PutInsightSelectorsRequest");
+    return __isa(o, "PutInsightSelectorsRequest");
   }
 }
 
@@ -1954,7 +1954,7 @@ export interface PutInsightSelectorsResponse extends $MetadataBearer {
 
 export namespace PutInsightSelectorsResponse {
   export function isa(o: any): o is PutInsightSelectorsResponse {
-    return _smithy.isa(o, "PutInsightSelectorsResponse");
+    return __isa(o, "PutInsightSelectorsResponse");
   }
 }
 
@@ -1985,7 +1985,7 @@ export interface RemoveTagsRequest {
 
 export namespace RemoveTagsRequest {
   export function isa(o: any): o is RemoveTagsRequest {
-    return _smithy.isa(o, "RemoveTagsRequest");
+    return __isa(o, "RemoveTagsRequest");
   }
 }
 
@@ -1998,7 +1998,7 @@ export interface RemoveTagsResponse extends $MetadataBearer {
 
 export namespace RemoveTagsResponse {
   export function isa(o: any): o is RemoveTagsResponse {
-    return _smithy.isa(o, "RemoveTagsResponse");
+    return __isa(o, "RemoveTagsResponse");
   }
 }
 
@@ -2023,7 +2023,7 @@ export interface Resource {
 
 export namespace Resource {
   export function isa(o: any): o is Resource {
-    return _smithy.isa(o, "Resource");
+    return __isa(o, "Resource");
   }
 }
 
@@ -2031,7 +2031,7 @@ export namespace Resource {
  * <p>This exception is thrown when the specified resource is not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -2043,7 +2043,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -2065,7 +2065,7 @@ export interface ResourceTag {
 
 export namespace ResourceTag {
   export function isa(o: any): o is ResourceTag {
-    return _smithy.isa(o, "ResourceTag");
+    return __isa(o, "ResourceTag");
   }
 }
 
@@ -2073,7 +2073,7 @@ export namespace ResourceTag {
  * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  */
 export interface ResourceTypeNotSupportedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceTypeNotSupportedException";
   $fault: "client";
@@ -2085,7 +2085,7 @@ export interface ResourceTypeNotSupportedException
 
 export namespace ResourceTypeNotSupportedException {
   export function isa(o: any): o is ResourceTypeNotSupportedException {
-    return _smithy.isa(o, "ResourceTypeNotSupportedException");
+    return __isa(o, "ResourceTypeNotSupportedException");
   }
 }
 
@@ -2093,7 +2093,7 @@ export namespace ResourceTypeNotSupportedException {
  * <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  */
 export interface S3BucketDoesNotExistException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "S3BucketDoesNotExistException";
   $fault: "client";
@@ -2105,7 +2105,7 @@ export interface S3BucketDoesNotExistException
 
 export namespace S3BucketDoesNotExistException {
   export function isa(o: any): o is S3BucketDoesNotExistException {
-    return _smithy.isa(o, "S3BucketDoesNotExistException");
+    return __isa(o, "S3BucketDoesNotExistException");
   }
 }
 
@@ -2125,7 +2125,7 @@ export interface StartLoggingRequest {
 
 export namespace StartLoggingRequest {
   export function isa(o: any): o is StartLoggingRequest {
-    return _smithy.isa(o, "StartLoggingRequest");
+    return __isa(o, "StartLoggingRequest");
   }
 }
 
@@ -2138,7 +2138,7 @@ export interface StartLoggingResponse extends $MetadataBearer {
 
 export namespace StartLoggingResponse {
   export function isa(o: any): o is StartLoggingResponse {
-    return _smithy.isa(o, "StartLoggingResponse");
+    return __isa(o, "StartLoggingResponse");
   }
 }
 
@@ -2158,7 +2158,7 @@ export interface StopLoggingRequest {
 
 export namespace StopLoggingRequest {
   export function isa(o: any): o is StopLoggingRequest {
-    return _smithy.isa(o, "StopLoggingRequest");
+    return __isa(o, "StopLoggingRequest");
   }
 }
 
@@ -2171,7 +2171,7 @@ export interface StopLoggingResponse extends $MetadataBearer {
 
 export namespace StopLoggingResponse {
   export function isa(o: any): o is StopLoggingResponse {
-    return _smithy.isa(o, "StopLoggingResponse");
+    return __isa(o, "StopLoggingResponse");
   }
 }
 
@@ -2193,7 +2193,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -2201,7 +2201,7 @@ export namespace Tag {
  * <p>The number of tags per trail has exceeded the permitted amount. Currently, the limit is 50.</p>
  */
 export interface TagsLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TagsLimitExceededException";
   $fault: "client";
@@ -2213,7 +2213,7 @@ export interface TagsLimitExceededException
 
 export namespace TagsLimitExceededException {
   export function isa(o: any): o is TagsLimitExceededException {
-    return _smithy.isa(o, "TagsLimitExceededException");
+    return __isa(o, "TagsLimitExceededException");
   }
 }
 
@@ -2318,7 +2318,7 @@ export interface Trail {
 
 export namespace Trail {
   export function isa(o: any): o is Trail {
-    return _smithy.isa(o, "Trail");
+    return __isa(o, "Trail");
   }
 }
 
@@ -2326,7 +2326,7 @@ export namespace Trail {
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
 export interface TrailAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TrailAlreadyExistsException";
   $fault: "client";
@@ -2338,7 +2338,7 @@ export interface TrailAlreadyExistsException
 
 export namespace TrailAlreadyExistsException {
   export function isa(o: any): o is TrailAlreadyExistsException {
-    return _smithy.isa(o, "TrailAlreadyExistsException");
+    return __isa(o, "TrailAlreadyExistsException");
   }
 }
 
@@ -2365,7 +2365,7 @@ export interface TrailInfo {
 
 export namespace TrailInfo {
   export function isa(o: any): o is TrailInfo {
-    return _smithy.isa(o, "TrailInfo");
+    return __isa(o, "TrailInfo");
   }
 }
 
@@ -2373,7 +2373,7 @@ export namespace TrailInfo {
  * <p>This exception is thrown when the trail with the given name is not found.</p>
  */
 export interface TrailNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TrailNotFoundException";
   $fault: "client";
@@ -2385,7 +2385,7 @@ export interface TrailNotFoundException
 
 export namespace TrailNotFoundException {
   export function isa(o: any): o is TrailNotFoundException {
-    return _smithy.isa(o, "TrailNotFoundException");
+    return __isa(o, "TrailNotFoundException");
   }
 }
 
@@ -2393,7 +2393,7 @@ export namespace TrailNotFoundException {
  * <p>This exception is no longer in use.</p>
  */
 export interface TrailNotProvidedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TrailNotProvidedException";
   $fault: "client";
@@ -2405,7 +2405,7 @@ export interface TrailNotProvidedException
 
 export namespace TrailNotProvidedException {
   export function isa(o: any): o is TrailNotProvidedException {
-    return _smithy.isa(o, "TrailNotProvidedException");
+    return __isa(o, "TrailNotProvidedException");
   }
 }
 
@@ -2413,7 +2413,7 @@ export namespace TrailNotProvidedException {
  * <p>This exception is thrown when the requested operation is not supported.</p>
  */
 export interface UnsupportedOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedOperationException";
   $fault: "client";
@@ -2425,7 +2425,7 @@ export interface UnsupportedOperationException
 
 export namespace UnsupportedOperationException {
   export function isa(o: any): o is UnsupportedOperationException {
-    return _smithy.isa(o, "UnsupportedOperationException");
+    return __isa(o, "UnsupportedOperationException");
   }
 }
 
@@ -2543,7 +2543,7 @@ export interface UpdateTrailRequest {
 
 export namespace UpdateTrailRequest {
   export function isa(o: any): o is UpdateTrailRequest {
-    return _smithy.isa(o, "UpdateTrailRequest");
+    return __isa(o, "UpdateTrailRequest");
   }
 }
 
@@ -2633,6 +2633,6 @@ export interface UpdateTrailResponse extends $MetadataBearer {
 
 export namespace UpdateTrailResponse {
   export function isa(o: any): o is UpdateTrailResponse {
-    return _smithy.isa(o, "UpdateTrailResponse");
+    return __isa(o, "UpdateTrailResponse");
   }
 }

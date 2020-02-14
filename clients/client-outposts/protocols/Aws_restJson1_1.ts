@@ -32,7 +32,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -83,13 +86,13 @@ export async function serializeAws_restJson1_1GetOutpostCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}";
   if (input.OutpostId !== undefined) {
-    const labelValue: string = input.OutpostId.toString();
+    const labelValue: string = input.OutpostId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OutpostId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
@@ -111,23 +114,27 @@ export async function serializeAws_restJson1_1GetOutpostInstanceTypesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/outposts/{OutpostId}/instanceTypes";
   if (input.OutpostId !== undefined) {
-    const labelValue: string = input.OutpostId.toString();
+    const labelValue: string = input.OutpostId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutpostId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OutpostId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutpostId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -148,10 +155,14 @@ export async function serializeAws_restJson1_1ListOutpostsCommand(
   let resolvedPath = "/outposts";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -172,10 +183,14 @@ export async function serializeAws_restJson1_1ListSitesCommand(
   let resolvedPath = "/sites";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,

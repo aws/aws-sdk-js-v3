@@ -1077,6 +1077,7 @@ export async function deserializeAws_json1_1DeleteDatasetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1145,6 +1146,7 @@ export async function deserializeAws_json1_1DeleteDatasetGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1213,6 +1215,7 @@ export async function deserializeAws_json1_1DeleteDatasetImportJobCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1278,6 +1281,7 @@ export async function deserializeAws_json1_1DeleteForecastCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteForecastCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteForecastCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1346,6 +1350,7 @@ export async function deserializeAws_json1_1DeleteForecastExportJobCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteForecastExportJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1411,6 +1416,7 @@ export async function deserializeAws_json1_1DeletePredictorCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePredictorCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePredictorCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

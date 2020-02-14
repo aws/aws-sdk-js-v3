@@ -842,6 +842,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     $fault: "server",
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -871,6 +872,7 @@ const deserializeAws_restJson1_1ServiceUnavailableErrorResponse = async (
     $fault: "server",
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return contents;
 };
 

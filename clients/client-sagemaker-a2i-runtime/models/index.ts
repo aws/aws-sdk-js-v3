@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ContentClassifier {
@@ -16,7 +19,7 @@ export interface DeleteHumanLoopRequest {
 
 export namespace DeleteHumanLoopRequest {
   export function isa(o: any): o is DeleteHumanLoopRequest {
-    return _smithy.isa(o, "DeleteHumanLoopRequest");
+    return __isa(o, "DeleteHumanLoopRequest");
   }
 }
 
@@ -26,7 +29,7 @@ export interface DeleteHumanLoopResponse extends $MetadataBearer {
 
 export namespace DeleteHumanLoopResponse {
   export function isa(o: any): o is DeleteHumanLoopResponse {
-    return _smithy.isa(o, "DeleteHumanLoopResponse");
+    return __isa(o, "DeleteHumanLoopResponse");
   }
 }
 
@@ -40,7 +43,7 @@ export interface DescribeHumanLoopRequest {
 
 export namespace DescribeHumanLoopRequest {
   export function isa(o: any): o is DescribeHumanLoopRequest {
-    return _smithy.isa(o, "DescribeHumanLoopRequest");
+    return __isa(o, "DescribeHumanLoopRequest");
   }
 }
 
@@ -94,7 +97,7 @@ export interface DescribeHumanLoopResponse extends $MetadataBearer {
 
 export namespace DescribeHumanLoopResponse {
   export function isa(o: any): o is DescribeHumanLoopResponse {
-    return _smithy.isa(o, "DescribeHumanLoopResponse");
+    return __isa(o, "DescribeHumanLoopResponse");
   }
 }
 
@@ -111,7 +114,7 @@ export interface HumanLoopActivationReason {
 
 export namespace HumanLoopActivationReason {
   export function isa(o: any): o is HumanLoopActivationReason {
-    return _smithy.isa(o, "HumanLoopActivationReason");
+    return __isa(o, "HumanLoopActivationReason");
   }
 }
 
@@ -133,7 +136,7 @@ export interface HumanLoopActivationResults {
 
 export namespace HumanLoopActivationResults {
   export function isa(o: any): o is HumanLoopActivationResults {
-    return _smithy.isa(o, "HumanLoopActivationResults");
+    return __isa(o, "HumanLoopActivationResults");
   }
 }
 
@@ -150,7 +153,7 @@ export interface HumanLoopInputContent {
 
 export namespace HumanLoopInputContent {
   export function isa(o: any): o is HumanLoopInputContent {
-    return _smithy.isa(o, "HumanLoopInputContent");
+    return __isa(o, "HumanLoopInputContent");
   }
 }
 
@@ -168,7 +171,7 @@ export interface HumanLoopOutputContent {
 
 export namespace HumanLoopOutputContent {
   export function isa(o: any): o is HumanLoopOutputContent {
-    return _smithy.isa(o, "HumanLoopOutputContent");
+    return __isa(o, "HumanLoopOutputContent");
   }
 }
 
@@ -213,7 +216,7 @@ export interface HumanLoopSummary {
 
 export namespace HumanLoopSummary {
   export function isa(o: any): o is HumanLoopSummary {
-    return _smithy.isa(o, "HumanLoopSummary");
+    return __isa(o, "HumanLoopSummary");
   }
 }
 
@@ -231,7 +234,7 @@ export interface HumanReviewDataAttributes {
 
 export namespace HumanReviewDataAttributes {
   export function isa(o: any): o is HumanReviewDataAttributes {
-    return _smithy.isa(o, "HumanReviewDataAttributes");
+    return __isa(o, "HumanReviewDataAttributes");
   }
 }
 
@@ -239,7 +242,7 @@ export namespace HumanReviewDataAttributes {
  * <p>Your request could not be processed.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -248,7 +251,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -282,7 +285,7 @@ export interface ListHumanLoopsRequest {
 
 export namespace ListHumanLoopsRequest {
   export function isa(o: any): o is ListHumanLoopsRequest {
-    return _smithy.isa(o, "ListHumanLoopsRequest");
+    return __isa(o, "ListHumanLoopsRequest");
   }
 }
 
@@ -301,7 +304,7 @@ export interface ListHumanLoopsResponse extends $MetadataBearer {
 
 export namespace ListHumanLoopsResponse {
   export function isa(o: any): o is ListHumanLoopsResponse {
-    return _smithy.isa(o, "ListHumanLoopsResponse");
+    return __isa(o, "ListHumanLoopsResponse");
   }
 }
 
@@ -309,7 +312,7 @@ export namespace ListHumanLoopsResponse {
  * <p>We were unable to find the requested resource.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -318,7 +321,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -326,7 +329,7 @@ export namespace ResourceNotFoundException {
  * <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or request a service quota increase.</p>
  */
 export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -335,7 +338,7 @@ export interface ServiceQuotaExceededException
 
 export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
-    return _smithy.isa(o, "ServiceQuotaExceededException");
+    return __isa(o, "ServiceQuotaExceededException");
   }
 }
 
@@ -369,7 +372,7 @@ export interface StartHumanLoopRequest {
 
 export namespace StartHumanLoopRequest {
   export function isa(o: any): o is StartHumanLoopRequest {
-    return _smithy.isa(o, "StartHumanLoopRequest");
+    return __isa(o, "StartHumanLoopRequest");
   }
 }
 
@@ -388,7 +391,7 @@ export interface StartHumanLoopResponse extends $MetadataBearer {
 
 export namespace StartHumanLoopResponse {
   export function isa(o: any): o is StartHumanLoopResponse {
-    return _smithy.isa(o, "StartHumanLoopResponse");
+    return __isa(o, "StartHumanLoopResponse");
   }
 }
 
@@ -402,7 +405,7 @@ export interface StopHumanLoopRequest {
 
 export namespace StopHumanLoopRequest {
   export function isa(o: any): o is StopHumanLoopRequest {
-    return _smithy.isa(o, "StopHumanLoopRequest");
+    return __isa(o, "StopHumanLoopRequest");
   }
 }
 
@@ -412,7 +415,7 @@ export interface StopHumanLoopResponse extends $MetadataBearer {
 
 export namespace StopHumanLoopResponse {
   export function isa(o: any): o is StopHumanLoopResponse {
-    return _smithy.isa(o, "StopHumanLoopResponse");
+    return __isa(o, "StopHumanLoopResponse");
   }
 }
 
@@ -420,7 +423,7 @@ export namespace StopHumanLoopResponse {
  * <p>Your request has exceeded the allowed amount of requests.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -429,7 +432,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -437,7 +440,7 @@ export namespace ThrottlingException {
  * <p>Your request was not valid. Check the syntax and try again.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -446,6 +449,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

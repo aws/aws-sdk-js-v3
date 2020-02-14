@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The certificate is invalid.</p>
  */
 export interface CertificateValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CertificateValidationException";
   $fault: "client";
@@ -17,7 +20,7 @@ export interface CertificateValidationException
 
 export namespace CertificateValidationException {
   export function isa(o: any): o is CertificateValidationException {
-    return _smithy.isa(o, "CertificateValidationException");
+    return __isa(o, "CertificateValidationException");
   }
 }
 
@@ -25,7 +28,7 @@ export namespace CertificateValidationException {
  * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -37,7 +40,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -47,7 +50,7 @@ export namespace InvalidRequestException {
  *          case, the body of the error message also contains the executionState field.</p>
  */
 export interface InvalidStateTransitionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
@@ -56,7 +59,7 @@ export interface InvalidStateTransitionException
 
 export namespace InvalidStateTransitionException {
   export function isa(o: any): o is InvalidStateTransitionException {
-    return _smithy.isa(o, "InvalidStateTransitionException");
+    return __isa(o, "InvalidStateTransitionException");
   }
 }
 
@@ -64,7 +67,7 @@ export namespace InvalidStateTransitionException {
  * <p>The specified resource does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -76,7 +79,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -84,7 +87,7 @@ export namespace ResourceNotFoundException {
  * <p>The service is temporarily unavailable.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -96,7 +99,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -104,7 +107,7 @@ export namespace ServiceUnavailableException {
  * <p>The job is in a terminal state.</p>
  */
 export interface TerminalStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TerminalStateException";
   $fault: "client";
@@ -113,7 +116,7 @@ export interface TerminalStateException
 
 export namespace TerminalStateException {
   export function isa(o: any): o is TerminalStateException {
-    return _smithy.isa(o, "TerminalStateException");
+    return __isa(o, "TerminalStateException");
   }
 }
 
@@ -132,7 +135,7 @@ export enum JobExecutionStatus {
  * <p>The rate exceeds the limit.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -149,7 +152,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -179,7 +182,7 @@ export interface DescribeJobExecutionRequest {
 
 export namespace DescribeJobExecutionRequest {
   export function isa(o: any): o is DescribeJobExecutionRequest {
-    return _smithy.isa(o, "DescribeJobExecutionRequest");
+    return __isa(o, "DescribeJobExecutionRequest");
   }
 }
 
@@ -193,7 +196,7 @@ export interface DescribeJobExecutionResponse extends $MetadataBearer {
 
 export namespace DescribeJobExecutionResponse {
   export function isa(o: any): o is DescribeJobExecutionResponse {
-    return _smithy.isa(o, "DescribeJobExecutionResponse");
+    return __isa(o, "DescribeJobExecutionResponse");
   }
 }
 
@@ -207,7 +210,7 @@ export interface GetPendingJobExecutionsRequest {
 
 export namespace GetPendingJobExecutionsRequest {
   export function isa(o: any): o is GetPendingJobExecutionsRequest {
-    return _smithy.isa(o, "GetPendingJobExecutionsRequest");
+    return __isa(o, "GetPendingJobExecutionsRequest");
   }
 }
 
@@ -226,7 +229,7 @@ export interface GetPendingJobExecutionsResponse extends $MetadataBearer {
 
 export namespace GetPendingJobExecutionsResponse {
   export function isa(o: any): o is GetPendingJobExecutionsResponse {
-    return _smithy.isa(o, "GetPendingJobExecutionsResponse");
+    return __isa(o, "GetPendingJobExecutionsResponse");
   }
 }
 
@@ -297,7 +300,7 @@ export interface JobExecution {
 
 export namespace JobExecution {
   export function isa(o: any): o is JobExecution {
-    return _smithy.isa(o, "JobExecution");
+    return __isa(o, "JobExecution");
   }
 }
 
@@ -326,7 +329,7 @@ export interface JobExecutionState {
 
 export namespace JobExecutionState {
   export function isa(o: any): o is JobExecutionState {
-    return _smithy.isa(o, "JobExecutionState");
+    return __isa(o, "JobExecutionState");
   }
 }
 
@@ -369,7 +372,7 @@ export interface JobExecutionSummary {
 
 export namespace JobExecutionSummary {
   export function isa(o: any): o is JobExecutionSummary {
-    return _smithy.isa(o, "JobExecutionSummary");
+    return __isa(o, "JobExecutionSummary");
   }
 }
 
@@ -400,7 +403,7 @@ export interface StartNextPendingJobExecutionRequest {
 
 export namespace StartNextPendingJobExecutionRequest {
   export function isa(o: any): o is StartNextPendingJobExecutionRequest {
-    return _smithy.isa(o, "StartNextPendingJobExecutionRequest");
+    return __isa(o, "StartNextPendingJobExecutionRequest");
   }
 }
 
@@ -414,7 +417,7 @@ export interface StartNextPendingJobExecutionResponse extends $MetadataBearer {
 
 export namespace StartNextPendingJobExecutionResponse {
   export function isa(o: any): o is StartNextPendingJobExecutionResponse {
-    return _smithy.isa(o, "StartNextPendingJobExecutionResponse");
+    return __isa(o, "StartNextPendingJobExecutionResponse");
   }
 }
 
@@ -481,7 +484,7 @@ export interface UpdateJobExecutionRequest {
 
 export namespace UpdateJobExecutionRequest {
   export function isa(o: any): o is UpdateJobExecutionRequest {
-    return _smithy.isa(o, "UpdateJobExecutionRequest");
+    return __isa(o, "UpdateJobExecutionRequest");
   }
 }
 
@@ -500,6 +503,6 @@ export interface UpdateJobExecutionResponse extends $MetadataBearer {
 
 export namespace UpdateJobExecutionResponse {
   export function isa(o: any): o is UpdateJobExecutionResponse {
-    return _smithy.isa(o, "UpdateJobExecutionResponse");
+    return __isa(o, "UpdateJobExecutionResponse");
   }
 }

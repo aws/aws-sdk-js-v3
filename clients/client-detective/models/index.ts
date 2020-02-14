@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptInvitationRequest {
@@ -13,7 +16,7 @@ export interface AcceptInvitationRequest {
 
 export namespace AcceptInvitationRequest {
   export function isa(o: any): o is AcceptInvitationRequest {
-    return _smithy.isa(o, "AcceptInvitationRequest");
+    return __isa(o, "AcceptInvitationRequest");
   }
 }
 
@@ -37,16 +40,14 @@ export interface Account {
 
 export namespace Account {
   export function isa(o: any): o is Account {
-    return _smithy.isa(o, "Account");
+    return __isa(o, "Account");
   }
 }
 
 /**
  * <p>The request attempted an invalid action.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -54,7 +55,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -68,7 +69,7 @@ export interface CreateGraphResponse extends $MetadataBearer {
 
 export namespace CreateGraphResponse {
   export function isa(o: any): o is CreateGraphResponse {
-    return _smithy.isa(o, "CreateGraphResponse");
+    return __isa(o, "CreateGraphResponse");
   }
 }
 
@@ -96,7 +97,7 @@ export interface CreateMembersRequest {
 
 export namespace CreateMembersRequest {
   export function isa(o: any): o is CreateMembersRequest {
-    return _smithy.isa(o, "CreateMembersRequest");
+    return __isa(o, "CreateMembersRequest");
   }
 }
 
@@ -119,7 +120,7 @@ export interface CreateMembersResponse extends $MetadataBearer {
 
 export namespace CreateMembersResponse {
   export function isa(o: any): o is CreateMembersResponse {
-    return _smithy.isa(o, "CreateMembersResponse");
+    return __isa(o, "CreateMembersResponse");
   }
 }
 
@@ -133,7 +134,7 @@ export interface DeleteGraphRequest {
 
 export namespace DeleteGraphRequest {
   export function isa(o: any): o is DeleteGraphRequest {
-    return _smithy.isa(o, "DeleteGraphRequest");
+    return __isa(o, "DeleteGraphRequest");
   }
 }
 
@@ -153,7 +154,7 @@ export interface DeleteMembersRequest {
 
 export namespace DeleteMembersRequest {
   export function isa(o: any): o is DeleteMembersRequest {
-    return _smithy.isa(o, "DeleteMembersRequest");
+    return __isa(o, "DeleteMembersRequest");
   }
 }
 
@@ -175,7 +176,7 @@ export interface DeleteMembersResponse extends $MetadataBearer {
 
 export namespace DeleteMembersResponse {
   export function isa(o: any): o is DeleteMembersResponse {
-    return _smithy.isa(o, "DeleteMembersResponse");
+    return __isa(o, "DeleteMembersResponse");
   }
 }
 
@@ -191,7 +192,7 @@ export interface DisassociateMembershipRequest {
 
 export namespace DisassociateMembershipRequest {
   export function isa(o: any): o is DisassociateMembershipRequest {
-    return _smithy.isa(o, "DisassociateMembershipRequest");
+    return __isa(o, "DisassociateMembershipRequest");
   }
 }
 
@@ -213,7 +214,7 @@ export interface GetMembersRequest {
 
 export namespace GetMembersRequest {
   export function isa(o: any): o is GetMembersRequest {
-    return _smithy.isa(o, "GetMembersRequest");
+    return __isa(o, "GetMembersRequest");
   }
 }
 
@@ -234,7 +235,7 @@ export interface GetMembersResponse extends $MetadataBearer {
 
 export namespace GetMembersResponse {
   export function isa(o: any): o is GetMembersResponse {
-    return _smithy.isa(o, "GetMembersResponse");
+    return __isa(o, "GetMembersResponse");
   }
 }
 
@@ -259,7 +260,7 @@ export interface Graph {
 
 export namespace Graph {
   export function isa(o: any): o is Graph {
-    return _smithy.isa(o, "Graph");
+    return __isa(o, "Graph");
   }
 }
 
@@ -267,7 +268,7 @@ export namespace Graph {
  * <p>The request was valid but failed because of a problem with the service.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -276,7 +277,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -298,7 +299,7 @@ export interface ListGraphsRequest {
 
 export namespace ListGraphsRequest {
   export function isa(o: any): o is ListGraphsRequest {
-    return _smithy.isa(o, "ListGraphsRequest");
+    return __isa(o, "ListGraphsRequest");
   }
 }
 
@@ -318,7 +319,7 @@ export interface ListGraphsResponse extends $MetadataBearer {
 
 export namespace ListGraphsResponse {
   export function isa(o: any): o is ListGraphsResponse {
-    return _smithy.isa(o, "ListGraphsResponse");
+    return __isa(o, "ListGraphsResponse");
   }
 }
 
@@ -341,7 +342,7 @@ export interface ListInvitationsRequest {
 
 export namespace ListInvitationsRequest {
   export function isa(o: any): o is ListInvitationsRequest {
-    return _smithy.isa(o, "ListInvitationsRequest");
+    return __isa(o, "ListInvitationsRequest");
   }
 }
 
@@ -362,7 +363,7 @@ export interface ListInvitationsResponse extends $MetadataBearer {
 
 export namespace ListInvitationsResponse {
   export function isa(o: any): o is ListInvitationsResponse {
-    return _smithy.isa(o, "ListInvitationsResponse");
+    return __isa(o, "ListInvitationsResponse");
   }
 }
 
@@ -389,7 +390,7 @@ export interface ListMembersRequest {
 
 export namespace ListMembersRequest {
   export function isa(o: any): o is ListMembersRequest {
-    return _smithy.isa(o, "ListMembersRequest");
+    return __isa(o, "ListMembersRequest");
   }
 }
 
@@ -412,7 +413,7 @@ export interface ListMembersResponse extends $MetadataBearer {
 
 export namespace ListMembersResponse {
   export function isa(o: any): o is ListMembersResponse {
-    return _smithy.isa(o, "ListMembersResponse");
+    return __isa(o, "ListMembersResponse");
   }
 }
 
@@ -493,7 +494,7 @@ export interface MemberDetail {
 
 export namespace MemberDetail {
   export function isa(o: any): o is MemberDetail {
-    return _smithy.isa(o, "MemberDetail");
+    return __isa(o, "MemberDetail");
   }
 }
 
@@ -516,7 +517,7 @@ export interface RejectInvitationRequest {
 
 export namespace RejectInvitationRequest {
   export function isa(o: any): o is RejectInvitationRequest {
-    return _smithy.isa(o, "RejectInvitationRequest");
+    return __isa(o, "RejectInvitationRequest");
   }
 }
 
@@ -524,7 +525,7 @@ export namespace RejectInvitationRequest {
  * <p>The request refers to a nonexistent resource.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -533,7 +534,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -542,7 +543,7 @@ export namespace ResourceNotFoundException {
  *          the maximum allowed. A behavior graph cannot have more than 1000 member accounts.</p>
  */
 export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -551,7 +552,7 @@ export interface ServiceQuotaExceededException
 
 export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
-    return _smithy.isa(o, "ServiceQuotaExceededException");
+    return __isa(o, "ServiceQuotaExceededException");
   }
 }
 
@@ -577,7 +578,7 @@ export interface UnprocessedAccount {
 
 export namespace UnprocessedAccount {
   export function isa(o: any): o is UnprocessedAccount {
-    return _smithy.isa(o, "UnprocessedAccount");
+    return __isa(o, "UnprocessedAccount");
   }
 }
 
@@ -585,7 +586,7 @@ export namespace UnprocessedAccount {
  * <p>The request parameters are invalid.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -594,6 +595,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -44,7 +47,7 @@ export interface AssociateCustomerGatewayRequest {
 
 export namespace AssociateCustomerGatewayRequest {
   export function isa(o: any): o is AssociateCustomerGatewayRequest {
-    return _smithy.isa(o, "AssociateCustomerGatewayRequest");
+    return __isa(o, "AssociateCustomerGatewayRequest");
   }
 }
 
@@ -58,7 +61,7 @@ export interface AssociateCustomerGatewayResponse extends $MetadataBearer {
 
 export namespace AssociateCustomerGatewayResponse {
   export function isa(o: any): o is AssociateCustomerGatewayResponse {
-    return _smithy.isa(o, "AssociateCustomerGatewayResponse");
+    return __isa(o, "AssociateCustomerGatewayResponse");
   }
 }
 
@@ -82,7 +85,7 @@ export interface AssociateLinkRequest {
 
 export namespace AssociateLinkRequest {
   export function isa(o: any): o is AssociateLinkRequest {
-    return _smithy.isa(o, "AssociateLinkRequest");
+    return __isa(o, "AssociateLinkRequest");
   }
 }
 
@@ -96,7 +99,7 @@ export interface AssociateLinkResponse extends $MetadataBearer {
 
 export namespace AssociateLinkResponse {
   export function isa(o: any): o is AssociateLinkResponse {
-    return _smithy.isa(o, "AssociateLinkResponse");
+    return __isa(o, "AssociateLinkResponse");
   }
 }
 
@@ -118,7 +121,7 @@ export interface Bandwidth {
 
 export namespace Bandwidth {
   export function isa(o: any): o is Bandwidth {
-    return _smithy.isa(o, "Bandwidth");
+    return __isa(o, "Bandwidth");
   }
 }
 
@@ -126,9 +129,7 @@ export namespace Bandwidth {
  * <p>There was a conflict processing the request. Updating or deleting the resource can
  *             cause an inconsistent state.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message: string | undefined;
@@ -145,7 +146,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -203,7 +204,7 @@ export interface CreateDeviceRequest {
 
 export namespace CreateDeviceRequest {
   export function isa(o: any): o is CreateDeviceRequest {
-    return _smithy.isa(o, "CreateDeviceRequest");
+    return __isa(o, "CreateDeviceRequest");
   }
 }
 
@@ -217,7 +218,7 @@ export interface CreateDeviceResponse extends $MetadataBearer {
 
 export namespace CreateDeviceResponse {
   export function isa(o: any): o is CreateDeviceResponse {
-    return _smithy.isa(o, "CreateDeviceResponse");
+    return __isa(o, "CreateDeviceResponse");
   }
 }
 
@@ -237,7 +238,7 @@ export interface CreateGlobalNetworkRequest {
 
 export namespace CreateGlobalNetworkRequest {
   export function isa(o: any): o is CreateGlobalNetworkRequest {
-    return _smithy.isa(o, "CreateGlobalNetworkRequest");
+    return __isa(o, "CreateGlobalNetworkRequest");
   }
 }
 
@@ -251,7 +252,7 @@ export interface CreateGlobalNetworkResponse extends $MetadataBearer {
 
 export namespace CreateGlobalNetworkResponse {
   export function isa(o: any): o is CreateGlobalNetworkResponse {
-    return _smithy.isa(o, "CreateGlobalNetworkResponse");
+    return __isa(o, "CreateGlobalNetworkResponse");
   }
 }
 
@@ -300,7 +301,7 @@ export interface CreateLinkRequest {
 
 export namespace CreateLinkRequest {
   export function isa(o: any): o is CreateLinkRequest {
-    return _smithy.isa(o, "CreateLinkRequest");
+    return __isa(o, "CreateLinkRequest");
   }
 }
 
@@ -314,7 +315,7 @@ export interface CreateLinkResponse extends $MetadataBearer {
 
 export namespace CreateLinkResponse {
   export function isa(o: any): o is CreateLinkResponse {
-    return _smithy.isa(o, "CreateLinkResponse");
+    return __isa(o, "CreateLinkResponse");
   }
 }
 
@@ -358,7 +359,7 @@ export interface CreateSiteRequest {
 
 export namespace CreateSiteRequest {
   export function isa(o: any): o is CreateSiteRequest {
-    return _smithy.isa(o, "CreateSiteRequest");
+    return __isa(o, "CreateSiteRequest");
   }
 }
 
@@ -372,7 +373,7 @@ export interface CreateSiteResponse extends $MetadataBearer {
 
 export namespace CreateSiteResponse {
   export function isa(o: any): o is CreateSiteResponse {
-    return _smithy.isa(o, "CreateSiteResponse");
+    return __isa(o, "CreateSiteResponse");
   }
 }
 
@@ -409,7 +410,7 @@ export interface CustomerGatewayAssociation {
 
 export namespace CustomerGatewayAssociation {
   export function isa(o: any): o is CustomerGatewayAssociation {
-    return _smithy.isa(o, "CustomerGatewayAssociation");
+    return __isa(o, "CustomerGatewayAssociation");
   }
 }
 
@@ -435,7 +436,7 @@ export interface DeleteDeviceRequest {
 
 export namespace DeleteDeviceRequest {
   export function isa(o: any): o is DeleteDeviceRequest {
-    return _smithy.isa(o, "DeleteDeviceRequest");
+    return __isa(o, "DeleteDeviceRequest");
   }
 }
 
@@ -449,7 +450,7 @@ export interface DeleteDeviceResponse extends $MetadataBearer {
 
 export namespace DeleteDeviceResponse {
   export function isa(o: any): o is DeleteDeviceResponse {
-    return _smithy.isa(o, "DeleteDeviceResponse");
+    return __isa(o, "DeleteDeviceResponse");
   }
 }
 
@@ -463,7 +464,7 @@ export interface DeleteGlobalNetworkRequest {
 
 export namespace DeleteGlobalNetworkRequest {
   export function isa(o: any): o is DeleteGlobalNetworkRequest {
-    return _smithy.isa(o, "DeleteGlobalNetworkRequest");
+    return __isa(o, "DeleteGlobalNetworkRequest");
   }
 }
 
@@ -477,7 +478,7 @@ export interface DeleteGlobalNetworkResponse extends $MetadataBearer {
 
 export namespace DeleteGlobalNetworkResponse {
   export function isa(o: any): o is DeleteGlobalNetworkResponse {
-    return _smithy.isa(o, "DeleteGlobalNetworkResponse");
+    return __isa(o, "DeleteGlobalNetworkResponse");
   }
 }
 
@@ -496,7 +497,7 @@ export interface DeleteLinkRequest {
 
 export namespace DeleteLinkRequest {
   export function isa(o: any): o is DeleteLinkRequest {
-    return _smithy.isa(o, "DeleteLinkRequest");
+    return __isa(o, "DeleteLinkRequest");
   }
 }
 
@@ -510,7 +511,7 @@ export interface DeleteLinkResponse extends $MetadataBearer {
 
 export namespace DeleteLinkResponse {
   export function isa(o: any): o is DeleteLinkResponse {
-    return _smithy.isa(o, "DeleteLinkResponse");
+    return __isa(o, "DeleteLinkResponse");
   }
 }
 
@@ -529,7 +530,7 @@ export interface DeleteSiteRequest {
 
 export namespace DeleteSiteRequest {
   export function isa(o: any): o is DeleteSiteRequest {
-    return _smithy.isa(o, "DeleteSiteRequest");
+    return __isa(o, "DeleteSiteRequest");
   }
 }
 
@@ -543,7 +544,7 @@ export interface DeleteSiteResponse extends $MetadataBearer {
 
 export namespace DeleteSiteResponse {
   export function isa(o: any): o is DeleteSiteResponse {
-    return _smithy.isa(o, "DeleteSiteResponse");
+    return __isa(o, "DeleteSiteResponse");
   }
 }
 
@@ -562,7 +563,7 @@ export interface DeregisterTransitGatewayRequest {
 
 export namespace DeregisterTransitGatewayRequest {
   export function isa(o: any): o is DeregisterTransitGatewayRequest {
-    return _smithy.isa(o, "DeregisterTransitGatewayRequest");
+    return __isa(o, "DeregisterTransitGatewayRequest");
   }
 }
 
@@ -576,7 +577,7 @@ export interface DeregisterTransitGatewayResponse extends $MetadataBearer {
 
 export namespace DeregisterTransitGatewayResponse {
   export function isa(o: any): o is DeregisterTransitGatewayResponse {
-    return _smithy.isa(o, "DeregisterTransitGatewayResponse");
+    return __isa(o, "DeregisterTransitGatewayResponse");
   }
 }
 
@@ -600,7 +601,7 @@ export interface DescribeGlobalNetworksRequest {
 
 export namespace DescribeGlobalNetworksRequest {
   export function isa(o: any): o is DescribeGlobalNetworksRequest {
-    return _smithy.isa(o, "DescribeGlobalNetworksRequest");
+    return __isa(o, "DescribeGlobalNetworksRequest");
   }
 }
 
@@ -619,7 +620,7 @@ export interface DescribeGlobalNetworksResponse extends $MetadataBearer {
 
 export namespace DescribeGlobalNetworksResponse {
   export function isa(o: any): o is DescribeGlobalNetworksResponse {
-    return _smithy.isa(o, "DescribeGlobalNetworksResponse");
+    return __isa(o, "DescribeGlobalNetworksResponse");
   }
 }
 
@@ -696,7 +697,7 @@ export interface Device {
 
 export namespace Device {
   export function isa(o: any): o is Device {
-    return _smithy.isa(o, "Device");
+    return __isa(o, "Device");
   }
 }
 
@@ -723,7 +724,7 @@ export interface DisassociateCustomerGatewayRequest {
 
 export namespace DisassociateCustomerGatewayRequest {
   export function isa(o: any): o is DisassociateCustomerGatewayRequest {
-    return _smithy.isa(o, "DisassociateCustomerGatewayRequest");
+    return __isa(o, "DisassociateCustomerGatewayRequest");
   }
 }
 
@@ -737,7 +738,7 @@ export interface DisassociateCustomerGatewayResponse extends $MetadataBearer {
 
 export namespace DisassociateCustomerGatewayResponse {
   export function isa(o: any): o is DisassociateCustomerGatewayResponse {
-    return _smithy.isa(o, "DisassociateCustomerGatewayResponse");
+    return __isa(o, "DisassociateCustomerGatewayResponse");
   }
 }
 
@@ -761,7 +762,7 @@ export interface DisassociateLinkRequest {
 
 export namespace DisassociateLinkRequest {
   export function isa(o: any): o is DisassociateLinkRequest {
-    return _smithy.isa(o, "DisassociateLinkRequest");
+    return __isa(o, "DisassociateLinkRequest");
   }
 }
 
@@ -775,7 +776,7 @@ export interface DisassociateLinkResponse extends $MetadataBearer {
 
 export namespace DisassociateLinkResponse {
   export function isa(o: any): o is DisassociateLinkResponse {
-    return _smithy.isa(o, "DisassociateLinkResponse");
+    return __isa(o, "DisassociateLinkResponse");
   }
 }
 
@@ -805,7 +806,7 @@ export interface GetCustomerGatewayAssociationsRequest {
 
 export namespace GetCustomerGatewayAssociationsRequest {
   export function isa(o: any): o is GetCustomerGatewayAssociationsRequest {
-    return _smithy.isa(o, "GetCustomerGatewayAssociationsRequest");
+    return __isa(o, "GetCustomerGatewayAssociationsRequest");
   }
 }
 
@@ -825,7 +826,7 @@ export interface GetCustomerGatewayAssociationsResponse
 
 export namespace GetCustomerGatewayAssociationsResponse {
   export function isa(o: any): o is GetCustomerGatewayAssociationsResponse {
-    return _smithy.isa(o, "GetCustomerGatewayAssociationsResponse");
+    return __isa(o, "GetCustomerGatewayAssociationsResponse");
   }
 }
 
@@ -859,7 +860,7 @@ export interface GetDevicesRequest {
 
 export namespace GetDevicesRequest {
   export function isa(o: any): o is GetDevicesRequest {
-    return _smithy.isa(o, "GetDevicesRequest");
+    return __isa(o, "GetDevicesRequest");
   }
 }
 
@@ -878,7 +879,7 @@ export interface GetDevicesResponse extends $MetadataBearer {
 
 export namespace GetDevicesResponse {
   export function isa(o: any): o is GetDevicesResponse {
-    return _smithy.isa(o, "GetDevicesResponse");
+    return __isa(o, "GetDevicesResponse");
   }
 }
 
@@ -912,7 +913,7 @@ export interface GetLinkAssociationsRequest {
 
 export namespace GetLinkAssociationsRequest {
   export function isa(o: any): o is GetLinkAssociationsRequest {
-    return _smithy.isa(o, "GetLinkAssociationsRequest");
+    return __isa(o, "GetLinkAssociationsRequest");
   }
 }
 
@@ -931,7 +932,7 @@ export interface GetLinkAssociationsResponse extends $MetadataBearer {
 
 export namespace GetLinkAssociationsResponse {
   export function isa(o: any): o is GetLinkAssociationsResponse {
-    return _smithy.isa(o, "GetLinkAssociationsResponse");
+    return __isa(o, "GetLinkAssociationsResponse");
   }
 }
 
@@ -975,7 +976,7 @@ export interface GetLinksRequest {
 
 export namespace GetLinksRequest {
   export function isa(o: any): o is GetLinksRequest {
-    return _smithy.isa(o, "GetLinksRequest");
+    return __isa(o, "GetLinksRequest");
   }
 }
 
@@ -994,7 +995,7 @@ export interface GetLinksResponse extends $MetadataBearer {
 
 export namespace GetLinksResponse {
   export function isa(o: any): o is GetLinksResponse {
-    return _smithy.isa(o, "GetLinksResponse");
+    return __isa(o, "GetLinksResponse");
   }
 }
 
@@ -1023,7 +1024,7 @@ export interface GetSitesRequest {
 
 export namespace GetSitesRequest {
   export function isa(o: any): o is GetSitesRequest {
-    return _smithy.isa(o, "GetSitesRequest");
+    return __isa(o, "GetSitesRequest");
   }
 }
 
@@ -1042,7 +1043,7 @@ export interface GetSitesResponse extends $MetadataBearer {
 
 export namespace GetSitesResponse {
   export function isa(o: any): o is GetSitesResponse {
-    return _smithy.isa(o, "GetSitesResponse");
+    return __isa(o, "GetSitesResponse");
   }
 }
 
@@ -1072,7 +1073,7 @@ export interface GetTransitGatewayRegistrationsRequest {
 
 export namespace GetTransitGatewayRegistrationsRequest {
   export function isa(o: any): o is GetTransitGatewayRegistrationsRequest {
-    return _smithy.isa(o, "GetTransitGatewayRegistrationsRequest");
+    return __isa(o, "GetTransitGatewayRegistrationsRequest");
   }
 }
 
@@ -1092,7 +1093,7 @@ export interface GetTransitGatewayRegistrationsResponse
 
 export namespace GetTransitGatewayRegistrationsResponse {
   export function isa(o: any): o is GetTransitGatewayRegistrationsResponse {
-    return _smithy.isa(o, "GetTransitGatewayRegistrationsResponse");
+    return __isa(o, "GetTransitGatewayRegistrationsResponse");
   }
 }
 
@@ -1134,7 +1135,7 @@ export interface GlobalNetwork {
 
 export namespace GlobalNetwork {
   export function isa(o: any): o is GlobalNetwork {
-    return _smithy.isa(o, "GlobalNetwork");
+    return __isa(o, "GlobalNetwork");
   }
 }
 
@@ -1149,7 +1150,7 @@ export enum GlobalNetworkState {
  * <p>The request has failed due to an internal error.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -1162,7 +1163,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -1229,7 +1230,7 @@ export interface Link {
 
 export namespace Link {
   export function isa(o: any): o is Link {
-    return _smithy.isa(o, "Link");
+    return __isa(o, "Link");
   }
 }
 
@@ -1261,7 +1262,7 @@ export interface LinkAssociation {
 
 export namespace LinkAssociation {
   export function isa(o: any): o is LinkAssociation {
-    return _smithy.isa(o, "LinkAssociation");
+    return __isa(o, "LinkAssociation");
   }
 }
 
@@ -1289,7 +1290,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -1303,7 +1304,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -1330,7 +1331,7 @@ export interface Location {
 
 export namespace Location {
   export function isa(o: any): o is Location {
-    return _smithy.isa(o, "Location");
+    return __isa(o, "Location");
   }
 }
 
@@ -1350,7 +1351,7 @@ export interface RegisterTransitGatewayRequest {
 
 export namespace RegisterTransitGatewayRequest {
   export function isa(o: any): o is RegisterTransitGatewayRequest {
-    return _smithy.isa(o, "RegisterTransitGatewayRequest");
+    return __isa(o, "RegisterTransitGatewayRequest");
   }
 }
 
@@ -1364,7 +1365,7 @@ export interface RegisterTransitGatewayResponse extends $MetadataBearer {
 
 export namespace RegisterTransitGatewayResponse {
   export function isa(o: any): o is RegisterTransitGatewayResponse {
-    return _smithy.isa(o, "RegisterTransitGatewayResponse");
+    return __isa(o, "RegisterTransitGatewayResponse");
   }
 }
 
@@ -1372,7 +1373,7 @@ export namespace RegisterTransitGatewayResponse {
  * <p>The specified resource could not be found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1390,7 +1391,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1398,7 +1399,7 @@ export namespace ResourceNotFoundException {
  * <p>A service limit was exceeded.</p>
  */
 export interface ServiceQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -1430,7 +1431,7 @@ export interface ServiceQuotaExceededException
 
 export namespace ServiceQuotaExceededException {
   export function isa(o: any): o is ServiceQuotaExceededException {
-    return _smithy.isa(o, "ServiceQuotaExceededException");
+    return __isa(o, "ServiceQuotaExceededException");
   }
 }
 
@@ -1482,7 +1483,7 @@ export interface Site {
 
 export namespace Site {
   export function isa(o: any): o is Site {
-    return _smithy.isa(o, "Site");
+    return __isa(o, "Site");
   }
 }
 
@@ -1513,7 +1514,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1532,7 +1533,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1542,7 +1543,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1550,7 +1551,7 @@ export namespace TagResourceResponse {
  * <p>The request was denied due to request throttling.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -1563,7 +1564,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -1590,7 +1591,7 @@ export interface TransitGatewayRegistration {
 
 export namespace TransitGatewayRegistration {
   export function isa(o: any): o is TransitGatewayRegistration {
-    return _smithy.isa(o, "TransitGatewayRegistration");
+    return __isa(o, "TransitGatewayRegistration");
   }
 }
 
@@ -1620,7 +1621,7 @@ export interface TransitGatewayRegistrationStateReason {
 
 export namespace TransitGatewayRegistrationStateReason {
   export function isa(o: any): o is TransitGatewayRegistrationStateReason {
-    return _smithy.isa(o, "TransitGatewayRegistrationStateReason");
+    return __isa(o, "TransitGatewayRegistrationStateReason");
   }
 }
 
@@ -1639,7 +1640,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1649,7 +1650,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1707,7 +1708,7 @@ export interface UpdateDeviceRequest {
 
 export namespace UpdateDeviceRequest {
   export function isa(o: any): o is UpdateDeviceRequest {
-    return _smithy.isa(o, "UpdateDeviceRequest");
+    return __isa(o, "UpdateDeviceRequest");
   }
 }
 
@@ -1721,7 +1722,7 @@ export interface UpdateDeviceResponse extends $MetadataBearer {
 
 export namespace UpdateDeviceResponse {
   export function isa(o: any): o is UpdateDeviceResponse {
-    return _smithy.isa(o, "UpdateDeviceResponse");
+    return __isa(o, "UpdateDeviceResponse");
   }
 }
 
@@ -1741,7 +1742,7 @@ export interface UpdateGlobalNetworkRequest {
 
 export namespace UpdateGlobalNetworkRequest {
   export function isa(o: any): o is UpdateGlobalNetworkRequest {
-    return _smithy.isa(o, "UpdateGlobalNetworkRequest");
+    return __isa(o, "UpdateGlobalNetworkRequest");
   }
 }
 
@@ -1755,7 +1756,7 @@ export interface UpdateGlobalNetworkResponse extends $MetadataBearer {
 
 export namespace UpdateGlobalNetworkResponse {
   export function isa(o: any): o is UpdateGlobalNetworkResponse {
-    return _smithy.isa(o, "UpdateGlobalNetworkResponse");
+    return __isa(o, "UpdateGlobalNetworkResponse");
   }
 }
 
@@ -1797,7 +1798,7 @@ export interface UpdateLinkRequest {
 
 export namespace UpdateLinkRequest {
   export function isa(o: any): o is UpdateLinkRequest {
-    return _smithy.isa(o, "UpdateLinkRequest");
+    return __isa(o, "UpdateLinkRequest");
   }
 }
 
@@ -1811,7 +1812,7 @@ export interface UpdateLinkResponse extends $MetadataBearer {
 
 export namespace UpdateLinkResponse {
   export function isa(o: any): o is UpdateLinkResponse {
-    return _smithy.isa(o, "UpdateLinkResponse");
+    return __isa(o, "UpdateLinkResponse");
   }
 }
 
@@ -1855,7 +1856,7 @@ export interface UpdateSiteRequest {
 
 export namespace UpdateSiteRequest {
   export function isa(o: any): o is UpdateSiteRequest {
-    return _smithy.isa(o, "UpdateSiteRequest");
+    return __isa(o, "UpdateSiteRequest");
   }
 }
 
@@ -1869,7 +1870,7 @@ export interface UpdateSiteResponse extends $MetadataBearer {
 
 export namespace UpdateSiteResponse {
   export function isa(o: any): o is UpdateSiteResponse {
-    return _smithy.isa(o, "UpdateSiteResponse");
+    return __isa(o, "UpdateSiteResponse");
   }
 }
 
@@ -1877,7 +1878,7 @@ export namespace UpdateSiteResponse {
  * <p>The input fails to satisfy the constraints.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -1895,7 +1896,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }
 
@@ -1917,7 +1918,7 @@ export interface ValidationExceptionField {
 
 export namespace ValidationExceptionField {
   export function isa(o: any): o is ValidationExceptionField {
-    return _smithy.isa(o, "ValidationExceptionField");
+    return __isa(o, "ValidationExceptionField");
   }
 }
 

@@ -1,11 +1,15 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You aren't authorized to perform the action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -15,7 +19,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -47,7 +51,7 @@ export interface AnalyzeDocumentRequest {
 
 export namespace AnalyzeDocumentRequest {
   export function isa(o: any): o is AnalyzeDocumentRequest {
-    return _smithy.isa(o, "AnalyzeDocumentRequest");
+    return __isa(o, "AnalyzeDocumentRequest");
   }
 }
 
@@ -76,7 +80,7 @@ export interface AnalyzeDocumentResponse extends $MetadataBearer {
 
 export namespace AnalyzeDocumentResponse {
   export function isa(o: any): o is AnalyzeDocumentResponse {
-    return _smithy.isa(o, "AnalyzeDocumentResponse");
+    return __isa(o, "AnalyzeDocumentResponse");
   }
 }
 
@@ -84,7 +88,7 @@ export namespace AnalyzeDocumentResponse {
  * <p>Amazon Textract isn't able to read the document.</p>
  */
 export interface BadDocumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadDocumentException";
   $fault: "client";
@@ -94,7 +98,7 @@ export interface BadDocumentException
 
 export namespace BadDocumentException {
   export function isa(o: any): o is BadDocumentException {
-    return _smithy.isa(o, "BadDocumentException");
+    return __isa(o, "BadDocumentException");
   }
 }
 
@@ -284,7 +288,7 @@ export interface Block {
 
 export namespace Block {
   export function isa(o: any): o is Block {
-    return _smithy.isa(o, "Block");
+    return __isa(o, "Block");
   }
 }
 
@@ -341,7 +345,7 @@ export interface BoundingBox {
 
 export namespace BoundingBox {
   export function isa(o: any): o is BoundingBox {
-    return _smithy.isa(o, "BoundingBox");
+    return __isa(o, "BoundingBox");
   }
 }
 
@@ -364,7 +368,7 @@ export interface DetectDocumentTextRequest {
 
 export namespace DetectDocumentTextRequest {
   export function isa(o: any): o is DetectDocumentTextRequest {
-    return _smithy.isa(o, "DetectDocumentTextRequest");
+    return __isa(o, "DetectDocumentTextRequest");
   }
 }
 
@@ -390,7 +394,7 @@ export interface DetectDocumentTextResponse extends $MetadataBearer {
 
 export namespace DetectDocumentTextResponse {
   export function isa(o: any): o is DetectDocumentTextResponse {
-    return _smithy.isa(o, "DetectDocumentTextResponse");
+    return __isa(o, "DetectDocumentTextResponse");
   }
 }
 
@@ -432,7 +436,7 @@ export interface Document {
 
 export namespace Document {
   export function isa(o: any): o is Document {
-    return _smithy.isa(o, "Document");
+    return __isa(o, "Document");
   }
 }
 
@@ -452,7 +456,7 @@ export interface DocumentLocation {
 
 export namespace DocumentLocation {
   export function isa(o: any): o is DocumentLocation {
-    return _smithy.isa(o, "DocumentLocation");
+    return __isa(o, "DocumentLocation");
   }
 }
 
@@ -469,7 +473,7 @@ export interface DocumentMetadata {
 
 export namespace DocumentMetadata {
   export function isa(o: any): o is DocumentMetadata {
-    return _smithy.isa(o, "DocumentMetadata");
+    return __isa(o, "DocumentMetadata");
   }
 }
 
@@ -479,7 +483,7 @@ export namespace DocumentMetadata {
  *          MB for PDF files.</p>
  */
 export interface DocumentTooLargeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DocumentTooLargeException";
   $fault: "client";
@@ -489,7 +493,7 @@ export interface DocumentTooLargeException
 
 export namespace DocumentTooLargeException {
   export function isa(o: any): o is DocumentTooLargeException {
-    return _smithy.isa(o, "DocumentTooLargeException");
+    return __isa(o, "DocumentTooLargeException");
   }
 }
 
@@ -523,7 +527,7 @@ export interface Geometry {
 
 export namespace Geometry {
   export function isa(o: any): o is Geometry {
-    return _smithy.isa(o, "Geometry");
+    return __isa(o, "Geometry");
   }
 }
 
@@ -551,7 +555,7 @@ export interface GetDocumentAnalysisRequest {
 
 export namespace GetDocumentAnalysisRequest {
   export function isa(o: any): o is GetDocumentAnalysisRequest {
-    return _smithy.isa(o, "GetDocumentAnalysisRequest");
+    return __isa(o, "GetDocumentAnalysisRequest");
   }
 }
 
@@ -597,7 +601,7 @@ export interface GetDocumentAnalysisResponse extends $MetadataBearer {
 
 export namespace GetDocumentAnalysisResponse {
   export function isa(o: any): o is GetDocumentAnalysisResponse {
-    return _smithy.isa(o, "GetDocumentAnalysisResponse");
+    return __isa(o, "GetDocumentAnalysisResponse");
   }
 }
 
@@ -625,7 +629,7 @@ export interface GetDocumentTextDetectionRequest {
 
 export namespace GetDocumentTextDetectionRequest {
   export function isa(o: any): o is GetDocumentTextDetectionRequest {
-    return _smithy.isa(o, "GetDocumentTextDetectionRequest");
+    return __isa(o, "GetDocumentTextDetectionRequest");
   }
 }
 
@@ -672,7 +676,7 @@ export interface GetDocumentTextDetectionResponse extends $MetadataBearer {
 
 export namespace GetDocumentTextDetectionResponse {
   export function isa(o: any): o is GetDocumentTextDetectionResponse {
-    return _smithy.isa(o, "GetDocumentTextDetectionResponse");
+    return __isa(o, "GetDocumentTextDetectionResponse");
   }
 }
 
@@ -685,7 +689,7 @@ export interface HumanLoopActivationOutput {
   /**
    * <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
    */
-  HumanLoopActivationConditionsEvaluationResults?: string;
+  HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 
   /**
    * <p>Shows if and why human review was needed.</p>
@@ -700,7 +704,7 @@ export interface HumanLoopActivationOutput {
 
 export namespace HumanLoopActivationOutput {
   export function isa(o: any): o is HumanLoopActivationOutput {
-    return _smithy.isa(o, "HumanLoopActivationOutput");
+    return __isa(o, "HumanLoopActivationOutput");
   }
 }
 
@@ -728,7 +732,7 @@ export interface HumanLoopConfig {
 
 export namespace HumanLoopConfig {
   export function isa(o: any): o is HumanLoopConfig {
-    return _smithy.isa(o, "HumanLoopConfig");
+    return __isa(o, "HumanLoopConfig");
   }
 }
 
@@ -746,7 +750,7 @@ export interface HumanLoopDataAttributes {
 
 export namespace HumanLoopDataAttributes {
   export function isa(o: any): o is HumanLoopDataAttributes {
-    return _smithy.isa(o, "HumanLoopDataAttributes");
+    return __isa(o, "HumanLoopDataAttributes");
   }
 }
 
@@ -754,7 +758,7 @@ export namespace HumanLoopDataAttributes {
  * <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
  */
 export interface HumanLoopQuotaExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
@@ -767,7 +771,7 @@ export interface HumanLoopQuotaExceededException
 
 export namespace HumanLoopQuotaExceededException {
   export function isa(o: any): o is HumanLoopQuotaExceededException {
-    return _smithy.isa(o, "HumanLoopQuotaExceededException");
+    return __isa(o, "HumanLoopQuotaExceededException");
   }
 }
 
@@ -777,7 +781,7 @@ export namespace HumanLoopQuotaExceededException {
  *          operation. </p>
  */
 export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
@@ -787,7 +791,7 @@ export interface IdempotentParameterMismatchException
 
 export namespace IdempotentParameterMismatchException {
   export function isa(o: any): o is IdempotentParameterMismatchException {
-    return _smithy.isa(o, "IdempotentParameterMismatchException");
+    return __isa(o, "IdempotentParameterMismatchException");
   }
 }
 
@@ -795,7 +799,7 @@ export namespace IdempotentParameterMismatchException {
  * <p>Amazon Textract experienced a service issue. Try your call again.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -805,7 +809,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -814,7 +818,7 @@ export namespace InternalServerError {
  *       <a>GetDocumentAnalysis</a>.</p>
  */
 export interface InvalidJobIdException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidJobIdException";
   $fault: "client";
@@ -824,7 +828,7 @@ export interface InvalidJobIdException
 
 export namespace InvalidJobIdException {
   export function isa(o: any): o is InvalidJobIdException {
-    return _smithy.isa(o, "InvalidJobIdException");
+    return __isa(o, "InvalidJobIdException");
   }
 }
 
@@ -836,7 +840,7 @@ export namespace InvalidJobIdException {
  *        Validate your parameter before calling the API operation again.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -846,7 +850,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -854,7 +858,7 @@ export namespace InvalidParameterException {
  * <p>Amazon Textract is unable to access the S3 object that's specified in the request.</p>
  */
 export interface InvalidS3ObjectException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidS3ObjectException";
   $fault: "client";
@@ -864,7 +868,7 @@ export interface InvalidS3ObjectException
 
 export namespace InvalidS3ObjectException {
   export function isa(o: any): o is InvalidS3ObjectException {
-    return _smithy.isa(o, "InvalidS3ObjectException");
+    return __isa(o, "InvalidS3ObjectException");
   }
 }
 
@@ -883,7 +887,7 @@ export enum JobStatus {
  *          the Amazon Textract service limit. </p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -893,7 +897,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -916,7 +920,7 @@ export interface NotificationChannel {
 
 export namespace NotificationChannel {
   export function isa(o: any): o is NotificationChannel {
-    return _smithy.isa(o, "NotificationChannel");
+    return __isa(o, "NotificationChannel");
   }
 }
 
@@ -946,7 +950,7 @@ export interface Point {
 
 export namespace Point {
   export function isa(o: any): o is Point {
-    return _smithy.isa(o, "Point");
+    return __isa(o, "Point");
   }
 }
 
@@ -955,7 +959,7 @@ export namespace Point {
  *          contact Amazon Textract.</p>
  */
 export interface ProvisionedThroughputExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
@@ -965,7 +969,7 @@ export interface ProvisionedThroughputExceededException
 
 export namespace ProvisionedThroughputExceededException {
   export function isa(o: any): o is ProvisionedThroughputExceededException {
-    return _smithy.isa(o, "ProvisionedThroughputExceededException");
+    return __isa(o, "ProvisionedThroughputExceededException");
   }
 }
 
@@ -996,7 +1000,7 @@ export interface Relationship {
 
 export namespace Relationship {
   export function isa(o: any): o is Relationship {
-    return _smithy.isa(o, "Relationship");
+    return __isa(o, "Relationship");
   }
 }
 
@@ -1036,7 +1040,7 @@ export interface S3Object {
 
 export namespace S3Object {
   export function isa(o: any): o is S3Object {
-    return _smithy.isa(o, "S3Object");
+    return __isa(o, "S3Object");
   }
 }
 
@@ -1088,7 +1092,7 @@ export interface StartDocumentAnalysisRequest {
 
 export namespace StartDocumentAnalysisRequest {
   export function isa(o: any): o is StartDocumentAnalysisRequest {
-    return _smithy.isa(o, "StartDocumentAnalysisRequest");
+    return __isa(o, "StartDocumentAnalysisRequest");
   }
 }
 
@@ -1104,7 +1108,7 @@ export interface StartDocumentAnalysisResponse extends $MetadataBearer {
 
 export namespace StartDocumentAnalysisResponse {
   export function isa(o: any): o is StartDocumentAnalysisResponse {
-    return _smithy.isa(o, "StartDocumentAnalysisResponse");
+    return __isa(o, "StartDocumentAnalysisResponse");
   }
 }
 
@@ -1141,7 +1145,7 @@ export interface StartDocumentTextDetectionRequest {
 
 export namespace StartDocumentTextDetectionRequest {
   export function isa(o: any): o is StartDocumentTextDetectionRequest {
-    return _smithy.isa(o, "StartDocumentTextDetectionRequest");
+    return __isa(o, "StartDocumentTextDetectionRequest");
   }
 }
 
@@ -1157,7 +1161,7 @@ export interface StartDocumentTextDetectionResponse extends $MetadataBearer {
 
 export namespace StartDocumentTextDetectionResponse {
   export function isa(o: any): o is StartDocumentTextDetectionResponse {
-    return _smithy.isa(o, "StartDocumentTextDetectionResponse");
+    return __isa(o, "StartDocumentTextDetectionResponse");
   }
 }
 
@@ -1165,7 +1169,7 @@ export namespace StartDocumentTextDetectionResponse {
  * <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "server";
@@ -1175,7 +1179,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -1184,7 +1188,7 @@ export namespace ThrottlingException {
  *          PNG or JPEG format. Documents for asynchronous operations can also be in PDF format.</p>
  */
 export interface UnsupportedDocumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedDocumentException";
   $fault: "client";
@@ -1194,7 +1198,7 @@ export interface UnsupportedDocumentException
 
 export namespace UnsupportedDocumentException {
   export function isa(o: any): o is UnsupportedDocumentException {
-    return _smithy.isa(o, "UnsupportedDocumentException");
+    return __isa(o, "UnsupportedDocumentException");
   }
 }
 
@@ -1216,6 +1220,6 @@ export interface Warning {
 
 export namespace Warning {
   export function isa(o: any): o is Warning {
-    return _smithy.isa(o, "Warning");
+    return __isa(o, "Warning");
   }
 }

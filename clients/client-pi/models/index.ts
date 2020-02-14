@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The request failed due to an unknown error.</p>
  */
 export interface InternalServiceError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
@@ -14,7 +17,7 @@ export interface InternalServiceError
 
 export namespace InternalServiceError {
   export function isa(o: any): o is InternalServiceError {
-    return _smithy.isa(o, "InternalServiceError");
+    return __isa(o, "InternalServiceError");
   }
 }
 
@@ -22,7 +25,7 @@ export namespace InternalServiceError {
  * <p>One of the arguments provided is invalid for this request.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -31,7 +34,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -39,7 +42,7 @@ export namespace InvalidArgumentException {
  * <p>The user is not authorized to perform this request.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -48,7 +51,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -74,7 +77,7 @@ export interface DataPoint {
 
 export namespace DataPoint {
   export function isa(o: any): o is DataPoint {
-    return _smithy.isa(o, "DataPoint");
+    return __isa(o, "DataPoint");
   }
 }
 
@@ -214,7 +217,7 @@ export interface DescribeDimensionKeysRequest {
 
 export namespace DescribeDimensionKeysRequest {
   export function isa(o: any): o is DescribeDimensionKeysRequest {
-    return _smithy.isa(o, "DescribeDimensionKeysRequest");
+    return __isa(o, "DescribeDimensionKeysRequest");
   }
 }
 
@@ -254,7 +257,7 @@ export interface DescribeDimensionKeysResponse extends $MetadataBearer {
 
 export namespace DescribeDimensionKeysResponse {
   export function isa(o: any): o is DescribeDimensionKeysResponse {
-    return _smithy.isa(o, "DescribeDimensionKeysResponse");
+    return __isa(o, "DescribeDimensionKeysResponse");
   }
 }
 
@@ -364,7 +367,7 @@ export interface DimensionGroup {
 
 export namespace DimensionGroup {
   export function isa(o: any): o is DimensionGroup {
-    return _smithy.isa(o, "DimensionGroup");
+    return __isa(o, "DimensionGroup");
   }
 }
 
@@ -392,7 +395,7 @@ export interface DimensionKeyDescription {
 
 export namespace DimensionKeyDescription {
   export function isa(o: any): o is DimensionKeyDescription {
-    return _smithy.isa(o, "DimensionKeyDescription");
+    return __isa(o, "DimensionKeyDescription");
   }
 }
 
@@ -488,7 +491,7 @@ export interface GetResourceMetricsRequest {
 
 export namespace GetResourceMetricsRequest {
   export function isa(o: any): o is GetResourceMetricsRequest {
-    return _smithy.isa(o, "GetResourceMetricsRequest");
+    return __isa(o, "GetResourceMetricsRequest");
   }
 }
 
@@ -533,7 +536,7 @@ export interface GetResourceMetricsResponse extends $MetadataBearer {
 
 export namespace GetResourceMetricsResponse {
   export function isa(o: any): o is GetResourceMetricsResponse {
-    return _smithy.isa(o, "GetResourceMetricsResponse");
+    return __isa(o, "GetResourceMetricsResponse");
   }
 }
 
@@ -556,7 +559,7 @@ export interface MetricKeyDataPoints {
 
 export namespace MetricKeyDataPoints {
   export function isa(o: any): o is MetricKeyDataPoints {
-    return _smithy.isa(o, "MetricKeyDataPoints");
+    return __isa(o, "MetricKeyDataPoints");
   }
 }
 
@@ -611,7 +614,7 @@ export interface MetricQuery {
 
 export namespace MetricQuery {
   export function isa(o: any): o is MetricQuery {
-    return _smithy.isa(o, "MetricQuery");
+    return __isa(o, "MetricQuery");
   }
 }
 
@@ -630,7 +633,7 @@ export interface ResponsePartitionKey {
 
 export namespace ResponsePartitionKey {
   export function isa(o: any): o is ResponsePartitionKey {
-    return _smithy.isa(o, "ResponsePartitionKey");
+    return __isa(o, "ResponsePartitionKey");
   }
 }
 
@@ -666,6 +669,6 @@ export interface ResponseResourceMetricKey {
 
 export namespace ResponseResourceMetricKey {
   export function isa(o: any): o is ResponseResourceMetricKey {
-    return _smithy.isa(o, "ResponseResourceMetricKey");
+    return __isa(o, "ResponseResourceMetricKey");
   }
 }

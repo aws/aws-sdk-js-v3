@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -23,7 +26,7 @@ export interface ActivateGatewayOutput extends $MetadataBearer {
 
 export namespace ActivateGatewayOutput {
   export function isa(o: any): o is ActivateGatewayOutput {
-    return _smithy.isa(o, "ActivateGatewayOutput");
+    return __isa(o, "ActivateGatewayOutput");
   }
 }
 
@@ -55,7 +58,7 @@ export interface AddWorkingStorageInput {
 
 export namespace AddWorkingStorageInput {
   export function isa(o: any): o is AddWorkingStorageInput {
-    return _smithy.isa(o, "AddWorkingStorageInput");
+    return __isa(o, "AddWorkingStorageInput");
   }
 }
 
@@ -74,7 +77,7 @@ export interface AddWorkingStorageOutput extends $MetadataBearer {
 
 export namespace AddWorkingStorageOutput {
   export function isa(o: any): o is AddWorkingStorageOutput {
-    return _smithy.isa(o, "AddWorkingStorageOutput");
+    return __isa(o, "AddWorkingStorageOutput");
   }
 }
 
@@ -111,7 +114,7 @@ export interface ChapInfo {
 
 export namespace ChapInfo {
   export function isa(o: any): o is ChapInfo {
-    return _smithy.isa(o, "ChapInfo");
+    return __isa(o, "ChapInfo");
   }
 }
 
@@ -160,7 +163,7 @@ export interface CreateSnapshotInput {
 
 export namespace CreateSnapshotInput {
   export function isa(o: any): o is CreateSnapshotInput {
-    return _smithy.isa(o, "CreateSnapshotInput");
+    return __isa(o, "CreateSnapshotInput");
   }
 }
 
@@ -185,7 +188,7 @@ export interface CreateSnapshotOutput extends $MetadataBearer {
 
 export namespace CreateSnapshotOutput {
   export function isa(o: any): o is CreateSnapshotOutput {
-    return _smithy.isa(o, "CreateSnapshotOutput");
+    return __isa(o, "CreateSnapshotOutput");
   }
 }
 
@@ -294,7 +297,7 @@ export interface CreateStorediSCSIVolumeInput {
 
 export namespace CreateStorediSCSIVolumeInput {
   export function isa(o: any): o is CreateStorediSCSIVolumeInput {
-    return _smithy.isa(o, "CreateStorediSCSIVolumeInput");
+    return __isa(o, "CreateStorediSCSIVolumeInput");
   }
 }
 
@@ -322,7 +325,7 @@ export interface CreateStorediSCSIVolumeOutput extends $MetadataBearer {
 
 export namespace CreateStorediSCSIVolumeOutput {
   export function isa(o: any): o is CreateStorediSCSIVolumeOutput {
-    return _smithy.isa(o, "CreateStorediSCSIVolumeOutput");
+    return __isa(o, "CreateStorediSCSIVolumeOutput");
   }
 }
 
@@ -341,7 +344,7 @@ export interface DeleteBandwidthRateLimitOutput extends $MetadataBearer {
 
 export namespace DeleteBandwidthRateLimitOutput {
   export function isa(o: any): o is DeleteBandwidthRateLimitOutput {
-    return _smithy.isa(o, "DeleteBandwidthRateLimitOutput");
+    return __isa(o, "DeleteBandwidthRateLimitOutput");
   }
 }
 
@@ -376,7 +379,7 @@ export interface DeleteChapCredentialsInput {
 
 export namespace DeleteChapCredentialsInput {
   export function isa(o: any): o is DeleteChapCredentialsInput {
-    return _smithy.isa(o, "DeleteChapCredentialsInput");
+    return __isa(o, "DeleteChapCredentialsInput");
   }
 }
 
@@ -398,7 +401,7 @@ export interface DeleteChapCredentialsOutput extends $MetadataBearer {
 
 export namespace DeleteChapCredentialsOutput {
   export function isa(o: any): o is DeleteChapCredentialsOutput {
-    return _smithy.isa(o, "DeleteChapCredentialsOutput");
+    return __isa(o, "DeleteChapCredentialsOutput");
   }
 }
 
@@ -416,7 +419,7 @@ export interface DeleteGatewayInput {
 
 export namespace DeleteGatewayInput {
   export function isa(o: any): o is DeleteGatewayInput {
-    return _smithy.isa(o, "DeleteGatewayInput");
+    return __isa(o, "DeleteGatewayInput");
   }
 }
 
@@ -434,7 +437,7 @@ export interface DeleteGatewayOutput extends $MetadataBearer {
 
 export namespace DeleteGatewayOutput {
   export function isa(o: any): o is DeleteGatewayOutput {
-    return _smithy.isa(o, "DeleteGatewayOutput");
+    return __isa(o, "DeleteGatewayOutput");
   }
 }
 
@@ -453,7 +456,7 @@ export interface DeleteVolumeInput {
 
 export namespace DeleteVolumeInput {
   export function isa(o: any): o is DeleteVolumeInput {
-    return _smithy.isa(o, "DeleteVolumeInput");
+    return __isa(o, "DeleteVolumeInput");
   }
 }
 
@@ -471,7 +474,7 @@ export interface DeleteVolumeOutput extends $MetadataBearer {
 
 export namespace DeleteVolumeOutput {
   export function isa(o: any): o is DeleteVolumeOutput {
-    return _smithy.isa(o, "DeleteVolumeOutput");
+    return __isa(o, "DeleteVolumeOutput");
   }
 }
 
@@ -489,7 +492,7 @@ export interface DescribeBandwidthRateLimitInput {
 
 export namespace DescribeBandwidthRateLimitInput {
   export function isa(o: any): o is DescribeBandwidthRateLimitInput {
-    return _smithy.isa(o, "DescribeBandwidthRateLimitInput");
+    return __isa(o, "DescribeBandwidthRateLimitInput");
   }
 }
 
@@ -519,7 +522,7 @@ export interface DescribeBandwidthRateLimitOutput extends $MetadataBearer {
 
 export namespace DescribeBandwidthRateLimitOutput {
   export function isa(o: any): o is DescribeBandwidthRateLimitOutput {
-    return _smithy.isa(o, "DescribeBandwidthRateLimitOutput");
+    return __isa(o, "DescribeBandwidthRateLimitOutput");
   }
 }
 
@@ -538,7 +541,7 @@ export interface DescribeChapCredentialsInput {
 
 export namespace DescribeChapCredentialsInput {
   export function isa(o: any): o is DescribeChapCredentialsInput {
-    return _smithy.isa(o, "DescribeChapCredentialsInput");
+    return __isa(o, "DescribeChapCredentialsInput");
   }
 }
 
@@ -586,7 +589,7 @@ export interface DescribeChapCredentialsOutput extends $MetadataBearer {
 
 export namespace DescribeChapCredentialsOutput {
   export function isa(o: any): o is DescribeChapCredentialsOutput {
-    return _smithy.isa(o, "DescribeChapCredentialsOutput");
+    return __isa(o, "DescribeChapCredentialsOutput");
   }
 }
 
@@ -604,7 +607,7 @@ export interface DescribeGatewayInformationInput {
 
 export namespace DescribeGatewayInformationInput {
   export function isa(o: any): o is DescribeGatewayInformationInput {
-    return _smithy.isa(o, "DescribeGatewayInformationInput");
+    return __isa(o, "DescribeGatewayInformationInput");
   }
 }
 
@@ -622,7 +625,7 @@ export interface DescribeMaintenanceStartTimeInput {
 
 export namespace DescribeMaintenanceStartTimeInput {
   export function isa(o: any): o is DescribeMaintenanceStartTimeInput {
-    return _smithy.isa(o, "DescribeMaintenanceStartTimeInput");
+    return __isa(o, "DescribeMaintenanceStartTimeInput");
   }
 }
 
@@ -640,7 +643,7 @@ export interface DescribeSnapshotScheduleInput {
 
 export namespace DescribeSnapshotScheduleInput {
   export function isa(o: any): o is DescribeSnapshotScheduleInput {
-    return _smithy.isa(o, "DescribeSnapshotScheduleInput");
+    return __isa(o, "DescribeSnapshotScheduleInput");
   }
 }
 
@@ -658,7 +661,7 @@ export interface DescribeStorediSCSIVolumesInput {
 
 export namespace DescribeStorediSCSIVolumesInput {
   export function isa(o: any): o is DescribeStorediSCSIVolumesInput {
-    return _smithy.isa(o, "DescribeStorediSCSIVolumesInput");
+    return __isa(o, "DescribeStorediSCSIVolumesInput");
   }
 }
 
@@ -676,7 +679,7 @@ export interface DescribeWorkingStorageInput {
 
 export namespace DescribeWorkingStorageInput {
   export function isa(o: any): o is DescribeWorkingStorageInput {
-    return _smithy.isa(o, "DescribeWorkingStorageInput");
+    return __isa(o, "DescribeWorkingStorageInput");
   }
 }
 
@@ -714,7 +717,7 @@ export interface DescribeWorkingStorageOutput extends $MetadataBearer {
 
 export namespace DescribeWorkingStorageOutput {
   export function isa(o: any): o is DescribeWorkingStorageOutput {
-    return _smithy.isa(o, "DescribeWorkingStorageOutput");
+    return __isa(o, "DescribeWorkingStorageOutput");
   }
 }
 
@@ -787,7 +790,7 @@ export type ErrorCode =
  *          the error and message fields.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -805,7 +808,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -814,7 +817,7 @@ export namespace InternalServerError {
  *          For more information, see the error and message fields.</p>
  */
 export interface InvalidGatewayRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidGatewayRequestException";
   $fault: "client";
@@ -832,7 +835,7 @@ export interface InvalidGatewayRequestException
 
 export namespace InvalidGatewayRequestException {
   export function isa(o: any): o is InvalidGatewayRequestException {
-    return _smithy.isa(o, "InvalidGatewayRequestException");
+    return __isa(o, "InvalidGatewayRequestException");
   }
 }
 
@@ -868,7 +871,7 @@ export interface ListGatewaysInput {
 
 export namespace ListGatewaysInput {
   export function isa(o: any): o is ListGatewaysInput {
-    return _smithy.isa(o, "ListGatewaysInput");
+    return __isa(o, "ListGatewaysInput");
   }
 }
 
@@ -886,7 +889,7 @@ export interface ListLocalDisksInput {
 
 export namespace ListLocalDisksInput {
   export function isa(o: any): o is ListLocalDisksInput {
-    return _smithy.isa(o, "ListLocalDisksInput");
+    return __isa(o, "ListLocalDisksInput");
   }
 }
 
@@ -928,7 +931,7 @@ export interface ListVolumesInput {
 
 export namespace ListVolumesInput {
   export function isa(o: any): o is ListVolumesInput {
-    return _smithy.isa(o, "ListVolumesInput");
+    return __isa(o, "ListVolumesInput");
   }
 }
 
@@ -959,7 +962,7 @@ export interface NetworkInterface {
 
 export namespace NetworkInterface {
   export function isa(o: any): o is NetworkInterface {
-    return _smithy.isa(o, "NetworkInterface");
+    return __isa(o, "NetworkInterface");
   }
 }
 
@@ -968,7 +971,7 @@ export namespace NetworkInterface {
  *          information, see the error and message fields.</p>
  */
 export interface ServiceUnavailableError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableError";
   $fault: "server";
@@ -986,7 +989,7 @@ export interface ServiceUnavailableError
 
 export namespace ServiceUnavailableError {
   export function isa(o: any): o is ServiceUnavailableError {
-    return _smithy.isa(o, "ServiceUnavailableError");
+    return __isa(o, "ServiceUnavailableError");
   }
 }
 
@@ -1004,7 +1007,7 @@ export interface ShutdownGatewayInput {
 
 export namespace ShutdownGatewayInput {
   export function isa(o: any): o is ShutdownGatewayInput {
-    return _smithy.isa(o, "ShutdownGatewayInput");
+    return __isa(o, "ShutdownGatewayInput");
   }
 }
 
@@ -1022,7 +1025,7 @@ export interface ShutdownGatewayOutput extends $MetadataBearer {
 
 export namespace ShutdownGatewayOutput {
   export function isa(o: any): o is ShutdownGatewayOutput {
-    return _smithy.isa(o, "ShutdownGatewayOutput");
+    return __isa(o, "ShutdownGatewayOutput");
   }
 }
 
@@ -1040,7 +1043,7 @@ export interface StartGatewayInput {
 
 export namespace StartGatewayInput {
   export function isa(o: any): o is StartGatewayInput {
-    return _smithy.isa(o, "StartGatewayInput");
+    return __isa(o, "StartGatewayInput");
   }
 }
 
@@ -1058,7 +1061,7 @@ export interface StartGatewayOutput extends $MetadataBearer {
 
 export namespace StartGatewayOutput {
   export function isa(o: any): o is StartGatewayOutput {
-    return _smithy.isa(o, "StartGatewayOutput");
+    return __isa(o, "StartGatewayOutput");
   }
 }
 
@@ -1082,7 +1085,7 @@ export interface StorageGatewayError {
 
 export namespace StorageGatewayError {
   export function isa(o: any): o is StorageGatewayError {
-    return _smithy.isa(o, "StorageGatewayError");
+    return __isa(o, "StorageGatewayError");
   }
 }
 
@@ -1122,7 +1125,7 @@ export interface UpdateBandwidthRateLimitInput {
 
 export namespace UpdateBandwidthRateLimitInput {
   export function isa(o: any): o is UpdateBandwidthRateLimitInput {
-    return _smithy.isa(o, "UpdateBandwidthRateLimitInput");
+    return __isa(o, "UpdateBandwidthRateLimitInput");
   }
 }
 
@@ -1141,7 +1144,7 @@ export interface UpdateBandwidthRateLimitOutput extends $MetadataBearer {
 
 export namespace UpdateBandwidthRateLimitOutput {
   export function isa(o: any): o is UpdateBandwidthRateLimitOutput {
-    return _smithy.isa(o, "UpdateBandwidthRateLimitOutput");
+    return __isa(o, "UpdateBandwidthRateLimitOutput");
   }
 }
 
@@ -1206,7 +1209,7 @@ export interface UpdateChapCredentialsInput {
 
 export namespace UpdateChapCredentialsInput {
   export function isa(o: any): o is UpdateChapCredentialsInput {
-    return _smithy.isa(o, "UpdateChapCredentialsInput");
+    return __isa(o, "UpdateChapCredentialsInput");
   }
 }
 
@@ -1230,7 +1233,7 @@ export interface UpdateChapCredentialsOutput extends $MetadataBearer {
 
 export namespace UpdateChapCredentialsOutput {
   export function isa(o: any): o is UpdateChapCredentialsOutput {
-    return _smithy.isa(o, "UpdateChapCredentialsOutput");
+    return __isa(o, "UpdateChapCredentialsOutput");
   }
 }
 
@@ -1253,7 +1256,7 @@ export interface UpdateGatewayInformationOutput extends $MetadataBearer {
 
 export namespace UpdateGatewayInformationOutput {
   export function isa(o: any): o is UpdateGatewayInformationOutput {
-    return _smithy.isa(o, "UpdateGatewayInformationOutput");
+    return __isa(o, "UpdateGatewayInformationOutput");
   }
 }
 
@@ -1271,7 +1274,7 @@ export interface UpdateGatewaySoftwareNowInput {
 
 export namespace UpdateGatewaySoftwareNowInput {
   export function isa(o: any): o is UpdateGatewaySoftwareNowInput {
-    return _smithy.isa(o, "UpdateGatewaySoftwareNowInput");
+    return __isa(o, "UpdateGatewaySoftwareNowInput");
   }
 }
 
@@ -1289,7 +1292,7 @@ export interface UpdateGatewaySoftwareNowOutput extends $MetadataBearer {
 
 export namespace UpdateGatewaySoftwareNowOutput {
   export function isa(o: any): o is UpdateGatewaySoftwareNowOutput {
-    return _smithy.isa(o, "UpdateGatewaySoftwareNowOutput");
+    return __isa(o, "UpdateGatewaySoftwareNowOutput");
   }
 }
 
@@ -1359,7 +1362,7 @@ export interface UpdateMaintenanceStartTimeInput {
 
 export namespace UpdateMaintenanceStartTimeInput {
   export function isa(o: any): o is UpdateMaintenanceStartTimeInput {
-    return _smithy.isa(o, "UpdateMaintenanceStartTimeInput");
+    return __isa(o, "UpdateMaintenanceStartTimeInput");
   }
 }
 
@@ -1378,7 +1381,7 @@ export interface UpdateMaintenanceStartTimeOutput extends $MetadataBearer {
 
 export namespace UpdateMaintenanceStartTimeOutput {
   export function isa(o: any): o is UpdateMaintenanceStartTimeOutput {
-    return _smithy.isa(o, "UpdateMaintenanceStartTimeOutput");
+    return __isa(o, "UpdateMaintenanceStartTimeOutput");
   }
 }
 
@@ -1447,7 +1450,7 @@ export interface UpdateSnapshotScheduleInput {
 
 export namespace UpdateSnapshotScheduleInput {
   export function isa(o: any): o is UpdateSnapshotScheduleInput {
-    return _smithy.isa(o, "UpdateSnapshotScheduleInput");
+    return __isa(o, "UpdateSnapshotScheduleInput");
   }
 }
 
@@ -1465,7 +1468,7 @@ export interface UpdateSnapshotScheduleOutput extends $MetadataBearer {
 
 export namespace UpdateSnapshotScheduleOutput {
   export function isa(o: any): o is UpdateSnapshotScheduleOutput {
-    return _smithy.isa(o, "UpdateSnapshotScheduleOutput");
+    return __isa(o, "UpdateSnapshotScheduleOutput");
   }
 }
 
@@ -1502,7 +1505,7 @@ export interface VolumeiSCSIAttributes {
 
 export namespace VolumeiSCSIAttributes {
   export function isa(o: any): o is VolumeiSCSIAttributes {
-    return _smithy.isa(o, "VolumeiSCSIAttributes");
+    return __isa(o, "VolumeiSCSIAttributes");
   }
 }
 
@@ -1524,7 +1527,7 @@ export interface AddCacheInput {
 
 export namespace AddCacheInput {
   export function isa(o: any): o is AddCacheInput {
-    return _smithy.isa(o, "AddCacheInput");
+    return __isa(o, "AddCacheInput");
   }
 }
 
@@ -1539,7 +1542,7 @@ export interface AddCacheOutput extends $MetadataBearer {
 
 export namespace AddCacheOutput {
   export function isa(o: any): o is AddCacheOutput {
-    return _smithy.isa(o, "AddCacheOutput");
+    return __isa(o, "AddCacheOutput");
   }
 }
 
@@ -1561,7 +1564,7 @@ export interface AddUploadBufferInput {
 
 export namespace AddUploadBufferInput {
   export function isa(o: any): o is AddUploadBufferInput {
-    return _smithy.isa(o, "AddUploadBufferInput");
+    return __isa(o, "AddUploadBufferInput");
   }
 }
 
@@ -1576,7 +1579,7 @@ export interface AddUploadBufferOutput extends $MetadataBearer {
 
 export namespace AddUploadBufferOutput {
   export function isa(o: any): o is AddUploadBufferOutput {
-    return _smithy.isa(o, "AddUploadBufferOutput");
+    return __isa(o, "AddUploadBufferOutput");
   }
 }
 
@@ -1661,7 +1664,7 @@ export interface CreateCachediSCSIVolumeInput {
 
 export namespace CreateCachediSCSIVolumeInput {
   export function isa(o: any): o is CreateCachediSCSIVolumeInput {
-    return _smithy.isa(o, "CreateCachediSCSIVolumeInput");
+    return __isa(o, "CreateCachediSCSIVolumeInput");
   }
 }
 
@@ -1681,7 +1684,7 @@ export interface CreateCachediSCSIVolumeOutput extends $MetadataBearer {
 
 export namespace CreateCachediSCSIVolumeOutput {
   export function isa(o: any): o is CreateCachediSCSIVolumeOutput {
-    return _smithy.isa(o, "CreateCachediSCSIVolumeOutput");
+    return __isa(o, "CreateCachediSCSIVolumeOutput");
   }
 }
 
@@ -1709,7 +1712,7 @@ export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
   export function isa(
     o: any
   ): o is CreateSnapshotFromVolumeRecoveryPointOutput {
-    return _smithy.isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
+    return __isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
   }
 }
 
@@ -1723,7 +1726,7 @@ export interface DeleteSnapshotScheduleInput {
 
 export namespace DeleteSnapshotScheduleInput {
   export function isa(o: any): o is DeleteSnapshotScheduleInput {
-    return _smithy.isa(o, "DeleteSnapshotScheduleInput");
+    return __isa(o, "DeleteSnapshotScheduleInput");
   }
 }
 
@@ -1737,7 +1740,7 @@ export interface DeleteSnapshotScheduleOutput extends $MetadataBearer {
 
 export namespace DeleteSnapshotScheduleOutput {
   export function isa(o: any): o is DeleteSnapshotScheduleOutput {
-    return _smithy.isa(o, "DeleteSnapshotScheduleOutput");
+    return __isa(o, "DeleteSnapshotScheduleOutput");
   }
 }
 
@@ -1752,7 +1755,7 @@ export interface DescribeCacheInput {
 
 export namespace DescribeCacheInput {
   export function isa(o: any): o is DescribeCacheInput {
-    return _smithy.isa(o, "DescribeCacheInput");
+    return __isa(o, "DescribeCacheInput");
   }
 }
 
@@ -1803,7 +1806,7 @@ export interface DescribeCacheOutput extends $MetadataBearer {
 
 export namespace DescribeCacheOutput {
   export function isa(o: any): o is DescribeCacheOutput {
-    return _smithy.isa(o, "DescribeCacheOutput");
+    return __isa(o, "DescribeCacheOutput");
   }
 }
 
@@ -1818,7 +1821,7 @@ export interface DescribeCachediSCSIVolumesInput {
 
 export namespace DescribeCachediSCSIVolumesInput {
   export function isa(o: any): o is DescribeCachediSCSIVolumesInput {
-    return _smithy.isa(o, "DescribeCachediSCSIVolumesInput");
+    return __isa(o, "DescribeCachediSCSIVolumesInput");
   }
 }
 
@@ -1833,7 +1836,7 @@ export interface DescribeUploadBufferInput {
 
 export namespace DescribeUploadBufferInput {
   export function isa(o: any): o is DescribeUploadBufferInput {
-    return _smithy.isa(o, "DescribeUploadBufferInput");
+    return __isa(o, "DescribeUploadBufferInput");
   }
 }
 
@@ -1866,7 +1869,7 @@ export interface DescribeUploadBufferOutput extends $MetadataBearer {
 
 export namespace DescribeUploadBufferOutput {
   export function isa(o: any): o is DescribeUploadBufferOutput {
-    return _smithy.isa(o, "DescribeUploadBufferOutput");
+    return __isa(o, "DescribeUploadBufferOutput");
   }
 }
 
@@ -1881,7 +1884,7 @@ export interface ListVolumeRecoveryPointsInput {
 
 export namespace ListVolumeRecoveryPointsInput {
   export function isa(o: any): o is ListVolumeRecoveryPointsInput {
-    return _smithy.isa(o, "ListVolumeRecoveryPointsInput");
+    return __isa(o, "ListVolumeRecoveryPointsInput");
   }
 }
 
@@ -1901,7 +1904,7 @@ export interface ListVolumeRecoveryPointsOutput extends $MetadataBearer {
 
 export namespace ListVolumeRecoveryPointsOutput {
   export function isa(o: any): o is ListVolumeRecoveryPointsOutput {
-    return _smithy.isa(o, "ListVolumeRecoveryPointsOutput");
+    return __isa(o, "ListVolumeRecoveryPointsOutput");
   }
 }
 
@@ -1937,7 +1940,7 @@ export interface VolumeRecoveryPointInfo {
 
 export namespace VolumeRecoveryPointInfo {
   export function isa(o: any): o is VolumeRecoveryPointInfo {
-    return _smithy.isa(o, "VolumeRecoveryPointInfo");
+    return __isa(o, "VolumeRecoveryPointInfo");
   }
 }
 
@@ -2062,7 +2065,7 @@ export interface ActivateGatewayInput {
 
 export namespace ActivateGatewayInput {
   export function isa(o: any): o is ActivateGatewayInput {
-    return _smithy.isa(o, "ActivateGatewayInput");
+    return __isa(o, "ActivateGatewayInput");
   }
 }
 
@@ -2100,7 +2103,7 @@ export interface AddTagsToResourceInput {
 
 export namespace AddTagsToResourceInput {
   export function isa(o: any): o is AddTagsToResourceInput {
-    return _smithy.isa(o, "AddTagsToResourceInput");
+    return __isa(o, "AddTagsToResourceInput");
   }
 }
 
@@ -2117,7 +2120,7 @@ export interface AddTagsToResourceOutput extends $MetadataBearer {
 
 export namespace AddTagsToResourceOutput {
   export function isa(o: any): o is AddTagsToResourceOutput {
-    return _smithy.isa(o, "AddTagsToResourceOutput");
+    return __isa(o, "AddTagsToResourceOutput");
   }
 }
 
@@ -2139,7 +2142,7 @@ export interface AssignTapePoolInput {
 
 export namespace AssignTapePoolInput {
   export function isa(o: any): o is AssignTapePoolInput {
-    return _smithy.isa(o, "AssignTapePoolInput");
+    return __isa(o, "AssignTapePoolInput");
   }
 }
 
@@ -2154,7 +2157,7 @@ export interface AssignTapePoolOutput extends $MetadataBearer {
 
 export namespace AssignTapePoolOutput {
   export function isa(o: any): o is AssignTapePoolOutput {
-    return _smithy.isa(o, "AssignTapePoolOutput");
+    return __isa(o, "AssignTapePoolOutput");
   }
 }
 
@@ -2204,7 +2207,7 @@ export interface AttachVolumeInput {
 
 export namespace AttachVolumeInput {
   export function isa(o: any): o is AttachVolumeInput {
-    return _smithy.isa(o, "AttachVolumeInput");
+    return __isa(o, "AttachVolumeInput");
   }
 }
 
@@ -2228,7 +2231,7 @@ export interface AttachVolumeOutput extends $MetadataBearer {
 
 export namespace AttachVolumeOutput {
   export function isa(o: any): o is AttachVolumeOutput {
-    return _smithy.isa(o, "AttachVolumeOutput");
+    return __isa(o, "AttachVolumeOutput");
   }
 }
 
@@ -2332,7 +2335,7 @@ export interface CachediSCSIVolume {
 
 export namespace CachediSCSIVolume {
   export function isa(o: any): o is CachediSCSIVolume {
-    return _smithy.isa(o, "CachediSCSIVolume");
+    return __isa(o, "CachediSCSIVolume");
   }
 }
 
@@ -2356,7 +2359,7 @@ export interface CancelArchivalInput {
 
 export namespace CancelArchivalInput {
   export function isa(o: any): o is CancelArchivalInput {
-    return _smithy.isa(o, "CancelArchivalInput");
+    return __isa(o, "CancelArchivalInput");
   }
 }
 
@@ -2374,7 +2377,7 @@ export interface CancelArchivalOutput extends $MetadataBearer {
 
 export namespace CancelArchivalOutput {
   export function isa(o: any): o is CancelArchivalOutput {
-    return _smithy.isa(o, "CancelArchivalOutput");
+    return __isa(o, "CancelArchivalOutput");
   }
 }
 
@@ -2398,7 +2401,7 @@ export interface CancelRetrievalInput {
 
 export namespace CancelRetrievalInput {
   export function isa(o: any): o is CancelRetrievalInput {
-    return _smithy.isa(o, "CancelRetrievalInput");
+    return __isa(o, "CancelRetrievalInput");
   }
 }
 
@@ -2416,7 +2419,7 @@ export interface CancelRetrievalOutput extends $MetadataBearer {
 
 export namespace CancelRetrievalOutput {
   export function isa(o: any): o is CancelRetrievalOutput {
-    return _smithy.isa(o, "CancelRetrievalOutput");
+    return __isa(o, "CancelRetrievalOutput");
   }
 }
 
@@ -2543,7 +2546,7 @@ export interface CreateNFSFileShareInput {
 
 export namespace CreateNFSFileShareInput {
   export function isa(o: any): o is CreateNFSFileShareInput {
-    return _smithy.isa(o, "CreateNFSFileShareInput");
+    return __isa(o, "CreateNFSFileShareInput");
   }
 }
 
@@ -2560,7 +2563,7 @@ export interface CreateNFSFileShareOutput extends $MetadataBearer {
 
 export namespace CreateNFSFileShareOutput {
   export function isa(o: any): o is CreateNFSFileShareOutput {
-    return _smithy.isa(o, "CreateNFSFileShareOutput");
+    return __isa(o, "CreateNFSFileShareOutput");
   }
 }
 
@@ -2700,7 +2703,7 @@ export interface CreateSMBFileShareInput {
 
 export namespace CreateSMBFileShareInput {
   export function isa(o: any): o is CreateSMBFileShareInput {
-    return _smithy.isa(o, "CreateSMBFileShareInput");
+    return __isa(o, "CreateSMBFileShareInput");
   }
 }
 
@@ -2717,7 +2720,7 @@ export interface CreateSMBFileShareOutput extends $MetadataBearer {
 
 export namespace CreateSMBFileShareOutput {
   export function isa(o: any): o is CreateSMBFileShareOutput {
-    return _smithy.isa(o, "CreateSMBFileShareOutput");
+    return __isa(o, "CreateSMBFileShareOutput");
   }
 }
 
@@ -2751,7 +2754,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
 
 export namespace CreateSnapshotFromVolumeRecoveryPointInput {
   export function isa(o: any): o is CreateSnapshotFromVolumeRecoveryPointInput {
-    return _smithy.isa(o, "CreateSnapshotFromVolumeRecoveryPointInput");
+    return __isa(o, "CreateSnapshotFromVolumeRecoveryPointInput");
   }
 }
 
@@ -2818,7 +2821,7 @@ export interface CreateTapeWithBarcodeInput {
 
 export namespace CreateTapeWithBarcodeInput {
   export function isa(o: any): o is CreateTapeWithBarcodeInput {
-    return _smithy.isa(o, "CreateTapeWithBarcodeInput");
+    return __isa(o, "CreateTapeWithBarcodeInput");
   }
 }
 
@@ -2836,7 +2839,7 @@ export interface CreateTapeWithBarcodeOutput extends $MetadataBearer {
 
 export namespace CreateTapeWithBarcodeOutput {
   export function isa(o: any): o is CreateTapeWithBarcodeOutput {
-    return _smithy.isa(o, "CreateTapeWithBarcodeOutput");
+    return __isa(o, "CreateTapeWithBarcodeOutput");
   }
 }
 
@@ -2919,7 +2922,7 @@ export interface CreateTapesInput {
 
 export namespace CreateTapesInput {
   export function isa(o: any): o is CreateTapesInput {
-    return _smithy.isa(o, "CreateTapesInput");
+    return __isa(o, "CreateTapesInput");
   }
 }
 
@@ -2937,7 +2940,7 @@ export interface CreateTapesOutput extends $MetadataBearer {
 
 export namespace CreateTapesOutput {
   export function isa(o: any): o is CreateTapesOutput {
-    return _smithy.isa(o, "CreateTapesOutput");
+    return __isa(o, "CreateTapesOutput");
   }
 }
 
@@ -2969,7 +2972,7 @@ export interface DeleteBandwidthRateLimitInput {
 
 export namespace DeleteBandwidthRateLimitInput {
   export function isa(o: any): o is DeleteBandwidthRateLimitInput {
-    return _smithy.isa(o, "DeleteBandwidthRateLimitInput");
+    return __isa(o, "DeleteBandwidthRateLimitInput");
   }
 }
 
@@ -2994,7 +2997,7 @@ export interface DeleteFileShareInput {
 
 export namespace DeleteFileShareInput {
   export function isa(o: any): o is DeleteFileShareInput {
-    return _smithy.isa(o, "DeleteFileShareInput");
+    return __isa(o, "DeleteFileShareInput");
   }
 }
 
@@ -3011,7 +3014,7 @@ export interface DeleteFileShareOutput extends $MetadataBearer {
 
 export namespace DeleteFileShareOutput {
   export function isa(o: any): o is DeleteFileShareOutput {
-    return _smithy.isa(o, "DeleteFileShareOutput");
+    return __isa(o, "DeleteFileShareOutput");
   }
 }
 
@@ -3029,7 +3032,7 @@ export interface DeleteTapeArchiveInput {
 
 export namespace DeleteTapeArchiveInput {
   export function isa(o: any): o is DeleteTapeArchiveInput {
-    return _smithy.isa(o, "DeleteTapeArchiveInput");
+    return __isa(o, "DeleteTapeArchiveInput");
   }
 }
 
@@ -3047,7 +3050,7 @@ export interface DeleteTapeArchiveOutput extends $MetadataBearer {
 
 export namespace DeleteTapeArchiveOutput {
   export function isa(o: any): o is DeleteTapeArchiveOutput {
-    return _smithy.isa(o, "DeleteTapeArchiveOutput");
+    return __isa(o, "DeleteTapeArchiveOutput");
   }
 }
 
@@ -3071,7 +3074,7 @@ export interface DeleteTapeInput {
 
 export namespace DeleteTapeInput {
   export function isa(o: any): o is DeleteTapeInput {
-    return _smithy.isa(o, "DeleteTapeInput");
+    return __isa(o, "DeleteTapeInput");
   }
 }
 
@@ -3088,7 +3091,7 @@ export interface DeleteTapeOutput extends $MetadataBearer {
 
 export namespace DeleteTapeOutput {
   export function isa(o: any): o is DeleteTapeOutput {
-    return _smithy.isa(o, "DeleteTapeOutput");
+    return __isa(o, "DeleteTapeOutput");
   }
 }
 
@@ -3103,7 +3106,7 @@ export interface DescribeAvailabilityMonitorTestInput {
 
 export namespace DescribeAvailabilityMonitorTestInput {
   export function isa(o: any): o is DescribeAvailabilityMonitorTestInput {
-    return _smithy.isa(o, "DescribeAvailabilityMonitorTestInput");
+    return __isa(o, "DescribeAvailabilityMonitorTestInput");
   }
 }
 
@@ -3130,7 +3133,7 @@ export interface DescribeAvailabilityMonitorTestOutput extends $MetadataBearer {
 
 export namespace DescribeAvailabilityMonitorTestOutput {
   export function isa(o: any): o is DescribeAvailabilityMonitorTestOutput {
-    return _smithy.isa(o, "DescribeAvailabilityMonitorTestOutput");
+    return __isa(o, "DescribeAvailabilityMonitorTestOutput");
   }
 }
 
@@ -3148,7 +3151,7 @@ export interface DescribeCachediSCSIVolumesOutput extends $MetadataBearer {
 
 export namespace DescribeCachediSCSIVolumesOutput {
   export function isa(o: any): o is DescribeCachediSCSIVolumesOutput {
-    return _smithy.isa(o, "DescribeCachediSCSIVolumesOutput");
+    return __isa(o, "DescribeCachediSCSIVolumesOutput");
   }
 }
 
@@ -3245,7 +3248,7 @@ export interface DescribeGatewayInformationOutput extends $MetadataBearer {
 
 export namespace DescribeGatewayInformationOutput {
   export function isa(o: any): o is DescribeGatewayInformationOutput {
-    return _smithy.isa(o, "DescribeGatewayInformationOutput");
+    return __isa(o, "DescribeGatewayInformationOutput");
   }
 }
 
@@ -3327,7 +3330,7 @@ export interface DescribeMaintenanceStartTimeOutput extends $MetadataBearer {
 
 export namespace DescribeMaintenanceStartTimeOutput {
   export function isa(o: any): o is DescribeMaintenanceStartTimeOutput {
-    return _smithy.isa(o, "DescribeMaintenanceStartTimeOutput");
+    return __isa(o, "DescribeMaintenanceStartTimeOutput");
   }
 }
 
@@ -3345,7 +3348,7 @@ export interface DescribeNFSFileSharesInput {
 
 export namespace DescribeNFSFileSharesInput {
   export function isa(o: any): o is DescribeNFSFileSharesInput {
-    return _smithy.isa(o, "DescribeNFSFileSharesInput");
+    return __isa(o, "DescribeNFSFileSharesInput");
   }
 }
 
@@ -3362,7 +3365,7 @@ export interface DescribeNFSFileSharesOutput extends $MetadataBearer {
 
 export namespace DescribeNFSFileSharesOutput {
   export function isa(o: any): o is DescribeNFSFileSharesOutput {
-    return _smithy.isa(o, "DescribeNFSFileSharesOutput");
+    return __isa(o, "DescribeNFSFileSharesOutput");
   }
 }
 
@@ -3380,7 +3383,7 @@ export interface DescribeSMBFileSharesInput {
 
 export namespace DescribeSMBFileSharesInput {
   export function isa(o: any): o is DescribeSMBFileSharesInput {
-    return _smithy.isa(o, "DescribeSMBFileSharesInput");
+    return __isa(o, "DescribeSMBFileSharesInput");
   }
 }
 
@@ -3397,7 +3400,7 @@ export interface DescribeSMBFileSharesOutput extends $MetadataBearer {
 
 export namespace DescribeSMBFileSharesOutput {
   export function isa(o: any): o is DescribeSMBFileSharesOutput {
-    return _smithy.isa(o, "DescribeSMBFileSharesOutput");
+    return __isa(o, "DescribeSMBFileSharesOutput");
   }
 }
 
@@ -3412,7 +3415,7 @@ export interface DescribeSMBSettingsInput {
 
 export namespace DescribeSMBSettingsInput {
   export function isa(o: any): o is DescribeSMBSettingsInput {
-    return _smithy.isa(o, "DescribeSMBSettingsInput");
+    return __isa(o, "DescribeSMBSettingsInput");
   }
 }
 
@@ -3486,7 +3489,7 @@ export interface DescribeSMBSettingsOutput extends $MetadataBearer {
 
 export namespace DescribeSMBSettingsOutput {
   export function isa(o: any): o is DescribeSMBSettingsOutput {
-    return _smithy.isa(o, "DescribeSMBSettingsOutput");
+    return __isa(o, "DescribeSMBSettingsOutput");
   }
 }
 
@@ -3530,7 +3533,7 @@ export interface DescribeSnapshotScheduleOutput extends $MetadataBearer {
 
 export namespace DescribeSnapshotScheduleOutput {
   export function isa(o: any): o is DescribeSnapshotScheduleOutput {
-    return _smithy.isa(o, "DescribeSnapshotScheduleOutput");
+    return __isa(o, "DescribeSnapshotScheduleOutput");
   }
 }
 
@@ -3645,7 +3648,7 @@ export interface DescribeStorediSCSIVolumesOutput extends $MetadataBearer {
 
 export namespace DescribeStorediSCSIVolumesOutput {
   export function isa(o: any): o is DescribeStorediSCSIVolumesOutput {
-    return _smithy.isa(o, "DescribeStorediSCSIVolumesOutput");
+    return __isa(o, "DescribeStorediSCSIVolumesOutput");
   }
 }
 
@@ -3675,7 +3678,7 @@ export interface DescribeTapeArchivesInput {
 
 export namespace DescribeTapeArchivesInput {
   export function isa(o: any): o is DescribeTapeArchivesInput {
-    return _smithy.isa(o, "DescribeTapeArchivesInput");
+    return __isa(o, "DescribeTapeArchivesInput");
   }
 }
 
@@ -3703,7 +3706,7 @@ export interface DescribeTapeArchivesOutput extends $MetadataBearer {
 
 export namespace DescribeTapeArchivesOutput {
   export function isa(o: any): o is DescribeTapeArchivesOutput {
-    return _smithy.isa(o, "DescribeTapeArchivesOutput");
+    return __isa(o, "DescribeTapeArchivesOutput");
   }
 }
 
@@ -3733,7 +3736,7 @@ export interface DescribeTapeRecoveryPointsInput {
 
 export namespace DescribeTapeRecoveryPointsInput {
   export function isa(o: any): o is DescribeTapeRecoveryPointsInput {
-    return _smithy.isa(o, "DescribeTapeRecoveryPointsInput");
+    return __isa(o, "DescribeTapeRecoveryPointsInput");
   }
 }
 
@@ -3766,7 +3769,7 @@ export interface DescribeTapeRecoveryPointsOutput extends $MetadataBearer {
 
 export namespace DescribeTapeRecoveryPointsOutput {
   export function isa(o: any): o is DescribeTapeRecoveryPointsOutput {
-    return _smithy.isa(o, "DescribeTapeRecoveryPointsOutput");
+    return __isa(o, "DescribeTapeRecoveryPointsOutput");
   }
 }
 
@@ -3807,7 +3810,7 @@ export interface DescribeTapesInput {
 
 export namespace DescribeTapesInput {
   export function isa(o: any): o is DescribeTapesInput {
-    return _smithy.isa(o, "DescribeTapesInput");
+    return __isa(o, "DescribeTapesInput");
   }
 }
 
@@ -3832,7 +3835,7 @@ export interface DescribeTapesOutput extends $MetadataBearer {
 
 export namespace DescribeTapesOutput {
   export function isa(o: any): o is DescribeTapesOutput {
-    return _smithy.isa(o, "DescribeTapesOutput");
+    return __isa(o, "DescribeTapesOutput");
   }
 }
 
@@ -3872,7 +3875,7 @@ export interface DescribeVTLDevicesInput {
 
 export namespace DescribeVTLDevicesInput {
   export function isa(o: any): o is DescribeVTLDevicesInput {
-    return _smithy.isa(o, "DescribeVTLDevicesInput");
+    return __isa(o, "DescribeVTLDevicesInput");
   }
 }
 
@@ -3904,7 +3907,7 @@ export interface DescribeVTLDevicesOutput extends $MetadataBearer {
 
 export namespace DescribeVTLDevicesOutput {
   export function isa(o: any): o is DescribeVTLDevicesOutput {
-    return _smithy.isa(o, "DescribeVTLDevicesOutput");
+    return __isa(o, "DescribeVTLDevicesOutput");
   }
 }
 
@@ -3929,7 +3932,7 @@ export interface DetachVolumeInput {
 
 export namespace DetachVolumeInput {
   export function isa(o: any): o is DetachVolumeInput {
-    return _smithy.isa(o, "DetachVolumeInput");
+    return __isa(o, "DetachVolumeInput");
   }
 }
 
@@ -3946,7 +3949,7 @@ export interface DetachVolumeOutput extends $MetadataBearer {
 
 export namespace DetachVolumeOutput {
   export function isa(o: any): o is DetachVolumeOutput {
-    return _smithy.isa(o, "DetachVolumeOutput");
+    return __isa(o, "DetachVolumeOutput");
   }
 }
 
@@ -3979,7 +3982,7 @@ export interface DeviceiSCSIAttributes {
 
 export namespace DeviceiSCSIAttributes {
   export function isa(o: any): o is DeviceiSCSIAttributes {
-    return _smithy.isa(o, "DeviceiSCSIAttributes");
+    return __isa(o, "DeviceiSCSIAttributes");
   }
 }
 
@@ -3997,7 +4000,7 @@ export interface DisableGatewayInput {
 
 export namespace DisableGatewayInput {
   export function isa(o: any): o is DisableGatewayInput {
-    return _smithy.isa(o, "DisableGatewayInput");
+    return __isa(o, "DisableGatewayInput");
   }
 }
 
@@ -4014,7 +4017,7 @@ export interface DisableGatewayOutput extends $MetadataBearer {
 
 export namespace DisableGatewayOutput {
   export function isa(o: any): o is DisableGatewayOutput {
-    return _smithy.isa(o, "DisableGatewayOutput");
+    return __isa(o, "DisableGatewayOutput");
   }
 }
 
@@ -4073,7 +4076,7 @@ export interface Disk {
 
 export namespace Disk {
   export function isa(o: any): o is Disk {
-    return _smithy.isa(o, "Disk");
+    return __isa(o, "Disk");
   }
 }
 
@@ -4112,7 +4115,7 @@ export interface FileShareInfo {
 
 export namespace FileShareInfo {
   export function isa(o: any): o is FileShareInfo {
-    return _smithy.isa(o, "FileShareInfo");
+    return __isa(o, "FileShareInfo");
   }
 }
 
@@ -4165,7 +4168,7 @@ export interface GatewayInfo {
 
 export namespace GatewayInfo {
   export function isa(o: any): o is GatewayInfo {
-    return _smithy.isa(o, "GatewayInfo");
+    return __isa(o, "GatewayInfo");
   }
 }
 
@@ -4223,7 +4226,7 @@ export interface JoinDomainInput {
 
 export namespace JoinDomainInput {
   export function isa(o: any): o is JoinDomainInput {
-    return _smithy.isa(o, "JoinDomainInput");
+    return __isa(o, "JoinDomainInput");
   }
 }
 
@@ -4273,7 +4276,7 @@ export interface JoinDomainOutput extends $MetadataBearer {
 
 export namespace JoinDomainOutput {
   export function isa(o: any): o is JoinDomainOutput {
-    return _smithy.isa(o, "JoinDomainOutput");
+    return __isa(o, "JoinDomainOutput");
   }
 }
 
@@ -4304,7 +4307,7 @@ export interface ListFileSharesInput {
 
 export namespace ListFileSharesInput {
   export function isa(o: any): o is ListFileSharesInput {
-    return _smithy.isa(o, "ListFileSharesInput");
+    return __isa(o, "ListFileSharesInput");
   }
 }
 
@@ -4334,7 +4337,7 @@ export interface ListFileSharesOutput extends $MetadataBearer {
 
 export namespace ListFileSharesOutput {
   export function isa(o: any): o is ListFileSharesOutput {
-    return _smithy.isa(o, "ListFileSharesOutput");
+    return __isa(o, "ListFileSharesOutput");
   }
 }
 
@@ -4354,7 +4357,7 @@ export interface ListGatewaysOutput extends $MetadataBearer {
 
 export namespace ListGatewaysOutput {
   export function isa(o: any): o is ListGatewaysOutput {
-    return _smithy.isa(o, "ListGatewaysOutput");
+    return __isa(o, "ListGatewaysOutput");
   }
 }
 
@@ -4381,7 +4384,7 @@ export interface ListLocalDisksOutput extends $MetadataBearer {
 
 export namespace ListLocalDisksOutput {
   export function isa(o: any): o is ListLocalDisksOutput {
-    return _smithy.isa(o, "ListLocalDisksOutput");
+    return __isa(o, "ListLocalDisksOutput");
   }
 }
 
@@ -4411,7 +4414,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -4440,7 +4443,7 @@ export interface ListTagsForResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
-    return _smithy.isa(o, "ListTagsForResourceOutput");
+    return __isa(o, "ListTagsForResourceOutput");
   }
 }
 
@@ -4486,7 +4489,7 @@ export interface ListTapesInput {
 
 export namespace ListTapesInput {
   export function isa(o: any): o is ListTapesInput {
-    return _smithy.isa(o, "ListTapesInput");
+    return __isa(o, "ListTapesInput");
   }
 }
 
@@ -4524,7 +4527,7 @@ export interface ListTapesOutput extends $MetadataBearer {
 
 export namespace ListTapesOutput {
   export function isa(o: any): o is ListTapesOutput {
-    return _smithy.isa(o, "ListTapesOutput");
+    return __isa(o, "ListTapesOutput");
   }
 }
 
@@ -4542,7 +4545,7 @@ export interface ListVolumeInitiatorsInput {
 
 export namespace ListVolumeInitiatorsInput {
   export function isa(o: any): o is ListVolumeInitiatorsInput {
-    return _smithy.isa(o, "ListVolumeInitiatorsInput");
+    return __isa(o, "ListVolumeInitiatorsInput");
   }
 }
 
@@ -4560,7 +4563,7 @@ export interface ListVolumeInitiatorsOutput extends $MetadataBearer {
 
 export namespace ListVolumeInitiatorsOutput {
   export function isa(o: any): o is ListVolumeInitiatorsOutput {
-    return _smithy.isa(o, "ListVolumeInitiatorsOutput");
+    return __isa(o, "ListVolumeInitiatorsOutput");
   }
 }
 
@@ -4603,7 +4606,7 @@ export interface ListVolumesOutput extends $MetadataBearer {
 
 export namespace ListVolumesOutput {
   export function isa(o: any): o is ListVolumesOutput {
-    return _smithy.isa(o, "ListVolumesOutput");
+    return __isa(o, "ListVolumesOutput");
   }
 }
 
@@ -4644,7 +4647,7 @@ export interface NFSFileShareDefaults {
 
 export namespace NFSFileShareDefaults {
   export function isa(o: any): o is NFSFileShareDefaults {
-    return _smithy.isa(o, "NFSFileShareDefaults");
+    return __isa(o, "NFSFileShareDefaults");
   }
 }
 
@@ -4789,7 +4792,7 @@ export interface NFSFileShareInfo {
 
 export namespace NFSFileShareInfo {
   export function isa(o: any): o is NFSFileShareInfo {
-    return _smithy.isa(o, "NFSFileShareInfo");
+    return __isa(o, "NFSFileShareInfo");
   }
 }
 
@@ -4803,7 +4806,7 @@ export interface NotifyWhenUploadedInput {
 
 export namespace NotifyWhenUploadedInput {
   export function isa(o: any): o is NotifyWhenUploadedInput {
-    return _smithy.isa(o, "NotifyWhenUploadedInput");
+    return __isa(o, "NotifyWhenUploadedInput");
   }
 }
 
@@ -4823,7 +4826,7 @@ export interface NotifyWhenUploadedOutput extends $MetadataBearer {
 
 export namespace NotifyWhenUploadedOutput {
   export function isa(o: any): o is NotifyWhenUploadedOutput {
-    return _smithy.isa(o, "NotifyWhenUploadedOutput");
+    return __isa(o, "NotifyWhenUploadedOutput");
   }
 }
 
@@ -4868,7 +4871,7 @@ export interface RefreshCacheInput {
 
 export namespace RefreshCacheInput {
   export function isa(o: any): o is RefreshCacheInput {
-    return _smithy.isa(o, "RefreshCacheInput");
+    return __isa(o, "RefreshCacheInput");
   }
 }
 
@@ -4891,7 +4894,7 @@ export interface RefreshCacheOutput extends $MetadataBearer {
 
 export namespace RefreshCacheOutput {
   export function isa(o: any): o is RefreshCacheOutput {
-    return _smithy.isa(o, "RefreshCacheOutput");
+    return __isa(o, "RefreshCacheOutput");
   }
 }
 
@@ -4915,7 +4918,7 @@ export interface RemoveTagsFromResourceInput {
 
 export namespace RemoveTagsFromResourceInput {
   export function isa(o: any): o is RemoveTagsFromResourceInput {
-    return _smithy.isa(o, "RemoveTagsFromResourceInput");
+    return __isa(o, "RemoveTagsFromResourceInput");
   }
 }
 
@@ -4933,7 +4936,7 @@ export interface RemoveTagsFromResourceOutput extends $MetadataBearer {
 
 export namespace RemoveTagsFromResourceOutput {
   export function isa(o: any): o is RemoveTagsFromResourceOutput {
-    return _smithy.isa(o, "RemoveTagsFromResourceOutput");
+    return __isa(o, "RemoveTagsFromResourceOutput");
   }
 }
 
@@ -4948,7 +4951,7 @@ export interface ResetCacheInput {
 
 export namespace ResetCacheInput {
   export function isa(o: any): o is ResetCacheInput {
-    return _smithy.isa(o, "ResetCacheInput");
+    return __isa(o, "ResetCacheInput");
   }
 }
 
@@ -4963,7 +4966,7 @@ export interface ResetCacheOutput extends $MetadataBearer {
 
 export namespace ResetCacheOutput {
   export function isa(o: any): o is ResetCacheOutput {
-    return _smithy.isa(o, "ResetCacheOutput");
+    return __isa(o, "ResetCacheOutput");
   }
 }
 
@@ -4990,7 +4993,7 @@ export interface RetrieveTapeArchiveInput {
 
 export namespace RetrieveTapeArchiveInput {
   export function isa(o: any): o is RetrieveTapeArchiveInput {
-    return _smithy.isa(o, "RetrieveTapeArchiveInput");
+    return __isa(o, "RetrieveTapeArchiveInput");
   }
 }
 
@@ -5007,7 +5010,7 @@ export interface RetrieveTapeArchiveOutput extends $MetadataBearer {
 
 export namespace RetrieveTapeArchiveOutput {
   export function isa(o: any): o is RetrieveTapeArchiveOutput {
-    return _smithy.isa(o, "RetrieveTapeArchiveOutput");
+    return __isa(o, "RetrieveTapeArchiveOutput");
   }
 }
 
@@ -5031,7 +5034,7 @@ export interface RetrieveTapeRecoveryPointInput {
 
 export namespace RetrieveTapeRecoveryPointInput {
   export function isa(o: any): o is RetrieveTapeRecoveryPointInput {
-    return _smithy.isa(o, "RetrieveTapeRecoveryPointInput");
+    return __isa(o, "RetrieveTapeRecoveryPointInput");
   }
 }
 
@@ -5049,7 +5052,7 @@ export interface RetrieveTapeRecoveryPointOutput extends $MetadataBearer {
 
 export namespace RetrieveTapeRecoveryPointOutput {
   export function isa(o: any): o is RetrieveTapeRecoveryPointOutput {
-    return _smithy.isa(o, "RetrieveTapeRecoveryPointOutput");
+    return __isa(o, "RetrieveTapeRecoveryPointOutput");
   }
 }
 
@@ -5200,7 +5203,7 @@ export interface SMBFileShareInfo {
 
 export namespace SMBFileShareInfo {
   export function isa(o: any): o is SMBFileShareInfo {
-    return _smithy.isa(o, "SMBFileShareInfo");
+    return __isa(o, "SMBFileShareInfo");
   }
 }
 
@@ -5228,7 +5231,7 @@ export interface SetLocalConsolePasswordInput {
 
 export namespace SetLocalConsolePasswordInput {
   export function isa(o: any): o is SetLocalConsolePasswordInput {
-    return _smithy.isa(o, "SetLocalConsolePasswordInput");
+    return __isa(o, "SetLocalConsolePasswordInput");
   }
 }
 
@@ -5243,7 +5246,7 @@ export interface SetLocalConsolePasswordOutput extends $MetadataBearer {
 
 export namespace SetLocalConsolePasswordOutput {
   export function isa(o: any): o is SetLocalConsolePasswordOutput {
-    return _smithy.isa(o, "SetLocalConsolePasswordOutput");
+    return __isa(o, "SetLocalConsolePasswordOutput");
   }
 }
 
@@ -5266,7 +5269,7 @@ export interface SetSMBGuestPasswordInput {
 
 export namespace SetSMBGuestPasswordInput {
   export function isa(o: any): o is SetSMBGuestPasswordInput {
-    return _smithy.isa(o, "SetSMBGuestPasswordInput");
+    return __isa(o, "SetSMBGuestPasswordInput");
   }
 }
 
@@ -5281,7 +5284,7 @@ export interface SetSMBGuestPasswordOutput extends $MetadataBearer {
 
 export namespace SetSMBGuestPasswordOutput {
   export function isa(o: any): o is SetSMBGuestPasswordOutput {
-    return _smithy.isa(o, "SetSMBGuestPasswordOutput");
+    return __isa(o, "SetSMBGuestPasswordOutput");
   }
 }
 
@@ -5296,7 +5299,7 @@ export interface StartAvailabilityMonitorTestInput {
 
 export namespace StartAvailabilityMonitorTestInput {
   export function isa(o: any): o is StartAvailabilityMonitorTestInput {
-    return _smithy.isa(o, "StartAvailabilityMonitorTestInput");
+    return __isa(o, "StartAvailabilityMonitorTestInput");
   }
 }
 
@@ -5311,7 +5314,7 @@ export interface StartAvailabilityMonitorTestOutput extends $MetadataBearer {
 
 export namespace StartAvailabilityMonitorTestOutput {
   export function isa(o: any): o is StartAvailabilityMonitorTestOutput {
-    return _smithy.isa(o, "StartAvailabilityMonitorTestOutput");
+    return __isa(o, "StartAvailabilityMonitorTestOutput");
   }
 }
 
@@ -5423,7 +5426,7 @@ export interface StorediSCSIVolume {
 
 export namespace StorediSCSIVolume {
   export function isa(o: any): o is StorediSCSIVolume {
-    return _smithy.isa(o, "StorediSCSIVolume");
+    return __isa(o, "StorediSCSIVolume");
   }
 }
 
@@ -5447,7 +5450,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -5518,7 +5521,7 @@ export interface Tape {
 
 export namespace Tape {
   export function isa(o: any): o is Tape {
-    return _smithy.isa(o, "Tape");
+    return __isa(o, "Tape");
   }
 }
 
@@ -5589,7 +5592,7 @@ export interface TapeArchive {
 
 export namespace TapeArchive {
   export function isa(o: any): o is TapeArchive {
-    return _smithy.isa(o, "TapeArchive");
+    return __isa(o, "TapeArchive");
   }
 }
 
@@ -5635,7 +5638,7 @@ export interface TapeInfo {
 
 export namespace TapeInfo {
   export function isa(o: any): o is TapeInfo {
-    return _smithy.isa(o, "TapeInfo");
+    return __isa(o, "TapeInfo");
   }
 }
 
@@ -5670,7 +5673,7 @@ export interface TapeRecoveryPointInfo {
 
 export namespace TapeRecoveryPointInfo {
   export function isa(o: any): o is TapeRecoveryPointInfo {
-    return _smithy.isa(o, "TapeRecoveryPointInfo");
+    return __isa(o, "TapeRecoveryPointInfo");
   }
 }
 
@@ -5701,7 +5704,7 @@ export interface UpdateGatewayInformationInput {
 
 export namespace UpdateGatewayInformationInput {
   export function isa(o: any): o is UpdateGatewayInformationInput {
-    return _smithy.isa(o, "UpdateGatewayInformationInput");
+    return __isa(o, "UpdateGatewayInformationInput");
   }
 }
 
@@ -5799,7 +5802,7 @@ export interface UpdateNFSFileShareInput {
 
 export namespace UpdateNFSFileShareInput {
   export function isa(o: any): o is UpdateNFSFileShareInput {
-    return _smithy.isa(o, "UpdateNFSFileShareInput");
+    return __isa(o, "UpdateNFSFileShareInput");
   }
 }
 
@@ -5816,7 +5819,7 @@ export interface UpdateNFSFileShareOutput extends $MetadataBearer {
 
 export namespace UpdateNFSFileShareOutput {
   export function isa(o: any): o is UpdateNFSFileShareOutput {
-    return _smithy.isa(o, "UpdateNFSFileShareOutput");
+    return __isa(o, "UpdateNFSFileShareOutput");
   }
 }
 
@@ -5918,7 +5921,7 @@ export interface UpdateSMBFileShareInput {
 
 export namespace UpdateSMBFileShareInput {
   export function isa(o: any): o is UpdateSMBFileShareInput {
-    return _smithy.isa(o, "UpdateSMBFileShareInput");
+    return __isa(o, "UpdateSMBFileShareInput");
   }
 }
 
@@ -5935,7 +5938,7 @@ export interface UpdateSMBFileShareOutput extends $MetadataBearer {
 
 export namespace UpdateSMBFileShareOutput {
   export function isa(o: any): o is UpdateSMBFileShareOutput {
-    return _smithy.isa(o, "UpdateSMBFileShareOutput");
+    return __isa(o, "UpdateSMBFileShareOutput");
   }
 }
 
@@ -5965,7 +5968,7 @@ export interface UpdateSMBSecurityStrategyInput {
 
 export namespace UpdateSMBSecurityStrategyInput {
   export function isa(o: any): o is UpdateSMBSecurityStrategyInput {
-    return _smithy.isa(o, "UpdateSMBSecurityStrategyInput");
+    return __isa(o, "UpdateSMBSecurityStrategyInput");
   }
 }
 
@@ -5980,7 +5983,7 @@ export interface UpdateSMBSecurityStrategyOutput extends $MetadataBearer {
 
 export namespace UpdateSMBSecurityStrategyOutput {
   export function isa(o: any): o is UpdateSMBSecurityStrategyOutput {
-    return _smithy.isa(o, "UpdateSMBSecurityStrategyOutput");
+    return __isa(o, "UpdateSMBSecurityStrategyOutput");
   }
 }
 
@@ -6000,7 +6003,7 @@ export interface UpdateVTLDeviceTypeInput {
 
 export namespace UpdateVTLDeviceTypeInput {
   export function isa(o: any): o is UpdateVTLDeviceTypeInput {
-    return _smithy.isa(o, "UpdateVTLDeviceTypeInput");
+    return __isa(o, "UpdateVTLDeviceTypeInput");
   }
 }
 
@@ -6017,7 +6020,7 @@ export interface UpdateVTLDeviceTypeOutput extends $MetadataBearer {
 
 export namespace UpdateVTLDeviceTypeOutput {
   export function isa(o: any): o is UpdateVTLDeviceTypeOutput {
-    return _smithy.isa(o, "UpdateVTLDeviceTypeOutput");
+    return __isa(o, "UpdateVTLDeviceTypeOutput");
   }
 }
 
@@ -6055,7 +6058,7 @@ export interface VTLDevice {
 
 export namespace VTLDevice {
   export function isa(o: any): o is VTLDevice {
-    return _smithy.isa(o, "VTLDevice");
+    return __isa(o, "VTLDevice");
   }
 }
 
@@ -6118,6 +6121,6 @@ export interface VolumeInfo {
 
 export namespace VolumeInfo {
   export function isa(o: any): o is VolumeInfo {
-    return _smithy.isa(o, "VolumeInfo");
+    return __isa(o, "VolumeInfo");
   }
 }

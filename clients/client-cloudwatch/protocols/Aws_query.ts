@@ -699,6 +699,7 @@ export async function deserializeAws_queryDeleteAlarmsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteAlarmsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAlarmsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1277,6 +1278,7 @@ export async function deserializeAws_queryDisableAlarmActionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDisableAlarmActionsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DisableAlarmActionsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1385,6 +1387,7 @@ export async function deserializeAws_queryEnableAlarmActionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryEnableAlarmActionsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: EnableAlarmActionsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2256,6 +2259,7 @@ export async function deserializeAws_queryPutMetricAlarmCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutMetricAlarmCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutMetricAlarmCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2306,6 +2310,7 @@ export async function deserializeAws_queryPutMetricDataCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutMetricDataCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2377,6 +2382,7 @@ export async function deserializeAws_querySetAlarmStateCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySetAlarmStateCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetAlarmStateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

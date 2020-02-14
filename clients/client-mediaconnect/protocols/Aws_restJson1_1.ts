@@ -94,7 +94,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -110,13 +113,13 @@ export async function serializeAws_restJson1_1AddFlowOutputsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/flows/{FlowArn}/outputs";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -194,13 +197,13 @@ export async function serializeAws_restJson1_1DeleteFlowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -222,13 +225,13 @@ export async function serializeAws_restJson1_1DescribeFlowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/flows/{FlowArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -250,13 +253,13 @@ export async function serializeAws_restJson1_1GrantFlowEntitlementsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -291,10 +294,14 @@ export async function serializeAws_restJson1_1ListEntitlementsCommand(
   let resolvedPath = "/v1/entitlements";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -315,10 +322,14 @@ export async function serializeAws_restJson1_1ListFlowsCommand(
   let resolvedPath = "/v1/flows";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -338,7 +349,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -346,7 +357,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -368,25 +379,25 @@ export async function serializeAws_restJson1_1RemoveFlowOutputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   if (input.OutputArn !== undefined) {
-    const labelValue: string = input.OutputArn.toString();
+    const labelValue: string = input.OutputArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutputArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{OutputArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
@@ -408,7 +419,7 @@ export async function serializeAws_restJson1_1RevokeFlowEntitlementCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
   if (input.EntitlementArn !== undefined) {
-    const labelValue: string = input.EntitlementArn.toString();
+    const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EntitlementArn."
@@ -416,19 +427,19 @@ export async function serializeAws_restJson1_1RevokeFlowEntitlementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EntitlementArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EntitlementArn.");
   }
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -450,13 +461,13 @@ export async function serializeAws_restJson1_1StartFlowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/flows/start/{FlowArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -478,13 +489,13 @@ export async function serializeAws_restJson1_1StopFlowCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/flows/stop/{FlowArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -506,7 +517,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -514,7 +525,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -546,7 +557,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -554,14 +565,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -581,7 +594,7 @@ export async function serializeAws_restJson1_1UpdateFlowEntitlementCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
   if (input.EntitlementArn !== undefined) {
-    const labelValue: string = input.EntitlementArn.toString();
+    const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EntitlementArn."
@@ -589,19 +602,19 @@ export async function serializeAws_restJson1_1UpdateFlowEntitlementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EntitlementArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EntitlementArn.");
   }
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
@@ -642,25 +655,25 @@ export async function serializeAws_restJson1_1UpdateFlowOutputCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/flows/{FlowArn}/outputs/{OutputArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   if (input.OutputArn !== undefined) {
-    const labelValue: string = input.OutputArn.toString();
+    const labelValue: string = input.OutputArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OutputArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{OutputArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OutputArn.");
@@ -722,25 +735,25 @@ export async function serializeAws_restJson1_1UpdateFlowSourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/flows/{FlowArn}/source/{SourceArn}";
   if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn.toString();
+    const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FlowArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{FlowArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   if (input.SourceArn !== undefined) {
-    const labelValue: string = input.SourceArn.toString();
+    const labelValue: string = input.SourceArn;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SourceArn.");
     }
     resolvedPath = resolvedPath.replace(
       "{SourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SourceArn.");
@@ -1895,6 +1908,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1956,6 +1970,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

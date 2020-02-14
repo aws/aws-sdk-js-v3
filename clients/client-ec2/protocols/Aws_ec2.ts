@@ -10603,6 +10603,7 @@ export async function deserializeAws_ec2AssociateDhcpOptionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2AssociateDhcpOptionsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AssociateDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11040,6 +11041,7 @@ export async function deserializeAws_ec2AttachInternetGatewayCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2AttachInternetGatewayCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AttachInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11309,6 +11311,7 @@ export async function deserializeAws_ec2AuthorizeSecurityGroupEgressCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AuthorizeSecurityGroupEgressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11360,6 +11363,7 @@ export async function deserializeAws_ec2AuthorizeSecurityGroupIngressCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AuthorizeSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11570,6 +11574,7 @@ export async function deserializeAws_ec2CancelConversionTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2CancelConversionTaskCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CancelConversionTaskCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11618,6 +11623,7 @@ export async function deserializeAws_ec2CancelExportTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2CancelExportTaskCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CancelExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -13245,6 +13251,7 @@ export async function deserializeAws_ec2CreateNetworkAclEntryCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2CreateNetworkAclEntryCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -13408,6 +13415,7 @@ export async function deserializeAws_ec2CreatePlacementGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2CreatePlacementGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreatePlacementGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -13892,6 +13900,7 @@ export async function deserializeAws_ec2CreateTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2CreateTagsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -14901,6 +14910,7 @@ export async function deserializeAws_ec2CreateVpnConnectionRouteCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: CreateVpnConnectionRouteCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15111,6 +15121,7 @@ export async function deserializeAws_ec2DeleteCustomerGatewayCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteCustomerGatewayCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteCustomerGatewayCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15159,6 +15170,7 @@ export async function deserializeAws_ec2DeleteDhcpOptionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteDhcpOptionsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15425,6 +15437,7 @@ export async function deserializeAws_ec2DeleteInternetGatewayCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteInternetGatewayCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15473,6 +15486,7 @@ export async function deserializeAws_ec2DeleteKeyPairCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteKeyPairCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15801,6 +15815,7 @@ export async function deserializeAws_ec2DeleteNetworkAclCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteNetworkAclCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteNetworkAclCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15849,6 +15864,7 @@ export async function deserializeAws_ec2DeleteNetworkAclEntryCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteNetworkAclEntryCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -15900,6 +15916,7 @@ export async function deserializeAws_ec2DeleteNetworkInterfaceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16007,6 +16024,7 @@ export async function deserializeAws_ec2DeletePlacementGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeletePlacementGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePlacementGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16114,6 +16132,7 @@ export async function deserializeAws_ec2DeleteRouteCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteRouteCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteRouteCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16162,6 +16181,7 @@ export async function deserializeAws_ec2DeleteRouteTableCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteRouteTableCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16210,6 +16230,7 @@ export async function deserializeAws_ec2DeleteSecurityGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteSecurityGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16258,6 +16279,7 @@ export async function deserializeAws_ec2DeleteSnapshotCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteSnapshotCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16309,6 +16331,7 @@ export async function deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteSpotDatafeedSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16357,6 +16380,7 @@ export async function deserializeAws_ec2DeleteSubnetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteSubnetCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSubnetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -16405,6 +16429,7 @@ export async function deserializeAws_ec2DeleteTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteTagsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -17025,6 +17050,7 @@ export async function deserializeAws_ec2DeleteVolumeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteVolumeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteVolumeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -17073,6 +17099,7 @@ export async function deserializeAws_ec2DeleteVpcCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteVpcCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteVpcCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -17348,6 +17375,7 @@ export async function deserializeAws_ec2DeleteVpnConnectionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteVpnConnectionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteVpnConnectionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -17399,6 +17427,7 @@ export async function deserializeAws_ec2DeleteVpnConnectionRouteCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteVpnConnectionRouteCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -17447,6 +17476,7 @@ export async function deserializeAws_ec2DeleteVpnGatewayCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeleteVpnGatewayCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -17548,6 +17578,7 @@ export async function deserializeAws_ec2DeregisterImageCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DeregisterImageCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeregisterImageCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -24074,6 +24105,7 @@ export async function deserializeAws_ec2DetachInternetGatewayCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DetachInternetGatewayCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DetachInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -24125,6 +24157,7 @@ export async function deserializeAws_ec2DetachNetworkInterfaceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DetachNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -24226,6 +24259,7 @@ export async function deserializeAws_ec2DetachVpnGatewayCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DetachVpnGatewayCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DetachVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -24451,6 +24485,7 @@ export async function deserializeAws_ec2DisableVgwRoutePropagationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisableVgwRoutePropagationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -24611,6 +24646,7 @@ export async function deserializeAws_ec2DisassociateAddressCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2DisassociateAddressCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DisassociateAddressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -24780,6 +24816,7 @@ export async function deserializeAws_ec2DisassociateRouteTableCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisassociateRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -25235,6 +25272,7 @@ export async function deserializeAws_ec2EnableVgwRoutePropagationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: EnableVgwRoutePropagationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -25283,6 +25321,7 @@ export async function deserializeAws_ec2EnableVolumeIOCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2EnableVolumeIOCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: EnableVolumeIOCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -27282,6 +27321,7 @@ export async function deserializeAws_ec2ModifyIdFormatCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ModifyIdFormatCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ModifyIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -27333,6 +27373,7 @@ export async function deserializeAws_ec2ModifyIdentityIdFormatCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifyIdentityIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -27381,6 +27422,7 @@ export async function deserializeAws_ec2ModifyImageAttributeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ModifyImageAttributeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ModifyImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -27432,6 +27474,7 @@ export async function deserializeAws_ec2ModifyInstanceAttributeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifyInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -27828,6 +27871,7 @@ export async function deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifyNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -27935,6 +27979,7 @@ export async function deserializeAws_ec2ModifySnapshotAttributeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifySnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -28039,6 +28084,7 @@ export async function deserializeAws_ec2ModifySubnetAttributeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ModifySubnetAttributeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ModifySubnetAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -28373,6 +28419,7 @@ export async function deserializeAws_ec2ModifyVolumeAttributeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ModifyVolumeAttributeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ModifyVolumeAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -28421,6 +28468,7 @@ export async function deserializeAws_ec2ModifyVpcAttributeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ModifyVpcAttributeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ModifyVpcAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -29306,6 +29354,7 @@ export async function deserializeAws_ec2RebootInstancesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2RebootInstancesCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RebootInstancesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -29758,6 +29807,7 @@ export async function deserializeAws_ec2ReleaseAddressCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ReleaseAddressCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ReleaseAddressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -29980,6 +30030,7 @@ export async function deserializeAws_ec2ReplaceNetworkAclEntryCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ReplaceNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30028,6 +30079,7 @@ export async function deserializeAws_ec2ReplaceRouteCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ReplaceRouteCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ReplaceRouteCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30191,6 +30243,7 @@ export async function deserializeAws_ec2ReportInstanceStatusCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ReportInstanceStatusCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ReportInstanceStatusCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30457,6 +30510,7 @@ export async function deserializeAws_ec2ResetImageAttributeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_ec2ResetImageAttributeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ResetImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30508,6 +30562,7 @@ export async function deserializeAws_ec2ResetInstanceAttributeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ResetInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30559,6 +30614,7 @@ export async function deserializeAws_ec2ResetNetworkInterfaceAttributeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ResetNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30610,6 +30666,7 @@ export async function deserializeAws_ec2ResetSnapshotAttributeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ResetSnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30773,6 +30830,7 @@ export async function deserializeAws_ec2RevokeSecurityGroupEgressCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RevokeSecurityGroupEgressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -30824,6 +30882,7 @@ export async function deserializeAws_ec2RevokeSecurityGroupIngressCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RevokeSecurityGroupIngressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -31152,6 +31211,7 @@ export async function deserializeAws_ec2SendDiagnosticInterruptCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SendDiagnosticInterruptCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -31533,6 +31593,7 @@ export async function deserializeAws_ec2UnassignPrivateIpAddressesCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UnassignPrivateIpAddressesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

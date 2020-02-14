@@ -79,7 +79,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -96,7 +99,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.deviceTemplateName !== undefined) {
-    const labelValue: string = input.deviceTemplateName.toString();
+    const labelValue: string = input.deviceTemplateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: deviceTemplateName."
@@ -104,7 +107,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     }
     resolvedPath = resolvedPath.replace(
       "{deviceTemplateName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -112,7 +115,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     );
   }
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -120,13 +123,13 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -134,7 +137,7 @@ export async function serializeAws_restJson1_1AssociateDeviceWithPlacementComman
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -163,7 +166,7 @@ export async function serializeAws_restJson1_1CreatePlacementCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -171,7 +174,7 @@ export async function serializeAws_restJson1_1CreatePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -241,7 +244,7 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -249,13 +252,13 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -263,7 +266,7 @@ export async function serializeAws_restJson1_1DeletePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -285,7 +288,7 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -293,7 +296,7 @@ export async function serializeAws_restJson1_1DeleteProjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -315,7 +318,7 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -323,13 +326,13 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -337,7 +340,7 @@ export async function serializeAws_restJson1_1DescribePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -359,7 +362,7 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -367,7 +370,7 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -390,7 +393,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
   if (input.deviceTemplateName !== undefined) {
-    const labelValue: string = input.deviceTemplateName.toString();
+    const labelValue: string = input.deviceTemplateName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: deviceTemplateName."
@@ -398,7 +401,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     }
     resolvedPath = resolvedPath.replace(
       "{deviceTemplateName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -406,7 +409,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     );
   }
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -414,13 +417,13 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -428,7 +431,7 @@ export async function serializeAws_restJson1_1DisassociateDeviceFromPlacementCom
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -451,7 +454,7 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
   let resolvedPath =
     "/projects/{projectName}/placements/{placementName}/devices";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -459,13 +462,13 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -473,7 +476,7 @@ export async function serializeAws_restJson1_1GetDevicesInPlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -495,7 +498,7 @@ export async function serializeAws_restJson1_1ListPlacementsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/projects/{projectName}/placements";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -503,17 +506,21 @@ export async function serializeAws_restJson1_1ListPlacementsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -534,10 +541,14 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
   let resolvedPath = "/projects";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -557,7 +568,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -565,7 +576,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -587,7 +598,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -595,7 +606,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -624,7 +635,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -632,14 +643,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -659,7 +672,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
   if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName.toString();
+    const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: placementName."
@@ -667,13 +680,13 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{placementName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
   }
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -681,7 +694,7 @@ export async function serializeAws_restJson1_1UpdatePlacementCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -713,7 +726,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/projects/{projectName}";
   if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName.toString();
+    const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: projectName."
@@ -721,7 +734,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{projectName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
@@ -762,6 +775,7 @@ export async function deserializeAws_restJson1_1AssociateDeviceWithPlacementComm
     $metadata: deserializeMetadata(output),
     __type: "AssociateDeviceWithPlacementResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -834,6 +848,7 @@ export async function deserializeAws_restJson1_1CreatePlacementCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreatePlacementResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -903,6 +918,7 @@ export async function deserializeAws_restJson1_1CreateProjectCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -968,6 +984,7 @@ export async function deserializeAws_restJson1_1DeletePlacementCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeletePlacementResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1037,6 +1054,7 @@ export async function deserializeAws_restJson1_1DeleteProjectCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1255,6 +1273,7 @@ export async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementC
     $metadata: deserializeMetadata(output),
     __type: "DisassociateDeviceFromPlacementResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1611,6 +1630,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1673,6 +1693,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1738,6 +1759,7 @@ export async function deserializeAws_restJson1_1UpdatePlacementCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdatePlacementResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1807,6 +1829,7 @@ export async function deserializeAws_restJson1_1UpdateProjectCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

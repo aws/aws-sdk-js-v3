@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
@@ -29,10 +32,7 @@ export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
   export function isa(
     o: any
   ): o is AcceptDirectConnectGatewayAssociationProposalRequest {
-    return _smithy.isa(
-      o,
-      "AcceptDirectConnectGatewayAssociationProposalRequest"
-    );
+    return __isa(o, "AcceptDirectConnectGatewayAssociationProposalRequest");
   }
 }
 
@@ -49,10 +49,7 @@ export namespace AcceptDirectConnectGatewayAssociationProposalResult {
   export function isa(
     o: any
   ): o is AcceptDirectConnectGatewayAssociationProposalResult {
-    return _smithy.isa(
-      o,
-      "AcceptDirectConnectGatewayAssociationProposalResult"
-    );
+    return __isa(o, "AcceptDirectConnectGatewayAssociationProposalResult");
   }
 }
 
@@ -94,7 +91,7 @@ export interface AllocateConnectionOnInterconnectRequest {
 
 export namespace AllocateConnectionOnInterconnectRequest {
   export function isa(o: any): o is AllocateConnectionOnInterconnectRequest {
-    return _smithy.isa(o, "AllocateConnectionOnInterconnectRequest");
+    return __isa(o, "AllocateConnectionOnInterconnectRequest");
   }
 }
 
@@ -133,7 +130,7 @@ export interface AllocateHostedConnectionRequest {
 
 export namespace AllocateHostedConnectionRequest {
   export function isa(o: any): o is AllocateHostedConnectionRequest {
-    return _smithy.isa(o, "AllocateHostedConnectionRequest");
+    return __isa(o, "AllocateHostedConnectionRequest");
   }
 }
 
@@ -159,7 +156,7 @@ export interface AllocatePrivateVirtualInterfaceRequest {
 
 export namespace AllocatePrivateVirtualInterfaceRequest {
   export function isa(o: any): o is AllocatePrivateVirtualInterfaceRequest {
-    return _smithy.isa(o, "AllocatePrivateVirtualInterfaceRequest");
+    return __isa(o, "AllocatePrivateVirtualInterfaceRequest");
   }
 }
 
@@ -185,7 +182,7 @@ export interface AllocatePublicVirtualInterfaceRequest {
 
 export namespace AllocatePublicVirtualInterfaceRequest {
   export function isa(o: any): o is AllocatePublicVirtualInterfaceRequest {
-    return _smithy.isa(o, "AllocatePublicVirtualInterfaceRequest");
+    return __isa(o, "AllocatePublicVirtualInterfaceRequest");
   }
 }
 
@@ -211,7 +208,7 @@ export interface AllocateTransitVirtualInterfaceRequest {
 
 export namespace AllocateTransitVirtualInterfaceRequest {
   export function isa(o: any): o is AllocateTransitVirtualInterfaceRequest {
-    return _smithy.isa(o, "AllocateTransitVirtualInterfaceRequest");
+    return __isa(o, "AllocateTransitVirtualInterfaceRequest");
   }
 }
 
@@ -225,7 +222,7 @@ export interface AllocateTransitVirtualInterfaceResult extends $MetadataBearer {
 
 export namespace AllocateTransitVirtualInterfaceResult {
   export function isa(o: any): o is AllocateTransitVirtualInterfaceResult {
-    return _smithy.isa(o, "AllocateTransitVirtualInterfaceResult");
+    return __isa(o, "AllocateTransitVirtualInterfaceResult");
   }
 }
 
@@ -244,7 +241,7 @@ export interface AssociateConnectionWithLagRequest {
 
 export namespace AssociateConnectionWithLagRequest {
   export function isa(o: any): o is AssociateConnectionWithLagRequest {
-    return _smithy.isa(o, "AssociateConnectionWithLagRequest");
+    return __isa(o, "AssociateConnectionWithLagRequest");
   }
 }
 
@@ -263,7 +260,7 @@ export interface AssociateHostedConnectionRequest {
 
 export namespace AssociateHostedConnectionRequest {
   export function isa(o: any): o is AssociateHostedConnectionRequest {
-    return _smithy.isa(o, "AssociateHostedConnectionRequest");
+    return __isa(o, "AssociateHostedConnectionRequest");
   }
 }
 
@@ -282,7 +279,7 @@ export interface AssociateVirtualInterfaceRequest {
 
 export namespace AssociateVirtualInterfaceRequest {
   export function isa(o: any): o is AssociateVirtualInterfaceRequest {
-    return _smithy.isa(o, "AssociateVirtualInterfaceRequest");
+    return __isa(o, "AssociateVirtualInterfaceRequest");
   }
 }
 
@@ -314,7 +311,7 @@ export interface AssociatedGateway {
 
 export namespace AssociatedGateway {
   export function isa(o: any): o is AssociatedGateway {
-    return _smithy.isa(o, "AssociatedGateway");
+    return __isa(o, "AssociatedGateway");
   }
 }
 
@@ -408,7 +405,7 @@ export interface BGPPeer {
 
 export namespace BGPPeer {
   export function isa(o: any): o is BGPPeer {
-    return _smithy.isa(o, "BGPPeer");
+    return __isa(o, "BGPPeer");
   }
 }
 
@@ -436,7 +433,7 @@ export interface ConfirmConnectionRequest {
 
 export namespace ConfirmConnectionRequest {
   export function isa(o: any): o is ConfirmConnectionRequest {
-    return _smithy.isa(o, "ConfirmConnectionRequest");
+    return __isa(o, "ConfirmConnectionRequest");
   }
 }
 
@@ -488,7 +485,7 @@ export interface ConfirmConnectionResponse extends $MetadataBearer {
 
 export namespace ConfirmConnectionResponse {
   export function isa(o: any): o is ConfirmConnectionResponse {
-    return _smithy.isa(o, "ConfirmConnectionResponse");
+    return __isa(o, "ConfirmConnectionResponse");
   }
 }
 
@@ -512,7 +509,7 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
 
 export namespace ConfirmPrivateVirtualInterfaceRequest {
   export function isa(o: any): o is ConfirmPrivateVirtualInterfaceRequest {
-    return _smithy.isa(o, "ConfirmPrivateVirtualInterfaceRequest");
+    return __isa(o, "ConfirmPrivateVirtualInterfaceRequest");
   }
 }
 
@@ -565,7 +562,7 @@ export interface ConfirmPrivateVirtualInterfaceResponse
 
 export namespace ConfirmPrivateVirtualInterfaceResponse {
   export function isa(o: any): o is ConfirmPrivateVirtualInterfaceResponse {
-    return _smithy.isa(o, "ConfirmPrivateVirtualInterfaceResponse");
+    return __isa(o, "ConfirmPrivateVirtualInterfaceResponse");
   }
 }
 
@@ -579,7 +576,7 @@ export interface ConfirmPublicVirtualInterfaceRequest {
 
 export namespace ConfirmPublicVirtualInterfaceRequest {
   export function isa(o: any): o is ConfirmPublicVirtualInterfaceRequest {
-    return _smithy.isa(o, "ConfirmPublicVirtualInterfaceRequest");
+    return __isa(o, "ConfirmPublicVirtualInterfaceRequest");
   }
 }
 
@@ -631,7 +628,7 @@ export interface ConfirmPublicVirtualInterfaceResponse extends $MetadataBearer {
 
 export namespace ConfirmPublicVirtualInterfaceResponse {
   export function isa(o: any): o is ConfirmPublicVirtualInterfaceResponse {
-    return _smithy.isa(o, "ConfirmPublicVirtualInterfaceResponse");
+    return __isa(o, "ConfirmPublicVirtualInterfaceResponse");
   }
 }
 
@@ -650,7 +647,7 @@ export interface ConfirmTransitVirtualInterfaceRequest {
 
 export namespace ConfirmTransitVirtualInterfaceRequest {
   export function isa(o: any): o is ConfirmTransitVirtualInterfaceRequest {
-    return _smithy.isa(o, "ConfirmTransitVirtualInterfaceRequest");
+    return __isa(o, "ConfirmTransitVirtualInterfaceRequest");
   }
 }
 
@@ -703,7 +700,7 @@ export interface ConfirmTransitVirtualInterfaceResponse
 
 export namespace ConfirmTransitVirtualInterfaceResponse {
   export function isa(o: any): o is ConfirmTransitVirtualInterfaceResponse {
-    return _smithy.isa(o, "ConfirmTransitVirtualInterfaceResponse");
+    return __isa(o, "ConfirmTransitVirtualInterfaceResponse");
   }
 }
 
@@ -838,7 +835,7 @@ export interface Connection extends $MetadataBearer {
 
 export namespace Connection {
   export function isa(o: any): o is Connection {
-    return _smithy.isa(o, "Connection");
+    return __isa(o, "Connection");
   }
 }
 
@@ -863,7 +860,7 @@ export interface Connections extends $MetadataBearer {
 
 export namespace Connections {
   export function isa(o: any): o is Connections {
-    return _smithy.isa(o, "Connections");
+    return __isa(o, "Connections");
   }
 }
 
@@ -882,7 +879,7 @@ export interface CreateBGPPeerRequest {
 
 export namespace CreateBGPPeerRequest {
   export function isa(o: any): o is CreateBGPPeerRequest {
-    return _smithy.isa(o, "CreateBGPPeerRequest");
+    return __isa(o, "CreateBGPPeerRequest");
   }
 }
 
@@ -896,7 +893,7 @@ export interface CreateBGPPeerResponse extends $MetadataBearer {
 
 export namespace CreateBGPPeerResponse {
   export function isa(o: any): o is CreateBGPPeerResponse {
-    return _smithy.isa(o, "CreateBGPPeerResponse");
+    return __isa(o, "CreateBGPPeerResponse");
   }
 }
 
@@ -935,7 +932,7 @@ export interface CreateConnectionRequest {
 
 export namespace CreateConnectionRequest {
   export function isa(o: any): o is CreateConnectionRequest {
-    return _smithy.isa(o, "CreateConnectionRequest");
+    return __isa(o, "CreateConnectionRequest");
   }
 }
 
@@ -971,10 +968,7 @@ export namespace CreateDirectConnectGatewayAssociationProposalRequest {
   export function isa(
     o: any
   ): o is CreateDirectConnectGatewayAssociationProposalRequest {
-    return _smithy.isa(
-      o,
-      "CreateDirectConnectGatewayAssociationProposalRequest"
-    );
+    return __isa(o, "CreateDirectConnectGatewayAssociationProposalRequest");
   }
 }
 
@@ -991,10 +985,7 @@ export namespace CreateDirectConnectGatewayAssociationProposalResult {
   export function isa(
     o: any
   ): o is CreateDirectConnectGatewayAssociationProposalResult {
-    return _smithy.isa(
-      o,
-      "CreateDirectConnectGatewayAssociationProposalResult"
-    );
+    return __isa(o, "CreateDirectConnectGatewayAssociationProposalResult");
   }
 }
 
@@ -1027,7 +1018,7 @@ export namespace CreateDirectConnectGatewayAssociationRequest {
   export function isa(
     o: any
   ): o is CreateDirectConnectGatewayAssociationRequest {
-    return _smithy.isa(o, "CreateDirectConnectGatewayAssociationRequest");
+    return __isa(o, "CreateDirectConnectGatewayAssociationRequest");
   }
 }
 
@@ -1044,7 +1035,7 @@ export namespace CreateDirectConnectGatewayAssociationResult {
   export function isa(
     o: any
   ): o is CreateDirectConnectGatewayAssociationResult {
-    return _smithy.isa(o, "CreateDirectConnectGatewayAssociationResult");
+    return __isa(o, "CreateDirectConnectGatewayAssociationResult");
   }
 }
 
@@ -1065,7 +1056,7 @@ export interface CreateDirectConnectGatewayRequest {
 
 export namespace CreateDirectConnectGatewayRequest {
   export function isa(o: any): o is CreateDirectConnectGatewayRequest {
-    return _smithy.isa(o, "CreateDirectConnectGatewayRequest");
+    return __isa(o, "CreateDirectConnectGatewayRequest");
   }
 }
 
@@ -1079,7 +1070,7 @@ export interface CreateDirectConnectGatewayResult extends $MetadataBearer {
 
 export namespace CreateDirectConnectGatewayResult {
   export function isa(o: any): o is CreateDirectConnectGatewayResult {
-    return _smithy.isa(o, "CreateDirectConnectGatewayResult");
+    return __isa(o, "CreateDirectConnectGatewayResult");
   }
 }
 
@@ -1118,7 +1109,7 @@ export interface CreateInterconnectRequest {
 
 export namespace CreateInterconnectRequest {
   export function isa(o: any): o is CreateInterconnectRequest {
-    return _smithy.isa(o, "CreateInterconnectRequest");
+    return __isa(o, "CreateInterconnectRequest");
   }
 }
 
@@ -1167,7 +1158,7 @@ export interface CreateLagRequest {
 
 export namespace CreateLagRequest {
   export function isa(o: any): o is CreateLagRequest {
-    return _smithy.isa(o, "CreateLagRequest");
+    return __isa(o, "CreateLagRequest");
   }
 }
 
@@ -1186,7 +1177,7 @@ export interface CreatePrivateVirtualInterfaceRequest {
 
 export namespace CreatePrivateVirtualInterfaceRequest {
   export function isa(o: any): o is CreatePrivateVirtualInterfaceRequest {
-    return _smithy.isa(o, "CreatePrivateVirtualInterfaceRequest");
+    return __isa(o, "CreatePrivateVirtualInterfaceRequest");
   }
 }
 
@@ -1205,7 +1196,7 @@ export interface CreatePublicVirtualInterfaceRequest {
 
 export namespace CreatePublicVirtualInterfaceRequest {
   export function isa(o: any): o is CreatePublicVirtualInterfaceRequest {
-    return _smithy.isa(o, "CreatePublicVirtualInterfaceRequest");
+    return __isa(o, "CreatePublicVirtualInterfaceRequest");
   }
 }
 
@@ -1224,7 +1215,7 @@ export interface CreateTransitVirtualInterfaceRequest {
 
 export namespace CreateTransitVirtualInterfaceRequest {
   export function isa(o: any): o is CreateTransitVirtualInterfaceRequest {
-    return _smithy.isa(o, "CreateTransitVirtualInterfaceRequest");
+    return __isa(o, "CreateTransitVirtualInterfaceRequest");
   }
 }
 
@@ -1238,7 +1229,7 @@ export interface CreateTransitVirtualInterfaceResult extends $MetadataBearer {
 
 export namespace CreateTransitVirtualInterfaceResult {
   export function isa(o: any): o is CreateTransitVirtualInterfaceResult {
-    return _smithy.isa(o, "CreateTransitVirtualInterfaceResult");
+    return __isa(o, "CreateTransitVirtualInterfaceResult");
   }
 }
 
@@ -1267,7 +1258,7 @@ export interface DeleteBGPPeerRequest {
 
 export namespace DeleteBGPPeerRequest {
   export function isa(o: any): o is DeleteBGPPeerRequest {
-    return _smithy.isa(o, "DeleteBGPPeerRequest");
+    return __isa(o, "DeleteBGPPeerRequest");
   }
 }
 
@@ -1281,7 +1272,7 @@ export interface DeleteBGPPeerResponse extends $MetadataBearer {
 
 export namespace DeleteBGPPeerResponse {
   export function isa(o: any): o is DeleteBGPPeerResponse {
-    return _smithy.isa(o, "DeleteBGPPeerResponse");
+    return __isa(o, "DeleteBGPPeerResponse");
   }
 }
 
@@ -1295,7 +1286,7 @@ export interface DeleteConnectionRequest {
 
 export namespace DeleteConnectionRequest {
   export function isa(o: any): o is DeleteConnectionRequest {
-    return _smithy.isa(o, "DeleteConnectionRequest");
+    return __isa(o, "DeleteConnectionRequest");
   }
 }
 
@@ -1311,10 +1302,7 @@ export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
   export function isa(
     o: any
   ): o is DeleteDirectConnectGatewayAssociationProposalRequest {
-    return _smithy.isa(
-      o,
-      "DeleteDirectConnectGatewayAssociationProposalRequest"
-    );
+    return __isa(o, "DeleteDirectConnectGatewayAssociationProposalRequest");
   }
 }
 
@@ -1331,10 +1319,7 @@ export namespace DeleteDirectConnectGatewayAssociationProposalResult {
   export function isa(
     o: any
   ): o is DeleteDirectConnectGatewayAssociationProposalResult {
-    return _smithy.isa(
-      o,
-      "DeleteDirectConnectGatewayAssociationProposalResult"
-    );
+    return __isa(o, "DeleteDirectConnectGatewayAssociationProposalResult");
   }
 }
 
@@ -1360,7 +1345,7 @@ export namespace DeleteDirectConnectGatewayAssociationRequest {
   export function isa(
     o: any
   ): o is DeleteDirectConnectGatewayAssociationRequest {
-    return _smithy.isa(o, "DeleteDirectConnectGatewayAssociationRequest");
+    return __isa(o, "DeleteDirectConnectGatewayAssociationRequest");
   }
 }
 
@@ -1377,7 +1362,7 @@ export namespace DeleteDirectConnectGatewayAssociationResult {
   export function isa(
     o: any
   ): o is DeleteDirectConnectGatewayAssociationResult {
-    return _smithy.isa(o, "DeleteDirectConnectGatewayAssociationResult");
+    return __isa(o, "DeleteDirectConnectGatewayAssociationResult");
   }
 }
 
@@ -1391,7 +1376,7 @@ export interface DeleteDirectConnectGatewayRequest {
 
 export namespace DeleteDirectConnectGatewayRequest {
   export function isa(o: any): o is DeleteDirectConnectGatewayRequest {
-    return _smithy.isa(o, "DeleteDirectConnectGatewayRequest");
+    return __isa(o, "DeleteDirectConnectGatewayRequest");
   }
 }
 
@@ -1405,7 +1390,7 @@ export interface DeleteDirectConnectGatewayResult extends $MetadataBearer {
 
 export namespace DeleteDirectConnectGatewayResult {
   export function isa(o: any): o is DeleteDirectConnectGatewayResult {
-    return _smithy.isa(o, "DeleteDirectConnectGatewayResult");
+    return __isa(o, "DeleteDirectConnectGatewayResult");
   }
 }
 
@@ -1419,7 +1404,7 @@ export interface DeleteInterconnectRequest {
 
 export namespace DeleteInterconnectRequest {
   export function isa(o: any): o is DeleteInterconnectRequest {
-    return _smithy.isa(o, "DeleteInterconnectRequest");
+    return __isa(o, "DeleteInterconnectRequest");
   }
 }
 
@@ -1464,7 +1449,7 @@ export interface DeleteInterconnectResponse extends $MetadataBearer {
 
 export namespace DeleteInterconnectResponse {
   export function isa(o: any): o is DeleteInterconnectResponse {
-    return _smithy.isa(o, "DeleteInterconnectResponse");
+    return __isa(o, "DeleteInterconnectResponse");
   }
 }
 
@@ -1478,7 +1463,7 @@ export interface DeleteLagRequest {
 
 export namespace DeleteLagRequest {
   export function isa(o: any): o is DeleteLagRequest {
-    return _smithy.isa(o, "DeleteLagRequest");
+    return __isa(o, "DeleteLagRequest");
   }
 }
 
@@ -1492,7 +1477,7 @@ export interface DeleteVirtualInterfaceRequest {
 
 export namespace DeleteVirtualInterfaceRequest {
   export function isa(o: any): o is DeleteVirtualInterfaceRequest {
-    return _smithy.isa(o, "DeleteVirtualInterfaceRequest");
+    return __isa(o, "DeleteVirtualInterfaceRequest");
   }
 }
 
@@ -1544,7 +1529,7 @@ export interface DeleteVirtualInterfaceResponse extends $MetadataBearer {
 
 export namespace DeleteVirtualInterfaceResponse {
   export function isa(o: any): o is DeleteVirtualInterfaceResponse {
-    return _smithy.isa(o, "DeleteVirtualInterfaceResponse");
+    return __isa(o, "DeleteVirtualInterfaceResponse");
   }
 }
 
@@ -1569,7 +1554,7 @@ export interface DescribeConnectionLoaRequest {
 
 export namespace DescribeConnectionLoaRequest {
   export function isa(o: any): o is DescribeConnectionLoaRequest {
-    return _smithy.isa(o, "DescribeConnectionLoaRequest");
+    return __isa(o, "DescribeConnectionLoaRequest");
   }
 }
 
@@ -1583,7 +1568,7 @@ export interface DescribeConnectionLoaResponse extends $MetadataBearer {
 
 export namespace DescribeConnectionLoaResponse {
   export function isa(o: any): o is DescribeConnectionLoaResponse {
-    return _smithy.isa(o, "DescribeConnectionLoaResponse");
+    return __isa(o, "DescribeConnectionLoaResponse");
   }
 }
 
@@ -1597,7 +1582,7 @@ export interface DescribeConnectionsOnInterconnectRequest {
 
 export namespace DescribeConnectionsOnInterconnectRequest {
   export function isa(o: any): o is DescribeConnectionsOnInterconnectRequest {
-    return _smithy.isa(o, "DescribeConnectionsOnInterconnectRequest");
+    return __isa(o, "DescribeConnectionsOnInterconnectRequest");
   }
 }
 
@@ -1611,7 +1596,7 @@ export interface DescribeConnectionsRequest {
 
 export namespace DescribeConnectionsRequest {
   export function isa(o: any): o is DescribeConnectionsRequest {
-    return _smithy.isa(o, "DescribeConnectionsRequest");
+    return __isa(o, "DescribeConnectionsRequest");
   }
 }
 
@@ -1650,10 +1635,7 @@ export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
   export function isa(
     o: any
   ): o is DescribeDirectConnectGatewayAssociationProposalsRequest {
-    return _smithy.isa(
-      o,
-      "DescribeDirectConnectGatewayAssociationProposalsRequest"
-    );
+    return __isa(o, "DescribeDirectConnectGatewayAssociationProposalsRequest");
   }
 }
 
@@ -1677,10 +1659,7 @@ export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
   export function isa(
     o: any
   ): o is DescribeDirectConnectGatewayAssociationProposalsResult {
-    return _smithy.isa(
-      o,
-      "DescribeDirectConnectGatewayAssociationProposalsResult"
-    );
+    return __isa(o, "DescribeDirectConnectGatewayAssociationProposalsResult");
   }
 }
 
@@ -1724,7 +1703,7 @@ export namespace DescribeDirectConnectGatewayAssociationsRequest {
   export function isa(
     o: any
   ): o is DescribeDirectConnectGatewayAssociationsRequest {
-    return _smithy.isa(o, "DescribeDirectConnectGatewayAssociationsRequest");
+    return __isa(o, "DescribeDirectConnectGatewayAssociationsRequest");
   }
 }
 
@@ -1746,7 +1725,7 @@ export namespace DescribeDirectConnectGatewayAssociationsResult {
   export function isa(
     o: any
   ): o is DescribeDirectConnectGatewayAssociationsResult {
-    return _smithy.isa(o, "DescribeDirectConnectGatewayAssociationsResult");
+    return __isa(o, "DescribeDirectConnectGatewayAssociationsResult");
   }
 }
 
@@ -1780,7 +1759,7 @@ export namespace DescribeDirectConnectGatewayAttachmentsRequest {
   export function isa(
     o: any
   ): o is DescribeDirectConnectGatewayAttachmentsRequest {
-    return _smithy.isa(o, "DescribeDirectConnectGatewayAttachmentsRequest");
+    return __isa(o, "DescribeDirectConnectGatewayAttachmentsRequest");
   }
 }
 
@@ -1802,7 +1781,7 @@ export namespace DescribeDirectConnectGatewayAttachmentsResult {
   export function isa(
     o: any
   ): o is DescribeDirectConnectGatewayAttachmentsResult {
-    return _smithy.isa(o, "DescribeDirectConnectGatewayAttachmentsResult");
+    return __isa(o, "DescribeDirectConnectGatewayAttachmentsResult");
   }
 }
 
@@ -1829,7 +1808,7 @@ export interface DescribeDirectConnectGatewaysRequest {
 
 export namespace DescribeDirectConnectGatewaysRequest {
   export function isa(o: any): o is DescribeDirectConnectGatewaysRequest {
-    return _smithy.isa(o, "DescribeDirectConnectGatewaysRequest");
+    return __isa(o, "DescribeDirectConnectGatewaysRequest");
   }
 }
 
@@ -1848,7 +1827,7 @@ export interface DescribeDirectConnectGatewaysResult extends $MetadataBearer {
 
 export namespace DescribeDirectConnectGatewaysResult {
   export function isa(o: any): o is DescribeDirectConnectGatewaysResult {
-    return _smithy.isa(o, "DescribeDirectConnectGatewaysResult");
+    return __isa(o, "DescribeDirectConnectGatewaysResult");
   }
 }
 
@@ -1862,7 +1841,7 @@ export interface DescribeHostedConnectionsRequest {
 
 export namespace DescribeHostedConnectionsRequest {
   export function isa(o: any): o is DescribeHostedConnectionsRequest {
-    return _smithy.isa(o, "DescribeHostedConnectionsRequest");
+    return __isa(o, "DescribeHostedConnectionsRequest");
   }
 }
 
@@ -1886,7 +1865,7 @@ export interface DescribeInterconnectLoaRequest {
 
 export namespace DescribeInterconnectLoaRequest {
   export function isa(o: any): o is DescribeInterconnectLoaRequest {
-    return _smithy.isa(o, "DescribeInterconnectLoaRequest");
+    return __isa(o, "DescribeInterconnectLoaRequest");
   }
 }
 
@@ -1900,7 +1879,7 @@ export interface DescribeInterconnectLoaResponse extends $MetadataBearer {
 
 export namespace DescribeInterconnectLoaResponse {
   export function isa(o: any): o is DescribeInterconnectLoaResponse {
-    return _smithy.isa(o, "DescribeInterconnectLoaResponse");
+    return __isa(o, "DescribeInterconnectLoaResponse");
   }
 }
 
@@ -1914,7 +1893,7 @@ export interface DescribeInterconnectsRequest {
 
 export namespace DescribeInterconnectsRequest {
   export function isa(o: any): o is DescribeInterconnectsRequest {
-    return _smithy.isa(o, "DescribeInterconnectsRequest");
+    return __isa(o, "DescribeInterconnectsRequest");
   }
 }
 
@@ -1928,7 +1907,7 @@ export interface DescribeLagsRequest {
 
 export namespace DescribeLagsRequest {
   export function isa(o: any): o is DescribeLagsRequest {
-    return _smithy.isa(o, "DescribeLagsRequest");
+    return __isa(o, "DescribeLagsRequest");
   }
 }
 
@@ -1953,7 +1932,7 @@ export interface DescribeLoaRequest {
 
 export namespace DescribeLoaRequest {
   export function isa(o: any): o is DescribeLoaRequest {
-    return _smithy.isa(o, "DescribeLoaRequest");
+    return __isa(o, "DescribeLoaRequest");
   }
 }
 
@@ -1967,7 +1946,7 @@ export interface DescribeTagsRequest {
 
 export namespace DescribeTagsRequest {
   export function isa(o: any): o is DescribeTagsRequest {
-    return _smithy.isa(o, "DescribeTagsRequest");
+    return __isa(o, "DescribeTagsRequest");
   }
 }
 
@@ -1981,7 +1960,7 @@ export interface DescribeTagsResponse extends $MetadataBearer {
 
 export namespace DescribeTagsResponse {
   export function isa(o: any): o is DescribeTagsResponse {
-    return _smithy.isa(o, "DescribeTagsResponse");
+    return __isa(o, "DescribeTagsResponse");
   }
 }
 
@@ -2000,7 +1979,7 @@ export interface DescribeVirtualInterfacesRequest {
 
 export namespace DescribeVirtualInterfacesRequest {
   export function isa(o: any): o is DescribeVirtualInterfacesRequest {
-    return _smithy.isa(o, "DescribeVirtualInterfacesRequest");
+    return __isa(o, "DescribeVirtualInterfacesRequest");
   }
 }
 
@@ -2008,7 +1987,7 @@ export namespace DescribeVirtualInterfacesRequest {
  * <p>One or more parameters are not valid.</p>
  */
 export interface DirectConnectClientException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DirectConnectClientException";
   $fault: "client";
@@ -2017,7 +1996,7 @@ export interface DirectConnectClientException
 
 export namespace DirectConnectClientException {
   export function isa(o: any): o is DirectConnectClientException {
-    return _smithy.isa(o, "DirectConnectClientException");
+    return __isa(o, "DirectConnectClientException");
   }
 }
 
@@ -2077,7 +2056,7 @@ export interface DirectConnectGateway {
 
 export namespace DirectConnectGateway {
   export function isa(o: any): o is DirectConnectGateway {
-    return _smithy.isa(o, "DirectConnectGateway");
+    return __isa(o, "DirectConnectGateway");
   }
 }
 
@@ -2157,7 +2136,7 @@ export interface DirectConnectGatewayAssociation {
 
 export namespace DirectConnectGatewayAssociation {
   export function isa(o: any): o is DirectConnectGatewayAssociation {
-    return _smithy.isa(o, "DirectConnectGatewayAssociation");
+    return __isa(o, "DirectConnectGatewayAssociation");
   }
 }
 
@@ -2218,7 +2197,7 @@ export interface DirectConnectGatewayAssociationProposal {
 
 export namespace DirectConnectGatewayAssociationProposal {
   export function isa(o: any): o is DirectConnectGatewayAssociationProposal {
-    return _smithy.isa(o, "DirectConnectGatewayAssociationProposal");
+    return __isa(o, "DirectConnectGatewayAssociationProposal");
   }
 }
 
@@ -2295,7 +2274,7 @@ export interface DirectConnectGatewayAttachment {
 
 export namespace DirectConnectGatewayAttachment {
   export function isa(o: any): o is DirectConnectGatewayAttachment {
-    return _smithy.isa(o, "DirectConnectGatewayAttachment");
+    return __isa(o, "DirectConnectGatewayAttachment");
   }
 }
 
@@ -2319,7 +2298,7 @@ export type DirectConnectGatewayState =
  * <p>A server-side error occurred.</p>
  */
 export interface DirectConnectServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DirectConnectServerException";
   $fault: "client";
@@ -2328,7 +2307,7 @@ export interface DirectConnectServerException
 
 export namespace DirectConnectServerException {
   export function isa(o: any): o is DirectConnectServerException {
-    return _smithy.isa(o, "DirectConnectServerException");
+    return __isa(o, "DirectConnectServerException");
   }
 }
 
@@ -2347,7 +2326,7 @@ export interface DisassociateConnectionFromLagRequest {
 
 export namespace DisassociateConnectionFromLagRequest {
   export function isa(o: any): o is DisassociateConnectionFromLagRequest {
-    return _smithy.isa(o, "DisassociateConnectionFromLagRequest");
+    return __isa(o, "DisassociateConnectionFromLagRequest");
   }
 }
 
@@ -2355,7 +2334,7 @@ export namespace DisassociateConnectionFromLagRequest {
  * <p>A tag key was specified more than once.</p>
  */
 export interface DuplicateTagKeysException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DuplicateTagKeysException";
   $fault: "client";
@@ -2364,7 +2343,7 @@ export interface DuplicateTagKeysException
 
 export namespace DuplicateTagKeysException {
   export function isa(o: any): o is DuplicateTagKeysException {
-    return _smithy.isa(o, "DuplicateTagKeysException");
+    return __isa(o, "DuplicateTagKeysException");
   }
 }
 
@@ -2488,7 +2467,7 @@ export interface Interconnect extends $MetadataBearer {
 
 export namespace Interconnect {
   export function isa(o: any): o is Interconnect {
-    return _smithy.isa(o, "Interconnect");
+    return __isa(o, "Interconnect");
   }
 }
 
@@ -2511,7 +2490,7 @@ export interface Interconnects extends $MetadataBearer {
 
 export namespace Interconnects {
   export function isa(o: any): o is Interconnects {
-    return _smithy.isa(o, "Interconnects");
+    return __isa(o, "Interconnects");
   }
 }
 
@@ -2640,7 +2619,7 @@ export interface Lag extends $MetadataBearer {
 
 export namespace Lag {
   export function isa(o: any): o is Lag {
-    return _smithy.isa(o, "Lag");
+    return __isa(o, "Lag");
   }
 }
 
@@ -2663,7 +2642,7 @@ export interface Lags extends $MetadataBearer {
 
 export namespace Lags {
   export function isa(o: any): o is Lags {
-    return _smithy.isa(o, "Lags");
+    return __isa(o, "Lags");
   }
 }
 
@@ -2685,7 +2664,7 @@ export interface Loa extends $MetadataBearer {
 
 export namespace Loa {
   export function isa(o: any): o is Loa {
-    return _smithy.isa(o, "Loa");
+    return __isa(o, "Loa");
   }
 }
 
@@ -2726,7 +2705,7 @@ export interface Location {
 
 export namespace Location {
   export function isa(o: any): o is Location {
-    return _smithy.isa(o, "Location");
+    return __isa(o, "Location");
   }
 }
 
@@ -2740,7 +2719,7 @@ export interface Locations extends $MetadataBearer {
 
 export namespace Locations {
   export function isa(o: any): o is Locations {
-    return _smithy.isa(o, "Locations");
+    return __isa(o, "Locations");
   }
 }
 
@@ -2777,7 +2756,7 @@ export interface NewBGPPeer {
 
 export namespace NewBGPPeer {
   export function isa(o: any): o is NewBGPPeer {
-    return _smithy.isa(o, "NewBGPPeer");
+    return __isa(o, "NewBGPPeer");
   }
 }
 
@@ -2845,7 +2824,7 @@ export interface NewPrivateVirtualInterface {
 
 export namespace NewPrivateVirtualInterface {
   export function isa(o: any): o is NewPrivateVirtualInterface {
-    return _smithy.isa(o, "NewPrivateVirtualInterface");
+    return __isa(o, "NewPrivateVirtualInterface");
   }
 }
 
@@ -2903,7 +2882,7 @@ export interface NewPrivateVirtualInterfaceAllocation {
 
 export namespace NewPrivateVirtualInterfaceAllocation {
   export function isa(o: any): o is NewPrivateVirtualInterfaceAllocation {
-    return _smithy.isa(o, "NewPrivateVirtualInterfaceAllocation");
+    return __isa(o, "NewPrivateVirtualInterfaceAllocation");
   }
 }
 
@@ -2961,7 +2940,7 @@ export interface NewPublicVirtualInterface {
 
 export namespace NewPublicVirtualInterface {
   export function isa(o: any): o is NewPublicVirtualInterface {
-    return _smithy.isa(o, "NewPublicVirtualInterface");
+    return __isa(o, "NewPublicVirtualInterface");
   }
 }
 
@@ -3019,7 +2998,7 @@ export interface NewPublicVirtualInterfaceAllocation {
 
 export namespace NewPublicVirtualInterfaceAllocation {
   export function isa(o: any): o is NewPublicVirtualInterfaceAllocation {
-    return _smithy.isa(o, "NewPublicVirtualInterfaceAllocation");
+    return __isa(o, "NewPublicVirtualInterfaceAllocation");
   }
 }
 
@@ -3082,7 +3061,7 @@ export interface NewTransitVirtualInterface {
 
 export namespace NewTransitVirtualInterface {
   export function isa(o: any): o is NewTransitVirtualInterface {
-    return _smithy.isa(o, "NewTransitVirtualInterface");
+    return __isa(o, "NewTransitVirtualInterface");
   }
 }
 
@@ -3140,7 +3119,7 @@ export interface NewTransitVirtualInterfaceAllocation {
 
 export namespace NewTransitVirtualInterfaceAllocation {
   export function isa(o: any): o is NewTransitVirtualInterfaceAllocation {
-    return _smithy.isa(o, "NewTransitVirtualInterfaceAllocation");
+    return __isa(o, "NewTransitVirtualInterfaceAllocation");
   }
 }
 
@@ -3162,7 +3141,7 @@ export interface ResourceTag {
 
 export namespace ResourceTag {
   export function isa(o: any): o is ResourceTag {
-    return _smithy.isa(o, "ResourceTag");
+    return __isa(o, "ResourceTag");
   }
 }
 
@@ -3180,7 +3159,7 @@ export interface RouteFilterPrefix {
 
 export namespace RouteFilterPrefix {
   export function isa(o: any): o is RouteFilterPrefix {
-    return _smithy.isa(o, "RouteFilterPrefix");
+    return __isa(o, "RouteFilterPrefix");
   }
 }
 
@@ -3202,7 +3181,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -3221,7 +3200,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -3231,7 +3210,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -3239,7 +3218,7 @@ export namespace TagResourceResponse {
  * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
 export interface TooManyTagsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
@@ -3248,7 +3227,7 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export function isa(o: any): o is TooManyTagsException {
-    return _smithy.isa(o, "TooManyTagsException");
+    return __isa(o, "TooManyTagsException");
   }
 }
 
@@ -3267,7 +3246,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -3277,7 +3256,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -3303,7 +3282,7 @@ export namespace UpdateDirectConnectGatewayAssociationRequest {
   export function isa(
     o: any
   ): o is UpdateDirectConnectGatewayAssociationRequest {
-    return _smithy.isa(o, "UpdateDirectConnectGatewayAssociationRequest");
+    return __isa(o, "UpdateDirectConnectGatewayAssociationRequest");
   }
 }
 
@@ -3320,7 +3299,7 @@ export namespace UpdateDirectConnectGatewayAssociationResult {
   export function isa(
     o: any
   ): o is UpdateDirectConnectGatewayAssociationResult {
-    return _smithy.isa(o, "UpdateDirectConnectGatewayAssociationResult");
+    return __isa(o, "UpdateDirectConnectGatewayAssociationResult");
   }
 }
 
@@ -3344,7 +3323,7 @@ export interface UpdateLagRequest {
 
 export namespace UpdateLagRequest {
   export function isa(o: any): o is UpdateLagRequest {
-    return _smithy.isa(o, "UpdateLagRequest");
+    return __isa(o, "UpdateLagRequest");
   }
 }
 
@@ -3363,7 +3342,7 @@ export interface UpdateVirtualInterfaceAttributesRequest {
 
 export namespace UpdateVirtualInterfaceAttributesRequest {
   export function isa(o: any): o is UpdateVirtualInterfaceAttributesRequest {
-    return _smithy.isa(o, "UpdateVirtualInterfaceAttributesRequest");
+    return __isa(o, "UpdateVirtualInterfaceAttributesRequest");
   }
 }
 
@@ -3403,7 +3382,7 @@ export interface VirtualGateway {
 
 export namespace VirtualGateway {
   export function isa(o: any): o is VirtualGateway {
-    return _smithy.isa(o, "VirtualGateway");
+    return __isa(o, "VirtualGateway");
   }
 }
 
@@ -3417,7 +3396,7 @@ export interface VirtualGateways extends $MetadataBearer {
 
 export namespace VirtualGateways {
   export function isa(o: any): o is VirtualGateways {
-    return _smithy.isa(o, "VirtualGateways");
+    return __isa(o, "VirtualGateways");
   }
 }
 
@@ -3589,7 +3568,7 @@ export interface VirtualInterface extends $MetadataBearer {
 
 export namespace VirtualInterface {
   export function isa(o: any): o is VirtualInterface {
-    return _smithy.isa(o, "VirtualInterface");
+    return __isa(o, "VirtualInterface");
   }
 }
 
@@ -3614,6 +3593,6 @@ export interface VirtualInterfaces extends $MetadataBearer {
 
 export namespace VirtualInterfaces {
   export function isa(o: any): o is VirtualInterfaces {
-    return _smithy.isa(o, "VirtualInterfaces");
+    return __isa(o, "VirtualInterfaces");
   }
 }

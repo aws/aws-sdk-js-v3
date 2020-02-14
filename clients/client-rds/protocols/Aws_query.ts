@@ -3225,6 +3225,7 @@ export async function deserializeAws_queryAddRoleToDBClusterCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddRoleToDBClusterCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddRoleToDBClusterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3296,6 +3297,7 @@ export async function deserializeAws_queryAddRoleToDBInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddRoleToDBInstanceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddRoleToDBInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3435,6 +3437,7 @@ export async function deserializeAws_queryAddTagsToResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddTagsToResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5860,6 +5863,7 @@ export async function deserializeAws_queryDeleteDBClusterParameterGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDBClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6149,6 +6153,7 @@ export async function deserializeAws_queryDeleteDBParameterGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDBParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6274,6 +6279,7 @@ export async function deserializeAws_queryDeleteDBSecurityGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDBSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6396,6 +6402,7 @@ export async function deserializeAws_queryDeleteDBSubnetGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteDBSubnetGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDBSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6654,6 +6661,7 @@ export async function deserializeAws_queryDeleteOptionGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteOptionGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteOptionGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11108,6 +11116,7 @@ export async function deserializeAws_queryRemoveRoleFromDBClusterCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveRoleFromDBClusterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11175,6 +11184,7 @@ export async function deserializeAws_queryRemoveRoleFromDBInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveRoleFromDBInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11310,6 +11320,7 @@ export async function deserializeAws_queryRemoveTagsFromResourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

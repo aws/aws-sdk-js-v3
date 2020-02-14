@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.</p>
  */
 export interface AlreadyStreamedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AlreadyStreamedException";
   $fault: "client";
@@ -17,7 +20,7 @@ export interface AlreadyStreamedException
 
 export namespace AlreadyStreamedException {
   export function isa(o: any): o is AlreadyStreamedException {
-    return _smithy.isa(o, "AlreadyStreamedException");
+    return __isa(o, "AlreadyStreamedException");
   }
 }
 
@@ -34,7 +37,7 @@ export interface BulkPublishRequest {
 
 export namespace BulkPublishRequest {
   export function isa(o: any): o is BulkPublishRequest {
-    return _smithy.isa(o, "BulkPublishRequest");
+    return __isa(o, "BulkPublishRequest");
   }
 }
 
@@ -51,7 +54,7 @@ export interface BulkPublishResponse extends $MetadataBearer {
 
 export namespace BulkPublishResponse {
   export function isa(o: any): o is BulkPublishResponse {
-    return _smithy.isa(o, "BulkPublishResponse");
+    return __isa(o, "BulkPublishResponse");
   }
 }
 
@@ -98,7 +101,7 @@ export interface CognitoStreams {
 
 export namespace CognitoStreams {
   export function isa(o: any): o is CognitoStreams {
-    return _smithy.isa(o, "CognitoStreams");
+    return __isa(o, "CognitoStreams");
   }
 }
 
@@ -106,7 +109,7 @@ export namespace CognitoStreams {
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
 export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
@@ -118,7 +121,7 @@ export interface ConcurrentModificationException
 
 export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
+    return __isa(o, "ConcurrentModificationException");
   }
 }
 
@@ -169,7 +172,7 @@ export interface Dataset {
 
 export namespace Dataset {
   export function isa(o: any): o is Dataset {
-    return _smithy.isa(o, "Dataset");
+    return __isa(o, "Dataset");
   }
 }
 
@@ -199,7 +202,7 @@ export interface DeleteDatasetRequest {
 
 export namespace DeleteDatasetRequest {
   export function isa(o: any): o is DeleteDatasetRequest {
-    return _smithy.isa(o, "DeleteDatasetRequest");
+    return __isa(o, "DeleteDatasetRequest");
   }
 }
 
@@ -219,7 +222,7 @@ export interface DeleteDatasetResponse extends $MetadataBearer {
 
 export namespace DeleteDatasetResponse {
   export function isa(o: any): o is DeleteDatasetResponse {
-    return _smithy.isa(o, "DeleteDatasetResponse");
+    return __isa(o, "DeleteDatasetResponse");
   }
 }
 
@@ -250,7 +253,7 @@ export interface DescribeDatasetRequest {
 
 export namespace DescribeDatasetRequest {
   export function isa(o: any): o is DescribeDatasetRequest {
-    return _smithy.isa(o, "DescribeDatasetRequest");
+    return __isa(o, "DescribeDatasetRequest");
   }
 }
 
@@ -270,7 +273,7 @@ export interface DescribeDatasetResponse extends $MetadataBearer {
 
 export namespace DescribeDatasetResponse {
   export function isa(o: any): o is DescribeDatasetResponse {
-    return _smithy.isa(o, "DescribeDatasetResponse");
+    return __isa(o, "DescribeDatasetResponse");
   }
 }
 
@@ -288,7 +291,7 @@ export interface DescribeIdentityPoolUsageRequest {
 
 export namespace DescribeIdentityPoolUsageRequest {
   export function isa(o: any): o is DescribeIdentityPoolUsageRequest {
-    return _smithy.isa(o, "DescribeIdentityPoolUsageRequest");
+    return __isa(o, "DescribeIdentityPoolUsageRequest");
   }
 }
 
@@ -305,7 +308,7 @@ export interface DescribeIdentityPoolUsageResponse extends $MetadataBearer {
 
 export namespace DescribeIdentityPoolUsageResponse {
   export function isa(o: any): o is DescribeIdentityPoolUsageResponse {
-    return _smithy.isa(o, "DescribeIdentityPoolUsageResponse");
+    return __isa(o, "DescribeIdentityPoolUsageResponse");
   }
 }
 
@@ -329,7 +332,7 @@ export interface DescribeIdentityUsageRequest {
 
 export namespace DescribeIdentityUsageRequest {
   export function isa(o: any): o is DescribeIdentityUsageRequest {
-    return _smithy.isa(o, "DescribeIdentityUsageRequest");
+    return __isa(o, "DescribeIdentityUsageRequest");
   }
 }
 
@@ -346,7 +349,7 @@ export interface DescribeIdentityUsageResponse extends $MetadataBearer {
 
 export namespace DescribeIdentityUsageResponse {
   export function isa(o: any): o is DescribeIdentityUsageResponse {
-    return _smithy.isa(o, "DescribeIdentityUsageResponse");
+    return __isa(o, "DescribeIdentityUsageResponse");
   }
 }
 
@@ -354,7 +357,7 @@ export namespace DescribeIdentityUsageResponse {
  * <p>An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.</p>
  */
 export interface DuplicateRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DuplicateRequestException";
   $fault: "client";
@@ -366,7 +369,7 @@ export interface DuplicateRequestException
 
 export namespace DuplicateRequestException {
   export function isa(o: any): o is DuplicateRequestException {
-    return _smithy.isa(o, "DuplicateRequestException");
+    return __isa(o, "DuplicateRequestException");
   }
 }
 
@@ -383,7 +386,7 @@ export interface GetBulkPublishDetailsRequest {
 
 export namespace GetBulkPublishDetailsRequest {
   export function isa(o: any): o is GetBulkPublishDetailsRequest {
-    return _smithy.isa(o, "GetBulkPublishDetailsRequest");
+    return __isa(o, "GetBulkPublishDetailsRequest");
   }
 }
 
@@ -434,7 +437,7 @@ export interface GetBulkPublishDetailsResponse extends $MetadataBearer {
 
 export namespace GetBulkPublishDetailsResponse {
   export function isa(o: any): o is GetBulkPublishDetailsResponse {
-    return _smithy.isa(o, "GetBulkPublishDetailsResponse");
+    return __isa(o, "GetBulkPublishDetailsResponse");
   }
 }
 
@@ -451,7 +454,7 @@ export interface GetCognitoEventsRequest {
 
 export namespace GetCognitoEventsRequest {
   export function isa(o: any): o is GetCognitoEventsRequest {
-    return _smithy.isa(o, "GetCognitoEventsRequest");
+    return __isa(o, "GetCognitoEventsRequest");
   }
 }
 
@@ -468,7 +471,7 @@ export interface GetCognitoEventsResponse extends $MetadataBearer {
 
 export namespace GetCognitoEventsResponse {
   export function isa(o: any): o is GetCognitoEventsResponse {
-    return _smithy.isa(o, "GetCognitoEventsResponse");
+    return __isa(o, "GetCognitoEventsResponse");
   }
 }
 
@@ -485,7 +488,7 @@ export interface GetIdentityPoolConfigurationRequest {
 
 export namespace GetIdentityPoolConfigurationRequest {
   export function isa(o: any): o is GetIdentityPoolConfigurationRequest {
-    return _smithy.isa(o, "GetIdentityPoolConfigurationRequest");
+    return __isa(o, "GetIdentityPoolConfigurationRequest");
   }
 }
 
@@ -512,7 +515,7 @@ export interface GetIdentityPoolConfigurationResponse extends $MetadataBearer {
 
 export namespace GetIdentityPoolConfigurationResponse {
   export function isa(o: any): o is GetIdentityPoolConfigurationResponse {
-    return _smithy.isa(o, "GetIdentityPoolConfigurationResponse");
+    return __isa(o, "GetIdentityPoolConfigurationResponse");
   }
 }
 
@@ -545,7 +548,7 @@ export interface IdentityPoolUsage {
 
 export namespace IdentityPoolUsage {
   export function isa(o: any): o is IdentityPoolUsage {
-    return _smithy.isa(o, "IdentityPoolUsage");
+    return __isa(o, "IdentityPoolUsage");
   }
 }
 
@@ -584,7 +587,7 @@ export interface IdentityUsage {
 
 export namespace IdentityUsage {
   export function isa(o: any): o is IdentityUsage {
-    return _smithy.isa(o, "IdentityUsage");
+    return __isa(o, "IdentityUsage");
   }
 }
 
@@ -592,7 +595,7 @@ export namespace IdentityUsage {
  * <p>Indicates an internal service error.</p>
  */
 export interface InternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
@@ -604,7 +607,7 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export function isa(o: any): o is InternalErrorException {
-    return _smithy.isa(o, "InternalErrorException");
+    return __isa(o, "InternalErrorException");
   }
 }
 
@@ -612,7 +615,7 @@ export namespace InternalErrorException {
  * <p>This exception is thrown when Amazon Cognito detects an invalid configuration.</p>
  */
 export interface InvalidConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidConfigurationException";
   $fault: "client";
@@ -624,7 +627,7 @@ export interface InvalidConfigurationException
 
 export namespace InvalidConfigurationException {
   export function isa(o: any): o is InvalidConfigurationException {
-    return _smithy.isa(o, "InvalidConfigurationException");
+    return __isa(o, "InvalidConfigurationException");
   }
 }
 
@@ -632,7 +635,7 @@ export namespace InvalidConfigurationException {
  * <p>The AWS Lambda function returned invalid output or an exception.</p>
  */
 export interface InvalidLambdaFunctionOutputException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidLambdaFunctionOutputException";
   $fault: "client";
@@ -644,7 +647,7 @@ export interface InvalidLambdaFunctionOutputException
 
 export namespace InvalidLambdaFunctionOutputException {
   export function isa(o: any): o is InvalidLambdaFunctionOutputException {
-    return _smithy.isa(o, "InvalidLambdaFunctionOutputException");
+    return __isa(o, "InvalidLambdaFunctionOutputException");
   }
 }
 
@@ -652,7 +655,7 @@ export namespace InvalidLambdaFunctionOutputException {
  * <p>Thrown when a request parameter does not comply with the associated constraints.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -664,7 +667,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -674,7 +677,7 @@ export namespace InvalidParameterException {
  *         Cognito Events</a>.</p>
  */
 export interface LambdaSocketTimeoutException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LambdaSocketTimeoutException";
   $fault: "client";
@@ -683,7 +686,7 @@ export interface LambdaSocketTimeoutException
 
 export namespace LambdaSocketTimeoutException {
   export function isa(o: any): o is LambdaSocketTimeoutException {
-    return _smithy.isa(o, "LambdaSocketTimeoutException");
+    return __isa(o, "LambdaSocketTimeoutException");
   }
 }
 
@@ -691,7 +694,7 @@ export namespace LambdaSocketTimeoutException {
  * <p>AWS Lambda throttled your account, please contact AWS Support</p>
  */
 export interface LambdaThrottledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LambdaThrottledException";
   $fault: "client";
@@ -703,7 +706,7 @@ export interface LambdaThrottledException
 
 export namespace LambdaThrottledException {
   export function isa(o: any): o is LambdaThrottledException {
-    return _smithy.isa(o, "LambdaThrottledException");
+    return __isa(o, "LambdaThrottledException");
   }
 }
 
@@ -711,7 +714,7 @@ export namespace LambdaThrottledException {
  * <p>Thrown when the limit on the number of objects or operations has been exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -723,7 +726,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -755,7 +758,7 @@ export interface ListDatasetsRequest {
 
 export namespace ListDatasetsRequest {
   export function isa(o: any): o is ListDatasetsRequest {
-    return _smithy.isa(o, "ListDatasetsRequest");
+    return __isa(o, "ListDatasetsRequest");
   }
 }
 
@@ -782,7 +785,7 @@ export interface ListDatasetsResponse extends $MetadataBearer {
 
 export namespace ListDatasetsResponse {
   export function isa(o: any): o is ListDatasetsResponse {
-    return _smithy.isa(o, "ListDatasetsResponse");
+    return __isa(o, "ListDatasetsResponse");
   }
 }
 
@@ -804,7 +807,7 @@ export interface ListIdentityPoolUsageRequest {
 
 export namespace ListIdentityPoolUsageRequest {
   export function isa(o: any): o is ListIdentityPoolUsageRequest {
-    return _smithy.isa(o, "ListIdentityPoolUsageRequest");
+    return __isa(o, "ListIdentityPoolUsageRequest");
   }
 }
 
@@ -836,7 +839,7 @@ export interface ListIdentityPoolUsageResponse extends $MetadataBearer {
 
 export namespace ListIdentityPoolUsageResponse {
   export function isa(o: any): o is ListIdentityPoolUsageResponse {
-    return _smithy.isa(o, "ListIdentityPoolUsageResponse");
+    return __isa(o, "ListIdentityPoolUsageResponse");
   }
 }
 
@@ -883,7 +886,7 @@ export interface ListRecordsRequest {
 
 export namespace ListRecordsRequest {
   export function isa(o: any): o is ListRecordsRequest {
-    return _smithy.isa(o, "ListRecordsRequest");
+    return __isa(o, "ListRecordsRequest");
   }
 }
 
@@ -940,7 +943,7 @@ export interface ListRecordsResponse extends $MetadataBearer {
 
 export namespace ListRecordsResponse {
   export function isa(o: any): o is ListRecordsResponse {
-    return _smithy.isa(o, "ListRecordsResponse");
+    return __isa(o, "ListRecordsResponse");
   }
 }
 
@@ -948,7 +951,7 @@ export namespace ListRecordsResponse {
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -960,7 +963,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -986,7 +989,7 @@ export interface PushSync {
 
 export namespace PushSync {
   export function isa(o: any): o is PushSync {
-    return _smithy.isa(o, "PushSync");
+    return __isa(o, "PushSync");
   }
 }
 
@@ -1028,7 +1031,7 @@ export interface _Record {
 
 export namespace _Record {
   export function isa(o: any): o is _Record {
-    return _smithy.isa(o, "Record");
+    return __isa(o, "Record");
   }
 }
 
@@ -1065,7 +1068,7 @@ export interface RecordPatch {
 
 export namespace RecordPatch {
   export function isa(o: any): o is RecordPatch {
-    return _smithy.isa(o, "RecordPatch");
+    return __isa(o, "RecordPatch");
   }
 }
 
@@ -1097,7 +1100,7 @@ export interface RegisterDeviceRequest {
 
 export namespace RegisterDeviceRequest {
   export function isa(o: any): o is RegisterDeviceRequest {
-    return _smithy.isa(o, "RegisterDeviceRequest");
+    return __isa(o, "RegisterDeviceRequest");
   }
 }
 
@@ -1114,7 +1117,7 @@ export interface RegisterDeviceResponse extends $MetadataBearer {
 
 export namespace RegisterDeviceResponse {
   export function isa(o: any): o is RegisterDeviceResponse {
-    return _smithy.isa(o, "RegisterDeviceResponse");
+    return __isa(o, "RegisterDeviceResponse");
   }
 }
 
@@ -1122,7 +1125,7 @@ export namespace RegisterDeviceResponse {
  * <p>Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.</p>
  */
 export interface ResourceConflictException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
@@ -1134,7 +1137,7 @@ export interface ResourceConflictException
 
 export namespace ResourceConflictException {
   export function isa(o: any): o is ResourceConflictException {
-    return _smithy.isa(o, "ResourceConflictException");
+    return __isa(o, "ResourceConflictException");
   }
 }
 
@@ -1142,7 +1145,7 @@ export namespace ResourceConflictException {
  * <p>Thrown if the resource doesn't exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1154,7 +1157,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1176,7 +1179,7 @@ export interface SetCognitoEventsRequest {
 
 export namespace SetCognitoEventsRequest {
   export function isa(o: any): o is SetCognitoEventsRequest {
-    return _smithy.isa(o, "SetCognitoEventsRequest");
+    return __isa(o, "SetCognitoEventsRequest");
   }
 }
 
@@ -1203,7 +1206,7 @@ export interface SetIdentityPoolConfigurationRequest {
 
 export namespace SetIdentityPoolConfigurationRequest {
   export function isa(o: any): o is SetIdentityPoolConfigurationRequest {
-    return _smithy.isa(o, "SetIdentityPoolConfigurationRequest");
+    return __isa(o, "SetIdentityPoolConfigurationRequest");
   }
 }
 
@@ -1230,7 +1233,7 @@ export interface SetIdentityPoolConfigurationResponse extends $MetadataBearer {
 
 export namespace SetIdentityPoolConfigurationResponse {
   export function isa(o: any): o is SetIdentityPoolConfigurationResponse {
-    return _smithy.isa(o, "SetIdentityPoolConfigurationResponse");
+    return __isa(o, "SetIdentityPoolConfigurationResponse");
   }
 }
 
@@ -1264,7 +1267,7 @@ export interface SubscribeToDatasetRequest {
 
 export namespace SubscribeToDatasetRequest {
   export function isa(o: any): o is SubscribeToDatasetRequest {
-    return _smithy.isa(o, "SubscribeToDatasetRequest");
+    return __isa(o, "SubscribeToDatasetRequest");
   }
 }
 
@@ -1277,7 +1280,7 @@ export interface SubscribeToDatasetResponse extends $MetadataBearer {
 
 export namespace SubscribeToDatasetResponse {
   export function isa(o: any): o is SubscribeToDatasetResponse {
-    return _smithy.isa(o, "SubscribeToDatasetResponse");
+    return __isa(o, "SubscribeToDatasetResponse");
   }
 }
 
@@ -1285,7 +1288,7 @@ export namespace SubscribeToDatasetResponse {
  * <p>Thrown if the request is throttled.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -1297,7 +1300,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -1329,7 +1332,7 @@ export interface UnsubscribeFromDatasetRequest {
 
 export namespace UnsubscribeFromDatasetRequest {
   export function isa(o: any): o is UnsubscribeFromDatasetRequest {
-    return _smithy.isa(o, "UnsubscribeFromDatasetRequest");
+    return __isa(o, "UnsubscribeFromDatasetRequest");
   }
 }
 
@@ -1342,7 +1345,7 @@ export interface UnsubscribeFromDatasetResponse extends $MetadataBearer {
 
 export namespace UnsubscribeFromDatasetResponse {
   export function isa(o: any): o is UnsubscribeFromDatasetResponse {
-    return _smithy.isa(o, "UnsubscribeFromDatasetResponse");
+    return __isa(o, "UnsubscribeFromDatasetResponse");
   }
 }
 
@@ -1389,7 +1392,7 @@ export interface UpdateRecordsRequest {
 
 export namespace UpdateRecordsRequest {
   export function isa(o: any): o is UpdateRecordsRequest {
-    return _smithy.isa(o, "UpdateRecordsRequest");
+    return __isa(o, "UpdateRecordsRequest");
   }
 }
 
@@ -1406,6 +1409,6 @@ export interface UpdateRecordsResponse extends $MetadataBearer {
 
 export namespace UpdateRecordsResponse {
   export function isa(o: any): o is UpdateRecordsResponse {
-    return _smithy.isa(o, "UpdateRecordsResponse");
+    return __isa(o, "UpdateRecordsResponse");
   }
 }

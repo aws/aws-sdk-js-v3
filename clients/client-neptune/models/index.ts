@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +9,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
  */
 export interface AuthorizationNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AuthorizationNotFoundFault";
   $fault: "client";
@@ -18,7 +21,7 @@ export interface AuthorizationNotFoundFault
 
 export namespace AuthorizationNotFoundFault {
   export function isa(o: any): o is AuthorizationNotFoundFault {
-    return _smithy.isa(o, "AuthorizationNotFoundFault");
+    return __isa(o, "AuthorizationNotFoundFault");
   }
 }
 
@@ -27,7 +30,7 @@ export namespace AuthorizationNotFoundFault {
  *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
  */
 export interface CertificateNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CertificateNotFoundFault";
   $fault: "client";
@@ -39,7 +42,7 @@ export interface CertificateNotFoundFault
 
 export namespace CertificateNotFoundFault {
   export function isa(o: any): o is CertificateNotFoundFault {
-    return _smithy.isa(o, "CertificateNotFoundFault");
+    return __isa(o, "CertificateNotFoundFault");
   }
 }
 
@@ -47,7 +50,7 @@ export namespace CertificateNotFoundFault {
  * <p>User already has a DB cluster with the given identifier.</p>
  */
 export interface DBClusterAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterAlreadyExistsFault";
   $fault: "client";
@@ -59,7 +62,7 @@ export interface DBClusterAlreadyExistsFault
 
 export namespace DBClusterAlreadyExistsFault {
   export function isa(o: any): o is DBClusterAlreadyExistsFault {
-    return _smithy.isa(o, "DBClusterAlreadyExistsFault");
+    return __isa(o, "DBClusterAlreadyExistsFault");
   }
 }
 
@@ -68,7 +71,7 @@ export namespace DBClusterAlreadyExistsFault {
  *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
  */
 export interface DBClusterNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterNotFoundFault";
   $fault: "client";
@@ -80,7 +83,7 @@ export interface DBClusterNotFoundFault
 
 export namespace DBClusterNotFoundFault {
   export function isa(o: any): o is DBClusterNotFoundFault {
-    return _smithy.isa(o, "DBClusterNotFoundFault");
+    return __isa(o, "DBClusterNotFoundFault");
   }
 }
 
@@ -90,7 +93,7 @@ export namespace DBClusterNotFoundFault {
  *       existing DB Cluster parameter group.</p>
  */
 export interface DBClusterParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterParameterGroupNotFoundFault";
   $fault: "client";
@@ -102,7 +105,7 @@ export interface DBClusterParameterGroupNotFoundFault
 
 export namespace DBClusterParameterGroupNotFoundFault {
   export function isa(o: any): o is DBClusterParameterGroupNotFoundFault {
-    return _smithy.isa(o, "DBClusterParameterGroupNotFoundFault");
+    return __isa(o, "DBClusterParameterGroupNotFoundFault");
   }
 }
 
@@ -110,7 +113,7 @@ export namespace DBClusterParameterGroupNotFoundFault {
  * <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
  */
 export interface DBClusterQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterQuotaExceededFault";
   $fault: "client";
@@ -122,7 +125,7 @@ export interface DBClusterQuotaExceededFault
 
 export namespace DBClusterQuotaExceededFault {
   export function isa(o: any): o is DBClusterQuotaExceededFault {
-    return _smithy.isa(o, "DBClusterQuotaExceededFault");
+    return __isa(o, "DBClusterQuotaExceededFault");
   }
 }
 
@@ -130,7 +133,7 @@ export namespace DBClusterQuotaExceededFault {
  * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
  */
 export interface DBClusterRoleAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterRoleAlreadyExistsFault";
   $fault: "client";
@@ -142,7 +145,7 @@ export interface DBClusterRoleAlreadyExistsFault
 
 export namespace DBClusterRoleAlreadyExistsFault {
   export function isa(o: any): o is DBClusterRoleAlreadyExistsFault {
-    return _smithy.isa(o, "DBClusterRoleAlreadyExistsFault");
+    return __isa(o, "DBClusterRoleAlreadyExistsFault");
   }
 }
 
@@ -150,7 +153,7 @@ export namespace DBClusterRoleAlreadyExistsFault {
  * <p>The specified IAM role Amazon Resource Name (ARN) is not associated with the specified DB cluster.</p>
  */
 export interface DBClusterRoleNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterRoleNotFoundFault";
   $fault: "client";
@@ -162,7 +165,7 @@ export interface DBClusterRoleNotFoundFault
 
 export namespace DBClusterRoleNotFoundFault {
   export function isa(o: any): o is DBClusterRoleNotFoundFault {
-    return _smithy.isa(o, "DBClusterRoleNotFoundFault");
+    return __isa(o, "DBClusterRoleNotFoundFault");
   }
 }
 
@@ -170,7 +173,7 @@ export namespace DBClusterRoleNotFoundFault {
  * <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
  */
 export interface DBClusterRoleQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterRoleQuotaExceededFault";
   $fault: "client";
@@ -182,7 +185,7 @@ export interface DBClusterRoleQuotaExceededFault
 
 export namespace DBClusterRoleQuotaExceededFault {
   export function isa(o: any): o is DBClusterRoleQuotaExceededFault {
-    return _smithy.isa(o, "DBClusterRoleQuotaExceededFault");
+    return __isa(o, "DBClusterRoleQuotaExceededFault");
   }
 }
 
@@ -190,7 +193,7 @@ export namespace DBClusterRoleQuotaExceededFault {
  * <p>User already has a DB cluster snapshot with the given identifier.</p>
  */
 export interface DBClusterSnapshotAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterSnapshotAlreadyExistsFault";
   $fault: "client";
@@ -202,7 +205,7 @@ export interface DBClusterSnapshotAlreadyExistsFault
 
 export namespace DBClusterSnapshotAlreadyExistsFault {
   export function isa(o: any): o is DBClusterSnapshotAlreadyExistsFault {
-    return _smithy.isa(o, "DBClusterSnapshotAlreadyExistsFault");
+    return __isa(o, "DBClusterSnapshotAlreadyExistsFault");
   }
 }
 
@@ -212,7 +215,7 @@ export namespace DBClusterSnapshotAlreadyExistsFault {
  *       DB cluster snapshot.</p>
  */
 export interface DBClusterSnapshotNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBClusterSnapshotNotFoundFault";
   $fault: "client";
@@ -224,7 +227,7 @@ export interface DBClusterSnapshotNotFoundFault
 
 export namespace DBClusterSnapshotNotFoundFault {
   export function isa(o: any): o is DBClusterSnapshotNotFoundFault {
-    return _smithy.isa(o, "DBClusterSnapshotNotFoundFault");
+    return __isa(o, "DBClusterSnapshotNotFoundFault");
   }
 }
 
@@ -232,7 +235,7 @@ export namespace DBClusterSnapshotNotFoundFault {
  * <p>User already has a DB instance with the given identifier.</p>
  */
 export interface DBInstanceAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBInstanceAlreadyExistsFault";
   $fault: "client";
@@ -244,7 +247,7 @@ export interface DBInstanceAlreadyExistsFault
 
 export namespace DBInstanceAlreadyExistsFault {
   export function isa(o: any): o is DBInstanceAlreadyExistsFault {
-    return _smithy.isa(o, "DBInstanceAlreadyExistsFault");
+    return __isa(o, "DBInstanceAlreadyExistsFault");
   }
 }
 
@@ -253,7 +256,7 @@ export namespace DBInstanceAlreadyExistsFault {
  *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
  */
 export interface DBInstanceNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBInstanceNotFoundFault";
   $fault: "client";
@@ -265,7 +268,7 @@ export interface DBInstanceNotFoundFault
 
 export namespace DBInstanceNotFoundFault {
   export function isa(o: any): o is DBInstanceNotFoundFault {
-    return _smithy.isa(o, "DBInstanceNotFoundFault");
+    return __isa(o, "DBInstanceNotFoundFault");
   }
 }
 
@@ -273,7 +276,7 @@ export namespace DBInstanceNotFoundFault {
  * <p>A DB parameter group with the same name exists.</p>
  */
 export interface DBParameterGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBParameterGroupAlreadyExistsFault";
   $fault: "client";
@@ -285,7 +288,7 @@ export interface DBParameterGroupAlreadyExistsFault
 
 export namespace DBParameterGroupAlreadyExistsFault {
   export function isa(o: any): o is DBParameterGroupAlreadyExistsFault {
-    return _smithy.isa(o, "DBParameterGroupAlreadyExistsFault");
+    return __isa(o, "DBParameterGroupAlreadyExistsFault");
   }
 }
 
@@ -295,7 +298,7 @@ export namespace DBParameterGroupAlreadyExistsFault {
  *       existing DB parameter group.</p>
  */
 export interface DBParameterGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBParameterGroupNotFoundFault";
   $fault: "client";
@@ -307,7 +310,7 @@ export interface DBParameterGroupNotFoundFault
 
 export namespace DBParameterGroupNotFoundFault {
   export function isa(o: any): o is DBParameterGroupNotFoundFault {
-    return _smithy.isa(o, "DBParameterGroupNotFoundFault");
+    return __isa(o, "DBParameterGroupNotFoundFault");
   }
 }
 
@@ -315,7 +318,7 @@ export namespace DBParameterGroupNotFoundFault {
  * <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
  */
 export interface DBParameterGroupQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBParameterGroupQuotaExceededFault";
   $fault: "client";
@@ -327,7 +330,7 @@ export interface DBParameterGroupQuotaExceededFault
 
 export namespace DBParameterGroupQuotaExceededFault {
   export function isa(o: any): o is DBParameterGroupQuotaExceededFault {
-    return _smithy.isa(o, "DBParameterGroupQuotaExceededFault");
+    return __isa(o, "DBParameterGroupQuotaExceededFault");
   }
 }
 
@@ -337,7 +340,7 @@ export namespace DBParameterGroupQuotaExceededFault {
  *       to an existing DB security group.</p>
  */
 export interface DBSecurityGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSecurityGroupNotFoundFault";
   $fault: "client";
@@ -349,7 +352,7 @@ export interface DBSecurityGroupNotFoundFault
 
 export namespace DBSecurityGroupNotFoundFault {
   export function isa(o: any): o is DBSecurityGroupNotFoundFault {
-    return _smithy.isa(o, "DBSecurityGroupNotFoundFault");
+    return __isa(o, "DBSecurityGroupNotFoundFault");
   }
 }
 
@@ -358,7 +361,7 @@ export namespace DBSecurityGroupNotFoundFault {
  *             <i>DBSnapshotIdentifier</i> is already used by an existing snapshot.</p>
  */
 export interface DBSnapshotAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSnapshotAlreadyExistsFault";
   $fault: "client";
@@ -370,7 +373,7 @@ export interface DBSnapshotAlreadyExistsFault
 
 export namespace DBSnapshotAlreadyExistsFault {
   export function isa(o: any): o is DBSnapshotAlreadyExistsFault {
-    return _smithy.isa(o, "DBSnapshotAlreadyExistsFault");
+    return __isa(o, "DBSnapshotAlreadyExistsFault");
   }
 }
 
@@ -379,7 +382,7 @@ export namespace DBSnapshotAlreadyExistsFault {
  *             <i>DBSnapshotIdentifier</i> does not refer to an existing DB snapshot.</p>
  */
 export interface DBSnapshotNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSnapshotNotFoundFault";
   $fault: "client";
@@ -391,7 +394,7 @@ export interface DBSnapshotNotFoundFault
 
 export namespace DBSnapshotNotFoundFault {
   export function isa(o: any): o is DBSnapshotNotFoundFault {
-    return _smithy.isa(o, "DBSnapshotNotFoundFault");
+    return __isa(o, "DBSnapshotNotFoundFault");
   }
 }
 
@@ -400,7 +403,7 @@ export namespace DBSnapshotNotFoundFault {
  *             <i>DBSubnetGroupName</i> is already used by an existing DB subnet group.</p>
  */
 export interface DBSubnetGroupAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSubnetGroupAlreadyExistsFault";
   $fault: "client";
@@ -412,7 +415,7 @@ export interface DBSubnetGroupAlreadyExistsFault
 
 export namespace DBSubnetGroupAlreadyExistsFault {
   export function isa(o: any): o is DBSubnetGroupAlreadyExistsFault {
-    return _smithy.isa(o, "DBSubnetGroupAlreadyExistsFault");
+    return __isa(o, "DBSubnetGroupAlreadyExistsFault");
   }
 }
 
@@ -421,7 +424,7 @@ export namespace DBSubnetGroupAlreadyExistsFault {
  *       Zones unless there is only one Availability Zone.</p>
  */
 export interface DBSubnetGroupDoesNotCoverEnoughAZs
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
@@ -433,7 +436,7 @@ export interface DBSubnetGroupDoesNotCoverEnoughAZs
 
 export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
   export function isa(o: any): o is DBSubnetGroupDoesNotCoverEnoughAZs {
-    return _smithy.isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
+    return __isa(o, "DBSubnetGroupDoesNotCoverEnoughAZs");
   }
 }
 
@@ -443,7 +446,7 @@ export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
  *       existing DB subnet group.</p>
  */
 export interface DBSubnetGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSubnetGroupNotFoundFault";
   $fault: "client";
@@ -455,7 +458,7 @@ export interface DBSubnetGroupNotFoundFault
 
 export namespace DBSubnetGroupNotFoundFault {
   export function isa(o: any): o is DBSubnetGroupNotFoundFault {
-    return _smithy.isa(o, "DBSubnetGroupNotFoundFault");
+    return __isa(o, "DBSubnetGroupNotFoundFault");
   }
 }
 
@@ -463,7 +466,7 @@ export namespace DBSubnetGroupNotFoundFault {
  * <p>Request would result in user exceeding the allowed number of DB subnet groups.</p>
  */
 export interface DBSubnetGroupQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSubnetGroupQuotaExceededFault";
   $fault: "client";
@@ -475,7 +478,7 @@ export interface DBSubnetGroupQuotaExceededFault
 
 export namespace DBSubnetGroupQuotaExceededFault {
   export function isa(o: any): o is DBSubnetGroupQuotaExceededFault {
-    return _smithy.isa(o, "DBSubnetGroupQuotaExceededFault");
+    return __isa(o, "DBSubnetGroupQuotaExceededFault");
   }
 }
 
@@ -483,7 +486,7 @@ export namespace DBSubnetGroupQuotaExceededFault {
  * <p>Request would result in user exceeding the allowed number of subnets in a DB subnet groups.</p>
  */
 export interface DBSubnetQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBSubnetQuotaExceededFault";
   $fault: "client";
@@ -495,7 +498,7 @@ export interface DBSubnetQuotaExceededFault
 
 export namespace DBSubnetQuotaExceededFault {
   export function isa(o: any): o is DBSubnetQuotaExceededFault {
-    return _smithy.isa(o, "DBSubnetQuotaExceededFault");
+    return __isa(o, "DBSubnetQuotaExceededFault");
   }
 }
 
@@ -503,7 +506,7 @@ export namespace DBSubnetQuotaExceededFault {
  * <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
  */
 export interface DBUpgradeDependencyFailureFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
@@ -515,7 +518,7 @@ export interface DBUpgradeDependencyFailureFault
 
 export namespace DBUpgradeDependencyFailureFault {
   export function isa(o: any): o is DBUpgradeDependencyFailureFault {
-    return _smithy.isa(o, "DBUpgradeDependencyFailureFault");
+    return __isa(o, "DBUpgradeDependencyFailureFault");
   }
 }
 
@@ -524,7 +527,7 @@ export namespace DBUpgradeDependencyFailureFault {
  *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
  */
 export interface DomainNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DomainNotFoundFault";
   $fault: "client";
@@ -536,7 +539,7 @@ export interface DomainNotFoundFault
 
 export namespace DomainNotFoundFault {
   export function isa(o: any): o is DomainNotFoundFault {
-    return _smithy.isa(o, "DomainNotFoundFault");
+    return __isa(o, "DomainNotFoundFault");
   }
 }
 
@@ -544,7 +547,7 @@ export namespace DomainNotFoundFault {
  * <p>You have exceeded the number of events you can subscribe to.</p>
  */
 export interface EventSubscriptionQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "EventSubscriptionQuotaExceededFault";
   $fault: "client";
@@ -556,7 +559,7 @@ export interface EventSubscriptionQuotaExceededFault
 
 export namespace EventSubscriptionQuotaExceededFault {
   export function isa(o: any): o is EventSubscriptionQuotaExceededFault {
-    return _smithy.isa(o, "EventSubscriptionQuotaExceededFault");
+    return __isa(o, "EventSubscriptionQuotaExceededFault");
   }
 }
 
@@ -564,7 +567,7 @@ export namespace EventSubscriptionQuotaExceededFault {
  * <p>Request would result in user exceeding the allowed number of DB instances.</p>
  */
 export interface InstanceQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InstanceQuotaExceededFault";
   $fault: "client";
@@ -576,7 +579,7 @@ export interface InstanceQuotaExceededFault
 
 export namespace InstanceQuotaExceededFault {
   export function isa(o: any): o is InstanceQuotaExceededFault {
-    return _smithy.isa(o, "InstanceQuotaExceededFault");
+    return __isa(o, "InstanceQuotaExceededFault");
   }
 }
 
@@ -584,7 +587,7 @@ export namespace InstanceQuotaExceededFault {
  * <p>The DB cluster does not have enough capacity for the current operation.</p>
  */
 export interface InsufficientDBClusterCapacityFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientDBClusterCapacityFault";
   $fault: "client";
@@ -596,7 +599,7 @@ export interface InsufficientDBClusterCapacityFault
 
 export namespace InsufficientDBClusterCapacityFault {
   export function isa(o: any): o is InsufficientDBClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientDBClusterCapacityFault");
+    return __isa(o, "InsufficientDBClusterCapacityFault");
   }
 }
 
@@ -604,7 +607,7 @@ export namespace InsufficientDBClusterCapacityFault {
  * <p>Specified DB instance class is not available in the specified Availability Zone.</p>
  */
 export interface InsufficientDBInstanceCapacityFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientDBInstanceCapacityFault";
   $fault: "client";
@@ -616,7 +619,7 @@ export interface InsufficientDBInstanceCapacityFault
 
 export namespace InsufficientDBInstanceCapacityFault {
   export function isa(o: any): o is InsufficientDBInstanceCapacityFault {
-    return _smithy.isa(o, "InsufficientDBInstanceCapacityFault");
+    return __isa(o, "InsufficientDBInstanceCapacityFault");
   }
 }
 
@@ -626,7 +629,7 @@ export namespace InsufficientDBInstanceCapacityFault {
  *        Availability Zones that have more storage available.</p>
  */
 export interface InsufficientStorageClusterCapacityFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientStorageClusterCapacityFault";
   $fault: "client";
@@ -638,7 +641,7 @@ export interface InsufficientStorageClusterCapacityFault
 
 export namespace InsufficientStorageClusterCapacityFault {
   export function isa(o: any): o is InsufficientStorageClusterCapacityFault {
-    return _smithy.isa(o, "InsufficientStorageClusterCapacityFault");
+    return __isa(o, "InsufficientStorageClusterCapacityFault");
   }
 }
 
@@ -646,7 +649,7 @@ export namespace InsufficientStorageClusterCapacityFault {
  * <p>The supplied value is not a valid DB cluster snapshot state.</p>
  */
 export interface InvalidDBClusterSnapshotStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBClusterSnapshotStateFault";
   $fault: "client";
@@ -658,7 +661,7 @@ export interface InvalidDBClusterSnapshotStateFault
 
 export namespace InvalidDBClusterSnapshotStateFault {
   export function isa(o: any): o is InvalidDBClusterSnapshotStateFault {
-    return _smithy.isa(o, "InvalidDBClusterSnapshotStateFault");
+    return __isa(o, "InvalidDBClusterSnapshotStateFault");
   }
 }
 
@@ -666,7 +669,7 @@ export namespace InvalidDBClusterSnapshotStateFault {
  * <p>The DB cluster is not in a valid state.</p>
  */
 export interface InvalidDBClusterStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBClusterStateFault";
   $fault: "client";
@@ -678,7 +681,7 @@ export interface InvalidDBClusterStateFault
 
 export namespace InvalidDBClusterStateFault {
   export function isa(o: any): o is InvalidDBClusterStateFault {
-    return _smithy.isa(o, "InvalidDBClusterStateFault");
+    return __isa(o, "InvalidDBClusterStateFault");
   }
 }
 
@@ -686,7 +689,7 @@ export namespace InvalidDBClusterStateFault {
  * <p>The specified DB instance is not in the <i>available</i> state.</p>
  */
 export interface InvalidDBInstanceStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBInstanceStateFault";
   $fault: "client";
@@ -698,7 +701,7 @@ export interface InvalidDBInstanceStateFault
 
 export namespace InvalidDBInstanceStateFault {
   export function isa(o: any): o is InvalidDBInstanceStateFault {
-    return _smithy.isa(o, "InvalidDBInstanceStateFault");
+    return __isa(o, "InvalidDBInstanceStateFault");
   }
 }
 
@@ -707,7 +710,7 @@ export namespace InvalidDBInstanceStateFault {
  *       delete the parameter group, you cannot delete it when the parameter group is in this state.</p>
  */
 export interface InvalidDBParameterGroupStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBParameterGroupStateFault";
   $fault: "client";
@@ -719,7 +722,7 @@ export interface InvalidDBParameterGroupStateFault
 
 export namespace InvalidDBParameterGroupStateFault {
   export function isa(o: any): o is InvalidDBParameterGroupStateFault {
-    return _smithy.isa(o, "InvalidDBParameterGroupStateFault");
+    return __isa(o, "InvalidDBParameterGroupStateFault");
   }
 }
 
@@ -727,7 +730,7 @@ export namespace InvalidDBParameterGroupStateFault {
  * <p>The state of the DB security group does not allow deletion.</p>
  */
 export interface InvalidDBSecurityGroupStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBSecurityGroupStateFault";
   $fault: "client";
@@ -739,7 +742,7 @@ export interface InvalidDBSecurityGroupStateFault
 
 export namespace InvalidDBSecurityGroupStateFault {
   export function isa(o: any): o is InvalidDBSecurityGroupStateFault {
-    return _smithy.isa(o, "InvalidDBSecurityGroupStateFault");
+    return __isa(o, "InvalidDBSecurityGroupStateFault");
   }
 }
 
@@ -747,7 +750,7 @@ export namespace InvalidDBSecurityGroupStateFault {
  * <p>The state of the DB snapshot does not allow deletion.</p>
  */
 export interface InvalidDBSnapshotStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBSnapshotStateFault";
   $fault: "client";
@@ -759,7 +762,7 @@ export interface InvalidDBSnapshotStateFault
 
 export namespace InvalidDBSnapshotStateFault {
   export function isa(o: any): o is InvalidDBSnapshotStateFault {
-    return _smithy.isa(o, "InvalidDBSnapshotStateFault");
+    return __isa(o, "InvalidDBSnapshotStateFault");
   }
 }
 
@@ -767,7 +770,7 @@ export namespace InvalidDBSnapshotStateFault {
  * <p>The DB subnet group cannot be deleted because it is in use.</p>
  */
 export interface InvalidDBSubnetGroupStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBSubnetGroupStateFault";
   $fault: "client";
@@ -779,7 +782,7 @@ export interface InvalidDBSubnetGroupStateFault
 
 export namespace InvalidDBSubnetGroupStateFault {
   export function isa(o: any): o is InvalidDBSubnetGroupStateFault {
-    return _smithy.isa(o, "InvalidDBSubnetGroupStateFault");
+    return __isa(o, "InvalidDBSubnetGroupStateFault");
   }
 }
 
@@ -787,7 +790,7 @@ export namespace InvalidDBSubnetGroupStateFault {
  * <p>The DB subnet is not in the <i>available</i> state.</p>
  */
 export interface InvalidDBSubnetStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDBSubnetStateFault";
   $fault: "client";
@@ -799,7 +802,7 @@ export interface InvalidDBSubnetStateFault
 
 export namespace InvalidDBSubnetStateFault {
   export function isa(o: any): o is InvalidDBSubnetStateFault {
-    return _smithy.isa(o, "InvalidDBSubnetStateFault");
+    return __isa(o, "InvalidDBSubnetStateFault");
   }
 }
 
@@ -807,7 +810,7 @@ export namespace InvalidDBSubnetStateFault {
  * <p>The event subscription is in an invalid state.</p>
  */
 export interface InvalidEventSubscriptionStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidEventSubscriptionStateFault";
   $fault: "client";
@@ -819,7 +822,7 @@ export interface InvalidEventSubscriptionStateFault
 
 export namespace InvalidEventSubscriptionStateFault {
   export function isa(o: any): o is InvalidEventSubscriptionStateFault {
-    return _smithy.isa(o, "InvalidEventSubscriptionStateFault");
+    return __isa(o, "InvalidEventSubscriptionStateFault");
   }
 }
 
@@ -827,7 +830,7 @@ export namespace InvalidEventSubscriptionStateFault {
  * <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
  */
 export interface InvalidRestoreFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRestoreFault";
   $fault: "client";
@@ -839,7 +842,7 @@ export interface InvalidRestoreFault
 
 export namespace InvalidRestoreFault {
   export function isa(o: any): o is InvalidRestoreFault {
-    return _smithy.isa(o, "InvalidRestoreFault");
+    return __isa(o, "InvalidRestoreFault");
   }
 }
 
@@ -847,9 +850,7 @@ export namespace InvalidRestoreFault {
  * <p>The requested subnet is invalid, or multiple subnets were requested that are
  *       not all in a common VPC.</p>
  */
-export interface InvalidSubnet
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnet";
   $fault: "client";
   /**
@@ -860,7 +861,7 @@ export interface InvalidSubnet
 
 export namespace InvalidSubnet {
   export function isa(o: any): o is InvalidSubnet {
-    return _smithy.isa(o, "InvalidSubnet");
+    return __isa(o, "InvalidSubnet");
   }
 }
 
@@ -869,7 +870,7 @@ export namespace InvalidSubnet {
  *       because users' change.</p>
  */
 export interface InvalidVPCNetworkStateFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
@@ -881,7 +882,7 @@ export interface InvalidVPCNetworkStateFault
 
 export namespace InvalidVPCNetworkStateFault {
   export function isa(o: any): o is InvalidVPCNetworkStateFault {
-    return _smithy.isa(o, "InvalidVPCNetworkStateFault");
+    return __isa(o, "InvalidVPCNetworkStateFault");
   }
 }
 
@@ -889,7 +890,7 @@ export namespace InvalidVPCNetworkStateFault {
  * <p>Error accessing KMS key.</p>
  */
 export interface KMSKeyNotAccessibleFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "KMSKeyNotAccessibleFault";
   $fault: "client";
@@ -901,7 +902,7 @@ export interface KMSKeyNotAccessibleFault
 
 export namespace KMSKeyNotAccessibleFault {
   export function isa(o: any): o is KMSKeyNotAccessibleFault {
-    return _smithy.isa(o, "KMSKeyNotAccessibleFault");
+    return __isa(o, "KMSKeyNotAccessibleFault");
   }
 }
 
@@ -909,7 +910,7 @@ export namespace KMSKeyNotAccessibleFault {
  * <p>The designated option group could not be found.</p>
  */
 export interface OptionGroupNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OptionGroupNotFoundFault";
   $fault: "client";
@@ -921,7 +922,7 @@ export interface OptionGroupNotFoundFault
 
 export namespace OptionGroupNotFoundFault {
   export function isa(o: any): o is OptionGroupNotFoundFault {
-    return _smithy.isa(o, "OptionGroupNotFoundFault");
+    return __isa(o, "OptionGroupNotFoundFault");
   }
 }
 
@@ -929,7 +930,7 @@ export namespace OptionGroupNotFoundFault {
  * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  */
 export interface ProvisionedIopsNotAvailableInAZFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProvisionedIopsNotAvailableInAZFault";
   $fault: "client";
@@ -941,7 +942,7 @@ export interface ProvisionedIopsNotAvailableInAZFault
 
 export namespace ProvisionedIopsNotAvailableInAZFault {
   export function isa(o: any): o is ProvisionedIopsNotAvailableInAZFault {
-    return _smithy.isa(o, "ProvisionedIopsNotAvailableInAZFault");
+    return __isa(o, "ProvisionedIopsNotAvailableInAZFault");
   }
 }
 
@@ -949,7 +950,7 @@ export namespace ProvisionedIopsNotAvailableInAZFault {
  * <p>The specified resource ID was not found.</p>
  */
 export interface ResourceNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundFault";
   $fault: "client";
@@ -961,7 +962,7 @@ export interface ResourceNotFoundFault
 
 export namespace ResourceNotFoundFault {
   export function isa(o: any): o is ResourceNotFoundFault {
-    return _smithy.isa(o, "ResourceNotFoundFault");
+    return __isa(o, "ResourceNotFoundFault");
   }
 }
 
@@ -969,7 +970,7 @@ export namespace ResourceNotFoundFault {
  * <p>The SNS topic is invalid.</p>
  */
 export interface SNSInvalidTopicFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SNSInvalidTopicFault";
   $fault: "client";
@@ -981,7 +982,7 @@ export interface SNSInvalidTopicFault
 
 export namespace SNSInvalidTopicFault {
   export function isa(o: any): o is SNSInvalidTopicFault {
-    return _smithy.isa(o, "SNSInvalidTopicFault");
+    return __isa(o, "SNSInvalidTopicFault");
   }
 }
 
@@ -989,7 +990,7 @@ export namespace SNSInvalidTopicFault {
  * <p>There is no SNS authorization.</p>
  */
 export interface SNSNoAuthorizationFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SNSNoAuthorizationFault";
   $fault: "client";
@@ -1001,7 +1002,7 @@ export interface SNSNoAuthorizationFault
 
 export namespace SNSNoAuthorizationFault {
   export function isa(o: any): o is SNSNoAuthorizationFault {
-    return _smithy.isa(o, "SNSNoAuthorizationFault");
+    return __isa(o, "SNSNoAuthorizationFault");
   }
 }
 
@@ -1009,7 +1010,7 @@ export namespace SNSNoAuthorizationFault {
  * <p>The ARN of the SNS topic could not be found.</p>
  */
 export interface SNSTopicArnNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SNSTopicArnNotFoundFault";
   $fault: "client";
@@ -1021,7 +1022,7 @@ export interface SNSTopicArnNotFoundFault
 
 export namespace SNSTopicArnNotFoundFault {
   export function isa(o: any): o is SNSTopicArnNotFoundFault {
-    return _smithy.isa(o, "SNSTopicArnNotFoundFault");
+    return __isa(o, "SNSTopicArnNotFoundFault");
   }
 }
 
@@ -1029,7 +1030,7 @@ export namespace SNSTopicArnNotFoundFault {
  * <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
  */
 export interface SharedSnapshotQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SharedSnapshotQuotaExceededFault";
   $fault: "client";
@@ -1041,7 +1042,7 @@ export interface SharedSnapshotQuotaExceededFault
 
 export namespace SharedSnapshotQuotaExceededFault {
   export function isa(o: any): o is SharedSnapshotQuotaExceededFault {
-    return _smithy.isa(o, "SharedSnapshotQuotaExceededFault");
+    return __isa(o, "SharedSnapshotQuotaExceededFault");
   }
 }
 
@@ -1049,7 +1050,7 @@ export namespace SharedSnapshotQuotaExceededFault {
  * <p>Request would result in user exceeding the allowed number of DB snapshots.</p>
  */
 export interface SnapshotQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
@@ -1061,7 +1062,7 @@ export interface SnapshotQuotaExceededFault
 
 export namespace SnapshotQuotaExceededFault {
   export function isa(o: any): o is SnapshotQuotaExceededFault {
-    return _smithy.isa(o, "SnapshotQuotaExceededFault");
+    return __isa(o, "SnapshotQuotaExceededFault");
   }
 }
 
@@ -1069,7 +1070,7 @@ export namespace SnapshotQuotaExceededFault {
  * <p>The source could not be found.</p>
  */
 export interface SourceNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SourceNotFoundFault";
   $fault: "client";
@@ -1081,7 +1082,7 @@ export interface SourceNotFoundFault
 
 export namespace SourceNotFoundFault {
   export function isa(o: any): o is SourceNotFoundFault {
-    return _smithy.isa(o, "SourceNotFoundFault");
+    return __isa(o, "SourceNotFoundFault");
   }
 }
 
@@ -1089,7 +1090,7 @@ export namespace SourceNotFoundFault {
  * <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
  */
 export interface StorageQuotaExceededFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "StorageQuotaExceededFault";
   $fault: "client";
@@ -1101,7 +1102,7 @@ export interface StorageQuotaExceededFault
 
 export namespace StorageQuotaExceededFault {
   export function isa(o: any): o is StorageQuotaExceededFault {
-    return _smithy.isa(o, "StorageQuotaExceededFault");
+    return __isa(o, "StorageQuotaExceededFault");
   }
 }
 
@@ -1110,7 +1111,7 @@ export namespace StorageQuotaExceededFault {
  *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
  */
 export interface StorageTypeNotSupportedFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "StorageTypeNotSupportedFault";
   $fault: "client";
@@ -1122,16 +1123,14 @@ export interface StorageTypeNotSupportedFault
 
 export namespace StorageTypeNotSupportedFault {
   export function isa(o: any): o is StorageTypeNotSupportedFault {
-    return _smithy.isa(o, "StorageTypeNotSupportedFault");
+    return __isa(o, "StorageTypeNotSupportedFault");
   }
 }
 
 /**
  * <p>The DB subnet is already in use in the Availability Zone.</p>
  */
-export interface SubnetAlreadyInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
   name: "SubnetAlreadyInUse";
   $fault: "client";
   /**
@@ -1142,7 +1141,7 @@ export interface SubnetAlreadyInUse
 
 export namespace SubnetAlreadyInUse {
   export function isa(o: any): o is SubnetAlreadyInUse {
-    return _smithy.isa(o, "SubnetAlreadyInUse");
+    return __isa(o, "SubnetAlreadyInUse");
   }
 }
 
@@ -1150,7 +1149,7 @@ export namespace SubnetAlreadyInUse {
  * <p>This subscription already exists.</p>
  */
 export interface SubscriptionAlreadyExistFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubscriptionAlreadyExistFault";
   $fault: "client";
@@ -1162,7 +1161,7 @@ export interface SubscriptionAlreadyExistFault
 
 export namespace SubscriptionAlreadyExistFault {
   export function isa(o: any): o is SubscriptionAlreadyExistFault {
-    return _smithy.isa(o, "SubscriptionAlreadyExistFault");
+    return __isa(o, "SubscriptionAlreadyExistFault");
   }
 }
 
@@ -1170,7 +1169,7 @@ export namespace SubscriptionAlreadyExistFault {
  * <p>The designated subscription category could not be found.</p>
  */
 export interface SubscriptionCategoryNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubscriptionCategoryNotFoundFault";
   $fault: "client";
@@ -1182,7 +1181,7 @@ export interface SubscriptionCategoryNotFoundFault
 
 export namespace SubscriptionCategoryNotFoundFault {
   export function isa(o: any): o is SubscriptionCategoryNotFoundFault {
-    return _smithy.isa(o, "SubscriptionCategoryNotFoundFault");
+    return __isa(o, "SubscriptionCategoryNotFoundFault");
   }
 }
 
@@ -1190,7 +1189,7 @@ export namespace SubscriptionCategoryNotFoundFault {
  * <p>The designated subscription could not be found.</p>
  */
 export interface SubscriptionNotFoundFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SubscriptionNotFoundFault";
   $fault: "client";
@@ -1202,7 +1201,7 @@ export interface SubscriptionNotFoundFault
 
 export namespace SubscriptionNotFoundFault {
   export function isa(o: any): o is SubscriptionNotFoundFault {
-    return _smithy.isa(o, "SubscriptionNotFoundFault");
+    return __isa(o, "SubscriptionNotFoundFault");
   }
 }
 
@@ -1222,7 +1221,7 @@ export interface AddRoleToDBClusterMessage {
 
 export namespace AddRoleToDBClusterMessage {
   export function isa(o: any): o is AddRoleToDBClusterMessage {
-    return _smithy.isa(o, "AddRoleToDBClusterMessage");
+    return __isa(o, "AddRoleToDBClusterMessage");
   }
 }
 
@@ -1261,7 +1260,7 @@ export interface AddSourceIdentifierToSubscriptionMessage {
 
 export namespace AddSourceIdentifierToSubscriptionMessage {
   export function isa(o: any): o is AddSourceIdentifierToSubscriptionMessage {
-    return _smithy.isa(o, "AddSourceIdentifierToSubscriptionMessage");
+    return __isa(o, "AddSourceIdentifierToSubscriptionMessage");
   }
 }
 
@@ -1276,7 +1275,7 @@ export interface AddSourceIdentifierToSubscriptionResult
 
 export namespace AddSourceIdentifierToSubscriptionResult {
   export function isa(o: any): o is AddSourceIdentifierToSubscriptionResult {
-    return _smithy.isa(o, "AddSourceIdentifierToSubscriptionResult");
+    return __isa(o, "AddSourceIdentifierToSubscriptionResult");
   }
 }
 
@@ -1297,7 +1296,7 @@ export interface AddTagsToResourceMessage {
 
 export namespace AddTagsToResourceMessage {
   export function isa(o: any): o is AddTagsToResourceMessage {
-    return _smithy.isa(o, "AddTagsToResourceMessage");
+    return __isa(o, "AddTagsToResourceMessage");
   }
 }
 
@@ -1345,7 +1344,7 @@ export interface ApplyPendingMaintenanceActionMessage {
 
 export namespace ApplyPendingMaintenanceActionMessage {
   export function isa(o: any): o is ApplyPendingMaintenanceActionMessage {
-    return _smithy.isa(o, "ApplyPendingMaintenanceActionMessage");
+    return __isa(o, "ApplyPendingMaintenanceActionMessage");
   }
 }
 
@@ -1359,7 +1358,7 @@ export interface ApplyPendingMaintenanceActionResult extends $MetadataBearer {
 
 export namespace ApplyPendingMaintenanceActionResult {
   export function isa(o: any): o is ApplyPendingMaintenanceActionResult {
-    return _smithy.isa(o, "ApplyPendingMaintenanceActionResult");
+    return __isa(o, "ApplyPendingMaintenanceActionResult");
   }
 }
 
@@ -1376,7 +1375,7 @@ export interface AvailabilityZone {
 
 export namespace AvailabilityZone {
   export function isa(o: any): o is AvailabilityZone {
-    return _smithy.isa(o, "AvailabilityZone");
+    return __isa(o, "AvailabilityZone");
   }
 }
 
@@ -1398,7 +1397,7 @@ export interface CharacterSet {
 
 export namespace CharacterSet {
   export function isa(o: any): o is CharacterSet {
-    return _smithy.isa(o, "CharacterSet");
+    return __isa(o, "CharacterSet");
   }
 }
 
@@ -1424,7 +1423,7 @@ export interface CloudwatchLogsExportConfiguration {
 
 export namespace CloudwatchLogsExportConfiguration {
   export function isa(o: any): o is CloudwatchLogsExportConfiguration {
-    return _smithy.isa(o, "CloudwatchLogsExportConfiguration");
+    return __isa(o, "CloudwatchLogsExportConfiguration");
   }
 }
 
@@ -1488,7 +1487,7 @@ export interface CopyDBClusterParameterGroupMessage {
 
 export namespace CopyDBClusterParameterGroupMessage {
   export function isa(o: any): o is CopyDBClusterParameterGroupMessage {
-    return _smithy.isa(o, "CopyDBClusterParameterGroupMessage");
+    return __isa(o, "CopyDBClusterParameterGroupMessage");
   }
 }
 
@@ -1503,7 +1502,7 @@ export interface CopyDBClusterParameterGroupResult extends $MetadataBearer {
 
 export namespace CopyDBClusterParameterGroupResult {
   export function isa(o: any): o is CopyDBClusterParameterGroupResult {
-    return _smithy.isa(o, "CopyDBClusterParameterGroupResult");
+    return __isa(o, "CopyDBClusterParameterGroupResult");
   }
 }
 
@@ -1586,7 +1585,7 @@ export interface CopyDBClusterSnapshotMessage {
 
 export namespace CopyDBClusterSnapshotMessage {
   export function isa(o: any): o is CopyDBClusterSnapshotMessage {
-    return _smithy.isa(o, "CopyDBClusterSnapshotMessage");
+    return __isa(o, "CopyDBClusterSnapshotMessage");
   }
 }
 
@@ -1601,7 +1600,7 @@ export interface CopyDBClusterSnapshotResult extends $MetadataBearer {
 
 export namespace CopyDBClusterSnapshotResult {
   export function isa(o: any): o is CopyDBClusterSnapshotResult {
-    return _smithy.isa(o, "CopyDBClusterSnapshotResult");
+    return __isa(o, "CopyDBClusterSnapshotResult");
   }
 }
 
@@ -1662,7 +1661,7 @@ export interface CopyDBParameterGroupMessage {
 
 export namespace CopyDBParameterGroupMessage {
   export function isa(o: any): o is CopyDBParameterGroupMessage {
-    return _smithy.isa(o, "CopyDBParameterGroupMessage");
+    return __isa(o, "CopyDBParameterGroupMessage");
   }
 }
 
@@ -1677,7 +1676,7 @@ export interface CopyDBParameterGroupResult extends $MetadataBearer {
 
 export namespace CopyDBParameterGroupResult {
   export function isa(o: any): o is CopyDBParameterGroupResult {
-    return _smithy.isa(o, "CopyDBParameterGroupResult");
+    return __isa(o, "CopyDBParameterGroupResult");
   }
 }
 
@@ -1924,7 +1923,7 @@ export interface CreateDBClusterMessage {
 
 export namespace CreateDBClusterMessage {
   export function isa(o: any): o is CreateDBClusterMessage {
-    return _smithy.isa(o, "CreateDBClusterMessage");
+    return __isa(o, "CreateDBClusterMessage");
   }
 }
 
@@ -1965,7 +1964,7 @@ export interface CreateDBClusterParameterGroupMessage {
 
 export namespace CreateDBClusterParameterGroupMessage {
   export function isa(o: any): o is CreateDBClusterParameterGroupMessage {
-    return _smithy.isa(o, "CreateDBClusterParameterGroupMessage");
+    return __isa(o, "CreateDBClusterParameterGroupMessage");
   }
 }
 
@@ -1980,7 +1979,7 @@ export interface CreateDBClusterParameterGroupResult extends $MetadataBearer {
 
 export namespace CreateDBClusterParameterGroupResult {
   export function isa(o: any): o is CreateDBClusterParameterGroupResult {
-    return _smithy.isa(o, "CreateDBClusterParameterGroupResult");
+    return __isa(o, "CreateDBClusterParameterGroupResult");
   }
 }
 
@@ -1995,7 +1994,7 @@ export interface CreateDBClusterResult extends $MetadataBearer {
 
 export namespace CreateDBClusterResult {
   export function isa(o: any): o is CreateDBClusterResult {
-    return _smithy.isa(o, "CreateDBClusterResult");
+    return __isa(o, "CreateDBClusterResult");
   }
 }
 
@@ -2043,7 +2042,7 @@ export interface CreateDBClusterSnapshotMessage {
 
 export namespace CreateDBClusterSnapshotMessage {
   export function isa(o: any): o is CreateDBClusterSnapshotMessage {
-    return _smithy.isa(o, "CreateDBClusterSnapshotMessage");
+    return __isa(o, "CreateDBClusterSnapshotMessage");
   }
 }
 
@@ -2058,7 +2057,7 @@ export interface CreateDBClusterSnapshotResult extends $MetadataBearer {
 
 export namespace CreateDBClusterSnapshotResult {
   export function isa(o: any): o is CreateDBClusterSnapshotResult {
-    return _smithy.isa(o, "CreateDBClusterSnapshotResult");
+    return __isa(o, "CreateDBClusterSnapshotResult");
   }
 }
 
@@ -2414,7 +2413,7 @@ export interface CreateDBInstanceMessage {
 
 export namespace CreateDBInstanceMessage {
   export function isa(o: any): o is CreateDBInstanceMessage {
-    return _smithy.isa(o, "CreateDBInstanceMessage");
+    return __isa(o, "CreateDBInstanceMessage");
   }
 }
 
@@ -2429,7 +2428,7 @@ export interface CreateDBInstanceResult extends $MetadataBearer {
 
 export namespace CreateDBInstanceResult {
   export function isa(o: any): o is CreateDBInstanceResult {
-    return _smithy.isa(o, "CreateDBInstanceResult");
+    return __isa(o, "CreateDBInstanceResult");
   }
 }
 
@@ -2475,7 +2474,7 @@ export interface CreateDBParameterGroupMessage {
 
 export namespace CreateDBParameterGroupMessage {
   export function isa(o: any): o is CreateDBParameterGroupMessage {
-    return _smithy.isa(o, "CreateDBParameterGroupMessage");
+    return __isa(o, "CreateDBParameterGroupMessage");
   }
 }
 
@@ -2490,7 +2489,7 @@ export interface CreateDBParameterGroupResult extends $MetadataBearer {
 
 export namespace CreateDBParameterGroupResult {
   export function isa(o: any): o is CreateDBParameterGroupResult {
-    return _smithy.isa(o, "CreateDBParameterGroupResult");
+    return __isa(o, "CreateDBParameterGroupResult");
   }
 }
 
@@ -2523,7 +2522,7 @@ export interface CreateDBSubnetGroupMessage {
 
 export namespace CreateDBSubnetGroupMessage {
   export function isa(o: any): o is CreateDBSubnetGroupMessage {
-    return _smithy.isa(o, "CreateDBSubnetGroupMessage");
+    return __isa(o, "CreateDBSubnetGroupMessage");
   }
 }
 
@@ -2538,7 +2537,7 @@ export interface CreateDBSubnetGroupResult extends $MetadataBearer {
 
 export namespace CreateDBSubnetGroupResult {
   export function isa(o: any): o is CreateDBSubnetGroupResult {
-    return _smithy.isa(o, "CreateDBSubnetGroupResult");
+    return __isa(o, "CreateDBSubnetGroupResult");
   }
 }
 
@@ -2619,7 +2618,7 @@ export interface CreateEventSubscriptionMessage {
 
 export namespace CreateEventSubscriptionMessage {
   export function isa(o: any): o is CreateEventSubscriptionMessage {
-    return _smithy.isa(o, "CreateEventSubscriptionMessage");
+    return __isa(o, "CreateEventSubscriptionMessage");
   }
 }
 
@@ -2633,7 +2632,7 @@ export interface CreateEventSubscriptionResult extends $MetadataBearer {
 
 export namespace CreateEventSubscriptionResult {
   export function isa(o: any): o is CreateEventSubscriptionResult {
-    return _smithy.isa(o, "CreateEventSubscriptionResult");
+    return __isa(o, "CreateEventSubscriptionResult");
   }
 }
 
@@ -2862,7 +2861,7 @@ export interface DBCluster {
 
 export namespace DBCluster {
   export function isa(o: any): o is DBCluster {
-    return _smithy.isa(o, "DBCluster");
+    return __isa(o, "DBCluster");
   }
 }
 
@@ -2897,7 +2896,7 @@ export interface DBClusterMember {
 
 export namespace DBClusterMember {
   export function isa(o: any): o is DBClusterMember {
-    return _smithy.isa(o, "DBClusterMember");
+    return __isa(o, "DBClusterMember");
   }
 }
 
@@ -2916,7 +2915,7 @@ export interface DBClusterMessage extends $MetadataBearer {
 
 export namespace DBClusterMessage {
   export function isa(o: any): o is DBClusterMessage {
-    return _smithy.isa(o, "DBClusterMessage");
+    return __isa(o, "DBClusterMessage");
   }
 }
 
@@ -2938,7 +2937,7 @@ export interface DBClusterOptionGroupStatus {
 
 export namespace DBClusterOptionGroupStatus {
   export function isa(o: any): o is DBClusterOptionGroupStatus {
-    return _smithy.isa(o, "DBClusterOptionGroupStatus");
+    return __isa(o, "DBClusterOptionGroupStatus");
   }
 }
 
@@ -2972,7 +2971,7 @@ export interface DBClusterParameterGroup {
 
 export namespace DBClusterParameterGroup {
   export function isa(o: any): o is DBClusterParameterGroup {
-    return _smithy.isa(o, "DBClusterParameterGroup");
+    return __isa(o, "DBClusterParameterGroup");
   }
 }
 
@@ -2993,7 +2992,7 @@ export interface DBClusterParameterGroupDetails extends $MetadataBearer {
 
 export namespace DBClusterParameterGroupDetails {
   export function isa(o: any): o is DBClusterParameterGroupDetails {
-    return _smithy.isa(o, "DBClusterParameterGroupDetails");
+    return __isa(o, "DBClusterParameterGroupDetails");
   }
 }
 
@@ -3022,7 +3021,7 @@ export interface DBClusterParameterGroupNameMessage extends $MetadataBearer {
 
 export namespace DBClusterParameterGroupNameMessage {
   export function isa(o: any): o is DBClusterParameterGroupNameMessage {
-    return _smithy.isa(o, "DBClusterParameterGroupNameMessage");
+    return __isa(o, "DBClusterParameterGroupNameMessage");
   }
 }
 
@@ -3044,7 +3043,7 @@ export interface DBClusterParameterGroupsMessage extends $MetadataBearer {
 
 export namespace DBClusterParameterGroupsMessage {
   export function isa(o: any): o is DBClusterParameterGroupsMessage {
-    return _smithy.isa(o, "DBClusterParameterGroupsMessage");
+    return __isa(o, "DBClusterParameterGroupsMessage");
   }
 }
 
@@ -3087,7 +3086,7 @@ export interface DBClusterRole {
 
 export namespace DBClusterRole {
   export function isa(o: any): o is DBClusterRole {
-    return _smithy.isa(o, "DBClusterRole");
+    return __isa(o, "DBClusterRole");
   }
 }
 
@@ -3207,7 +3206,7 @@ export interface DBClusterSnapshot {
 
 export namespace DBClusterSnapshot {
   export function isa(o: any): o is DBClusterSnapshot {
-    return _smithy.isa(o, "DBClusterSnapshot");
+    return __isa(o, "DBClusterSnapshot");
   }
 }
 
@@ -3238,7 +3237,7 @@ export interface DBClusterSnapshotAttribute {
 
 export namespace DBClusterSnapshotAttribute {
   export function isa(o: any): o is DBClusterSnapshotAttribute {
-    return _smithy.isa(o, "DBClusterSnapshotAttribute");
+    return __isa(o, "DBClusterSnapshotAttribute");
   }
 }
 
@@ -3262,7 +3261,7 @@ export interface DBClusterSnapshotAttributesResult {
 
 export namespace DBClusterSnapshotAttributesResult {
   export function isa(o: any): o is DBClusterSnapshotAttributesResult {
-    return _smithy.isa(o, "DBClusterSnapshotAttributesResult");
+    return __isa(o, "DBClusterSnapshotAttributesResult");
   }
 }
 
@@ -3283,7 +3282,7 @@ export interface DBClusterSnapshotMessage extends $MetadataBearer {
 
 export namespace DBClusterSnapshotMessage {
   export function isa(o: any): o is DBClusterSnapshotMessage {
-    return _smithy.isa(o, "DBClusterSnapshotMessage");
+    return __isa(o, "DBClusterSnapshotMessage");
   }
 }
 
@@ -3362,7 +3361,7 @@ export interface DBEngineVersion {
 
 export namespace DBEngineVersion {
   export function isa(o: any): o is DBEngineVersion {
-    return _smithy.isa(o, "DBEngineVersion");
+    return __isa(o, "DBEngineVersion");
   }
 }
 
@@ -3383,7 +3382,7 @@ export interface DBEngineVersionMessage extends $MetadataBearer {
 
 export namespace DBEngineVersionMessage {
   export function isa(o: any): o is DBEngineVersionMessage {
-    return _smithy.isa(o, "DBEngineVersionMessage");
+    return __isa(o, "DBEngineVersionMessage");
   }
 }
 
@@ -3695,7 +3694,7 @@ export interface DBInstance {
 
 export namespace DBInstance {
   export function isa(o: any): o is DBInstance {
-    return _smithy.isa(o, "DBInstance");
+    return __isa(o, "DBInstance");
   }
 }
 
@@ -3716,7 +3715,7 @@ export interface DBInstanceMessage extends $MetadataBearer {
 
 export namespace DBInstanceMessage {
   export function isa(o: any): o is DBInstanceMessage {
-    return _smithy.isa(o, "DBInstanceMessage");
+    return __isa(o, "DBInstanceMessage");
   }
 }
 
@@ -3751,7 +3750,7 @@ export interface DBInstanceStatusInfo {
 
 export namespace DBInstanceStatusInfo {
   export function isa(o: any): o is DBInstanceStatusInfo {
-    return _smithy.isa(o, "DBInstanceStatusInfo");
+    return __isa(o, "DBInstanceStatusInfo");
   }
 }
 
@@ -3785,7 +3784,7 @@ export interface DBParameterGroup {
 
 export namespace DBParameterGroup {
   export function isa(o: any): o is DBParameterGroup {
-    return _smithy.isa(o, "DBParameterGroup");
+    return __isa(o, "DBParameterGroup");
   }
 }
 
@@ -3806,7 +3805,7 @@ export interface DBParameterGroupDetails extends $MetadataBearer {
 
 export namespace DBParameterGroupDetails {
   export function isa(o: any): o is DBParameterGroupDetails {
-    return _smithy.isa(o, "DBParameterGroupDetails");
+    return __isa(o, "DBParameterGroupDetails");
   }
 }
 
@@ -3820,7 +3819,7 @@ export interface DBParameterGroupNameMessage extends $MetadataBearer {
 
 export namespace DBParameterGroupNameMessage {
   export function isa(o: any): o is DBParameterGroupNameMessage {
-    return _smithy.isa(o, "DBParameterGroupNameMessage");
+    return __isa(o, "DBParameterGroupNameMessage");
   }
 }
 
@@ -3865,7 +3864,7 @@ export interface DBParameterGroupStatus {
 
 export namespace DBParameterGroupStatus {
   export function isa(o: any): o is DBParameterGroupStatus {
-    return _smithy.isa(o, "DBParameterGroupStatus");
+    return __isa(o, "DBParameterGroupStatus");
   }
 }
 
@@ -3886,7 +3885,7 @@ export interface DBParameterGroupsMessage extends $MetadataBearer {
 
 export namespace DBParameterGroupsMessage {
   export function isa(o: any): o is DBParameterGroupsMessage {
-    return _smithy.isa(o, "DBParameterGroupsMessage");
+    return __isa(o, "DBParameterGroupsMessage");
   }
 }
 
@@ -3908,7 +3907,7 @@ export interface DBSecurityGroupMembership {
 
 export namespace DBSecurityGroupMembership {
   export function isa(o: any): o is DBSecurityGroupMembership {
-    return _smithy.isa(o, "DBSecurityGroupMembership");
+    return __isa(o, "DBSecurityGroupMembership");
   }
 }
 
@@ -3951,7 +3950,7 @@ export interface DBSubnetGroup {
 
 export namespace DBSubnetGroup {
   export function isa(o: any): o is DBSubnetGroup {
-    return _smithy.isa(o, "DBSubnetGroup");
+    return __isa(o, "DBSubnetGroup");
   }
 }
 
@@ -3972,7 +3971,7 @@ export interface DBSubnetGroupMessage extends $MetadataBearer {
 
 export namespace DBSubnetGroupMessage {
   export function isa(o: any): o is DBSubnetGroupMessage {
-    return _smithy.isa(o, "DBSubnetGroupMessage");
+    return __isa(o, "DBSubnetGroupMessage");
   }
 }
 
@@ -4029,7 +4028,7 @@ export interface DeleteDBClusterMessage {
 
 export namespace DeleteDBClusterMessage {
   export function isa(o: any): o is DeleteDBClusterMessage {
-    return _smithy.isa(o, "DeleteDBClusterMessage");
+    return __isa(o, "DeleteDBClusterMessage");
   }
 }
 
@@ -4055,7 +4054,7 @@ export interface DeleteDBClusterParameterGroupMessage {
 
 export namespace DeleteDBClusterParameterGroupMessage {
   export function isa(o: any): o is DeleteDBClusterParameterGroupMessage {
-    return _smithy.isa(o, "DeleteDBClusterParameterGroupMessage");
+    return __isa(o, "DeleteDBClusterParameterGroupMessage");
   }
 }
 
@@ -4070,7 +4069,7 @@ export interface DeleteDBClusterResult extends $MetadataBearer {
 
 export namespace DeleteDBClusterResult {
   export function isa(o: any): o is DeleteDBClusterResult {
-    return _smithy.isa(o, "DeleteDBClusterResult");
+    return __isa(o, "DeleteDBClusterResult");
   }
 }
 
@@ -4086,7 +4085,7 @@ export interface DeleteDBClusterSnapshotMessage {
 
 export namespace DeleteDBClusterSnapshotMessage {
   export function isa(o: any): o is DeleteDBClusterSnapshotMessage {
-    return _smithy.isa(o, "DeleteDBClusterSnapshotMessage");
+    return __isa(o, "DeleteDBClusterSnapshotMessage");
   }
 }
 
@@ -4101,7 +4100,7 @@ export interface DeleteDBClusterSnapshotResult extends $MetadataBearer {
 
 export namespace DeleteDBClusterSnapshotResult {
   export function isa(o: any): o is DeleteDBClusterSnapshotResult {
-    return _smithy.isa(o, "DeleteDBClusterSnapshotResult");
+    return __isa(o, "DeleteDBClusterSnapshotResult");
   }
 }
 
@@ -4164,7 +4163,7 @@ export interface DeleteDBInstanceMessage {
 
 export namespace DeleteDBInstanceMessage {
   export function isa(o: any): o is DeleteDBInstanceMessage {
-    return _smithy.isa(o, "DeleteDBInstanceMessage");
+    return __isa(o, "DeleteDBInstanceMessage");
   }
 }
 
@@ -4179,7 +4178,7 @@ export interface DeleteDBInstanceResult extends $MetadataBearer {
 
 export namespace DeleteDBInstanceResult {
   export function isa(o: any): o is DeleteDBInstanceResult {
-    return _smithy.isa(o, "DeleteDBInstanceResult");
+    return __isa(o, "DeleteDBInstanceResult");
   }
 }
 
@@ -4205,7 +4204,7 @@ export interface DeleteDBParameterGroupMessage {
 
 export namespace DeleteDBParameterGroupMessage {
   export function isa(o: any): o is DeleteDBParameterGroupMessage {
-    return _smithy.isa(o, "DeleteDBParameterGroupMessage");
+    return __isa(o, "DeleteDBParameterGroupMessage");
   }
 }
 
@@ -4226,7 +4225,7 @@ export interface DeleteDBSubnetGroupMessage {
 
 export namespace DeleteDBSubnetGroupMessage {
   export function isa(o: any): o is DeleteDBSubnetGroupMessage {
-    return _smithy.isa(o, "DeleteDBSubnetGroupMessage");
+    return __isa(o, "DeleteDBSubnetGroupMessage");
   }
 }
 
@@ -4240,7 +4239,7 @@ export interface DeleteEventSubscriptionMessage {
 
 export namespace DeleteEventSubscriptionMessage {
   export function isa(o: any): o is DeleteEventSubscriptionMessage {
-    return _smithy.isa(o, "DeleteEventSubscriptionMessage");
+    return __isa(o, "DeleteEventSubscriptionMessage");
   }
 }
 
@@ -4254,7 +4253,7 @@ export interface DeleteEventSubscriptionResult extends $MetadataBearer {
 
 export namespace DeleteEventSubscriptionResult {
   export function isa(o: any): o is DeleteEventSubscriptionResult {
-    return _smithy.isa(o, "DeleteEventSubscriptionResult");
+    return __isa(o, "DeleteEventSubscriptionResult");
   }
 }
 
@@ -4296,7 +4295,7 @@ export interface DescribeDBClusterParameterGroupsMessage {
 
 export namespace DescribeDBClusterParameterGroupsMessage {
   export function isa(o: any): o is DescribeDBClusterParameterGroupsMessage {
-    return _smithy.isa(o, "DescribeDBClusterParameterGroupsMessage");
+    return __isa(o, "DescribeDBClusterParameterGroupsMessage");
   }
 }
 
@@ -4344,7 +4343,7 @@ export interface DescribeDBClusterParametersMessage {
 
 export namespace DescribeDBClusterParametersMessage {
   export function isa(o: any): o is DescribeDBClusterParametersMessage {
-    return _smithy.isa(o, "DescribeDBClusterParametersMessage");
+    return __isa(o, "DescribeDBClusterParametersMessage");
   }
 }
 
@@ -4358,7 +4357,7 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
 
 export namespace DescribeDBClusterSnapshotAttributesMessage {
   export function isa(o: any): o is DescribeDBClusterSnapshotAttributesMessage {
-    return _smithy.isa(o, "DescribeDBClusterSnapshotAttributesMessage");
+    return __isa(o, "DescribeDBClusterSnapshotAttributesMessage");
   }
 }
 
@@ -4375,7 +4374,7 @@ export interface DescribeDBClusterSnapshotAttributesResult
 
 export namespace DescribeDBClusterSnapshotAttributesResult {
   export function isa(o: any): o is DescribeDBClusterSnapshotAttributesResult {
-    return _smithy.isa(o, "DescribeDBClusterSnapshotAttributesResult");
+    return __isa(o, "DescribeDBClusterSnapshotAttributesResult");
   }
 }
 
@@ -4492,7 +4491,7 @@ export interface DescribeDBClusterSnapshotsMessage {
 
 export namespace DescribeDBClusterSnapshotsMessage {
   export function isa(o: any): o is DescribeDBClusterSnapshotsMessage {
-    return _smithy.isa(o, "DescribeDBClusterSnapshotsMessage");
+    return __isa(o, "DescribeDBClusterSnapshotsMessage");
   }
 }
 
@@ -4543,7 +4542,7 @@ export interface DescribeDBClustersMessage {
 
 export namespace DescribeDBClustersMessage {
   export function isa(o: any): o is DescribeDBClustersMessage {
-    return _smithy.isa(o, "DescribeDBClustersMessage");
+    return __isa(o, "DescribeDBClustersMessage");
   }
 }
 
@@ -4616,7 +4615,7 @@ export interface DescribeDBEngineVersionsMessage {
 
 export namespace DescribeDBEngineVersionsMessage {
   export function isa(o: any): o is DescribeDBEngineVersionsMessage {
-    return _smithy.isa(o, "DescribeDBEngineVersionsMessage");
+    return __isa(o, "DescribeDBEngineVersionsMessage");
   }
 }
 
@@ -4673,7 +4672,7 @@ export interface DescribeDBInstancesMessage {
 
 export namespace DescribeDBInstancesMessage {
   export function isa(o: any): o is DescribeDBInstancesMessage {
-    return _smithy.isa(o, "DescribeDBInstancesMessage");
+    return __isa(o, "DescribeDBInstancesMessage");
   }
 }
 
@@ -4714,7 +4713,7 @@ export interface DescribeDBParameterGroupsMessage {
 
 export namespace DescribeDBParameterGroupsMessage {
   export function isa(o: any): o is DescribeDBParameterGroupsMessage {
-    return _smithy.isa(o, "DescribeDBParameterGroupsMessage");
+    return __isa(o, "DescribeDBParameterGroupsMessage");
   }
 }
 
@@ -4763,7 +4762,7 @@ export interface DescribeDBParametersMessage {
 
 export namespace DescribeDBParametersMessage {
   export function isa(o: any): o is DescribeDBParametersMessage {
-    return _smithy.isa(o, "DescribeDBParametersMessage");
+    return __isa(o, "DescribeDBParametersMessage");
   }
 }
 
@@ -4798,7 +4797,7 @@ export interface DescribeDBSubnetGroupsMessage {
 
 export namespace DescribeDBSubnetGroupsMessage {
   export function isa(o: any): o is DescribeDBSubnetGroupsMessage {
-    return _smithy.isa(o, "DescribeDBSubnetGroupsMessage");
+    return __isa(o, "DescribeDBSubnetGroupsMessage");
   }
 }
 
@@ -4837,7 +4836,7 @@ export namespace DescribeEngineDefaultClusterParametersMessage {
   export function isa(
     o: any
   ): o is DescribeEngineDefaultClusterParametersMessage {
-    return _smithy.isa(o, "DescribeEngineDefaultClusterParametersMessage");
+    return __isa(o, "DescribeEngineDefaultClusterParametersMessage");
   }
 }
 
@@ -4854,7 +4853,7 @@ export namespace DescribeEngineDefaultClusterParametersResult {
   export function isa(
     o: any
   ): o is DescribeEngineDefaultClusterParametersResult {
-    return _smithy.isa(o, "DescribeEngineDefaultClusterParametersResult");
+    return __isa(o, "DescribeEngineDefaultClusterParametersResult");
   }
 }
 
@@ -4890,7 +4889,7 @@ export interface DescribeEngineDefaultParametersMessage {
 
 export namespace DescribeEngineDefaultParametersMessage {
   export function isa(o: any): o is DescribeEngineDefaultParametersMessage {
-    return _smithy.isa(o, "DescribeEngineDefaultParametersMessage");
+    return __isa(o, "DescribeEngineDefaultParametersMessage");
   }
 }
 
@@ -4904,7 +4903,7 @@ export interface DescribeEngineDefaultParametersResult extends $MetadataBearer {
 
 export namespace DescribeEngineDefaultParametersResult {
   export function isa(o: any): o is DescribeEngineDefaultParametersResult {
-    return _smithy.isa(o, "DescribeEngineDefaultParametersResult");
+    return __isa(o, "DescribeEngineDefaultParametersResult");
   }
 }
 
@@ -4924,7 +4923,7 @@ export interface DescribeEventCategoriesMessage {
 
 export namespace DescribeEventCategoriesMessage {
   export function isa(o: any): o is DescribeEventCategoriesMessage {
-    return _smithy.isa(o, "DescribeEventCategoriesMessage");
+    return __isa(o, "DescribeEventCategoriesMessage");
   }
 }
 
@@ -4959,7 +4958,7 @@ export interface DescribeEventSubscriptionsMessage {
 
 export namespace DescribeEventSubscriptionsMessage {
   export function isa(o: any): o is DescribeEventSubscriptionsMessage {
-    return _smithy.isa(o, "DescribeEventSubscriptionsMessage");
+    return __isa(o, "DescribeEventSubscriptionsMessage");
   }
 }
 
@@ -5054,7 +5053,7 @@ export interface DescribeEventsMessage {
 
 export namespace DescribeEventsMessage {
   export function isa(o: any): o is DescribeEventsMessage {
-    return _smithy.isa(o, "DescribeEventsMessage");
+    return __isa(o, "DescribeEventsMessage");
   }
 }
 
@@ -5113,7 +5112,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
 
 export namespace DescribeOrderableDBInstanceOptionsMessage {
   export function isa(o: any): o is DescribeOrderableDBInstanceOptionsMessage {
-    return _smithy.isa(o, "DescribeOrderableDBInstanceOptionsMessage");
+    return __isa(o, "DescribeOrderableDBInstanceOptionsMessage");
   }
 }
 
@@ -5165,7 +5164,7 @@ export interface DescribePendingMaintenanceActionsMessage {
 
 export namespace DescribePendingMaintenanceActionsMessage {
   export function isa(o: any): o is DescribePendingMaintenanceActionsMessage {
-    return _smithy.isa(o, "DescribePendingMaintenanceActionsMessage");
+    return __isa(o, "DescribePendingMaintenanceActionsMessage");
   }
 }
 
@@ -5181,7 +5180,7 @@ export namespace DescribeValidDBInstanceModificationsMessage {
   export function isa(
     o: any
   ): o is DescribeValidDBInstanceModificationsMessage {
-    return _smithy.isa(o, "DescribeValidDBInstanceModificationsMessage");
+    return __isa(o, "DescribeValidDBInstanceModificationsMessage");
   }
 }
 
@@ -5199,7 +5198,7 @@ export interface DescribeValidDBInstanceModificationsResult
 
 export namespace DescribeValidDBInstanceModificationsResult {
   export function isa(o: any): o is DescribeValidDBInstanceModificationsResult {
-    return _smithy.isa(o, "DescribeValidDBInstanceModificationsResult");
+    return __isa(o, "DescribeValidDBInstanceModificationsResult");
   }
 }
 
@@ -5232,7 +5231,7 @@ export interface DomainMembership {
 
 export namespace DomainMembership {
   export function isa(o: any): o is DomainMembership {
-    return _smithy.isa(o, "DomainMembership");
+    return __isa(o, "DomainMembership");
   }
 }
 
@@ -5254,7 +5253,7 @@ export interface DoubleRange {
 
 export namespace DoubleRange {
   export function isa(o: any): o is DoubleRange {
-    return _smithy.isa(o, "DoubleRange");
+    return __isa(o, "DoubleRange");
   }
 }
 
@@ -5281,7 +5280,7 @@ export interface Endpoint {
 
 export namespace Endpoint {
   export function isa(o: any): o is Endpoint {
-    return _smithy.isa(o, "Endpoint");
+    return __isa(o, "Endpoint");
   }
 }
 
@@ -5311,7 +5310,7 @@ export interface EngineDefaults {
 
 export namespace EngineDefaults {
   export function isa(o: any): o is EngineDefaults {
-    return _smithy.isa(o, "EngineDefaults");
+    return __isa(o, "EngineDefaults");
   }
 }
 
@@ -5354,7 +5353,7 @@ export interface Event {
 
 export namespace Event {
   export function isa(o: any): o is Event {
-    return _smithy.isa(o, "Event");
+    return __isa(o, "Event");
   }
 }
 
@@ -5376,7 +5375,7 @@ export interface EventCategoriesMap {
 
 export namespace EventCategoriesMap {
   export function isa(o: any): o is EventCategoriesMap {
-    return _smithy.isa(o, "EventCategoriesMap");
+    return __isa(o, "EventCategoriesMap");
   }
 }
 
@@ -5390,7 +5389,7 @@ export interface EventCategoriesMessage extends $MetadataBearer {
 
 export namespace EventCategoriesMessage {
   export function isa(o: any): o is EventCategoriesMessage {
-    return _smithy.isa(o, "EventCategoriesMessage");
+    return __isa(o, "EventCategoriesMessage");
   }
 }
 
@@ -5459,7 +5458,7 @@ export interface EventSubscription {
 
 export namespace EventSubscription {
   export function isa(o: any): o is EventSubscription {
-    return _smithy.isa(o, "EventSubscription");
+    return __isa(o, "EventSubscription");
   }
 }
 
@@ -5480,7 +5479,7 @@ export interface EventSubscriptionsMessage extends $MetadataBearer {
 
 export namespace EventSubscriptionsMessage {
   export function isa(o: any): o is EventSubscriptionsMessage {
-    return _smithy.isa(o, "EventSubscriptionsMessage");
+    return __isa(o, "EventSubscriptionsMessage");
   }
 }
 
@@ -5501,7 +5500,7 @@ export interface EventsMessage extends $MetadataBearer {
 
 export namespace EventsMessage {
   export function isa(o: any): o is EventsMessage {
-    return _smithy.isa(o, "EventsMessage");
+    return __isa(o, "EventsMessage");
   }
 }
 
@@ -5529,7 +5528,7 @@ export interface FailoverDBClusterMessage {
 
 export namespace FailoverDBClusterMessage {
   export function isa(o: any): o is FailoverDBClusterMessage {
-    return _smithy.isa(o, "FailoverDBClusterMessage");
+    return __isa(o, "FailoverDBClusterMessage");
   }
 }
 
@@ -5544,7 +5543,7 @@ export interface FailoverDBClusterResult extends $MetadataBearer {
 
 export namespace FailoverDBClusterResult {
   export function isa(o: any): o is FailoverDBClusterResult {
-    return _smithy.isa(o, "FailoverDBClusterResult");
+    return __isa(o, "FailoverDBClusterResult");
   }
 }
 
@@ -5566,7 +5565,7 @@ export interface Filter {
 
 export namespace Filter {
   export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
+    return __isa(o, "Filter");
   }
 }
 
@@ -5587,7 +5586,7 @@ export interface ListTagsForResourceMessage {
 
 export namespace ListTagsForResourceMessage {
   export function isa(o: any): o is ListTagsForResourceMessage {
-    return _smithy.isa(o, "ListTagsForResourceMessage");
+    return __isa(o, "ListTagsForResourceMessage");
   }
 }
 
@@ -5758,7 +5757,7 @@ export interface ModifyDBClusterMessage {
 
 export namespace ModifyDBClusterMessage {
   export function isa(o: any): o is ModifyDBClusterMessage {
-    return _smithy.isa(o, "ModifyDBClusterMessage");
+    return __isa(o, "ModifyDBClusterMessage");
   }
 }
 
@@ -5777,7 +5776,7 @@ export interface ModifyDBClusterParameterGroupMessage {
 
 export namespace ModifyDBClusterParameterGroupMessage {
   export function isa(o: any): o is ModifyDBClusterParameterGroupMessage {
-    return _smithy.isa(o, "ModifyDBClusterParameterGroupMessage");
+    return __isa(o, "ModifyDBClusterParameterGroupMessage");
   }
 }
 
@@ -5792,7 +5791,7 @@ export interface ModifyDBClusterResult extends $MetadataBearer {
 
 export namespace ModifyDBClusterResult {
   export function isa(o: any): o is ModifyDBClusterResult {
-    return _smithy.isa(o, "ModifyDBClusterResult");
+    return __isa(o, "ModifyDBClusterResult");
   }
 }
 
@@ -5835,7 +5834,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
 
 export namespace ModifyDBClusterSnapshotAttributeMessage {
   export function isa(o: any): o is ModifyDBClusterSnapshotAttributeMessage {
-    return _smithy.isa(o, "ModifyDBClusterSnapshotAttributeMessage");
+    return __isa(o, "ModifyDBClusterSnapshotAttributeMessage");
   }
 }
 
@@ -5852,7 +5851,7 @@ export interface ModifyDBClusterSnapshotAttributeResult
 
 export namespace ModifyDBClusterSnapshotAttributeResult {
   export function isa(o: any): o is ModifyDBClusterSnapshotAttributeResult {
-    return _smithy.isa(o, "ModifyDBClusterSnapshotAttributeResult");
+    return __isa(o, "ModifyDBClusterSnapshotAttributeResult");
   }
 }
 
@@ -6195,7 +6194,7 @@ export interface ModifyDBInstanceMessage {
 
 export namespace ModifyDBInstanceMessage {
   export function isa(o: any): o is ModifyDBInstanceMessage {
-    return _smithy.isa(o, "ModifyDBInstanceMessage");
+    return __isa(o, "ModifyDBInstanceMessage");
   }
 }
 
@@ -6210,7 +6209,7 @@ export interface ModifyDBInstanceResult extends $MetadataBearer {
 
 export namespace ModifyDBInstanceResult {
   export function isa(o: any): o is ModifyDBInstanceResult {
-    return _smithy.isa(o, "ModifyDBInstanceResult");
+    return __isa(o, "ModifyDBInstanceResult");
   }
 }
 
@@ -6244,7 +6243,7 @@ export interface ModifyDBParameterGroupMessage {
 
 export namespace ModifyDBParameterGroupMessage {
   export function isa(o: any): o is ModifyDBParameterGroupMessage {
-    return _smithy.isa(o, "ModifyDBParameterGroupMessage");
+    return __isa(o, "ModifyDBParameterGroupMessage");
   }
 }
 
@@ -6272,7 +6271,7 @@ export interface ModifyDBSubnetGroupMessage {
 
 export namespace ModifyDBSubnetGroupMessage {
   export function isa(o: any): o is ModifyDBSubnetGroupMessage {
-    return _smithy.isa(o, "ModifyDBSubnetGroupMessage");
+    return __isa(o, "ModifyDBSubnetGroupMessage");
   }
 }
 
@@ -6287,7 +6286,7 @@ export interface ModifyDBSubnetGroupResult extends $MetadataBearer {
 
 export namespace ModifyDBSubnetGroupResult {
   export function isa(o: any): o is ModifyDBSubnetGroupResult {
-    return _smithy.isa(o, "ModifyDBSubnetGroupResult");
+    return __isa(o, "ModifyDBSubnetGroupResult");
   }
 }
 
@@ -6329,7 +6328,7 @@ export interface ModifyEventSubscriptionMessage {
 
 export namespace ModifyEventSubscriptionMessage {
   export function isa(o: any): o is ModifyEventSubscriptionMessage {
-    return _smithy.isa(o, "ModifyEventSubscriptionMessage");
+    return __isa(o, "ModifyEventSubscriptionMessage");
   }
 }
 
@@ -6343,7 +6342,7 @@ export interface ModifyEventSubscriptionResult extends $MetadataBearer {
 
 export namespace ModifyEventSubscriptionResult {
   export function isa(o: any): o is ModifyEventSubscriptionResult {
-    return _smithy.isa(o, "ModifyEventSubscriptionResult");
+    return __isa(o, "ModifyEventSubscriptionResult");
   }
 }
 
@@ -6368,7 +6367,7 @@ export interface OptionGroupMembership {
 
 export namespace OptionGroupMembership {
   export function isa(o: any): o is OptionGroupMembership {
-    return _smithy.isa(o, "OptionGroupMembership");
+    return __isa(o, "OptionGroupMembership");
   }
 }
 
@@ -6484,7 +6483,7 @@ export interface OrderableDBInstanceOption {
 
 export namespace OrderableDBInstanceOption {
   export function isa(o: any): o is OrderableDBInstanceOption {
-    return _smithy.isa(o, "OrderableDBInstanceOption");
+    return __isa(o, "OrderableDBInstanceOption");
   }
 }
 
@@ -6506,7 +6505,7 @@ export interface OrderableDBInstanceOptionsMessage extends $MetadataBearer {
 
 export namespace OrderableDBInstanceOptionsMessage {
   export function isa(o: any): o is OrderableDBInstanceOptionsMessage {
-    return _smithy.isa(o, "OrderableDBInstanceOptionsMessage");
+    return __isa(o, "OrderableDBInstanceOptionsMessage");
   }
 }
 
@@ -6570,7 +6569,7 @@ export interface Parameter {
 
 export namespace Parameter {
   export function isa(o: any): o is Parameter {
-    return _smithy.isa(o, "Parameter");
+    return __isa(o, "Parameter");
   }
 }
 
@@ -6595,7 +6594,7 @@ export interface PendingCloudwatchLogsExports {
 
 export namespace PendingCloudwatchLogsExports {
   export function isa(o: any): o is PendingCloudwatchLogsExports {
-    return _smithy.isa(o, "PendingCloudwatchLogsExports");
+    return __isa(o, "PendingCloudwatchLogsExports");
   }
 }
 
@@ -6645,7 +6644,7 @@ export interface PendingMaintenanceAction {
 
 export namespace PendingMaintenanceAction {
   export function isa(o: any): o is PendingMaintenanceAction {
-    return _smithy.isa(o, "PendingMaintenanceAction");
+    return __isa(o, "PendingMaintenanceAction");
   }
 }
 
@@ -6667,7 +6666,7 @@ export interface PendingMaintenanceActionsMessage extends $MetadataBearer {
 
 export namespace PendingMaintenanceActionsMessage {
   export function isa(o: any): o is PendingMaintenanceActionsMessage {
-    return _smithy.isa(o, "PendingMaintenanceActionsMessage");
+    return __isa(o, "PendingMaintenanceActionsMessage");
   }
 }
 
@@ -6759,7 +6758,7 @@ export interface PendingModifiedValues {
 
 export namespace PendingModifiedValues {
   export function isa(o: any): o is PendingModifiedValues {
-    return _smithy.isa(o, "PendingModifiedValues");
+    return __isa(o, "PendingModifiedValues");
   }
 }
 
@@ -6773,7 +6772,7 @@ export interface PromoteReadReplicaDBClusterMessage {
 
 export namespace PromoteReadReplicaDBClusterMessage {
   export function isa(o: any): o is PromoteReadReplicaDBClusterMessage {
-    return _smithy.isa(o, "PromoteReadReplicaDBClusterMessage");
+    return __isa(o, "PromoteReadReplicaDBClusterMessage");
   }
 }
 
@@ -6788,7 +6787,7 @@ export interface PromoteReadReplicaDBClusterResult extends $MetadataBearer {
 
 export namespace PromoteReadReplicaDBClusterResult {
   export function isa(o: any): o is PromoteReadReplicaDBClusterResult {
-    return _smithy.isa(o, "PromoteReadReplicaDBClusterResult");
+    return __isa(o, "PromoteReadReplicaDBClusterResult");
   }
 }
 
@@ -6818,7 +6817,7 @@ export interface Range {
 
 export namespace Range {
   export function isa(o: any): o is Range {
-    return _smithy.isa(o, "Range");
+    return __isa(o, "Range");
   }
 }
 
@@ -6845,7 +6844,7 @@ export interface RebootDBInstanceMessage {
 
 export namespace RebootDBInstanceMessage {
   export function isa(o: any): o is RebootDBInstanceMessage {
-    return _smithy.isa(o, "RebootDBInstanceMessage");
+    return __isa(o, "RebootDBInstanceMessage");
   }
 }
 
@@ -6860,7 +6859,7 @@ export interface RebootDBInstanceResult extends $MetadataBearer {
 
 export namespace RebootDBInstanceResult {
   export function isa(o: any): o is RebootDBInstanceResult {
-    return _smithy.isa(o, "RebootDBInstanceResult");
+    return __isa(o, "RebootDBInstanceResult");
   }
 }
 
@@ -6880,7 +6879,7 @@ export interface RemoveRoleFromDBClusterMessage {
 
 export namespace RemoveRoleFromDBClusterMessage {
   export function isa(o: any): o is RemoveRoleFromDBClusterMessage {
-    return _smithy.isa(o, "RemoveRoleFromDBClusterMessage");
+    return __isa(o, "RemoveRoleFromDBClusterMessage");
   }
 }
 
@@ -6903,7 +6902,7 @@ export namespace RemoveSourceIdentifierFromSubscriptionMessage {
   export function isa(
     o: any
   ): o is RemoveSourceIdentifierFromSubscriptionMessage {
-    return _smithy.isa(o, "RemoveSourceIdentifierFromSubscriptionMessage");
+    return __isa(o, "RemoveSourceIdentifierFromSubscriptionMessage");
   }
 }
 
@@ -6920,7 +6919,7 @@ export namespace RemoveSourceIdentifierFromSubscriptionResult {
   export function isa(
     o: any
   ): o is RemoveSourceIdentifierFromSubscriptionResult {
-    return _smithy.isa(o, "RemoveSourceIdentifierFromSubscriptionResult");
+    return __isa(o, "RemoveSourceIdentifierFromSubscriptionResult");
   }
 }
 
@@ -6941,7 +6940,7 @@ export interface RemoveTagsFromResourceMessage {
 
 export namespace RemoveTagsFromResourceMessage {
   export function isa(o: any): o is RemoveTagsFromResourceMessage {
-    return _smithy.isa(o, "RemoveTagsFromResourceMessage");
+    return __isa(o, "RemoveTagsFromResourceMessage");
   }
 }
 
@@ -6970,7 +6969,7 @@ export interface ResetDBClusterParameterGroupMessage {
 
 export namespace ResetDBClusterParameterGroupMessage {
   export function isa(o: any): o is ResetDBClusterParameterGroupMessage {
-    return _smithy.isa(o, "ResetDBClusterParameterGroupMessage");
+    return __isa(o, "ResetDBClusterParameterGroupMessage");
   }
 }
 
@@ -7008,7 +7007,7 @@ export interface ResetDBParameterGroupMessage {
 
 export namespace ResetDBParameterGroupMessage {
   export function isa(o: any): o is ResetDBParameterGroupMessage {
-    return _smithy.isa(o, "ResetDBParameterGroupMessage");
+    return __isa(o, "ResetDBParameterGroupMessage");
   }
 }
 
@@ -7031,7 +7030,7 @@ export interface ResourcePendingMaintenanceActions {
 
 export namespace ResourcePendingMaintenanceActions {
   export function isa(o: any): o is ResourcePendingMaintenanceActions {
-    return _smithy.isa(o, "ResourcePendingMaintenanceActions");
+    return __isa(o, "ResourcePendingMaintenanceActions");
   }
 }
 
@@ -7184,7 +7183,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
 
 export namespace RestoreDBClusterFromSnapshotMessage {
   export function isa(o: any): o is RestoreDBClusterFromSnapshotMessage {
-    return _smithy.isa(o, "RestoreDBClusterFromSnapshotMessage");
+    return __isa(o, "RestoreDBClusterFromSnapshotMessage");
   }
 }
 
@@ -7199,7 +7198,7 @@ export interface RestoreDBClusterFromSnapshotResult extends $MetadataBearer {
 
 export namespace RestoreDBClusterFromSnapshotResult {
   export function isa(o: any): o is RestoreDBClusterFromSnapshotResult {
-    return _smithy.isa(o, "RestoreDBClusterFromSnapshotResult");
+    return __isa(o, "RestoreDBClusterFromSnapshotResult");
   }
 }
 
@@ -7383,7 +7382,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
 export namespace RestoreDBClusterToPointInTimeMessage {
   export function isa(o: any): o is RestoreDBClusterToPointInTimeMessage {
-    return _smithy.isa(o, "RestoreDBClusterToPointInTimeMessage");
+    return __isa(o, "RestoreDBClusterToPointInTimeMessage");
   }
 }
 
@@ -7398,7 +7397,7 @@ export interface RestoreDBClusterToPointInTimeResult extends $MetadataBearer {
 
 export namespace RestoreDBClusterToPointInTimeResult {
   export function isa(o: any): o is RestoreDBClusterToPointInTimeResult {
-    return _smithy.isa(o, "RestoreDBClusterToPointInTimeResult");
+    return __isa(o, "RestoreDBClusterToPointInTimeResult");
   }
 }
 
@@ -7434,7 +7433,7 @@ export interface Subnet {
 
 export namespace Subnet {
   export function isa(o: any): o is Subnet {
-    return _smithy.isa(o, "Subnet");
+    return __isa(o, "Subnet");
   }
 }
 
@@ -7462,7 +7461,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -7476,7 +7475,7 @@ export interface TagListMessage extends $MetadataBearer {
 
 export namespace TagListMessage {
   export function isa(o: any): o is TagListMessage {
-    return _smithy.isa(o, "TagListMessage");
+    return __isa(o, "TagListMessage");
   }
 }
 
@@ -7493,7 +7492,7 @@ export interface Timezone {
 
 export namespace Timezone {
   export function isa(o: any): o is Timezone {
-    return _smithy.isa(o, "Timezone");
+    return __isa(o, "Timezone");
   }
 }
 
@@ -7531,7 +7530,7 @@ export interface UpgradeTarget {
 
 export namespace UpgradeTarget {
   export function isa(o: any): o is UpgradeTarget {
-    return _smithy.isa(o, "UpgradeTarget");
+    return __isa(o, "UpgradeTarget");
   }
 }
 
@@ -7551,7 +7550,7 @@ export interface ValidDBInstanceModificationsMessage {
 
 export namespace ValidDBInstanceModificationsMessage {
   export function isa(o: any): o is ValidDBInstanceModificationsMessage {
-    return _smithy.isa(o, "ValidDBInstanceModificationsMessage");
+    return __isa(o, "ValidDBInstanceModificationsMessage");
   }
 }
 
@@ -7586,7 +7585,7 @@ export interface ValidStorageOptions {
 
 export namespace ValidStorageOptions {
   export function isa(o: any): o is ValidStorageOptions {
-    return _smithy.isa(o, "ValidStorageOptions");
+    return __isa(o, "ValidStorageOptions");
   }
 }
 
@@ -7609,6 +7608,6 @@ export interface VpcSecurityGroupMembership {
 
 export namespace VpcSecurityGroupMembership {
   export function isa(o: any): o is VpcSecurityGroupMembership {
-    return _smithy.isa(o, "VpcSecurityGroupMembership");
+    return __isa(o, "VpcSecurityGroupMembership");
   }
 }

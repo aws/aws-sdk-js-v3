@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -52,7 +55,7 @@ export interface AwsCloudMapInstanceAttribute {
 
 export namespace AwsCloudMapInstanceAttribute {
   export function isa(o: any): o is AwsCloudMapInstanceAttribute {
-    return _smithy.isa(o, "AwsCloudMapInstanceAttribute");
+    return __isa(o, "AwsCloudMapInstanceAttribute");
   }
 }
 
@@ -82,7 +85,7 @@ export interface AwsCloudMapServiceDiscovery {
 
 export namespace AwsCloudMapServiceDiscovery {
   export function isa(o: any): o is AwsCloudMapServiceDiscovery {
-    return _smithy.isa(o, "AwsCloudMapServiceDiscovery");
+    return __isa(o, "AwsCloudMapServiceDiscovery");
   }
 }
 
@@ -122,7 +125,7 @@ export namespace Backend {
  * <p>The request syntax was malformed. Check your request syntax and try again.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -131,7 +134,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -139,9 +142,7 @@ export namespace BadRequestException {
  * <p>The request contains a client token that was used for a previous update resource call
  *          with different specifications. Try the request again with a new client token.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
@@ -149,7 +150,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -185,7 +186,7 @@ export interface CreateMeshInput {
 
 export namespace CreateMeshInput {
   export function isa(o: any): o is CreateMeshInput {
-    return _smithy.isa(o, "CreateMeshInput");
+    return __isa(o, "CreateMeshInput");
   }
 }
 
@@ -202,7 +203,7 @@ export interface CreateMeshOutput extends $MetadataBearer {
 
 export namespace CreateMeshOutput {
   export function isa(o: any): o is CreateMeshOutput {
-    return _smithy.isa(o, "CreateMeshOutput");
+    return __isa(o, "CreateMeshOutput");
   }
 }
 
@@ -248,7 +249,7 @@ export interface CreateRouteInput {
 
 export namespace CreateRouteInput {
   export function isa(o: any): o is CreateRouteInput {
-    return _smithy.isa(o, "CreateRouteInput");
+    return __isa(o, "CreateRouteInput");
   }
 }
 
@@ -265,7 +266,7 @@ export interface CreateRouteOutput extends $MetadataBearer {
 
 export namespace CreateRouteOutput {
   export function isa(o: any): o is CreateRouteOutput {
-    return _smithy.isa(o, "CreateRouteOutput");
+    return __isa(o, "CreateRouteOutput");
   }
 }
 
@@ -306,7 +307,7 @@ export interface CreateVirtualNodeInput {
 
 export namespace CreateVirtualNodeInput {
   export function isa(o: any): o is CreateVirtualNodeInput {
-    return _smithy.isa(o, "CreateVirtualNodeInput");
+    return __isa(o, "CreateVirtualNodeInput");
   }
 }
 
@@ -323,7 +324,7 @@ export interface CreateVirtualNodeOutput extends $MetadataBearer {
 
 export namespace CreateVirtualNodeOutput {
   export function isa(o: any): o is CreateVirtualNodeOutput {
-    return _smithy.isa(o, "CreateVirtualNodeOutput");
+    return __isa(o, "CreateVirtualNodeOutput");
   }
 }
 
@@ -364,7 +365,7 @@ export interface CreateVirtualRouterInput {
 
 export namespace CreateVirtualRouterInput {
   export function isa(o: any): o is CreateVirtualRouterInput {
-    return _smithy.isa(o, "CreateVirtualRouterInput");
+    return __isa(o, "CreateVirtualRouterInput");
   }
 }
 
@@ -381,7 +382,7 @@ export interface CreateVirtualRouterOutput extends $MetadataBearer {
 
 export namespace CreateVirtualRouterOutput {
   export function isa(o: any): o is CreateVirtualRouterOutput {
-    return _smithy.isa(o, "CreateVirtualRouterOutput");
+    return __isa(o, "CreateVirtualRouterOutput");
   }
 }
 
@@ -422,7 +423,7 @@ export interface CreateVirtualServiceInput {
 
 export namespace CreateVirtualServiceInput {
   export function isa(o: any): o is CreateVirtualServiceInput {
-    return _smithy.isa(o, "CreateVirtualServiceInput");
+    return __isa(o, "CreateVirtualServiceInput");
   }
 }
 
@@ -439,7 +440,7 @@ export interface CreateVirtualServiceOutput extends $MetadataBearer {
 
 export namespace CreateVirtualServiceOutput {
   export function isa(o: any): o is CreateVirtualServiceOutput {
-    return _smithy.isa(o, "CreateVirtualServiceOutput");
+    return __isa(o, "CreateVirtualServiceOutput");
   }
 }
 
@@ -456,7 +457,7 @@ export interface DeleteMeshInput {
 
 export namespace DeleteMeshInput {
   export function isa(o: any): o is DeleteMeshInput {
-    return _smithy.isa(o, "DeleteMeshInput");
+    return __isa(o, "DeleteMeshInput");
   }
 }
 
@@ -473,7 +474,7 @@ export interface DeleteMeshOutput extends $MetadataBearer {
 
 export namespace DeleteMeshOutput {
   export function isa(o: any): o is DeleteMeshOutput {
-    return _smithy.isa(o, "DeleteMeshOutput");
+    return __isa(o, "DeleteMeshOutput");
   }
 }
 
@@ -500,7 +501,7 @@ export interface DeleteRouteInput {
 
 export namespace DeleteRouteInput {
   export function isa(o: any): o is DeleteRouteInput {
-    return _smithy.isa(o, "DeleteRouteInput");
+    return __isa(o, "DeleteRouteInput");
   }
 }
 
@@ -517,7 +518,7 @@ export interface DeleteRouteOutput extends $MetadataBearer {
 
 export namespace DeleteRouteOutput {
   export function isa(o: any): o is DeleteRouteOutput {
-    return _smithy.isa(o, "DeleteRouteOutput");
+    return __isa(o, "DeleteRouteOutput");
   }
 }
 
@@ -539,7 +540,7 @@ export interface DeleteVirtualNodeInput {
 
 export namespace DeleteVirtualNodeInput {
   export function isa(o: any): o is DeleteVirtualNodeInput {
-    return _smithy.isa(o, "DeleteVirtualNodeInput");
+    return __isa(o, "DeleteVirtualNodeInput");
   }
 }
 
@@ -556,7 +557,7 @@ export interface DeleteVirtualNodeOutput extends $MetadataBearer {
 
 export namespace DeleteVirtualNodeOutput {
   export function isa(o: any): o is DeleteVirtualNodeOutput {
-    return _smithy.isa(o, "DeleteVirtualNodeOutput");
+    return __isa(o, "DeleteVirtualNodeOutput");
   }
 }
 
@@ -578,7 +579,7 @@ export interface DeleteVirtualRouterInput {
 
 export namespace DeleteVirtualRouterInput {
   export function isa(o: any): o is DeleteVirtualRouterInput {
-    return _smithy.isa(o, "DeleteVirtualRouterInput");
+    return __isa(o, "DeleteVirtualRouterInput");
   }
 }
 
@@ -595,7 +596,7 @@ export interface DeleteVirtualRouterOutput extends $MetadataBearer {
 
 export namespace DeleteVirtualRouterOutput {
   export function isa(o: any): o is DeleteVirtualRouterOutput {
-    return _smithy.isa(o, "DeleteVirtualRouterOutput");
+    return __isa(o, "DeleteVirtualRouterOutput");
   }
 }
 
@@ -617,7 +618,7 @@ export interface DeleteVirtualServiceInput {
 
 export namespace DeleteVirtualServiceInput {
   export function isa(o: any): o is DeleteVirtualServiceInput {
-    return _smithy.isa(o, "DeleteVirtualServiceInput");
+    return __isa(o, "DeleteVirtualServiceInput");
   }
 }
 
@@ -634,7 +635,7 @@ export interface DeleteVirtualServiceOutput extends $MetadataBearer {
 
 export namespace DeleteVirtualServiceOutput {
   export function isa(o: any): o is DeleteVirtualServiceOutput {
-    return _smithy.isa(o, "DeleteVirtualServiceOutput");
+    return __isa(o, "DeleteVirtualServiceOutput");
   }
 }
 
@@ -651,7 +652,7 @@ export interface DescribeMeshInput {
 
 export namespace DescribeMeshInput {
   export function isa(o: any): o is DescribeMeshInput {
-    return _smithy.isa(o, "DescribeMeshInput");
+    return __isa(o, "DescribeMeshInput");
   }
 }
 
@@ -668,7 +669,7 @@ export interface DescribeMeshOutput extends $MetadataBearer {
 
 export namespace DescribeMeshOutput {
   export function isa(o: any): o is DescribeMeshOutput {
-    return _smithy.isa(o, "DescribeMeshOutput");
+    return __isa(o, "DescribeMeshOutput");
   }
 }
 
@@ -695,7 +696,7 @@ export interface DescribeRouteInput {
 
 export namespace DescribeRouteInput {
   export function isa(o: any): o is DescribeRouteInput {
-    return _smithy.isa(o, "DescribeRouteInput");
+    return __isa(o, "DescribeRouteInput");
   }
 }
 
@@ -712,7 +713,7 @@ export interface DescribeRouteOutput extends $MetadataBearer {
 
 export namespace DescribeRouteOutput {
   export function isa(o: any): o is DescribeRouteOutput {
-    return _smithy.isa(o, "DescribeRouteOutput");
+    return __isa(o, "DescribeRouteOutput");
   }
 }
 
@@ -734,7 +735,7 @@ export interface DescribeVirtualNodeInput {
 
 export namespace DescribeVirtualNodeInput {
   export function isa(o: any): o is DescribeVirtualNodeInput {
-    return _smithy.isa(o, "DescribeVirtualNodeInput");
+    return __isa(o, "DescribeVirtualNodeInput");
   }
 }
 
@@ -751,7 +752,7 @@ export interface DescribeVirtualNodeOutput extends $MetadataBearer {
 
 export namespace DescribeVirtualNodeOutput {
   export function isa(o: any): o is DescribeVirtualNodeOutput {
-    return _smithy.isa(o, "DescribeVirtualNodeOutput");
+    return __isa(o, "DescribeVirtualNodeOutput");
   }
 }
 
@@ -773,7 +774,7 @@ export interface DescribeVirtualRouterInput {
 
 export namespace DescribeVirtualRouterInput {
   export function isa(o: any): o is DescribeVirtualRouterInput {
-    return _smithy.isa(o, "DescribeVirtualRouterInput");
+    return __isa(o, "DescribeVirtualRouterInput");
   }
 }
 
@@ -790,7 +791,7 @@ export interface DescribeVirtualRouterOutput extends $MetadataBearer {
 
 export namespace DescribeVirtualRouterOutput {
   export function isa(o: any): o is DescribeVirtualRouterOutput {
-    return _smithy.isa(o, "DescribeVirtualRouterOutput");
+    return __isa(o, "DescribeVirtualRouterOutput");
   }
 }
 
@@ -812,7 +813,7 @@ export interface DescribeVirtualServiceInput {
 
 export namespace DescribeVirtualServiceInput {
   export function isa(o: any): o is DescribeVirtualServiceInput {
-    return _smithy.isa(o, "DescribeVirtualServiceInput");
+    return __isa(o, "DescribeVirtualServiceInput");
   }
 }
 
@@ -829,7 +830,7 @@ export interface DescribeVirtualServiceOutput extends $MetadataBearer {
 
 export namespace DescribeVirtualServiceOutput {
   export function isa(o: any): o is DescribeVirtualServiceOutput {
-    return _smithy.isa(o, "DescribeVirtualServiceOutput");
+    return __isa(o, "DescribeVirtualServiceOutput");
   }
 }
 
@@ -847,7 +848,7 @@ export interface DnsServiceDiscovery {
 
 export namespace DnsServiceDiscovery {
   export function isa(o: any): o is DnsServiceDiscovery {
-    return _smithy.isa(o, "DnsServiceDiscovery");
+    return __isa(o, "DnsServiceDiscovery");
   }
 }
 
@@ -869,7 +870,7 @@ export interface Duration {
 
 export namespace Duration {
   export function isa(o: any): o is Duration {
-    return _smithy.isa(o, "Duration");
+    return __isa(o, "Duration");
   }
 }
 
@@ -895,7 +896,7 @@ export interface EgressFilter {
 
 export namespace EgressFilter {
   export function isa(o: any): o is EgressFilter {
-    return _smithy.isa(o, "EgressFilter");
+    return __isa(o, "EgressFilter");
   }
 }
 
@@ -925,16 +926,14 @@ export interface FileAccessLog {
 
 export namespace FileAccessLog {
   export function isa(o: any): o is FileAccessLog {
-    return _smithy.isa(o, "FileAccessLog");
+    return __isa(o, "FileAccessLog");
   }
 }
 
 /**
  * <p>You don't have permissions to perform this action.</p>
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   message?: string;
@@ -942,7 +941,7 @@ export interface ForbiddenException
 
 export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
-    return _smithy.isa(o, "ForbiddenException");
+    return __isa(o, "ForbiddenException");
   }
 }
 
@@ -1000,7 +999,7 @@ export interface GrpcRetryPolicy {
 
 export namespace GrpcRetryPolicy {
   export function isa(o: any): o is GrpcRetryPolicy {
-    return _smithy.isa(o, "GrpcRetryPolicy");
+    return __isa(o, "GrpcRetryPolicy");
   }
 }
 
@@ -1035,7 +1034,7 @@ export interface GrpcRoute {
 
 export namespace GrpcRoute {
   export function isa(o: any): o is GrpcRoute {
-    return _smithy.isa(o, "GrpcRoute");
+    return __isa(o, "GrpcRoute");
   }
 }
 
@@ -1052,7 +1051,7 @@ export interface GrpcRouteAction {
 
 export namespace GrpcRouteAction {
   export function isa(o: any): o is GrpcRouteAction {
-    return _smithy.isa(o, "GrpcRouteAction");
+    return __isa(o, "GrpcRouteAction");
   }
 }
 
@@ -1079,7 +1078,7 @@ export interface GrpcRouteMatch {
 
 export namespace GrpcRouteMatch {
   export function isa(o: any): o is GrpcRouteMatch {
-    return _smithy.isa(o, "GrpcRouteMatch");
+    return __isa(o, "GrpcRouteMatch");
   }
 }
 
@@ -1106,7 +1105,7 @@ export interface GrpcRouteMetadata {
 
 export namespace GrpcRouteMetadata {
   export function isa(o: any): o is GrpcRouteMetadata {
-    return _smithy.isa(o, "GrpcRouteMetadata");
+    return __isa(o, "GrpcRouteMetadata");
   }
 }
 
@@ -1354,7 +1353,7 @@ export interface HealthCheckPolicy {
 
 export namespace HealthCheckPolicy {
   export function isa(o: any): o is HealthCheckPolicy {
-    return _smithy.isa(o, "HealthCheckPolicy");
+    return __isa(o, "HealthCheckPolicy");
   }
 }
 
@@ -1419,7 +1418,7 @@ export interface HttpRetryPolicy {
 
 export namespace HttpRetryPolicy {
   export function isa(o: any): o is HttpRetryPolicy {
-    return _smithy.isa(o, "HttpRetryPolicy");
+    return __isa(o, "HttpRetryPolicy");
   }
 }
 
@@ -1446,7 +1445,7 @@ export interface HttpRoute {
 
 export namespace HttpRoute {
   export function isa(o: any): o is HttpRoute {
-    return _smithy.isa(o, "HttpRoute");
+    return __isa(o, "HttpRoute");
   }
 }
 
@@ -1463,7 +1462,7 @@ export interface HttpRouteAction {
 
 export namespace HttpRouteAction {
   export function isa(o: any): o is HttpRouteAction {
-    return _smithy.isa(o, "HttpRouteAction");
+    return __isa(o, "HttpRouteAction");
   }
 }
 
@@ -1490,7 +1489,7 @@ export interface HttpRouteHeader {
 
 export namespace HttpRouteHeader {
   export function isa(o: any): o is HttpRouteHeader {
-    return _smithy.isa(o, "HttpRouteHeader");
+    return __isa(o, "HttpRouteHeader");
   }
 }
 
@@ -1528,7 +1527,7 @@ export interface HttpRouteMatch {
 
 export namespace HttpRouteMatch {
   export function isa(o: any): o is HttpRouteMatch {
-    return _smithy.isa(o, "HttpRouteMatch");
+    return __isa(o, "HttpRouteMatch");
   }
 }
 
@@ -1542,7 +1541,7 @@ export enum HttpScheme {
  *          failure.</p>
  */
 export interface InternalServerErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
@@ -1551,7 +1550,7 @@ export interface InternalServerErrorException
 
 export namespace InternalServerErrorException {
   export function isa(o: any): o is InternalServerErrorException {
-    return _smithy.isa(o, "InternalServerErrorException");
+    return __isa(o, "InternalServerErrorException");
   }
 }
 
@@ -1560,7 +1559,7 @@ export namespace InternalServerErrorException {
  *             Limits</a> in the <i>AWS App Mesh User Guide</i>.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -1569,7 +1568,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -1605,7 +1604,7 @@ export interface ListMeshesInput {
 
 export namespace ListMeshesInput {
   export function isa(o: any): o is ListMeshesInput {
-    return _smithy.isa(o, "ListMeshesInput");
+    return __isa(o, "ListMeshesInput");
   }
 }
 
@@ -1630,7 +1629,7 @@ export interface ListMeshesOutput extends $MetadataBearer {
 
 export namespace ListMeshesOutput {
   export function isa(o: any): o is ListMeshesOutput {
-    return _smithy.isa(o, "ListMeshesOutput");
+    return __isa(o, "ListMeshesOutput");
   }
 }
 
@@ -1672,7 +1671,7 @@ export interface ListRoutesInput {
 
 export namespace ListRoutesInput {
   export function isa(o: any): o is ListRoutesInput {
-    return _smithy.isa(o, "ListRoutesInput");
+    return __isa(o, "ListRoutesInput");
   }
 }
 
@@ -1697,7 +1696,7 @@ export interface ListRoutesOutput extends $MetadataBearer {
 
 export namespace ListRoutesOutput {
   export function isa(o: any): o is ListRoutesOutput {
-    return _smithy.isa(o, "ListRoutesOutput");
+    return __isa(o, "ListRoutesOutput");
   }
 }
 
@@ -1734,7 +1733,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -1759,7 +1758,7 @@ export interface ListTagsForResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
-    return _smithy.isa(o, "ListTagsForResourceOutput");
+    return __isa(o, "ListTagsForResourceOutput");
   }
 }
 
@@ -1796,7 +1795,7 @@ export interface ListVirtualNodesInput {
 
 export namespace ListVirtualNodesInput {
   export function isa(o: any): o is ListVirtualNodesInput {
-    return _smithy.isa(o, "ListVirtualNodesInput");
+    return __isa(o, "ListVirtualNodesInput");
   }
 }
 
@@ -1821,7 +1820,7 @@ export interface ListVirtualNodesOutput extends $MetadataBearer {
 
 export namespace ListVirtualNodesOutput {
   export function isa(o: any): o is ListVirtualNodesOutput {
-    return _smithy.isa(o, "ListVirtualNodesOutput");
+    return __isa(o, "ListVirtualNodesOutput");
   }
 }
 
@@ -1858,7 +1857,7 @@ export interface ListVirtualRoutersInput {
 
 export namespace ListVirtualRoutersInput {
   export function isa(o: any): o is ListVirtualRoutersInput {
-    return _smithy.isa(o, "ListVirtualRoutersInput");
+    return __isa(o, "ListVirtualRoutersInput");
   }
 }
 
@@ -1883,7 +1882,7 @@ export interface ListVirtualRoutersOutput extends $MetadataBearer {
 
 export namespace ListVirtualRoutersOutput {
   export function isa(o: any): o is ListVirtualRoutersOutput {
-    return _smithy.isa(o, "ListVirtualRoutersOutput");
+    return __isa(o, "ListVirtualRoutersOutput");
   }
 }
 
@@ -1920,7 +1919,7 @@ export interface ListVirtualServicesInput {
 
 export namespace ListVirtualServicesInput {
   export function isa(o: any): o is ListVirtualServicesInput {
-    return _smithy.isa(o, "ListVirtualServicesInput");
+    return __isa(o, "ListVirtualServicesInput");
   }
 }
 
@@ -1945,7 +1944,7 @@ export interface ListVirtualServicesOutput extends $MetadataBearer {
 
 export namespace ListVirtualServicesOutput {
   export function isa(o: any): o is ListVirtualServicesOutput {
-    return _smithy.isa(o, "ListVirtualServicesOutput");
+    return __isa(o, "ListVirtualServicesOutput");
   }
 }
 
@@ -1967,7 +1966,7 @@ export interface Listener {
 
 export namespace Listener {
   export function isa(o: any): o is Listener {
-    return _smithy.isa(o, "Listener");
+    return __isa(o, "Listener");
   }
 }
 
@@ -1984,7 +1983,7 @@ export interface Logging {
 
 export namespace Logging {
   export function isa(o: any): o is Logging {
-    return _smithy.isa(o, "Logging");
+    return __isa(o, "Logging");
   }
 }
 
@@ -2006,7 +2005,7 @@ export interface MatchRange {
 
 export namespace MatchRange {
   export function isa(o: any): o is MatchRange {
-    return _smithy.isa(o, "MatchRange");
+    return __isa(o, "MatchRange");
   }
 }
 
@@ -2038,7 +2037,7 @@ export interface MeshData {
 
 export namespace MeshData {
   export function isa(o: any): o is MeshData {
-    return _smithy.isa(o, "MeshData");
+    return __isa(o, "MeshData");
   }
 }
 
@@ -2060,7 +2059,7 @@ export interface MeshRef {
 
 export namespace MeshRef {
   export function isa(o: any): o is MeshRef {
-    return _smithy.isa(o, "MeshRef");
+    return __isa(o, "MeshRef");
   }
 }
 
@@ -2077,7 +2076,7 @@ export interface MeshSpec {
 
 export namespace MeshSpec {
   export function isa(o: any): o is MeshSpec {
-    return _smithy.isa(o, "MeshSpec");
+    return __isa(o, "MeshSpec");
   }
 }
 
@@ -2094,7 +2093,7 @@ export interface MeshStatus {
 
 export namespace MeshStatus {
   export function isa(o: any): o is MeshStatus {
-    return _smithy.isa(o, "MeshStatus");
+    return __isa(o, "MeshStatus");
   }
 }
 
@@ -2107,9 +2106,7 @@ export enum MeshStatusCode {
 /**
  * <p>The specified resource doesn't exist. Check your request syntax and try again.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -2117,7 +2114,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -2139,7 +2136,7 @@ export interface PortMapping {
 
 export namespace PortMapping {
   export function isa(o: any): o is PortMapping {
-    return _smithy.isa(o, "PortMapping");
+    return __isa(o, "PortMapping");
   }
 }
 
@@ -2155,7 +2152,7 @@ export enum PortProtocol {
  *          resource.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -2164,7 +2161,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -2202,7 +2199,7 @@ export interface ResourceMetadata {
 
 export namespace ResourceMetadata {
   export function isa(o: any): o is ResourceMetadata {
-    return _smithy.isa(o, "ResourceMetadata");
+    return __isa(o, "ResourceMetadata");
   }
 }
 
@@ -2244,7 +2241,7 @@ export interface RouteData {
 
 export namespace RouteData {
   export function isa(o: any): o is RouteData {
-    return _smithy.isa(o, "RouteData");
+    return __isa(o, "RouteData");
   }
 }
 
@@ -2276,7 +2273,7 @@ export interface RouteRef {
 
 export namespace RouteRef {
   export function isa(o: any): o is RouteRef {
-    return _smithy.isa(o, "RouteRef");
+    return __isa(o, "RouteRef");
   }
 }
 
@@ -2314,7 +2311,7 @@ export interface RouteSpec {
 
 export namespace RouteSpec {
   export function isa(o: any): o is RouteSpec {
-    return _smithy.isa(o, "RouteSpec");
+    return __isa(o, "RouteSpec");
   }
 }
 
@@ -2331,7 +2328,7 @@ export interface RouteStatus {
 
 export namespace RouteStatus {
   export function isa(o: any): o is RouteStatus {
-    return _smithy.isa(o, "RouteStatus");
+    return __isa(o, "RouteStatus");
   }
 }
 
@@ -2391,7 +2388,7 @@ export namespace ServiceDiscovery {
  * <p>The request has failed due to a temporary failure of the service.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -2400,7 +2397,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -2427,7 +2424,7 @@ export interface TagRef {
 
 export namespace TagRef {
   export function isa(o: any): o is TagRef {
-    return _smithy.isa(o, "TagRef");
+    return __isa(o, "TagRef");
   }
 }
 
@@ -2451,7 +2448,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -2464,7 +2461,7 @@ export interface TagResourceOutput extends $MetadataBearer {
 
 export namespace TagResourceOutput {
   export function isa(o: any): o is TagResourceOutput {
-    return _smithy.isa(o, "TagResourceOutput");
+    return __isa(o, "TagResourceOutput");
   }
 }
 
@@ -2485,7 +2482,7 @@ export interface TcpRoute {
 
 export namespace TcpRoute {
   export function isa(o: any): o is TcpRoute {
-    return _smithy.isa(o, "TcpRoute");
+    return __isa(o, "TcpRoute");
   }
 }
 
@@ -2502,7 +2499,7 @@ export interface TcpRouteAction {
 
 export namespace TcpRouteAction {
   export function isa(o: any): o is TcpRouteAction {
-    return _smithy.isa(o, "TcpRouteAction");
+    return __isa(o, "TcpRouteAction");
   }
 }
 
@@ -2512,7 +2509,7 @@ export namespace TcpRouteAction {
  *          requests.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -2521,7 +2518,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -2531,7 +2528,7 @@ export namespace TooManyRequestsException {
  *          of the tags in this request were applied.</p>
  */
 export interface TooManyTagsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
@@ -2540,7 +2537,7 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export function isa(o: any): o is TooManyTagsException {
-    return _smithy.isa(o, "TooManyTagsException");
+    return __isa(o, "TooManyTagsException");
   }
 }
 
@@ -2562,7 +2559,7 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }
 
@@ -2575,7 +2572,7 @@ export interface UntagResourceOutput extends $MetadataBearer {
 
 export namespace UntagResourceOutput {
   export function isa(o: any): o is UntagResourceOutput {
-    return _smithy.isa(o, "UntagResourceOutput");
+    return __isa(o, "UntagResourceOutput");
   }
 }
 
@@ -2603,7 +2600,7 @@ export interface UpdateMeshInput {
 
 export namespace UpdateMeshInput {
   export function isa(o: any): o is UpdateMeshInput {
-    return _smithy.isa(o, "UpdateMeshInput");
+    return __isa(o, "UpdateMeshInput");
   }
 }
 
@@ -2620,7 +2617,7 @@ export interface UpdateMeshOutput extends $MetadataBearer {
 
 export namespace UpdateMeshOutput {
   export function isa(o: any): o is UpdateMeshOutput {
-    return _smithy.isa(o, "UpdateMeshOutput");
+    return __isa(o, "UpdateMeshOutput");
   }
 }
 
@@ -2658,7 +2655,7 @@ export interface UpdateRouteInput {
 
 export namespace UpdateRouteInput {
   export function isa(o: any): o is UpdateRouteInput {
-    return _smithy.isa(o, "UpdateRouteInput");
+    return __isa(o, "UpdateRouteInput");
   }
 }
 
@@ -2675,7 +2672,7 @@ export interface UpdateRouteOutput extends $MetadataBearer {
 
 export namespace UpdateRouteOutput {
   export function isa(o: any): o is UpdateRouteOutput {
-    return _smithy.isa(o, "UpdateRouteOutput");
+    return __isa(o, "UpdateRouteOutput");
   }
 }
 
@@ -2708,7 +2705,7 @@ export interface UpdateVirtualNodeInput {
 
 export namespace UpdateVirtualNodeInput {
   export function isa(o: any): o is UpdateVirtualNodeInput {
-    return _smithy.isa(o, "UpdateVirtualNodeInput");
+    return __isa(o, "UpdateVirtualNodeInput");
   }
 }
 
@@ -2725,7 +2722,7 @@ export interface UpdateVirtualNodeOutput extends $MetadataBearer {
 
 export namespace UpdateVirtualNodeOutput {
   export function isa(o: any): o is UpdateVirtualNodeOutput {
-    return _smithy.isa(o, "UpdateVirtualNodeOutput");
+    return __isa(o, "UpdateVirtualNodeOutput");
   }
 }
 
@@ -2758,7 +2755,7 @@ export interface UpdateVirtualRouterInput {
 
 export namespace UpdateVirtualRouterInput {
   export function isa(o: any): o is UpdateVirtualRouterInput {
-    return _smithy.isa(o, "UpdateVirtualRouterInput");
+    return __isa(o, "UpdateVirtualRouterInput");
   }
 }
 
@@ -2775,7 +2772,7 @@ export interface UpdateVirtualRouterOutput extends $MetadataBearer {
 
 export namespace UpdateVirtualRouterOutput {
   export function isa(o: any): o is UpdateVirtualRouterOutput {
-    return _smithy.isa(o, "UpdateVirtualRouterOutput");
+    return __isa(o, "UpdateVirtualRouterOutput");
   }
 }
 
@@ -2809,7 +2806,7 @@ export interface UpdateVirtualServiceInput {
 
 export namespace UpdateVirtualServiceInput {
   export function isa(o: any): o is UpdateVirtualServiceInput {
-    return _smithy.isa(o, "UpdateVirtualServiceInput");
+    return __isa(o, "UpdateVirtualServiceInput");
   }
 }
 
@@ -2826,7 +2823,7 @@ export interface UpdateVirtualServiceOutput extends $MetadataBearer {
 
 export namespace UpdateVirtualServiceOutput {
   export function isa(o: any): o is UpdateVirtualServiceOutput {
-    return _smithy.isa(o, "UpdateVirtualServiceOutput");
+    return __isa(o, "UpdateVirtualServiceOutput");
   }
 }
 
@@ -2863,7 +2860,7 @@ export interface VirtualNodeData {
 
 export namespace VirtualNodeData {
   export function isa(o: any): o is VirtualNodeData {
-    return _smithy.isa(o, "VirtualNodeData");
+    return __isa(o, "VirtualNodeData");
   }
 }
 
@@ -2890,7 +2887,7 @@ export interface VirtualNodeRef {
 
 export namespace VirtualNodeRef {
   export function isa(o: any): o is VirtualNodeRef {
-    return _smithy.isa(o, "VirtualNodeRef");
+    return __isa(o, "VirtualNodeRef");
   }
 }
 
@@ -2907,7 +2904,7 @@ export interface VirtualNodeServiceProvider {
 
 export namespace VirtualNodeServiceProvider {
   export function isa(o: any): o is VirtualNodeServiceProvider {
-    return _smithy.isa(o, "VirtualNodeServiceProvider");
+    return __isa(o, "VirtualNodeServiceProvider");
   }
 }
 
@@ -2941,7 +2938,7 @@ export interface VirtualNodeSpec {
 
 export namespace VirtualNodeSpec {
   export function isa(o: any): o is VirtualNodeSpec {
-    return _smithy.isa(o, "VirtualNodeSpec");
+    return __isa(o, "VirtualNodeSpec");
   }
 }
 
@@ -2958,7 +2955,7 @@ export interface VirtualNodeStatus {
 
 export namespace VirtualNodeStatus {
   export function isa(o: any): o is VirtualNodeStatus {
-    return _smithy.isa(o, "VirtualNodeStatus");
+    return __isa(o, "VirtualNodeStatus");
   }
 }
 
@@ -3001,7 +2998,7 @@ export interface VirtualRouterData {
 
 export namespace VirtualRouterData {
   export function isa(o: any): o is VirtualRouterData {
-    return _smithy.isa(o, "VirtualRouterData");
+    return __isa(o, "VirtualRouterData");
   }
 }
 
@@ -3018,7 +3015,7 @@ export interface VirtualRouterListener {
 
 export namespace VirtualRouterListener {
   export function isa(o: any): o is VirtualRouterListener {
-    return _smithy.isa(o, "VirtualRouterListener");
+    return __isa(o, "VirtualRouterListener");
   }
 }
 
@@ -3045,7 +3042,7 @@ export interface VirtualRouterRef {
 
 export namespace VirtualRouterRef {
   export function isa(o: any): o is VirtualRouterRef {
-    return _smithy.isa(o, "VirtualRouterRef");
+    return __isa(o, "VirtualRouterRef");
   }
 }
 
@@ -3062,7 +3059,7 @@ export interface VirtualRouterServiceProvider {
 
 export namespace VirtualRouterServiceProvider {
   export function isa(o: any): o is VirtualRouterServiceProvider {
-    return _smithy.isa(o, "VirtualRouterServiceProvider");
+    return __isa(o, "VirtualRouterServiceProvider");
   }
 }
 
@@ -3080,7 +3077,7 @@ export interface VirtualRouterSpec {
 
 export namespace VirtualRouterSpec {
   export function isa(o: any): o is VirtualRouterSpec {
-    return _smithy.isa(o, "VirtualRouterSpec");
+    return __isa(o, "VirtualRouterSpec");
   }
 }
 
@@ -3097,7 +3094,7 @@ export interface VirtualRouterStatus {
 
 export namespace VirtualRouterStatus {
   export function isa(o: any): o is VirtualRouterStatus {
-    return _smithy.isa(o, "VirtualRouterStatus");
+    return __isa(o, "VirtualRouterStatus");
   }
 }
 
@@ -3120,7 +3117,7 @@ export interface VirtualServiceBackend {
 
 export namespace VirtualServiceBackend {
   export function isa(o: any): o is VirtualServiceBackend {
-    return _smithy.isa(o, "VirtualServiceBackend");
+    return __isa(o, "VirtualServiceBackend");
   }
 }
 
@@ -3157,7 +3154,7 @@ export interface VirtualServiceData {
 
 export namespace VirtualServiceData {
   export function isa(o: any): o is VirtualServiceData {
-    return _smithy.isa(o, "VirtualServiceData");
+    return __isa(o, "VirtualServiceData");
   }
 }
 
@@ -3234,7 +3231,7 @@ export interface VirtualServiceRef {
 
 export namespace VirtualServiceRef {
   export function isa(o: any): o is VirtualServiceRef {
-    return _smithy.isa(o, "VirtualServiceRef");
+    return __isa(o, "VirtualServiceRef");
   }
 }
 
@@ -3252,7 +3249,7 @@ export interface VirtualServiceSpec {
 
 export namespace VirtualServiceSpec {
   export function isa(o: any): o is VirtualServiceSpec {
-    return _smithy.isa(o, "VirtualServiceSpec");
+    return __isa(o, "VirtualServiceSpec");
   }
 }
 
@@ -3269,7 +3266,7 @@ export interface VirtualServiceStatus {
 
 export namespace VirtualServiceStatus {
   export function isa(o: any): o is VirtualServiceStatus {
-    return _smithy.isa(o, "VirtualServiceStatus");
+    return __isa(o, "VirtualServiceStatus");
   }
 }
 
@@ -3300,6 +3297,6 @@ export interface WeightedTarget {
 
 export namespace WeightedTarget {
   export function isa(o: any): o is WeightedTarget {
-    return _smithy.isa(o, "WeightedTarget");
+    return __isa(o, "WeightedTarget");
   }
 }

@@ -69,7 +69,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -85,13 +88,13 @@ export async function serializeAws_restJson1_1DeleteLexiconCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -114,18 +117,26 @@ export async function serializeAws_restJson1_1DescribeVoicesCommand(
   let resolvedPath = "/v1/voices";
   const query: any = {};
   if (input.Engine !== undefined) {
-    query["Engine"] = input.Engine.toString();
+    query[
+      __extendedEncodeURIComponent("Engine")
+    ] = __extendedEncodeURIComponent(input.Engine);
   }
   if (input.IncludeAdditionalLanguageCodes !== undefined) {
     query[
-      "IncludeAdditionalLanguageCodes"
-    ] = input.IncludeAdditionalLanguageCodes.toString();
+      __extendedEncodeURIComponent("IncludeAdditionalLanguageCodes")
+    ] = __extendedEncodeURIComponent(
+      input.IncludeAdditionalLanguageCodes.toString()
+    );
   }
   if (input.LanguageCode !== undefined) {
-    query["LanguageCode"] = input.LanguageCode.toString();
+    query[
+      __extendedEncodeURIComponent("LanguageCode")
+    ] = __extendedEncodeURIComponent(input.LanguageCode);
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -145,13 +156,13 @@ export async function serializeAws_restJson1_1GetLexiconCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -173,13 +184,13 @@ export async function serializeAws_restJson1_1GetSpeechSynthesisTaskCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/synthesisTasks/{TaskId}";
   if (input.TaskId !== undefined) {
-    const labelValue: string = input.TaskId.toString();
+    const labelValue: string = input.TaskId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TaskId.");
     }
     resolvedPath = resolvedPath.replace(
       "{TaskId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: TaskId.");
@@ -202,7 +213,9 @@ export async function serializeAws_restJson1_1ListLexiconsCommand(
   let resolvedPath = "/v1/lexicons";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -223,13 +236,19 @@ export async function serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.Status !== undefined) {
-    query["Status"] = input.Status.toString();
+    query[
+      __extendedEncodeURIComponent("Status")
+    ] = __extendedEncodeURIComponent(input.Status);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -249,13 +268,13 @@ export async function serializeAws_restJson1_1PutLexiconCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/lexicons/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -402,6 +421,7 @@ export async function deserializeAws_restJson1_1DeleteLexiconCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteLexiconOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -801,6 +821,7 @@ export async function deserializeAws_restJson1_1PutLexiconCommand(
     $metadata: deserializeMetadata(output),
     __type: "PutLexiconOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

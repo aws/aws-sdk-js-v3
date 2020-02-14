@@ -93,7 +93,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -151,7 +154,7 @@ export async function serializeAws_restJson1_1CreateArchiveRuleCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -159,7 +162,7 @@ export async function serializeAws_restJson1_1CreateArchiveRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
@@ -200,7 +203,7 @@ export async function serializeAws_restJson1_1DeleteAnalyzerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -208,14 +211,16 @@ export async function serializeAws_restJson1_1DeleteAnalyzerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   const query: any = {};
   if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken.toString();
+    query[
+      __extendedEncodeURIComponent("clientToken")
+    ] = __extendedEncodeURIComponent(input.clientToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -235,7 +240,7 @@ export async function serializeAws_restJson1_1DeleteArchiveRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -243,26 +248,28 @@ export async function serializeAws_restJson1_1DeleteArchiveRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
   const query: any = {};
   if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken.toString();
+    query[
+      __extendedEncodeURIComponent("clientToken")
+    ] = __extendedEncodeURIComponent(input.clientToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -283,10 +290,14 @@ export async function serializeAws_restJson1_1GetAnalyzedResourceCommand(
   let resolvedPath = "/analyzed-resource";
   const query: any = {};
   if (input.analyzerArn !== undefined) {
-    query["analyzerArn"] = input.analyzerArn.toString();
+    query[
+      __extendedEncodeURIComponent("analyzerArn")
+    ] = __extendedEncodeURIComponent(input.analyzerArn);
   }
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -306,7 +317,7 @@ export async function serializeAws_restJson1_1GetAnalyzerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -314,7 +325,7 @@ export async function serializeAws_restJson1_1GetAnalyzerCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
@@ -336,7 +347,7 @@ export async function serializeAws_restJson1_1GetArchiveRuleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -344,19 +355,19 @@ export async function serializeAws_restJson1_1GetArchiveRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -378,17 +389,22 @@ export async function serializeAws_restJson1_1GetFindingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/finding/{id}";
   if (input.id !== undefined) {
-    const labelValue: string = input.id.toString();
+    const labelValue: string = input.id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace("{id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
   const query: any = {};
   if (input.analyzerArn !== undefined) {
-    query["analyzerArn"] = input.analyzerArn.toString();
+    query[
+      __extendedEncodeURIComponent("analyzerArn")
+    ] = __extendedEncodeURIComponent(input.analyzerArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -441,13 +457,19 @@ export async function serializeAws_restJson1_1ListAnalyzersCommand(
   let resolvedPath = "/analyzer";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   if (input.type !== undefined) {
-    query["type"] = input.type.toString();
+    query[__extendedEncodeURIComponent("type")] = __extendedEncodeURIComponent(
+      input.type
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -467,7 +489,7 @@ export async function serializeAws_restJson1_1ListArchiveRulesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -475,17 +497,21 @@ export async function serializeAws_restJson1_1ListArchiveRulesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -546,7 +572,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -554,7 +580,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -602,7 +628,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -610,7 +636,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -639,7 +665,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -647,14 +673,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -674,7 +702,7 @@ export async function serializeAws_restJson1_1UpdateArchiveRuleCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/analyzer/{analyzerName}/archive-rule/{ruleName}";
   if (input.analyzerName !== undefined) {
-    const labelValue: string = input.analyzerName.toString();
+    const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: analyzerName."
@@ -682,19 +710,19 @@ export async function serializeAws_restJson1_1UpdateArchiveRuleCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{analyzerName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   if (input.ruleName !== undefined) {
-    const labelValue: string = input.ruleName.toString();
+    const labelValue: string = input.ruleName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
     resolvedPath = resolvedPath.replace(
       "{ruleName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
@@ -869,6 +897,7 @@ export async function deserializeAws_restJson1_1CreateArchiveRuleCommand(
   const contents: CreateArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -961,6 +990,7 @@ export async function deserializeAws_restJson1_1DeleteAnalyzerCommand(
   const contents: DeleteAnalyzerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1039,6 +1069,7 @@ export async function deserializeAws_restJson1_1DeleteArchiveRuleCommand(
   const contents: DeleteArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1884,6 +1915,7 @@ export async function deserializeAws_restJson1_1StartResourceScanCommand(
   const contents: StartResourceScanCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1960,6 +1992,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2036,6 +2069,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2114,6 +2148,7 @@ export async function deserializeAws_restJson1_1UpdateArchiveRuleCommand(
   const contents: UpdateArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2192,6 +2227,7 @@ export async function deserializeAws_restJson1_1UpdateFindingsCommand(
   const contents: UpdateFindingsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

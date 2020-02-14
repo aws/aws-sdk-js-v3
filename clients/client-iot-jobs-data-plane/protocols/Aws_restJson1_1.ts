@@ -30,7 +30,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -46,35 +49,39 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {};
   if (input.executionNumber !== undefined) {
-    query["executionNumber"] = input.executionNumber.toString();
+    query[
+      __extendedEncodeURIComponent("executionNumber")
+    ] = __extendedEncodeURIComponent(input.executionNumber.toString());
   }
   if (input.includeJobDocument !== undefined) {
-    query["includeJobDocument"] = input.includeJobDocument.toString();
+    query[
+      __extendedEncodeURIComponent("includeJobDocument")
+    ] = __extendedEncodeURIComponent(input.includeJobDocument.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -94,13 +101,13 @@ export async function serializeAws_restJson1_1GetPendingJobExecutionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/things/{thingName}/jobs";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -122,13 +129,13 @@ export async function serializeAws_restJson1_1StartNextPendingJobExecutionComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/$next";
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
@@ -163,25 +170,25 @@ export async function serializeAws_restJson1_1UpdateJobExecutionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName.toString();
+    const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
     resolvedPath = resolvedPath.replace(
       "{thingName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");

@@ -367,6 +367,7 @@ export async function deserializeAws_json1_1AssociateAdminAccountCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AssociateAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -442,6 +443,7 @@ export async function deserializeAws_json1_1DeleteNotificationChannelCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -507,6 +509,7 @@ export async function deserializeAws_json1_1DeletePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -575,6 +578,7 @@ export async function deserializeAws_json1_1DisassociateAdminAccountCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisassociateAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1294,6 +1298,7 @@ export async function deserializeAws_json1_1PutNotificationChannelCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

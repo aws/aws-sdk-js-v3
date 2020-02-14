@@ -631,6 +631,7 @@ export async function deserializeAws_json1_1CreatePermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreatePermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -720,6 +721,7 @@ export async function deserializeAws_json1_1DeleteCertificateAuthorityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -792,6 +794,7 @@ export async function deserializeAws_json1_1DeletePermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1262,6 +1265,7 @@ export async function deserializeAws_json1_1ImportCertificateAuthorityCertificat
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ImportCertificateAuthorityCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1679,6 +1683,7 @@ export async function deserializeAws_json1_1RestoreCertificateAuthorityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RestoreCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1744,6 +1749,7 @@ export async function deserializeAws_json1_1RevokeCertificateCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RevokeCertificateCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RevokeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1854,6 +1860,7 @@ export async function deserializeAws_json1_1TagCertificateAuthorityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: TagCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1936,6 +1943,7 @@ export async function deserializeAws_json1_1UntagCertificateAuthorityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UntagCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2011,6 +2019,7 @@ export async function deserializeAws_json1_1UpdateCertificateAuthorityCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

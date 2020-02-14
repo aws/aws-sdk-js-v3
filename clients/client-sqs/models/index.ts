@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -35,7 +38,7 @@ export interface AddPermissionRequest {
 
 export namespace AddPermissionRequest {
   export function isa(o: any): o is AddPermissionRequest {
-    return _smithy.isa(o, "AddPermissionRequest");
+    return __isa(o, "AddPermissionRequest");
   }
 }
 
@@ -43,7 +46,7 @@ export namespace AddPermissionRequest {
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
 export interface BatchEntryIdsNotDistinct
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BatchEntryIdsNotDistinct";
   $fault: "client";
@@ -51,7 +54,7 @@ export interface BatchEntryIdsNotDistinct
 
 export namespace BatchEntryIdsNotDistinct {
   export function isa(o: any): o is BatchEntryIdsNotDistinct {
-    return _smithy.isa(o, "BatchEntryIdsNotDistinct");
+    return __isa(o, "BatchEntryIdsNotDistinct");
   }
 }
 
@@ -59,7 +62,7 @@ export namespace BatchEntryIdsNotDistinct {
  * <p>The length of all the messages put together is more than the limit.</p>
  */
 export interface BatchRequestTooLong
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BatchRequestTooLong";
   $fault: "client";
@@ -67,7 +70,7 @@ export interface BatchRequestTooLong
 
 export namespace BatchRequestTooLong {
   export function isa(o: any): o is BatchRequestTooLong {
-    return _smithy.isa(o, "BatchRequestTooLong");
+    return __isa(o, "BatchRequestTooLong");
   }
 }
 
@@ -100,7 +103,7 @@ export interface BatchResultErrorEntry {
 
 export namespace BatchResultErrorEntry {
   export function isa(o: any): o is BatchResultErrorEntry {
-    return _smithy.isa(o, "BatchResultErrorEntry");
+    return __isa(o, "BatchResultErrorEntry");
   }
 }
 
@@ -123,7 +126,7 @@ export interface ChangeMessageVisibilityBatchRequest {
 
 export namespace ChangeMessageVisibilityBatchRequest {
   export function isa(o: any): o is ChangeMessageVisibilityBatchRequest {
-    return _smithy.isa(o, "ChangeMessageVisibilityBatchRequest");
+    return __isa(o, "ChangeMessageVisibilityBatchRequest");
   }
 }
 
@@ -167,7 +170,7 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
 
 export namespace ChangeMessageVisibilityBatchRequestEntry {
   export function isa(o: any): o is ChangeMessageVisibilityBatchRequestEntry {
-    return _smithy.isa(o, "ChangeMessageVisibilityBatchRequestEntry");
+    return __isa(o, "ChangeMessageVisibilityBatchRequestEntry");
   }
 }
 
@@ -197,7 +200,7 @@ export interface ChangeMessageVisibilityBatchResult extends $MetadataBearer {
 
 export namespace ChangeMessageVisibilityBatchResult {
   export function isa(o: any): o is ChangeMessageVisibilityBatchResult {
-    return _smithy.isa(o, "ChangeMessageVisibilityBatchResult");
+    return __isa(o, "ChangeMessageVisibilityBatchResult");
   }
 }
 
@@ -216,7 +219,7 @@ export interface ChangeMessageVisibilityBatchResultEntry {
 
 export namespace ChangeMessageVisibilityBatchResultEntry {
   export function isa(o: any): o is ChangeMessageVisibilityBatchResultEntry {
-    return _smithy.isa(o, "ChangeMessageVisibilityBatchResultEntry");
+    return __isa(o, "ChangeMessageVisibilityBatchResultEntry");
   }
 }
 
@@ -243,7 +246,7 @@ export interface ChangeMessageVisibilityRequest {
 
 export namespace ChangeMessageVisibilityRequest {
   export function isa(o: any): o is ChangeMessageVisibilityRequest {
-    return _smithy.isa(o, "ChangeMessageVisibilityRequest");
+    return __isa(o, "ChangeMessageVisibilityRequest");
   }
 }
 
@@ -431,7 +434,7 @@ export interface CreateQueueRequest {
 
 export namespace CreateQueueRequest {
   export function isa(o: any): o is CreateQueueRequest {
-    return _smithy.isa(o, "CreateQueueRequest");
+    return __isa(o, "CreateQueueRequest");
   }
 }
 
@@ -448,7 +451,7 @@ export interface CreateQueueResult extends $MetadataBearer {
 
 export namespace CreateQueueResult {
   export function isa(o: any): o is CreateQueueResult {
-    return _smithy.isa(o, "CreateQueueResult");
+    return __isa(o, "CreateQueueResult");
   }
 }
 
@@ -471,7 +474,7 @@ export interface DeleteMessageBatchRequest {
 
 export namespace DeleteMessageBatchRequest {
   export function isa(o: any): o is DeleteMessageBatchRequest {
-    return _smithy.isa(o, "DeleteMessageBatchRequest");
+    return __isa(o, "DeleteMessageBatchRequest");
   }
 }
 
@@ -496,7 +499,7 @@ export interface DeleteMessageBatchRequestEntry {
 
 export namespace DeleteMessageBatchRequestEntry {
   export function isa(o: any): o is DeleteMessageBatchRequestEntry {
-    return _smithy.isa(o, "DeleteMessageBatchRequestEntry");
+    return __isa(o, "DeleteMessageBatchRequestEntry");
   }
 }
 
@@ -526,7 +529,7 @@ export interface DeleteMessageBatchResult extends $MetadataBearer {
 
 export namespace DeleteMessageBatchResult {
   export function isa(o: any): o is DeleteMessageBatchResult {
-    return _smithy.isa(o, "DeleteMessageBatchResult");
+    return __isa(o, "DeleteMessageBatchResult");
   }
 }
 
@@ -545,7 +548,7 @@ export interface DeleteMessageBatchResultEntry {
 
 export namespace DeleteMessageBatchResultEntry {
   export function isa(o: any): o is DeleteMessageBatchResultEntry {
-    return _smithy.isa(o, "DeleteMessageBatchResultEntry");
+    return __isa(o, "DeleteMessageBatchResultEntry");
   }
 }
 
@@ -568,7 +571,7 @@ export interface DeleteMessageRequest {
 
 export namespace DeleteMessageRequest {
   export function isa(o: any): o is DeleteMessageRequest {
-    return _smithy.isa(o, "DeleteMessageRequest");
+    return __isa(o, "DeleteMessageRequest");
   }
 }
 
@@ -586,23 +589,21 @@ export interface DeleteQueueRequest {
 
 export namespace DeleteQueueRequest {
   export function isa(o: any): o is DeleteQueueRequest {
-    return _smithy.isa(o, "DeleteQueueRequest");
+    return __isa(o, "DeleteQueueRequest");
   }
 }
 
 /**
  * <p>The batch request doesn't contain any entries.</p>
  */
-export interface EmptyBatchRequest
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface EmptyBatchRequest extends __SmithyException, $MetadataBearer {
   name: "EmptyBatchRequest";
   $fault: "client";
 }
 
 export namespace EmptyBatchRequest {
   export function isa(o: any): o is EmptyBatchRequest {
-    return _smithy.isa(o, "EmptyBatchRequest");
+    return __isa(o, "EmptyBatchRequest");
   }
 }
 
@@ -751,7 +752,7 @@ export interface GetQueueAttributesRequest {
 
 export namespace GetQueueAttributesRequest {
   export function isa(o: any): o is GetQueueAttributesRequest {
-    return _smithy.isa(o, "GetQueueAttributesRequest");
+    return __isa(o, "GetQueueAttributesRequest");
   }
 }
 
@@ -768,7 +769,7 @@ export interface GetQueueAttributesResult extends $MetadataBearer {
 
 export namespace GetQueueAttributesResult {
   export function isa(o: any): o is GetQueueAttributesResult {
-    return _smithy.isa(o, "GetQueueAttributesResult");
+    return __isa(o, "GetQueueAttributesResult");
   }
 }
 
@@ -791,7 +792,7 @@ export interface GetQueueUrlRequest {
 
 export namespace GetQueueUrlRequest {
   export function isa(o: any): o is GetQueueUrlRequest {
-    return _smithy.isa(o, "GetQueueUrlRequest");
+    return __isa(o, "GetQueueUrlRequest");
   }
 }
 
@@ -808,7 +809,7 @@ export interface GetQueueUrlResult extends $MetadataBearer {
 
 export namespace GetQueueUrlResult {
   export function isa(o: any): o is GetQueueUrlResult {
-    return _smithy.isa(o, "GetQueueUrlResult");
+    return __isa(o, "GetQueueUrlResult");
   }
 }
 
@@ -816,7 +817,7 @@ export namespace GetQueueUrlResult {
  * <p>The specified attribute doesn't exist.</p>
  */
 export interface InvalidAttributeName
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidAttributeName";
   $fault: "client";
@@ -824,7 +825,7 @@ export interface InvalidAttributeName
 
 export namespace InvalidAttributeName {
   export function isa(o: any): o is InvalidAttributeName {
-    return _smithy.isa(o, "InvalidAttributeName");
+    return __isa(o, "InvalidAttributeName");
   }
 }
 
@@ -832,7 +833,7 @@ export namespace InvalidAttributeName {
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
  */
 export interface InvalidBatchEntryId
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidBatchEntryId";
   $fault: "client";
@@ -840,23 +841,21 @@ export interface InvalidBatchEntryId
 
 export namespace InvalidBatchEntryId {
   export function isa(o: any): o is InvalidBatchEntryId {
-    return _smithy.isa(o, "InvalidBatchEntryId");
+    return __isa(o, "InvalidBatchEntryId");
   }
 }
 
 /**
  * <p>The specified receipt handle isn't valid for the current version.</p>
  */
-export interface InvalidIdFormat
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidIdFormat extends __SmithyException, $MetadataBearer {
   name: "InvalidIdFormat";
   $fault: "client";
 }
 
 export namespace InvalidIdFormat {
   export function isa(o: any): o is InvalidIdFormat {
-    return _smithy.isa(o, "InvalidIdFormat");
+    return __isa(o, "InvalidIdFormat");
   }
 }
 
@@ -864,7 +863,7 @@ export namespace InvalidIdFormat {
  * <p>The message contains characters outside the allowed set.</p>
  */
 export interface InvalidMessageContents
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidMessageContents";
   $fault: "client";
@@ -872,7 +871,7 @@ export interface InvalidMessageContents
 
 export namespace InvalidMessageContents {
   export function isa(o: any): o is InvalidMessageContents {
-    return _smithy.isa(o, "InvalidMessageContents");
+    return __isa(o, "InvalidMessageContents");
   }
 }
 
@@ -890,7 +889,7 @@ export interface ListDeadLetterSourceQueuesRequest {
 
 export namespace ListDeadLetterSourceQueuesRequest {
   export function isa(o: any): o is ListDeadLetterSourceQueuesRequest {
-    return _smithy.isa(o, "ListDeadLetterSourceQueuesRequest");
+    return __isa(o, "ListDeadLetterSourceQueuesRequest");
   }
 }
 
@@ -907,7 +906,7 @@ export interface ListDeadLetterSourceQueuesResult extends $MetadataBearer {
 
 export namespace ListDeadLetterSourceQueuesResult {
   export function isa(o: any): o is ListDeadLetterSourceQueuesResult {
-    return _smithy.isa(o, "ListDeadLetterSourceQueuesResult");
+    return __isa(o, "ListDeadLetterSourceQueuesResult");
   }
 }
 
@@ -921,7 +920,7 @@ export interface ListQueueTagsRequest {
 
 export namespace ListQueueTagsRequest {
   export function isa(o: any): o is ListQueueTagsRequest {
-    return _smithy.isa(o, "ListQueueTagsRequest");
+    return __isa(o, "ListQueueTagsRequest");
   }
 }
 
@@ -935,7 +934,7 @@ export interface ListQueueTagsResult extends $MetadataBearer {
 
 export namespace ListQueueTagsResult {
   export function isa(o: any): o is ListQueueTagsResult {
-    return _smithy.isa(o, "ListQueueTagsResult");
+    return __isa(o, "ListQueueTagsResult");
   }
 }
 
@@ -953,7 +952,7 @@ export interface ListQueuesRequest {
 
 export namespace ListQueuesRequest {
   export function isa(o: any): o is ListQueuesRequest {
-    return _smithy.isa(o, "ListQueuesRequest");
+    return __isa(o, "ListQueuesRequest");
   }
 }
 
@@ -970,7 +969,7 @@ export interface ListQueuesResult extends $MetadataBearer {
 
 export namespace ListQueuesResult {
   export function isa(o: any): o is ListQueuesResult {
-    return _smithy.isa(o, "ListQueuesResult");
+    return __isa(o, "ListQueuesResult");
   }
 }
 
@@ -1060,7 +1059,7 @@ export interface Message {
 
 export namespace Message {
   export function isa(o: any): o is Message {
-    return _smithy.isa(o, "Message");
+    return __isa(o, "Message");
   }
 }
 
@@ -1102,23 +1101,21 @@ export interface MessageAttributeValue {
 
 export namespace MessageAttributeValue {
   export function isa(o: any): o is MessageAttributeValue {
-    return _smithy.isa(o, "MessageAttributeValue");
+    return __isa(o, "MessageAttributeValue");
   }
 }
 
 /**
  * <p>The specified message isn't in flight.</p>
  */
-export interface MessageNotInflight
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface MessageNotInflight extends __SmithyException, $MetadataBearer {
   name: "MessageNotInflight";
   $fault: "client";
 }
 
 export namespace MessageNotInflight {
   export function isa(o: any): o is MessageNotInflight {
-    return _smithy.isa(o, "MessageNotInflight");
+    return __isa(o, "MessageNotInflight");
   }
 }
 
@@ -1172,7 +1169,7 @@ export interface MessageSystemAttributeValue {
 
 export namespace MessageSystemAttributeValue {
   export function isa(o: any): o is MessageSystemAttributeValue {
-    return _smithy.isa(o, "MessageSystemAttributeValue");
+    return __isa(o, "MessageSystemAttributeValue");
   }
 }
 
@@ -1182,14 +1179,14 @@ export namespace MessageSystemAttributeValue {
  *                 <code>AddPermission</code> returns this error if the maximum number of permissions
  *             for the queue is reached.</p>
  */
-export interface OverLimit extends _smithy.SmithyException, $MetadataBearer {
+export interface OverLimit extends __SmithyException, $MetadataBearer {
   name: "OverLimit";
   $fault: "client";
 }
 
 export namespace OverLimit {
   export function isa(o: any): o is OverLimit {
-    return _smithy.isa(o, "OverLimit");
+    return __isa(o, "OverLimit");
   }
 }
 
@@ -1197,7 +1194,7 @@ export namespace OverLimit {
  * <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
  */
 export interface PurgeQueueInProgress
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PurgeQueueInProgress";
   $fault: "client";
@@ -1205,7 +1202,7 @@ export interface PurgeQueueInProgress
 
 export namespace PurgeQueueInProgress {
   export function isa(o: any): o is PurgeQueueInProgress {
-    return _smithy.isa(o, "PurgeQueueInProgress");
+    return __isa(o, "PurgeQueueInProgress");
   }
 }
 
@@ -1223,7 +1220,7 @@ export interface PurgeQueueRequest {
 
 export namespace PurgeQueueRequest {
   export function isa(o: any): o is PurgeQueueRequest {
-    return _smithy.isa(o, "PurgeQueueRequest");
+    return __isa(o, "PurgeQueueRequest");
   }
 }
 
@@ -1252,7 +1249,7 @@ export type QueueAttributeName =
  *             with the same name.</p>
  */
 export interface QueueDeletedRecently
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "QueueDeletedRecently";
   $fault: "client";
@@ -1260,23 +1257,21 @@ export interface QueueDeletedRecently
 
 export namespace QueueDeletedRecently {
   export function isa(o: any): o is QueueDeletedRecently {
-    return _smithy.isa(o, "QueueDeletedRecently");
+    return __isa(o, "QueueDeletedRecently");
   }
 }
 
 /**
  * <p>The specified queue doesn't exist.</p>
  */
-export interface QueueDoesNotExist
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface QueueDoesNotExist extends __SmithyException, $MetadataBearer {
   name: "QueueDoesNotExist";
   $fault: "client";
 }
 
 export namespace QueueDoesNotExist {
   export function isa(o: any): o is QueueDoesNotExist {
-    return _smithy.isa(o, "QueueDoesNotExist");
+    return __isa(o, "QueueDoesNotExist");
   }
 }
 
@@ -1284,16 +1279,14 @@ export namespace QueueDoesNotExist {
  * <p>A queue with this name already exists. Amazon SQS returns this error only if the request
  *             includes attributes whose values differ from those of the existing queue.</p>
  */
-export interface QueueNameExists
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface QueueNameExists extends __SmithyException, $MetadataBearer {
   name: "QueueNameExists";
   $fault: "client";
 }
 
 export namespace QueueNameExists {
   export function isa(o: any): o is QueueNameExists {
-    return _smithy.isa(o, "QueueNameExists");
+    return __isa(o, "QueueNameExists");
   }
 }
 
@@ -1301,7 +1294,7 @@ export namespace QueueNameExists {
  * <p>The specified receipt handle isn't valid.</p>
  */
 export interface ReceiptHandleIsInvalid
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ReceiptHandleIsInvalid";
   $fault: "client";
@@ -1309,7 +1302,7 @@ export interface ReceiptHandleIsInvalid
 
 export namespace ReceiptHandleIsInvalid {
   export function isa(o: any): o is ReceiptHandleIsInvalid {
-    return _smithy.isa(o, "ReceiptHandleIsInvalid");
+    return __isa(o, "ReceiptHandleIsInvalid");
   }
 }
 
@@ -1479,7 +1472,7 @@ export interface ReceiveMessageRequest {
 
 export namespace ReceiveMessageRequest {
   export function isa(o: any): o is ReceiveMessageRequest {
-    return _smithy.isa(o, "ReceiveMessageRequest");
+    return __isa(o, "ReceiveMessageRequest");
   }
 }
 
@@ -1496,7 +1489,7 @@ export interface ReceiveMessageResult extends $MetadataBearer {
 
 export namespace ReceiveMessageResult {
   export function isa(o: any): o is ReceiveMessageResult {
-    return _smithy.isa(o, "ReceiveMessageResult");
+    return __isa(o, "ReceiveMessageResult");
   }
 }
 
@@ -1521,7 +1514,7 @@ export interface RemovePermissionRequest {
 
 export namespace RemovePermissionRequest {
   export function isa(o: any): o is RemovePermissionRequest {
-    return _smithy.isa(o, "RemovePermissionRequest");
+    return __isa(o, "RemovePermissionRequest");
   }
 }
 
@@ -1546,7 +1539,7 @@ export interface SendMessageBatchRequest {
 
 export namespace SendMessageBatchRequest {
   export function isa(o: any): o is SendMessageBatchRequest {
-    return _smithy.isa(o, "SendMessageBatchRequest");
+    return __isa(o, "SendMessageBatchRequest");
   }
 }
 
@@ -1686,7 +1679,7 @@ export interface SendMessageBatchRequestEntry {
 
 export namespace SendMessageBatchRequestEntry {
   export function isa(o: any): o is SendMessageBatchRequestEntry {
-    return _smithy.isa(o, "SendMessageBatchRequestEntry");
+    return __isa(o, "SendMessageBatchRequestEntry");
   }
 }
 
@@ -1716,7 +1709,7 @@ export interface SendMessageBatchResult extends $MetadataBearer {
 
 export namespace SendMessageBatchResult {
   export function isa(o: any): o is SendMessageBatchResult {
-    return _smithy.isa(o, "SendMessageBatchResult");
+    return __isa(o, "SendMessageBatchResult");
   }
 }
 
@@ -1762,7 +1755,7 @@ export interface SendMessageBatchResultEntry {
 
 export namespace SendMessageBatchResultEntry {
   export function isa(o: any): o is SendMessageBatchResultEntry {
-    return _smithy.isa(o, "SendMessageBatchResultEntry");
+    return __isa(o, "SendMessageBatchResultEntry");
   }
 }
 
@@ -1906,7 +1899,7 @@ export interface SendMessageRequest {
 
 export namespace SendMessageRequest {
   export function isa(o: any): o is SendMessageRequest {
-    return _smithy.isa(o, "SendMessageRequest");
+    return __isa(o, "SendMessageRequest");
   }
 }
 
@@ -1947,7 +1940,7 @@ export interface SendMessageResult extends $MetadataBearer {
 
 export namespace SendMessageResult {
   export function isa(o: any): o is SendMessageResult {
-    return _smithy.isa(o, "SendMessageResult");
+    return __isa(o, "SendMessageResult");
   }
 }
 
@@ -2089,7 +2082,7 @@ export interface SetQueueAttributesRequest {
 
 export namespace SetQueueAttributesRequest {
   export function isa(o: any): o is SetQueueAttributesRequest {
-    return _smithy.isa(o, "SetQueueAttributesRequest");
+    return __isa(o, "SetQueueAttributesRequest");
   }
 }
 
@@ -2108,7 +2101,7 @@ export interface TagQueueRequest {
 
 export namespace TagQueueRequest {
   export function isa(o: any): o is TagQueueRequest {
-    return _smithy.isa(o, "TagQueueRequest");
+    return __isa(o, "TagQueueRequest");
   }
 }
 
@@ -2116,7 +2109,7 @@ export namespace TagQueueRequest {
  * <p>The batch request contains more entries than permissible.</p>
  */
 export interface TooManyEntriesInBatchRequest
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyEntriesInBatchRequest";
   $fault: "client";
@@ -2124,7 +2117,7 @@ export interface TooManyEntriesInBatchRequest
 
 export namespace TooManyEntriesInBatchRequest {
   export function isa(o: any): o is TooManyEntriesInBatchRequest {
-    return _smithy.isa(o, "TooManyEntriesInBatchRequest");
+    return __isa(o, "TooManyEntriesInBatchRequest");
   }
 }
 
@@ -2132,7 +2125,7 @@ export namespace TooManyEntriesInBatchRequest {
  * <p>Error code 400. Unsupported operation.</p>
  */
 export interface UnsupportedOperation
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedOperation";
   $fault: "client";
@@ -2140,7 +2133,7 @@ export interface UnsupportedOperation
 
 export namespace UnsupportedOperation {
   export function isa(o: any): o is UnsupportedOperation {
-    return _smithy.isa(o, "UnsupportedOperation");
+    return __isa(o, "UnsupportedOperation");
   }
 }
 
@@ -2159,6 +2152,6 @@ export interface UntagQueueRequest {
 
 export namespace UntagQueueRequest {
   export function isa(o: any): o is UntagQueueRequest {
-    return _smithy.isa(o, "UntagQueueRequest");
+    return __isa(o, "UntagQueueRequest");
   }
 }

@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * Raised when a malformed input has been provided to the API.
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -22,7 +25,7 @@ export namespace BadRequestException {
  * Raised when an unexpected error occurred during request processing.
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -31,7 +34,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -45,7 +48,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -59,7 +62,7 @@ export interface ListTagsForResourceResult extends $MetadataBearer {
 
 export namespace ListTagsForResourceResult {
   export function isa(o: any): o is ListTagsForResourceResult {
-    return _smithy.isa(o, "ListTagsForResourceResult");
+    return __isa(o, "ListTagsForResourceResult");
   }
 }
 
@@ -67,7 +70,7 @@ export namespace ListTagsForResourceResult {
  * Raised when the requested resource cannot be found.
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -76,7 +79,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -95,7 +98,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -105,7 +108,7 @@ export interface TagResourceResult extends $MetadataBearer {
 
 export namespace TagResourceResult {
   export function isa(o: any): o is TagResourceResult {
-    return _smithy.isa(o, "TagResourceResult");
+    return __isa(o, "TagResourceResult");
   }
 }
 
@@ -124,7 +127,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -134,6 +137,6 @@ export interface UntagResourceResult extends $MetadataBearer {
 
 export namespace UntagResourceResult {
   export function isa(o: any): o is UntagResourceResult {
-    return _smithy.isa(o, "UntagResourceResult");
+    return __isa(o, "UntagResourceResult");
   }
 }

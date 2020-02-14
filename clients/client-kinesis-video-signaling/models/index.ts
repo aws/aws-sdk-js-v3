@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +9,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             calls. Try making the call later.</p>
  */
 export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
@@ -15,7 +18,7 @@ export interface ClientLimitExceededException
 
 export namespace ClientLimitExceededException {
   export function isa(o: any): o is ClientLimitExceededException {
-    return _smithy.isa(o, "ClientLimitExceededException");
+    return __isa(o, "ClientLimitExceededException");
   }
 }
 
@@ -23,7 +26,7 @@ export namespace ClientLimitExceededException {
  * <p>The value for this input parameter is invalid.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -32,7 +35,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -40,7 +43,7 @@ export namespace InvalidArgumentException {
  * <p>The caller is not authorized to perform this operation.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -49,7 +52,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -57,7 +60,7 @@ export namespace NotAuthorizedException {
  * <p>The specified resource is not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -66,7 +69,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -97,7 +100,7 @@ export interface GetIceServerConfigRequest {
 
 export namespace GetIceServerConfigRequest {
   export function isa(o: any): o is GetIceServerConfigRequest {
-    return _smithy.isa(o, "GetIceServerConfigRequest");
+    return __isa(o, "GetIceServerConfigRequest");
   }
 }
 
@@ -111,7 +114,7 @@ export interface GetIceServerConfigResponse extends $MetadataBearer {
 
 export namespace GetIceServerConfigResponse {
   export function isa(o: any): o is GetIceServerConfigResponse {
-    return _smithy.isa(o, "GetIceServerConfigResponse");
+    return __isa(o, "GetIceServerConfigResponse");
   }
 }
 
@@ -145,7 +148,7 @@ export interface IceServer {
 
 export namespace IceServer {
   export function isa(o: any): o is IceServer {
-    return _smithy.isa(o, "IceServer");
+    return __isa(o, "IceServer");
   }
 }
 
@@ -153,7 +156,7 @@ export namespace IceServer {
  * <p>The specified client is invalid.</p>
  */
 export interface InvalidClientException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidClientException";
   $fault: "client";
@@ -162,7 +165,7 @@ export interface InvalidClientException
 
 export namespace InvalidClientException {
   export function isa(o: any): o is InvalidClientException {
-    return _smithy.isa(o, "InvalidClientException");
+    return __isa(o, "InvalidClientException");
   }
 }
 
@@ -187,7 +190,7 @@ export interface SendAlexaOfferToMasterRequest {
 
 export namespace SendAlexaOfferToMasterRequest {
   export function isa(o: any): o is SendAlexaOfferToMasterRequest {
-    return _smithy.isa(o, "SendAlexaOfferToMasterRequest");
+    return __isa(o, "SendAlexaOfferToMasterRequest");
   }
 }
 
@@ -201,7 +204,7 @@ export interface SendAlexaOfferToMasterResponse extends $MetadataBearer {
 
 export namespace SendAlexaOfferToMasterResponse {
   export function isa(o: any): o is SendAlexaOfferToMasterResponse {
-    return _smithy.isa(o, "SendAlexaOfferToMasterResponse");
+    return __isa(o, "SendAlexaOfferToMasterResponse");
   }
 }
 
@@ -215,7 +218,7 @@ export enum Service {
  *             messages.</p>
  */
 export interface SessionExpiredException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SessionExpiredException";
   $fault: "client";
@@ -224,6 +227,6 @@ export interface SessionExpiredException
 
 export namespace SessionExpiredException {
   export function isa(o: any): o is SessionExpiredException {
-    return _smithy.isa(o, "SessionExpiredException");
+    return __isa(o, "SessionExpiredException");
   }
 }

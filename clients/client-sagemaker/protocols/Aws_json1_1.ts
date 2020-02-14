@@ -995,7 +995,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
@@ -4641,6 +4644,7 @@ export async function deserializeAws_json1_1DeleteAlgorithmCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAlgorithmCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAlgorithmCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4685,6 +4689,7 @@ export async function deserializeAws_json1_1DeleteAppCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAppCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4746,6 +4751,7 @@ export async function deserializeAws_json1_1DeleteCodeRepositoryCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCodeRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4790,6 +4796,7 @@ export async function deserializeAws_json1_1DeleteDomainCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDomainCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4848,6 +4855,7 @@ export async function deserializeAws_json1_1DeleteEndpointCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEndpointCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4895,6 +4903,7 @@ export async function deserializeAws_json1_1DeleteEndpointConfigCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteEndpointConfigCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5054,6 +5063,7 @@ export async function deserializeAws_json1_1DeleteModelCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteModelCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteModelCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5101,6 +5111,7 @@ export async function deserializeAws_json1_1DeleteModelPackageCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteModelPackageCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5148,6 +5159,7 @@ export async function deserializeAws_json1_1DeleteMonitoringScheduleCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteMonitoringScheduleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5202,6 +5214,7 @@ export async function deserializeAws_json1_1DeleteNotebookInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteNotebookInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5249,6 +5262,7 @@ export async function deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfi
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteNotebookInstanceLifecycleConfigCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5457,6 +5471,7 @@ export async function deserializeAws_json1_1DeleteUserProfileCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteUserProfileCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -8922,6 +8937,7 @@ export async function deserializeAws_json1_1StartMonitoringScheduleCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StartMonitoringScheduleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -8976,6 +8992,7 @@ export async function deserializeAws_json1_1StartNotebookInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StartNotebookInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9027,6 +9044,7 @@ export async function deserializeAws_json1_1StopAutoMLJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopAutoMLJobCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopAutoMLJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9081,6 +9099,7 @@ export async function deserializeAws_json1_1StopCompilationJobCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopCompilationJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9135,6 +9154,7 @@ export async function deserializeAws_json1_1StopHyperParameterTuningJobCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopHyperParameterTuningJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9186,6 +9206,7 @@ export async function deserializeAws_json1_1StopLabelingJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopLabelingJobCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopLabelingJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9240,6 +9261,7 @@ export async function deserializeAws_json1_1StopMonitoringScheduleCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopMonitoringScheduleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9294,6 +9316,7 @@ export async function deserializeAws_json1_1StopNotebookInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopNotebookInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9338,6 +9361,7 @@ export async function deserializeAws_json1_1StopProcessingJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopProcessingJobCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopProcessingJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9389,6 +9413,7 @@ export async function deserializeAws_json1_1StopTrainingJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopTrainingJobCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopTrainingJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -9440,6 +9465,7 @@ export async function deserializeAws_json1_1StopTransformJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopTransformJobCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopTransformJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12924,8 +12950,9 @@ const serializeAws_json1_1HumanLoopActivationConditionsConfig = (
 ): any => {
   const bodyParams: any = {};
   if (input.HumanLoopActivationConditions !== undefined) {
-    bodyParams["HumanLoopActivationConditions"] =
-      input.HumanLoopActivationConditions;
+    bodyParams["HumanLoopActivationConditions"] = __LazyJsonString.fromObject(
+      input.HumanLoopActivationConditions
+    );
   }
   return bodyParams;
 };
@@ -21940,8 +21967,9 @@ const deserializeAws_json1_1HumanLoopActivationConditionsConfig = (
     output.HumanLoopActivationConditions !== undefined &&
     output.HumanLoopActivationConditions !== null
   ) {
-    contents.HumanLoopActivationConditions =
-      output.HumanLoopActivationConditions;
+    contents.HumanLoopActivationConditions = new __LazyJsonString(
+      output.HumanLoopActivationConditions
+    );
   }
   return contents;
 };

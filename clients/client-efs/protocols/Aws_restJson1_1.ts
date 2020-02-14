@@ -131,7 +131,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -272,7 +275,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/create-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -280,7 +283,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -309,7 +312,7 @@ export async function serializeAws_restJson1_1DeleteAccessPointCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/access-points/{AccessPointId}";
   if (input.AccessPointId !== undefined) {
-    const labelValue: string = input.AccessPointId.toString();
+    const labelValue: string = input.AccessPointId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AccessPointId."
@@ -317,7 +320,7 @@ export async function serializeAws_restJson1_1DeleteAccessPointCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AccessPointId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AccessPointId.");
@@ -339,7 +342,7 @@ export async function serializeAws_restJson1_1DeleteFileSystemCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -347,7 +350,7 @@ export async function serializeAws_restJson1_1DeleteFileSystemCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -369,7 +372,7 @@ export async function serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -377,7 +380,7 @@ export async function serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -399,7 +402,7 @@ export async function serializeAws_restJson1_1DeleteMountTargetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}";
   if (input.MountTargetId !== undefined) {
-    const labelValue: string = input.MountTargetId.toString();
+    const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MountTargetId."
@@ -407,7 +410,7 @@ export async function serializeAws_restJson1_1DeleteMountTargetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
@@ -429,7 +432,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/delete-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -437,7 +440,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -470,16 +473,24 @@ export async function serializeAws_restJson1_1DescribeAccessPointsCommand(
   let resolvedPath = "/2015-02-01/access-points";
   const query: any = {};
   if (input.AccessPointId !== undefined) {
-    query["AccessPointId"] = input.AccessPointId.toString();
+    query[
+      __extendedEncodeURIComponent("AccessPointId")
+    ] = __extendedEncodeURIComponent(input.AccessPointId);
   }
   if (input.FileSystemId !== undefined) {
-    query["FileSystemId"] = input.FileSystemId.toString();
+    query[
+      __extendedEncodeURIComponent("FileSystemId")
+    ] = __extendedEncodeURIComponent(input.FileSystemId);
   }
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -499,7 +510,7 @@ export async function serializeAws_restJson1_1DescribeFileSystemPolicyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -507,7 +518,7 @@ export async function serializeAws_restJson1_1DescribeFileSystemPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -530,16 +541,24 @@ export async function serializeAws_restJson1_1DescribeFileSystemsCommand(
   let resolvedPath = "/2015-02-01/file-systems";
   const query: any = {};
   if (input.CreationToken !== undefined) {
-    query["CreationToken"] = input.CreationToken.toString();
+    query[
+      __extendedEncodeURIComponent("CreationToken")
+    ] = __extendedEncodeURIComponent(input.CreationToken);
   }
   if (input.FileSystemId !== undefined) {
-    query["FileSystemId"] = input.FileSystemId.toString();
+    query[
+      __extendedEncodeURIComponent("FileSystemId")
+    ] = __extendedEncodeURIComponent(input.FileSystemId);
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -560,7 +579,7 @@ export async function serializeAws_restJson1_1DescribeLifecycleConfigurationComm
   let resolvedPath =
     "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -568,7 +587,7 @@ export async function serializeAws_restJson1_1DescribeLifecycleConfigurationComm
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -591,7 +610,7 @@ export async function serializeAws_restJson1_1DescribeMountTargetSecurityGroupsC
   let resolvedPath =
     "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
-    const labelValue: string = input.MountTargetId.toString();
+    const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MountTargetId."
@@ -599,7 +618,7 @@ export async function serializeAws_restJson1_1DescribeMountTargetSecurityGroupsC
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
@@ -622,19 +641,29 @@ export async function serializeAws_restJson1_1DescribeMountTargetsCommand(
   let resolvedPath = "/2015-02-01/mount-targets";
   const query: any = {};
   if (input.AccessPointId !== undefined) {
-    query["AccessPointId"] = input.AccessPointId.toString();
+    query[
+      __extendedEncodeURIComponent("AccessPointId")
+    ] = __extendedEncodeURIComponent(input.AccessPointId);
   }
   if (input.FileSystemId !== undefined) {
-    query["FileSystemId"] = input.FileSystemId.toString();
+    query[
+      __extendedEncodeURIComponent("FileSystemId")
+    ] = __extendedEncodeURIComponent(input.FileSystemId);
   }
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   if (input.MountTargetId !== undefined) {
-    query["MountTargetId"] = input.MountTargetId.toString();
+    query[
+      __extendedEncodeURIComponent("MountTargetId")
+    ] = __extendedEncodeURIComponent(input.MountTargetId);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -654,7 +683,7 @@ export async function serializeAws_restJson1_1DescribeTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -662,17 +691,21 @@ export async function serializeAws_restJson1_1DescribeTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -692,23 +725,27 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -729,7 +766,7 @@ export async function serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCom
   let resolvedPath =
     "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
-    const labelValue: string = input.MountTargetId.toString();
+    const labelValue: string = input.MountTargetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MountTargetId."
@@ -737,7 +774,7 @@ export async function serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCom
     }
     resolvedPath = resolvedPath.replace(
       "{MountTargetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MountTargetId.");
@@ -769,7 +806,7 @@ export async function serializeAws_restJson1_1PutFileSystemPolicyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -777,7 +814,7 @@ export async function serializeAws_restJson1_1PutFileSystemPolicyCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -811,7 +848,7 @@ export async function serializeAws_restJson1_1PutLifecycleConfigurationCommand(
   let resolvedPath =
     "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -819,7 +856,7 @@ export async function serializeAws_restJson1_1PutLifecycleConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -851,13 +888,13 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -886,13 +923,13 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
-    const labelValue: string = input.ResourceId.toString();
+    const labelValue: string = input.ResourceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceId.");
@@ -924,7 +961,7 @@ export async function serializeAws_restJson1_1UpdateFileSystemCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
-    const labelValue: string = input.FileSystemId.toString();
+    const labelValue: string = input.FileSystemId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: FileSystemId."
@@ -932,7 +969,7 @@ export async function serializeAws_restJson1_1UpdateFileSystemCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{FileSystemId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FileSystemId.");
@@ -1419,6 +1456,7 @@ export async function deserializeAws_restJson1_1CreateTagsCommand(
   const contents: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1483,6 +1521,7 @@ export async function deserializeAws_restJson1_1DeleteAccessPointCommand(
   const contents: DeleteAccessPointCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1547,6 +1586,7 @@ export async function deserializeAws_restJson1_1DeleteFileSystemCommand(
   const contents: DeleteFileSystemCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1618,6 +1658,7 @@ export async function deserializeAws_restJson1_1DeleteFileSystemPolicyCommand(
   const contents: DeleteFileSystemPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1682,6 +1723,7 @@ export async function deserializeAws_restJson1_1DeleteMountTargetCommand(
   const contents: DeleteMountTargetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1750,6 +1792,7 @@ export async function deserializeAws_restJson1_1DeleteTagsCommand(
   const contents: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2457,6 +2500,7 @@ export async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsC
   const contents: ModifyMountTargetSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2700,6 +2744,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2768,6 +2813,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

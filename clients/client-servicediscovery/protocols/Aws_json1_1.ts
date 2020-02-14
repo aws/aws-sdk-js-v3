@@ -1743,6 +1743,7 @@ export async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusComm
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateInstanceCustomHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

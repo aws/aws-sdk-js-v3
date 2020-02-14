@@ -28,7 +28,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -48,46 +51,74 @@ export async function serializeAws_restJson1_1SearchCommand(
     pretty: "true"
   };
   if (input.cursor !== undefined) {
-    query["cursor"] = input.cursor.toString();
+    query[
+      __extendedEncodeURIComponent("cursor")
+    ] = __extendedEncodeURIComponent(input.cursor);
   }
   if (input.expr !== undefined) {
-    query["expr"] = input.expr.toString();
+    query[__extendedEncodeURIComponent("expr")] = __extendedEncodeURIComponent(
+      input.expr
+    );
   }
   if (input.facet !== undefined) {
-    query["facet"] = input.facet.toString();
+    query[__extendedEncodeURIComponent("facet")] = __extendedEncodeURIComponent(
+      input.facet
+    );
   }
   if (input.filterQuery !== undefined) {
-    query["fq"] = input.filterQuery.toString();
+    query[__extendedEncodeURIComponent("fq")] = __extendedEncodeURIComponent(
+      input.filterQuery
+    );
   }
   if (input.highlight !== undefined) {
-    query["highlight"] = input.highlight.toString();
+    query[
+      __extendedEncodeURIComponent("highlight")
+    ] = __extendedEncodeURIComponent(input.highlight);
   }
   if (input.partial !== undefined) {
-    query["partial"] = input.partial.toString();
+    query[
+      __extendedEncodeURIComponent("partial")
+    ] = __extendedEncodeURIComponent(input.partial.toString());
   }
   if (input.query !== undefined) {
-    query["q"] = input.query.toString();
+    query[__extendedEncodeURIComponent("q")] = __extendedEncodeURIComponent(
+      input.query
+    );
   }
   if (input.queryOptions !== undefined) {
-    query["q.options"] = input.queryOptions.toString();
+    query[
+      __extendedEncodeURIComponent("q.options")
+    ] = __extendedEncodeURIComponent(input.queryOptions);
   }
   if (input.queryParser !== undefined) {
-    query["q.parser"] = input.queryParser.toString();
+    query[
+      __extendedEncodeURIComponent("q.parser")
+    ] = __extendedEncodeURIComponent(input.queryParser);
   }
   if (input.return !== undefined) {
-    query["return"] = input.return.toString();
+    query[
+      __extendedEncodeURIComponent("return")
+    ] = __extendedEncodeURIComponent(input.return);
   }
   if (input.size !== undefined) {
-    query["size"] = input.size.toString();
+    query[__extendedEncodeURIComponent("size")] = __extendedEncodeURIComponent(
+      input.size.toString()
+    );
   }
   if (input.sort !== undefined) {
-    query["sort"] = input.sort.toString();
+    query[__extendedEncodeURIComponent("sort")] = __extendedEncodeURIComponent(
+      input.sort
+    );
   }
   if (input.start !== undefined) {
-    query["start"] = input.start.toString();
+    query[__extendedEncodeURIComponent("start")] = __extendedEncodeURIComponent(
+      input.start.toString()
+    );
   }
   if (input.stats !== undefined) {
-    query["stats"] = input.stats.toString();
+    query[__extendedEncodeURIComponent("stats")] = __extendedEncodeURIComponent(
+      input.stats
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -111,13 +142,19 @@ export async function serializeAws_restJson1_1SuggestCommand(
     pretty: "true"
   };
   if (input.query !== undefined) {
-    query["q"] = input.query.toString();
+    query[__extendedEncodeURIComponent("q")] = __extendedEncodeURIComponent(
+      input.query
+    );
   }
   if (input.size !== undefined) {
-    query["size"] = input.size.toString();
+    query[__extendedEncodeURIComponent("size")] = __extendedEncodeURIComponent(
+      input.size.toString()
+    );
   }
   if (input.suggester !== undefined) {
-    query["suggester"] = input.suggester.toString();
+    query[
+      __extendedEncodeURIComponent("suggester")
+    ] = __extendedEncodeURIComponent(input.suggester);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -136,7 +173,7 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/octet-stream";
   if (input.contentType !== undefined) {
-    headers["Content-Type"] = input.contentType.toString();
+    headers["Content-Type"] = input.contentType;
   }
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {

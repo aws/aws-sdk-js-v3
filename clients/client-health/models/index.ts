@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum EntityStatusCode {
@@ -30,7 +33,7 @@ export enum EventTypeCategory {
  *          for the action to complete before trying again. To get the current status, use the <a>DescribeHealthServiceStatusForOrganization</a> operation.</p>
  */
 export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
@@ -39,7 +42,7 @@ export interface ConcurrentModificationException
 
 export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
+    return __isa(o, "ConcurrentModificationException");
   }
 }
 
@@ -47,7 +50,7 @@ export namespace ConcurrentModificationException {
  * <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  */
 export interface InvalidPaginationToken
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPaginationToken";
   $fault: "client";
@@ -56,16 +59,14 @@ export interface InvalidPaginationToken
 
 export namespace InvalidPaginationToken {
   export function isa(o: any): o is InvalidPaginationToken {
-    return _smithy.isa(o, "InvalidPaginationToken");
+    return __isa(o, "InvalidPaginationToken");
   }
 }
 
 /**
  * <p>The specified locale is not supported.</p>
  */
-export interface UnsupportedLocale
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedLocale extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLocale";
   $fault: "client";
   message?: string;
@@ -73,7 +74,7 @@ export interface UnsupportedLocale
 
 export namespace UnsupportedLocale {
   export function isa(o: any): o is UnsupportedLocale {
-    return _smithy.isa(o, "UnsupportedLocale");
+    return __isa(o, "UnsupportedLocale");
   }
 }
 
@@ -104,7 +105,7 @@ export namespace DescribeAffectedAccountsForOrganizationRequest {
   export function isa(
     o: any
   ): o is DescribeAffectedAccountsForOrganizationRequest {
-    return _smithy.isa(o, "DescribeAffectedAccountsForOrganizationRequest");
+    return __isa(o, "DescribeAffectedAccountsForOrganizationRequest");
   }
 }
 
@@ -129,7 +130,7 @@ export namespace DescribeAffectedAccountsForOrganizationResponse {
   export function isa(
     o: any
   ): o is DescribeAffectedAccountsForOrganizationResponse {
-    return _smithy.isa(o, "DescribeAffectedAccountsForOrganizationResponse");
+    return __isa(o, "DescribeAffectedAccountsForOrganizationResponse");
   }
 }
 
@@ -164,7 +165,7 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
   export function isa(
     o: any
   ): o is DescribeAffectedEntitiesForOrganizationRequest {
-    return _smithy.isa(o, "DescribeAffectedEntitiesForOrganizationRequest");
+    return __isa(o, "DescribeAffectedEntitiesForOrganizationRequest");
   }
 }
 
@@ -197,7 +198,7 @@ export namespace DescribeAffectedEntitiesForOrganizationResponse {
   export function isa(
     o: any
   ): o is DescribeAffectedEntitiesForOrganizationResponse {
-    return _smithy.isa(o, "DescribeAffectedEntitiesForOrganizationResponse");
+    return __isa(o, "DescribeAffectedEntitiesForOrganizationResponse");
   }
 }
 
@@ -229,7 +230,7 @@ export interface DescribeAffectedEntitiesRequest {
 
 export namespace DescribeAffectedEntitiesRequest {
   export function isa(o: any): o is DescribeAffectedEntitiesRequest {
-    return _smithy.isa(o, "DescribeAffectedEntitiesRequest");
+    return __isa(o, "DescribeAffectedEntitiesRequest");
   }
 }
 
@@ -251,7 +252,7 @@ export interface DescribeAffectedEntitiesResponse extends $MetadataBearer {
 
 export namespace DescribeAffectedEntitiesResponse {
   export function isa(o: any): o is DescribeAffectedEntitiesResponse {
-    return _smithy.isa(o, "DescribeAffectedEntitiesResponse");
+    return __isa(o, "DescribeAffectedEntitiesResponse");
   }
 }
 
@@ -266,7 +267,7 @@ export interface DescribeEntityAggregatesRequest {
 
 export namespace DescribeEntityAggregatesRequest {
   export function isa(o: any): o is DescribeEntityAggregatesRequest {
-    return _smithy.isa(o, "DescribeEntityAggregatesRequest");
+    return __isa(o, "DescribeEntityAggregatesRequest");
   }
 }
 
@@ -280,7 +281,7 @@ export interface DescribeEntityAggregatesResponse extends $MetadataBearer {
 
 export namespace DescribeEntityAggregatesResponse {
   export function isa(o: any): o is DescribeEntityAggregatesResponse {
-    return _smithy.isa(o, "DescribeEntityAggregatesResponse");
+    return __isa(o, "DescribeEntityAggregatesResponse");
   }
 }
 
@@ -312,7 +313,7 @@ export interface DescribeEventAggregatesRequest {
 
 export namespace DescribeEventAggregatesRequest {
   export function isa(o: any): o is DescribeEventAggregatesRequest {
-    return _smithy.isa(o, "DescribeEventAggregatesRequest");
+    return __isa(o, "DescribeEventAggregatesRequest");
   }
 }
 
@@ -335,7 +336,7 @@ export interface DescribeEventAggregatesResponse extends $MetadataBearer {
 
 export namespace DescribeEventAggregatesResponse {
   export function isa(o: any): o is DescribeEventAggregatesResponse {
-    return _smithy.isa(o, "DescribeEventAggregatesResponse");
+    return __isa(o, "DescribeEventAggregatesResponse");
   }
 }
 
@@ -355,7 +356,7 @@ export interface DescribeEventDetailsForOrganizationRequest {
 
 export namespace DescribeEventDetailsForOrganizationRequest {
   export function isa(o: any): o is DescribeEventDetailsForOrganizationRequest {
-    return _smithy.isa(o, "DescribeEventDetailsForOrganizationRequest");
+    return __isa(o, "DescribeEventDetailsForOrganizationRequest");
   }
 }
 
@@ -377,7 +378,7 @@ export namespace DescribeEventDetailsForOrganizationResponse {
   export function isa(
     o: any
   ): o is DescribeEventDetailsForOrganizationResponse {
-    return _smithy.isa(o, "DescribeEventDetailsForOrganizationResponse");
+    return __isa(o, "DescribeEventDetailsForOrganizationResponse");
   }
 }
 
@@ -397,7 +398,7 @@ export interface DescribeEventDetailsRequest {
 
 export namespace DescribeEventDetailsRequest {
   export function isa(o: any): o is DescribeEventDetailsRequest {
-    return _smithy.isa(o, "DescribeEventDetailsRequest");
+    return __isa(o, "DescribeEventDetailsRequest");
   }
 }
 
@@ -416,7 +417,7 @@ export interface DescribeEventDetailsResponse extends $MetadataBearer {
 
 export namespace DescribeEventDetailsResponse {
   export function isa(o: any): o is DescribeEventDetailsResponse {
-    return _smithy.isa(o, "DescribeEventDetailsResponse");
+    return __isa(o, "DescribeEventDetailsResponse");
   }
 }
 
@@ -448,7 +449,7 @@ export interface DescribeEventTypesRequest {
 
 export namespace DescribeEventTypesRequest {
   export function isa(o: any): o is DescribeEventTypesRequest {
-    return _smithy.isa(o, "DescribeEventTypesRequest");
+    return __isa(o, "DescribeEventTypesRequest");
   }
 }
 
@@ -476,7 +477,7 @@ export interface DescribeEventTypesResponse extends $MetadataBearer {
 
 export namespace DescribeEventTypesResponse {
   export function isa(o: any): o is DescribeEventTypesResponse {
-    return _smithy.isa(o, "DescribeEventTypesResponse");
+    return __isa(o, "DescribeEventTypesResponse");
   }
 }
 
@@ -508,7 +509,7 @@ export interface DescribeEventsForOrganizationRequest {
 
 export namespace DescribeEventsForOrganizationRequest {
   export function isa(o: any): o is DescribeEventsForOrganizationRequest {
-    return _smithy.isa(o, "DescribeEventsForOrganizationRequest");
+    return __isa(o, "DescribeEventsForOrganizationRequest");
   }
 }
 
@@ -530,7 +531,7 @@ export interface DescribeEventsForOrganizationResponse extends $MetadataBearer {
 
 export namespace DescribeEventsForOrganizationResponse {
   export function isa(o: any): o is DescribeEventsForOrganizationResponse {
-    return _smithy.isa(o, "DescribeEventsForOrganizationResponse");
+    return __isa(o, "DescribeEventsForOrganizationResponse");
   }
 }
 
@@ -562,7 +563,7 @@ export interface DescribeEventsRequest {
 
 export namespace DescribeEventsRequest {
   export function isa(o: any): o is DescribeEventsRequest {
-    return _smithy.isa(o, "DescribeEventsRequest");
+    return __isa(o, "DescribeEventsRequest");
   }
 }
 
@@ -584,7 +585,7 @@ export interface DescribeEventsResponse extends $MetadataBearer {
 
 export namespace DescribeEventsResponse {
   export function isa(o: any): o is DescribeEventsResponse {
-    return _smithy.isa(o, "DescribeEventsResponse");
+    return __isa(o, "DescribeEventsResponse");
   }
 }
 
@@ -603,7 +604,7 @@ export namespace DescribeHealthServiceStatusForOrganizationResponse {
   export function isa(
     o: any
   ): o is DescribeHealthServiceStatusForOrganizationResponse {
-    return _smithy.isa(o, "DescribeHealthServiceStatusForOrganizationResponse");
+    return __isa(o, "DescribeHealthServiceStatusForOrganizationResponse");
   }
 }
 
@@ -660,7 +661,7 @@ export interface AffectedEntity {
 
 export namespace AffectedEntity {
   export function isa(o: any): o is AffectedEntity {
-    return _smithy.isa(o, "AffectedEntity");
+    return __isa(o, "AffectedEntity");
   }
 }
 
@@ -689,7 +690,7 @@ export interface DateTimeRange {
 
 export namespace DateTimeRange {
   export function isa(o: any): o is DateTimeRange {
-    return _smithy.isa(o, "DateTimeRange");
+    return __isa(o, "DateTimeRange");
   }
 }
 
@@ -713,7 +714,7 @@ export interface EntityAggregate {
 
 export namespace EntityAggregate {
   export function isa(o: any): o is EntityAggregate {
-    return _smithy.isa(o, "EntityAggregate");
+    return __isa(o, "EntityAggregate");
   }
 }
 
@@ -757,7 +758,7 @@ export interface EntityFilter {
 
 export namespace EntityFilter {
   export function isa(o: any): o is EntityFilter {
-    return _smithy.isa(o, "EntityFilter");
+    return __isa(o, "EntityFilter");
   }
 }
 
@@ -824,7 +825,7 @@ export interface Event {
 
 export namespace Event {
   export function isa(o: any): o is Event {
-    return _smithy.isa(o, "Event");
+    return __isa(o, "Event");
   }
 }
 
@@ -848,7 +849,7 @@ export interface EventAccountFilter {
 
 export namespace EventAccountFilter {
   export function isa(o: any): o is EventAccountFilter {
-    return _smithy.isa(o, "EventAccountFilter");
+    return __isa(o, "EventAccountFilter");
   }
 }
 
@@ -870,7 +871,7 @@ export interface EventAggregate {
 
 export namespace EventAggregate {
   export function isa(o: any): o is EventAggregate {
-    return _smithy.isa(o, "EventAggregate");
+    return __isa(o, "EventAggregate");
   }
 }
 
@@ -888,7 +889,7 @@ export interface EventDescription {
 
 export namespace EventDescription {
   export function isa(o: any): o is EventDescription {
-    return _smithy.isa(o, "EventDescription");
+    return __isa(o, "EventDescription");
   }
 }
 
@@ -917,7 +918,7 @@ export interface EventDetails {
 
 export namespace EventDetails {
   export function isa(o: any): o is EventDetails {
-    return _smithy.isa(o, "EventDetails");
+    return __isa(o, "EventDetails");
   }
 }
 
@@ -947,7 +948,7 @@ export interface EventDetailsErrorItem {
 
 export namespace EventDetailsErrorItem {
   export function isa(o: any): o is EventDetailsErrorItem {
-    return _smithy.isa(o, "EventDetailsErrorItem");
+    return __isa(o, "EventDetailsErrorItem");
   }
 }
 
@@ -1029,7 +1030,7 @@ export interface EventFilter {
 
 export namespace EventFilter {
   export function isa(o: any): o is EventFilter {
-    return _smithy.isa(o, "EventFilter");
+    return __isa(o, "EventFilter");
   }
 }
 
@@ -1061,7 +1062,7 @@ export interface EventType {
 
 export namespace EventType {
   export function isa(o: any): o is EventType {
-    return _smithy.isa(o, "EventType");
+    return __isa(o, "EventType");
   }
 }
 
@@ -1090,7 +1091,7 @@ export interface EventTypeFilter {
 
 export namespace EventTypeFilter {
   export function isa(o: any): o is EventTypeFilter {
-    return _smithy.isa(o, "EventTypeFilter");
+    return __isa(o, "EventTypeFilter");
   }
 }
 
@@ -1127,7 +1128,7 @@ export interface OrganizationAffectedEntitiesErrorItem {
 
 export namespace OrganizationAffectedEntitiesErrorItem {
   export function isa(o: any): o is OrganizationAffectedEntitiesErrorItem {
-    return _smithy.isa(o, "OrganizationAffectedEntitiesErrorItem");
+    return __isa(o, "OrganizationAffectedEntitiesErrorItem");
   }
 }
 
@@ -1189,7 +1190,7 @@ export interface OrganizationEvent {
 
 export namespace OrganizationEvent {
   export function isa(o: any): o is OrganizationEvent {
-    return _smithy.isa(o, "OrganizationEvent");
+    return __isa(o, "OrganizationEvent");
   }
 }
 
@@ -1224,7 +1225,7 @@ export interface OrganizationEventDetails {
 
 export namespace OrganizationEventDetails {
   export function isa(o: any): o is OrganizationEventDetails {
-    return _smithy.isa(o, "OrganizationEventDetails");
+    return __isa(o, "OrganizationEventDetails");
   }
 }
 
@@ -1260,7 +1261,7 @@ export interface OrganizationEventDetailsErrorItem {
 
 export namespace OrganizationEventDetailsErrorItem {
   export function isa(o: any): o is OrganizationEventDetailsErrorItem {
-    return _smithy.isa(o, "OrganizationEventDetailsErrorItem");
+    return __isa(o, "OrganizationEventDetailsErrorItem");
   }
 }
 
@@ -1350,6 +1351,6 @@ export interface OrganizationEventFilter {
 
 export namespace OrganizationEventFilter {
   export function isa(o: any): o is OrganizationEventFilter {
-    return _smithy.isa(o, "OrganizationEventFilter");
+    return __isa(o, "OrganizationEventFilter");
   }
 }

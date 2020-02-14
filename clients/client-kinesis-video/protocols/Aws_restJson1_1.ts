@@ -901,6 +901,7 @@ export async function deserializeAws_restJson1_1DeleteSignalingChannelCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteSignalingChannelOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -977,6 +978,7 @@ export async function deserializeAws_restJson1_1DeleteStreamCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteStreamOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1693,6 +1695,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1769,6 +1772,7 @@ export async function deserializeAws_restJson1_1TagStreamCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagStreamOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1852,6 +1856,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1921,6 +1926,7 @@ export async function deserializeAws_restJson1_1UntagStreamCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagStreamOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2000,6 +2006,7 @@ export async function deserializeAws_restJson1_1UpdateDataRetentionCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateDataRetentionOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2086,6 +2093,7 @@ export async function deserializeAws_restJson1_1UpdateSignalingChannelCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateSignalingChannelOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2169,6 +2177,7 @@ export async function deserializeAws_restJson1_1UpdateStreamCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateStreamOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

@@ -357,6 +357,7 @@ export async function deserializeAws_restJson1_1AcceptInvitationCommand(
   const contents: AcceptInvitationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -572,6 +573,7 @@ export async function deserializeAws_restJson1_1DeleteGraphCommand(
   const contents: DeleteGraphCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -723,6 +725,7 @@ export async function deserializeAws_restJson1_1DisassociateMembershipCommand(
   const contents: DisassociateMembershipCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1085,6 +1088,7 @@ export async function deserializeAws_restJson1_1RejectInvitationCommand(
   const contents: RejectInvitationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

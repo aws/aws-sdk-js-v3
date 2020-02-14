@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -23,7 +26,7 @@ export interface BatchMeterUsageRequest {
 
 export namespace BatchMeterUsageRequest {
   export function isa(o: any): o is BatchMeterUsageRequest {
-    return _smithy.isa(o, "BatchMeterUsageRequest");
+    return __isa(o, "BatchMeterUsageRequest");
   }
 }
 
@@ -49,7 +52,7 @@ export interface BatchMeterUsageResult extends $MetadataBearer {
 
 export namespace BatchMeterUsageResult {
   export function isa(o: any): o is BatchMeterUsageResult {
-    return _smithy.isa(o, "BatchMeterUsageResult");
+    return __isa(o, "BatchMeterUsageResult");
   }
 }
 
@@ -58,7 +61,7 @@ export namespace BatchMeterUsageResult {
  *             product.</p>
  */
 export interface CustomerNotEntitledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CustomerNotEntitledException";
   $fault: "client";
@@ -67,7 +70,7 @@ export interface CustomerNotEntitledException
 
 export namespace CustomerNotEntitledException {
   export function isa(o: any): o is CustomerNotEntitledException {
-    return _smithy.isa(o, "CustomerNotEntitledException");
+    return __isa(o, "CustomerNotEntitledException");
   }
 }
 
@@ -75,7 +78,7 @@ export namespace CustomerNotEntitledException {
  * <p>The API is disabled in the Region.</p>
  */
 export interface DisabledApiException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DisabledApiException";
   $fault: "client";
@@ -84,7 +87,7 @@ export interface DisabledApiException
 
 export namespace DisabledApiException {
   export function isa(o: any): o is DisabledApiException {
-    return _smithy.isa(o, "DisabledApiException");
+    return __isa(o, "DisabledApiException");
   }
 }
 
@@ -94,7 +97,7 @@ export namespace DisabledApiException {
  *             usageQuantity.</p>
  */
 export interface DuplicateRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DuplicateRequestException";
   $fault: "client";
@@ -103,7 +106,7 @@ export interface DuplicateRequestException
 
 export namespace DuplicateRequestException {
   export function isa(o: any): o is DuplicateRequestException {
-    return _smithy.isa(o, "DuplicateRequestException");
+    return __isa(o, "DuplicateRequestException");
   }
 }
 
@@ -115,7 +118,7 @@ export namespace DuplicateRequestException {
  *             by the buyer's browser.</p>
  */
 export interface ExpiredTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExpiredTokenException";
   $fault: "client";
@@ -124,7 +127,7 @@ export interface ExpiredTokenException
 
 export namespace ExpiredTokenException {
   export function isa(o: any): o is ExpiredTokenException {
-    return _smithy.isa(o, "ExpiredTokenException");
+    return __isa(o, "ExpiredTokenException");
   }
 }
 
@@ -133,7 +136,7 @@ export namespace ExpiredTokenException {
  *             message with details on the AWS forums.</p>
  */
 export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
@@ -142,7 +145,7 @@ export interface InternalServiceErrorException
 
 export namespace InternalServiceErrorException {
   export function isa(o: any): o is InternalServiceErrorException {
-    return _smithy.isa(o, "InternalServiceErrorException");
+    return __isa(o, "InternalServiceErrorException");
   }
 }
 
@@ -150,7 +153,7 @@ export namespace InternalServiceErrorException {
  * <p>You have metered usage for a CustomerIdentifier that does not exist.</p>
  */
 export interface InvalidCustomerIdentifierException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidCustomerIdentifierException";
   $fault: "client";
@@ -159,7 +162,7 @@ export interface InvalidCustomerIdentifierException
 
 export namespace InvalidCustomerIdentifierException {
   export function isa(o: any): o is InvalidCustomerIdentifierException {
-    return _smithy.isa(o, "InvalidCustomerIdentifierException");
+    return __isa(o, "InvalidCustomerIdentifierException");
   }
 }
 
@@ -169,7 +172,7 @@ export namespace InvalidCustomerIdentifierException {
  *             resource must match.</p>
  */
 export interface InvalidEndpointRegionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidEndpointRegionException";
   $fault: "client";
@@ -178,7 +181,7 @@ export interface InvalidEndpointRegionException
 
 export namespace InvalidEndpointRegionException {
   export function isa(o: any): o is InvalidEndpointRegionException {
-    return _smithy.isa(o, "InvalidEndpointRegionException");
+    return __isa(o, "InvalidEndpointRegionException");
   }
 }
 
@@ -187,7 +190,7 @@ export namespace InvalidEndpointRegionException {
  *             product.</p>
  */
 export interface InvalidProductCodeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidProductCodeException";
   $fault: "client";
@@ -196,7 +199,7 @@ export interface InvalidProductCodeException
 
 export namespace InvalidProductCodeException {
   export function isa(o: any): o is InvalidProductCodeException {
-    return _smithy.isa(o, "InvalidProductCodeException");
+    return __isa(o, "InvalidProductCodeException");
   }
 }
 
@@ -204,7 +207,7 @@ export namespace InvalidProductCodeException {
  * <p>Public Key version is invalid.</p>
  */
 export interface InvalidPublicKeyVersionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPublicKeyVersionException";
   $fault: "client";
@@ -213,7 +216,7 @@ export interface InvalidPublicKeyVersionException
 
 export namespace InvalidPublicKeyVersionException {
   export function isa(o: any): o is InvalidPublicKeyVersionException {
-    return _smithy.isa(o, "InvalidPublicKeyVersionException");
+    return __isa(o, "InvalidPublicKeyVersionException");
   }
 }
 
@@ -223,7 +226,7 @@ export namespace InvalidPublicKeyVersionException {
  *             calling RegisterUsage.</p>
  */
 export interface InvalidRegionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRegionException";
   $fault: "client";
@@ -232,7 +235,7 @@ export interface InvalidRegionException
 
 export namespace InvalidRegionException {
   export function isa(o: any): o is InvalidRegionException {
-    return _smithy.isa(o, "InvalidRegionException");
+    return __isa(o, "InvalidRegionException");
   }
 }
 
@@ -240,7 +243,7 @@ export namespace InvalidRegionException {
  * <p>Registration token is invalid.</p>
  */
 export interface InvalidTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTokenException";
   $fault: "client";
@@ -249,7 +252,7 @@ export interface InvalidTokenException
 
 export namespace InvalidTokenException {
   export function isa(o: any): o is InvalidTokenException {
-    return _smithy.isa(o, "InvalidTokenException");
+    return __isa(o, "InvalidTokenException");
   }
 }
 
@@ -258,7 +261,7 @@ export namespace InvalidTokenException {
  *             products.</p>
  */
 export interface InvalidUsageDimensionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidUsageDimensionException";
   $fault: "client";
@@ -267,7 +270,7 @@ export interface InvalidUsageDimensionException
 
 export namespace InvalidUsageDimensionException {
   export function isa(o: any): o is InvalidUsageDimensionException {
-    return _smithy.isa(o, "InvalidUsageDimensionException");
+    return __isa(o, "InvalidUsageDimensionException");
   }
 }
 
@@ -310,7 +313,7 @@ export interface MeterUsageRequest {
 
 export namespace MeterUsageRequest {
   export function isa(o: any): o is MeterUsageRequest {
-    return _smithy.isa(o, "MeterUsageRequest");
+    return __isa(o, "MeterUsageRequest");
   }
 }
 
@@ -324,7 +327,7 @@ export interface MeterUsageResult extends $MetadataBearer {
 
 export namespace MeterUsageResult {
   export function isa(o: any): o is MeterUsageResult {
-    return _smithy.isa(o, "MeterUsageResult");
+    return __isa(o, "MeterUsageResult");
   }
 }
 
@@ -333,7 +336,7 @@ export namespace MeterUsageResult {
  *             Currently, only Amazon ECS is supported.</p>
  */
 export interface PlatformNotSupportedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PlatformNotSupportedException";
   $fault: "client";
@@ -342,7 +345,7 @@ export interface PlatformNotSupportedException
 
 export namespace PlatformNotSupportedException {
   export function isa(o: any): o is PlatformNotSupportedException {
-    return _smithy.isa(o, "PlatformNotSupportedException");
+    return __isa(o, "PlatformNotSupportedException");
   }
 }
 
@@ -369,7 +372,7 @@ export interface RegisterUsageRequest {
 
 export namespace RegisterUsageRequest {
   export function isa(o: any): o is RegisterUsageRequest {
-    return _smithy.isa(o, "RegisterUsageRequest");
+    return __isa(o, "RegisterUsageRequest");
   }
 }
 
@@ -388,7 +391,7 @@ export interface RegisterUsageResult extends $MetadataBearer {
 
 export namespace RegisterUsageResult {
   export function isa(o: any): o is RegisterUsageResult {
-    return _smithy.isa(o, "RegisterUsageResult");
+    return __isa(o, "RegisterUsageResult");
   }
 }
 
@@ -407,7 +410,7 @@ export interface ResolveCustomerRequest {
 
 export namespace ResolveCustomerRequest {
   export function isa(o: any): o is ResolveCustomerRequest {
-    return _smithy.isa(o, "ResolveCustomerRequest");
+    return __isa(o, "ResolveCustomerRequest");
   }
 }
 
@@ -434,7 +437,7 @@ export interface ResolveCustomerResult extends $MetadataBearer {
 
 export namespace ResolveCustomerResult {
   export function isa(o: any): o is ResolveCustomerResult {
-    return _smithy.isa(o, "ResolveCustomerResult");
+    return __isa(o, "ResolveCustomerResult");
   }
 }
 
@@ -442,7 +445,7 @@ export namespace ResolveCustomerResult {
  * <p>The calls to the API are throttled.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -451,7 +454,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -459,7 +462,7 @@ export namespace ThrottlingException {
  * <p>The timestamp value passed in the meterUsage() is out of allowed range.</p>
  */
 export interface TimestampOutOfBoundsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TimestampOutOfBoundsException";
   $fault: "client";
@@ -468,7 +471,7 @@ export interface TimestampOutOfBoundsException
 
 export namespace TimestampOutOfBoundsException {
   export function isa(o: any): o is TimestampOutOfBoundsException {
-    return _smithy.isa(o, "TimestampOutOfBoundsException");
+    return __isa(o, "TimestampOutOfBoundsException");
   }
 }
 
@@ -509,7 +512,7 @@ export interface UsageRecord {
 
 export namespace UsageRecord {
   export function isa(o: any): o is UsageRecord {
-    return _smithy.isa(o, "UsageRecord");
+    return __isa(o, "UsageRecord");
   }
 }
 
@@ -558,7 +561,7 @@ export interface UsageRecordResult {
 
 export namespace UsageRecordResult {
   export function isa(o: any): o is UsageRecordResult {
-    return _smithy.isa(o, "UsageRecordResult");
+    return __isa(o, "UsageRecordResult");
   }
 }
 

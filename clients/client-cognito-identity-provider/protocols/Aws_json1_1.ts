@@ -2255,6 +2255,7 @@ export async function deserializeAws_json1_1AdminAddUserToGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AdminAddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2631,6 +2632,7 @@ export async function deserializeAws_json1_1AdminDeleteUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminDeleteUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AdminDeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3100,6 +3102,7 @@ export async function deserializeAws_json1_1AdminForgetDeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AdminForgetDeviceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AdminForgetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3928,6 +3931,7 @@ export async function deserializeAws_json1_1AdminRemoveUserFromGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AdminRemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6448,6 +6452,7 @@ export async function deserializeAws_json1_1DeleteGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6530,6 +6535,7 @@ export async function deserializeAws_json1_1DeleteIdentityProviderCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6619,6 +6625,7 @@ export async function deserializeAws_json1_1DeleteResourceServerCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6698,6 +6705,7 @@ export async function deserializeAws_json1_1DeleteUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6906,6 +6914,7 @@ export async function deserializeAws_json1_1DeleteUserPoolCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteUserPoolCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6995,6 +7004,7 @@ export async function deserializeAws_json1_1DeleteUserPoolClientCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -7782,6 +7792,7 @@ export async function deserializeAws_json1_1ForgetDeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ForgetDeviceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ForgetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

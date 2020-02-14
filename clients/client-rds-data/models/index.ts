@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -106,7 +109,7 @@ export namespace ArrayValue {
  * <p>There is an error in the call or in a SQL statement.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -118,7 +121,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -170,7 +173,7 @@ export interface BatchExecuteStatementRequest {
 
 export namespace BatchExecuteStatementRequest {
   export function isa(o: any): o is BatchExecuteStatementRequest {
-    return _smithy.isa(o, "BatchExecuteStatementRequest");
+    return __isa(o, "BatchExecuteStatementRequest");
   }
 }
 
@@ -188,7 +191,7 @@ export interface BatchExecuteStatementResponse extends $MetadataBearer {
 
 export namespace BatchExecuteStatementResponse {
   export function isa(o: any): o is BatchExecuteStatementResponse {
-    return _smithy.isa(o, "BatchExecuteStatementResponse");
+    return __isa(o, "BatchExecuteStatementResponse");
   }
 }
 
@@ -221,7 +224,7 @@ export interface BeginTransactionRequest {
 
 export namespace BeginTransactionRequest {
   export function isa(o: any): o is BeginTransactionRequest {
-    return _smithy.isa(o, "BeginTransactionRequest");
+    return __isa(o, "BeginTransactionRequest");
   }
 }
 
@@ -239,7 +242,7 @@ export interface BeginTransactionResponse extends $MetadataBearer {
 
 export namespace BeginTransactionResponse {
   export function isa(o: any): o is BeginTransactionResponse {
-    return _smithy.isa(o, "BeginTransactionResponse");
+    return __isa(o, "BeginTransactionResponse");
   }
 }
 
@@ -321,7 +324,7 @@ export interface ColumnMetadata {
 
 export namespace ColumnMetadata {
   export function isa(o: any): o is ColumnMetadata {
-    return _smithy.isa(o, "ColumnMetadata");
+    return __isa(o, "ColumnMetadata");
   }
 }
 
@@ -348,7 +351,7 @@ export interface CommitTransactionRequest {
 
 export namespace CommitTransactionRequest {
   export function isa(o: any): o is CommitTransactionRequest {
-    return _smithy.isa(o, "CommitTransactionRequest");
+    return __isa(o, "CommitTransactionRequest");
   }
 }
 
@@ -365,7 +368,7 @@ export interface CommitTransactionResponse extends $MetadataBearer {
 
 export namespace CommitTransactionResponse {
   export function isa(o: any): o is CommitTransactionResponse {
-    return _smithy.isa(o, "CommitTransactionResponse");
+    return __isa(o, "CommitTransactionResponse");
   }
 }
 
@@ -406,7 +409,7 @@ export interface ExecuteSqlRequest {
 
 export namespace ExecuteSqlRequest {
   export function isa(o: any): o is ExecuteSqlRequest {
-    return _smithy.isa(o, "ExecuteSqlRequest");
+    return __isa(o, "ExecuteSqlRequest");
   }
 }
 
@@ -424,7 +427,7 @@ export interface ExecuteSqlResponse extends $MetadataBearer {
 
 export namespace ExecuteSqlResponse {
   export function isa(o: any): o is ExecuteSqlResponse {
-    return _smithy.isa(o, "ExecuteSqlResponse");
+    return __isa(o, "ExecuteSqlResponse");
   }
 }
 
@@ -492,7 +495,7 @@ export interface ExecuteStatementRequest {
 
 export namespace ExecuteStatementRequest {
   export function isa(o: any): o is ExecuteStatementRequest {
-    return _smithy.isa(o, "ExecuteStatementRequest");
+    return __isa(o, "ExecuteStatementRequest");
   }
 }
 
@@ -525,7 +528,7 @@ export interface ExecuteStatementResponse extends $MetadataBearer {
 
 export namespace ExecuteStatementResponse {
   export function isa(o: any): o is ExecuteStatementResponse {
-    return _smithy.isa(o, "ExecuteStatementResponse");
+    return __isa(o, "ExecuteStatementResponse");
   }
 }
 
@@ -678,9 +681,7 @@ export namespace Field {
 /**
  * <p>There are insufficient privileges to make the call.</p>
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -691,7 +692,7 @@ export interface ForbiddenException
 
 export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
-    return _smithy.isa(o, "ForbiddenException");
+    return __isa(o, "ForbiddenException");
   }
 }
 
@@ -699,7 +700,7 @@ export namespace ForbiddenException {
  * <p>An internal error occurred.</p>
  */
 export interface InternalServerErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
@@ -707,16 +708,14 @@ export interface InternalServerErrorException
 
 export namespace InternalServerErrorException {
   export function isa(o: any): o is InternalServerErrorException {
-    return _smithy.isa(o, "InternalServerErrorException");
+    return __isa(o, "InternalServerErrorException");
   }
 }
 
 /**
  * <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -727,7 +726,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -744,7 +743,7 @@ export interface _Record {
 
 export namespace _Record {
   export function isa(o: any): o is _Record {
-    return _smithy.isa(o, "Record");
+    return __isa(o, "Record");
   }
 }
 
@@ -766,7 +765,7 @@ export interface ResultFrame {
 
 export namespace ResultFrame {
   export function isa(o: any): o is ResultFrame {
-    return _smithy.isa(o, "ResultFrame");
+    return __isa(o, "ResultFrame");
   }
 }
 
@@ -788,7 +787,7 @@ export interface ResultSetMetadata {
 
 export namespace ResultSetMetadata {
   export function isa(o: any): o is ResultSetMetadata {
-    return _smithy.isa(o, "ResultSetMetadata");
+    return __isa(o, "ResultSetMetadata");
   }
 }
 
@@ -816,7 +815,7 @@ export interface RollbackTransactionRequest {
 
 export namespace RollbackTransactionRequest {
   export function isa(o: any): o is RollbackTransactionRequest {
-    return _smithy.isa(o, "RollbackTransactionRequest");
+    return __isa(o, "RollbackTransactionRequest");
   }
 }
 
@@ -834,7 +833,7 @@ export interface RollbackTransactionResponse extends $MetadataBearer {
 
 export namespace RollbackTransactionResponse {
   export function isa(o: any): o is RollbackTransactionResponse {
-    return _smithy.isa(o, "RollbackTransactionResponse");
+    return __isa(o, "RollbackTransactionResponse");
   }
 }
 
@@ -843,7 +842,7 @@ export namespace RollbackTransactionResponse {
  *             available.</p>
  */
 export interface ServiceUnavailableError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableError";
   $fault: "server";
@@ -851,7 +850,7 @@ export interface ServiceUnavailableError
 
 export namespace ServiceUnavailableError {
   export function isa(o: any): o is ServiceUnavailableError {
-    return _smithy.isa(o, "ServiceUnavailableError");
+    return __isa(o, "ServiceUnavailableError");
   }
 }
 
@@ -873,7 +872,7 @@ export interface SqlParameter {
 
 export namespace SqlParameter {
   export function isa(o: any): o is SqlParameter {
-    return _smithy.isa(o, "SqlParameter");
+    return __isa(o, "SqlParameter");
   }
 }
 
@@ -895,7 +894,7 @@ export interface SqlStatementResult {
 
 export namespace SqlStatementResult {
   export function isa(o: any): o is SqlStatementResult {
-    return _smithy.isa(o, "SqlStatementResult");
+    return __isa(o, "SqlStatementResult");
   }
 }
 
@@ -903,7 +902,7 @@ export namespace SqlStatementResult {
  * <p>The execution of the SQL statement timed out.</p>
  */
 export interface StatementTimeoutException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "StatementTimeoutException";
   $fault: "client";
@@ -920,7 +919,7 @@ export interface StatementTimeoutException
 
 export namespace StatementTimeoutException {
   export function isa(o: any): o is StatementTimeoutException {
-    return _smithy.isa(o, "StatementTimeoutException");
+    return __isa(o, "StatementTimeoutException");
   }
 }
 
@@ -937,7 +936,7 @@ export interface StructValue {
 
 export namespace StructValue {
   export function isa(o: any): o is StructValue {
-    return _smithy.isa(o, "StructValue");
+    return __isa(o, "StructValue");
   }
 }
 
@@ -954,7 +953,7 @@ export interface UpdateResult {
 
 export namespace UpdateResult {
   export function isa(o: any): o is UpdateResult {
-    return _smithy.isa(o, "UpdateResult");
+    return __isa(o, "UpdateResult");
   }
 }
 

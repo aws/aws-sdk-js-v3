@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -7,7 +10,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         </p>
  */
 export interface AccountActionRequiredException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccountActionRequiredException";
   $fault: "client";
@@ -21,7 +24,7 @@ export interface AccountActionRequiredException
 
 export namespace AccountActionRequiredException {
   export function isa(o: any): o is AccountActionRequiredException {
-    return _smithy.isa(o, "AccountActionRequiredException");
+    return __isa(o, "AccountActionRequiredException");
   }
 }
 
@@ -32,7 +35,7 @@ export namespace AccountActionRequiredException {
  *         </p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -46,7 +49,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -102,7 +105,7 @@ export interface BundleDetails {
 
 export namespace BundleDetails {
   export function isa(o: any): o is BundleDetails {
-    return _smithy.isa(o, "BundleDetails");
+    return __isa(o, "BundleDetails");
   }
 }
 
@@ -147,7 +150,7 @@ export interface CreateProjectRequest {
 
 export namespace CreateProjectRequest {
   export function isa(o: any): o is CreateProjectRequest {
-    return _smithy.isa(o, "CreateProjectRequest");
+    return __isa(o, "CreateProjectRequest");
   }
 }
 
@@ -168,7 +171,7 @@ export interface CreateProjectResult extends $MetadataBearer {
 
 export namespace CreateProjectResult {
   export function isa(o: any): o is CreateProjectResult {
-    return _smithy.isa(o, "CreateProjectResult");
+    return __isa(o, "CreateProjectResult");
   }
 }
 
@@ -189,7 +192,7 @@ export interface DeleteProjectRequest {
 
 export namespace DeleteProjectRequest {
   export function isa(o: any): o is DeleteProjectRequest {
-    return _smithy.isa(o, "DeleteProjectRequest");
+    return __isa(o, "DeleteProjectRequest");
   }
 }
 
@@ -218,7 +221,7 @@ export interface DeleteProjectResult extends $MetadataBearer {
 
 export namespace DeleteProjectResult {
   export function isa(o: any): o is DeleteProjectResult {
-    return _smithy.isa(o, "DeleteProjectResult");
+    return __isa(o, "DeleteProjectResult");
   }
 }
 
@@ -239,7 +242,7 @@ export interface DescribeBundleRequest {
 
 export namespace DescribeBundleRequest {
   export function isa(o: any): o is DescribeBundleRequest {
-    return _smithy.isa(o, "DescribeBundleRequest");
+    return __isa(o, "DescribeBundleRequest");
   }
 }
 
@@ -260,7 +263,7 @@ export interface DescribeBundleResult extends $MetadataBearer {
 
 export namespace DescribeBundleResult {
   export function isa(o: any): o is DescribeBundleResult {
-    return _smithy.isa(o, "DescribeBundleResult");
+    return __isa(o, "DescribeBundleResult");
   }
 }
 
@@ -288,7 +291,7 @@ export interface DescribeProjectRequest {
 
 export namespace DescribeProjectRequest {
   export function isa(o: any): o is DescribeProjectRequest {
-    return _smithy.isa(o, "DescribeProjectRequest");
+    return __isa(o, "DescribeProjectRequest");
   }
 }
 
@@ -309,7 +312,7 @@ export interface DescribeProjectResult extends $MetadataBearer {
 
 export namespace DescribeProjectResult {
   export function isa(o: any): o is DescribeProjectResult {
-    return _smithy.isa(o, "DescribeProjectResult");
+    return __isa(o, "DescribeProjectResult");
   }
 }
 
@@ -345,7 +348,7 @@ export interface ExportBundleRequest {
 
 export namespace ExportBundleRequest {
   export function isa(o: any): o is ExportBundleRequest {
-    return _smithy.isa(o, "ExportBundleRequest");
+    return __isa(o, "ExportBundleRequest");
   }
 }
 
@@ -370,7 +373,7 @@ export interface ExportBundleResult extends $MetadataBearer {
 
 export namespace ExportBundleResult {
   export function isa(o: any): o is ExportBundleResult {
-    return _smithy.isa(o, "ExportBundleResult");
+    return __isa(o, "ExportBundleResult");
   }
 }
 
@@ -391,7 +394,7 @@ export interface ExportProjectRequest {
 
 export namespace ExportProjectRequest {
   export function isa(o: any): o is ExportProjectRequest {
-    return _smithy.isa(o, "ExportProjectRequest");
+    return __isa(o, "ExportProjectRequest");
   }
 }
 
@@ -432,7 +435,7 @@ export interface ExportProjectResult extends $MetadataBearer {
 
 export namespace ExportProjectResult {
   export function isa(o: any): o is ExportProjectResult {
-    return _smithy.isa(o, "ExportProjectResult");
+    return __isa(o, "ExportProjectResult");
   }
 }
 
@@ -443,7 +446,7 @@ export namespace ExportProjectResult {
  *         </p>
  */
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -457,7 +460,7 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
@@ -470,7 +473,7 @@ export namespace InternalFailureException {
  *         </p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -491,7 +494,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -521,7 +524,7 @@ export interface ListBundlesRequest {
 
 export namespace ListBundlesRequest {
   export function isa(o: any): o is ListBundlesRequest {
-    return _smithy.isa(o, "ListBundlesRequest");
+    return __isa(o, "ListBundlesRequest");
   }
 }
 
@@ -550,7 +553,7 @@ export interface ListBundlesResult extends $MetadataBearer {
 
 export namespace ListBundlesResult {
   export function isa(o: any): o is ListBundlesResult {
-    return _smithy.isa(o, "ListBundlesResult");
+    return __isa(o, "ListBundlesResult");
   }
 }
 
@@ -580,7 +583,7 @@ export interface ListProjectsRequest {
 
 export namespace ListProjectsRequest {
   export function isa(o: any): o is ListProjectsRequest {
-    return _smithy.isa(o, "ListProjectsRequest");
+    return __isa(o, "ListProjectsRequest");
   }
 }
 
@@ -610,7 +613,7 @@ export interface ListProjectsResult extends $MetadataBearer {
 
 export namespace ListProjectsResult {
   export function isa(o: any): o is ListProjectsResult {
-    return _smithy.isa(o, "ListProjectsResult");
+    return __isa(o, "ListProjectsResult");
   }
 }
 
@@ -619,9 +622,7 @@ export namespace ListProjectsResult {
  *             No entity can be found with the specified identifier.
  *         </p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -634,7 +635,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -714,7 +715,7 @@ export interface ProjectDetails {
 
 export namespace ProjectDetails {
   export function isa(o: any): o is ProjectDetails {
-    return _smithy.isa(o, "ProjectDetails");
+    return __isa(o, "ProjectDetails");
   }
 }
 
@@ -748,7 +749,7 @@ export interface ProjectSummary {
 
 export namespace ProjectSummary {
   export function isa(o: any): o is ProjectSummary {
-    return _smithy.isa(o, "ProjectSummary");
+    return __isa(o, "ProjectSummary");
   }
 }
 
@@ -797,7 +798,7 @@ export interface Resource {
 
 export namespace Resource {
   export function isa(o: any): o is Resource {
-    return _smithy.isa(o, "Resource");
+    return __isa(o, "Resource");
   }
 }
 
@@ -808,7 +809,7 @@ export namespace Resource {
  *         </p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -829,7 +830,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -840,7 +841,7 @@ export namespace ServiceUnavailableException {
  *         </p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -861,7 +862,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -871,7 +872,7 @@ export namespace TooManyRequestsException {
  *         </p>
  */
 export interface UnauthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
@@ -885,7 +886,7 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
+    return __isa(o, "UnauthorizedException");
   }
 }
 
@@ -915,7 +916,7 @@ export interface UpdateProjectRequest {
 
 export namespace UpdateProjectRequest {
   export function isa(o: any): o is UpdateProjectRequest {
-    return _smithy.isa(o, "UpdateProjectRequest");
+    return __isa(o, "UpdateProjectRequest");
   }
 }
 
@@ -936,6 +937,6 @@ export interface UpdateProjectResult extends $MetadataBearer {
 
 export namespace UpdateProjectResult {
   export function isa(o: any): o is UpdateProjectResult {
-    return _smithy.isa(o, "UpdateProjectResult");
+    return __isa(o, "UpdateProjectResult");
   }
 }

@@ -1964,6 +1964,7 @@ export async function deserializeAws_json1_1ModifyInstanceFleetCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifyInstanceFleetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2025,6 +2026,7 @@ export async function deserializeAws_json1_1ModifyInstanceGroupsCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifyInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2371,6 +2373,7 @@ export async function deserializeAws_json1_1SetTerminationProtectionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetTerminationProtectionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2425,6 +2428,7 @@ export async function deserializeAws_json1_1SetVisibleToAllUsersCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetVisibleToAllUsersCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2476,6 +2480,7 @@ export async function deserializeAws_json1_1TerminateJobFlowsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TerminateJobFlowsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TerminateJobFlowsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

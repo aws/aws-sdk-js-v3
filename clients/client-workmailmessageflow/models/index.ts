@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetRawMessageContentRequest {
@@ -11,7 +14,7 @@ export interface GetRawMessageContentRequest {
 
 export namespace GetRawMessageContentRequest {
   export function isa(o: any): o is GetRawMessageContentRequest {
-    return _smithy.isa(o, "GetRawMessageContentRequest");
+    return __isa(o, "GetRawMessageContentRequest");
   }
 }
 
@@ -25,7 +28,7 @@ export interface GetRawMessageContentResponse extends $MetadataBearer {
 
 export namespace GetRawMessageContentResponse {
   export function isa(o: any): o is GetRawMessageContentResponse {
-    return _smithy.isa(o, "GetRawMessageContentResponse");
+    return __isa(o, "GetRawMessageContentResponse");
   }
 }
 
@@ -33,7 +36,7 @@ export namespace GetRawMessageContentResponse {
  * <p>The requested email message is not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -42,6 +45,6 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }

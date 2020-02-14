@@ -35,12 +35,10 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.LanguageCode !== undefined) {
-    headers["x-amzn-transcribe-language-code"] = input.LanguageCode.toString();
+    headers["x-amzn-transcribe-language-code"] = input.LanguageCode;
   }
   if (input.MediaEncoding !== undefined) {
-    headers[
-      "x-amzn-transcribe-media-encoding"
-    ] = input.MediaEncoding.toString();
+    headers["x-amzn-transcribe-media-encoding"] = input.MediaEncoding;
   }
   if (input.MediaSampleRateHertz !== undefined) {
     headers[
@@ -48,12 +46,10 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
     ] = input.MediaSampleRateHertz.toString();
   }
   if (input.SessionId !== undefined) {
-    headers["x-amzn-transcribe-session-id"] = input.SessionId.toString();
+    headers["x-amzn-transcribe-session-id"] = input.SessionId;
   }
   if (input.VocabularyName !== undefined) {
-    headers[
-      "x-amzn-transcribe-vocabulary-name"
-    ] = input.VocabularyName.toString();
+    headers["x-amzn-transcribe-vocabulary-name"] = input.VocabularyName;
   }
   let resolvedPath = "/stream-transcription";
   let body: any;

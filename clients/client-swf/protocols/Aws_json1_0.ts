@@ -1103,6 +1103,7 @@ export async function deserializeAws_json1_0DeprecateActivityTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeprecateActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1168,6 +1169,7 @@ export async function deserializeAws_json1_0DeprecateDomainCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeprecateDomainCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeprecateDomainCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1236,6 +1238,7 @@ export async function deserializeAws_json1_0DeprecateWorkflowTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeprecateWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2230,6 +2233,7 @@ export async function deserializeAws_json1_0RegisterActivityTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RegisterActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2302,6 +2306,7 @@ export async function deserializeAws_json1_0RegisterDomainCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0RegisterDomainCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RegisterDomainCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2377,6 +2382,7 @@ export async function deserializeAws_json1_0RegisterWorkflowTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RegisterWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2452,6 +2458,7 @@ export async function deserializeAws_json1_0RequestCancelWorkflowExecutionComman
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RequestCancelWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2513,6 +2520,7 @@ export async function deserializeAws_json1_0RespondActivityTaskCanceledCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RespondActivityTaskCanceledCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2574,6 +2582,7 @@ export async function deserializeAws_json1_0RespondActivityTaskCompletedCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RespondActivityTaskCompletedCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2635,6 +2644,7 @@ export async function deserializeAws_json1_0RespondActivityTaskFailedCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RespondActivityTaskFailedCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2696,6 +2706,7 @@ export async function deserializeAws_json1_0RespondDecisionTaskCompletedCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RespondDecisionTaskCompletedCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2757,6 +2768,7 @@ export async function deserializeAws_json1_0SignalWorkflowExecutionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SignalWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2909,6 +2921,7 @@ export async function deserializeAws_json1_0TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2984,6 +2997,7 @@ export async function deserializeAws_json1_0TerminateWorkflowExecutionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: TerminateWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3045,6 +3059,7 @@ export async function deserializeAws_json1_0UndeprecateActivityTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UndeprecateActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3110,6 +3125,7 @@ export async function deserializeAws_json1_0UndeprecateDomainCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UndeprecateDomainCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UndeprecateDomainCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3178,6 +3194,7 @@ export async function deserializeAws_json1_0UndeprecateWorkflowTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UndeprecateWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3243,6 +3260,7 @@ export async function deserializeAws_json1_0UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

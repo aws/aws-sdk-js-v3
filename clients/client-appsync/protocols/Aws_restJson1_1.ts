@@ -204,7 +204,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -220,13 +223,13 @@ export async function serializeAws_restJson1_1CreateApiCacheCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/ApiCaches";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -267,13 +270,13 @@ export async function serializeAws_restJson1_1CreateApiKeyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/apikeys";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -305,13 +308,13 @@ export async function serializeAws_restJson1_1CreateDataSourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/datasources";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -385,13 +388,13 @@ export async function serializeAws_restJson1_1CreateFunctionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/functions";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -492,25 +495,25 @@ export async function serializeAws_restJson1_1CreateResolverCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
@@ -569,13 +572,13 @@ export async function serializeAws_restJson1_1CreateTypeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/types";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -607,13 +610,13 @@ export async function serializeAws_restJson1_1DeleteApiCacheCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/ApiCaches";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -635,23 +638,26 @@ export async function serializeAws_restJson1_1DeleteApiKeyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/apikeys/{id}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.id !== undefined) {
-    const labelValue: string = input.id.toString();
+    const labelValue: string = input.id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace("{id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
@@ -672,25 +678,25 @@ export async function serializeAws_restJson1_1DeleteDataSourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/datasources/{name}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -712,25 +718,25 @@ export async function serializeAws_restJson1_1DeleteFunctionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/functions/{functionId}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.functionId !== undefined) {
-    const labelValue: string = input.functionId.toString();
+    const labelValue: string = input.functionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{functionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
@@ -752,13 +758,13 @@ export async function serializeAws_restJson1_1DeleteGraphqlApiCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -780,37 +786,37 @@ export async function serializeAws_restJson1_1DeleteResolverCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.fieldName !== undefined) {
-    const labelValue: string = input.fieldName.toString();
+    const labelValue: string = input.fieldName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: fieldName.");
     }
     resolvedPath = resolvedPath.replace(
       "{fieldName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: fieldName.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
@@ -832,25 +838,25 @@ export async function serializeAws_restJson1_1DeleteTypeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/types/{typeName}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
@@ -872,13 +878,13 @@ export async function serializeAws_restJson1_1FlushApiCacheCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/FlushCache";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -900,13 +906,13 @@ export async function serializeAws_restJson1_1GetApiCacheCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/ApiCaches";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -928,25 +934,25 @@ export async function serializeAws_restJson1_1GetDataSourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/datasources/{name}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -968,25 +974,25 @@ export async function serializeAws_restJson1_1GetFunctionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/functions/{functionId}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.functionId !== undefined) {
-    const labelValue: string = input.functionId.toString();
+    const labelValue: string = input.functionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{functionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
@@ -1008,13 +1014,13 @@ export async function serializeAws_restJson1_1GetGraphqlApiCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -1036,23 +1042,27 @@ export async function serializeAws_restJson1_1GetIntrospectionSchemaCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/schema";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {};
   if (input.format !== undefined) {
-    query["format"] = input.format.toString();
+    query[
+      __extendedEncodeURIComponent("format")
+    ] = __extendedEncodeURIComponent(input.format);
   }
   if (input.includeDirectives !== undefined) {
-    query["includeDirectives"] = input.includeDirectives.toString();
+    query[
+      __extendedEncodeURIComponent("includeDirectives")
+    ] = __extendedEncodeURIComponent(input.includeDirectives.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1072,37 +1082,37 @@ export async function serializeAws_restJson1_1GetResolverCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.fieldName !== undefined) {
-    const labelValue: string = input.fieldName.toString();
+    const labelValue: string = input.fieldName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: fieldName.");
     }
     resolvedPath = resolvedPath.replace(
       "{fieldName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: fieldName.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
@@ -1124,13 +1134,13 @@ export async function serializeAws_restJson1_1GetSchemaCreationStatusCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/schemacreation";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -1152,32 +1162,34 @@ export async function serializeAws_restJson1_1GetTypeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/types/{typeName}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
   const query: any = {};
   if (input.format !== undefined) {
-    query["format"] = input.format.toString();
+    query[
+      __extendedEncodeURIComponent("format")
+    ] = __extendedEncodeURIComponent(input.format);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1197,23 +1209,27 @@ export async function serializeAws_restJson1_1ListApiKeysCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/apikeys";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1233,23 +1249,27 @@ export async function serializeAws_restJson1_1ListDataSourcesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/datasources";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1269,23 +1289,27 @@ export async function serializeAws_restJson1_1ListFunctionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/functions";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1306,10 +1330,14 @@ export async function serializeAws_restJson1_1ListGraphqlApisCommand(
   let resolvedPath = "/apis";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1329,35 +1357,39 @@ export async function serializeAws_restJson1_1ListResolversCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1377,35 +1409,39 @@ export async function serializeAws_restJson1_1ListResolversByFunctionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/functions/{functionId}/resolvers";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.functionId !== undefined) {
-    const labelValue: string = input.functionId.toString();
+    const labelValue: string = input.functionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{functionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1425,7 +1461,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1433,7 +1469,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -1455,26 +1491,32 @@ export async function serializeAws_restJson1_1ListTypesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/apis/{apiId}/types";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   const query: any = {};
   if (input.format !== undefined) {
-    query["format"] = input.format.toString();
+    query[
+      __extendedEncodeURIComponent("format")
+    ] = __extendedEncodeURIComponent(input.format);
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1494,13 +1536,13 @@ export async function serializeAws_restJson1_1StartSchemaCreationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/schemacreation";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -1529,7 +1571,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1537,7 +1579,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -1566,7 +1608,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -1574,14 +1616,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1601,13 +1645,13 @@ export async function serializeAws_restJson1_1UpdateApiCacheCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/ApiCaches/update";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -1642,23 +1686,26 @@ export async function serializeAws_restJson1_1UpdateApiKeyCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/apikeys/{id}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.id !== undefined) {
-    const labelValue: string = input.id.toString();
+    const labelValue: string = input.id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace("{id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
@@ -1689,25 +1736,25 @@ export async function serializeAws_restJson1_1UpdateDataSourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/datasources/{name}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -1778,25 +1825,25 @@ export async function serializeAws_restJson1_1UpdateFunctionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/functions/{functionId}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.functionId !== undefined) {
-    const labelValue: string = input.functionId.toString();
+    const labelValue: string = input.functionId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
     resolvedPath = resolvedPath.replace(
       "{functionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
@@ -1840,13 +1887,13 @@ export async function serializeAws_restJson1_1UpdateGraphqlApiCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
@@ -1906,37 +1953,37 @@ export async function serializeAws_restJson1_1UpdateResolverCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/types/{typeName}/resolvers/{fieldName}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.fieldName !== undefined) {
-    const labelValue: string = input.fieldName.toString();
+    const labelValue: string = input.fieldName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: fieldName.");
     }
     resolvedPath = resolvedPath.replace(
       "{fieldName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: fieldName.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
@@ -1992,25 +2039,25 @@ export async function serializeAws_restJson1_1UpdateTypeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/apis/{apiId}/types/{typeName}";
   if (input.apiId !== undefined) {
-    const labelValue: string = input.apiId.toString();
+    const labelValue: string = input.apiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
     resolvedPath = resolvedPath.replace(
       "{apiId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
   if (input.typeName !== undefined) {
-    const labelValue: string = input.typeName.toString();
+    const labelValue: string = input.typeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{typeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
@@ -2655,6 +2702,7 @@ export async function deserializeAws_restJson1_1DeleteApiCacheCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteApiCacheResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2731,6 +2779,7 @@ export async function deserializeAws_restJson1_1DeleteApiKeyCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteApiKeyResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2803,6 +2852,7 @@ export async function deserializeAws_restJson1_1DeleteDataSourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteDataSourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2882,6 +2932,7 @@ export async function deserializeAws_restJson1_1DeleteFunctionCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteFunctionResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2954,6 +3005,7 @@ export async function deserializeAws_restJson1_1DeleteGraphqlApiCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteGraphqlApiResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3040,6 +3092,7 @@ export async function deserializeAws_restJson1_1DeleteResolverCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteResolverResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3109,6 +3162,7 @@ export async function deserializeAws_restJson1_1DeleteTypeCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteTypeResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3185,6 +3239,7 @@ export async function deserializeAws_restJson1_1FlushApiCacheCommand(
     $metadata: deserializeMetadata(output),
     __type: "FlushApiCacheResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4638,6 +4693,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4721,6 +4777,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

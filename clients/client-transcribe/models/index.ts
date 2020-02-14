@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -8,7 +11,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             information.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -17,7 +20,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -28,9 +31,7 @@ export namespace BadRequestException {
  *         <p>When you are using the <code>UpdateVocabulary</code> operation, there are two jobs
  *             running at the same time. Resend the second request later.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -38,7 +39,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -80,7 +81,7 @@ export interface CreateVocabularyFilterRequest {
 
 export namespace CreateVocabularyFilterRequest {
   export function isa(o: any): o is CreateVocabularyFilterRequest {
-    return _smithy.isa(o, "CreateVocabularyFilterRequest");
+    return __isa(o, "CreateVocabularyFilterRequest");
   }
 }
 
@@ -104,7 +105,7 @@ export interface CreateVocabularyFilterResponse extends $MetadataBearer {
 
 export namespace CreateVocabularyFilterResponse {
   export function isa(o: any): o is CreateVocabularyFilterResponse {
-    return _smithy.isa(o, "CreateVocabularyFilterResponse");
+    return __isa(o, "CreateVocabularyFilterResponse");
   }
 }
 
@@ -147,7 +148,7 @@ export interface CreateVocabularyRequest {
 
 export namespace CreateVocabularyRequest {
   export function isa(o: any): o is CreateVocabularyRequest {
-    return _smithy.isa(o, "CreateVocabularyRequest");
+    return __isa(o, "CreateVocabularyRequest");
   }
 }
 
@@ -184,7 +185,7 @@ export interface CreateVocabularyResponse extends $MetadataBearer {
 
 export namespace CreateVocabularyResponse {
   export function isa(o: any): o is CreateVocabularyResponse {
-    return _smithy.isa(o, "CreateVocabularyResponse");
+    return __isa(o, "CreateVocabularyResponse");
   }
 }
 
@@ -198,7 +199,7 @@ export interface DeleteTranscriptionJobRequest {
 
 export namespace DeleteTranscriptionJobRequest {
   export function isa(o: any): o is DeleteTranscriptionJobRequest {
-    return _smithy.isa(o, "DeleteTranscriptionJobRequest");
+    return __isa(o, "DeleteTranscriptionJobRequest");
   }
 }
 
@@ -212,7 +213,7 @@ export interface DeleteVocabularyFilterRequest {
 
 export namespace DeleteVocabularyFilterRequest {
   export function isa(o: any): o is DeleteVocabularyFilterRequest {
-    return _smithy.isa(o, "DeleteVocabularyFilterRequest");
+    return __isa(o, "DeleteVocabularyFilterRequest");
   }
 }
 
@@ -226,7 +227,7 @@ export interface DeleteVocabularyRequest {
 
 export namespace DeleteVocabularyRequest {
   export function isa(o: any): o is DeleteVocabularyRequest {
-    return _smithy.isa(o, "DeleteVocabularyRequest");
+    return __isa(o, "DeleteVocabularyRequest");
   }
 }
 
@@ -240,7 +241,7 @@ export interface GetTranscriptionJobRequest {
 
 export namespace GetTranscriptionJobRequest {
   export function isa(o: any): o is GetTranscriptionJobRequest {
-    return _smithy.isa(o, "GetTranscriptionJobRequest");
+    return __isa(o, "GetTranscriptionJobRequest");
   }
 }
 
@@ -254,7 +255,7 @@ export interface GetTranscriptionJobResponse extends $MetadataBearer {
 
 export namespace GetTranscriptionJobResponse {
   export function isa(o: any): o is GetTranscriptionJobResponse {
-    return _smithy.isa(o, "GetTranscriptionJobResponse");
+    return __isa(o, "GetTranscriptionJobResponse");
   }
 }
 
@@ -268,7 +269,7 @@ export interface GetVocabularyFilterRequest {
 
 export namespace GetVocabularyFilterRequest {
   export function isa(o: any): o is GetVocabularyFilterRequest {
-    return _smithy.isa(o, "GetVocabularyFilterRequest");
+    return __isa(o, "GetVocabularyFilterRequest");
   }
 }
 
@@ -298,7 +299,7 @@ export interface GetVocabularyFilterResponse extends $MetadataBearer {
 
 export namespace GetVocabularyFilterResponse {
   export function isa(o: any): o is GetVocabularyFilterResponse {
-    return _smithy.isa(o, "GetVocabularyFilterResponse");
+    return __isa(o, "GetVocabularyFilterResponse");
   }
 }
 
@@ -313,7 +314,7 @@ export interface GetVocabularyRequest {
 
 export namespace GetVocabularyRequest {
   export function isa(o: any): o is GetVocabularyRequest {
-    return _smithy.isa(o, "GetVocabularyRequest");
+    return __isa(o, "GetVocabularyRequest");
   }
 }
 
@@ -354,7 +355,7 @@ export interface GetVocabularyResponse extends $MetadataBearer {
 
 export namespace GetVocabularyResponse {
   export function isa(o: any): o is GetVocabularyResponse {
-    return _smithy.isa(o, "GetVocabularyResponse");
+    return __isa(o, "GetVocabularyResponse");
   }
 }
 
@@ -363,7 +364,7 @@ export namespace GetVocabularyResponse {
  *             again.</p>
  */
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -372,7 +373,7 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
@@ -405,7 +406,7 @@ export interface JobExecutionSettings {
 
 export namespace JobExecutionSettings {
   export function isa(o: any): o is JobExecutionSettings {
-    return _smithy.isa(o, "JobExecutionSettings");
+    return __isa(o, "JobExecutionSettings");
   }
 }
 
@@ -448,7 +449,7 @@ export enum LanguageCode {
  *             resend your request, or use a smaller file and resend the request.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -457,7 +458,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -491,7 +492,7 @@ export interface ListTranscriptionJobsRequest {
 
 export namespace ListTranscriptionJobsRequest {
   export function isa(o: any): o is ListTranscriptionJobsRequest {
-    return _smithy.isa(o, "ListTranscriptionJobsRequest");
+    return __isa(o, "ListTranscriptionJobsRequest");
   }
 }
 
@@ -519,7 +520,7 @@ export interface ListTranscriptionJobsResponse extends $MetadataBearer {
 
 export namespace ListTranscriptionJobsResponse {
   export function isa(o: any): o is ListTranscriptionJobsResponse {
-    return _smithy.isa(o, "ListTranscriptionJobsResponse");
+    return __isa(o, "ListTranscriptionJobsResponse");
   }
 }
 
@@ -554,7 +555,7 @@ export interface ListVocabulariesRequest {
 
 export namespace ListVocabulariesRequest {
   export function isa(o: any): o is ListVocabulariesRequest {
-    return _smithy.isa(o, "ListVocabulariesRequest");
+    return __isa(o, "ListVocabulariesRequest");
   }
 }
 
@@ -583,7 +584,7 @@ export interface ListVocabulariesResponse extends $MetadataBearer {
 
 export namespace ListVocabulariesResponse {
   export function isa(o: any): o is ListVocabulariesResponse {
-    return _smithy.isa(o, "ListVocabulariesResponse");
+    return __isa(o, "ListVocabulariesResponse");
   }
 }
 
@@ -611,7 +612,7 @@ export interface ListVocabularyFiltersRequest {
 
 export namespace ListVocabularyFiltersRequest {
   export function isa(o: any): o is ListVocabularyFiltersRequest {
-    return _smithy.isa(o, "ListVocabularyFiltersRequest");
+    return __isa(o, "ListVocabularyFiltersRequest");
   }
 }
 
@@ -638,7 +639,7 @@ export interface ListVocabularyFiltersResponse extends $MetadataBearer {
 
 export namespace ListVocabularyFiltersResponse {
   export function isa(o: any): o is ListVocabularyFiltersResponse {
-    return _smithy.isa(o, "ListVocabularyFiltersResponse");
+    return __isa(o, "ListVocabularyFiltersResponse");
   }
 }
 
@@ -669,7 +670,7 @@ export interface Media {
 
 export namespace Media {
   export function isa(o: any): o is Media {
-    return _smithy.isa(o, "Media");
+    return __isa(o, "Media");
   }
 }
 
@@ -684,9 +685,7 @@ export enum MediaFormat {
  * <p>We can't find the requested resource. Check the name and try your request
  *             again.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -694,7 +693,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -776,7 +775,7 @@ export interface Settings {
 
 export namespace Settings {
   export function isa(o: any): o is Settings {
-    return _smithy.isa(o, "Settings");
+    return __isa(o, "Settings");
   }
 }
 
@@ -880,7 +879,7 @@ export interface StartTranscriptionJobRequest {
 
 export namespace StartTranscriptionJobRequest {
   export function isa(o: any): o is StartTranscriptionJobRequest {
-    return _smithy.isa(o, "StartTranscriptionJobRequest");
+    return __isa(o, "StartTranscriptionJobRequest");
   }
 }
 
@@ -894,7 +893,7 @@ export interface StartTranscriptionJobResponse extends $MetadataBearer {
 
 export namespace StartTranscriptionJobResponse {
   export function isa(o: any): o is StartTranscriptionJobResponse {
-    return _smithy.isa(o, "StartTranscriptionJobResponse");
+    return __isa(o, "StartTranscriptionJobResponse");
   }
 }
 
@@ -915,7 +914,7 @@ export interface Transcript {
 
 export namespace Transcript {
   export function isa(o: any): o is Transcript {
-    return _smithy.isa(o, "Transcript");
+    return __isa(o, "Transcript");
   }
 }
 
@@ -1038,7 +1037,7 @@ export interface TranscriptionJob {
 
 export namespace TranscriptionJob {
   export function isa(o: any): o is TranscriptionJob {
-    return _smithy.isa(o, "TranscriptionJob");
+    return __isa(o, "TranscriptionJob");
   }
 }
 
@@ -1106,7 +1105,7 @@ export interface TranscriptionJobSummary {
 
 export namespace TranscriptionJobSummary {
   export function isa(o: any): o is TranscriptionJobSummary {
-    return _smithy.isa(o, "TranscriptionJobSummary");
+    return __isa(o, "TranscriptionJobSummary");
   }
 }
 
@@ -1140,7 +1139,7 @@ export interface UpdateVocabularyFilterRequest {
 
 export namespace UpdateVocabularyFilterRequest {
   export function isa(o: any): o is UpdateVocabularyFilterRequest {
-    return _smithy.isa(o, "UpdateVocabularyFilterRequest");
+    return __isa(o, "UpdateVocabularyFilterRequest");
   }
 }
 
@@ -1164,7 +1163,7 @@ export interface UpdateVocabularyFilterResponse extends $MetadataBearer {
 
 export namespace UpdateVocabularyFilterResponse {
   export function isa(o: any): o is UpdateVocabularyFilterResponse {
-    return _smithy.isa(o, "UpdateVocabularyFilterResponse");
+    return __isa(o, "UpdateVocabularyFilterResponse");
   }
 }
 
@@ -1206,7 +1205,7 @@ export interface UpdateVocabularyRequest {
 
 export namespace UpdateVocabularyRequest {
   export function isa(o: any): o is UpdateVocabularyRequest {
-    return _smithy.isa(o, "UpdateVocabularyRequest");
+    return __isa(o, "UpdateVocabularyRequest");
   }
 }
 
@@ -1237,7 +1236,7 @@ export interface UpdateVocabularyResponse extends $MetadataBearer {
 
 export namespace UpdateVocabularyResponse {
   export function isa(o: any): o is UpdateVocabularyResponse {
-    return _smithy.isa(o, "UpdateVocabularyResponse");
+    return __isa(o, "UpdateVocabularyResponse");
   }
 }
 
@@ -1265,7 +1264,7 @@ export interface VocabularyFilterInfo {
 
 export namespace VocabularyFilterInfo {
   export function isa(o: any): o is VocabularyFilterInfo {
-    return _smithy.isa(o, "VocabularyFilterInfo");
+    return __isa(o, "VocabularyFilterInfo");
   }
 }
 
@@ -1303,7 +1302,7 @@ export interface VocabularyInfo {
 
 export namespace VocabularyInfo {
   export function isa(o: any): o is VocabularyInfo {
-    return _smithy.isa(o, "VocabularyInfo");
+    return __isa(o, "VocabularyInfo");
   }
 }
 

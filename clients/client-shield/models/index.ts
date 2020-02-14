@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Exception that indicates the specified <code>AttackId</code> does not exist, or the requester does not have the appropriate permissions to access the <code>AttackId</code>.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -22,7 +25,7 @@ export namespace AccessDeniedException {
  * <p>In order to grant the necessary access to the DDoS Response Team, the user submitting  <code>AssociateDRTRole</code> must have the <code>iam:PassRole</code> permission. This error indicates the user did not have the appropriate permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a User Permissions to Pass a Role to an AWS Service</a>. </p>
  */
 export interface AccessDeniedForDependencyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedForDependencyException";
   $fault: "client";
@@ -31,7 +34,7 @@ export interface AccessDeniedForDependencyException
 
 export namespace AccessDeniedForDependencyException {
   export function isa(o: any): o is AccessDeniedForDependencyException {
-    return _smithy.isa(o, "AccessDeniedForDependencyException");
+    return __isa(o, "AccessDeniedForDependencyException");
   }
 }
 
@@ -45,7 +48,7 @@ export interface AssociateDRTLogBucketRequest {
 
 export namespace AssociateDRTLogBucketRequest {
   export function isa(o: any): o is AssociateDRTLogBucketRequest {
-    return _smithy.isa(o, "AssociateDRTLogBucketRequest");
+    return __isa(o, "AssociateDRTLogBucketRequest");
   }
 }
 
@@ -55,7 +58,7 @@ export interface AssociateDRTLogBucketResponse extends $MetadataBearer {
 
 export namespace AssociateDRTLogBucketResponse {
   export function isa(o: any): o is AssociateDRTLogBucketResponse {
-    return _smithy.isa(o, "AssociateDRTLogBucketResponse");
+    return __isa(o, "AssociateDRTLogBucketResponse");
   }
 }
 
@@ -70,7 +73,7 @@ export interface AssociateDRTRoleRequest {
 
 export namespace AssociateDRTRoleRequest {
   export function isa(o: any): o is AssociateDRTRoleRequest {
-    return _smithy.isa(o, "AssociateDRTRoleRequest");
+    return __isa(o, "AssociateDRTRoleRequest");
   }
 }
 
@@ -80,7 +83,7 @@ export interface AssociateDRTRoleResponse extends $MetadataBearer {
 
 export namespace AssociateDRTRoleResponse {
   export function isa(o: any): o is AssociateDRTRoleResponse {
-    return _smithy.isa(o, "AssociateDRTRoleResponse");
+    return __isa(o, "AssociateDRTRoleResponse");
   }
 }
 
@@ -133,7 +136,7 @@ export interface AttackDetail {
 
 export namespace AttackDetail {
   export function isa(o: any): o is AttackDetail {
-    return _smithy.isa(o, "AttackDetail");
+    return __isa(o, "AttackDetail");
   }
 }
 
@@ -179,7 +182,7 @@ export interface AttackProperty {
 
 export namespace AttackProperty {
   export function isa(o: any): o is AttackProperty {
-    return _smithy.isa(o, "AttackProperty");
+    return __isa(o, "AttackProperty");
   }
 }
 
@@ -227,7 +230,7 @@ export interface AttackSummary {
 
 export namespace AttackSummary {
   export function isa(o: any): o is AttackSummary {
-    return _smithy.isa(o, "AttackSummary");
+    return __isa(o, "AttackSummary");
   }
 }
 
@@ -300,7 +303,7 @@ export interface AttackVectorDescription {
 
 export namespace AttackVectorDescription {
   export function isa(o: any): o is AttackVectorDescription {
-    return _smithy.isa(o, "AttackVectorDescription");
+    return __isa(o, "AttackVectorDescription");
   }
 }
 
@@ -327,7 +330,7 @@ export interface Contributor {
 
 export namespace Contributor {
   export function isa(o: any): o is Contributor {
-    return _smithy.isa(o, "Contributor");
+    return __isa(o, "Contributor");
   }
 }
 
@@ -379,7 +382,7 @@ export interface CreateProtectionRequest {
 
 export namespace CreateProtectionRequest {
   export function isa(o: any): o is CreateProtectionRequest {
-    return _smithy.isa(o, "CreateProtectionRequest");
+    return __isa(o, "CreateProtectionRequest");
   }
 }
 
@@ -394,7 +397,7 @@ export interface CreateProtectionResponse extends $MetadataBearer {
 
 export namespace CreateProtectionResponse {
   export function isa(o: any): o is CreateProtectionResponse {
-    return _smithy.isa(o, "CreateProtectionResponse");
+    return __isa(o, "CreateProtectionResponse");
   }
 }
 
@@ -404,7 +407,7 @@ export interface CreateSubscriptionRequest {
 
 export namespace CreateSubscriptionRequest {
   export function isa(o: any): o is CreateSubscriptionRequest {
-    return _smithy.isa(o, "CreateSubscriptionRequest");
+    return __isa(o, "CreateSubscriptionRequest");
   }
 }
 
@@ -414,7 +417,7 @@ export interface CreateSubscriptionResponse extends $MetadataBearer {
 
 export namespace CreateSubscriptionResponse {
   export function isa(o: any): o is CreateSubscriptionResponse {
-    return _smithy.isa(o, "CreateSubscriptionResponse");
+    return __isa(o, "CreateSubscriptionResponse");
   }
 }
 
@@ -429,7 +432,7 @@ export interface DeleteProtectionRequest {
 
 export namespace DeleteProtectionRequest {
   export function isa(o: any): o is DeleteProtectionRequest {
-    return _smithy.isa(o, "DeleteProtectionRequest");
+    return __isa(o, "DeleteProtectionRequest");
   }
 }
 
@@ -439,7 +442,7 @@ export interface DeleteProtectionResponse extends $MetadataBearer {
 
 export namespace DeleteProtectionResponse {
   export function isa(o: any): o is DeleteProtectionResponse {
-    return _smithy.isa(o, "DeleteProtectionResponse");
+    return __isa(o, "DeleteProtectionResponse");
   }
 }
 
@@ -449,7 +452,7 @@ export interface DeleteSubscriptionRequest {
 
 export namespace DeleteSubscriptionRequest {
   export function isa(o: any): o is DeleteSubscriptionRequest {
-    return _smithy.isa(o, "DeleteSubscriptionRequest");
+    return __isa(o, "DeleteSubscriptionRequest");
   }
 }
 
@@ -459,7 +462,7 @@ export interface DeleteSubscriptionResponse extends $MetadataBearer {
 
 export namespace DeleteSubscriptionResponse {
   export function isa(o: any): o is DeleteSubscriptionResponse {
-    return _smithy.isa(o, "DeleteSubscriptionResponse");
+    return __isa(o, "DeleteSubscriptionResponse");
   }
 }
 
@@ -473,7 +476,7 @@ export interface DescribeAttackRequest {
 
 export namespace DescribeAttackRequest {
   export function isa(o: any): o is DescribeAttackRequest {
-    return _smithy.isa(o, "DescribeAttackRequest");
+    return __isa(o, "DescribeAttackRequest");
   }
 }
 
@@ -487,7 +490,7 @@ export interface DescribeAttackResponse extends $MetadataBearer {
 
 export namespace DescribeAttackResponse {
   export function isa(o: any): o is DescribeAttackResponse {
-    return _smithy.isa(o, "DescribeAttackResponse");
+    return __isa(o, "DescribeAttackResponse");
   }
 }
 
@@ -497,7 +500,7 @@ export interface DescribeDRTAccessRequest {
 
 export namespace DescribeDRTAccessRequest {
   export function isa(o: any): o is DescribeDRTAccessRequest {
-    return _smithy.isa(o, "DescribeDRTAccessRequest");
+    return __isa(o, "DescribeDRTAccessRequest");
   }
 }
 
@@ -516,7 +519,7 @@ export interface DescribeDRTAccessResponse extends $MetadataBearer {
 
 export namespace DescribeDRTAccessResponse {
   export function isa(o: any): o is DescribeDRTAccessResponse {
-    return _smithy.isa(o, "DescribeDRTAccessResponse");
+    return __isa(o, "DescribeDRTAccessResponse");
   }
 }
 
@@ -526,7 +529,7 @@ export interface DescribeEmergencyContactSettingsRequest {
 
 export namespace DescribeEmergencyContactSettingsRequest {
   export function isa(o: any): o is DescribeEmergencyContactSettingsRequest {
-    return _smithy.isa(o, "DescribeEmergencyContactSettingsRequest");
+    return __isa(o, "DescribeEmergencyContactSettingsRequest");
   }
 }
 
@@ -541,7 +544,7 @@ export interface DescribeEmergencyContactSettingsResponse
 
 export namespace DescribeEmergencyContactSettingsResponse {
   export function isa(o: any): o is DescribeEmergencyContactSettingsResponse {
-    return _smithy.isa(o, "DescribeEmergencyContactSettingsResponse");
+    return __isa(o, "DescribeEmergencyContactSettingsResponse");
   }
 }
 
@@ -562,7 +565,7 @@ export interface DescribeProtectionRequest {
 
 export namespace DescribeProtectionRequest {
   export function isa(o: any): o is DescribeProtectionRequest {
-    return _smithy.isa(o, "DescribeProtectionRequest");
+    return __isa(o, "DescribeProtectionRequest");
   }
 }
 
@@ -576,7 +579,7 @@ export interface DescribeProtectionResponse extends $MetadataBearer {
 
 export namespace DescribeProtectionResponse {
   export function isa(o: any): o is DescribeProtectionResponse {
-    return _smithy.isa(o, "DescribeProtectionResponse");
+    return __isa(o, "DescribeProtectionResponse");
   }
 }
 
@@ -586,7 +589,7 @@ export interface DescribeSubscriptionRequest {
 
 export namespace DescribeSubscriptionRequest {
   export function isa(o: any): o is DescribeSubscriptionRequest {
-    return _smithy.isa(o, "DescribeSubscriptionRequest");
+    return __isa(o, "DescribeSubscriptionRequest");
   }
 }
 
@@ -600,7 +603,7 @@ export interface DescribeSubscriptionResponse extends $MetadataBearer {
 
 export namespace DescribeSubscriptionResponse {
   export function isa(o: any): o is DescribeSubscriptionResponse {
-    return _smithy.isa(o, "DescribeSubscriptionResponse");
+    return __isa(o, "DescribeSubscriptionResponse");
   }
 }
 
@@ -614,7 +617,7 @@ export interface DisassociateDRTLogBucketRequest {
 
 export namespace DisassociateDRTLogBucketRequest {
   export function isa(o: any): o is DisassociateDRTLogBucketRequest {
-    return _smithy.isa(o, "DisassociateDRTLogBucketRequest");
+    return __isa(o, "DisassociateDRTLogBucketRequest");
   }
 }
 
@@ -624,7 +627,7 @@ export interface DisassociateDRTLogBucketResponse extends $MetadataBearer {
 
 export namespace DisassociateDRTLogBucketResponse {
   export function isa(o: any): o is DisassociateDRTLogBucketResponse {
-    return _smithy.isa(o, "DisassociateDRTLogBucketResponse");
+    return __isa(o, "DisassociateDRTLogBucketResponse");
   }
 }
 
@@ -634,7 +637,7 @@ export interface DisassociateDRTRoleRequest {
 
 export namespace DisassociateDRTRoleRequest {
   export function isa(o: any): o is DisassociateDRTRoleRequest {
-    return _smithy.isa(o, "DisassociateDRTRoleRequest");
+    return __isa(o, "DisassociateDRTRoleRequest");
   }
 }
 
@@ -644,7 +647,7 @@ export interface DisassociateDRTRoleResponse extends $MetadataBearer {
 
 export namespace DisassociateDRTRoleResponse {
   export function isa(o: any): o is DisassociateDRTRoleResponse {
-    return _smithy.isa(o, "DisassociateDRTRoleResponse");
+    return __isa(o, "DisassociateDRTRoleResponse");
   }
 }
 
@@ -661,7 +664,7 @@ export interface EmergencyContact {
 
 export namespace EmergencyContact {
   export function isa(o: any): o is EmergencyContact {
-    return _smithy.isa(o, "EmergencyContact");
+    return __isa(o, "EmergencyContact");
   }
 }
 
@@ -671,7 +674,7 @@ export interface GetSubscriptionStateRequest {
 
 export namespace GetSubscriptionStateRequest {
   export function isa(o: any): o is GetSubscriptionStateRequest {
-    return _smithy.isa(o, "GetSubscriptionStateRequest");
+    return __isa(o, "GetSubscriptionStateRequest");
   }
 }
 
@@ -685,7 +688,7 @@ export interface GetSubscriptionStateResponse extends $MetadataBearer {
 
 export namespace GetSubscriptionStateResponse {
   export function isa(o: any): o is GetSubscriptionStateResponse {
-    return _smithy.isa(o, "GetSubscriptionStateResponse");
+    return __isa(o, "GetSubscriptionStateResponse");
   }
 }
 
@@ -694,7 +697,7 @@ export namespace GetSubscriptionStateResponse {
  *          can retry the request.</p>
  */
 export interface InternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
@@ -703,7 +706,7 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export function isa(o: any): o is InternalErrorException {
-    return _smithy.isa(o, "InternalErrorException");
+    return __isa(o, "InternalErrorException");
   }
 }
 
@@ -711,7 +714,7 @@ export namespace InternalErrorException {
  * <p>Exception that indicates that the operation would not cause any change to occur.</p>
  */
 export interface InvalidOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
@@ -720,7 +723,7 @@ export interface InvalidOperationException
 
 export namespace InvalidOperationException {
   export function isa(o: any): o is InvalidOperationException {
-    return _smithy.isa(o, "InvalidOperationException");
+    return __isa(o, "InvalidOperationException");
   }
 }
 
@@ -728,7 +731,7 @@ export namespace InvalidOperationException {
  * <p>Exception that indicates that the NextToken specified in the request is invalid. Submit the request using the NextToken value that was returned in the response.</p>
  */
 export interface InvalidPaginationTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
@@ -737,7 +740,7 @@ export interface InvalidPaginationTokenException
 
 export namespace InvalidPaginationTokenException {
   export function isa(o: any): o is InvalidPaginationTokenException {
-    return _smithy.isa(o, "InvalidPaginationTokenException");
+    return __isa(o, "InvalidPaginationTokenException");
   }
 }
 
@@ -745,7 +748,7 @@ export namespace InvalidPaginationTokenException {
  * <p>Exception that indicates that the parameters passed to the API are invalid. </p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -754,7 +757,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -762,7 +765,7 @@ export namespace InvalidParameterException {
  * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
  */
 export interface InvalidResourceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidResourceException";
   $fault: "client";
@@ -771,7 +774,7 @@ export interface InvalidResourceException
 
 export namespace InvalidResourceException {
   export function isa(o: any): o is InvalidResourceException {
-    return _smithy.isa(o, "InvalidResourceException");
+    return __isa(o, "InvalidResourceException");
   }
 }
 
@@ -793,7 +796,7 @@ export interface Limit {
 
 export namespace Limit {
   export function isa(o: any): o is Limit {
-    return _smithy.isa(o, "Limit");
+    return __isa(o, "Limit");
   }
 }
 
@@ -805,7 +808,7 @@ export namespace Limit {
  *             <code>Limit</code> is the threshold that would be exceeded.</p>
  */
 export interface LimitsExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitsExceededException";
   $fault: "client";
@@ -816,7 +819,7 @@ export interface LimitsExceededException
 
 export namespace LimitsExceededException {
   export function isa(o: any): o is LimitsExceededException {
-    return _smithy.isa(o, "LimitsExceededException");
+    return __isa(o, "LimitsExceededException");
   }
 }
 
@@ -852,7 +855,7 @@ export interface ListAttacksRequest {
 
 export namespace ListAttacksRequest {
   export function isa(o: any): o is ListAttacksRequest {
-    return _smithy.isa(o, "ListAttacksRequest");
+    return __isa(o, "ListAttacksRequest");
   }
 }
 
@@ -875,7 +878,7 @@ export interface ListAttacksResponse extends $MetadataBearer {
 
 export namespace ListAttacksResponse {
   export function isa(o: any): o is ListAttacksResponse {
-    return _smithy.isa(o, "ListAttacksResponse");
+    return __isa(o, "ListAttacksResponse");
   }
 }
 
@@ -896,7 +899,7 @@ export interface ListProtectionsRequest {
 
 export namespace ListProtectionsRequest {
   export function isa(o: any): o is ListProtectionsRequest {
-    return _smithy.isa(o, "ListProtectionsRequest");
+    return __isa(o, "ListProtectionsRequest");
   }
 }
 
@@ -916,7 +919,7 @@ export interface ListProtectionsResponse extends $MetadataBearer {
 
 export namespace ListProtectionsResponse {
   export function isa(o: any): o is ListProtectionsResponse {
-    return _smithy.isa(o, "ListProtectionsResponse");
+    return __isa(o, "ListProtectionsResponse");
   }
 }
 
@@ -924,7 +927,7 @@ export namespace ListProtectionsResponse {
  * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
  */
 export interface LockedSubscriptionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LockedSubscriptionException";
   $fault: "client";
@@ -933,7 +936,7 @@ export interface LockedSubscriptionException
 
 export namespace LockedSubscriptionException {
   export function isa(o: any): o is LockedSubscriptionException {
-    return _smithy.isa(o, "LockedSubscriptionException");
+    return __isa(o, "LockedSubscriptionException");
   }
 }
 
@@ -950,7 +953,7 @@ export interface Mitigation {
 
 export namespace Mitigation {
   export function isa(o: any): o is Mitigation {
-    return _smithy.isa(o, "Mitigation");
+    return __isa(o, "Mitigation");
   }
 }
 
@@ -958,7 +961,7 @@ export namespace Mitigation {
  * <p>The ARN of the role that you specifed does not exist.</p>
  */
 export interface NoAssociatedRoleException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoAssociatedRoleException";
   $fault: "client";
@@ -967,7 +970,7 @@ export interface NoAssociatedRoleException
 
 export namespace NoAssociatedRoleException {
   export function isa(o: any): o is NoAssociatedRoleException {
-    return _smithy.isa(o, "NoAssociatedRoleException");
+    return __isa(o, "NoAssociatedRoleException");
   }
 }
 
@@ -976,7 +979,7 @@ export namespace NoAssociatedRoleException {
  *          client. You can retry the request.</p>
  */
 export interface OptimisticLockException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OptimisticLockException";
   $fault: "client";
@@ -985,7 +988,7 @@ export interface OptimisticLockException
 
 export namespace OptimisticLockException {
   export function isa(o: any): o is OptimisticLockException {
-    return _smithy.isa(o, "OptimisticLockException");
+    return __isa(o, "OptimisticLockException");
   }
 }
 
@@ -1012,7 +1015,7 @@ export interface Protection {
 
 export namespace Protection {
   export function isa(o: any): o is Protection {
-    return _smithy.isa(o, "Protection");
+    return __isa(o, "Protection");
   }
 }
 
@@ -1020,7 +1023,7 @@ export namespace Protection {
  * <p>Exception indicating the specified resource already exists.</p>
  */
 export interface ResourceAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
@@ -1029,7 +1032,7 @@ export interface ResourceAlreadyExistsException
 
 export namespace ResourceAlreadyExistsException {
   export function isa(o: any): o is ResourceAlreadyExistsException {
-    return _smithy.isa(o, "ResourceAlreadyExistsException");
+    return __isa(o, "ResourceAlreadyExistsException");
   }
 }
 
@@ -1037,7 +1040,7 @@ export namespace ResourceAlreadyExistsException {
  * <p>Exception indicating the specified resource does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1046,7 +1049,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1078,7 +1081,7 @@ export interface SubResourceSummary {
 
 export namespace SubResourceSummary {
   export function isa(o: any): o is SubResourceSummary {
-    return _smithy.isa(o, "SubResourceSummary");
+    return __isa(o, "SubResourceSummary");
   }
 }
 
@@ -1121,7 +1124,7 @@ export interface Subscription {
 
 export namespace Subscription {
   export function isa(o: any): o is Subscription {
-    return _smithy.isa(o, "Subscription");
+    return __isa(o, "Subscription");
   }
 }
 
@@ -1148,7 +1151,7 @@ export interface SummarizedAttackVector {
 
 export namespace SummarizedAttackVector {
   export function isa(o: any): o is SummarizedAttackVector {
-    return _smithy.isa(o, "SummarizedAttackVector");
+    return __isa(o, "SummarizedAttackVector");
   }
 }
 
@@ -1190,7 +1193,7 @@ export interface SummarizedCounter {
 
 export namespace SummarizedCounter {
   export function isa(o: any): o is SummarizedCounter {
-    return _smithy.isa(o, "SummarizedCounter");
+    return __isa(o, "SummarizedCounter");
   }
 }
 
@@ -1212,7 +1215,7 @@ export interface TimeRange {
 
 export namespace TimeRange {
   export function isa(o: any): o is TimeRange {
-    return _smithy.isa(o, "TimeRange");
+    return __isa(o, "TimeRange");
   }
 }
 
@@ -1233,7 +1236,7 @@ export interface UpdateEmergencyContactSettingsRequest {
 
 export namespace UpdateEmergencyContactSettingsRequest {
   export function isa(o: any): o is UpdateEmergencyContactSettingsRequest {
-    return _smithy.isa(o, "UpdateEmergencyContactSettingsRequest");
+    return __isa(o, "UpdateEmergencyContactSettingsRequest");
   }
 }
 
@@ -1244,7 +1247,7 @@ export interface UpdateEmergencyContactSettingsResponse
 
 export namespace UpdateEmergencyContactSettingsResponse {
   export function isa(o: any): o is UpdateEmergencyContactSettingsResponse {
-    return _smithy.isa(o, "UpdateEmergencyContactSettingsResponse");
+    return __isa(o, "UpdateEmergencyContactSettingsResponse");
   }
 }
 
@@ -1258,7 +1261,7 @@ export interface UpdateSubscriptionRequest {
 
 export namespace UpdateSubscriptionRequest {
   export function isa(o: any): o is UpdateSubscriptionRequest {
-    return _smithy.isa(o, "UpdateSubscriptionRequest");
+    return __isa(o, "UpdateSubscriptionRequest");
   }
 }
 
@@ -1268,6 +1271,6 @@ export interface UpdateSubscriptionResponse extends $MetadataBearer {
 
 export namespace UpdateSubscriptionResponse {
   export function isa(o: any): o is UpdateSubscriptionResponse {
-    return _smithy.isa(o, "UpdateSubscriptionResponse");
+    return __isa(o, "UpdateSubscriptionResponse");
   }
 }

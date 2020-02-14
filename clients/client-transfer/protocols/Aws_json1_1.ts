@@ -535,6 +535,7 @@ export async function deserializeAws_json1_1DeleteServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteServerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteServerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -610,6 +611,7 @@ export async function deserializeAws_json1_1DeleteSshPublicKeyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -689,6 +691,7 @@ export async function deserializeAws_json1_1DeleteUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1250,6 +1253,7 @@ export async function deserializeAws_json1_1StartServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StartServerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StartServerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1329,6 +1333,7 @@ export async function deserializeAws_json1_1StopServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1StopServerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: StopServerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1408,6 +1413,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1560,6 +1566,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

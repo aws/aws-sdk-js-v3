@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -25,7 +28,7 @@ export interface DescribeStreamInput {
 
 export namespace DescribeStreamInput {
   export function isa(o: any): o is DescribeStreamInput {
-    return _smithy.isa(o, "DescribeStreamInput");
+    return __isa(o, "DescribeStreamInput");
   }
 }
 
@@ -42,7 +45,7 @@ export interface DescribeStreamOutput extends $MetadataBearer {
 
 export namespace DescribeStreamOutput {
   export function isa(o: any): o is DescribeStreamOutput {
-    return _smithy.isa(o, "DescribeStreamOutput");
+    return __isa(o, "DescribeStreamOutput");
   }
 }
 
@@ -52,7 +55,7 @@ export namespace DescribeStreamOutput {
  *       action.</p>
  */
 export interface ExpiredIteratorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExpiredIteratorException";
   $fault: "client";
@@ -64,7 +67,7 @@ export interface ExpiredIteratorException
 
 export namespace ExpiredIteratorException {
   export function isa(o: any): o is ExpiredIteratorException {
-    return _smithy.isa(o, "ExpiredIteratorException");
+    return __isa(o, "ExpiredIteratorException");
   }
 }
 
@@ -86,7 +89,7 @@ export interface GetRecordsInput {
 
 export namespace GetRecordsInput {
   export function isa(o: any): o is GetRecordsInput {
-    return _smithy.isa(o, "GetRecordsInput");
+    return __isa(o, "GetRecordsInput");
   }
 }
 
@@ -110,7 +113,7 @@ export interface GetRecordsOutput extends $MetadataBearer {
 
 export namespace GetRecordsOutput {
   export function isa(o: any): o is GetRecordsOutput {
-    return _smithy.isa(o, "GetRecordsOutput");
+    return __isa(o, "GetRecordsOutput");
   }
 }
 
@@ -166,7 +169,7 @@ export interface GetShardIteratorInput {
 
 export namespace GetShardIteratorInput {
   export function isa(o: any): o is GetShardIteratorInput {
-    return _smithy.isa(o, "GetShardIteratorInput");
+    return __isa(o, "GetShardIteratorInput");
   }
 }
 
@@ -183,7 +186,7 @@ export interface GetShardIteratorOutput extends $MetadataBearer {
 
 export namespace GetShardIteratorOutput {
   export function isa(o: any): o is GetShardIteratorOutput {
-    return _smithy.isa(o, "GetShardIteratorOutput");
+    return __isa(o, "GetShardIteratorOutput");
   }
 }
 
@@ -206,7 +209,7 @@ export interface Identity {
 
 export namespace Identity {
   export function isa(o: any): o is Identity {
-    return _smithy.isa(o, "Identity");
+    return __isa(o, "Identity");
   }
 }
 
@@ -235,7 +238,7 @@ export interface ListStreamsInput {
 
 export namespace ListStreamsInput {
   export function isa(o: any): o is ListStreamsInput {
-    return _smithy.isa(o, "ListStreamsInput");
+    return __isa(o, "ListStreamsInput");
   }
 }
 
@@ -262,7 +265,7 @@ export interface ListStreamsOutput extends $MetadataBearer {
 
 export namespace ListStreamsOutput {
   export function isa(o: any): o is ListStreamsOutput {
-    return _smithy.isa(o, "ListStreamsOutput");
+    return __isa(o, "ListStreamsOutput");
   }
 }
 
@@ -338,7 +341,7 @@ export interface _Record {
 
 export namespace _Record {
   export function isa(o: any): o is _Record {
-    return _smithy.isa(o, "Record");
+    return __isa(o, "Record");
   }
 }
 
@@ -360,7 +363,7 @@ export interface SequenceNumberRange {
 
 export namespace SequenceNumberRange {
   export function isa(o: any): o is SequenceNumberRange {
-    return _smithy.isa(o, "SequenceNumberRange");
+    return __isa(o, "SequenceNumberRange");
   }
 }
 
@@ -387,7 +390,7 @@ export interface Shard {
 
 export namespace Shard {
   export function isa(o: any): o is Shard {
-    return _smithy.isa(o, "Shard");
+    return __isa(o, "Shard");
   }
 }
 
@@ -435,7 +438,7 @@ export interface _Stream {
 
 export namespace _Stream {
   export function isa(o: any): o is _Stream {
-    return _smithy.isa(o, "Stream");
+    return __isa(o, "Stream");
   }
 }
 
@@ -548,7 +551,7 @@ export interface StreamDescription {
 
 export namespace StreamDescription {
   export function isa(o: any): o is StreamDescription {
-    return _smithy.isa(o, "StreamDescription");
+    return __isa(o, "StreamDescription");
   }
 }
 
@@ -613,7 +616,7 @@ export interface StreamRecord {
 
 export namespace StreamRecord {
   export function isa(o: any): o is StreamRecord {
-    return _smithy.isa(o, "StreamRecord");
+    return __isa(o, "StreamRecord");
   }
 }
 
@@ -634,7 +637,7 @@ export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
  *          </ul>
  */
 export interface TrimmedDataAccessException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TrimmedDataAccessException";
   $fault: "client";
@@ -646,7 +649,7 @@ export interface TrimmedDataAccessException
 
 export namespace TrimmedDataAccessException {
   export function isa(o: any): o is TrimmedDataAccessException {
-    return _smithy.isa(o, "TrimmedDataAccessException");
+    return __isa(o, "TrimmedDataAccessException");
   }
 }
 
@@ -709,7 +712,7 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export function isa(o: any): o is AttributeValue {
-    return _smithy.isa(o, "AttributeValue");
+    return __isa(o, "AttributeValue");
   }
 }
 
@@ -717,7 +720,7 @@ export namespace AttributeValue {
  * <p>An error occurred on the server side.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -729,7 +732,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -763,7 +766,7 @@ export interface KeySchemaElement {
 
 export namespace KeySchemaElement {
   export function isa(o: any): o is KeySchemaElement {
-    return _smithy.isa(o, "KeySchemaElement");
+    return __isa(o, "KeySchemaElement");
   }
 }
 
@@ -777,7 +780,7 @@ export type KeyType = "HASH" | "RANGE";
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -789,7 +792,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -797,7 +800,7 @@ export namespace LimitExceededException {
  * <p>The operation tried to access a nonexistent stream.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -809,7 +812,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 

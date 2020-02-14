@@ -255,7 +255,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -330,7 +333,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -338,7 +341,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -472,7 +475,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -480,7 +483,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -505,7 +508,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -513,7 +516,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -521,7 +524,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
@@ -529,7 +532,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -553,13 +556,13 @@ export async function serializeAws_restJson1_1DeleteDedicatedIpPoolCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/dedicated-ip-pools/{PoolName}";
   if (input.PoolName !== undefined) {
-    const labelValue: string = input.PoolName.toString();
+    const labelValue: string = input.PoolName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: PoolName.");
     }
     resolvedPath = resolvedPath.replace(
       "{PoolName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: PoolName.");
@@ -581,7 +584,7 @@ export async function serializeAws_restJson1_1DeleteEmailIdentityCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/identities/{EmailIdentity}";
   if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity.toString();
+    const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailIdentity."
@@ -589,7 +592,7 @@ export async function serializeAws_restJson1_1DeleteEmailIdentityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -611,7 +614,7 @@ export async function serializeAws_restJson1_1DeleteSuppressedDestinationCommand
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/suppression/addresses/{EmailAddress}";
   if (input.EmailAddress !== undefined) {
-    const labelValue: string = input.EmailAddress.toString();
+    const labelValue: string = input.EmailAddress;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailAddress."
@@ -619,7 +622,7 @@ export async function serializeAws_restJson1_1DeleteSuppressedDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{EmailAddress}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailAddress.");
@@ -658,7 +661,11 @@ export async function serializeAws_restJson1_1GetBlacklistReportsCommand(
   let resolvedPath = "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = {};
   if (input.BlacklistItemNames !== undefined) {
-    query["BlacklistItemNames"] = input.BlacklistItemNames;
+    query[
+      __extendedEncodeURIComponent("BlacklistItemNames")
+    ] = input.BlacklistItemNames.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -678,7 +685,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -686,7 +693,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -711,7 +718,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -719,7 +726,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -743,11 +750,14 @@ export async function serializeAws_restJson1_1GetDedicatedIpCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/dedicated-ips/{Ip}";
   if (input.Ip !== undefined) {
-    const labelValue: string = input.Ip.toString();
+    const labelValue: string = input.Ip;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace("{Ip}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Ip}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -769,13 +779,19 @@ export async function serializeAws_restJson1_1GetDedicatedIpsCommand(
   let resolvedPath = "/v2/email/dedicated-ips";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   if (input.PoolName !== undefined) {
-    query["PoolName"] = input.PoolName.toString();
+    query[
+      __extendedEncodeURIComponent("PoolName")
+    ] = __extendedEncodeURIComponent(input.PoolName);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -812,13 +828,13 @@ export async function serializeAws_restJson1_1GetDeliverabilityTestReportCommand
   let resolvedPath =
     "/v2/email/deliverability-dashboard/test-reports/{ReportId}";
   if (input.ReportId !== undefined) {
-    const labelValue: string = input.ReportId.toString();
+    const labelValue: string = input.ReportId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ReportId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ReportId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ReportId.");
@@ -841,13 +857,13 @@ export async function serializeAws_restJson1_1GetDomainDeliverabilityCampaignCom
   let resolvedPath =
     "/v2/email/deliverability-dashboard/campaigns/{CampaignId}";
   if (input.CampaignId !== undefined) {
-    const labelValue: string = input.CampaignId.toString();
+    const labelValue: string = input.CampaignId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: CampaignId.");
     }
     resolvedPath = resolvedPath.replace(
       "{CampaignId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: CampaignId.");
@@ -870,23 +886,27 @@ export async function serializeAws_restJson1_1GetDomainStatisticsReportCommand(
   let resolvedPath =
     "/v2/email/deliverability-dashboard/statistics-report/{Domain}";
   if (input.Domain !== undefined) {
-    const labelValue: string = input.Domain.toString();
+    const labelValue: string = input.Domain;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Domain.");
     }
     resolvedPath = resolvedPath.replace(
       "{Domain}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Domain.");
   }
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query["EndDate"] = input.EndDate.toISOString();
+    query[
+      __extendedEncodeURIComponent("EndDate")
+    ] = __extendedEncodeURIComponent(input.EndDate.toISOString());
   }
   if (input.StartDate !== undefined) {
-    query["StartDate"] = input.StartDate.toISOString();
+    query[
+      __extendedEncodeURIComponent("StartDate")
+    ] = __extendedEncodeURIComponent(input.StartDate.toISOString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -906,7 +926,7 @@ export async function serializeAws_restJson1_1GetEmailIdentityCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/identities/{EmailIdentity}";
   if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity.toString();
+    const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailIdentity."
@@ -914,7 +934,7 @@ export async function serializeAws_restJson1_1GetEmailIdentityCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -936,7 +956,7 @@ export async function serializeAws_restJson1_1GetSuppressedDestinationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v2/email/suppression/addresses/{EmailAddress}";
   if (input.EmailAddress !== undefined) {
-    const labelValue: string = input.EmailAddress.toString();
+    const labelValue: string = input.EmailAddress;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailAddress."
@@ -944,7 +964,7 @@ export async function serializeAws_restJson1_1GetSuppressedDestinationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{EmailAddress}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailAddress.");
@@ -967,10 +987,14 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   let resolvedPath = "/v2/email/configuration-sets";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -991,10 +1015,14 @@ export async function serializeAws_restJson1_1ListDedicatedIpPoolsCommand(
   let resolvedPath = "/v2/email/dedicated-ip-pools";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1015,10 +1043,14 @@ export async function serializeAws_restJson1_1ListDeliverabilityTestReportsComma
   let resolvedPath = "/v2/email/deliverability-dashboard/test-reports";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1039,7 +1071,7 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
   let resolvedPath =
     "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
   if (input.SubscribedDomain !== undefined) {
-    const labelValue: string = input.SubscribedDomain.toString();
+    const labelValue: string = input.SubscribedDomain;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SubscribedDomain."
@@ -1047,7 +1079,7 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
     }
     resolvedPath = resolvedPath.replace(
       "{SubscribedDomain}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1056,16 +1088,24 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
   }
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query["EndDate"] = input.EndDate.toISOString();
+    query[
+      __extendedEncodeURIComponent("EndDate")
+    ] = __extendedEncodeURIComponent(input.EndDate.toISOString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   if (input.StartDate !== undefined) {
-    query["StartDate"] = input.StartDate.toISOString();
+    query[
+      __extendedEncodeURIComponent("StartDate")
+    ] = __extendedEncodeURIComponent(input.StartDate.toISOString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1086,10 +1126,14 @@ export async function serializeAws_restJson1_1ListEmailIdentitiesCommand(
   let resolvedPath = "/v2/email/identities";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1110,19 +1154,29 @@ export async function serializeAws_restJson1_1ListSuppressedDestinationsCommand(
   let resolvedPath = "/v2/email/suppression/addresses";
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query["EndDate"] = input.EndDate.toISOString();
+    query[
+      __extendedEncodeURIComponent("EndDate")
+    ] = __extendedEncodeURIComponent(input.EndDate.toISOString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize.toString());
   }
   if (input.Reasons !== undefined) {
-    query["Reason"] = input.Reasons;
+    query[__extendedEncodeURIComponent("Reason")] = input.Reasons.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   if (input.StartDate !== undefined) {
-    query["StartDate"] = input.StartDate.toISOString();
+    query[
+      __extendedEncodeURIComponent("StartDate")
+    ] = __extendedEncodeURIComponent(input.StartDate.toISOString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1143,7 +1197,9 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/v2/email/tags";
   const query: any = {};
   if (input.ResourceArn !== undefined) {
-    query["ResourceArn"] = input.ResourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("ResourceArn")
+    ] = __extendedEncodeURIComponent(input.ResourceArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1238,7 +1294,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetDeliveryOptions
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -1246,7 +1302,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetDeliveryOptions
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1281,7 +1337,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetReputationOptio
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -1289,7 +1345,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetReputationOptio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1321,7 +1377,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSendingOptionsC
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/sending";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -1329,7 +1385,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSendingOptionsC
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1361,7 +1417,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSuppressionOpti
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -1369,7 +1425,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetSuppressionOpti
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1406,7 +1462,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetTrackingOptions
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -1414,7 +1470,7 @@ export async function serializeAws_restJson1_1PutConfigurationSetTrackingOptions
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1445,11 +1501,14 @@ export async function serializeAws_restJson1_1PutDedicatedIpInPoolCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/dedicated-ips/{Ip}/pool";
   if (input.Ip !== undefined) {
-    const labelValue: string = input.Ip.toString();
+    const labelValue: string = input.Ip;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace("{Ip}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Ip}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -1477,11 +1536,14 @@ export async function serializeAws_restJson1_1PutDedicatedIpWarmupAttributesComm
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/dedicated-ips/{Ip}/warmup";
   if (input.Ip !== undefined) {
-    const labelValue: string = input.Ip.toString();
+    const labelValue: string = input.Ip;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Ip.");
     }
-    resolvedPath = resolvedPath.replace("{Ip}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Ip}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Ip.");
   }
@@ -1540,7 +1602,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimAttributesComm
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/identities/{EmailIdentity}/dkim";
   if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity.toString();
+    const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailIdentity."
@@ -1548,7 +1610,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimAttributesComm
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1577,7 +1639,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimSigningAttribu
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/email/identities/{EmailIdentity}/dkim/signing";
   if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity.toString();
+    const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailIdentity."
@@ -1585,7 +1647,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityDkimSigningAttribu
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1622,7 +1684,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityFeedbackAttributes
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/identities/{EmailIdentity}/feedback";
   if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity.toString();
+    const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailIdentity."
@@ -1630,7 +1692,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityFeedbackAttributes
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1659,7 +1721,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityMailFromAttributes
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v2/email/identities/{EmailIdentity}/mail-from";
   if (input.EmailIdentity !== undefined) {
-    const labelValue: string = input.EmailIdentity.toString();
+    const labelValue: string = input.EmailIdentity;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EmailIdentity."
@@ -1667,7 +1729,7 @@ export async function serializeAws_restJson1_1PutEmailIdentityMailFromAttributes
     }
     resolvedPath = resolvedPath.replace(
       "{EmailIdentity}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: EmailIdentity.");
@@ -1806,10 +1868,14 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   let resolvedPath = "/v2/email/tags";
   const query: any = {};
   if (input.ResourceArn !== undefined) {
-    query["ResourceArn"] = input.ResourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("ResourceArn")
+    ] = __extendedEncodeURIComponent(input.ResourceArn);
   }
   if (input.TagKeys !== undefined) {
-    query["TagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("TagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1830,7 +1896,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
   let resolvedPath =
     "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -1838,7 +1904,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1846,7 +1912,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
@@ -1854,7 +1920,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1896,6 +1962,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateConfigurationSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1982,6 +2049,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetEventDesti
     $metadata: deserializeMetadata(output),
     __type: "CreateConfigurationSetEventDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2061,6 +2129,7 @@ export async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateDedicatedIpPoolResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2357,6 +2426,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteConfigurationSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2429,6 +2499,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetEventDesti
     $metadata: deserializeMetadata(output),
     __type: "DeleteConfigurationSetEventDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2494,6 +2565,7 @@ export async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteDedicatedIpPoolResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2566,6 +2638,7 @@ export async function deserializeAws_restJson1_1DeleteEmailIdentityCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteEmailIdentityResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2638,6 +2711,7 @@ export async function deserializeAws_restJson1_1DeleteSuppressedDestinationComma
     $metadata: deserializeMetadata(output),
     __type: "DeleteSuppressedDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4267,6 +4341,7 @@ export async function deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttri
     $metadata: deserializeMetadata(output),
     __type: "PutAccountDedicatedIpWarmupAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4325,6 +4400,7 @@ export async function deserializeAws_restJson1_1PutAccountSendingAttributesComma
     $metadata: deserializeMetadata(output),
     __type: "PutAccountSendingAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4383,6 +4459,7 @@ export async function deserializeAws_restJson1_1PutAccountSuppressionAttributesC
     $metadata: deserializeMetadata(output),
     __type: "PutAccountSuppressionAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4441,6 +4518,7 @@ export async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptio
     $metadata: deserializeMetadata(output),
     __type: "PutConfigurationSetDeliveryOptionsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4506,6 +4584,7 @@ export async function deserializeAws_restJson1_1PutConfigurationSetReputationOpt
     $metadata: deserializeMetadata(output),
     __type: "PutConfigurationSetReputationOptionsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4571,6 +4650,7 @@ export async function deserializeAws_restJson1_1PutConfigurationSetSendingOption
     $metadata: deserializeMetadata(output),
     __type: "PutConfigurationSetSendingOptionsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4636,6 +4716,7 @@ export async function deserializeAws_restJson1_1PutConfigurationSetSuppressionOp
     $metadata: deserializeMetadata(output),
     __type: "PutConfigurationSetSuppressionOptionsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4701,6 +4782,7 @@ export async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptio
     $metadata: deserializeMetadata(output),
     __type: "PutConfigurationSetTrackingOptionsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4766,6 +4848,7 @@ export async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommand(
     $metadata: deserializeMetadata(output),
     __type: "PutDedicatedIpInPoolResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4831,6 +4914,7 @@ export async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCo
     $metadata: deserializeMetadata(output),
     __type: "PutDedicatedIpWarmupAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4896,6 +4980,7 @@ export async function deserializeAws_restJson1_1PutDeliverabilityDashboardOption
     $metadata: deserializeMetadata(output),
     __type: "PutDeliverabilityDashboardOptionResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4975,6 +5060,7 @@ export async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCo
     $metadata: deserializeMetadata(output),
     __type: "PutEmailIdentityDkimAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5117,6 +5203,7 @@ export async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttribut
     $metadata: deserializeMetadata(output),
     __type: "PutEmailIdentityFeedbackAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5182,6 +5269,7 @@ export async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttribut
     $metadata: deserializeMetadata(output),
     __type: "PutEmailIdentityMailFromAttributesResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5247,6 +5335,7 @@ export async function deserializeAws_restJson1_1PutSuppressedDestinationCommand(
     $metadata: deserializeMetadata(output),
     __type: "PutSuppressedDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5404,6 +5493,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5473,6 +5563,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5545,6 +5636,7 @@ export async function deserializeAws_restJson1_1UpdateConfigurationSetEventDesti
     $metadata: deserializeMetadata(output),
     __type: "UpdateConfigurationSetEventDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

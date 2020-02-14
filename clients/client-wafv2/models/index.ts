@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -13,7 +16,7 @@ export interface AllQueryArguments {
 
 export namespace AllQueryArguments {
   export function isa(o: any): o is AllQueryArguments {
-    return _smithy.isa(o, "AllQueryArguments");
+    return __isa(o, "AllQueryArguments");
   }
 }
 
@@ -29,7 +32,7 @@ export interface AllowAction {
 
 export namespace AllowAction {
   export function isa(o: any): o is AllowAction {
-    return _smithy.isa(o, "AllowAction");
+    return __isa(o, "AllowAction");
   }
 }
 
@@ -49,7 +52,7 @@ export interface AndStatement {
 
 export namespace AndStatement {
   export function isa(o: any): o is AndStatement {
-    return _smithy.isa(o, "AndStatement");
+    return __isa(o, "AndStatement");
   }
 }
 
@@ -87,7 +90,7 @@ export interface AssociateWebACLRequest {
 
 export namespace AssociateWebACLRequest {
   export function isa(o: any): o is AssociateWebACLRequest {
-    return _smithy.isa(o, "AssociateWebACLRequest");
+    return __isa(o, "AssociateWebACLRequest");
   }
 }
 
@@ -97,7 +100,7 @@ export interface AssociateWebACLResponse extends $MetadataBearer {
 
 export namespace AssociateWebACLResponse {
   export function isa(o: any): o is AssociateWebACLResponse {
-    return _smithy.isa(o, "AssociateWebACLResponse");
+    return __isa(o, "AssociateWebACLResponse");
   }
 }
 
@@ -113,7 +116,7 @@ export interface BlockAction {
 
 export namespace BlockAction {
   export function isa(o: any): o is BlockAction {
-    return _smithy.isa(o, "BlockAction");
+    return __isa(o, "BlockAction");
   }
 }
 
@@ -129,7 +132,7 @@ export interface Body {
 
 export namespace Body {
   export function isa(o: any): o is Body {
-    return _smithy.isa(o, "Body");
+    return __isa(o, "Body");
   }
 }
 
@@ -231,7 +234,7 @@ export interface ByteMatchStatement {
 
 export namespace ByteMatchStatement {
   export function isa(o: any): o is ByteMatchStatement {
-    return _smithy.isa(o, "ByteMatchStatement");
+    return __isa(o, "ByteMatchStatement");
   }
 }
 
@@ -259,7 +262,7 @@ export interface CheckCapacityRequest {
 
 export namespace CheckCapacityRequest {
   export function isa(o: any): o is CheckCapacityRequest {
-    return _smithy.isa(o, "CheckCapacityRequest");
+    return __isa(o, "CheckCapacityRequest");
   }
 }
 
@@ -273,7 +276,7 @@ export interface CheckCapacityResponse extends $MetadataBearer {
 
 export namespace CheckCapacityResponse {
   export function isa(o: any): o is CheckCapacityResponse {
-    return _smithy.isa(o, "CheckCapacityResponse");
+    return __isa(o, "CheckCapacityResponse");
   }
 }
 
@@ -298,7 +301,7 @@ export interface CountAction {
 
 export namespace CountAction {
   export function isa(o: any): o is CountAction {
-    return _smithy.isa(o, "CountAction");
+    return __isa(o, "CountAction");
   }
 }
 
@@ -616,7 +619,7 @@ export interface CreateIPSetRequest {
 
 export namespace CreateIPSetRequest {
   export function isa(o: any): o is CreateIPSetRequest {
-    return _smithy.isa(o, "CreateIPSetRequest");
+    return __isa(o, "CreateIPSetRequest");
   }
 }
 
@@ -630,7 +633,7 @@ export interface CreateIPSetResponse extends $MetadataBearer {
 
 export namespace CreateIPSetResponse {
   export function isa(o: any): o is CreateIPSetResponse {
-    return _smithy.isa(o, "CreateIPSetResponse");
+    return __isa(o, "CreateIPSetResponse");
   }
 }
 
@@ -673,7 +676,7 @@ export interface CreateRegexPatternSetRequest {
 
 export namespace CreateRegexPatternSetRequest {
   export function isa(o: any): o is CreateRegexPatternSetRequest {
-    return _smithy.isa(o, "CreateRegexPatternSetRequest");
+    return __isa(o, "CreateRegexPatternSetRequest");
   }
 }
 
@@ -687,7 +690,7 @@ export interface CreateRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace CreateRegexPatternSetResponse {
   export function isa(o: any): o is CreateRegexPatternSetResponse {
-    return _smithy.isa(o, "CreateRegexPatternSetResponse");
+    return __isa(o, "CreateRegexPatternSetResponse");
   }
 }
 
@@ -754,7 +757,7 @@ export interface CreateRuleGroupRequest {
 
 export namespace CreateRuleGroupRequest {
   export function isa(o: any): o is CreateRuleGroupRequest {
-    return _smithy.isa(o, "CreateRuleGroupRequest");
+    return __isa(o, "CreateRuleGroupRequest");
   }
 }
 
@@ -768,7 +771,7 @@ export interface CreateRuleGroupResponse extends $MetadataBearer {
 
 export namespace CreateRuleGroupResponse {
   export function isa(o: any): o is CreateRuleGroupResponse {
-    return _smithy.isa(o, "CreateRuleGroupResponse");
+    return __isa(o, "CreateRuleGroupResponse");
   }
 }
 
@@ -824,7 +827,7 @@ export interface CreateWebACLRequest {
 
 export namespace CreateWebACLRequest {
   export function isa(o: any): o is CreateWebACLRequest {
-    return _smithy.isa(o, "CreateWebACLRequest");
+    return __isa(o, "CreateWebACLRequest");
   }
 }
 
@@ -838,7 +841,7 @@ export interface CreateWebACLResponse extends $MetadataBearer {
 
 export namespace CreateWebACLResponse {
   export function isa(o: any): o is CreateWebACLResponse {
-    return _smithy.isa(o, "CreateWebACLResponse");
+    return __isa(o, "CreateWebACLResponse");
   }
 }
 
@@ -864,7 +867,7 @@ export interface DefaultAction {
 
 export namespace DefaultAction {
   export function isa(o: any): o is DefaultAction {
-    return _smithy.isa(o, "DefaultAction");
+    return __isa(o, "DefaultAction");
   }
 }
 
@@ -902,7 +905,7 @@ export interface DeleteIPSetRequest {
 
 export namespace DeleteIPSetRequest {
   export function isa(o: any): o is DeleteIPSetRequest {
-    return _smithy.isa(o, "DeleteIPSetRequest");
+    return __isa(o, "DeleteIPSetRequest");
   }
 }
 
@@ -912,7 +915,7 @@ export interface DeleteIPSetResponse extends $MetadataBearer {
 
 export namespace DeleteIPSetResponse {
   export function isa(o: any): o is DeleteIPSetResponse {
-    return _smithy.isa(o, "DeleteIPSetResponse");
+    return __isa(o, "DeleteIPSetResponse");
   }
 }
 
@@ -926,7 +929,7 @@ export interface DeleteLoggingConfigurationRequest {
 
 export namespace DeleteLoggingConfigurationRequest {
   export function isa(o: any): o is DeleteLoggingConfigurationRequest {
-    return _smithy.isa(o, "DeleteLoggingConfigurationRequest");
+    return __isa(o, "DeleteLoggingConfigurationRequest");
   }
 }
 
@@ -936,7 +939,7 @@ export interface DeleteLoggingConfigurationResponse extends $MetadataBearer {
 
 export namespace DeleteLoggingConfigurationResponse {
   export function isa(o: any): o is DeleteLoggingConfigurationResponse {
-    return _smithy.isa(o, "DeleteLoggingConfigurationResponse");
+    return __isa(o, "DeleteLoggingConfigurationResponse");
   }
 }
 
@@ -974,7 +977,7 @@ export interface DeleteRegexPatternSetRequest {
 
 export namespace DeleteRegexPatternSetRequest {
   export function isa(o: any): o is DeleteRegexPatternSetRequest {
-    return _smithy.isa(o, "DeleteRegexPatternSetRequest");
+    return __isa(o, "DeleteRegexPatternSetRequest");
   }
 }
 
@@ -984,7 +987,7 @@ export interface DeleteRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace DeleteRegexPatternSetResponse {
   export function isa(o: any): o is DeleteRegexPatternSetResponse {
-    return _smithy.isa(o, "DeleteRegexPatternSetResponse");
+    return __isa(o, "DeleteRegexPatternSetResponse");
   }
 }
 
@@ -1022,7 +1025,7 @@ export interface DeleteRuleGroupRequest {
 
 export namespace DeleteRuleGroupRequest {
   export function isa(o: any): o is DeleteRuleGroupRequest {
-    return _smithy.isa(o, "DeleteRuleGroupRequest");
+    return __isa(o, "DeleteRuleGroupRequest");
   }
 }
 
@@ -1032,7 +1035,7 @@ export interface DeleteRuleGroupResponse extends $MetadataBearer {
 
 export namespace DeleteRuleGroupResponse {
   export function isa(o: any): o is DeleteRuleGroupResponse {
-    return _smithy.isa(o, "DeleteRuleGroupResponse");
+    return __isa(o, "DeleteRuleGroupResponse");
   }
 }
 
@@ -1070,7 +1073,7 @@ export interface DeleteWebACLRequest {
 
 export namespace DeleteWebACLRequest {
   export function isa(o: any): o is DeleteWebACLRequest {
-    return _smithy.isa(o, "DeleteWebACLRequest");
+    return __isa(o, "DeleteWebACLRequest");
   }
 }
 
@@ -1080,7 +1083,7 @@ export interface DeleteWebACLResponse extends $MetadataBearer {
 
 export namespace DeleteWebACLResponse {
   export function isa(o: any): o is DeleteWebACLResponse {
-    return _smithy.isa(o, "DeleteWebACLResponse");
+    return __isa(o, "DeleteWebACLResponse");
   }
 }
 
@@ -1113,7 +1116,7 @@ export interface DescribeManagedRuleGroupRequest {
 
 export namespace DescribeManagedRuleGroupRequest {
   export function isa(o: any): o is DescribeManagedRuleGroupRequest {
-    return _smithy.isa(o, "DescribeManagedRuleGroupRequest");
+    return __isa(o, "DescribeManagedRuleGroupRequest");
   }
 }
 
@@ -1138,7 +1141,7 @@ export interface DescribeManagedRuleGroupResponse extends $MetadataBearer {
 
 export namespace DescribeManagedRuleGroupResponse {
   export function isa(o: any): o is DescribeManagedRuleGroupResponse {
-    return _smithy.isa(o, "DescribeManagedRuleGroupResponse");
+    return __isa(o, "DescribeManagedRuleGroupResponse");
   }
 }
 
@@ -1171,7 +1174,7 @@ export interface DisassociateWebACLRequest {
 
 export namespace DisassociateWebACLRequest {
   export function isa(o: any): o is DisassociateWebACLRequest {
-    return _smithy.isa(o, "DisassociateWebACLRequest");
+    return __isa(o, "DisassociateWebACLRequest");
   }
 }
 
@@ -1181,7 +1184,7 @@ export interface DisassociateWebACLResponse extends $MetadataBearer {
 
 export namespace DisassociateWebACLResponse {
   export function isa(o: any): o is DisassociateWebACLResponse {
-    return _smithy.isa(o, "DisassociateWebACLResponse");
+    return __isa(o, "DisassociateWebACLResponse");
   }
 }
 
@@ -1203,7 +1206,7 @@ export interface ExcludedRule {
 
 export namespace ExcludedRule {
   export function isa(o: any): o is ExcludedRule {
-    return _smithy.isa(o, "ExcludedRule");
+    return __isa(o, "ExcludedRule");
   }
 }
 
@@ -1255,7 +1258,7 @@ export interface FieldToMatch {
 
 export namespace FieldToMatch {
   export function isa(o: any): o is FieldToMatch {
-    return _smithy.isa(o, "FieldToMatch");
+    return __isa(o, "FieldToMatch");
   }
 }
 
@@ -1275,7 +1278,7 @@ export interface GeoMatchStatement {
 
 export namespace GeoMatchStatement {
   export function isa(o: any): o is GeoMatchStatement {
-    return _smithy.isa(o, "GeoMatchStatement");
+    return __isa(o, "GeoMatchStatement");
   }
 }
 
@@ -1308,7 +1311,7 @@ export interface GetIPSetRequest {
 
 export namespace GetIPSetRequest {
   export function isa(o: any): o is GetIPSetRequest {
-    return _smithy.isa(o, "GetIPSetRequest");
+    return __isa(o, "GetIPSetRequest");
   }
 }
 
@@ -1327,7 +1330,7 @@ export interface GetIPSetResponse extends $MetadataBearer {
 
 export namespace GetIPSetResponse {
   export function isa(o: any): o is GetIPSetResponse {
-    return _smithy.isa(o, "GetIPSetResponse");
+    return __isa(o, "GetIPSetResponse");
   }
 }
 
@@ -1341,7 +1344,7 @@ export interface GetLoggingConfigurationRequest {
 
 export namespace GetLoggingConfigurationRequest {
   export function isa(o: any): o is GetLoggingConfigurationRequest {
-    return _smithy.isa(o, "GetLoggingConfigurationRequest");
+    return __isa(o, "GetLoggingConfigurationRequest");
   }
 }
 
@@ -1355,7 +1358,7 @@ export interface GetLoggingConfigurationResponse extends $MetadataBearer {
 
 export namespace GetLoggingConfigurationResponse {
   export function isa(o: any): o is GetLoggingConfigurationResponse {
-    return _smithy.isa(o, "GetLoggingConfigurationResponse");
+    return __isa(o, "GetLoggingConfigurationResponse");
   }
 }
 
@@ -1393,7 +1396,7 @@ export interface GetRateBasedStatementManagedKeysRequest {
 
 export namespace GetRateBasedStatementManagedKeysRequest {
   export function isa(o: any): o is GetRateBasedStatementManagedKeysRequest {
-    return _smithy.isa(o, "GetRateBasedStatementManagedKeysRequest");
+    return __isa(o, "GetRateBasedStatementManagedKeysRequest");
   }
 }
 
@@ -1413,7 +1416,7 @@ export interface GetRateBasedStatementManagedKeysResponse
 
 export namespace GetRateBasedStatementManagedKeysResponse {
   export function isa(o: any): o is GetRateBasedStatementManagedKeysResponse {
-    return _smithy.isa(o, "GetRateBasedStatementManagedKeysResponse");
+    return __isa(o, "GetRateBasedStatementManagedKeysResponse");
   }
 }
 
@@ -1446,7 +1449,7 @@ export interface GetRegexPatternSetRequest {
 
 export namespace GetRegexPatternSetRequest {
   export function isa(o: any): o is GetRegexPatternSetRequest {
-    return _smithy.isa(o, "GetRegexPatternSetRequest");
+    return __isa(o, "GetRegexPatternSetRequest");
   }
 }
 
@@ -1465,7 +1468,7 @@ export interface GetRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace GetRegexPatternSetResponse {
   export function isa(o: any): o is GetRegexPatternSetResponse {
-    return _smithy.isa(o, "GetRegexPatternSetResponse");
+    return __isa(o, "GetRegexPatternSetResponse");
   }
 }
 
@@ -1498,7 +1501,7 @@ export interface GetRuleGroupRequest {
 
 export namespace GetRuleGroupRequest {
   export function isa(o: any): o is GetRuleGroupRequest {
-    return _smithy.isa(o, "GetRuleGroupRequest");
+    return __isa(o, "GetRuleGroupRequest");
   }
 }
 
@@ -1517,7 +1520,7 @@ export interface GetRuleGroupResponse extends $MetadataBearer {
 
 export namespace GetRuleGroupResponse {
   export function isa(o: any): o is GetRuleGroupResponse {
-    return _smithy.isa(o, "GetRuleGroupResponse");
+    return __isa(o, "GetRuleGroupResponse");
   }
 }
 
@@ -1564,7 +1567,7 @@ export interface GetSampledRequestsRequest {
 
 export namespace GetSampledRequestsRequest {
   export function isa(o: any): o is GetSampledRequestsRequest {
-    return _smithy.isa(o, "GetSampledRequestsRequest");
+    return __isa(o, "GetSampledRequestsRequest");
   }
 }
 
@@ -1592,7 +1595,7 @@ export interface GetSampledRequestsResponse extends $MetadataBearer {
 
 export namespace GetSampledRequestsResponse {
   export function isa(o: any): o is GetSampledRequestsResponse {
-    return _smithy.isa(o, "GetSampledRequestsResponse");
+    return __isa(o, "GetSampledRequestsResponse");
   }
 }
 
@@ -1606,7 +1609,7 @@ export interface GetWebACLForResourceRequest {
 
 export namespace GetWebACLForResourceRequest {
   export function isa(o: any): o is GetWebACLForResourceRequest {
-    return _smithy.isa(o, "GetWebACLForResourceRequest");
+    return __isa(o, "GetWebACLForResourceRequest");
   }
 }
 
@@ -1620,7 +1623,7 @@ export interface GetWebACLForResourceResponse extends $MetadataBearer {
 
 export namespace GetWebACLForResourceResponse {
   export function isa(o: any): o is GetWebACLForResourceResponse {
-    return _smithy.isa(o, "GetWebACLForResourceResponse");
+    return __isa(o, "GetWebACLForResourceResponse");
   }
 }
 
@@ -1653,7 +1656,7 @@ export interface GetWebACLRequest {
 
 export namespace GetWebACLRequest {
   export function isa(o: any): o is GetWebACLRequest {
-    return _smithy.isa(o, "GetWebACLRequest");
+    return __isa(o, "GetWebACLRequest");
   }
 }
 
@@ -1672,7 +1675,7 @@ export interface GetWebACLResponse extends $MetadataBearer {
 
 export namespace GetWebACLResponse {
   export function isa(o: any): o is GetWebACLResponse {
-    return _smithy.isa(o, "GetWebACLResponse");
+    return __isa(o, "GetWebACLResponse");
   }
 }
 
@@ -1699,7 +1702,7 @@ export interface HTTPHeader {
 
 export namespace HTTPHeader {
   export function isa(o: any): o is HTTPHeader {
-    return _smithy.isa(o, "HTTPHeader");
+    return __isa(o, "HTTPHeader");
   }
 }
 
@@ -1758,7 +1761,7 @@ export interface HTTPRequest {
 
 export namespace HTTPRequest {
   export function isa(o: any): o is HTTPRequest {
-    return _smithy.isa(o, "HTTPRequest");
+    return __isa(o, "HTTPRequest");
   }
 }
 
@@ -1828,7 +1831,7 @@ export interface IPSet {
 
 export namespace IPSet {
   export function isa(o: any): o is IPSet {
-    return _smithy.isa(o, "IPSet");
+    return __isa(o, "IPSet");
   }
 }
 
@@ -1849,7 +1852,7 @@ export interface IPSetReferenceStatement {
 
 export namespace IPSetReferenceStatement {
   export function isa(o: any): o is IPSetReferenceStatement {
-    return _smithy.isa(o, "IPSetReferenceStatement");
+    return __isa(o, "IPSetReferenceStatement");
   }
 }
 
@@ -1889,7 +1892,7 @@ export interface IPSetSummary {
 
 export namespace IPSetSummary {
   export function isa(o: any): o is IPSetSummary {
-    return _smithy.isa(o, "IPSetSummary");
+    return __isa(o, "IPSetSummary");
   }
 }
 
@@ -1926,7 +1929,7 @@ export interface ListAvailableManagedRuleGroupsRequest {
 
 export namespace ListAvailableManagedRuleGroupsRequest {
   export function isa(o: any): o is ListAvailableManagedRuleGroupsRequest {
-    return _smithy.isa(o, "ListAvailableManagedRuleGroupsRequest");
+    return __isa(o, "ListAvailableManagedRuleGroupsRequest");
   }
 }
 
@@ -1948,7 +1951,7 @@ export interface ListAvailableManagedRuleGroupsResponse
 
 export namespace ListAvailableManagedRuleGroupsResponse {
   export function isa(o: any): o is ListAvailableManagedRuleGroupsResponse {
-    return _smithy.isa(o, "ListAvailableManagedRuleGroupsResponse");
+    return __isa(o, "ListAvailableManagedRuleGroupsResponse");
   }
 }
 
@@ -1985,7 +1988,7 @@ export interface ListIPSetsRequest {
 
 export namespace ListIPSetsRequest {
   export function isa(o: any): o is ListIPSetsRequest {
-    return _smithy.isa(o, "ListIPSetsRequest");
+    return __isa(o, "ListIPSetsRequest");
   }
 }
 
@@ -2006,7 +2009,7 @@ export interface ListIPSetsResponse extends $MetadataBearer {
 
 export namespace ListIPSetsResponse {
   export function isa(o: any): o is ListIPSetsResponse {
-    return _smithy.isa(o, "ListIPSetsResponse");
+    return __isa(o, "ListIPSetsResponse");
   }
 }
 
@@ -2043,7 +2046,7 @@ export interface ListLoggingConfigurationsRequest {
 
 export namespace ListLoggingConfigurationsRequest {
   export function isa(o: any): o is ListLoggingConfigurationsRequest {
-    return _smithy.isa(o, "ListLoggingConfigurationsRequest");
+    return __isa(o, "ListLoggingConfigurationsRequest");
   }
 }
 
@@ -2064,7 +2067,7 @@ export interface ListLoggingConfigurationsResponse extends $MetadataBearer {
 
 export namespace ListLoggingConfigurationsResponse {
   export function isa(o: any): o is ListLoggingConfigurationsResponse {
-    return _smithy.isa(o, "ListLoggingConfigurationsResponse");
+    return __isa(o, "ListLoggingConfigurationsResponse");
   }
 }
 
@@ -2101,7 +2104,7 @@ export interface ListRegexPatternSetsRequest {
 
 export namespace ListRegexPatternSetsRequest {
   export function isa(o: any): o is ListRegexPatternSetsRequest {
-    return _smithy.isa(o, "ListRegexPatternSetsRequest");
+    return __isa(o, "ListRegexPatternSetsRequest");
   }
 }
 
@@ -2122,7 +2125,7 @@ export interface ListRegexPatternSetsResponse extends $MetadataBearer {
 
 export namespace ListRegexPatternSetsResponse {
   export function isa(o: any): o is ListRegexPatternSetsResponse {
-    return _smithy.isa(o, "ListRegexPatternSetsResponse");
+    return __isa(o, "ListRegexPatternSetsResponse");
   }
 }
 
@@ -2141,7 +2144,7 @@ export interface ListResourcesForWebACLRequest {
 
 export namespace ListResourcesForWebACLRequest {
   export function isa(o: any): o is ListResourcesForWebACLRequest {
-    return _smithy.isa(o, "ListResourcesForWebACLRequest");
+    return __isa(o, "ListResourcesForWebACLRequest");
   }
 }
 
@@ -2155,7 +2158,7 @@ export interface ListResourcesForWebACLResponse extends $MetadataBearer {
 
 export namespace ListResourcesForWebACLResponse {
   export function isa(o: any): o is ListResourcesForWebACLResponse {
-    return _smithy.isa(o, "ListResourcesForWebACLResponse");
+    return __isa(o, "ListResourcesForWebACLResponse");
   }
 }
 
@@ -2192,7 +2195,7 @@ export interface ListRuleGroupsRequest {
 
 export namespace ListRuleGroupsRequest {
   export function isa(o: any): o is ListRuleGroupsRequest {
-    return _smithy.isa(o, "ListRuleGroupsRequest");
+    return __isa(o, "ListRuleGroupsRequest");
   }
 }
 
@@ -2213,7 +2216,7 @@ export interface ListRuleGroupsResponse extends $MetadataBearer {
 
 export namespace ListRuleGroupsResponse {
   export function isa(o: any): o is ListRuleGroupsResponse {
-    return _smithy.isa(o, "ListRuleGroupsResponse");
+    return __isa(o, "ListRuleGroupsResponse");
   }
 }
 
@@ -2241,7 +2244,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -2262,7 +2265,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -2299,7 +2302,7 @@ export interface ListWebACLsRequest {
 
 export namespace ListWebACLsRequest {
   export function isa(o: any): o is ListWebACLsRequest {
-    return _smithy.isa(o, "ListWebACLsRequest");
+    return __isa(o, "ListWebACLsRequest");
   }
 }
 
@@ -2320,7 +2323,7 @@ export interface ListWebACLsResponse extends $MetadataBearer {
 
 export namespace ListWebACLsResponse {
   export function isa(o: any): o is ListWebACLsResponse {
-    return _smithy.isa(o, "ListWebACLsResponse");
+    return __isa(o, "ListWebACLsResponse");
   }
 }
 
@@ -2356,7 +2359,7 @@ export interface LoggingConfiguration {
 
 export namespace LoggingConfiguration {
   export function isa(o: any): o is LoggingConfiguration {
-    return _smithy.isa(o, "LoggingConfiguration");
+    return __isa(o, "LoggingConfiguration");
   }
 }
 
@@ -2387,7 +2390,7 @@ export interface ManagedRuleGroupStatement {
 
 export namespace ManagedRuleGroupStatement {
   export function isa(o: any): o is ManagedRuleGroupStatement {
-    return _smithy.isa(o, "ManagedRuleGroupStatement");
+    return __isa(o, "ManagedRuleGroupStatement");
   }
 }
 
@@ -2417,7 +2420,7 @@ export interface ManagedRuleGroupSummary {
 
 export namespace ManagedRuleGroupSummary {
   export function isa(o: any): o is ManagedRuleGroupSummary {
-    return _smithy.isa(o, "ManagedRuleGroupSummary");
+    return __isa(o, "ManagedRuleGroupSummary");
   }
 }
 
@@ -2433,7 +2436,7 @@ export interface Method {
 
 export namespace Method {
   export function isa(o: any): o is Method {
-    return _smithy.isa(o, "Method");
+    return __isa(o, "Method");
   }
 }
 
@@ -2449,7 +2452,7 @@ export interface NoneAction {
 
 export namespace NoneAction {
   export function isa(o: any): o is NoneAction {
-    return _smithy.isa(o, "NoneAction");
+    return __isa(o, "NoneAction");
   }
 }
 
@@ -2469,7 +2472,7 @@ export interface NotStatement {
 
 export namespace NotStatement {
   export function isa(o: any): o is NotStatement {
-    return _smithy.isa(o, "NotStatement");
+    return __isa(o, "NotStatement");
   }
 }
 
@@ -2489,7 +2492,7 @@ export interface OrStatement {
 
 export namespace OrStatement {
   export function isa(o: any): o is OrStatement {
-    return _smithy.isa(o, "OrStatement");
+    return __isa(o, "OrStatement");
   }
 }
 
@@ -2514,7 +2517,7 @@ export interface OverrideAction {
 
 export namespace OverrideAction {
   export function isa(o: any): o is OverrideAction {
-    return _smithy.isa(o, "OverrideAction");
+    return __isa(o, "OverrideAction");
   }
 }
 
@@ -2575,7 +2578,7 @@ export interface PutLoggingConfigurationRequest {
 
 export namespace PutLoggingConfigurationRequest {
   export function isa(o: any): o is PutLoggingConfigurationRequest {
-    return _smithy.isa(o, "PutLoggingConfigurationRequest");
+    return __isa(o, "PutLoggingConfigurationRequest");
   }
 }
 
@@ -2589,7 +2592,7 @@ export interface PutLoggingConfigurationResponse extends $MetadataBearer {
 
 export namespace PutLoggingConfigurationResponse {
   export function isa(o: any): o is PutLoggingConfigurationResponse {
-    return _smithy.isa(o, "PutLoggingConfigurationResponse");
+    return __isa(o, "PutLoggingConfigurationResponse");
   }
 }
 
@@ -2605,7 +2608,7 @@ export interface QueryString {
 
 export namespace QueryString {
   export function isa(o: any): o is QueryString {
-    return _smithy.isa(o, "QueryString");
+    return __isa(o, "QueryString");
   }
 }
 
@@ -2647,7 +2650,7 @@ export interface RateBasedStatement {
 
 export namespace RateBasedStatement {
   export function isa(o: any): o is RateBasedStatement {
-    return _smithy.isa(o, "RateBasedStatement");
+    return __isa(o, "RateBasedStatement");
   }
 }
 
@@ -2673,7 +2676,7 @@ export interface RateBasedStatementManagedKeysIPSet {
 
 export namespace RateBasedStatementManagedKeysIPSet {
   export function isa(o: any): o is RateBasedStatementManagedKeysIPSet {
-    return _smithy.isa(o, "RateBasedStatementManagedKeysIPSet");
+    return __isa(o, "RateBasedStatementManagedKeysIPSet");
   }
 }
 
@@ -2693,7 +2696,7 @@ export interface Regex {
 
 export namespace Regex {
   export function isa(o: any): o is Regex {
-    return _smithy.isa(o, "Regex");
+    return __isa(o, "Regex");
   }
 }
 
@@ -2734,7 +2737,7 @@ export interface RegexPatternSet {
 
 export namespace RegexPatternSet {
   export function isa(o: any): o is RegexPatternSet {
-    return _smithy.isa(o, "RegexPatternSet");
+    return __isa(o, "RegexPatternSet");
   }
 }
 
@@ -2767,7 +2770,7 @@ export interface RegexPatternSetReferenceStatement {
 
 export namespace RegexPatternSetReferenceStatement {
   export function isa(o: any): o is RegexPatternSetReferenceStatement {
-    return _smithy.isa(o, "RegexPatternSetReferenceStatement");
+    return __isa(o, "RegexPatternSetReferenceStatement");
   }
 }
 
@@ -2807,7 +2810,7 @@ export interface RegexPatternSetSummary {
 
 export namespace RegexPatternSetSummary {
   export function isa(o: any): o is RegexPatternSetSummary {
-    return _smithy.isa(o, "RegexPatternSetSummary");
+    return __isa(o, "RegexPatternSetSummary");
   }
 }
 
@@ -2863,7 +2866,7 @@ export interface Rule {
 
 export namespace Rule {
   export function isa(o: any): o is Rule {
-    return _smithy.isa(o, "Rule");
+    return __isa(o, "Rule");
   }
 }
 
@@ -2893,7 +2896,7 @@ export interface RuleAction {
 
 export namespace RuleAction {
   export function isa(o: any): o is RuleAction {
-    return _smithy.isa(o, "RuleAction");
+    return __isa(o, "RuleAction");
   }
 }
 
@@ -2957,7 +2960,7 @@ export interface RuleGroup {
 
 export namespace RuleGroup {
   export function isa(o: any): o is RuleGroup {
-    return _smithy.isa(o, "RuleGroup");
+    return __isa(o, "RuleGroup");
   }
 }
 
@@ -2983,7 +2986,7 @@ export interface RuleGroupReferenceStatement {
 
 export namespace RuleGroupReferenceStatement {
   export function isa(o: any): o is RuleGroupReferenceStatement {
-    return _smithy.isa(o, "RuleGroupReferenceStatement");
+    return __isa(o, "RuleGroupReferenceStatement");
   }
 }
 
@@ -3023,7 +3026,7 @@ export interface RuleGroupSummary {
 
 export namespace RuleGroupSummary {
   export function isa(o: any): o is RuleGroupSummary {
-    return _smithy.isa(o, "RuleGroupSummary");
+    return __isa(o, "RuleGroupSummary");
   }
 }
 
@@ -3051,7 +3054,7 @@ export interface RuleSummary {
 
 export namespace RuleSummary {
   export function isa(o: any): o is RuleSummary {
-    return _smithy.isa(o, "RuleSummary");
+    return __isa(o, "RuleSummary");
   }
 }
 
@@ -3098,7 +3101,7 @@ export interface SampledHTTPRequest {
 
 export namespace SampledHTTPRequest {
   export function isa(o: any): o is SampledHTTPRequest {
-    return _smithy.isa(o, "SampledHTTPRequest");
+    return __isa(o, "SampledHTTPRequest");
   }
 }
 
@@ -3123,7 +3126,7 @@ export interface SingleHeader {
 
 export namespace SingleHeader {
   export function isa(o: any): o is SingleHeader {
-    return _smithy.isa(o, "SingleHeader");
+    return __isa(o, "SingleHeader");
   }
 }
 
@@ -3143,7 +3146,7 @@ export interface SingleQueryArgument {
 
 export namespace SingleQueryArgument {
   export function isa(o: any): o is SingleQueryArgument {
-    return _smithy.isa(o, "SingleQueryArgument");
+    return __isa(o, "SingleQueryArgument");
   }
 }
 
@@ -3182,7 +3185,7 @@ export interface SizeConstraintStatement {
 
 export namespace SizeConstraintStatement {
   export function isa(o: any): o is SizeConstraintStatement {
-    return _smithy.isa(o, "SizeConstraintStatement");
+    return __isa(o, "SizeConstraintStatement");
   }
 }
 
@@ -3209,7 +3212,7 @@ export interface SqliMatchStatement {
 
 export namespace SqliMatchStatement {
   export function isa(o: any): o is SqliMatchStatement {
-    return _smithy.isa(o, "SqliMatchStatement");
+    return __isa(o, "SqliMatchStatement");
   }
 }
 
@@ -3311,7 +3314,7 @@ export interface Statement {
 
 export namespace Statement {
   export function isa(o: any): o is Statement {
-    return _smithy.isa(o, "Statement");
+    return __isa(o, "Statement");
   }
 }
 
@@ -3336,7 +3339,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -3361,7 +3364,7 @@ export interface TagInfoForResource {
 
 export namespace TagInfoForResource {
   export function isa(o: any): o is TagInfoForResource {
-    return _smithy.isa(o, "TagInfoForResource");
+    return __isa(o, "TagInfoForResource");
   }
 }
 
@@ -3380,7 +3383,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -3390,7 +3393,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -3507,7 +3510,7 @@ export interface TextTransformation {
 
 export namespace TextTransformation {
   export function isa(o: any): o is TextTransformation {
-    return _smithy.isa(o, "TextTransformation");
+    return __isa(o, "TextTransformation");
   }
 }
 
@@ -3549,7 +3552,7 @@ export interface TimeWindow {
 
 export namespace TimeWindow {
   export function isa(o: any): o is TimeWindow {
-    return _smithy.isa(o, "TimeWindow");
+    return __isa(o, "TimeWindow");
   }
 }
 
@@ -3568,7 +3571,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -3578,7 +3581,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -3644,7 +3647,7 @@ export interface UpdateIPSetRequest {
 
 export namespace UpdateIPSetRequest {
   export function isa(o: any): o is UpdateIPSetRequest {
-    return _smithy.isa(o, "UpdateIPSetRequest");
+    return __isa(o, "UpdateIPSetRequest");
   }
 }
 
@@ -3658,7 +3661,7 @@ export interface UpdateIPSetResponse extends $MetadataBearer {
 
 export namespace UpdateIPSetResponse {
   export function isa(o: any): o is UpdateIPSetResponse {
-    return _smithy.isa(o, "UpdateIPSetResponse");
+    return __isa(o, "UpdateIPSetResponse");
   }
 }
 
@@ -3706,7 +3709,7 @@ export interface UpdateRegexPatternSetRequest {
 
 export namespace UpdateRegexPatternSetRequest {
   export function isa(o: any): o is UpdateRegexPatternSetRequest {
-    return _smithy.isa(o, "UpdateRegexPatternSetRequest");
+    return __isa(o, "UpdateRegexPatternSetRequest");
   }
 }
 
@@ -3720,7 +3723,7 @@ export interface UpdateRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace UpdateRegexPatternSetResponse {
   export function isa(o: any): o is UpdateRegexPatternSetResponse {
-    return _smithy.isa(o, "UpdateRegexPatternSetResponse");
+    return __isa(o, "UpdateRegexPatternSetResponse");
   }
 }
 
@@ -3776,7 +3779,7 @@ export interface UpdateRuleGroupRequest {
 
 export namespace UpdateRuleGroupRequest {
   export function isa(o: any): o is UpdateRuleGroupRequest {
-    return _smithy.isa(o, "UpdateRuleGroupRequest");
+    return __isa(o, "UpdateRuleGroupRequest");
   }
 }
 
@@ -3790,7 +3793,7 @@ export interface UpdateRuleGroupResponse extends $MetadataBearer {
 
 export namespace UpdateRuleGroupResponse {
   export function isa(o: any): o is UpdateRuleGroupResponse {
-    return _smithy.isa(o, "UpdateRuleGroupResponse");
+    return __isa(o, "UpdateRuleGroupResponse");
   }
 }
 
@@ -3851,7 +3854,7 @@ export interface UpdateWebACLRequest {
 
 export namespace UpdateWebACLRequest {
   export function isa(o: any): o is UpdateWebACLRequest {
-    return _smithy.isa(o, "UpdateWebACLRequest");
+    return __isa(o, "UpdateWebACLRequest");
   }
 }
 
@@ -3865,7 +3868,7 @@ export interface UpdateWebACLResponse extends $MetadataBearer {
 
 export namespace UpdateWebACLResponse {
   export function isa(o: any): o is UpdateWebACLResponse {
-    return _smithy.isa(o, "UpdateWebACLResponse");
+    return __isa(o, "UpdateWebACLResponse");
   }
 }
 
@@ -3881,7 +3884,7 @@ export interface UriPath {
 
 export namespace UriPath {
   export function isa(o: any): o is UriPath {
-    return _smithy.isa(o, "UriPath");
+    return __isa(o, "UriPath");
   }
 }
 
@@ -3914,7 +3917,7 @@ export interface VisibilityConfig {
 
 export namespace VisibilityConfig {
   export function isa(o: any): o is VisibilityConfig {
-    return _smithy.isa(o, "VisibilityConfig");
+    return __isa(o, "VisibilityConfig");
   }
 }
 
@@ -3922,7 +3925,7 @@ export namespace VisibilityConfig {
  * <p>AWS WAF couldn’t perform the operation because your resource is being used by another resource or it’s associated with another resource. </p>
  */
 export interface WAFAssociatedItemException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFAssociatedItemException";
   $fault: "client";
@@ -3931,7 +3934,7 @@ export interface WAFAssociatedItemException
 
 export namespace WAFAssociatedItemException {
   export function isa(o: any): o is WAFAssociatedItemException {
-    return _smithy.isa(o, "WAFAssociatedItemException");
+    return __isa(o, "WAFAssociatedItemException");
   }
 }
 
@@ -3939,7 +3942,7 @@ export namespace WAFAssociatedItemException {
  * <p>AWS WAF couldn’t perform the operation because the resource that you tried to save is a duplicate of an existing one.</p>
  */
 export interface WAFDuplicateItemException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFDuplicateItemException";
   $fault: "client";
@@ -3948,7 +3951,7 @@ export interface WAFDuplicateItemException
 
 export namespace WAFDuplicateItemException {
   export function isa(o: any): o is WAFDuplicateItemException {
-    return _smithy.isa(o, "WAFDuplicateItemException");
+    return __isa(o, "WAFDuplicateItemException");
   }
 }
 
@@ -3956,7 +3959,7 @@ export namespace WAFDuplicateItemException {
  * <p>Your request is valid, but AWS WAF couldn’t perform the operation because of a system problem. Retry your request. </p>
  */
 export interface WAFInternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInternalErrorException";
   $fault: "server";
@@ -3965,7 +3968,7 @@ export interface WAFInternalErrorException
 
 export namespace WAFInternalErrorException {
   export function isa(o: any): o is WAFInternalErrorException {
-    return _smithy.isa(o, "WAFInternalErrorException");
+    return __isa(o, "WAFInternalErrorException");
   }
 }
 
@@ -3988,7 +3991,7 @@ export namespace WAFInternalErrorException {
  *          </ul>
  */
 export interface WAFInvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidParameterException";
   $fault: "client";
@@ -4000,7 +4003,7 @@ export interface WAFInvalidParameterException
 
 export namespace WAFInvalidParameterException {
   export function isa(o: any): o is WAFInvalidParameterException {
-    return _smithy.isa(o, "WAFInvalidParameterException");
+    return __isa(o, "WAFInvalidParameterException");
   }
 }
 
@@ -4008,7 +4011,7 @@ export namespace WAFInvalidParameterException {
  * <p>AWS WAF couldn’t perform the operation because the resource that you requested isn’t valid. Check the resource, and try again.</p>
  */
 export interface WAFInvalidResourceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidResourceException";
   $fault: "client";
@@ -4017,7 +4020,7 @@ export interface WAFInvalidResourceException
 
 export namespace WAFInvalidResourceException {
   export function isa(o: any): o is WAFInvalidResourceException {
-    return _smithy.isa(o, "WAFInvalidResourceException");
+    return __isa(o, "WAFInvalidResourceException");
   }
 }
 
@@ -4027,7 +4030,7 @@ export namespace WAFInvalidResourceException {
  *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  */
 export interface WAFLimitsExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFLimitsExceededException";
   $fault: "client";
@@ -4036,7 +4039,7 @@ export interface WAFLimitsExceededException
 
 export namespace WAFLimitsExceededException {
   export function isa(o: any): o is WAFLimitsExceededException {
-    return _smithy.isa(o, "WAFLimitsExceededException");
+    return __isa(o, "WAFLimitsExceededException");
   }
 }
 
@@ -4044,7 +4047,7 @@ export namespace WAFLimitsExceededException {
  * <p>AWS WAF couldn’t perform the operation because your resource doesn’t exist. </p>
  */
 export interface WAFNonexistentItemException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFNonexistentItemException";
   $fault: "client";
@@ -4053,7 +4056,7 @@ export interface WAFNonexistentItemException
 
 export namespace WAFNonexistentItemException {
   export function isa(o: any): o is WAFNonexistentItemException {
-    return _smithy.isa(o, "WAFNonexistentItemException");
+    return __isa(o, "WAFNonexistentItemException");
   }
 }
 
@@ -4061,7 +4064,7 @@ export namespace WAFNonexistentItemException {
  * <p>AWS WAF couldn’t save your changes because you tried to update or delete a resource that has changed since you last retrieved it. Get the resource again, make any changes you need to make to the new copy, and retry your operation. </p>
  */
 export interface WAFOptimisticLockException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFOptimisticLockException";
   $fault: "client";
@@ -4070,7 +4073,7 @@ export interface WAFOptimisticLockException
 
 export namespace WAFOptimisticLockException {
   export function isa(o: any): o is WAFOptimisticLockException {
-    return _smithy.isa(o, "WAFOptimisticLockException");
+    return __isa(o, "WAFOptimisticLockException");
   }
 }
 
@@ -4078,7 +4081,7 @@ export namespace WAFOptimisticLockException {
  * <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a call to <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
  */
 export interface WAFServiceLinkedRoleErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
@@ -4087,7 +4090,7 @@ export interface WAFServiceLinkedRoleErrorException
 
 export namespace WAFServiceLinkedRoleErrorException {
   export function isa(o: any): o is WAFServiceLinkedRoleErrorException {
-    return _smithy.isa(o, "WAFServiceLinkedRoleErrorException");
+    return __isa(o, "WAFServiceLinkedRoleErrorException");
   }
 }
 
@@ -4095,7 +4098,7 @@ export namespace WAFServiceLinkedRoleErrorException {
  * <p>An error occurred during the tagging operation. Retry your request.</p>
  */
 export interface WAFTagOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFTagOperationException";
   $fault: "client";
@@ -4104,7 +4107,7 @@ export interface WAFTagOperationException
 
 export namespace WAFTagOperationException {
   export function isa(o: any): o is WAFTagOperationException {
-    return _smithy.isa(o, "WAFTagOperationException");
+    return __isa(o, "WAFTagOperationException");
   }
 }
 
@@ -4112,7 +4115,7 @@ export namespace WAFTagOperationException {
  * <p>AWS WAF couldn’t perform your tagging operation because of an internal error. Retry your request.</p>
  */
 export interface WAFTagOperationInternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
@@ -4121,7 +4124,7 @@ export interface WAFTagOperationInternalErrorException
 
 export namespace WAFTagOperationInternalErrorException {
   export function isa(o: any): o is WAFTagOperationInternalErrorException {
-    return _smithy.isa(o, "WAFTagOperationInternalErrorException");
+    return __isa(o, "WAFTagOperationInternalErrorException");
   }
 }
 
@@ -4129,7 +4132,7 @@ export namespace WAFTagOperationInternalErrorException {
  * <p>AWS WAF couldn’t retrieve the resource that you requested. Retry your request.</p>
  */
 export interface WAFUnavailableEntityException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFUnavailableEntityException";
   $fault: "client";
@@ -4138,7 +4141,7 @@ export interface WAFUnavailableEntityException
 
 export namespace WAFUnavailableEntityException {
   export function isa(o: any): o is WAFUnavailableEntityException {
-    return _smithy.isa(o, "WAFUnavailableEntityException");
+    return __isa(o, "WAFUnavailableEntityException");
   }
 }
 
@@ -4204,7 +4207,7 @@ export interface WebACL {
 
 export namespace WebACL {
   export function isa(o: any): o is WebACL {
-    return _smithy.isa(o, "WebACL");
+    return __isa(o, "WebACL");
   }
 }
 
@@ -4244,7 +4247,7 @@ export interface WebACLSummary {
 
 export namespace WebACLSummary {
   export function isa(o: any): o is WebACLSummary {
-    return _smithy.isa(o, "WebACLSummary");
+    return __isa(o, "WebACLSummary");
   }
 }
 
@@ -4275,6 +4278,6 @@ export interface XssMatchStatement {
 
 export namespace XssMatchStatement {
   export function isa(o: any): o is XssMatchStatement {
-    return _smithy.isa(o, "XssMatchStatement");
+    return __isa(o, "XssMatchStatement");
   }
 }

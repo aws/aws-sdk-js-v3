@@ -360,7 +360,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -377,13 +380,13 @@ export async function serializeAws_restJson1_1BatchUpdateScheduleCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/channels/{ChannelId}/schedule";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -648,7 +651,7 @@ export async function serializeAws_restJson1_1CreateMultiplexProgramCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -656,7 +659,7 @@ export async function serializeAws_restJson1_1CreateMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
@@ -699,7 +702,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -707,7 +710,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -736,13 +739,13 @@ export async function serializeAws_restJson1_1DeleteChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/channels/{ChannelId}";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -764,13 +767,13 @@ export async function serializeAws_restJson1_1DeleteInputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/inputs/{InputId}";
   if (input.InputId !== undefined) {
-    const labelValue: string = input.InputId.toString();
+    const labelValue: string = input.InputId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InputId.");
     }
     resolvedPath = resolvedPath.replace(
       "{InputId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
@@ -792,7 +795,7 @@ export async function serializeAws_restJson1_1DeleteInputSecurityGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/inputSecurityGroups/{InputSecurityGroupId}";
   if (input.InputSecurityGroupId !== undefined) {
-    const labelValue: string = input.InputSecurityGroupId.toString();
+    const labelValue: string = input.InputSecurityGroupId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: InputSecurityGroupId."
@@ -800,7 +803,7 @@ export async function serializeAws_restJson1_1DeleteInputSecurityGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InputSecurityGroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -824,7 +827,7 @@ export async function serializeAws_restJson1_1DeleteMultiplexCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -832,7 +835,7 @@ export async function serializeAws_restJson1_1DeleteMultiplexCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
@@ -854,7 +857,7 @@ export async function serializeAws_restJson1_1DeleteMultiplexProgramCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -862,13 +865,13 @@ export async function serializeAws_restJson1_1DeleteMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   if (input.ProgramName !== undefined) {
-    const labelValue: string = input.ProgramName.toString();
+    const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ProgramName."
@@ -876,7 +879,7 @@ export async function serializeAws_restJson1_1DeleteMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ProgramName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
@@ -898,7 +901,7 @@ export async function serializeAws_restJson1_1DeleteReservationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/reservations/{ReservationId}";
   if (input.ReservationId !== undefined) {
-    const labelValue: string = input.ReservationId.toString();
+    const labelValue: string = input.ReservationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ReservationId."
@@ -906,7 +909,7 @@ export async function serializeAws_restJson1_1DeleteReservationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ReservationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ReservationId.");
@@ -928,13 +931,13 @@ export async function serializeAws_restJson1_1DeleteScheduleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/channels/{ChannelId}/schedule";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -956,7 +959,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -964,14 +967,16 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -991,13 +996,13 @@ export async function serializeAws_restJson1_1DescribeChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/channels/{ChannelId}";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -1019,13 +1024,13 @@ export async function serializeAws_restJson1_1DescribeInputCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/inputs/{InputId}";
   if (input.InputId !== undefined) {
-    const labelValue: string = input.InputId.toString();
+    const labelValue: string = input.InputId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InputId.");
     }
     resolvedPath = resolvedPath.replace(
       "{InputId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
@@ -1047,7 +1052,7 @@ export async function serializeAws_restJson1_1DescribeInputSecurityGroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/inputSecurityGroups/{InputSecurityGroupId}";
   if (input.InputSecurityGroupId !== undefined) {
-    const labelValue: string = input.InputSecurityGroupId.toString();
+    const labelValue: string = input.InputSecurityGroupId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: InputSecurityGroupId."
@@ -1055,7 +1060,7 @@ export async function serializeAws_restJson1_1DescribeInputSecurityGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InputSecurityGroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1079,7 +1084,7 @@ export async function serializeAws_restJson1_1DescribeMultiplexCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1087,7 +1092,7 @@ export async function serializeAws_restJson1_1DescribeMultiplexCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
@@ -1109,7 +1114,7 @@ export async function serializeAws_restJson1_1DescribeMultiplexProgramCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1117,13 +1122,13 @@ export async function serializeAws_restJson1_1DescribeMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   if (input.ProgramName !== undefined) {
-    const labelValue: string = input.ProgramName.toString();
+    const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ProgramName."
@@ -1131,7 +1136,7 @@ export async function serializeAws_restJson1_1DescribeMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ProgramName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
@@ -1153,13 +1158,13 @@ export async function serializeAws_restJson1_1DescribeOfferingCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/offerings/{OfferingId}";
   if (input.OfferingId !== undefined) {
-    const labelValue: string = input.OfferingId.toString();
+    const labelValue: string = input.OfferingId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OfferingId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OfferingId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OfferingId.");
@@ -1181,7 +1186,7 @@ export async function serializeAws_restJson1_1DescribeReservationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/reservations/{ReservationId}";
   if (input.ReservationId !== undefined) {
-    const labelValue: string = input.ReservationId.toString();
+    const labelValue: string = input.ReservationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ReservationId."
@@ -1189,7 +1194,7 @@ export async function serializeAws_restJson1_1DescribeReservationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ReservationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ReservationId.");
@@ -1211,23 +1216,27 @@ export async function serializeAws_restJson1_1DescribeScheduleCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/channels/{ChannelId}/schedule";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1248,10 +1257,14 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
   let resolvedPath = "/prod/channels";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1272,10 +1285,14 @@ export async function serializeAws_restJson1_1ListInputSecurityGroupsCommand(
   let resolvedPath = "/prod/inputSecurityGroups";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1296,10 +1313,14 @@ export async function serializeAws_restJson1_1ListInputsCommand(
   let resolvedPath = "/prod/inputs";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1319,7 +1340,7 @@ export async function serializeAws_restJson1_1ListMultiplexProgramsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1327,17 +1348,21 @@ export async function serializeAws_restJson1_1ListMultiplexProgramsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1358,10 +1383,14 @@ export async function serializeAws_restJson1_1ListMultiplexesCommand(
   let resolvedPath = "/prod/multiplexes";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1382,40 +1411,64 @@ export async function serializeAws_restJson1_1ListOfferingsCommand(
   let resolvedPath = "/prod/offerings";
   const query: any = {};
   if (input.ChannelClass !== undefined) {
-    query["channelClass"] = input.ChannelClass.toString();
+    query[
+      __extendedEncodeURIComponent("channelClass")
+    ] = __extendedEncodeURIComponent(input.ChannelClass);
   }
   if (input.ChannelConfiguration !== undefined) {
-    query["channelConfiguration"] = input.ChannelConfiguration.toString();
+    query[
+      __extendedEncodeURIComponent("channelConfiguration")
+    ] = __extendedEncodeURIComponent(input.ChannelConfiguration);
   }
   if (input.Codec !== undefined) {
-    query["codec"] = input.Codec.toString();
+    query[__extendedEncodeURIComponent("codec")] = __extendedEncodeURIComponent(
+      input.Codec
+    );
   }
   if (input.Duration !== undefined) {
-    query["duration"] = input.Duration.toString();
+    query[
+      __extendedEncodeURIComponent("duration")
+    ] = __extendedEncodeURIComponent(input.Duration);
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.MaximumBitrate !== undefined) {
-    query["maximumBitrate"] = input.MaximumBitrate.toString();
+    query[
+      __extendedEncodeURIComponent("maximumBitrate")
+    ] = __extendedEncodeURIComponent(input.MaximumBitrate);
   }
   if (input.MaximumFramerate !== undefined) {
-    query["maximumFramerate"] = input.MaximumFramerate.toString();
+    query[
+      __extendedEncodeURIComponent("maximumFramerate")
+    ] = __extendedEncodeURIComponent(input.MaximumFramerate);
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.Resolution !== undefined) {
-    query["resolution"] = input.Resolution.toString();
+    query[
+      __extendedEncodeURIComponent("resolution")
+    ] = __extendedEncodeURIComponent(input.Resolution);
   }
   if (input.ResourceType !== undefined) {
-    query["resourceType"] = input.ResourceType.toString();
+    query[
+      __extendedEncodeURIComponent("resourceType")
+    ] = __extendedEncodeURIComponent(input.ResourceType);
   }
   if (input.SpecialFeature !== undefined) {
-    query["specialFeature"] = input.SpecialFeature.toString();
+    query[
+      __extendedEncodeURIComponent("specialFeature")
+    ] = __extendedEncodeURIComponent(input.SpecialFeature);
   }
   if (input.VideoQuality !== undefined) {
-    query["videoQuality"] = input.VideoQuality.toString();
+    query[
+      __extendedEncodeURIComponent("videoQuality")
+    ] = __extendedEncodeURIComponent(input.VideoQuality);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1436,34 +1489,54 @@ export async function serializeAws_restJson1_1ListReservationsCommand(
   let resolvedPath = "/prod/reservations";
   const query: any = {};
   if (input.ChannelClass !== undefined) {
-    query["channelClass"] = input.ChannelClass.toString();
+    query[
+      __extendedEncodeURIComponent("channelClass")
+    ] = __extendedEncodeURIComponent(input.ChannelClass);
   }
   if (input.Codec !== undefined) {
-    query["codec"] = input.Codec.toString();
+    query[__extendedEncodeURIComponent("codec")] = __extendedEncodeURIComponent(
+      input.Codec
+    );
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.MaximumBitrate !== undefined) {
-    query["maximumBitrate"] = input.MaximumBitrate.toString();
+    query[
+      __extendedEncodeURIComponent("maximumBitrate")
+    ] = __extendedEncodeURIComponent(input.MaximumBitrate);
   }
   if (input.MaximumFramerate !== undefined) {
-    query["maximumFramerate"] = input.MaximumFramerate.toString();
+    query[
+      __extendedEncodeURIComponent("maximumFramerate")
+    ] = __extendedEncodeURIComponent(input.MaximumFramerate);
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.Resolution !== undefined) {
-    query["resolution"] = input.Resolution.toString();
+    query[
+      __extendedEncodeURIComponent("resolution")
+    ] = __extendedEncodeURIComponent(input.Resolution);
   }
   if (input.ResourceType !== undefined) {
-    query["resourceType"] = input.ResourceType.toString();
+    query[
+      __extendedEncodeURIComponent("resourceType")
+    ] = __extendedEncodeURIComponent(input.ResourceType);
   }
   if (input.SpecialFeature !== undefined) {
-    query["specialFeature"] = input.SpecialFeature.toString();
+    query[
+      __extendedEncodeURIComponent("specialFeature")
+    ] = __extendedEncodeURIComponent(input.SpecialFeature);
   }
   if (input.VideoQuality !== undefined) {
-    query["videoQuality"] = input.VideoQuality.toString();
+    query[
+      __extendedEncodeURIComponent("videoQuality")
+    ] = __extendedEncodeURIComponent(input.VideoQuality);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1483,7 +1556,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1491,7 +1564,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1513,13 +1586,13 @@ export async function serializeAws_restJson1_1PurchaseOfferingCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/offerings/{OfferingId}/purchase";
   if (input.OfferingId !== undefined) {
-    const labelValue: string = input.OfferingId.toString();
+    const labelValue: string = input.OfferingId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: OfferingId.");
     }
     resolvedPath = resolvedPath.replace(
       "{OfferingId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: OfferingId.");
@@ -1563,13 +1636,13 @@ export async function serializeAws_restJson1_1StartChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/channels/{ChannelId}/start";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -1591,7 +1664,7 @@ export async function serializeAws_restJson1_1StartMultiplexCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/start";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1599,7 +1672,7 @@ export async function serializeAws_restJson1_1StartMultiplexCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
@@ -1621,13 +1694,13 @@ export async function serializeAws_restJson1_1StopChannelCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/channels/{ChannelId}/stop";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -1649,7 +1722,7 @@ export async function serializeAws_restJson1_1StopMultiplexCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/stop";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1657,7 +1730,7 @@ export async function serializeAws_restJson1_1StopMultiplexCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
@@ -1679,13 +1752,13 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/channels/{ChannelId}";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -1750,13 +1823,13 @@ export async function serializeAws_restJson1_1UpdateChannelClassCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/channels/{ChannelId}/channelClass";
   if (input.ChannelId !== undefined) {
-    const labelValue: string = input.ChannelId.toString();
+    const labelValue: string = input.ChannelId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ChannelId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ChannelId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ChannelId.");
@@ -1793,13 +1866,13 @@ export async function serializeAws_restJson1_1UpdateInputCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/inputs/{InputId}";
   if (input.InputId !== undefined) {
-    const labelValue: string = input.InputId.toString();
+    const labelValue: string = input.InputId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: InputId.");
     }
     resolvedPath = resolvedPath.replace(
       "{InputId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: InputId.");
@@ -1861,7 +1934,7 @@ export async function serializeAws_restJson1_1UpdateInputSecurityGroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/inputSecurityGroups/{InputSecurityGroupId}";
   if (input.InputSecurityGroupId !== undefined) {
-    const labelValue: string = input.InputSecurityGroupId.toString();
+    const labelValue: string = input.InputSecurityGroupId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: InputSecurityGroupId."
@@ -1869,7 +1942,7 @@ export async function serializeAws_restJson1_1UpdateInputSecurityGroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{InputSecurityGroupId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1908,7 +1981,7 @@ export async function serializeAws_restJson1_1UpdateMultiplexCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1916,7 +1989,7 @@ export async function serializeAws_restJson1_1UpdateMultiplexCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
@@ -1951,7 +2024,7 @@ export async function serializeAws_restJson1_1UpdateMultiplexProgramCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
   if (input.MultiplexId !== undefined) {
-    const labelValue: string = input.MultiplexId.toString();
+    const labelValue: string = input.MultiplexId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: MultiplexId."
@@ -1959,13 +2032,13 @@ export async function serializeAws_restJson1_1UpdateMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{MultiplexId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   if (input.ProgramName !== undefined) {
-    const labelValue: string = input.ProgramName.toString();
+    const labelValue: string = input.ProgramName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ProgramName."
@@ -1973,7 +2046,7 @@ export async function serializeAws_restJson1_1UpdateMultiplexProgramCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ProgramName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ProgramName.");
@@ -2007,7 +2080,7 @@ export async function serializeAws_restJson1_1UpdateReservationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/prod/reservations/{ReservationId}";
   if (input.ReservationId !== undefined) {
-    const labelValue: string = input.ReservationId.toString();
+    const labelValue: string = input.ReservationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ReservationId."
@@ -2015,7 +2088,7 @@ export async function serializeAws_restJson1_1UpdateReservationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ReservationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ReservationId.");
@@ -2661,6 +2734,7 @@ export async function deserializeAws_restJson1_1CreateTagsCommand(
   const contents: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2912,6 +2986,7 @@ export async function deserializeAws_restJson1_1DeleteInputCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteInputResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3012,6 +3087,7 @@ export async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteInputSecurityGroupResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3569,6 +3645,7 @@ export async function deserializeAws_restJson1_1DeleteScheduleCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteScheduleResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3658,6 +3735,7 @@ export async function deserializeAws_restJson1_1DeleteTagsCommand(
   const contents: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
