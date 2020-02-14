@@ -1,4 +1,0 @@
-POST /?@#$%^&+=/,?><`";:\|][{} HTTP/1.1
-Host:example.amazonaws.com
-X-Amz-Date:20150830T123600Z
-Authorization: AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE/20150830/us-east-1/service/aws4_request, SignedHeaders=host;x-amz-date, Signature=88d3e39e4fa54b971f51c0a09140368e1a51aafb76c4652d9998f93cf3038074
