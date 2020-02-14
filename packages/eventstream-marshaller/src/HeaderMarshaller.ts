@@ -1,5 +1,9 @@
-import { MessageHeaders, MessageHeaderValue } from "./Message";
-import { Decoder, Encoder } from "@aws-sdk/types";
+import {
+  Decoder,
+  Encoder,
+  MessageHeaders,
+  MessageHeaderValue
+} from "@aws-sdk/types";
 import { fromHex, toHex } from "@aws-sdk/util-hex-encoding";
 import { Int64 } from "./Int64";
 
