@@ -30,6 +30,7 @@ export const ALWAYS_UNSIGNABLE_HEADERS = {
   "transfer-encoding": true,
   upgrade: true,
   "user-agent": true,
+  "x-amz-user-agent": true,
   "x-amzn-trace-id": true
 };
 
