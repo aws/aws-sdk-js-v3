@@ -44,7 +44,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -61,10 +64,14 @@ export async function serializeAws_restJson1_1CancelChangeSetCommand(
   let resolvedPath = "/CancelChangeSet";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog.toString();
+    query[
+      __extendedEncodeURIComponent("catalog")
+    ] = __extendedEncodeURIComponent(input.Catalog);
   }
   if (input.ChangeSetId !== undefined) {
-    query["changeSetId"] = input.ChangeSetId.toString();
+    query[
+      __extendedEncodeURIComponent("changeSetId")
+    ] = __extendedEncodeURIComponent(input.ChangeSetId);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -85,10 +92,14 @@ export async function serializeAws_restJson1_1DescribeChangeSetCommand(
   let resolvedPath = "/DescribeChangeSet";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog.toString();
+    query[
+      __extendedEncodeURIComponent("catalog")
+    ] = __extendedEncodeURIComponent(input.Catalog);
   }
   if (input.ChangeSetId !== undefined) {
-    query["changeSetId"] = input.ChangeSetId.toString();
+    query[
+      __extendedEncodeURIComponent("changeSetId")
+    ] = __extendedEncodeURIComponent(input.ChangeSetId);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -109,10 +120,14 @@ export async function serializeAws_restJson1_1DescribeEntityCommand(
   let resolvedPath = "/DescribeEntity";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query["catalog"] = input.Catalog.toString();
+    query[
+      __extendedEncodeURIComponent("catalog")
+    ] = __extendedEncodeURIComponent(input.Catalog);
   }
   if (input.EntityId !== undefined) {
-    query["entityId"] = input.EntityId.toString();
+    query[
+      __extendedEncodeURIComponent("entityId")
+    ] = __extendedEncodeURIComponent(input.EntityId);
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -75,7 +75,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -123,13 +126,13 @@ export async function serializeAws_restJson1_1DeleteLedgerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -151,25 +154,25 @@ export async function serializeAws_restJson1_1DescribeJournalS3ExportCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports/{ExportId}";
   if (input.ExportId !== undefined) {
-    const labelValue: string = input.ExportId.toString();
+    const labelValue: string = input.ExportId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ExportId.");
     }
     resolvedPath = resolvedPath.replace(
       "{ExportId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ExportId.");
   }
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -191,13 +194,13 @@ export async function serializeAws_restJson1_1DescribeLedgerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -219,13 +222,13 @@ export async function serializeAws_restJson1_1ExportJournalToS3Command(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -272,13 +275,13 @@ export async function serializeAws_restJson1_1GetBlockCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}/block";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -316,13 +319,13 @@ export async function serializeAws_restJson1_1GetDigestCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}/digest";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -344,13 +347,13 @@ export async function serializeAws_restJson1_1GetRevisionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}/revision";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -392,10 +395,14 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
   let resolvedPath = "/journal-s3-exports";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -415,23 +422,27 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerComma
   headers["Content-Type"] = "";
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -452,10 +463,14 @@ export async function serializeAws_restJson1_1ListLedgersCommand(
   let resolvedPath = "/ledgers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["max_results"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("max_results")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["next_token"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("next_token")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -475,7 +490,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -483,7 +498,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -505,7 +520,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -513,7 +528,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -542,7 +557,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -550,14 +565,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -577,13 +594,13 @@ export async function serializeAws_restJson1_1UpdateLedgerCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
-    const labelValue: string = input.Name.toString();
+    const labelValue: string = input.Name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Name.");
     }
     resolvedPath = resolvedPath.replace(
       "{Name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
@@ -709,6 +726,7 @@ export async function deserializeAws_restJson1_1DeleteLedgerCommand(
   const contents: DeleteLedgerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1431,6 +1449,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1486,6 +1505,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

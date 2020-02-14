@@ -29,7 +29,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -45,7 +48,7 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -53,7 +56,7 @@ export async function serializeAws_restJson1_1DeleteObjectCommand(
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -76,7 +79,7 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -84,7 +87,7 @@ export async function serializeAws_restJson1_1DescribeObjectCommand(
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -106,11 +109,11 @@ export async function serializeAws_restJson1_1GetObjectCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.Range !== undefined) {
-    headers["Range"] = input.Range.toString();
+    headers["Range"] = input.Range;
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -118,7 +121,7 @@ export async function serializeAws_restJson1_1GetObjectCommand(
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -142,13 +145,19 @@ export async function serializeAws_restJson1_1ListItemsCommand(
   let resolvedPath = "/";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.Path !== undefined) {
-    query["Path"] = input.Path.toString();
+    query[__extendedEncodeURIComponent("Path")] = __extendedEncodeURIComponent(
+      input.Path
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -168,17 +177,17 @@ export async function serializeAws_restJson1_1PutObjectCommand(
   headers["Content-Type"] = "application/octet-stream";
   headers["x-amz-content-sha256"] = "UNSIGNED_PAYLOAD";
   if (input.CacheControl !== undefined) {
-    headers["Cache-Control"] = input.CacheControl.toString();
+    headers["Cache-Control"] = input.CacheControl;
   }
   if (input.ContentType !== undefined) {
-    headers["Content-Type"] = input.ContentType.toString();
+    headers["Content-Type"] = input.ContentType;
   }
   if (input.StorageClass !== undefined) {
-    headers["x-amz-storage-class"] = input.StorageClass.toString();
+    headers["x-amz-storage-class"] = input.StorageClass;
   }
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
-    const labelValue: string = input.Path.toString();
+    const labelValue: string = input.Path;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Path.");
     }
@@ -186,7 +195,7 @@ export async function serializeAws_restJson1_1PutObjectCommand(
       "{Path+}",
       labelValue
         .split("/")
-        .map(segment => encodeURIComponent(segment))
+        .map(segment => __extendedEncodeURIComponent(segment))
         .join("/")
     );
   } else {
@@ -217,6 +226,7 @@ export async function deserializeAws_restJson1_1DeleteObjectCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteObjectResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -302,6 +312,7 @@ export async function deserializeAws_restJson1_1DescribeObjectCommand(
   if (output.headers["last-modified"] !== undefined) {
     contents.LastModified = new Date(output.headers["last-modified"]);
   }
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

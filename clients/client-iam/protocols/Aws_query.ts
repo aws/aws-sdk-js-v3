@@ -3264,6 +3264,7 @@ export async function deserializeAws_queryAddClientIDToOpenIDConnectProviderComm
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AddClientIDToOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3338,6 +3339,7 @@ export async function deserializeAws_queryAddRoleToInstanceProfileCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AddRoleToInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3416,6 +3418,7 @@ export async function deserializeAws_queryAddUserToGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddUserToGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3480,6 +3483,7 @@ export async function deserializeAws_queryAttachGroupPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachGroupPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AttachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3558,6 +3562,7 @@ export async function deserializeAws_queryAttachRolePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachRolePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AttachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3643,6 +3648,7 @@ export async function deserializeAws_queryAttachUserPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAttachUserPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AttachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3721,6 +3727,7 @@ export async function deserializeAws_queryChangePasswordCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryChangePasswordCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3878,6 +3885,7 @@ export async function deserializeAws_queryCreateAccountAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateAccountAliasCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4933,6 +4941,7 @@ export async function deserializeAws_queryDeactivateMFADeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeactivateMFADeviceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeactivateMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5004,6 +5013,7 @@ export async function deserializeAws_queryDeleteAccessKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteAccessKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5068,6 +5078,7 @@ export async function deserializeAws_queryDeleteAccountAliasCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteAccountAliasCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5135,6 +5146,7 @@ export async function deserializeAws_queryDeleteAccountPasswordPolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5199,6 +5211,7 @@ export async function deserializeAws_queryDeleteGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5270,6 +5283,7 @@ export async function deserializeAws_queryDeleteGroupPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteGroupPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5337,6 +5351,7 @@ export async function deserializeAws_queryDeleteInstanceProfileCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5408,6 +5423,7 @@ export async function deserializeAws_queryDeleteLoginProfileCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteLoginProfileCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5482,6 +5498,7 @@ export async function deserializeAws_queryDeleteOpenIDConnectProviderCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5546,6 +5563,7 @@ export async function deserializeAws_queryDeletePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeletePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5624,6 +5642,7 @@ export async function deserializeAws_queryDeletePolicyVersionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeletePolicyVersionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5702,6 +5721,7 @@ export async function deserializeAws_queryDeleteRoleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteRoleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteRoleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5790,6 +5810,7 @@ export async function deserializeAws_queryDeleteRolePermissionsBoundaryCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5854,6 +5875,7 @@ export async function deserializeAws_queryDeleteRolePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteRolePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5925,6 +5947,7 @@ export async function deserializeAws_queryDeleteSAMLProviderCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteSAMLProviderCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5996,6 +6019,7 @@ export async function deserializeAws_queryDeleteSSHPublicKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteSSHPublicKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6049,6 +6073,7 @@ export async function deserializeAws_queryDeleteServerCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6198,6 +6223,7 @@ export async function deserializeAws_queryDeleteServiceSpecificCredentialCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6251,6 +6277,7 @@ export async function deserializeAws_queryDeleteSigningCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6315,6 +6342,7 @@ export async function deserializeAws_queryDeleteUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6396,6 +6424,7 @@ export async function deserializeAws_queryDeleteUserPermissionsBoundaryCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6453,6 +6482,7 @@ export async function deserializeAws_queryDeleteUserPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteUserPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6520,6 +6550,7 @@ export async function deserializeAws_queryDeleteVirtualMFADeviceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteVirtualMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6591,6 +6622,7 @@ export async function deserializeAws_queryDetachGroupPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachGroupPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DetachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6662,6 +6694,7 @@ export async function deserializeAws_queryDetachRolePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachRolePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DetachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6740,6 +6773,7 @@ export async function deserializeAws_queryDetachUserPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDetachUserPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DetachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6811,6 +6845,7 @@ export async function deserializeAws_queryEnableMFADeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryEnableMFADeviceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: EnableMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10556,6 +10591,7 @@ export async function deserializeAws_queryPutGroupPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutGroupPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10630,6 +10666,7 @@ export async function deserializeAws_queryPutRolePermissionsBoundaryCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10708,6 +10745,7 @@ export async function deserializeAws_queryPutRolePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutRolePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10789,6 +10827,7 @@ export async function deserializeAws_queryPutUserPermissionsBoundaryCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10860,6 +10899,7 @@ export async function deserializeAws_queryPutUserPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryPutUserPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10934,6 +10974,7 @@ export async function deserializeAws_queryRemoveClientIDFromOpenIDConnectProvide
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveClientIDFromOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11001,6 +11042,7 @@ export async function deserializeAws_queryRemoveRoleFromInstanceProfileCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveRoleFromInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11072,6 +11114,7 @@ export async function deserializeAws_queryRemoveUserFromGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryRemoveUserFromGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11197,6 +11240,7 @@ export async function deserializeAws_queryResyncMFADeviceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryResyncMFADeviceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: ResyncMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11271,6 +11315,7 @@ export async function deserializeAws_querySetDefaultPolicyVersionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetDefaultPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11345,6 +11390,7 @@ export async function deserializeAws_querySetSecurityTokenServicePreferencesComm
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetSecurityTokenServicePreferencesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11538,6 +11584,7 @@ export async function deserializeAws_queryTagRoleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryTagRoleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagRoleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11616,6 +11663,7 @@ export async function deserializeAws_queryTagUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryTagUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11694,6 +11742,7 @@ export async function deserializeAws_queryUntagRoleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUntagRoleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagRoleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11758,6 +11807,7 @@ export async function deserializeAws_queryUntagUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUntagUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11822,6 +11872,7 @@ export async function deserializeAws_queryUpdateAccessKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateAccessKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11889,6 +11940,7 @@ export async function deserializeAws_queryUpdateAccountPasswordPolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11963,6 +12015,7 @@ export async function deserializeAws_queryUpdateAssumeRolePolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateAssumeRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12041,6 +12094,7 @@ export async function deserializeAws_queryUpdateGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12112,6 +12166,7 @@ export async function deserializeAws_queryUpdateLoginProfileCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateLoginProfileCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12193,6 +12248,7 @@ export async function deserializeAws_queryUpdateOpenIDConnectProviderThumbprintC
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateOpenIDConnectProviderThumbprintCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12483,6 +12539,7 @@ export async function deserializeAws_queryUpdateSSHPublicKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateSSHPublicKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12536,6 +12593,7 @@ export async function deserializeAws_queryUpdateServerCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12610,6 +12668,7 @@ export async function deserializeAws_queryUpdateServiceSpecificCredentialCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12663,6 +12722,7 @@ export async function deserializeAws_queryUpdateSigningCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12727,6 +12787,7 @@ export async function deserializeAws_queryUpdateUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUpdateUserCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

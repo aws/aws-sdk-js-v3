@@ -245,7 +245,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -262,13 +265,13 @@ export async function serializeAws_restJson1_1AcceptInvitationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/master";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -300,13 +303,13 @@ export async function serializeAws_restJson1_1ArchiveFindingsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings/archive";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -373,13 +376,13 @@ export async function serializeAws_restJson1_1CreateFilterCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/filter";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -432,13 +435,13 @@ export async function serializeAws_restJson1_1CreateIPSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/ipset";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -485,13 +488,13 @@ export async function serializeAws_restJson1_1CreateMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -523,13 +526,13 @@ export async function serializeAws_restJson1_1CreatePublishingDestinationCommand
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/publishingDestination";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -572,13 +575,13 @@ export async function serializeAws_restJson1_1CreateSampleFindingsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings/create";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -610,13 +613,13 @@ export async function serializeAws_restJson1_1CreateThreatIntelSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/threatintelset";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -689,13 +692,13 @@ export async function serializeAws_restJson1_1DeleteDetectorCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -717,25 +720,25 @@ export async function serializeAws_restJson1_1DeleteFilterCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.FilterName !== undefined) {
-    const labelValue: string = input.FilterName.toString();
+    const labelValue: string = input.FilterName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FilterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{FilterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
@@ -757,25 +760,25 @@ export async function serializeAws_restJson1_1DeleteIPSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.IpSetId !== undefined) {
-    const labelValue: string = input.IpSetId.toString();
+    const labelValue: string = input.IpSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IpSetId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IpSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
@@ -823,13 +826,13 @@ export async function serializeAws_restJson1_1DeleteMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member/delete";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -862,7 +865,7 @@ export async function serializeAws_restJson1_1DeletePublishingDestinationCommand
   let resolvedPath =
     "/detector/{DetectorId}/publishingDestination/{DestinationId}";
   if (input.DestinationId !== undefined) {
-    const labelValue: string = input.DestinationId.toString();
+    const labelValue: string = input.DestinationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DestinationId."
@@ -870,19 +873,19 @@ export async function serializeAws_restJson1_1DeletePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DestinationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DestinationId.");
   }
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -904,19 +907,19 @@ export async function serializeAws_restJson1_1DeleteThreatIntelSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.ThreatIntelSetId !== undefined) {
-    const labelValue: string = input.ThreatIntelSetId.toString();
+    const labelValue: string = input.ThreatIntelSetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ThreatIntelSetId."
@@ -924,7 +927,7 @@ export async function serializeAws_restJson1_1DeleteThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThreatIntelSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -949,7 +952,7 @@ export async function serializeAws_restJson1_1DescribePublishingDestinationComma
   let resolvedPath =
     "/detector/{DetectorId}/publishingDestination/{DestinationId}";
   if (input.DestinationId !== undefined) {
-    const labelValue: string = input.DestinationId.toString();
+    const labelValue: string = input.DestinationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DestinationId."
@@ -957,19 +960,19 @@ export async function serializeAws_restJson1_1DescribePublishingDestinationComma
     }
     resolvedPath = resolvedPath.replace(
       "{DestinationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DestinationId.");
   }
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -991,13 +994,13 @@ export async function serializeAws_restJson1_1DisassociateFromMasterAccountComma
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/master/disassociate";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1019,13 +1022,13 @@ export async function serializeAws_restJson1_1DisassociateMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member/disassociate";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1057,13 +1060,13 @@ export async function serializeAws_restJson1_1GetDetectorCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1085,25 +1088,25 @@ export async function serializeAws_restJson1_1GetFilterCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.FilterName !== undefined) {
-    const labelValue: string = input.FilterName.toString();
+    const labelValue: string = input.FilterName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FilterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{FilterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
@@ -1125,13 +1128,13 @@ export async function serializeAws_restJson1_1GetFindingsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings/get";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1169,13 +1172,13 @@ export async function serializeAws_restJson1_1GetFindingsStatisticsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings/statistics";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1215,25 +1218,25 @@ export async function serializeAws_restJson1_1GetIPSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.IpSetId !== undefined) {
-    const labelValue: string = input.IpSetId.toString();
+    const labelValue: string = input.IpSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IpSetId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IpSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
@@ -1271,13 +1274,13 @@ export async function serializeAws_restJson1_1GetMasterAccountCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/master";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1299,13 +1302,13 @@ export async function serializeAws_restJson1_1GetMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member/get";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1337,19 +1340,19 @@ export async function serializeAws_restJson1_1GetThreatIntelSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.ThreatIntelSetId !== undefined) {
-    const labelValue: string = input.ThreatIntelSetId.toString();
+    const labelValue: string = input.ThreatIntelSetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ThreatIntelSetId."
@@ -1357,7 +1360,7 @@ export async function serializeAws_restJson1_1GetThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThreatIntelSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1381,13 +1384,13 @@ export async function serializeAws_restJson1_1InviteMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member/invite";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1426,10 +1429,14 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
   let resolvedPath = "/detector";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1449,23 +1456,27 @@ export async function serializeAws_restJson1_1ListFiltersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/filter";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1485,13 +1496,13 @@ export async function serializeAws_restJson1_1ListFindingsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1535,23 +1546,27 @@ export async function serializeAws_restJson1_1ListIPSetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/ipset";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1572,10 +1587,14 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   let resolvedPath = "/invitation";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1595,26 +1614,32 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/member";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.OnlyAssociated !== undefined) {
-    query["onlyAssociated"] = input.OnlyAssociated.toString();
+    query[
+      __extendedEncodeURIComponent("onlyAssociated")
+    ] = __extendedEncodeURIComponent(input.OnlyAssociated);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1634,23 +1659,27 @@ export async function serializeAws_restJson1_1ListPublishingDestinationsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/publishingDestination";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1670,7 +1699,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1678,7 +1707,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1700,23 +1729,27 @@ export async function serializeAws_restJson1_1ListThreatIntelSetsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/detector/{DetectorId}/threatintelset";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1736,13 +1769,13 @@ export async function serializeAws_restJson1_1StartMonitoringMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member/start";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1774,13 +1807,13 @@ export async function serializeAws_restJson1_1StopMonitoringMembersCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/member/stop";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1812,7 +1845,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1820,7 +1853,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1849,13 +1882,13 @@ export async function serializeAws_restJson1_1UnarchiveFindingsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings/unarchive";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1887,7 +1920,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1895,14 +1928,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1922,13 +1957,13 @@ export async function serializeAws_restJson1_1UpdateDetectorCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -1960,25 +1995,25 @@ export async function serializeAws_restJson1_1UpdateFilterCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/filter/{FilterName}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.FilterName !== undefined) {
-    const labelValue: string = input.FilterName.toString();
+    const labelValue: string = input.FilterName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: FilterName.");
     }
     resolvedPath = resolvedPath.replace(
       "{FilterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: FilterName.");
@@ -2019,13 +2054,13 @@ export async function serializeAws_restJson1_1UpdateFindingsFeedbackCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/findings/feedback";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -2063,25 +2098,25 @@ export async function serializeAws_restJson1_1UpdateIPSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/ipset/{IpSetId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.IpSetId !== undefined) {
-    const labelValue: string = input.IpSetId.toString();
+    const labelValue: string = input.IpSetId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IpSetId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IpSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IpSetId.");
@@ -2117,7 +2152,7 @@ export async function serializeAws_restJson1_1UpdatePublishingDestinationCommand
   let resolvedPath =
     "/detector/{DetectorId}/publishingDestination/{DestinationId}";
   if (input.DestinationId !== undefined) {
-    const labelValue: string = input.DestinationId.toString();
+    const labelValue: string = input.DestinationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DestinationId."
@@ -2125,19 +2160,19 @@ export async function serializeAws_restJson1_1UpdatePublishingDestinationCommand
     }
     resolvedPath = resolvedPath.replace(
       "{DestinationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DestinationId.");
   }
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
@@ -2171,19 +2206,19 @@ export async function serializeAws_restJson1_1UpdateThreatIntelSetCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/detector/{DetectorId}/threatintelset/{ThreatIntelSetId}";
   if (input.DetectorId !== undefined) {
-    const labelValue: string = input.DetectorId.toString();
+    const labelValue: string = input.DetectorId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DetectorId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DetectorId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   if (input.ThreatIntelSetId !== undefined) {
-    const labelValue: string = input.ThreatIntelSetId.toString();
+    const labelValue: string = input.ThreatIntelSetId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ThreatIntelSetId."
@@ -2191,7 +2226,7 @@ export async function serializeAws_restJson1_1UpdateThreatIntelSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ThreatIntelSetId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -2234,6 +2269,7 @@ export async function deserializeAws_restJson1_1AcceptInvitationCommand(
     $metadata: deserializeMetadata(output),
     __type: "AcceptInvitationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2292,6 +2328,7 @@ export async function deserializeAws_restJson1_1ArchiveFindingsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ArchiveFindingsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2662,6 +2699,7 @@ export async function deserializeAws_restJson1_1CreateSampleFindingsCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateSampleFindingsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2852,6 +2890,7 @@ export async function deserializeAws_restJson1_1DeleteDetectorCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteDetectorResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2907,6 +2946,7 @@ export async function deserializeAws_restJson1_1DeleteFilterCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteFilterResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2962,6 +3002,7 @@ export async function deserializeAws_restJson1_1DeleteIPSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteIPSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3155,6 +3196,7 @@ export async function deserializeAws_restJson1_1DeletePublishingDestinationComma
     $metadata: deserializeMetadata(output),
     __type: "DeletePublishingDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3213,6 +3255,7 @@ export async function deserializeAws_restJson1_1DeleteThreatIntelSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteThreatIntelSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3360,6 +3403,7 @@ export async function deserializeAws_restJson1_1DisassociateFromMasterAccountCom
     $metadata: deserializeMetadata(output),
     __type: "DisassociateFromMasterAccountResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4939,6 +4983,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -4997,6 +5042,7 @@ export async function deserializeAws_restJson1_1UnarchiveFindingsCommand(
     $metadata: deserializeMetadata(output),
     __type: "UnarchiveFindingsResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5052,6 +5098,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5110,6 +5157,7 @@ export async function deserializeAws_restJson1_1UpdateDetectorCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateDetectorResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5228,6 +5276,7 @@ export async function deserializeAws_restJson1_1UpdateFindingsFeedbackCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateFindingsFeedbackResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5283,6 +5332,7 @@ export async function deserializeAws_restJson1_1UpdateIPSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateIPSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5341,6 +5391,7 @@ export async function deserializeAws_restJson1_1UpdatePublishingDestinationComma
     $metadata: deserializeMetadata(output),
     __type: "UpdatePublishingDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5399,6 +5450,7 @@ export async function deserializeAws_restJson1_1UpdateThreatIntelSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateThreatIntelSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

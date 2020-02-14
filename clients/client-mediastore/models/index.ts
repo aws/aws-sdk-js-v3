@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -49,7 +52,7 @@ export interface Container {
 
 export namespace Container {
   export function isa(o: any): o is Container {
-    return _smithy.isa(o, "Container");
+    return __isa(o, "Container");
   }
 }
 
@@ -58,7 +61,7 @@ export namespace Container {
  *          updated.</p>
  */
 export interface ContainerInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ContainerInUseException";
   $fault: "client";
@@ -67,7 +70,7 @@ export interface ContainerInUseException
 
 export namespace ContainerInUseException {
   export function isa(o: any): o is ContainerInUseException {
-    return _smithy.isa(o, "ContainerInUseException");
+    return __isa(o, "ContainerInUseException");
   }
 }
 
@@ -75,7 +78,7 @@ export namespace ContainerInUseException {
  * <p>The container that you specified in the request does not exist.</p>
  */
 export interface ContainerNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ContainerNotFoundException";
   $fault: "client";
@@ -84,7 +87,7 @@ export interface ContainerNotFoundException
 
 export namespace ContainerNotFoundException {
   export function isa(o: any): o is ContainerNotFoundException {
-    return _smithy.isa(o, "ContainerNotFoundException");
+    return __isa(o, "ContainerNotFoundException");
   }
 }
 
@@ -98,7 +101,7 @@ export enum ContainerStatus {
  * <p>The CORS policy that you specified in the request does not exist.</p>
  */
 export interface CorsPolicyNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CorsPolicyNotFoundException";
   $fault: "client";
@@ -107,7 +110,7 @@ export interface CorsPolicyNotFoundException
 
 export namespace CorsPolicyNotFoundException {
   export function isa(o: any): o is CorsPolicyNotFoundException {
-    return _smithy.isa(o, "CorsPolicyNotFoundException");
+    return __isa(o, "CorsPolicyNotFoundException");
   }
 }
 
@@ -162,7 +165,7 @@ export interface CorsRule {
 
 export namespace CorsRule {
   export function isa(o: any): o is CorsRule {
-    return _smithy.isa(o, "CorsRule");
+    return __isa(o, "CorsRule");
   }
 }
 
@@ -186,7 +189,7 @@ export interface CreateContainerInput {
 
 export namespace CreateContainerInput {
   export function isa(o: any): o is CreateContainerInput {
-    return _smithy.isa(o, "CreateContainerInput");
+    return __isa(o, "CreateContainerInput");
   }
 }
 
@@ -211,7 +214,7 @@ export interface CreateContainerOutput extends $MetadataBearer {
 
 export namespace CreateContainerOutput {
   export function isa(o: any): o is CreateContainerOutput {
-    return _smithy.isa(o, "CreateContainerOutput");
+    return __isa(o, "CreateContainerOutput");
   }
 }
 
@@ -225,7 +228,7 @@ export interface DeleteContainerInput {
 
 export namespace DeleteContainerInput {
   export function isa(o: any): o is DeleteContainerInput {
-    return _smithy.isa(o, "DeleteContainerInput");
+    return __isa(o, "DeleteContainerInput");
   }
 }
 
@@ -235,7 +238,7 @@ export interface DeleteContainerOutput extends $MetadataBearer {
 
 export namespace DeleteContainerOutput {
   export function isa(o: any): o is DeleteContainerOutput {
-    return _smithy.isa(o, "DeleteContainerOutput");
+    return __isa(o, "DeleteContainerOutput");
   }
 }
 
@@ -249,7 +252,7 @@ export interface DeleteContainerPolicyInput {
 
 export namespace DeleteContainerPolicyInput {
   export function isa(o: any): o is DeleteContainerPolicyInput {
-    return _smithy.isa(o, "DeleteContainerPolicyInput");
+    return __isa(o, "DeleteContainerPolicyInput");
   }
 }
 
@@ -259,7 +262,7 @@ export interface DeleteContainerPolicyOutput extends $MetadataBearer {
 
 export namespace DeleteContainerPolicyOutput {
   export function isa(o: any): o is DeleteContainerPolicyOutput {
-    return _smithy.isa(o, "DeleteContainerPolicyOutput");
+    return __isa(o, "DeleteContainerPolicyOutput");
   }
 }
 
@@ -273,7 +276,7 @@ export interface DeleteCorsPolicyInput {
 
 export namespace DeleteCorsPolicyInput {
   export function isa(o: any): o is DeleteCorsPolicyInput {
-    return _smithy.isa(o, "DeleteCorsPolicyInput");
+    return __isa(o, "DeleteCorsPolicyInput");
   }
 }
 
@@ -283,7 +286,7 @@ export interface DeleteCorsPolicyOutput extends $MetadataBearer {
 
 export namespace DeleteCorsPolicyOutput {
   export function isa(o: any): o is DeleteCorsPolicyOutput {
-    return _smithy.isa(o, "DeleteCorsPolicyOutput");
+    return __isa(o, "DeleteCorsPolicyOutput");
   }
 }
 
@@ -297,7 +300,7 @@ export interface DeleteLifecyclePolicyInput {
 
 export namespace DeleteLifecyclePolicyInput {
   export function isa(o: any): o is DeleteLifecyclePolicyInput {
-    return _smithy.isa(o, "DeleteLifecyclePolicyInput");
+    return __isa(o, "DeleteLifecyclePolicyInput");
   }
 }
 
@@ -307,7 +310,7 @@ export interface DeleteLifecyclePolicyOutput extends $MetadataBearer {
 
 export namespace DeleteLifecyclePolicyOutput {
   export function isa(o: any): o is DeleteLifecyclePolicyOutput {
-    return _smithy.isa(o, "DeleteLifecyclePolicyOutput");
+    return __isa(o, "DeleteLifecyclePolicyOutput");
   }
 }
 
@@ -321,7 +324,7 @@ export interface DescribeContainerInput {
 
 export namespace DescribeContainerInput {
   export function isa(o: any): o is DescribeContainerInput {
-    return _smithy.isa(o, "DescribeContainerInput");
+    return __isa(o, "DescribeContainerInput");
   }
 }
 
@@ -335,7 +338,7 @@ export interface DescribeContainerOutput extends $MetadataBearer {
 
 export namespace DescribeContainerOutput {
   export function isa(o: any): o is DescribeContainerOutput {
-    return _smithy.isa(o, "DescribeContainerOutput");
+    return __isa(o, "DescribeContainerOutput");
   }
 }
 
@@ -349,7 +352,7 @@ export interface GetContainerPolicyInput {
 
 export namespace GetContainerPolicyInput {
   export function isa(o: any): o is GetContainerPolicyInput {
-    return _smithy.isa(o, "GetContainerPolicyInput");
+    return __isa(o, "GetContainerPolicyInput");
   }
 }
 
@@ -363,7 +366,7 @@ export interface GetContainerPolicyOutput extends $MetadataBearer {
 
 export namespace GetContainerPolicyOutput {
   export function isa(o: any): o is GetContainerPolicyOutput {
-    return _smithy.isa(o, "GetContainerPolicyOutput");
+    return __isa(o, "GetContainerPolicyOutput");
   }
 }
 
@@ -377,7 +380,7 @@ export interface GetCorsPolicyInput {
 
 export namespace GetCorsPolicyInput {
   export function isa(o: any): o is GetCorsPolicyInput {
-    return _smithy.isa(o, "GetCorsPolicyInput");
+    return __isa(o, "GetCorsPolicyInput");
   }
 }
 
@@ -391,7 +394,7 @@ export interface GetCorsPolicyOutput extends $MetadataBearer {
 
 export namespace GetCorsPolicyOutput {
   export function isa(o: any): o is GetCorsPolicyOutput {
-    return _smithy.isa(o, "GetCorsPolicyOutput");
+    return __isa(o, "GetCorsPolicyOutput");
   }
 }
 
@@ -405,7 +408,7 @@ export interface GetLifecyclePolicyInput {
 
 export namespace GetLifecyclePolicyInput {
   export function isa(o: any): o is GetLifecyclePolicyInput {
-    return _smithy.isa(o, "GetLifecyclePolicyInput");
+    return __isa(o, "GetLifecyclePolicyInput");
   }
 }
 
@@ -419,7 +422,7 @@ export interface GetLifecyclePolicyOutput extends $MetadataBearer {
 
 export namespace GetLifecyclePolicyOutput {
   export function isa(o: any): o is GetLifecyclePolicyOutput {
-    return _smithy.isa(o, "GetLifecyclePolicyOutput");
+    return __isa(o, "GetLifecyclePolicyOutput");
   }
 }
 
@@ -427,7 +430,7 @@ export namespace GetLifecyclePolicyOutput {
  * <p>The service is temporarily unavailable.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -436,7 +439,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -444,7 +447,7 @@ export namespace InternalServerError {
  * <p>A service limit has been exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -453,7 +456,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -475,7 +478,7 @@ export interface ListContainersInput {
 
 export namespace ListContainersInput {
   export function isa(o: any): o is ListContainersInput {
-    return _smithy.isa(o, "ListContainersInput");
+    return __isa(o, "ListContainersInput");
   }
 }
 
@@ -497,7 +500,7 @@ export interface ListContainersOutput extends $MetadataBearer {
 
 export namespace ListContainersOutput {
   export function isa(o: any): o is ListContainersOutput {
-    return _smithy.isa(o, "ListContainersOutput");
+    return __isa(o, "ListContainersOutput");
   }
 }
 
@@ -511,7 +514,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -525,7 +528,7 @@ export interface ListTagsForResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
-    return _smithy.isa(o, "ListTagsForResourceOutput");
+    return __isa(o, "ListTagsForResourceOutput");
   }
 }
 
@@ -540,7 +543,7 @@ export enum MethodName {
  * <p>The policy that you specified in the request does not exist.</p>
  */
 export interface PolicyNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PolicyNotFoundException";
   $fault: "client";
@@ -549,7 +552,7 @@ export interface PolicyNotFoundException
 
 export namespace PolicyNotFoundException {
   export function isa(o: any): o is PolicyNotFoundException {
-    return _smithy.isa(o, "PolicyNotFoundException");
+    return __isa(o, "PolicyNotFoundException");
   }
 }
 
@@ -577,7 +580,7 @@ export interface PutContainerPolicyInput {
 
 export namespace PutContainerPolicyInput {
   export function isa(o: any): o is PutContainerPolicyInput {
-    return _smithy.isa(o, "PutContainerPolicyInput");
+    return __isa(o, "PutContainerPolicyInput");
   }
 }
 
@@ -587,7 +590,7 @@ export interface PutContainerPolicyOutput extends $MetadataBearer {
 
 export namespace PutContainerPolicyOutput {
   export function isa(o: any): o is PutContainerPolicyOutput {
-    return _smithy.isa(o, "PutContainerPolicyOutput");
+    return __isa(o, "PutContainerPolicyOutput");
   }
 }
 
@@ -606,7 +609,7 @@ export interface PutCorsPolicyInput {
 
 export namespace PutCorsPolicyInput {
   export function isa(o: any): o is PutCorsPolicyInput {
-    return _smithy.isa(o, "PutCorsPolicyInput");
+    return __isa(o, "PutCorsPolicyInput");
   }
 }
 
@@ -616,7 +619,7 @@ export interface PutCorsPolicyOutput extends $MetadataBearer {
 
 export namespace PutCorsPolicyOutput {
   export function isa(o: any): o is PutCorsPolicyOutput {
-    return _smithy.isa(o, "PutCorsPolicyOutput");
+    return __isa(o, "PutCorsPolicyOutput");
   }
 }
 
@@ -635,7 +638,7 @@ export interface PutLifecyclePolicyInput {
 
 export namespace PutLifecyclePolicyInput {
   export function isa(o: any): o is PutLifecyclePolicyInput {
-    return _smithy.isa(o, "PutLifecyclePolicyInput");
+    return __isa(o, "PutLifecyclePolicyInput");
   }
 }
 
@@ -645,7 +648,7 @@ export interface PutLifecyclePolicyOutput extends $MetadataBearer {
 
 export namespace PutLifecyclePolicyOutput {
   export function isa(o: any): o is PutLifecyclePolicyOutput {
-    return _smithy.isa(o, "PutLifecyclePolicyOutput");
+    return __isa(o, "PutLifecyclePolicyOutput");
   }
 }
 
@@ -659,7 +662,7 @@ export interface StartAccessLoggingInput {
 
 export namespace StartAccessLoggingInput {
   export function isa(o: any): o is StartAccessLoggingInput {
-    return _smithy.isa(o, "StartAccessLoggingInput");
+    return __isa(o, "StartAccessLoggingInput");
   }
 }
 
@@ -669,7 +672,7 @@ export interface StartAccessLoggingOutput extends $MetadataBearer {
 
 export namespace StartAccessLoggingOutput {
   export function isa(o: any): o is StartAccessLoggingOutput {
-    return _smithy.isa(o, "StartAccessLoggingOutput");
+    return __isa(o, "StartAccessLoggingOutput");
   }
 }
 
@@ -683,7 +686,7 @@ export interface StopAccessLoggingInput {
 
 export namespace StopAccessLoggingInput {
   export function isa(o: any): o is StopAccessLoggingInput {
-    return _smithy.isa(o, "StopAccessLoggingInput");
+    return __isa(o, "StopAccessLoggingInput");
   }
 }
 
@@ -693,7 +696,7 @@ export interface StopAccessLoggingOutput extends $MetadataBearer {
 
 export namespace StopAccessLoggingOutput {
   export function isa(o: any): o is StopAccessLoggingOutput {
-    return _smithy.isa(o, "StopAccessLoggingOutput");
+    return __isa(o, "StopAccessLoggingOutput");
   }
 }
 
@@ -720,7 +723,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -742,7 +745,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -752,7 +755,7 @@ export interface TagResourceOutput extends $MetadataBearer {
 
 export namespace TagResourceOutput {
   export function isa(o: any): o is TagResourceOutput {
-    return _smithy.isa(o, "TagResourceOutput");
+    return __isa(o, "TagResourceOutput");
   }
 }
 
@@ -773,7 +776,7 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }
 
@@ -783,6 +786,6 @@ export interface UntagResourceOutput extends $MetadataBearer {
 
 export namespace UntagResourceOutput {
   export function isa(o: any): o is UntagResourceOutput {
-    return _smithy.isa(o, "UntagResourceOutput");
+    return __isa(o, "UntagResourceOutput");
   }
 }

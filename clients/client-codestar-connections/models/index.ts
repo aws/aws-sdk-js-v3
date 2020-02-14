@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -41,7 +44,7 @@ export interface Connection {
 
 export namespace Connection {
   export function isa(o: any): o is Connection {
-    return _smithy.isa(o, "Connection");
+    return __isa(o, "Connection");
   }
 }
 
@@ -68,7 +71,7 @@ export interface CreateConnectionInput {
 
 export namespace CreateConnectionInput {
   export function isa(o: any): o is CreateConnectionInput {
-    return _smithy.isa(o, "CreateConnectionInput");
+    return __isa(o, "CreateConnectionInput");
   }
 }
 
@@ -86,7 +89,7 @@ export interface CreateConnectionOutput extends $MetadataBearer {
 
 export namespace CreateConnectionOutput {
   export function isa(o: any): o is CreateConnectionOutput {
-    return _smithy.isa(o, "CreateConnectionOutput");
+    return __isa(o, "CreateConnectionOutput");
   }
 }
 
@@ -103,7 +106,7 @@ export interface DeleteConnectionInput {
 
 export namespace DeleteConnectionInput {
   export function isa(o: any): o is DeleteConnectionInput {
-    return _smithy.isa(o, "DeleteConnectionInput");
+    return __isa(o, "DeleteConnectionInput");
   }
 }
 
@@ -113,7 +116,7 @@ export interface DeleteConnectionOutput extends $MetadataBearer {
 
 export namespace DeleteConnectionOutput {
   export function isa(o: any): o is DeleteConnectionOutput {
-    return _smithy.isa(o, "DeleteConnectionOutput");
+    return __isa(o, "DeleteConnectionOutput");
   }
 }
 
@@ -127,7 +130,7 @@ export interface GetConnectionInput {
 
 export namespace GetConnectionInput {
   export function isa(o: any): o is GetConnectionInput {
-    return _smithy.isa(o, "GetConnectionInput");
+    return __isa(o, "GetConnectionInput");
   }
 }
 
@@ -141,7 +144,7 @@ export interface GetConnectionOutput extends $MetadataBearer {
 
 export namespace GetConnectionOutput {
   export function isa(o: any): o is GetConnectionOutput {
-    return _smithy.isa(o, "GetConnectionOutput");
+    return __isa(o, "GetConnectionOutput");
   }
 }
 
@@ -149,7 +152,7 @@ export namespace GetConnectionOutput {
  * <p>Exceeded the maximum limit for connections.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -158,7 +161,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -185,7 +188,7 @@ export interface ListConnectionsInput {
 
 export namespace ListConnectionsInput {
   export function isa(o: any): o is ListConnectionsInput {
-    return _smithy.isa(o, "ListConnectionsInput");
+    return __isa(o, "ListConnectionsInput");
   }
 }
 
@@ -207,7 +210,7 @@ export interface ListConnectionsOutput extends $MetadataBearer {
 
 export namespace ListConnectionsOutput {
   export function isa(o: any): o is ListConnectionsOutput {
-    return _smithy.isa(o, "ListConnectionsOutput");
+    return __isa(o, "ListConnectionsOutput");
   }
 }
 
@@ -219,7 +222,7 @@ export enum ProviderType {
  * <p>Resource not found. Verify the connection resource ARN and try again.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -228,6 +231,6 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateWebACLRequest {
@@ -29,7 +32,7 @@ export interface AssociateWebACLRequest {
 
 export namespace AssociateWebACLRequest {
   export function isa(o: any): o is AssociateWebACLRequest {
-    return _smithy.isa(o, "AssociateWebACLRequest");
+    return __isa(o, "AssociateWebACLRequest");
   }
 }
 
@@ -39,7 +42,7 @@ export interface AssociateWebACLResponse extends $MetadataBearer {
 
 export namespace AssociateWebACLResponse {
   export function isa(o: any): o is AssociateWebACLResponse {
-    return _smithy.isa(o, "AssociateWebACLResponse");
+    return __isa(o, "AssociateWebACLResponse");
   }
 }
 
@@ -66,7 +69,7 @@ export interface DisassociateWebACLRequest {
 
 export namespace DisassociateWebACLRequest {
   export function isa(o: any): o is DisassociateWebACLRequest {
-    return _smithy.isa(o, "DisassociateWebACLRequest");
+    return __isa(o, "DisassociateWebACLRequest");
   }
 }
 
@@ -76,7 +79,7 @@ export interface DisassociateWebACLResponse extends $MetadataBearer {
 
 export namespace DisassociateWebACLResponse {
   export function isa(o: any): o is DisassociateWebACLResponse {
-    return _smithy.isa(o, "DisassociateWebACLResponse");
+    return __isa(o, "DisassociateWebACLResponse");
   }
 }
 
@@ -103,7 +106,7 @@ export interface GetWebACLForResourceRequest {
 
 export namespace GetWebACLForResourceRequest {
   export function isa(o: any): o is GetWebACLForResourceRequest {
-    return _smithy.isa(o, "GetWebACLForResourceRequest");
+    return __isa(o, "GetWebACLForResourceRequest");
   }
 }
 
@@ -117,7 +120,7 @@ export interface GetWebACLForResourceResponse extends $MetadataBearer {
 
 export namespace GetWebACLForResourceResponse {
   export function isa(o: any): o is GetWebACLForResourceResponse {
-    return _smithy.isa(o, "GetWebACLForResourceResponse");
+    return __isa(o, "GetWebACLForResourceResponse");
   }
 }
 
@@ -136,7 +139,7 @@ export interface ListResourcesForWebACLRequest {
 
 export namespace ListResourcesForWebACLRequest {
   export function isa(o: any): o is ListResourcesForWebACLRequest {
-    return _smithy.isa(o, "ListResourcesForWebACLRequest");
+    return __isa(o, "ListResourcesForWebACLRequest");
   }
 }
 
@@ -150,7 +153,7 @@ export interface ListResourcesForWebACLResponse extends $MetadataBearer {
 
 export namespace ListResourcesForWebACLResponse {
   export function isa(o: any): o is ListResourcesForWebACLResponse {
-    return _smithy.isa(o, "ListResourcesForWebACLResponse");
+    return __isa(o, "ListResourcesForWebACLResponse");
   }
 }
 
@@ -268,7 +271,7 @@ export interface ActivatedRule {
 
 export namespace ActivatedRule {
   export function isa(o: any): o is ActivatedRule {
-    return _smithy.isa(o, "ActivatedRule");
+    return __isa(o, "ActivatedRule");
   }
 }
 
@@ -305,7 +308,7 @@ export interface ByteMatchSet {
 
 export namespace ByteMatchSet {
   export function isa(o: any): o is ByteMatchSet {
-    return _smithy.isa(o, "ByteMatchSet");
+    return __isa(o, "ByteMatchSet");
   }
 }
 
@@ -331,7 +334,7 @@ export interface ByteMatchSetSummary {
 
 export namespace ByteMatchSetSummary {
   export function isa(o: any): o is ByteMatchSetSummary {
-    return _smithy.isa(o, "ByteMatchSetSummary");
+    return __isa(o, "ByteMatchSetSummary");
   }
 }
 
@@ -356,7 +359,7 @@ export interface ByteMatchSetUpdate {
 
 export namespace ByteMatchSetUpdate {
   export function isa(o: any): o is ByteMatchSetUpdate {
-    return _smithy.isa(o, "ByteMatchSetUpdate");
+    return __isa(o, "ByteMatchSetUpdate");
   }
 }
 
@@ -587,7 +590,7 @@ export interface ByteMatchTuple {
 
 export namespace ByteMatchTuple {
   export function isa(o: any): o is ByteMatchTuple {
-    return _smithy.isa(o, "ByteMatchTuple");
+    return __isa(o, "ByteMatchTuple");
   }
 }
 
@@ -627,7 +630,7 @@ export interface CreateByteMatchSetRequest {
 
 export namespace CreateByteMatchSetRequest {
   export function isa(o: any): o is CreateByteMatchSetRequest {
-    return _smithy.isa(o, "CreateByteMatchSetRequest");
+    return __isa(o, "CreateByteMatchSetRequest");
   }
 }
 
@@ -647,7 +650,7 @@ export interface CreateByteMatchSetResponse extends $MetadataBearer {
 
 export namespace CreateByteMatchSetResponse {
   export function isa(o: any): o is CreateByteMatchSetResponse {
-    return _smithy.isa(o, "CreateByteMatchSetResponse");
+    return __isa(o, "CreateByteMatchSetResponse");
   }
 }
 
@@ -666,7 +669,7 @@ export interface CreateGeoMatchSetRequest {
 
 export namespace CreateGeoMatchSetRequest {
   export function isa(o: any): o is CreateGeoMatchSetRequest {
-    return _smithy.isa(o, "CreateGeoMatchSetRequest");
+    return __isa(o, "CreateGeoMatchSetRequest");
   }
 }
 
@@ -686,7 +689,7 @@ export interface CreateGeoMatchSetResponse extends $MetadataBearer {
 
 export namespace CreateGeoMatchSetResponse {
   export function isa(o: any): o is CreateGeoMatchSetResponse {
-    return _smithy.isa(o, "CreateGeoMatchSetResponse");
+    return __isa(o, "CreateGeoMatchSetResponse");
   }
 }
 
@@ -705,7 +708,7 @@ export interface CreateIPSetRequest {
 
 export namespace CreateIPSetRequest {
   export function isa(o: any): o is CreateIPSetRequest {
-    return _smithy.isa(o, "CreateIPSetRequest");
+    return __isa(o, "CreateIPSetRequest");
   }
 }
 
@@ -725,7 +728,7 @@ export interface CreateIPSetResponse extends $MetadataBearer {
 
 export namespace CreateIPSetResponse {
   export function isa(o: any): o is CreateIPSetResponse {
-    return _smithy.isa(o, "CreateIPSetResponse");
+    return __isa(o, "CreateIPSetResponse");
   }
 }
 
@@ -774,7 +777,7 @@ export interface CreateRateBasedRuleRequest {
 
 export namespace CreateRateBasedRuleRequest {
   export function isa(o: any): o is CreateRateBasedRuleRequest {
-    return _smithy.isa(o, "CreateRateBasedRuleRequest");
+    return __isa(o, "CreateRateBasedRuleRequest");
   }
 }
 
@@ -796,7 +799,7 @@ export interface CreateRateBasedRuleResponse extends $MetadataBearer {
 
 export namespace CreateRateBasedRuleResponse {
   export function isa(o: any): o is CreateRateBasedRuleResponse {
-    return _smithy.isa(o, "CreateRateBasedRuleResponse");
+    return __isa(o, "CreateRateBasedRuleResponse");
   }
 }
 
@@ -816,7 +819,7 @@ export interface CreateRegexMatchSetRequest {
 
 export namespace CreateRegexMatchSetRequest {
   export function isa(o: any): o is CreateRegexMatchSetRequest {
-    return _smithy.isa(o, "CreateRegexMatchSetRequest");
+    return __isa(o, "CreateRegexMatchSetRequest");
   }
 }
 
@@ -836,7 +839,7 @@ export interface CreateRegexMatchSetResponse extends $MetadataBearer {
 
 export namespace CreateRegexMatchSetResponse {
   export function isa(o: any): o is CreateRegexMatchSetResponse {
-    return _smithy.isa(o, "CreateRegexMatchSetResponse");
+    return __isa(o, "CreateRegexMatchSetResponse");
   }
 }
 
@@ -856,7 +859,7 @@ export interface CreateRegexPatternSetRequest {
 
 export namespace CreateRegexPatternSetRequest {
   export function isa(o: any): o is CreateRegexPatternSetRequest {
-    return _smithy.isa(o, "CreateRegexPatternSetRequest");
+    return __isa(o, "CreateRegexPatternSetRequest");
   }
 }
 
@@ -876,7 +879,7 @@ export interface CreateRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace CreateRegexPatternSetResponse {
   export function isa(o: any): o is CreateRegexPatternSetResponse {
-    return _smithy.isa(o, "CreateRegexPatternSetResponse");
+    return __isa(o, "CreateRegexPatternSetResponse");
   }
 }
 
@@ -904,7 +907,7 @@ export interface CreateRuleGroupRequest {
 
 export namespace CreateRuleGroupRequest {
   export function isa(o: any): o is CreateRuleGroupRequest {
-    return _smithy.isa(o, "CreateRuleGroupRequest");
+    return __isa(o, "CreateRuleGroupRequest");
   }
 }
 
@@ -924,7 +927,7 @@ export interface CreateRuleGroupResponse extends $MetadataBearer {
 
 export namespace CreateRuleGroupResponse {
   export function isa(o: any): o is CreateRuleGroupResponse {
-    return _smithy.isa(o, "CreateRuleGroupResponse");
+    return __isa(o, "CreateRuleGroupResponse");
   }
 }
 
@@ -952,7 +955,7 @@ export interface CreateRuleRequest {
 
 export namespace CreateRuleRequest {
   export function isa(o: any): o is CreateRuleRequest {
-    return _smithy.isa(o, "CreateRuleRequest");
+    return __isa(o, "CreateRuleRequest");
   }
 }
 
@@ -972,7 +975,7 @@ export interface CreateRuleResponse extends $MetadataBearer {
 
 export namespace CreateRuleResponse {
   export function isa(o: any): o is CreateRuleResponse {
-    return _smithy.isa(o, "CreateRuleResponse");
+    return __isa(o, "CreateRuleResponse");
   }
 }
 
@@ -992,7 +995,7 @@ export interface CreateSizeConstraintSetRequest {
 
 export namespace CreateSizeConstraintSetRequest {
   export function isa(o: any): o is CreateSizeConstraintSetRequest {
-    return _smithy.isa(o, "CreateSizeConstraintSetRequest");
+    return __isa(o, "CreateSizeConstraintSetRequest");
   }
 }
 
@@ -1012,7 +1015,7 @@ export interface CreateSizeConstraintSetResponse extends $MetadataBearer {
 
 export namespace CreateSizeConstraintSetResponse {
   export function isa(o: any): o is CreateSizeConstraintSetResponse {
-    return _smithy.isa(o, "CreateSizeConstraintSetResponse");
+    return __isa(o, "CreateSizeConstraintSetResponse");
   }
 }
 
@@ -1035,7 +1038,7 @@ export interface CreateSqlInjectionMatchSetRequest {
 
 export namespace CreateSqlInjectionMatchSetRequest {
   export function isa(o: any): o is CreateSqlInjectionMatchSetRequest {
-    return _smithy.isa(o, "CreateSqlInjectionMatchSetRequest");
+    return __isa(o, "CreateSqlInjectionMatchSetRequest");
   }
 }
 
@@ -1058,7 +1061,7 @@ export interface CreateSqlInjectionMatchSetResponse extends $MetadataBearer {
 
 export namespace CreateSqlInjectionMatchSetResponse {
   export function isa(o: any): o is CreateSqlInjectionMatchSetResponse {
-    return _smithy.isa(o, "CreateSqlInjectionMatchSetResponse");
+    return __isa(o, "CreateSqlInjectionMatchSetResponse");
   }
 }
 
@@ -1092,7 +1095,7 @@ export interface CreateWebACLRequest {
 
 export namespace CreateWebACLRequest {
   export function isa(o: any): o is CreateWebACLRequest {
-    return _smithy.isa(o, "CreateWebACLRequest");
+    return __isa(o, "CreateWebACLRequest");
   }
 }
 
@@ -1112,7 +1115,7 @@ export interface CreateWebACLResponse extends $MetadataBearer {
 
 export namespace CreateWebACLResponse {
   export function isa(o: any): o is CreateWebACLResponse {
-    return _smithy.isa(o, "CreateWebACLResponse");
+    return __isa(o, "CreateWebACLResponse");
   }
 }
 
@@ -1135,7 +1138,7 @@ export interface CreateXssMatchSetRequest {
 
 export namespace CreateXssMatchSetRequest {
   export function isa(o: any): o is CreateXssMatchSetRequest {
-    return _smithy.isa(o, "CreateXssMatchSetRequest");
+    return __isa(o, "CreateXssMatchSetRequest");
   }
 }
 
@@ -1158,7 +1161,7 @@ export interface CreateXssMatchSetResponse extends $MetadataBearer {
 
 export namespace CreateXssMatchSetResponse {
   export function isa(o: any): o is CreateXssMatchSetResponse {
-    return _smithy.isa(o, "CreateXssMatchSetResponse");
+    return __isa(o, "CreateXssMatchSetResponse");
   }
 }
 
@@ -1178,7 +1181,7 @@ export interface DeleteByteMatchSetRequest {
 
 export namespace DeleteByteMatchSetRequest {
   export function isa(o: any): o is DeleteByteMatchSetRequest {
-    return _smithy.isa(o, "DeleteByteMatchSetRequest");
+    return __isa(o, "DeleteByteMatchSetRequest");
   }
 }
 
@@ -1193,7 +1196,7 @@ export interface DeleteByteMatchSetResponse extends $MetadataBearer {
 
 export namespace DeleteByteMatchSetResponse {
   export function isa(o: any): o is DeleteByteMatchSetResponse {
-    return _smithy.isa(o, "DeleteByteMatchSetResponse");
+    return __isa(o, "DeleteByteMatchSetResponse");
   }
 }
 
@@ -1213,7 +1216,7 @@ export interface DeleteGeoMatchSetRequest {
 
 export namespace DeleteGeoMatchSetRequest {
   export function isa(o: any): o is DeleteGeoMatchSetRequest {
-    return _smithy.isa(o, "DeleteGeoMatchSetRequest");
+    return __isa(o, "DeleteGeoMatchSetRequest");
   }
 }
 
@@ -1228,7 +1231,7 @@ export interface DeleteGeoMatchSetResponse extends $MetadataBearer {
 
 export namespace DeleteGeoMatchSetResponse {
   export function isa(o: any): o is DeleteGeoMatchSetResponse {
-    return _smithy.isa(o, "DeleteGeoMatchSetResponse");
+    return __isa(o, "DeleteGeoMatchSetResponse");
   }
 }
 
@@ -1248,7 +1251,7 @@ export interface DeleteIPSetRequest {
 
 export namespace DeleteIPSetRequest {
   export function isa(o: any): o is DeleteIPSetRequest {
-    return _smithy.isa(o, "DeleteIPSetRequest");
+    return __isa(o, "DeleteIPSetRequest");
   }
 }
 
@@ -1263,7 +1266,7 @@ export interface DeleteIPSetResponse extends $MetadataBearer {
 
 export namespace DeleteIPSetResponse {
   export function isa(o: any): o is DeleteIPSetResponse {
-    return _smithy.isa(o, "DeleteIPSetResponse");
+    return __isa(o, "DeleteIPSetResponse");
   }
 }
 
@@ -1277,7 +1280,7 @@ export interface DeleteLoggingConfigurationRequest {
 
 export namespace DeleteLoggingConfigurationRequest {
   export function isa(o: any): o is DeleteLoggingConfigurationRequest {
-    return _smithy.isa(o, "DeleteLoggingConfigurationRequest");
+    return __isa(o, "DeleteLoggingConfigurationRequest");
   }
 }
 
@@ -1287,7 +1290,7 @@ export interface DeleteLoggingConfigurationResponse extends $MetadataBearer {
 
 export namespace DeleteLoggingConfigurationResponse {
   export function isa(o: any): o is DeleteLoggingConfigurationResponse {
-    return _smithy.isa(o, "DeleteLoggingConfigurationResponse");
+    return __isa(o, "DeleteLoggingConfigurationResponse");
   }
 }
 
@@ -1302,7 +1305,7 @@ export interface DeletePermissionPolicyRequest {
 
 export namespace DeletePermissionPolicyRequest {
   export function isa(o: any): o is DeletePermissionPolicyRequest {
-    return _smithy.isa(o, "DeletePermissionPolicyRequest");
+    return __isa(o, "DeletePermissionPolicyRequest");
   }
 }
 
@@ -1312,7 +1315,7 @@ export interface DeletePermissionPolicyResponse extends $MetadataBearer {
 
 export namespace DeletePermissionPolicyResponse {
   export function isa(o: any): o is DeletePermissionPolicyResponse {
-    return _smithy.isa(o, "DeletePermissionPolicyResponse");
+    return __isa(o, "DeletePermissionPolicyResponse");
   }
 }
 
@@ -1333,7 +1336,7 @@ export interface DeleteRateBasedRuleRequest {
 
 export namespace DeleteRateBasedRuleRequest {
   export function isa(o: any): o is DeleteRateBasedRuleRequest {
-    return _smithy.isa(o, "DeleteRateBasedRuleRequest");
+    return __isa(o, "DeleteRateBasedRuleRequest");
   }
 }
 
@@ -1349,7 +1352,7 @@ export interface DeleteRateBasedRuleResponse extends $MetadataBearer {
 
 export namespace DeleteRateBasedRuleResponse {
   export function isa(o: any): o is DeleteRateBasedRuleResponse {
-    return _smithy.isa(o, "DeleteRateBasedRuleResponse");
+    return __isa(o, "DeleteRateBasedRuleResponse");
   }
 }
 
@@ -1369,7 +1372,7 @@ export interface DeleteRegexMatchSetRequest {
 
 export namespace DeleteRegexMatchSetRequest {
   export function isa(o: any): o is DeleteRegexMatchSetRequest {
-    return _smithy.isa(o, "DeleteRegexMatchSetRequest");
+    return __isa(o, "DeleteRegexMatchSetRequest");
   }
 }
 
@@ -1384,7 +1387,7 @@ export interface DeleteRegexMatchSetResponse extends $MetadataBearer {
 
 export namespace DeleteRegexMatchSetResponse {
   export function isa(o: any): o is DeleteRegexMatchSetResponse {
-    return _smithy.isa(o, "DeleteRegexMatchSetResponse");
+    return __isa(o, "DeleteRegexMatchSetResponse");
   }
 }
 
@@ -1404,7 +1407,7 @@ export interface DeleteRegexPatternSetRequest {
 
 export namespace DeleteRegexPatternSetRequest {
   export function isa(o: any): o is DeleteRegexPatternSetRequest {
-    return _smithy.isa(o, "DeleteRegexPatternSetRequest");
+    return __isa(o, "DeleteRegexPatternSetRequest");
   }
 }
 
@@ -1419,7 +1422,7 @@ export interface DeleteRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace DeleteRegexPatternSetResponse {
   export function isa(o: any): o is DeleteRegexPatternSetResponse {
-    return _smithy.isa(o, "DeleteRegexPatternSetResponse");
+    return __isa(o, "DeleteRegexPatternSetResponse");
   }
 }
 
@@ -1439,7 +1442,7 @@ export interface DeleteRuleGroupRequest {
 
 export namespace DeleteRuleGroupRequest {
   export function isa(o: any): o is DeleteRuleGroupRequest {
-    return _smithy.isa(o, "DeleteRuleGroupRequest");
+    return __isa(o, "DeleteRuleGroupRequest");
   }
 }
 
@@ -1454,7 +1457,7 @@ export interface DeleteRuleGroupResponse extends $MetadataBearer {
 
 export namespace DeleteRuleGroupResponse {
   export function isa(o: any): o is DeleteRuleGroupResponse {
-    return _smithy.isa(o, "DeleteRuleGroupResponse");
+    return __isa(o, "DeleteRuleGroupResponse");
   }
 }
 
@@ -1474,7 +1477,7 @@ export interface DeleteRuleRequest {
 
 export namespace DeleteRuleRequest {
   export function isa(o: any): o is DeleteRuleRequest {
-    return _smithy.isa(o, "DeleteRuleRequest");
+    return __isa(o, "DeleteRuleRequest");
   }
 }
 
@@ -1489,7 +1492,7 @@ export interface DeleteRuleResponse extends $MetadataBearer {
 
 export namespace DeleteRuleResponse {
   export function isa(o: any): o is DeleteRuleResponse {
-    return _smithy.isa(o, "DeleteRuleResponse");
+    return __isa(o, "DeleteRuleResponse");
   }
 }
 
@@ -1509,7 +1512,7 @@ export interface DeleteSizeConstraintSetRequest {
 
 export namespace DeleteSizeConstraintSetRequest {
   export function isa(o: any): o is DeleteSizeConstraintSetRequest {
-    return _smithy.isa(o, "DeleteSizeConstraintSetRequest");
+    return __isa(o, "DeleteSizeConstraintSetRequest");
   }
 }
 
@@ -1524,7 +1527,7 @@ export interface DeleteSizeConstraintSetResponse extends $MetadataBearer {
 
 export namespace DeleteSizeConstraintSetResponse {
   export function isa(o: any): o is DeleteSizeConstraintSetResponse {
-    return _smithy.isa(o, "DeleteSizeConstraintSetResponse");
+    return __isa(o, "DeleteSizeConstraintSetResponse");
   }
 }
 
@@ -1547,7 +1550,7 @@ export interface DeleteSqlInjectionMatchSetRequest {
 
 export namespace DeleteSqlInjectionMatchSetRequest {
   export function isa(o: any): o is DeleteSqlInjectionMatchSetRequest {
-    return _smithy.isa(o, "DeleteSqlInjectionMatchSetRequest");
+    return __isa(o, "DeleteSqlInjectionMatchSetRequest");
   }
 }
 
@@ -1565,7 +1568,7 @@ export interface DeleteSqlInjectionMatchSetResponse extends $MetadataBearer {
 
 export namespace DeleteSqlInjectionMatchSetResponse {
   export function isa(o: any): o is DeleteSqlInjectionMatchSetResponse {
-    return _smithy.isa(o, "DeleteSqlInjectionMatchSetResponse");
+    return __isa(o, "DeleteSqlInjectionMatchSetResponse");
   }
 }
 
@@ -1585,7 +1588,7 @@ export interface DeleteWebACLRequest {
 
 export namespace DeleteWebACLRequest {
   export function isa(o: any): o is DeleteWebACLRequest {
-    return _smithy.isa(o, "DeleteWebACLRequest");
+    return __isa(o, "DeleteWebACLRequest");
   }
 }
 
@@ -1600,7 +1603,7 @@ export interface DeleteWebACLResponse extends $MetadataBearer {
 
 export namespace DeleteWebACLResponse {
   export function isa(o: any): o is DeleteWebACLResponse {
-    return _smithy.isa(o, "DeleteWebACLResponse");
+    return __isa(o, "DeleteWebACLResponse");
   }
 }
 
@@ -1623,7 +1626,7 @@ export interface DeleteXssMatchSetRequest {
 
 export namespace DeleteXssMatchSetRequest {
   export function isa(o: any): o is DeleteXssMatchSetRequest {
-    return _smithy.isa(o, "DeleteXssMatchSetRequest");
+    return __isa(o, "DeleteXssMatchSetRequest");
   }
 }
 
@@ -1641,7 +1644,7 @@ export interface DeleteXssMatchSetResponse extends $MetadataBearer {
 
 export namespace DeleteXssMatchSetResponse {
   export function isa(o: any): o is DeleteXssMatchSetResponse {
-    return _smithy.isa(o, "DeleteXssMatchSetResponse");
+    return __isa(o, "DeleteXssMatchSetResponse");
   }
 }
 
@@ -1660,7 +1663,7 @@ export interface ExcludedRule {
 
 export namespace ExcludedRule {
   export function isa(o: any): o is ExcludedRule {
-    return _smithy.isa(o, "ExcludedRule");
+    return __isa(o, "ExcludedRule");
   }
 }
 
@@ -1724,7 +1727,7 @@ export interface FieldToMatch {
 
 export namespace FieldToMatch {
   export function isa(o: any): o is FieldToMatch {
-    return _smithy.isa(o, "FieldToMatch");
+    return __isa(o, "FieldToMatch");
   }
 }
 
@@ -1746,7 +1749,7 @@ export interface GeoMatchConstraint {
 
 export namespace GeoMatchConstraint {
   export function isa(o: any): o is GeoMatchConstraint {
-    return _smithy.isa(o, "GeoMatchConstraint");
+    return __isa(o, "GeoMatchConstraint");
   }
 }
 
@@ -2032,7 +2035,7 @@ export interface GeoMatchSet {
 
 export namespace GeoMatchSet {
   export function isa(o: any): o is GeoMatchSet {
-    return _smithy.isa(o, "GeoMatchSet");
+    return __isa(o, "GeoMatchSet");
   }
 }
 
@@ -2054,7 +2057,7 @@ export interface GeoMatchSetSummary {
 
 export namespace GeoMatchSetSummary {
   export function isa(o: any): o is GeoMatchSetSummary {
-    return _smithy.isa(o, "GeoMatchSetSummary");
+    return __isa(o, "GeoMatchSetSummary");
   }
 }
 
@@ -2076,7 +2079,7 @@ export interface GeoMatchSetUpdate {
 
 export namespace GeoMatchSetUpdate {
   export function isa(o: any): o is GeoMatchSetUpdate {
-    return _smithy.isa(o, "GeoMatchSetUpdate");
+    return __isa(o, "GeoMatchSetUpdate");
   }
 }
 
@@ -2091,7 +2094,7 @@ export interface GetByteMatchSetRequest {
 
 export namespace GetByteMatchSetRequest {
   export function isa(o: any): o is GetByteMatchSetRequest {
-    return _smithy.isa(o, "GetByteMatchSetRequest");
+    return __isa(o, "GetByteMatchSetRequest");
   }
 }
 
@@ -2125,7 +2128,7 @@ export interface GetByteMatchSetResponse extends $MetadataBearer {
 
 export namespace GetByteMatchSetResponse {
   export function isa(o: any): o is GetByteMatchSetResponse {
-    return _smithy.isa(o, "GetByteMatchSetResponse");
+    return __isa(o, "GetByteMatchSetResponse");
   }
 }
 
@@ -2135,7 +2138,7 @@ export interface GetChangeTokenRequest {
 
 export namespace GetChangeTokenRequest {
   export function isa(o: any): o is GetChangeTokenRequest {
-    return _smithy.isa(o, "GetChangeTokenRequest");
+    return __isa(o, "GetChangeTokenRequest");
   }
 }
 
@@ -2150,7 +2153,7 @@ export interface GetChangeTokenResponse extends $MetadataBearer {
 
 export namespace GetChangeTokenResponse {
   export function isa(o: any): o is GetChangeTokenResponse {
-    return _smithy.isa(o, "GetChangeTokenResponse");
+    return __isa(o, "GetChangeTokenResponse");
   }
 }
 
@@ -2164,7 +2167,7 @@ export interface GetChangeTokenStatusRequest {
 
 export namespace GetChangeTokenStatusRequest {
   export function isa(o: any): o is GetChangeTokenStatusRequest {
-    return _smithy.isa(o, "GetChangeTokenStatusRequest");
+    return __isa(o, "GetChangeTokenStatusRequest");
   }
 }
 
@@ -2178,7 +2181,7 @@ export interface GetChangeTokenStatusResponse extends $MetadataBearer {
 
 export namespace GetChangeTokenStatusResponse {
   export function isa(o: any): o is GetChangeTokenStatusResponse {
-    return _smithy.isa(o, "GetChangeTokenStatusResponse");
+    return __isa(o, "GetChangeTokenStatusResponse");
   }
 }
 
@@ -2193,7 +2196,7 @@ export interface GetGeoMatchSetRequest {
 
 export namespace GetGeoMatchSetRequest {
   export function isa(o: any): o is GetGeoMatchSetRequest {
-    return _smithy.isa(o, "GetGeoMatchSetRequest");
+    return __isa(o, "GetGeoMatchSetRequest");
   }
 }
 
@@ -2207,7 +2210,7 @@ export interface GetGeoMatchSetResponse extends $MetadataBearer {
 
 export namespace GetGeoMatchSetResponse {
   export function isa(o: any): o is GetGeoMatchSetResponse {
-    return _smithy.isa(o, "GetGeoMatchSetResponse");
+    return __isa(o, "GetGeoMatchSetResponse");
   }
 }
 
@@ -2222,7 +2225,7 @@ export interface GetIPSetRequest {
 
 export namespace GetIPSetRequest {
   export function isa(o: any): o is GetIPSetRequest {
-    return _smithy.isa(o, "GetIPSetRequest");
+    return __isa(o, "GetIPSetRequest");
   }
 }
 
@@ -2250,7 +2253,7 @@ export interface GetIPSetResponse extends $MetadataBearer {
 
 export namespace GetIPSetResponse {
   export function isa(o: any): o is GetIPSetResponse {
-    return _smithy.isa(o, "GetIPSetResponse");
+    return __isa(o, "GetIPSetResponse");
   }
 }
 
@@ -2264,7 +2267,7 @@ export interface GetLoggingConfigurationRequest {
 
 export namespace GetLoggingConfigurationRequest {
   export function isa(o: any): o is GetLoggingConfigurationRequest {
-    return _smithy.isa(o, "GetLoggingConfigurationRequest");
+    return __isa(o, "GetLoggingConfigurationRequest");
   }
 }
 
@@ -2278,7 +2281,7 @@ export interface GetLoggingConfigurationResponse extends $MetadataBearer {
 
 export namespace GetLoggingConfigurationResponse {
   export function isa(o: any): o is GetLoggingConfigurationResponse {
-    return _smithy.isa(o, "GetLoggingConfigurationResponse");
+    return __isa(o, "GetLoggingConfigurationResponse");
   }
 }
 
@@ -2292,7 +2295,7 @@ export interface GetPermissionPolicyRequest {
 
 export namespace GetPermissionPolicyRequest {
   export function isa(o: any): o is GetPermissionPolicyRequest {
-    return _smithy.isa(o, "GetPermissionPolicyRequest");
+    return __isa(o, "GetPermissionPolicyRequest");
   }
 }
 
@@ -2306,7 +2309,7 @@ export interface GetPermissionPolicyResponse extends $MetadataBearer {
 
 export namespace GetPermissionPolicyResponse {
   export function isa(o: any): o is GetPermissionPolicyResponse {
-    return _smithy.isa(o, "GetPermissionPolicyResponse");
+    return __isa(o, "GetPermissionPolicyResponse");
   }
 }
 
@@ -2326,7 +2329,7 @@ export interface GetRateBasedRuleManagedKeysRequest {
 
 export namespace GetRateBasedRuleManagedKeysRequest {
   export function isa(o: any): o is GetRateBasedRuleManagedKeysRequest {
-    return _smithy.isa(o, "GetRateBasedRuleManagedKeysRequest");
+    return __isa(o, "GetRateBasedRuleManagedKeysRequest");
   }
 }
 
@@ -2345,7 +2348,7 @@ export interface GetRateBasedRuleManagedKeysResponse extends $MetadataBearer {
 
 export namespace GetRateBasedRuleManagedKeysResponse {
   export function isa(o: any): o is GetRateBasedRuleManagedKeysResponse {
-    return _smithy.isa(o, "GetRateBasedRuleManagedKeysResponse");
+    return __isa(o, "GetRateBasedRuleManagedKeysResponse");
   }
 }
 
@@ -2360,7 +2363,7 @@ export interface GetRateBasedRuleRequest {
 
 export namespace GetRateBasedRuleRequest {
   export function isa(o: any): o is GetRateBasedRuleRequest {
-    return _smithy.isa(o, "GetRateBasedRuleRequest");
+    return __isa(o, "GetRateBasedRuleRequest");
   }
 }
 
@@ -2375,7 +2378,7 @@ export interface GetRateBasedRuleResponse extends $MetadataBearer {
 
 export namespace GetRateBasedRuleResponse {
   export function isa(o: any): o is GetRateBasedRuleResponse {
-    return _smithy.isa(o, "GetRateBasedRuleResponse");
+    return __isa(o, "GetRateBasedRuleResponse");
   }
 }
 
@@ -2390,7 +2393,7 @@ export interface GetRegexMatchSetRequest {
 
 export namespace GetRegexMatchSetRequest {
   export function isa(o: any): o is GetRegexMatchSetRequest {
-    return _smithy.isa(o, "GetRegexMatchSetRequest");
+    return __isa(o, "GetRegexMatchSetRequest");
   }
 }
 
@@ -2404,7 +2407,7 @@ export interface GetRegexMatchSetResponse extends $MetadataBearer {
 
 export namespace GetRegexMatchSetResponse {
   export function isa(o: any): o is GetRegexMatchSetResponse {
-    return _smithy.isa(o, "GetRegexMatchSetResponse");
+    return __isa(o, "GetRegexMatchSetResponse");
   }
 }
 
@@ -2419,7 +2422,7 @@ export interface GetRegexPatternSetRequest {
 
 export namespace GetRegexPatternSetRequest {
   export function isa(o: any): o is GetRegexPatternSetRequest {
-    return _smithy.isa(o, "GetRegexPatternSetRequest");
+    return __isa(o, "GetRegexPatternSetRequest");
   }
 }
 
@@ -2433,7 +2436,7 @@ export interface GetRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace GetRegexPatternSetResponse {
   export function isa(o: any): o is GetRegexPatternSetResponse {
-    return _smithy.isa(o, "GetRegexPatternSetResponse");
+    return __isa(o, "GetRegexPatternSetResponse");
   }
 }
 
@@ -2448,7 +2451,7 @@ export interface GetRuleGroupRequest {
 
 export namespace GetRuleGroupRequest {
   export function isa(o: any): o is GetRuleGroupRequest {
-    return _smithy.isa(o, "GetRuleGroupRequest");
+    return __isa(o, "GetRuleGroupRequest");
   }
 }
 
@@ -2462,7 +2465,7 @@ export interface GetRuleGroupResponse extends $MetadataBearer {
 
 export namespace GetRuleGroupResponse {
   export function isa(o: any): o is GetRuleGroupResponse {
-    return _smithy.isa(o, "GetRuleGroupResponse");
+    return __isa(o, "GetRuleGroupResponse");
   }
 }
 
@@ -2477,7 +2480,7 @@ export interface GetRuleRequest {
 
 export namespace GetRuleRequest {
   export function isa(o: any): o is GetRuleRequest {
-    return _smithy.isa(o, "GetRuleRequest");
+    return __isa(o, "GetRuleRequest");
   }
 }
 
@@ -2506,7 +2509,7 @@ export interface GetRuleResponse extends $MetadataBearer {
 
 export namespace GetRuleResponse {
   export function isa(o: any): o is GetRuleResponse {
-    return _smithy.isa(o, "GetRuleResponse");
+    return __isa(o, "GetRuleResponse");
   }
 }
 
@@ -2550,7 +2553,7 @@ export interface GetSampledRequestsRequest {
 
 export namespace GetSampledRequestsRequest {
   export function isa(o: any): o is GetSampledRequestsRequest {
-    return _smithy.isa(o, "GetSampledRequestsRequest");
+    return __isa(o, "GetSampledRequestsRequest");
   }
 }
 
@@ -2578,7 +2581,7 @@ export interface GetSampledRequestsResponse extends $MetadataBearer {
 
 export namespace GetSampledRequestsResponse {
   export function isa(o: any): o is GetSampledRequestsResponse {
-    return _smithy.isa(o, "GetSampledRequestsResponse");
+    return __isa(o, "GetSampledRequestsResponse");
   }
 }
 
@@ -2593,7 +2596,7 @@ export interface GetSizeConstraintSetRequest {
 
 export namespace GetSizeConstraintSetRequest {
   export function isa(o: any): o is GetSizeConstraintSetRequest {
-    return _smithy.isa(o, "GetSizeConstraintSetRequest");
+    return __isa(o, "GetSizeConstraintSetRequest");
   }
 }
 
@@ -2627,7 +2630,7 @@ export interface GetSizeConstraintSetResponse extends $MetadataBearer {
 
 export namespace GetSizeConstraintSetResponse {
   export function isa(o: any): o is GetSizeConstraintSetResponse {
-    return _smithy.isa(o, "GetSizeConstraintSetResponse");
+    return __isa(o, "GetSizeConstraintSetResponse");
   }
 }
 
@@ -2645,7 +2648,7 @@ export interface GetSqlInjectionMatchSetRequest {
 
 export namespace GetSqlInjectionMatchSetRequest {
   export function isa(o: any): o is GetSqlInjectionMatchSetRequest {
-    return _smithy.isa(o, "GetSqlInjectionMatchSetRequest");
+    return __isa(o, "GetSqlInjectionMatchSetRequest");
   }
 }
 
@@ -2681,7 +2684,7 @@ export interface GetSqlInjectionMatchSetResponse extends $MetadataBearer {
 
 export namespace GetSqlInjectionMatchSetResponse {
   export function isa(o: any): o is GetSqlInjectionMatchSetResponse {
-    return _smithy.isa(o, "GetSqlInjectionMatchSetResponse");
+    return __isa(o, "GetSqlInjectionMatchSetResponse");
   }
 }
 
@@ -2696,7 +2699,7 @@ export interface GetWebACLRequest {
 
 export namespace GetWebACLRequest {
   export function isa(o: any): o is GetWebACLRequest {
-    return _smithy.isa(o, "GetWebACLRequest");
+    return __isa(o, "GetWebACLRequest");
   }
 }
 
@@ -2735,7 +2738,7 @@ export interface GetWebACLResponse extends $MetadataBearer {
 
 export namespace GetWebACLResponse {
   export function isa(o: any): o is GetWebACLResponse {
-    return _smithy.isa(o, "GetWebACLResponse");
+    return __isa(o, "GetWebACLResponse");
   }
 }
 
@@ -2753,7 +2756,7 @@ export interface GetXssMatchSetRequest {
 
 export namespace GetXssMatchSetRequest {
   export function isa(o: any): o is GetXssMatchSetRequest {
-    return _smithy.isa(o, "GetXssMatchSetRequest");
+    return __isa(o, "GetXssMatchSetRequest");
   }
 }
 
@@ -2789,7 +2792,7 @@ export interface GetXssMatchSetResponse extends $MetadataBearer {
 
 export namespace GetXssMatchSetResponse {
   export function isa(o: any): o is GetXssMatchSetResponse {
-    return _smithy.isa(o, "GetXssMatchSetResponse");
+    return __isa(o, "GetXssMatchSetResponse");
   }
 }
 
@@ -2813,7 +2816,7 @@ export interface HTTPHeader {
 
 export namespace HTTPHeader {
   export function isa(o: any): o is HTTPHeader {
-    return _smithy.isa(o, "HTTPHeader");
+    return __isa(o, "HTTPHeader");
   }
 }
 
@@ -2870,7 +2873,7 @@ export interface HTTPRequest {
 
 export namespace HTTPRequest {
   export function isa(o: any): o is HTTPRequest {
-    return _smithy.isa(o, "HTTPRequest");
+    return __isa(o, "HTTPRequest");
   }
 }
 
@@ -2908,7 +2911,7 @@ export interface IPSet {
 
 export namespace IPSet {
   export function isa(o: any): o is IPSet {
-    return _smithy.isa(o, "IPSet");
+    return __isa(o, "IPSet");
   }
 }
 
@@ -2951,7 +2954,7 @@ export interface IPSetDescriptor {
 
 export namespace IPSetDescriptor {
   export function isa(o: any): o is IPSetDescriptor {
-    return _smithy.isa(o, "IPSetDescriptor");
+    return __isa(o, "IPSetDescriptor");
   }
 }
 
@@ -2979,7 +2982,7 @@ export interface IPSetSummary {
 
 export namespace IPSetSummary {
   export function isa(o: any): o is IPSetSummary {
-    return _smithy.isa(o, "IPSetSummary");
+    return __isa(o, "IPSetSummary");
   }
 }
 
@@ -3001,7 +3004,7 @@ export interface IPSetUpdate {
 
 export namespace IPSetUpdate {
   export function isa(o: any): o is IPSetUpdate {
-    return _smithy.isa(o, "IPSetUpdate");
+    return __isa(o, "IPSetUpdate");
   }
 }
 
@@ -3029,7 +3032,7 @@ export interface ListActivatedRulesInRuleGroupRequest {
 
 export namespace ListActivatedRulesInRuleGroupRequest {
   export function isa(o: any): o is ListActivatedRulesInRuleGroupRequest {
-    return _smithy.isa(o, "ListActivatedRulesInRuleGroupRequest");
+    return __isa(o, "ListActivatedRulesInRuleGroupRequest");
   }
 }
 
@@ -3048,7 +3051,7 @@ export interface ListActivatedRulesInRuleGroupResponse extends $MetadataBearer {
 
 export namespace ListActivatedRulesInRuleGroupResponse {
   export function isa(o: any): o is ListActivatedRulesInRuleGroupResponse {
-    return _smithy.isa(o, "ListActivatedRulesInRuleGroupResponse");
+    return __isa(o, "ListActivatedRulesInRuleGroupResponse");
   }
 }
 
@@ -3072,7 +3075,7 @@ export interface ListByteMatchSetsRequest {
 
 export namespace ListByteMatchSetsRequest {
   export function isa(o: any): o is ListByteMatchSetsRequest {
-    return _smithy.isa(o, "ListByteMatchSetsRequest");
+    return __isa(o, "ListByteMatchSetsRequest");
   }
 }
 
@@ -3094,7 +3097,7 @@ export interface ListByteMatchSetsResponse extends $MetadataBearer {
 
 export namespace ListByteMatchSetsResponse {
   export function isa(o: any): o is ListByteMatchSetsResponse {
-    return _smithy.isa(o, "ListByteMatchSetsResponse");
+    return __isa(o, "ListByteMatchSetsResponse");
   }
 }
 
@@ -3118,7 +3121,7 @@ export interface ListGeoMatchSetsRequest {
 
 export namespace ListGeoMatchSetsRequest {
   export function isa(o: any): o is ListGeoMatchSetsRequest {
-    return _smithy.isa(o, "ListGeoMatchSetsRequest");
+    return __isa(o, "ListGeoMatchSetsRequest");
   }
 }
 
@@ -3140,7 +3143,7 @@ export interface ListGeoMatchSetsResponse extends $MetadataBearer {
 
 export namespace ListGeoMatchSetsResponse {
   export function isa(o: any): o is ListGeoMatchSetsResponse {
-    return _smithy.isa(o, "ListGeoMatchSetsResponse");
+    return __isa(o, "ListGeoMatchSetsResponse");
   }
 }
 
@@ -3164,7 +3167,7 @@ export interface ListIPSetsRequest {
 
 export namespace ListIPSetsRequest {
   export function isa(o: any): o is ListIPSetsRequest {
-    return _smithy.isa(o, "ListIPSetsRequest");
+    return __isa(o, "ListIPSetsRequest");
   }
 }
 
@@ -3185,7 +3188,7 @@ export interface ListIPSetsResponse extends $MetadataBearer {
 
 export namespace ListIPSetsResponse {
   export function isa(o: any): o is ListIPSetsResponse {
-    return _smithy.isa(o, "ListIPSetsResponse");
+    return __isa(o, "ListIPSetsResponse");
   }
 }
 
@@ -3207,7 +3210,7 @@ export interface ListLoggingConfigurationsRequest {
 
 export namespace ListLoggingConfigurationsRequest {
   export function isa(o: any): o is ListLoggingConfigurationsRequest {
-    return _smithy.isa(o, "ListLoggingConfigurationsRequest");
+    return __isa(o, "ListLoggingConfigurationsRequest");
   }
 }
 
@@ -3226,7 +3229,7 @@ export interface ListLoggingConfigurationsResponse extends $MetadataBearer {
 
 export namespace ListLoggingConfigurationsResponse {
   export function isa(o: any): o is ListLoggingConfigurationsResponse {
-    return _smithy.isa(o, "ListLoggingConfigurationsResponse");
+    return __isa(o, "ListLoggingConfigurationsResponse");
   }
 }
 
@@ -3253,7 +3256,7 @@ export interface ListRateBasedRulesRequest {
 
 export namespace ListRateBasedRulesRequest {
   export function isa(o: any): o is ListRateBasedRulesRequest {
-    return _smithy.isa(o, "ListRateBasedRulesRequest");
+    return __isa(o, "ListRateBasedRulesRequest");
   }
 }
 
@@ -3276,7 +3279,7 @@ export interface ListRateBasedRulesResponse extends $MetadataBearer {
 
 export namespace ListRateBasedRulesResponse {
   export function isa(o: any): o is ListRateBasedRulesResponse {
-    return _smithy.isa(o, "ListRateBasedRulesResponse");
+    return __isa(o, "ListRateBasedRulesResponse");
   }
 }
 
@@ -3300,7 +3303,7 @@ export interface ListRegexMatchSetsRequest {
 
 export namespace ListRegexMatchSetsRequest {
   export function isa(o: any): o is ListRegexMatchSetsRequest {
-    return _smithy.isa(o, "ListRegexMatchSetsRequest");
+    return __isa(o, "ListRegexMatchSetsRequest");
   }
 }
 
@@ -3322,7 +3325,7 @@ export interface ListRegexMatchSetsResponse extends $MetadataBearer {
 
 export namespace ListRegexMatchSetsResponse {
   export function isa(o: any): o is ListRegexMatchSetsResponse {
-    return _smithy.isa(o, "ListRegexMatchSetsResponse");
+    return __isa(o, "ListRegexMatchSetsResponse");
   }
 }
 
@@ -3346,7 +3349,7 @@ export interface ListRegexPatternSetsRequest {
 
 export namespace ListRegexPatternSetsRequest {
   export function isa(o: any): o is ListRegexPatternSetsRequest {
-    return _smithy.isa(o, "ListRegexPatternSetsRequest");
+    return __isa(o, "ListRegexPatternSetsRequest");
   }
 }
 
@@ -3368,7 +3371,7 @@ export interface ListRegexPatternSetsResponse extends $MetadataBearer {
 
 export namespace ListRegexPatternSetsResponse {
   export function isa(o: any): o is ListRegexPatternSetsResponse {
-    return _smithy.isa(o, "ListRegexPatternSetsResponse");
+    return __isa(o, "ListRegexPatternSetsResponse");
   }
 }
 
@@ -3390,7 +3393,7 @@ export interface ListRuleGroupsRequest {
 
 export namespace ListRuleGroupsRequest {
   export function isa(o: any): o is ListRuleGroupsRequest {
-    return _smithy.isa(o, "ListRuleGroupsRequest");
+    return __isa(o, "ListRuleGroupsRequest");
   }
 }
 
@@ -3409,7 +3412,7 @@ export interface ListRuleGroupsResponse extends $MetadataBearer {
 
 export namespace ListRuleGroupsResponse {
   export function isa(o: any): o is ListRuleGroupsResponse {
-    return _smithy.isa(o, "ListRuleGroupsResponse");
+    return __isa(o, "ListRuleGroupsResponse");
   }
 }
 
@@ -3432,7 +3435,7 @@ export interface ListRulesRequest {
 
 export namespace ListRulesRequest {
   export function isa(o: any): o is ListRulesRequest {
-    return _smithy.isa(o, "ListRulesRequest");
+    return __isa(o, "ListRulesRequest");
   }
 }
 
@@ -3453,7 +3456,7 @@ export interface ListRulesResponse extends $MetadataBearer {
 
 export namespace ListRulesResponse {
   export function isa(o: any): o is ListRulesResponse {
-    return _smithy.isa(o, "ListRulesResponse");
+    return __isa(o, "ListRulesResponse");
   }
 }
 
@@ -3476,7 +3479,7 @@ export interface ListSizeConstraintSetsRequest {
 
 export namespace ListSizeConstraintSetsRequest {
   export function isa(o: any): o is ListSizeConstraintSetsRequest {
-    return _smithy.isa(o, "ListSizeConstraintSetsRequest");
+    return __isa(o, "ListSizeConstraintSetsRequest");
   }
 }
 
@@ -3498,7 +3501,7 @@ export interface ListSizeConstraintSetsResponse extends $MetadataBearer {
 
 export namespace ListSizeConstraintSetsResponse {
   export function isa(o: any): o is ListSizeConstraintSetsResponse {
-    return _smithy.isa(o, "ListSizeConstraintSetsResponse");
+    return __isa(o, "ListSizeConstraintSetsResponse");
   }
 }
 
@@ -3525,7 +3528,7 @@ export interface ListSqlInjectionMatchSetsRequest {
 
 export namespace ListSqlInjectionMatchSetsRequest {
   export function isa(o: any): o is ListSqlInjectionMatchSetsRequest {
-    return _smithy.isa(o, "ListSqlInjectionMatchSetsRequest");
+    return __isa(o, "ListSqlInjectionMatchSetsRequest");
   }
 }
 
@@ -3550,7 +3553,7 @@ export interface ListSqlInjectionMatchSetsResponse extends $MetadataBearer {
 
 export namespace ListSqlInjectionMatchSetsResponse {
   export function isa(o: any): o is ListSqlInjectionMatchSetsResponse {
-    return _smithy.isa(o, "ListSqlInjectionMatchSetsResponse");
+    return __isa(o, "ListSqlInjectionMatchSetsResponse");
   }
 }
 
@@ -3574,7 +3577,7 @@ export interface ListSubscribedRuleGroupsRequest {
 
 export namespace ListSubscribedRuleGroupsRequest {
   export function isa(o: any): o is ListSubscribedRuleGroupsRequest {
-    return _smithy.isa(o, "ListSubscribedRuleGroupsRequest");
+    return __isa(o, "ListSubscribedRuleGroupsRequest");
   }
 }
 
@@ -3596,7 +3599,7 @@ export interface ListSubscribedRuleGroupsResponse extends $MetadataBearer {
 
 export namespace ListSubscribedRuleGroupsResponse {
   export function isa(o: any): o is ListSubscribedRuleGroupsResponse {
-    return _smithy.isa(o, "ListSubscribedRuleGroupsResponse");
+    return __isa(o, "ListSubscribedRuleGroupsResponse");
   }
 }
 
@@ -3609,7 +3612,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -3621,7 +3624,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -3645,7 +3648,7 @@ export interface ListWebACLsRequest {
 
 export namespace ListWebACLsRequest {
   export function isa(o: any): o is ListWebACLsRequest {
-    return _smithy.isa(o, "ListWebACLsRequest");
+    return __isa(o, "ListWebACLsRequest");
   }
 }
 
@@ -3667,7 +3670,7 @@ export interface ListWebACLsResponse extends $MetadataBearer {
 
 export namespace ListWebACLsResponse {
   export function isa(o: any): o is ListWebACLsResponse {
-    return _smithy.isa(o, "ListWebACLsResponse");
+    return __isa(o, "ListWebACLsResponse");
   }
 }
 
@@ -3694,7 +3697,7 @@ export interface ListXssMatchSetsRequest {
 
 export namespace ListXssMatchSetsRequest {
   export function isa(o: any): o is ListXssMatchSetsRequest {
-    return _smithy.isa(o, "ListXssMatchSetsRequest");
+    return __isa(o, "ListXssMatchSetsRequest");
   }
 }
 
@@ -3719,7 +3722,7 @@ export interface ListXssMatchSetsResponse extends $MetadataBearer {
 
 export namespace ListXssMatchSetsResponse {
   export function isa(o: any): o is ListXssMatchSetsResponse {
-    return _smithy.isa(o, "ListXssMatchSetsResponse");
+    return __isa(o, "ListXssMatchSetsResponse");
   }
 }
 
@@ -3751,7 +3754,7 @@ export interface LoggingConfiguration {
 
 export namespace LoggingConfiguration {
   export function isa(o: any): o is LoggingConfiguration {
-    return _smithy.isa(o, "LoggingConfiguration");
+    return __isa(o, "LoggingConfiguration");
   }
 }
 
@@ -3834,7 +3837,7 @@ export interface Predicate {
 
 export namespace Predicate {
   export function isa(o: any): o is Predicate {
-    return _smithy.isa(o, "Predicate");
+    return __isa(o, "Predicate");
   }
 }
 
@@ -3865,7 +3868,7 @@ export interface PutLoggingConfigurationRequest {
 
 export namespace PutLoggingConfigurationRequest {
   export function isa(o: any): o is PutLoggingConfigurationRequest {
-    return _smithy.isa(o, "PutLoggingConfigurationRequest");
+    return __isa(o, "PutLoggingConfigurationRequest");
   }
 }
 
@@ -3879,7 +3882,7 @@ export interface PutLoggingConfigurationResponse extends $MetadataBearer {
 
 export namespace PutLoggingConfigurationResponse {
   export function isa(o: any): o is PutLoggingConfigurationResponse {
-    return _smithy.isa(o, "PutLoggingConfigurationResponse");
+    return __isa(o, "PutLoggingConfigurationResponse");
   }
 }
 
@@ -3898,7 +3901,7 @@ export interface PutPermissionPolicyRequest {
 
 export namespace PutPermissionPolicyRequest {
   export function isa(o: any): o is PutPermissionPolicyRequest {
-    return _smithy.isa(o, "PutPermissionPolicyRequest");
+    return __isa(o, "PutPermissionPolicyRequest");
   }
 }
 
@@ -3908,7 +3911,7 @@ export interface PutPermissionPolicyResponse extends $MetadataBearer {
 
 export namespace PutPermissionPolicyResponse {
   export function isa(o: any): o is PutPermissionPolicyResponse {
-    return _smithy.isa(o, "PutPermissionPolicyResponse");
+    return __isa(o, "PutPermissionPolicyResponse");
   }
 }
 
@@ -3981,7 +3984,7 @@ export interface RateBasedRule {
 
 export namespace RateBasedRule {
   export function isa(o: any): o is RateBasedRule {
-    return _smithy.isa(o, "RateBasedRule");
+    return __isa(o, "RateBasedRule");
   }
 }
 
@@ -4034,7 +4037,7 @@ export interface RegexMatchSet {
 
 export namespace RegexMatchSet {
   export function isa(o: any): o is RegexMatchSet {
-    return _smithy.isa(o, "RegexMatchSet");
+    return __isa(o, "RegexMatchSet");
   }
 }
 
@@ -4060,7 +4063,7 @@ export interface RegexMatchSetSummary {
 
 export namespace RegexMatchSetSummary {
   export function isa(o: any): o is RegexMatchSetSummary {
-    return _smithy.isa(o, "RegexMatchSetSummary");
+    return __isa(o, "RegexMatchSetSummary");
   }
 }
 
@@ -4085,7 +4088,7 @@ export interface RegexMatchSetUpdate {
 
 export namespace RegexMatchSetUpdate {
   export function isa(o: any): o is RegexMatchSetUpdate {
-    return _smithy.isa(o, "RegexMatchSetUpdate");
+    return __isa(o, "RegexMatchSetUpdate");
   }
 }
 
@@ -4219,7 +4222,7 @@ export interface RegexMatchTuple {
 
 export namespace RegexMatchTuple {
   export function isa(o: any): o is RegexMatchTuple {
-    return _smithy.isa(o, "RegexMatchTuple");
+    return __isa(o, "RegexMatchTuple");
   }
 }
 
@@ -4249,7 +4252,7 @@ export interface RegexPatternSet {
 
 export namespace RegexPatternSet {
   export function isa(o: any): o is RegexPatternSet {
-    return _smithy.isa(o, "RegexPatternSet");
+    return __isa(o, "RegexPatternSet");
   }
 }
 
@@ -4275,7 +4278,7 @@ export interface RegexPatternSetSummary {
 
 export namespace RegexPatternSetSummary {
   export function isa(o: any): o is RegexPatternSetSummary {
-    return _smithy.isa(o, "RegexPatternSetSummary");
+    return __isa(o, "RegexPatternSetSummary");
   }
 }
 
@@ -4298,7 +4301,7 @@ export interface RegexPatternSetUpdate {
 
 export namespace RegexPatternSetUpdate {
   export function isa(o: any): o is RegexPatternSetUpdate {
-    return _smithy.isa(o, "RegexPatternSetUpdate");
+    return __isa(o, "RegexPatternSetUpdate");
   }
 }
 
@@ -4354,7 +4357,7 @@ export interface Rule {
 
 export namespace Rule {
   export function isa(o: any): o is Rule {
-    return _smithy.isa(o, "Rule");
+    return __isa(o, "Rule");
   }
 }
 
@@ -4398,7 +4401,7 @@ export interface RuleGroup {
 
 export namespace RuleGroup {
   export function isa(o: any): o is RuleGroup {
-    return _smithy.isa(o, "RuleGroup");
+    return __isa(o, "RuleGroup");
   }
 }
 
@@ -4424,7 +4427,7 @@ export interface RuleGroupSummary {
 
 export namespace RuleGroupSummary {
   export function isa(o: any): o is RuleGroupSummary {
-    return _smithy.isa(o, "RuleGroupSummary");
+    return __isa(o, "RuleGroupSummary");
   }
 }
 
@@ -4450,7 +4453,7 @@ export interface RuleGroupUpdate {
 
 export namespace RuleGroupUpdate {
   export function isa(o: any): o is RuleGroupUpdate {
-    return _smithy.isa(o, "RuleGroupUpdate");
+    return __isa(o, "RuleGroupUpdate");
   }
 }
 
@@ -4476,7 +4479,7 @@ export interface RuleSummary {
 
 export namespace RuleSummary {
   export function isa(o: any): o is RuleSummary {
-    return _smithy.isa(o, "RuleSummary");
+    return __isa(o, "RuleSummary");
   }
 }
 
@@ -4500,7 +4503,7 @@ export interface RuleUpdate {
 
 export namespace RuleUpdate {
   export function isa(o: any): o is RuleUpdate {
-    return _smithy.isa(o, "RuleUpdate");
+    return __isa(o, "RuleUpdate");
   }
 }
 
@@ -4541,7 +4544,7 @@ export interface SampledHTTPRequest {
 
 export namespace SampledHTTPRequest {
   export function isa(o: any): o is SampledHTTPRequest {
-    return _smithy.isa(o, "SampledHTTPRequest");
+    return __isa(o, "SampledHTTPRequest");
   }
 }
 
@@ -4695,7 +4698,7 @@ export interface SizeConstraint {
 
 export namespace SizeConstraint {
   export function isa(o: any): o is SizeConstraint {
-    return _smithy.isa(o, "SizeConstraint");
+    return __isa(o, "SizeConstraint");
   }
 }
 
@@ -4730,7 +4733,7 @@ export interface SizeConstraintSet {
 
 export namespace SizeConstraintSet {
   export function isa(o: any): o is SizeConstraintSet {
-    return _smithy.isa(o, "SizeConstraintSet");
+    return __isa(o, "SizeConstraintSet");
   }
 }
 
@@ -4758,7 +4761,7 @@ export interface SizeConstraintSetSummary {
 
 export namespace SizeConstraintSetSummary {
   export function isa(o: any): o is SizeConstraintSetSummary {
-    return _smithy.isa(o, "SizeConstraintSetSummary");
+    return __isa(o, "SizeConstraintSetSummary");
   }
 }
 
@@ -4785,7 +4788,7 @@ export interface SizeConstraintSetUpdate {
 
 export namespace SizeConstraintSetUpdate {
   export function isa(o: any): o is SizeConstraintSetUpdate {
-    return _smithy.isa(o, "SizeConstraintSetUpdate");
+    return __isa(o, "SizeConstraintSetUpdate");
   }
 }
 
@@ -4821,7 +4824,7 @@ export interface SqlInjectionMatchSet {
 
 export namespace SqlInjectionMatchSet {
   export function isa(o: any): o is SqlInjectionMatchSet {
-    return _smithy.isa(o, "SqlInjectionMatchSet");
+    return __isa(o, "SqlInjectionMatchSet");
   }
 }
 
@@ -4849,7 +4852,7 @@ export interface SqlInjectionMatchSetSummary {
 
 export namespace SqlInjectionMatchSetSummary {
   export function isa(o: any): o is SqlInjectionMatchSetSummary {
-    return _smithy.isa(o, "SqlInjectionMatchSetSummary");
+    return __isa(o, "SqlInjectionMatchSetSummary");
   }
 }
 
@@ -4873,7 +4876,7 @@ export interface SqlInjectionMatchSetUpdate {
 
 export namespace SqlInjectionMatchSetUpdate {
   export function isa(o: any): o is SqlInjectionMatchSetUpdate {
-    return _smithy.isa(o, "SqlInjectionMatchSetUpdate");
+    return __isa(o, "SqlInjectionMatchSetUpdate");
   }
 }
 
@@ -4987,7 +4990,7 @@ export interface SqlInjectionMatchTuple {
 
 export namespace SqlInjectionMatchTuple {
   export function isa(o: any): o is SqlInjectionMatchTuple {
-    return _smithy.isa(o, "SqlInjectionMatchTuple");
+    return __isa(o, "SqlInjectionMatchTuple");
   }
 }
 
@@ -5015,7 +5018,7 @@ export interface SubscribedRuleGroupSummary {
 
 export namespace SubscribedRuleGroupSummary {
   export function isa(o: any): o is SubscribedRuleGroupSummary {
-    return _smithy.isa(o, "SubscribedRuleGroupSummary");
+    return __isa(o, "SubscribedRuleGroupSummary");
   }
 }
 
@@ -5027,7 +5030,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -5039,7 +5042,7 @@ export interface TagInfoForResource {
 
 export namespace TagInfoForResource {
   export function isa(o: any): o is TagInfoForResource {
-    return _smithy.isa(o, "TagInfoForResource");
+    return __isa(o, "TagInfoForResource");
   }
 }
 
@@ -5051,7 +5054,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -5061,7 +5064,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -5100,7 +5103,7 @@ export interface TimeWindow {
 
 export namespace TimeWindow {
   export function isa(o: any): o is TimeWindow {
-    return _smithy.isa(o, "TimeWindow");
+    return __isa(o, "TimeWindow");
   }
 }
 
@@ -5112,7 +5115,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -5122,7 +5125,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -5166,7 +5169,7 @@ export interface UpdateByteMatchSetRequest {
 
 export namespace UpdateByteMatchSetRequest {
   export function isa(o: any): o is UpdateByteMatchSetRequest {
-    return _smithy.isa(o, "UpdateByteMatchSetRequest");
+    return __isa(o, "UpdateByteMatchSetRequest");
   }
 }
 
@@ -5181,7 +5184,7 @@ export interface UpdateByteMatchSetResponse extends $MetadataBearer {
 
 export namespace UpdateByteMatchSetResponse {
   export function isa(o: any): o is UpdateByteMatchSetResponse {
-    return _smithy.isa(o, "UpdateByteMatchSetResponse");
+    return __isa(o, "UpdateByteMatchSetResponse");
   }
 }
 
@@ -5220,7 +5223,7 @@ export interface UpdateGeoMatchSetRequest {
 
 export namespace UpdateGeoMatchSetRequest {
   export function isa(o: any): o is UpdateGeoMatchSetRequest {
-    return _smithy.isa(o, "UpdateGeoMatchSetRequest");
+    return __isa(o, "UpdateGeoMatchSetRequest");
   }
 }
 
@@ -5235,7 +5238,7 @@ export interface UpdateGeoMatchSetResponse extends $MetadataBearer {
 
 export namespace UpdateGeoMatchSetResponse {
   export function isa(o: any): o is UpdateGeoMatchSetResponse {
-    return _smithy.isa(o, "UpdateGeoMatchSetResponse");
+    return __isa(o, "UpdateGeoMatchSetResponse");
   }
 }
 
@@ -5274,7 +5277,7 @@ export interface UpdateIPSetRequest {
 
 export namespace UpdateIPSetRequest {
   export function isa(o: any): o is UpdateIPSetRequest {
-    return _smithy.isa(o, "UpdateIPSetRequest");
+    return __isa(o, "UpdateIPSetRequest");
   }
 }
 
@@ -5289,7 +5292,7 @@ export interface UpdateIPSetResponse extends $MetadataBearer {
 
 export namespace UpdateIPSetResponse {
   export function isa(o: any): o is UpdateIPSetResponse {
-    return _smithy.isa(o, "UpdateIPSetResponse");
+    return __isa(o, "UpdateIPSetResponse");
   }
 }
 
@@ -5323,7 +5326,7 @@ export interface UpdateRateBasedRuleRequest {
 
 export namespace UpdateRateBasedRuleRequest {
   export function isa(o: any): o is UpdateRateBasedRuleRequest {
-    return _smithy.isa(o, "UpdateRateBasedRuleRequest");
+    return __isa(o, "UpdateRateBasedRuleRequest");
   }
 }
 
@@ -5339,7 +5342,7 @@ export interface UpdateRateBasedRuleResponse extends $MetadataBearer {
 
 export namespace UpdateRateBasedRuleResponse {
   export function isa(o: any): o is UpdateRateBasedRuleResponse {
-    return _smithy.isa(o, "UpdateRateBasedRuleResponse");
+    return __isa(o, "UpdateRateBasedRuleResponse");
   }
 }
 
@@ -5365,7 +5368,7 @@ export interface UpdateRegexMatchSetRequest {
 
 export namespace UpdateRegexMatchSetRequest {
   export function isa(o: any): o is UpdateRegexMatchSetRequest {
-    return _smithy.isa(o, "UpdateRegexMatchSetRequest");
+    return __isa(o, "UpdateRegexMatchSetRequest");
   }
 }
 
@@ -5380,7 +5383,7 @@ export interface UpdateRegexMatchSetResponse extends $MetadataBearer {
 
 export namespace UpdateRegexMatchSetResponse {
   export function isa(o: any): o is UpdateRegexMatchSetResponse {
-    return _smithy.isa(o, "UpdateRegexMatchSetResponse");
+    return __isa(o, "UpdateRegexMatchSetResponse");
   }
 }
 
@@ -5405,7 +5408,7 @@ export interface UpdateRegexPatternSetRequest {
 
 export namespace UpdateRegexPatternSetRequest {
   export function isa(o: any): o is UpdateRegexPatternSetRequest {
-    return _smithy.isa(o, "UpdateRegexPatternSetRequest");
+    return __isa(o, "UpdateRegexPatternSetRequest");
   }
 }
 
@@ -5420,7 +5423,7 @@ export interface UpdateRegexPatternSetResponse extends $MetadataBearer {
 
 export namespace UpdateRegexPatternSetResponse {
   export function isa(o: any): o is UpdateRegexPatternSetResponse {
-    return _smithy.isa(o, "UpdateRegexPatternSetResponse");
+    return __isa(o, "UpdateRegexPatternSetResponse");
   }
 }
 
@@ -5449,7 +5452,7 @@ export interface UpdateRuleGroupRequest {
 
 export namespace UpdateRuleGroupRequest {
   export function isa(o: any): o is UpdateRuleGroupRequest {
-    return _smithy.isa(o, "UpdateRuleGroupRequest");
+    return __isa(o, "UpdateRuleGroupRequest");
   }
 }
 
@@ -5464,7 +5467,7 @@ export interface UpdateRuleGroupResponse extends $MetadataBearer {
 
 export namespace UpdateRuleGroupResponse {
   export function isa(o: any): o is UpdateRuleGroupResponse {
-    return _smithy.isa(o, "UpdateRuleGroupResponse");
+    return __isa(o, "UpdateRuleGroupResponse");
   }
 }
 
@@ -5507,7 +5510,7 @@ export interface UpdateRuleRequest {
 
 export namespace UpdateRuleRequest {
   export function isa(o: any): o is UpdateRuleRequest {
-    return _smithy.isa(o, "UpdateRuleRequest");
+    return __isa(o, "UpdateRuleRequest");
   }
 }
 
@@ -5522,7 +5525,7 @@ export interface UpdateRuleResponse extends $MetadataBearer {
 
 export namespace UpdateRuleResponse {
   export function isa(o: any): o is UpdateRuleResponse {
-    return _smithy.isa(o, "UpdateRuleResponse");
+    return __isa(o, "UpdateRuleResponse");
   }
 }
 
@@ -5566,7 +5569,7 @@ export interface UpdateSizeConstraintSetRequest {
 
 export namespace UpdateSizeConstraintSetRequest {
   export function isa(o: any): o is UpdateSizeConstraintSetRequest {
-    return _smithy.isa(o, "UpdateSizeConstraintSetRequest");
+    return __isa(o, "UpdateSizeConstraintSetRequest");
   }
 }
 
@@ -5581,7 +5584,7 @@ export interface UpdateSizeConstraintSetResponse extends $MetadataBearer {
 
 export namespace UpdateSizeConstraintSetResponse {
   export function isa(o: any): o is UpdateSizeConstraintSetResponse {
-    return _smithy.isa(o, "UpdateSizeConstraintSetResponse");
+    return __isa(o, "UpdateSizeConstraintSetResponse");
   }
 }
 
@@ -5627,7 +5630,7 @@ export interface UpdateSqlInjectionMatchSetRequest {
 
 export namespace UpdateSqlInjectionMatchSetRequest {
   export function isa(o: any): o is UpdateSqlInjectionMatchSetRequest {
-    return _smithy.isa(o, "UpdateSqlInjectionMatchSetRequest");
+    return __isa(o, "UpdateSqlInjectionMatchSetRequest");
   }
 }
 
@@ -5645,7 +5648,7 @@ export interface UpdateSqlInjectionMatchSetResponse extends $MetadataBearer {
 
 export namespace UpdateSqlInjectionMatchSetResponse {
   export function isa(o: any): o is UpdateSqlInjectionMatchSetResponse {
-    return _smithy.isa(o, "UpdateSqlInjectionMatchSetResponse");
+    return __isa(o, "UpdateSqlInjectionMatchSetResponse");
   }
 }
 
@@ -5701,7 +5704,7 @@ export interface UpdateWebACLRequest {
 
 export namespace UpdateWebACLRequest {
   export function isa(o: any): o is UpdateWebACLRequest {
-    return _smithy.isa(o, "UpdateWebACLRequest");
+    return __isa(o, "UpdateWebACLRequest");
   }
 }
 
@@ -5716,7 +5719,7 @@ export interface UpdateWebACLResponse extends $MetadataBearer {
 
 export namespace UpdateWebACLResponse {
   export function isa(o: any): o is UpdateWebACLResponse {
-    return _smithy.isa(o, "UpdateWebACLResponse");
+    return __isa(o, "UpdateWebACLResponse");
   }
 }
 
@@ -5764,7 +5767,7 @@ export interface UpdateXssMatchSetRequest {
 
 export namespace UpdateXssMatchSetRequest {
   export function isa(o: any): o is UpdateXssMatchSetRequest {
-    return _smithy.isa(o, "UpdateXssMatchSetRequest");
+    return __isa(o, "UpdateXssMatchSetRequest");
   }
 }
 
@@ -5782,12 +5785,12 @@ export interface UpdateXssMatchSetResponse extends $MetadataBearer {
 
 export namespace UpdateXssMatchSetResponse {
   export function isa(o: any): o is UpdateXssMatchSetResponse {
-    return _smithy.isa(o, "UpdateXssMatchSetResponse");
+    return __isa(o, "UpdateXssMatchSetResponse");
   }
 }
 
 export interface WAFBadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFBadRequestException";
   $fault: "client";
@@ -5796,7 +5799,7 @@ export interface WAFBadRequestException
 
 export namespace WAFBadRequestException {
   export function isa(o: any): o is WAFBadRequestException {
-    return _smithy.isa(o, "WAFBadRequestException");
+    return __isa(o, "WAFBadRequestException");
   }
 }
 
@@ -5804,7 +5807,7 @@ export namespace WAFBadRequestException {
  * <p>The name specified is invalid.</p>
  */
 export interface WAFDisallowedNameException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFDisallowedNameException";
   $fault: "client";
@@ -5813,7 +5816,7 @@ export interface WAFDisallowedNameException
 
 export namespace WAFDisallowedNameException {
   export function isa(o: any): o is WAFDisallowedNameException {
-    return _smithy.isa(o, "WAFDisallowedNameException");
+    return __isa(o, "WAFDisallowedNameException");
   }
 }
 
@@ -5821,7 +5824,7 @@ export namespace WAFDisallowedNameException {
  * <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  */
 export interface WAFInternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInternalErrorException";
   $fault: "server";
@@ -5830,7 +5833,7 @@ export interface WAFInternalErrorException
 
 export namespace WAFInternalErrorException {
   export function isa(o: any): o is WAFInternalErrorException {
-    return _smithy.isa(o, "WAFInternalErrorException");
+    return __isa(o, "WAFInternalErrorException");
   }
 }
 
@@ -5838,7 +5841,7 @@ export namespace WAFInternalErrorException {
  * <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  */
 export interface WAFInvalidAccountException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidAccountException";
   $fault: "client";
@@ -5846,7 +5849,7 @@ export interface WAFInvalidAccountException
 
 export namespace WAFInvalidAccountException {
   export function isa(o: any): o is WAFInvalidAccountException {
-    return _smithy.isa(o, "WAFInvalidAccountException");
+    return __isa(o, "WAFInvalidAccountException");
   }
 }
 
@@ -5874,7 +5877,7 @@ export namespace WAFInvalidAccountException {
  *          </ul>
  */
 export interface WAFInvalidOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidOperationException";
   $fault: "client";
@@ -5883,7 +5886,7 @@ export interface WAFInvalidOperationException
 
 export namespace WAFInvalidOperationException {
   export function isa(o: any): o is WAFInvalidOperationException {
-    return _smithy.isa(o, "WAFInvalidOperationException");
+    return __isa(o, "WAFInvalidOperationException");
   }
 }
 
@@ -5928,7 +5931,7 @@ export namespace WAFInvalidOperationException {
  *          </ul>
  */
 export interface WAFInvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidParameterException";
   $fault: "client";
@@ -5939,7 +5942,7 @@ export interface WAFInvalidParameterException
 
 export namespace WAFInvalidParameterException {
   export function isa(o: any): o is WAFInvalidParameterException {
-    return _smithy.isa(o, "WAFInvalidParameterException");
+    return __isa(o, "WAFInvalidParameterException");
   }
 }
 
@@ -5976,7 +5979,7 @@ export namespace WAFInvalidParameterException {
  *          </ul>
  */
 export interface WAFInvalidPermissionPolicyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidPermissionPolicyException";
   $fault: "client";
@@ -5985,7 +5988,7 @@ export interface WAFInvalidPermissionPolicyException
 
 export namespace WAFInvalidPermissionPolicyException {
   export function isa(o: any): o is WAFInvalidPermissionPolicyException {
-    return _smithy.isa(o, "WAFInvalidPermissionPolicyException");
+    return __isa(o, "WAFInvalidPermissionPolicyException");
   }
 }
 
@@ -5993,7 +5996,7 @@ export namespace WAFInvalidPermissionPolicyException {
  * <p>The regular expression (regex) you specified in <code>RegexPatternString</code> is invalid.</p>
  */
 export interface WAFInvalidRegexPatternException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFInvalidRegexPatternException";
   $fault: "client";
@@ -6002,7 +6005,7 @@ export interface WAFInvalidRegexPatternException
 
 export namespace WAFInvalidRegexPatternException {
   export function isa(o: any): o is WAFInvalidRegexPatternException {
-    return _smithy.isa(o, "WAFInvalidRegexPatternException");
+    return __isa(o, "WAFInvalidRegexPatternException");
   }
 }
 
@@ -6012,7 +6015,7 @@ export namespace WAFInvalidRegexPatternException {
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a> in the <i>AWS WAF Developer Guide</i>.</p>
  */
 export interface WAFLimitsExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFLimitsExceededException";
   $fault: "client";
@@ -6021,7 +6024,7 @@ export interface WAFLimitsExceededException
 
 export namespace WAFLimitsExceededException {
   export function isa(o: any): o is WAFLimitsExceededException {
-    return _smithy.isa(o, "WAFLimitsExceededException");
+    return __isa(o, "WAFLimitsExceededException");
   }
 }
 
@@ -6044,7 +6047,7 @@ export namespace WAFLimitsExceededException {
  *          </ul>
  */
 export interface WAFNonEmptyEntityException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFNonEmptyEntityException";
   $fault: "client";
@@ -6053,7 +6056,7 @@ export interface WAFNonEmptyEntityException
 
 export namespace WAFNonEmptyEntityException {
   export function isa(o: any): o is WAFNonEmptyEntityException {
-    return _smithy.isa(o, "WAFNonEmptyEntityException");
+    return __isa(o, "WAFNonEmptyEntityException");
   }
 }
 
@@ -6076,7 +6079,7 @@ export namespace WAFNonEmptyEntityException {
  *          </ul>
  */
 export interface WAFNonexistentContainerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFNonexistentContainerException";
   $fault: "client";
@@ -6085,7 +6088,7 @@ export interface WAFNonexistentContainerException
 
 export namespace WAFNonexistentContainerException {
   export function isa(o: any): o is WAFNonexistentContainerException {
-    return _smithy.isa(o, "WAFNonexistentContainerException");
+    return __isa(o, "WAFNonexistentContainerException");
   }
 }
 
@@ -6093,7 +6096,7 @@ export namespace WAFNonexistentContainerException {
  * <p>The operation failed because the referenced object doesn't exist.</p>
  */
 export interface WAFNonexistentItemException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFNonexistentItemException";
   $fault: "client";
@@ -6102,7 +6105,7 @@ export interface WAFNonexistentItemException
 
 export namespace WAFNonexistentItemException {
   export function isa(o: any): o is WAFNonexistentItemException {
-    return _smithy.isa(o, "WAFNonexistentItemException");
+    return __isa(o, "WAFNonexistentItemException");
   }
 }
 
@@ -6118,7 +6121,7 @@ export namespace WAFNonexistentItemException {
  *          </ul>
  */
 export interface WAFReferencedItemException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFReferencedItemException";
   $fault: "client";
@@ -6127,7 +6130,7 @@ export interface WAFReferencedItemException
 
 export namespace WAFReferencedItemException {
   export function isa(o: any): o is WAFReferencedItemException {
-    return _smithy.isa(o, "WAFReferencedItemException");
+    return __isa(o, "WAFReferencedItemException");
   }
 }
 
@@ -6135,7 +6138,7 @@ export namespace WAFReferencedItemException {
  * <p>AWS WAF is not able to access the service linked role. This can be caused by a previous <code>PutLoggingConfiguration</code> request, which can lock the service linked role for about 20 seconds. Please try your request again. The service linked role can also be locked by a previous <code>DeleteServiceLinkedRole</code> request, which can lock the role for 15 minutes or more. If you recently made a <code>DeleteServiceLinkedRole</code>, wait at least 15 minutes and try the request again. If you receive this same exception again, you will have to wait additional time until the role is unlocked.</p>
  */
 export interface WAFServiceLinkedRoleErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
@@ -6144,7 +6147,7 @@ export interface WAFServiceLinkedRoleErrorException
 
 export namespace WAFServiceLinkedRoleErrorException {
   export function isa(o: any): o is WAFServiceLinkedRoleErrorException {
-    return _smithy.isa(o, "WAFServiceLinkedRoleErrorException");
+    return __isa(o, "WAFServiceLinkedRoleErrorException");
   }
 }
 
@@ -6152,7 +6155,7 @@ export namespace WAFServiceLinkedRoleErrorException {
  * <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  */
 export interface WAFStaleDataException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFStaleDataException";
   $fault: "client";
@@ -6161,7 +6164,7 @@ export interface WAFStaleDataException
 
 export namespace WAFStaleDataException {
   export function isa(o: any): o is WAFStaleDataException {
-    return _smithy.isa(o, "WAFStaleDataException");
+    return __isa(o, "WAFStaleDataException");
   }
 }
 
@@ -6169,7 +6172,7 @@ export namespace WAFStaleDataException {
  * <p>The specified subscription does not exist.</p>
  */
 export interface WAFSubscriptionNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFSubscriptionNotFoundException";
   $fault: "client";
@@ -6178,12 +6181,12 @@ export interface WAFSubscriptionNotFoundException
 
 export namespace WAFSubscriptionNotFoundException {
   export function isa(o: any): o is WAFSubscriptionNotFoundException {
-    return _smithy.isa(o, "WAFSubscriptionNotFoundException");
+    return __isa(o, "WAFSubscriptionNotFoundException");
   }
 }
 
 export interface WAFTagOperationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFTagOperationException";
   $fault: "client";
@@ -6192,12 +6195,12 @@ export interface WAFTagOperationException
 
 export namespace WAFTagOperationException {
   export function isa(o: any): o is WAFTagOperationException {
-    return _smithy.isa(o, "WAFTagOperationException");
+    return __isa(o, "WAFTagOperationException");
   }
 }
 
 export interface WAFTagOperationInternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
@@ -6206,7 +6209,7 @@ export interface WAFTagOperationInternalErrorException
 
 export namespace WAFTagOperationInternalErrorException {
   export function isa(o: any): o is WAFTagOperationInternalErrorException {
-    return _smithy.isa(o, "WAFTagOperationInternalErrorException");
+    return __isa(o, "WAFTagOperationInternalErrorException");
   }
 }
 
@@ -6215,7 +6218,7 @@ export namespace WAFTagOperationInternalErrorException {
  *       referenced is temporarily unavailable. Retry your request.</p>
  */
 export interface WAFUnavailableEntityException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WAFUnavailableEntityException";
   $fault: "client";
@@ -6224,7 +6227,7 @@ export interface WAFUnavailableEntityException
 
 export namespace WAFUnavailableEntityException {
   export function isa(o: any): o is WAFUnavailableEntityException {
-    return _smithy.isa(o, "WAFUnavailableEntityException");
+    return __isa(o, "WAFUnavailableEntityException");
   }
 }
 
@@ -6259,7 +6262,7 @@ export interface WafAction {
 
 export namespace WafAction {
   export function isa(o: any): o is WafAction {
-    return _smithy.isa(o, "WafAction");
+    return __isa(o, "WafAction");
   }
 }
 
@@ -6283,7 +6286,7 @@ export interface WafOverrideAction {
 
 export namespace WafOverrideAction {
   export function isa(o: any): o is WafOverrideAction {
-    return _smithy.isa(o, "WafOverrideAction");
+    return __isa(o, "WafOverrideAction");
   }
 }
 
@@ -6348,7 +6351,7 @@ export interface WebACL {
 
 export namespace WebACL {
   export function isa(o: any): o is WebACL {
-    return _smithy.isa(o, "WebACL");
+    return __isa(o, "WebACL");
   }
 }
 
@@ -6374,7 +6377,7 @@ export interface WebACLSummary {
 
 export namespace WebACLSummary {
   export function isa(o: any): o is WebACLSummary {
-    return _smithy.isa(o, "WebACLSummary");
+    return __isa(o, "WebACLSummary");
   }
 }
 
@@ -6398,7 +6401,7 @@ export interface WebACLUpdate {
 
 export namespace WebACLUpdate {
   export function isa(o: any): o is WebACLUpdate {
-    return _smithy.isa(o, "WebACLUpdate");
+    return __isa(o, "WebACLUpdate");
   }
 }
 
@@ -6434,7 +6437,7 @@ export interface XssMatchSet {
 
 export namespace XssMatchSet {
   export function isa(o: any): o is XssMatchSet {
-    return _smithy.isa(o, "XssMatchSet");
+    return __isa(o, "XssMatchSet");
   }
 }
 
@@ -6462,7 +6465,7 @@ export interface XssMatchSetSummary {
 
 export namespace XssMatchSetSummary {
   export function isa(o: any): o is XssMatchSetSummary {
-    return _smithy.isa(o, "XssMatchSetSummary");
+    return __isa(o, "XssMatchSetSummary");
   }
 }
 
@@ -6488,7 +6491,7 @@ export interface XssMatchSetUpdate {
 
 export namespace XssMatchSetUpdate {
   export function isa(o: any): o is XssMatchSetUpdate {
-    return _smithy.isa(o, "XssMatchSetUpdate");
+    return __isa(o, "XssMatchSetUpdate");
   }
 }
 
@@ -6602,6 +6605,6 @@ export interface XssMatchTuple {
 
 export namespace XssMatchTuple {
   export function isa(o: any): o is XssMatchTuple {
-    return _smithy.isa(o, "XssMatchTuple");
+    return __isa(o, "XssMatchTuple");
   }
 }

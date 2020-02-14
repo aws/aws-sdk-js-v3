@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DeleteLexiconInput {
@@ -12,7 +15,7 @@ export interface DeleteLexiconInput {
 
 export namespace DeleteLexiconInput {
   export function isa(o: any): o is DeleteLexiconInput {
-    return _smithy.isa(o, "DeleteLexiconInput");
+    return __isa(o, "DeleteLexiconInput");
   }
 }
 
@@ -22,7 +25,7 @@ export interface DeleteLexiconOutput extends $MetadataBearer {
 
 export namespace DeleteLexiconOutput {
   export function isa(o: any): o is DeleteLexiconOutput {
-    return _smithy.isa(o, "DeleteLexiconOutput");
+    return __isa(o, "DeleteLexiconOutput");
   }
 }
 
@@ -60,7 +63,7 @@ export interface DescribeVoicesInput {
 
 export namespace DescribeVoicesInput {
   export function isa(o: any): o is DescribeVoicesInput {
-    return _smithy.isa(o, "DescribeVoicesInput");
+    return __isa(o, "DescribeVoicesInput");
   }
 }
 
@@ -81,7 +84,7 @@ export interface DescribeVoicesOutput extends $MetadataBearer {
 
 export namespace DescribeVoicesOutput {
   export function isa(o: any): o is DescribeVoicesOutput {
-    return _smithy.isa(o, "DescribeVoicesOutput");
+    return __isa(o, "DescribeVoicesOutput");
   }
 }
 
@@ -95,7 +98,7 @@ export enum Engine {
  *       and restart the operation.</p>
  */
 export interface EngineNotSupportedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "EngineNotSupportedException";
   $fault: "client";
@@ -104,7 +107,7 @@ export interface EngineNotSupportedException
 
 export namespace EngineNotSupportedException {
   export function isa(o: any): o is EngineNotSupportedException {
-    return _smithy.isa(o, "EngineNotSupportedException");
+    return __isa(o, "EngineNotSupportedException");
   }
 }
 
@@ -120,7 +123,7 @@ export interface GetLexiconInput {
 
 export namespace GetLexiconInput {
   export function isa(o: any): o is GetLexiconInput {
-    return _smithy.isa(o, "GetLexiconInput");
+    return __isa(o, "GetLexiconInput");
   }
 }
 
@@ -141,7 +144,7 @@ export interface GetLexiconOutput extends $MetadataBearer {
 
 export namespace GetLexiconOutput {
   export function isa(o: any): o is GetLexiconOutput {
-    return _smithy.isa(o, "GetLexiconOutput");
+    return __isa(o, "GetLexiconOutput");
   }
 }
 
@@ -155,7 +158,7 @@ export interface GetSpeechSynthesisTaskInput {
 
 export namespace GetSpeechSynthesisTaskInput {
   export function isa(o: any): o is GetSpeechSynthesisTaskInput {
-    return _smithy.isa(o, "GetSpeechSynthesisTaskInput");
+    return __isa(o, "GetSpeechSynthesisTaskInput");
   }
 }
 
@@ -170,7 +173,7 @@ export interface GetSpeechSynthesisTaskOutput extends $MetadataBearer {
 
 export namespace GetSpeechSynthesisTaskOutput {
   export function isa(o: any): o is GetSpeechSynthesisTaskOutput {
-    return _smithy.isa(o, "GetSpeechSynthesisTaskOutput");
+    return __isa(o, "GetSpeechSynthesisTaskOutput");
   }
 }
 
@@ -179,7 +182,7 @@ export namespace GetSpeechSynthesisTaskOutput {
  *       Verify that the lexicon's name is spelled correctly, and then try again.</p>
  */
 export interface InvalidLexiconException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidLexiconException";
   $fault: "client";
@@ -188,7 +191,7 @@ export interface InvalidLexiconException
 
 export namespace InvalidLexiconException {
   export function isa(o: any): o is InvalidLexiconException {
-    return _smithy.isa(o, "InvalidLexiconException");
+    return __isa(o, "InvalidLexiconException");
   }
 }
 
@@ -197,7 +200,7 @@ export namespace InvalidLexiconException {
  *       Verify that it's spelled correctly, and then try again.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -206,7 +209,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -215,7 +218,7 @@ export namespace InvalidNextTokenException {
  *       naming requirements and try again.</p>
  */
 export interface InvalidS3BucketException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidS3BucketException";
   $fault: "client";
@@ -224,7 +227,7 @@ export interface InvalidS3BucketException
 
 export namespace InvalidS3BucketException {
   export function isa(o: any): o is InvalidS3BucketException {
-    return _smithy.isa(o, "InvalidS3BucketException");
+    return __isa(o, "InvalidS3BucketException");
   }
 }
 
@@ -232,7 +235,7 @@ export namespace InvalidS3BucketException {
  * <p>The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.</p>
  */
 export interface InvalidS3KeyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidS3KeyException";
   $fault: "client";
@@ -241,7 +244,7 @@ export interface InvalidS3KeyException
 
 export namespace InvalidS3KeyException {
   export function isa(o: any): o is InvalidS3KeyException {
-    return _smithy.isa(o, "InvalidS3KeyException");
+    return __isa(o, "InvalidS3KeyException");
   }
 }
 
@@ -249,7 +252,7 @@ export namespace InvalidS3KeyException {
  * <p>The specified sample rate is not valid.</p>
  */
 export interface InvalidSampleRateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidSampleRateException";
   $fault: "client";
@@ -258,7 +261,7 @@ export interface InvalidSampleRateException
 
 export namespace InvalidSampleRateException {
   export function isa(o: any): o is InvalidSampleRateException {
-    return _smithy.isa(o, "InvalidSampleRateException");
+    return __isa(o, "InvalidSampleRateException");
   }
 }
 
@@ -266,7 +269,7 @@ export namespace InvalidSampleRateException {
  * <p>The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.</p>
  */
 export interface InvalidSnsTopicArnException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidSnsTopicArnException";
   $fault: "client";
@@ -275,7 +278,7 @@ export interface InvalidSnsTopicArnException
 
 export namespace InvalidSnsTopicArnException {
   export function isa(o: any): o is InvalidSnsTopicArnException {
-    return _smithy.isa(o, "InvalidSnsTopicArnException");
+    return __isa(o, "InvalidSnsTopicArnException");
   }
 }
 
@@ -284,7 +287,7 @@ export namespace InvalidSnsTopicArnException {
  *       Verify the SSML syntax, spelling of tags and values, and then try again.</p>
  */
 export interface InvalidSsmlException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidSsmlException";
   $fault: "client";
@@ -293,7 +296,7 @@ export interface InvalidSsmlException
 
 export namespace InvalidSsmlException {
   export function isa(o: any): o is InvalidSsmlException {
-    return _smithy.isa(o, "InvalidSsmlException");
+    return __isa(o, "InvalidSsmlException");
   }
 }
 
@@ -301,7 +304,7 @@ export namespace InvalidSsmlException {
  * <p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>
  */
 export interface InvalidTaskIdException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTaskIdException";
   $fault: "client";
@@ -310,7 +313,7 @@ export interface InvalidTaskIdException
 
 export namespace InvalidTaskIdException {
   export function isa(o: any): o is InvalidTaskIdException {
-    return _smithy.isa(o, "InvalidTaskIdException");
+    return __isa(o, "InvalidTaskIdException");
   }
 }
 
@@ -349,7 +352,7 @@ export type LanguageCode =
  * <p>The language specified is not currently supported by Amazon Polly in this capacity.</p>
  */
 export interface LanguageNotSupportedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LanguageNotSupportedException";
   $fault: "client";
@@ -358,7 +361,7 @@ export interface LanguageNotSupportedException
 
 export namespace LanguageNotSupportedException {
   export function isa(o: any): o is LanguageNotSupportedException {
-    return _smithy.isa(o, "LanguageNotSupportedException");
+    return __isa(o, "LanguageNotSupportedException");
   }
 }
 
@@ -382,7 +385,7 @@ export interface Lexicon {
 
 export namespace Lexicon {
   export function isa(o: any): o is Lexicon {
-    return _smithy.isa(o, "Lexicon");
+    return __isa(o, "Lexicon");
   }
 }
 
@@ -430,7 +433,7 @@ export interface LexiconAttributes {
 
 export namespace LexiconAttributes {
   export function isa(o: any): o is LexiconAttributes {
-    return _smithy.isa(o, "LexiconAttributes");
+    return __isa(o, "LexiconAttributes");
   }
 }
 
@@ -452,7 +455,7 @@ export interface LexiconDescription {
 
 export namespace LexiconDescription {
   export function isa(o: any): o is LexiconDescription {
-    return _smithy.isa(o, "LexiconDescription");
+    return __isa(o, "LexiconDescription");
   }
 }
 
@@ -464,7 +467,7 @@ export namespace LexiconDescription {
  *       and that you spelled its name is spelled correctly. Then try again.</p>
  */
 export interface LexiconNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LexiconNotFoundException";
   $fault: "client";
@@ -473,7 +476,7 @@ export interface LexiconNotFoundException
 
 export namespace LexiconNotFoundException {
   export function isa(o: any): o is LexiconNotFoundException {
-    return _smithy.isa(o, "LexiconNotFoundException");
+    return __isa(o, "LexiconNotFoundException");
   }
 }
 
@@ -481,7 +484,7 @@ export namespace LexiconNotFoundException {
  * <p>The maximum size of the specified lexicon would be exceeded by this operation.</p>
  */
 export interface LexiconSizeExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LexiconSizeExceededException";
   $fault: "client";
@@ -490,7 +493,7 @@ export interface LexiconSizeExceededException
 
 export namespace LexiconSizeExceededException {
   export function isa(o: any): o is LexiconSizeExceededException {
-    return _smithy.isa(o, "LexiconSizeExceededException");
+    return __isa(o, "LexiconSizeExceededException");
   }
 }
 
@@ -506,7 +509,7 @@ export interface ListLexiconsInput {
 
 export namespace ListLexiconsInput {
   export function isa(o: any): o is ListLexiconsInput {
-    return _smithy.isa(o, "ListLexiconsInput");
+    return __isa(o, "ListLexiconsInput");
   }
 }
 
@@ -527,7 +530,7 @@ export interface ListLexiconsOutput extends $MetadataBearer {
 
 export namespace ListLexiconsOutput {
   export function isa(o: any): o is ListLexiconsOutput {
-    return _smithy.isa(o, "ListLexiconsOutput");
+    return __isa(o, "ListLexiconsOutput");
   }
 }
 
@@ -552,7 +555,7 @@ export interface ListSpeechSynthesisTasksInput {
 
 export namespace ListSpeechSynthesisTasksInput {
   export function isa(o: any): o is ListSpeechSynthesisTasksInput {
-    return _smithy.isa(o, "ListSpeechSynthesisTasksInput");
+    return __isa(o, "ListSpeechSynthesisTasksInput");
   }
 }
 
@@ -573,7 +576,7 @@ export interface ListSpeechSynthesisTasksOutput extends $MetadataBearer {
 
 export namespace ListSpeechSynthesisTasksOutput {
   export function isa(o: any): o is ListSpeechSynthesisTasksOutput {
-    return _smithy.isa(o, "ListSpeechSynthesisTasksOutput");
+    return __isa(o, "ListSpeechSynthesisTasksOutput");
   }
 }
 
@@ -582,7 +585,7 @@ export namespace ListSpeechSynthesisTasksOutput {
  *       Speech marks are only available for content in <code>json</code> format.</p>
  */
 export interface MarksNotSupportedForFormatException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MarksNotSupportedForFormatException";
   $fault: "client";
@@ -591,7 +594,7 @@ export interface MarksNotSupportedForFormatException
 
 export namespace MarksNotSupportedForFormatException {
   export function isa(o: any): o is MarksNotSupportedForFormatException {
-    return _smithy.isa(o, "MarksNotSupportedForFormatException");
+    return __isa(o, "MarksNotSupportedForFormatException");
   }
 }
 
@@ -599,7 +602,7 @@ export namespace MarksNotSupportedForFormatException {
  * <p>The maximum size of the lexeme would be exceeded by this operation.</p>
  */
 export interface MaxLexemeLengthExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MaxLexemeLengthExceededException";
   $fault: "client";
@@ -608,7 +611,7 @@ export interface MaxLexemeLengthExceededException
 
 export namespace MaxLexemeLengthExceededException {
   export function isa(o: any): o is MaxLexemeLengthExceededException {
-    return _smithy.isa(o, "MaxLexemeLengthExceededException");
+    return __isa(o, "MaxLexemeLengthExceededException");
   }
 }
 
@@ -616,7 +619,7 @@ export namespace MaxLexemeLengthExceededException {
  * <p>The maximum number of lexicons would be exceeded by this operation.</p>
  */
 export interface MaxLexiconsNumberExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MaxLexiconsNumberExceededException";
   $fault: "client";
@@ -625,7 +628,7 @@ export interface MaxLexiconsNumberExceededException
 
 export namespace MaxLexiconsNumberExceededException {
   export function isa(o: any): o is MaxLexiconsNumberExceededException {
-    return _smithy.isa(o, "MaxLexiconsNumberExceededException");
+    return __isa(o, "MaxLexiconsNumberExceededException");
   }
 }
 
@@ -654,7 +657,7 @@ export interface PutLexiconInput {
 
 export namespace PutLexiconInput {
   export function isa(o: any): o is PutLexiconInput {
-    return _smithy.isa(o, "PutLexiconInput");
+    return __isa(o, "PutLexiconInput");
   }
 }
 
@@ -664,7 +667,7 @@ export interface PutLexiconOutput extends $MetadataBearer {
 
 export namespace PutLexiconOutput {
   export function isa(o: any): o is PutLexiconOutput {
-    return _smithy.isa(o, "PutLexiconOutput");
+    return __isa(o, "PutLexiconOutput");
   }
 }
 
@@ -672,7 +675,7 @@ export namespace PutLexiconOutput {
  * <p>An unknown condition has caused a service failure.</p>
  */
 export interface ServiceFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceFailureException";
   $fault: "server";
@@ -681,7 +684,7 @@ export interface ServiceFailureException
 
 export namespace ServiceFailureException {
   export function isa(o: any): o is ServiceFailureException {
-    return _smithy.isa(o, "ServiceFailureException");
+    return __isa(o, "ServiceFailureException");
   }
 }
 
@@ -696,7 +699,7 @@ export enum SpeechMarkType {
  * <p>SSML speech marks are not supported for plain text-type input.</p>
  */
 export interface SsmlMarksNotSupportedForTextTypeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SsmlMarksNotSupportedForTextTypeException";
   $fault: "client";
@@ -705,7 +708,7 @@ export interface SsmlMarksNotSupportedForTextTypeException
 
 export namespace SsmlMarksNotSupportedForTextTypeException {
   export function isa(o: any): o is SsmlMarksNotSupportedForTextTypeException {
-    return _smithy.isa(o, "SsmlMarksNotSupportedForTextTypeException");
+    return __isa(o, "SsmlMarksNotSupportedForTextTypeException");
   }
 }
 
@@ -787,7 +790,7 @@ export interface StartSpeechSynthesisTaskInput {
 
 export namespace StartSpeechSynthesisTaskInput {
   export function isa(o: any): o is StartSpeechSynthesisTaskInput {
-    return _smithy.isa(o, "StartSpeechSynthesisTaskInput");
+    return __isa(o, "StartSpeechSynthesisTaskInput");
   }
 }
 
@@ -801,7 +804,7 @@ export interface StartSpeechSynthesisTaskOutput extends $MetadataBearer {
 
 export namespace StartSpeechSynthesisTaskOutput {
   export function isa(o: any): o is StartSpeechSynthesisTaskOutput {
-    return _smithy.isa(o, "StartSpeechSynthesisTaskOutput");
+    return __isa(o, "StartSpeechSynthesisTaskOutput");
   }
 }
 
@@ -902,7 +905,7 @@ export interface SynthesisTask {
 
 export namespace SynthesisTask {
   export function isa(o: any): o is SynthesisTask {
-    return _smithy.isa(o, "SynthesisTask");
+    return __isa(o, "SynthesisTask");
   }
 }
 
@@ -910,7 +913,7 @@ export namespace SynthesisTask {
  * <p>The Speech Synthesis task with requested Task ID cannot be found.</p>
  */
 export interface SynthesisTaskNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "SynthesisTaskNotFoundException";
   $fault: "client";
@@ -919,7 +922,7 @@ export interface SynthesisTaskNotFoundException
 
 export namespace SynthesisTaskNotFoundException {
   export function isa(o: any): o is SynthesisTaskNotFoundException {
-    return _smithy.isa(o, "SynthesisTaskNotFoundException");
+    return __isa(o, "SynthesisTaskNotFoundException");
   }
 }
 
@@ -997,7 +1000,7 @@ export interface SynthesizeSpeechInput {
 
 export namespace SynthesizeSpeechInput {
   export function isa(o: any): o is SynthesizeSpeechInput {
-    return _smithy.isa(o, "SynthesizeSpeechInput");
+    return __isa(o, "SynthesizeSpeechInput");
   }
 }
 
@@ -1052,7 +1055,7 @@ export interface SynthesizeSpeechOutput extends $MetadataBearer {
 
 export namespace SynthesizeSpeechOutput {
   export function isa(o: any): o is SynthesizeSpeechOutput {
-    return _smithy.isa(o, "SynthesizeSpeechOutput");
+    return __isa(o, "SynthesizeSpeechOutput");
   }
 }
 
@@ -1070,7 +1073,7 @@ export enum TaskStatus {
  *       SSML tags are not counted as billed characters.</p>
  */
 export interface TextLengthExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TextLengthExceededException";
   $fault: "client";
@@ -1079,7 +1082,7 @@ export interface TextLengthExceededException
 
 export namespace TextLengthExceededException {
   export function isa(o: any): o is TextLengthExceededException {
-    return _smithy.isa(o, "TextLengthExceededException");
+    return __isa(o, "TextLengthExceededException");
   }
 }
 
@@ -1093,7 +1096,7 @@ export enum TextType {
  *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
  */
 export interface UnsupportedPlsAlphabetException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedPlsAlphabetException";
   $fault: "client";
@@ -1102,7 +1105,7 @@ export interface UnsupportedPlsAlphabetException
 
 export namespace UnsupportedPlsAlphabetException {
   export function isa(o: any): o is UnsupportedPlsAlphabetException {
-    return _smithy.isa(o, "UnsupportedPlsAlphabetException");
+    return __isa(o, "UnsupportedPlsAlphabetException");
   }
 }
 
@@ -1111,7 +1114,7 @@ export namespace UnsupportedPlsAlphabetException {
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  */
 export interface UnsupportedPlsLanguageException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedPlsLanguageException";
   $fault: "client";
@@ -1120,7 +1123,7 @@ export interface UnsupportedPlsLanguageException
 
 export namespace UnsupportedPlsLanguageException {
   export function isa(o: any): o is UnsupportedPlsLanguageException {
-    return _smithy.isa(o, "UnsupportedPlsLanguageException");
+    return __isa(o, "UnsupportedPlsLanguageException");
   }
 }
 
@@ -1172,7 +1175,7 @@ export interface Voice {
 
 export namespace Voice {
   export function isa(o: any): o is Voice {
-    return _smithy.isa(o, "Voice");
+    return __isa(o, "Voice");
   }
 }
 

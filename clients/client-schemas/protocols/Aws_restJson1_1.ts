@@ -135,7 +135,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -181,7 +184,7 @@ export async function serializeAws_restJson1_1CreateRegistryCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -189,7 +192,7 @@ export async function serializeAws_restJson1_1CreateRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -222,7 +225,7 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -230,19 +233,19 @@ export async function serializeAws_restJson1_1CreateSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -280,7 +283,7 @@ export async function serializeAws_restJson1_1DeleteDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
-    const labelValue: string = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
@@ -288,7 +291,7 @@ export async function serializeAws_restJson1_1DeleteDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -310,7 +313,7 @@ export async function serializeAws_restJson1_1DeleteRegistryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -318,7 +321,7 @@ export async function serializeAws_restJson1_1DeleteRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -341,7 +344,7 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -349,19 +352,19 @@ export async function serializeAws_restJson1_1DeleteSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -384,7 +387,7 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -392,25 +395,25 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   if (input.SchemaVersion !== undefined) {
-    const labelValue: string = input.SchemaVersion.toString();
+    const labelValue: string = input.SchemaVersion;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: SchemaVersion."
@@ -418,7 +421,7 @@ export async function serializeAws_restJson1_1DeleteSchemaVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaVersion}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaVersion.");
@@ -441,19 +444,19 @@ export async function serializeAws_restJson1_1DescribeCodeBindingCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.Language !== undefined) {
-    const labelValue: string = input.Language.toString();
+    const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Language.");
     }
     resolvedPath = resolvedPath.replace(
       "{Language}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -461,26 +464,28 @@ export async function serializeAws_restJson1_1DescribeCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {};
   if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion.toString();
+    query[
+      __extendedEncodeURIComponent("schemaVersion")
+    ] = __extendedEncodeURIComponent(input.SchemaVersion);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -500,7 +505,7 @@ export async function serializeAws_restJson1_1DescribeDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
-    const labelValue: string = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
@@ -508,7 +513,7 @@ export async function serializeAws_restJson1_1DescribeDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -530,7 +535,7 @@ export async function serializeAws_restJson1_1DescribeRegistryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -538,7 +543,7 @@ export async function serializeAws_restJson1_1DescribeRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -561,7 +566,7 @@ export async function serializeAws_restJson1_1DescribeSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -569,26 +574,28 @@ export async function serializeAws_restJson1_1DescribeSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {};
   if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion.toString();
+    query[
+      __extendedEncodeURIComponent("schemaVersion")
+    ] = __extendedEncodeURIComponent(input.SchemaVersion);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -609,19 +616,19 @@ export async function serializeAws_restJson1_1GetCodeBindingSourceCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
   if (input.Language !== undefined) {
-    const labelValue: string = input.Language.toString();
+    const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Language.");
     }
     resolvedPath = resolvedPath.replace(
       "{Language}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -629,26 +636,28 @@ export async function serializeAws_restJson1_1GetCodeBindingSourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {};
   if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion.toString();
+    query[
+      __extendedEncodeURIComponent("schemaVersion")
+    ] = __extendedEncodeURIComponent(input.SchemaVersion);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -700,16 +709,24 @@ export async function serializeAws_restJson1_1ListDiscoverersCommand(
   let resolvedPath = "/v1/discoverers";
   const query: any = {};
   if (input.DiscovererIdPrefix !== undefined) {
-    query["discovererIdPrefix"] = input.DiscovererIdPrefix.toString();
+    query[
+      __extendedEncodeURIComponent("discovererIdPrefix")
+    ] = __extendedEncodeURIComponent(input.DiscovererIdPrefix);
   }
   if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.Limit.toString()
+    );
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.SourceArnPrefix !== undefined) {
-    query["sourceArnPrefix"] = input.SourceArnPrefix.toString();
+    query[
+      __extendedEncodeURIComponent("sourceArnPrefix")
+    ] = __extendedEncodeURIComponent(input.SourceArnPrefix);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -730,16 +747,24 @@ export async function serializeAws_restJson1_1ListRegistriesCommand(
   let resolvedPath = "/v1/registries";
   const query: any = {};
   if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.Limit.toString()
+    );
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.RegistryNamePrefix !== undefined) {
-    query["registryNamePrefix"] = input.RegistryNamePrefix.toString();
+    query[
+      __extendedEncodeURIComponent("registryNamePrefix")
+    ] = __extendedEncodeURIComponent(input.RegistryNamePrefix);
   }
   if (input.Scope !== undefined) {
-    query["scope"] = input.Scope.toString();
+    query[__extendedEncodeURIComponent("scope")] = __extendedEncodeURIComponent(
+      input.Scope
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -760,7 +785,7 @@ export async function serializeAws_restJson1_1ListSchemaVersionsCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -768,29 +793,33 @@ export async function serializeAws_restJson1_1ListSchemaVersionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.Limit.toString()
+    );
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -810,7 +839,7 @@ export async function serializeAws_restJson1_1ListSchemasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -818,20 +847,26 @@ export async function serializeAws_restJson1_1ListSchemasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.Limit.toString()
+    );
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.SchemaNamePrefix !== undefined) {
-    query["schemaNamePrefix"] = input.SchemaNamePrefix.toString();
+    query[
+      __extendedEncodeURIComponent("schemaNamePrefix")
+    ] = __extendedEncodeURIComponent(input.SchemaNamePrefix);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -851,7 +886,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -859,7 +894,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -908,19 +943,19 @@ export async function serializeAws_restJson1_1PutCodeBindingCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.Language !== undefined) {
-    const labelValue: string = input.Language.toString();
+    const labelValue: string = input.Language;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Language.");
     }
     resolvedPath = resolvedPath.replace(
       "{Language}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Language.");
   }
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -928,26 +963,28 @@ export async function serializeAws_restJson1_1PutCodeBindingCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   const query: any = {};
   if (input.SchemaVersion !== undefined) {
-    query["schemaVersion"] = input.SchemaVersion.toString();
+    query[
+      __extendedEncodeURIComponent("schemaVersion")
+    ] = __extendedEncodeURIComponent(input.SchemaVersion);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -967,7 +1004,7 @@ export async function serializeAws_restJson1_1SearchSchemasCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/search";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -975,20 +1012,26 @@ export async function serializeAws_restJson1_1SearchSchemasCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   const query: any = {};
   if (input.Keywords !== undefined) {
-    query["keywords"] = input.Keywords.toString();
+    query[
+      __extendedEncodeURIComponent("keywords")
+    ] = __extendedEncodeURIComponent(input.Keywords);
   }
   if (input.Limit !== undefined) {
-    query["limit"] = input.Limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.Limit.toString()
+    );
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1008,7 +1051,7 @@ export async function serializeAws_restJson1_1StartDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}/start";
   if (input.DiscovererId !== undefined) {
-    const labelValue: string = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
@@ -1016,7 +1059,7 @@ export async function serializeAws_restJson1_1StartDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -1038,7 +1081,7 @@ export async function serializeAws_restJson1_1StopDiscovererCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}/stop";
   if (input.DiscovererId !== undefined) {
-    const labelValue: string = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
@@ -1046,7 +1089,7 @@ export async function serializeAws_restJson1_1StopDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -1068,7 +1111,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1076,7 +1119,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -1128,7 +1171,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -1136,14 +1179,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1163,7 +1208,7 @@ export async function serializeAws_restJson1_1UpdateDiscovererCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
-    const labelValue: string = input.DiscovererId.toString();
+    const labelValue: string = input.DiscovererId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DiscovererId."
@@ -1171,7 +1216,7 @@ export async function serializeAws_restJson1_1UpdateDiscovererCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DiscovererId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DiscovererId.");
@@ -1200,7 +1245,7 @@ export async function serializeAws_restJson1_1UpdateRegistryCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -1208,7 +1253,7 @@ export async function serializeAws_restJson1_1UpdateRegistryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
@@ -1238,7 +1283,7 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
   let resolvedPath =
     "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
-    const labelValue: string = input.RegistryName.toString();
+    const labelValue: string = input.RegistryName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: RegistryName."
@@ -1246,19 +1291,19 @@ export async function serializeAws_restJson1_1UpdateSchemaCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{RegistryName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   if (input.SchemaName !== undefined) {
-    const labelValue: string = input.SchemaName.toString();
+    const labelValue: string = input.SchemaName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: SchemaName.");
     }
     resolvedPath = resolvedPath.replace(
       "{SchemaName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: SchemaName.");
@@ -1623,6 +1668,7 @@ export async function deserializeAws_restJson1_1DeleteDiscovererCommand(
   const contents: DeleteDiscovererCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1708,6 +1754,7 @@ export async function deserializeAws_restJson1_1DeleteRegistryCommand(
   const contents: DeleteRegistryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1790,6 +1837,7 @@ export async function deserializeAws_restJson1_1DeleteSchemaCommand(
   const contents: DeleteSchemaCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1875,6 +1923,7 @@ export async function deserializeAws_restJson1_1DeleteSchemaVersionCommand(
   const contents: DeleteSchemaVersionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3501,6 +3550,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3573,6 +3623,7 @@ export async function deserializeAws_restJson1_1UnlockServiceLinkedRoleCommand(
     $metadata: deserializeMetadata(output),
     __type: "UnlockServiceLinkedRoleResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3648,6 +3699,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

@@ -1,4 +1,8 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -6,7 +10,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       failed, is still in progress, or contains unbuilt changes. </p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -15,16 +19,14 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
 /**
  * <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
@@ -32,7 +34,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -40,7 +42,7 @@ export namespace ConflictException {
  * <p>Internal service error. Retry the call.</p>
  */
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -49,7 +51,7 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
@@ -57,7 +59,7 @@ export namespace InternalFailureException {
  * <p>Exceeded a limit.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -67,7 +69,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -75,7 +77,7 @@ export namespace LimitExceededException {
  * <p>The accept header in the request does not have a valid value.</p>
  */
 export interface NotAcceptableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAcceptableException";
   $fault: "client";
@@ -84,7 +86,7 @@ export interface NotAcceptableException
 
 export namespace NotAcceptableException {
   export function isa(o: any): o is NotAcceptableException {
-    return _smithy.isa(o, "NotAcceptableException");
+    return __isa(o, "NotAcceptableException");
   }
 }
 
@@ -92,9 +94,7 @@ export namespace NotAcceptableException {
  * <p>The resource (such as the Amazon Lex bot or an alias) that is referred to is not
  *       found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -102,7 +102,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -110,7 +110,7 @@ export namespace NotFoundException {
  * <p>The input speech is too long.</p>
  */
 export interface RequestTimeoutException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RequestTimeoutException";
   $fault: "client";
@@ -119,7 +119,7 @@ export interface RequestTimeoutException
 
 export namespace RequestTimeoutException {
   export function isa(o: any): o is RequestTimeoutException {
-    return _smithy.isa(o, "RequestTimeoutException");
+    return __isa(o, "RequestTimeoutException");
   }
 }
 
@@ -127,7 +127,7 @@ export namespace RequestTimeoutException {
  * <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
  */
 export interface UnsupportedMediaTypeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedMediaTypeException";
   $fault: "client";
@@ -136,7 +136,7 @@ export interface UnsupportedMediaTypeException
 
 export namespace UnsupportedMediaTypeException {
   export function isa(o: any): o is UnsupportedMediaTypeException {
-    return _smithy.isa(o, "UnsupportedMediaTypeException");
+    return __isa(o, "UnsupportedMediaTypeException");
   }
 }
 
@@ -145,7 +145,7 @@ export namespace UnsupportedMediaTypeException {
  *       AWS Lambda) failed with an internal service error.</p>
  */
 export interface BadGatewayException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadGatewayException";
   $fault: "server";
@@ -154,7 +154,7 @@ export interface BadGatewayException
 
 export namespace BadGatewayException {
   export function isa(o: any): o is BadGatewayException {
-    return _smithy.isa(o, "BadGatewayException");
+    return __isa(o, "BadGatewayException");
   }
 }
 
@@ -184,7 +184,7 @@ export interface DeleteSessionRequest {
 
 export namespace DeleteSessionRequest {
   export function isa(o: any): o is DeleteSessionRequest {
-    return _smithy.isa(o, "DeleteSessionRequest");
+    return __isa(o, "DeleteSessionRequest");
   }
 }
 
@@ -213,7 +213,7 @@ export interface DeleteSessionResponse extends $MetadataBearer {
 
 export namespace DeleteSessionResponse {
   export function isa(o: any): o is DeleteSessionResponse {
-    return _smithy.isa(o, "DeleteSessionResponse");
+    return __isa(o, "DeleteSessionResponse");
   }
 }
 
@@ -233,7 +233,7 @@ export namespace DeleteSessionResponse {
  *          </ul>
  */
 export interface DependencyFailedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DependencyFailedException";
   $fault: "client";
@@ -242,7 +242,7 @@ export interface DependencyFailedException
 
 export namespace DependencyFailedException {
   export function isa(o: any): o is DependencyFailedException {
-    return _smithy.isa(o, "DependencyFailedException");
+    return __isa(o, "DependencyFailedException");
   }
 }
 
@@ -358,7 +358,7 @@ export interface DialogAction {
 
 export namespace DialogAction {
   export function isa(o: any): o is DialogAction {
-    return _smithy.isa(o, "DialogAction");
+    return __isa(o, "DialogAction");
   }
 }
 
@@ -414,7 +414,7 @@ export interface GetSessionRequest {
 
 export namespace GetSessionRequest {
   export function isa(o: any): o is GetSessionRequest {
-    return _smithy.isa(o, "GetSessionRequest");
+    return __isa(o, "GetSessionRequest");
   }
 }
 
@@ -449,7 +449,7 @@ export interface GetSessionResponse extends $MetadataBearer {
 
 export namespace GetSessionResponse {
   export function isa(o: any): o is GetSessionResponse {
-    return _smithy.isa(o, "GetSessionResponse");
+    return __isa(o, "GetSessionResponse");
   }
 }
 
@@ -563,7 +563,7 @@ export interface IntentSummary {
 
 export namespace IntentSummary {
   export function isa(o: any): o is IntentSummary {
-    return _smithy.isa(o, "IntentSummary");
+    return __isa(o, "IntentSummary");
   }
 }
 
@@ -571,7 +571,7 @@ export namespace IntentSummary {
  * <p>This exception is not used.</p>
  */
 export interface LoopDetectedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LoopDetectedException";
   $fault: "server";
@@ -580,7 +580,7 @@ export interface LoopDetectedException
 
 export namespace LoopDetectedException {
   export function isa(o: any): o is LoopDetectedException {
-    return _smithy.isa(o, "LoopDetectedException");
+    return __isa(o, "LoopDetectedException");
   }
 }
 
@@ -708,7 +708,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request
    *         Attributes</a>.</p>
    */
-  requestAttributes?: string;
+  requestAttributes?: __LazyJsonString | string;
 
   /**
    * <p>You pass this value as the <code>x-amz-lex-session-attributes</code> HTTP header.</p>
@@ -719,7 +719,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session
    *         Attributes</a>.</p>
    */
-  sessionAttributes?: string;
+  sessionAttributes?: __LazyJsonString | string;
 
   /**
    * <p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
@@ -753,7 +753,7 @@ export interface PostContentRequest {
 
 export namespace PostContentRequest {
   export function isa(o: any): o is PostContentRequest {
-    return _smithy.isa(o, "PostContentRequest");
+    return __isa(o, "PostContentRequest");
   }
 }
 
@@ -892,7 +892,7 @@ export interface PostContentResponse extends $MetadataBearer {
   /**
    * <p> Map of key/value pairs representing the session-specific context information. </p>
    */
-  sessionAttributes?: string;
+  sessionAttributes?: __LazyJsonString | string;
 
   /**
    * <p>The unique identifier for the session.</p>
@@ -917,12 +917,12 @@ export interface PostContentResponse extends $MetadataBearer {
    *       there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>,
    *       the default is <code>ORIGINAL_VALUE</code>.</p>
    */
-  slots?: string;
+  slots?: __LazyJsonString | string;
 }
 
 export namespace PostContentResponse {
   export function isa(o: any): o is PostContentResponse {
-    return _smithy.isa(o, "PostContentResponse");
+    return __isa(o, "PostContentResponse");
   }
 }
 
@@ -991,7 +991,7 @@ export interface PostTextRequest {
 
 export namespace PostTextRequest {
   export function isa(o: any): o is PostTextRequest {
-    return _smithy.isa(o, "PostTextRequest");
+    return __isa(o, "PostTextRequest");
   }
 }
 
@@ -1142,7 +1142,7 @@ export interface PostTextResponse extends $MetadataBearer {
 
 export namespace PostTextResponse {
   export function isa(o: any): o is PostTextResponse {
-    return _smithy.isa(o, "PostTextResponse");
+    return __isa(o, "PostTextResponse");
   }
 }
 
@@ -1258,7 +1258,7 @@ export interface PutSessionRequest {
 
 export namespace PutSessionRequest {
   export function isa(o: any): o is PutSessionRequest {
-    return _smithy.isa(o, "PutSessionRequest");
+    return __isa(o, "PutSessionRequest");
   }
 }
 
@@ -1349,7 +1349,7 @@ export interface PutSessionResponse extends $MetadataBearer {
   /**
    * <p>Map of key/value pairs representing session-specific context information.</p>
    */
-  sessionAttributes?: string;
+  sessionAttributes?: __LazyJsonString | string;
 
   /**
    * <p>A unique identifier for the session.</p>
@@ -1374,12 +1374,12 @@ export interface PutSessionResponse extends $MetadataBearer {
    *       there is no resolution list, null. If you don't specify a <code>valueSelectionStrategy</code>
    *       the default is <code>ORIGINAL_VALUE</code>. </p>
    */
-  slots?: string;
+  slots?: __LazyJsonString | string;
 }
 
 export namespace PutSessionResponse {
   export function isa(o: any): o is PutSessionResponse {
-    return _smithy.isa(o, "PutSessionResponse");
+    return __isa(o, "PutSessionResponse");
   }
 }
 
@@ -1403,7 +1403,7 @@ export interface SentimentResponse {
 
 export namespace SentimentResponse {
   export function isa(o: any): o is SentimentResponse {
-    return _smithy.isa(o, "SentimentResponse");
+    return __isa(o, "SentimentResponse");
   }
 }
 
@@ -1426,7 +1426,7 @@ export interface Button {
 
 export namespace Button {
   export function isa(o: any): o is Button {
-    return _smithy.isa(o, "Button");
+    return __isa(o, "Button");
   }
 }
 
@@ -1468,7 +1468,7 @@ export interface GenericAttachment {
 
 export namespace GenericAttachment {
   export function isa(o: any): o is GenericAttachment {
-    return _smithy.isa(o, "GenericAttachment");
+    return __isa(o, "GenericAttachment");
   }
 }
 
@@ -1498,6 +1498,6 @@ export interface ResponseCard {
 
 export namespace ResponseCard {
   export function isa(o: any): o is ResponseCard {
-    return _smithy.isa(o, "ResponseCard");
+    return __isa(o, "ResponseCard");
   }
 }

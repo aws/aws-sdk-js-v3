@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface Attributes {
@@ -7,7 +10,7 @@ export interface Attributes {
 
 export namespace Attributes {
   export function isa(o: any): o is Attributes {
-    return _smithy.isa(o, "Attributes");
+    return __isa(o, "Attributes");
   }
 }
 
@@ -21,7 +24,7 @@ export interface ClaimDevicesByClaimCodeRequest {
 
 export namespace ClaimDevicesByClaimCodeRequest {
   export function isa(o: any): o is ClaimDevicesByClaimCodeRequest {
-    return _smithy.isa(o, "ClaimDevicesByClaimCodeRequest");
+    return __isa(o, "ClaimDevicesByClaimCodeRequest");
   }
 }
 
@@ -41,7 +44,7 @@ export interface ClaimDevicesByClaimCodeResponse extends $MetadataBearer {
 
 export namespace ClaimDevicesByClaimCodeResponse {
   export function isa(o: any): o is ClaimDevicesByClaimCodeResponse {
-    return _smithy.isa(o, "ClaimDevicesByClaimCodeResponse");
+    return __isa(o, "ClaimDevicesByClaimCodeResponse");
   }
 }
 
@@ -55,7 +58,7 @@ export interface DescribeDeviceRequest {
 
 export namespace DescribeDeviceRequest {
   export function isa(o: any): o is DescribeDeviceRequest {
-    return _smithy.isa(o, "DescribeDeviceRequest");
+    return __isa(o, "DescribeDeviceRequest");
   }
 }
 
@@ -69,7 +72,7 @@ export interface DescribeDeviceResponse extends $MetadataBearer {
 
 export namespace DescribeDeviceResponse {
   export function isa(o: any): o is DescribeDeviceResponse {
-    return _smithy.isa(o, "DescribeDeviceResponse");
+    return __isa(o, "DescribeDeviceResponse");
   }
 }
 
@@ -93,7 +96,7 @@ export interface Device {
 
 export namespace Device {
   export function isa(o: any): o is Device {
-    return _smithy.isa(o, "Device");
+    return __isa(o, "Device");
   }
 }
 
@@ -139,7 +142,7 @@ export interface DeviceDescription {
 
 export namespace DeviceDescription {
   export function isa(o: any): o is DeviceDescription {
-    return _smithy.isa(o, "DeviceDescription");
+    return __isa(o, "DeviceDescription");
   }
 }
 
@@ -158,7 +161,7 @@ export interface DeviceEvent {
 
 export namespace DeviceEvent {
   export function isa(o: any): o is DeviceEvent {
-    return _smithy.isa(o, "DeviceEvent");
+    return __isa(o, "DeviceEvent");
   }
 }
 
@@ -177,7 +180,7 @@ export interface DeviceMethod {
 
 export namespace DeviceMethod {
   export function isa(o: any): o is DeviceMethod {
-    return _smithy.isa(o, "DeviceMethod");
+    return __isa(o, "DeviceMethod");
   }
 }
 
@@ -200,7 +203,7 @@ export interface FinalizeDeviceClaimRequest {
 
 export namespace FinalizeDeviceClaimRequest {
   export function isa(o: any): o is FinalizeDeviceClaimRequest {
-    return _smithy.isa(o, "FinalizeDeviceClaimRequest");
+    return __isa(o, "FinalizeDeviceClaimRequest");
   }
 }
 
@@ -214,13 +217,11 @@ export interface FinalizeDeviceClaimResponse extends $MetadataBearer {
 
 export namespace FinalizeDeviceClaimResponse {
   export function isa(o: any): o is FinalizeDeviceClaimResponse {
-    return _smithy.isa(o, "FinalizeDeviceClaimResponse");
+    return __isa(o, "FinalizeDeviceClaimResponse");
   }
 }
 
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -236,7 +237,7 @@ export interface ForbiddenException
 
 export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
-    return _smithy.isa(o, "ForbiddenException");
+    return __isa(o, "ForbiddenException");
   }
 }
 
@@ -250,7 +251,7 @@ export interface GetDeviceMethodsRequest {
 
 export namespace GetDeviceMethodsRequest {
   export function isa(o: any): o is GetDeviceMethodsRequest {
-    return _smithy.isa(o, "GetDeviceMethodsRequest");
+    return __isa(o, "GetDeviceMethodsRequest");
   }
 }
 
@@ -264,7 +265,7 @@ export interface GetDeviceMethodsResponse extends $MetadataBearer {
 
 export namespace GetDeviceMethodsResponse {
   export function isa(o: any): o is GetDeviceMethodsResponse {
-    return _smithy.isa(o, "GetDeviceMethodsResponse");
+    return __isa(o, "GetDeviceMethodsResponse");
   }
 }
 
@@ -278,7 +279,7 @@ export interface InitiateDeviceClaimRequest {
 
 export namespace InitiateDeviceClaimRequest {
   export function isa(o: any): o is InitiateDeviceClaimRequest {
-    return _smithy.isa(o, "InitiateDeviceClaimRequest");
+    return __isa(o, "InitiateDeviceClaimRequest");
   }
 }
 
@@ -292,12 +293,12 @@ export interface InitiateDeviceClaimResponse extends $MetadataBearer {
 
 export namespace InitiateDeviceClaimResponse {
   export function isa(o: any): o is InitiateDeviceClaimResponse {
-    return _smithy.isa(o, "InitiateDeviceClaimResponse");
+    return __isa(o, "InitiateDeviceClaimResponse");
   }
 }
 
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -314,12 +315,12 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -336,7 +337,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -360,7 +361,7 @@ export interface InvokeDeviceMethodRequest {
 
 export namespace InvokeDeviceMethodRequest {
   export function isa(o: any): o is InvokeDeviceMethodRequest {
-    return _smithy.isa(o, "InvokeDeviceMethodRequest");
+    return __isa(o, "InvokeDeviceMethodRequest");
   }
 }
 
@@ -374,7 +375,7 @@ export interface InvokeDeviceMethodResponse extends $MetadataBearer {
 
 export namespace InvokeDeviceMethodResponse {
   export function isa(o: any): o is InvokeDeviceMethodResponse {
-    return _smithy.isa(o, "InvokeDeviceMethodResponse");
+    return __isa(o, "InvokeDeviceMethodResponse");
   }
 }
 
@@ -413,7 +414,7 @@ export interface ListDeviceEventsRequest {
 
 export namespace ListDeviceEventsRequest {
   export function isa(o: any): o is ListDeviceEventsRequest {
-    return _smithy.isa(o, "ListDeviceEventsRequest");
+    return __isa(o, "ListDeviceEventsRequest");
   }
 }
 
@@ -433,7 +434,7 @@ export interface ListDeviceEventsResponse extends $MetadataBearer {
 
 export namespace ListDeviceEventsResponse {
   export function isa(o: any): o is ListDeviceEventsResponse {
-    return _smithy.isa(o, "ListDeviceEventsResponse");
+    return __isa(o, "ListDeviceEventsResponse");
   }
 }
 
@@ -458,7 +459,7 @@ export interface ListDevicesRequest {
 
 export namespace ListDevicesRequest {
   export function isa(o: any): o is ListDevicesRequest {
-    return _smithy.isa(o, "ListDevicesRequest");
+    return __isa(o, "ListDevicesRequest");
   }
 }
 
@@ -477,7 +478,7 @@ export interface ListDevicesResponse extends $MetadataBearer {
 
 export namespace ListDevicesResponse {
   export function isa(o: any): o is ListDevicesResponse {
-    return _smithy.isa(o, "ListDevicesResponse");
+    return __isa(o, "ListDevicesResponse");
   }
 }
 
@@ -491,7 +492,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -509,12 +510,12 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
 export interface PreconditionFailedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PreconditionFailedException";
   $fault: "client";
@@ -531,12 +532,12 @@ export interface PreconditionFailedException
 
 export namespace PreconditionFailedException {
   export function isa(o: any): o is PreconditionFailedException {
-    return _smithy.isa(o, "PreconditionFailedException");
+    return __isa(o, "PreconditionFailedException");
   }
 }
 
 export interface RangeNotSatisfiableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RangeNotSatisfiableException";
   $fault: "client";
@@ -554,12 +555,12 @@ export interface RangeNotSatisfiableException
 
 export namespace RangeNotSatisfiableException {
   export function isa(o: any): o is RangeNotSatisfiableException {
-    return _smithy.isa(o, "RangeNotSatisfiableException");
+    return __isa(o, "RangeNotSatisfiableException");
   }
 }
 
 export interface ResourceConflictException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
@@ -576,12 +577,12 @@ export interface ResourceConflictException
 
 export namespace ResourceConflictException {
   export function isa(o: any): o is ResourceConflictException {
-    return _smithy.isa(o, "ResourceConflictException");
+    return __isa(o, "ResourceConflictException");
   }
 }
 
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -598,7 +599,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -621,7 +622,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -635,7 +636,7 @@ export interface UnclaimDeviceRequest {
 
 export namespace UnclaimDeviceRequest {
   export function isa(o: any): o is UnclaimDeviceRequest {
-    return _smithy.isa(o, "UnclaimDeviceRequest");
+    return __isa(o, "UnclaimDeviceRequest");
   }
 }
 
@@ -649,7 +650,7 @@ export interface UnclaimDeviceResponse extends $MetadataBearer {
 
 export namespace UnclaimDeviceResponse {
   export function isa(o: any): o is UnclaimDeviceResponse {
-    return _smithy.isa(o, "UnclaimDeviceResponse");
+    return __isa(o, "UnclaimDeviceResponse");
   }
 }
 
@@ -668,7 +669,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -688,7 +689,7 @@ export interface UpdateDeviceStateRequest {
 
 export namespace UpdateDeviceStateRequest {
   export function isa(o: any): o is UpdateDeviceStateRequest {
-    return _smithy.isa(o, "UpdateDeviceStateRequest");
+    return __isa(o, "UpdateDeviceStateRequest");
   }
 }
 
@@ -698,6 +699,6 @@ export interface UpdateDeviceStateResponse extends $MetadataBearer {
 
 export namespace UpdateDeviceStateResponse {
   export function isa(o: any): o is UpdateDeviceStateResponse {
-    return _smithy.isa(o, "UpdateDeviceStateResponse");
+    return __isa(o, "UpdateDeviceStateResponse");
   }
 }

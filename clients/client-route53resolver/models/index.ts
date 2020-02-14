@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateResolverEndpointIpAddressRequest {
@@ -17,7 +20,7 @@ export interface AssociateResolverEndpointIpAddressRequest {
 
 export namespace AssociateResolverEndpointIpAddressRequest {
   export function isa(o: any): o is AssociateResolverEndpointIpAddressRequest {
-    return _smithy.isa(o, "AssociateResolverEndpointIpAddressRequest");
+    return __isa(o, "AssociateResolverEndpointIpAddressRequest");
   }
 }
 
@@ -32,7 +35,7 @@ export interface AssociateResolverEndpointIpAddressResponse
 
 export namespace AssociateResolverEndpointIpAddressResponse {
   export function isa(o: any): o is AssociateResolverEndpointIpAddressResponse {
-    return _smithy.isa(o, "AssociateResolverEndpointIpAddressResponse");
+    return __isa(o, "AssociateResolverEndpointIpAddressResponse");
   }
 }
 
@@ -57,7 +60,7 @@ export interface AssociateResolverRuleRequest {
 
 export namespace AssociateResolverRuleRequest {
   export function isa(o: any): o is AssociateResolverRuleRequest {
-    return _smithy.isa(o, "AssociateResolverRuleRequest");
+    return __isa(o, "AssociateResolverRuleRequest");
   }
 }
 
@@ -71,7 +74,7 @@ export interface AssociateResolverRuleResponse extends $MetadataBearer {
 
 export namespace AssociateResolverRuleResponse {
   export function isa(o: any): o is AssociateResolverRuleResponse {
-    return _smithy.isa(o, "AssociateResolverRuleResponse");
+    return __isa(o, "AssociateResolverRuleResponse");
   }
 }
 
@@ -123,7 +126,7 @@ export interface CreateResolverEndpointRequest {
 
 export namespace CreateResolverEndpointRequest {
   export function isa(o: any): o is CreateResolverEndpointRequest {
-    return _smithy.isa(o, "CreateResolverEndpointRequest");
+    return __isa(o, "CreateResolverEndpointRequest");
   }
 }
 
@@ -137,7 +140,7 @@ export interface CreateResolverEndpointResponse extends $MetadataBearer {
 
 export namespace CreateResolverEndpointResponse {
   export function isa(o: any): o is CreateResolverEndpointResponse {
-    return _smithy.isa(o, "CreateResolverEndpointResponse");
+    return __isa(o, "CreateResolverEndpointResponse");
   }
 }
 
@@ -185,7 +188,7 @@ export interface CreateResolverRuleRequest {
 
 export namespace CreateResolverRuleRequest {
   export function isa(o: any): o is CreateResolverRuleRequest {
-    return _smithy.isa(o, "CreateResolverRuleRequest");
+    return __isa(o, "CreateResolverRuleRequest");
   }
 }
 
@@ -199,7 +202,7 @@ export interface CreateResolverRuleResponse extends $MetadataBearer {
 
 export namespace CreateResolverRuleResponse {
   export function isa(o: any): o is CreateResolverRuleResponse {
-    return _smithy.isa(o, "CreateResolverRuleResponse");
+    return __isa(o, "CreateResolverRuleResponse");
   }
 }
 
@@ -213,7 +216,7 @@ export interface DeleteResolverEndpointRequest {
 
 export namespace DeleteResolverEndpointRequest {
   export function isa(o: any): o is DeleteResolverEndpointRequest {
-    return _smithy.isa(o, "DeleteResolverEndpointRequest");
+    return __isa(o, "DeleteResolverEndpointRequest");
   }
 }
 
@@ -227,7 +230,7 @@ export interface DeleteResolverEndpointResponse extends $MetadataBearer {
 
 export namespace DeleteResolverEndpointResponse {
   export function isa(o: any): o is DeleteResolverEndpointResponse {
-    return _smithy.isa(o, "DeleteResolverEndpointResponse");
+    return __isa(o, "DeleteResolverEndpointResponse");
   }
 }
 
@@ -241,7 +244,7 @@ export interface DeleteResolverRuleRequest {
 
 export namespace DeleteResolverRuleRequest {
   export function isa(o: any): o is DeleteResolverRuleRequest {
-    return _smithy.isa(o, "DeleteResolverRuleRequest");
+    return __isa(o, "DeleteResolverRuleRequest");
   }
 }
 
@@ -255,7 +258,7 @@ export interface DeleteResolverRuleResponse extends $MetadataBearer {
 
 export namespace DeleteResolverRuleResponse {
   export function isa(o: any): o is DeleteResolverRuleResponse {
-    return _smithy.isa(o, "DeleteResolverRuleResponse");
+    return __isa(o, "DeleteResolverRuleResponse");
   }
 }
 
@@ -276,7 +279,7 @@ export namespace DisassociateResolverEndpointIpAddressRequest {
   export function isa(
     o: any
   ): o is DisassociateResolverEndpointIpAddressRequest {
-    return _smithy.isa(o, "DisassociateResolverEndpointIpAddressRequest");
+    return __isa(o, "DisassociateResolverEndpointIpAddressRequest");
   }
 }
 
@@ -293,7 +296,7 @@ export namespace DisassociateResolverEndpointIpAddressResponse {
   export function isa(
     o: any
   ): o is DisassociateResolverEndpointIpAddressResponse {
-    return _smithy.isa(o, "DisassociateResolverEndpointIpAddressResponse");
+    return __isa(o, "DisassociateResolverEndpointIpAddressResponse");
   }
 }
 
@@ -312,7 +315,7 @@ export interface DisassociateResolverRuleRequest {
 
 export namespace DisassociateResolverRuleRequest {
   export function isa(o: any): o is DisassociateResolverRuleRequest {
-    return _smithy.isa(o, "DisassociateResolverRuleRequest");
+    return __isa(o, "DisassociateResolverRuleRequest");
   }
 }
 
@@ -326,7 +329,7 @@ export interface DisassociateResolverRuleResponse extends $MetadataBearer {
 
 export namespace DisassociateResolverRuleResponse {
   export function isa(o: any): o is DisassociateResolverRuleResponse {
-    return _smithy.isa(o, "DisassociateResolverRuleResponse");
+    return __isa(o, "DisassociateResolverRuleResponse");
   }
 }
 
@@ -352,7 +355,7 @@ export interface Filter {
 
 export namespace Filter {
   export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
+    return __isa(o, "Filter");
   }
 }
 
@@ -366,7 +369,7 @@ export interface GetResolverEndpointRequest {
 
 export namespace GetResolverEndpointRequest {
   export function isa(o: any): o is GetResolverEndpointRequest {
-    return _smithy.isa(o, "GetResolverEndpointRequest");
+    return __isa(o, "GetResolverEndpointRequest");
   }
 }
 
@@ -380,7 +383,7 @@ export interface GetResolverEndpointResponse extends $MetadataBearer {
 
 export namespace GetResolverEndpointResponse {
   export function isa(o: any): o is GetResolverEndpointResponse {
-    return _smithy.isa(o, "GetResolverEndpointResponse");
+    return __isa(o, "GetResolverEndpointResponse");
   }
 }
 
@@ -394,7 +397,7 @@ export interface GetResolverRuleAssociationRequest {
 
 export namespace GetResolverRuleAssociationRequest {
   export function isa(o: any): o is GetResolverRuleAssociationRequest {
-    return _smithy.isa(o, "GetResolverRuleAssociationRequest");
+    return __isa(o, "GetResolverRuleAssociationRequest");
   }
 }
 
@@ -408,7 +411,7 @@ export interface GetResolverRuleAssociationResponse extends $MetadataBearer {
 
 export namespace GetResolverRuleAssociationResponse {
   export function isa(o: any): o is GetResolverRuleAssociationResponse {
-    return _smithy.isa(o, "GetResolverRuleAssociationResponse");
+    return __isa(o, "GetResolverRuleAssociationResponse");
   }
 }
 
@@ -422,7 +425,7 @@ export interface GetResolverRulePolicyRequest {
 
 export namespace GetResolverRulePolicyRequest {
   export function isa(o: any): o is GetResolverRulePolicyRequest {
-    return _smithy.isa(o, "GetResolverRulePolicyRequest");
+    return __isa(o, "GetResolverRulePolicyRequest");
   }
 }
 
@@ -436,7 +439,7 @@ export interface GetResolverRulePolicyResponse extends $MetadataBearer {
 
 export namespace GetResolverRulePolicyResponse {
   export function isa(o: any): o is GetResolverRulePolicyResponse {
-    return _smithy.isa(o, "GetResolverRulePolicyResponse");
+    return __isa(o, "GetResolverRulePolicyResponse");
   }
 }
 
@@ -450,7 +453,7 @@ export interface GetResolverRuleRequest {
 
 export namespace GetResolverRuleRequest {
   export function isa(o: any): o is GetResolverRuleRequest {
-    return _smithy.isa(o, "GetResolverRuleRequest");
+    return __isa(o, "GetResolverRuleRequest");
   }
 }
 
@@ -464,7 +467,7 @@ export interface GetResolverRuleResponse extends $MetadataBearer {
 
 export namespace GetResolverRuleResponse {
   export function isa(o: any): o is GetResolverRuleResponse {
-    return _smithy.isa(o, "GetResolverRuleResponse");
+    return __isa(o, "GetResolverRuleResponse");
   }
 }
 
@@ -472,7 +475,7 @@ export namespace GetResolverRuleResponse {
  * <p>We encountered an unknown error. Try again in a few minutes.</p>
  */
 export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "client";
@@ -481,7 +484,7 @@ export interface InternalServiceErrorException
 
 export namespace InternalServiceErrorException {
   export function isa(o: any): o is InternalServiceErrorException {
-    return _smithy.isa(o, "InternalServiceErrorException");
+    return __isa(o, "InternalServiceErrorException");
   }
 }
 
@@ -489,7 +492,7 @@ export namespace InternalServiceErrorException {
  * <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -498,7 +501,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -506,7 +509,7 @@ export namespace InvalidNextTokenException {
  * <p>One or more parameters in this request are not valid.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -520,7 +523,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -528,7 +531,7 @@ export namespace InvalidParameterException {
  * <p>The specified resolver rule policy is invalid.</p>
  */
 export interface InvalidPolicyDocument
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPolicyDocument";
   $fault: "client";
@@ -537,7 +540,7 @@ export interface InvalidPolicyDocument
 
 export namespace InvalidPolicyDocument {
   export function isa(o: any): o is InvalidPolicyDocument {
-    return _smithy.isa(o, "InvalidPolicyDocument");
+    return __isa(o, "InvalidPolicyDocument");
   }
 }
 
@@ -545,7 +548,7 @@ export namespace InvalidPolicyDocument {
  * <p>The request is invalid.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -554,7 +557,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -562,7 +565,7 @@ export namespace InvalidRequestException {
  * <p>The specified tag is invalid.</p>
  */
 export interface InvalidTagException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
@@ -571,7 +574,7 @@ export interface InvalidTagException
 
 export namespace InvalidTagException {
   export function isa(o: any): o is InvalidTagException {
-    return _smithy.isa(o, "InvalidTagException");
+    return __isa(o, "InvalidTagException");
   }
 }
 
@@ -593,7 +596,7 @@ export interface IpAddressRequest {
 
 export namespace IpAddressRequest {
   export function isa(o: any): o is IpAddressRequest {
-    return _smithy.isa(o, "IpAddressRequest");
+    return __isa(o, "IpAddressRequest");
   }
 }
 
@@ -641,7 +644,7 @@ export interface IpAddressResponse {
 
 export namespace IpAddressResponse {
   export function isa(o: any): o is IpAddressResponse {
-    return _smithy.isa(o, "IpAddressResponse");
+    return __isa(o, "IpAddressResponse");
   }
 }
 
@@ -683,7 +686,7 @@ export interface IpAddressUpdate {
 
 export namespace IpAddressUpdate {
   export function isa(o: any): o is IpAddressUpdate {
-    return _smithy.isa(o, "IpAddressUpdate");
+    return __isa(o, "IpAddressUpdate");
   }
 }
 
@@ -691,7 +694,7 @@ export namespace IpAddressUpdate {
  * <p>The request caused one or more limits to be exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -704,7 +707,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -732,7 +735,7 @@ export interface ListResolverEndpointIpAddressesRequest {
 
 export namespace ListResolverEndpointIpAddressesRequest {
   export function isa(o: any): o is ListResolverEndpointIpAddressesRequest {
-    return _smithy.isa(o, "ListResolverEndpointIpAddressesRequest");
+    return __isa(o, "ListResolverEndpointIpAddressesRequest");
   }
 }
 
@@ -760,7 +763,7 @@ export interface ListResolverEndpointIpAddressesResponse
 
 export namespace ListResolverEndpointIpAddressesResponse {
   export function isa(o: any): o is ListResolverEndpointIpAddressesResponse {
-    return _smithy.isa(o, "ListResolverEndpointIpAddressesResponse");
+    return __isa(o, "ListResolverEndpointIpAddressesResponse");
   }
 }
 
@@ -791,7 +794,7 @@ export interface ListResolverEndpointsRequest {
 
 export namespace ListResolverEndpointsRequest {
   export function isa(o: any): o is ListResolverEndpointsRequest {
-    return _smithy.isa(o, "ListResolverEndpointsRequest");
+    return __isa(o, "ListResolverEndpointsRequest");
   }
 }
 
@@ -816,7 +819,7 @@ export interface ListResolverEndpointsResponse extends $MetadataBearer {
 
 export namespace ListResolverEndpointsResponse {
   export function isa(o: any): o is ListResolverEndpointsResponse {
-    return _smithy.isa(o, "ListResolverEndpointsResponse");
+    return __isa(o, "ListResolverEndpointsResponse");
   }
 }
 
@@ -847,7 +850,7 @@ export interface ListResolverRuleAssociationsRequest {
 
 export namespace ListResolverRuleAssociationsRequest {
   export function isa(o: any): o is ListResolverRuleAssociationsRequest {
-    return _smithy.isa(o, "ListResolverRuleAssociationsRequest");
+    return __isa(o, "ListResolverRuleAssociationsRequest");
   }
 }
 
@@ -874,7 +877,7 @@ export interface ListResolverRuleAssociationsResponse extends $MetadataBearer {
 
 export namespace ListResolverRuleAssociationsResponse {
   export function isa(o: any): o is ListResolverRuleAssociationsResponse {
-    return _smithy.isa(o, "ListResolverRuleAssociationsResponse");
+    return __isa(o, "ListResolverRuleAssociationsResponse");
   }
 }
 
@@ -905,7 +908,7 @@ export interface ListResolverRulesRequest {
 
 export namespace ListResolverRulesRequest {
   export function isa(o: any): o is ListResolverRulesRequest {
-    return _smithy.isa(o, "ListResolverRulesRequest");
+    return __isa(o, "ListResolverRulesRequest");
   }
 }
 
@@ -931,7 +934,7 @@ export interface ListResolverRulesResponse extends $MetadataBearer {
 
 export namespace ListResolverRulesResponse {
   export function isa(o: any): o is ListResolverRulesResponse {
-    return _smithy.isa(o, "ListResolverRulesResponse");
+    return __isa(o, "ListResolverRulesResponse");
   }
 }
 
@@ -958,7 +961,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -979,7 +982,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -998,7 +1001,7 @@ export interface PutResolverRulePolicyRequest {
 
 export namespace PutResolverRulePolicyRequest {
   export function isa(o: any): o is PutResolverRulePolicyRequest {
-    return _smithy.isa(o, "PutResolverRulePolicyRequest");
+    return __isa(o, "PutResolverRulePolicyRequest");
   }
 }
 
@@ -1015,7 +1018,7 @@ export interface PutResolverRulePolicyResponse extends $MetadataBearer {
 
 export namespace PutResolverRulePolicyResponse {
   export function isa(o: any): o is PutResolverRulePolicyResponse {
-    return _smithy.isa(o, "PutResolverRulePolicyResponse");
+    return __isa(o, "PutResolverRulePolicyResponse");
   }
 }
 
@@ -1100,7 +1103,7 @@ export interface ResolverEndpoint {
 
 export namespace ResolverEndpoint {
   export function isa(o: any): o is ResolverEndpoint {
-    return _smithy.isa(o, "ResolverEndpoint");
+    return __isa(o, "ResolverEndpoint");
   }
 }
 
@@ -1193,7 +1196,7 @@ export interface ResolverRule {
 
 export namespace ResolverRule {
   export function isa(o: any): o is ResolverRule {
-    return _smithy.isa(o, "ResolverRule");
+    return __isa(o, "ResolverRule");
   }
 }
 
@@ -1238,7 +1241,7 @@ export interface ResolverRuleAssociation {
 
 export namespace ResolverRuleAssociation {
   export function isa(o: any): o is ResolverRuleAssociation {
-    return _smithy.isa(o, "ResolverRuleAssociation");
+    return __isa(o, "ResolverRuleAssociation");
   }
 }
 
@@ -1274,7 +1277,7 @@ export interface ResolverRuleConfig {
 
 export namespace ResolverRuleConfig {
   export function isa(o: any): o is ResolverRuleConfig {
-    return _smithy.isa(o, "ResolverRuleConfig");
+    return __isa(o, "ResolverRuleConfig");
   }
 }
 
@@ -1289,7 +1292,7 @@ export enum ResolverRuleStatus {
  * <p>The resource that you tried to create already exists.</p>
  */
 export interface ResourceExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceExistsException";
   $fault: "client";
@@ -1302,7 +1305,7 @@ export interface ResourceExistsException
 
 export namespace ResourceExistsException {
   export function isa(o: any): o is ResourceExistsException {
-    return _smithy.isa(o, "ResourceExistsException");
+    return __isa(o, "ResourceExistsException");
   }
 }
 
@@ -1310,7 +1313,7 @@ export namespace ResourceExistsException {
  * <p>The resource that you tried to update or delete is currently in use.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -1323,7 +1326,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -1331,7 +1334,7 @@ export namespace ResourceInUseException {
  * <p>The specified resource doesn't exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1344,7 +1347,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1352,7 +1355,7 @@ export namespace ResourceNotFoundException {
  * <p>The specified resource isn't available.</p>
  */
 export interface ResourceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceUnavailableException";
   $fault: "client";
@@ -1365,7 +1368,7 @@ export interface ResourceUnavailableException
 
 export namespace ResourceUnavailableException {
   export function isa(o: any): o is ResourceUnavailableException {
-    return _smithy.isa(o, "ResourceUnavailableException");
+    return __isa(o, "ResourceUnavailableException");
   }
 }
 
@@ -1401,7 +1404,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1453,7 +1456,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1463,7 +1466,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1485,7 +1488,7 @@ export interface TargetAddress {
 
 export namespace TargetAddress {
   export function isa(o: any): o is TargetAddress {
-    return _smithy.isa(o, "TargetAddress");
+    return __isa(o, "TargetAddress");
   }
 }
 
@@ -1493,7 +1496,7 @@ export namespace TargetAddress {
  * <p>The request was throttled. Try again in a few minutes.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -1502,7 +1505,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -1510,7 +1513,7 @@ export namespace ThrottlingException {
  * <p>The specified resource doesn't exist.</p>
  */
 export interface UnknownResourceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnknownResourceException";
   $fault: "client";
@@ -1519,7 +1522,7 @@ export interface UnknownResourceException
 
 export namespace UnknownResourceException {
   export function isa(o: any): o is UnknownResourceException {
-    return _smithy.isa(o, "UnknownResourceException");
+    return __isa(o, "UnknownResourceException");
   }
 }
 
@@ -1571,7 +1574,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1581,7 +1584,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1600,7 +1603,7 @@ export interface UpdateResolverEndpointRequest {
 
 export namespace UpdateResolverEndpointRequest {
   export function isa(o: any): o is UpdateResolverEndpointRequest {
-    return _smithy.isa(o, "UpdateResolverEndpointRequest");
+    return __isa(o, "UpdateResolverEndpointRequest");
   }
 }
 
@@ -1614,7 +1617,7 @@ export interface UpdateResolverEndpointResponse extends $MetadataBearer {
 
 export namespace UpdateResolverEndpointResponse {
   export function isa(o: any): o is UpdateResolverEndpointResponse {
-    return _smithy.isa(o, "UpdateResolverEndpointResponse");
+    return __isa(o, "UpdateResolverEndpointResponse");
   }
 }
 
@@ -1633,7 +1636,7 @@ export interface UpdateResolverRuleRequest {
 
 export namespace UpdateResolverRuleRequest {
   export function isa(o: any): o is UpdateResolverRuleRequest {
-    return _smithy.isa(o, "UpdateResolverRuleRequest");
+    return __isa(o, "UpdateResolverRuleRequest");
   }
 }
 
@@ -1647,6 +1650,6 @@ export interface UpdateResolverRuleResponse extends $MetadataBearer {
 
 export namespace UpdateResolverRuleResponse {
   export function isa(o: any): o is UpdateResolverRuleResponse {
-    return _smithy.isa(o, "UpdateResolverRuleResponse");
+    return __isa(o, "UpdateResolverRuleResponse");
   }
 }

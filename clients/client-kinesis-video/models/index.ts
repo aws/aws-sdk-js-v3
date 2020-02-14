@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum APIName {
@@ -14,7 +17,7 @@ export enum APIName {
  * <p>You do not have required permissions to perform this operation.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -23,7 +26,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -32,7 +35,7 @@ export namespace AccessDeniedException {
  *             in this region.</p>
  */
 export interface AccountChannelLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccountChannelLimitExceededException";
   $fault: "client";
@@ -41,7 +44,7 @@ export interface AccountChannelLimitExceededException
 
 export namespace AccountChannelLimitExceededException {
   export function isa(o: any): o is AccountChannelLimitExceededException {
-    return _smithy.isa(o, "AccountChannelLimitExceededException");
+    return __isa(o, "AccountChannelLimitExceededException");
   }
 }
 
@@ -49,7 +52,7 @@ export namespace AccountChannelLimitExceededException {
  * <p>The number of streams created for the account is too high.</p>
  */
 export interface AccountStreamLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccountStreamLimitExceededException";
   $fault: "client";
@@ -58,7 +61,7 @@ export interface AccountStreamLimitExceededException
 
 export namespace AccountStreamLimitExceededException {
   export function isa(o: any): o is AccountStreamLimitExceededException {
-    return _smithy.isa(o, "AccountStreamLimitExceededException");
+    return __isa(o, "AccountStreamLimitExceededException");
   }
 }
 
@@ -106,7 +109,7 @@ export interface ChannelInfo {
 
 export namespace ChannelInfo {
   export function isa(o: any): o is ChannelInfo {
-    return _smithy.isa(o, "ChannelInfo");
+    return __isa(o, "ChannelInfo");
   }
 }
 
@@ -132,7 +135,7 @@ export interface ChannelNameCondition {
 
 export namespace ChannelNameCondition {
   export function isa(o: any): o is ChannelNameCondition {
-    return _smithy.isa(o, "ChannelNameCondition");
+    return __isa(o, "ChannelNameCondition");
   }
 }
 
@@ -155,7 +158,7 @@ export enum ChannelType {
  *             allowed client calls. Try making the call later.</p>
  */
 export interface ClientLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ClientLimitExceededException";
   $fault: "client";
@@ -164,7 +167,7 @@ export interface ClientLimitExceededException
 
 export namespace ClientLimitExceededException {
   export function isa(o: any): o is ClientLimitExceededException {
-    return _smithy.isa(o, "ClientLimitExceededException");
+    return __isa(o, "ClientLimitExceededException");
   }
 }
 
@@ -200,7 +203,7 @@ export interface CreateSignalingChannelInput {
 
 export namespace CreateSignalingChannelInput {
   export function isa(o: any): o is CreateSignalingChannelInput {
-    return _smithy.isa(o, "CreateSignalingChannelInput");
+    return __isa(o, "CreateSignalingChannelInput");
   }
 }
 
@@ -214,7 +217,7 @@ export interface CreateSignalingChannelOutput extends $MetadataBearer {
 
 export namespace CreateSignalingChannelOutput {
   export function isa(o: any): o is CreateSignalingChannelOutput {
-    return _smithy.isa(o, "CreateSignalingChannelOutput");
+    return __isa(o, "CreateSignalingChannelOutput");
   }
 }
 
@@ -277,7 +280,7 @@ export interface CreateStreamInput {
 
 export namespace CreateStreamInput {
   export function isa(o: any): o is CreateStreamInput {
-    return _smithy.isa(o, "CreateStreamInput");
+    return __isa(o, "CreateStreamInput");
   }
 }
 
@@ -291,7 +294,7 @@ export interface CreateStreamOutput extends $MetadataBearer {
 
 export namespace CreateStreamOutput {
   export function isa(o: any): o is CreateStreamOutput {
-    return _smithy.isa(o, "CreateStreamOutput");
+    return __isa(o, "CreateStreamOutput");
   }
 }
 
@@ -312,7 +315,7 @@ export interface DeleteSignalingChannelInput {
 
 export namespace DeleteSignalingChannelInput {
   export function isa(o: any): o is DeleteSignalingChannelInput {
-    return _smithy.isa(o, "DeleteSignalingChannelInput");
+    return __isa(o, "DeleteSignalingChannelInput");
   }
 }
 
@@ -322,7 +325,7 @@ export interface DeleteSignalingChannelOutput extends $MetadataBearer {
 
 export namespace DeleteSignalingChannelOutput {
   export function isa(o: any): o is DeleteSignalingChannelOutput {
-    return _smithy.isa(o, "DeleteSignalingChannelOutput");
+    return __isa(o, "DeleteSignalingChannelOutput");
   }
 }
 
@@ -345,7 +348,7 @@ export interface DeleteStreamInput {
 
 export namespace DeleteStreamInput {
   export function isa(o: any): o is DeleteStreamInput {
-    return _smithy.isa(o, "DeleteStreamInput");
+    return __isa(o, "DeleteStreamInput");
   }
 }
 
@@ -355,7 +358,7 @@ export interface DeleteStreamOutput extends $MetadataBearer {
 
 export namespace DeleteStreamOutput {
   export function isa(o: any): o is DeleteStreamOutput {
-    return _smithy.isa(o, "DeleteStreamOutput");
+    return __isa(o, "DeleteStreamOutput");
   }
 }
 
@@ -374,7 +377,7 @@ export interface DescribeSignalingChannelInput {
 
 export namespace DescribeSignalingChannelInput {
   export function isa(o: any): o is DescribeSignalingChannelInput {
-    return _smithy.isa(o, "DescribeSignalingChannelInput");
+    return __isa(o, "DescribeSignalingChannelInput");
   }
 }
 
@@ -389,7 +392,7 @@ export interface DescribeSignalingChannelOutput extends $MetadataBearer {
 
 export namespace DescribeSignalingChannelOutput {
   export function isa(o: any): o is DescribeSignalingChannelOutput {
-    return _smithy.isa(o, "DescribeSignalingChannelOutput");
+    return __isa(o, "DescribeSignalingChannelOutput");
   }
 }
 
@@ -408,7 +411,7 @@ export interface DescribeStreamInput {
 
 export namespace DescribeStreamInput {
   export function isa(o: any): o is DescribeStreamInput {
-    return _smithy.isa(o, "DescribeStreamInput");
+    return __isa(o, "DescribeStreamInput");
   }
 }
 
@@ -422,7 +425,7 @@ export interface DescribeStreamOutput extends $MetadataBearer {
 
 export namespace DescribeStreamOutput {
   export function isa(o: any): o is DescribeStreamOutput {
-    return _smithy.isa(o, "DescribeStreamOutput");
+    return __isa(o, "DescribeStreamOutput");
   }
 }
 
@@ -431,7 +434,7 @@ export namespace DescribeStreamOutput {
  *             </p>
  */
 export interface DeviceStreamLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DeviceStreamLimitExceededException";
   $fault: "client";
@@ -440,7 +443,7 @@ export interface DeviceStreamLimitExceededException
 
 export namespace DeviceStreamLimitExceededException {
   export function isa(o: any): o is DeviceStreamLimitExceededException {
-    return _smithy.isa(o, "DeviceStreamLimitExceededException");
+    return __isa(o, "DeviceStreamLimitExceededException");
   }
 }
 
@@ -467,7 +470,7 @@ export interface GetDataEndpointInput {
 
 export namespace GetDataEndpointInput {
   export function isa(o: any): o is GetDataEndpointInput {
-    return _smithy.isa(o, "GetDataEndpointInput");
+    return __isa(o, "GetDataEndpointInput");
   }
 }
 
@@ -482,7 +485,7 @@ export interface GetDataEndpointOutput extends $MetadataBearer {
 
 export namespace GetDataEndpointOutput {
   export function isa(o: any): o is GetDataEndpointOutput {
-    return _smithy.isa(o, "GetDataEndpointOutput");
+    return __isa(o, "GetDataEndpointOutput");
   }
 }
 
@@ -502,7 +505,7 @@ export interface GetSignalingChannelEndpointInput {
 
 export namespace GetSignalingChannelEndpointInput {
   export function isa(o: any): o is GetSignalingChannelEndpointInput {
-    return _smithy.isa(o, "GetSignalingChannelEndpointInput");
+    return __isa(o, "GetSignalingChannelEndpointInput");
   }
 }
 
@@ -516,7 +519,7 @@ export interface GetSignalingChannelEndpointOutput extends $MetadataBearer {
 
 export namespace GetSignalingChannelEndpointOutput {
   export function isa(o: any): o is GetSignalingChannelEndpointOutput {
-    return _smithy.isa(o, "GetSignalingChannelEndpointOutput");
+    return __isa(o, "GetSignalingChannelEndpointOutput");
   }
 }
 
@@ -524,7 +527,7 @@ export namespace GetSignalingChannelEndpointOutput {
  * <p>The value for this input parameter is invalid.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -533,7 +536,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -541,7 +544,7 @@ export namespace InvalidArgumentException {
  * <p>Not implemented.</p>
  */
 export interface InvalidDeviceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDeviceException";
   $fault: "client";
@@ -550,7 +553,7 @@ export interface InvalidDeviceException
 
 export namespace InvalidDeviceException {
   export function isa(o: any): o is InvalidDeviceException {
-    return _smithy.isa(o, "InvalidDeviceException");
+    return __isa(o, "InvalidDeviceException");
   }
 }
 
@@ -558,7 +561,7 @@ export namespace InvalidDeviceException {
  * <p>The format of the <code>StreamARN</code> is invalid.</p>
  */
 export interface InvalidResourceFormatException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidResourceFormatException";
   $fault: "client";
@@ -567,7 +570,7 @@ export interface InvalidResourceFormatException
 
 export namespace InvalidResourceFormatException {
   export function isa(o: any): o is InvalidResourceFormatException {
-    return _smithy.isa(o, "InvalidResourceFormatException");
+    return __isa(o, "InvalidResourceFormatException");
   }
 }
 
@@ -593,7 +596,7 @@ export interface ListSignalingChannelsInput {
 
 export namespace ListSignalingChannelsInput {
   export function isa(o: any): o is ListSignalingChannelsInput {
-    return _smithy.isa(o, "ListSignalingChannelsInput");
+    return __isa(o, "ListSignalingChannelsInput");
   }
 }
 
@@ -613,7 +616,7 @@ export interface ListSignalingChannelsOutput extends $MetadataBearer {
 
 export namespace ListSignalingChannelsOutput {
   export function isa(o: any): o is ListSignalingChannelsOutput {
-    return _smithy.isa(o, "ListSignalingChannelsOutput");
+    return __isa(o, "ListSignalingChannelsOutput");
   }
 }
 
@@ -641,7 +644,7 @@ export interface ListStreamsInput {
 
 export namespace ListStreamsInput {
   export function isa(o: any): o is ListStreamsInput {
-    return _smithy.isa(o, "ListStreamsInput");
+    return __isa(o, "ListStreamsInput");
   }
 }
 
@@ -661,7 +664,7 @@ export interface ListStreamsOutput extends $MetadataBearer {
 
 export namespace ListStreamsOutput {
   export function isa(o: any): o is ListStreamsOutput {
-    return _smithy.isa(o, "ListStreamsOutput");
+    return __isa(o, "ListStreamsOutput");
   }
 }
 
@@ -682,7 +685,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -703,7 +706,7 @@ export interface ListTagsForResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
-    return _smithy.isa(o, "ListTagsForResourceOutput");
+    return __isa(o, "ListTagsForResourceOutput");
   }
 }
 
@@ -730,7 +733,7 @@ export interface ListTagsForStreamInput {
 
 export namespace ListTagsForStreamInput {
   export function isa(o: any): o is ListTagsForStreamInput {
-    return _smithy.isa(o, "ListTagsForStreamInput");
+    return __isa(o, "ListTagsForStreamInput");
   }
 }
 
@@ -751,7 +754,7 @@ export interface ListTagsForStreamOutput extends $MetadataBearer {
 
 export namespace ListTagsForStreamOutput {
   export function isa(o: any): o is ListTagsForStreamOutput {
-    return _smithy.isa(o, "ListTagsForStreamOutput");
+    return __isa(o, "ListTagsForStreamOutput");
   }
 }
 
@@ -759,7 +762,7 @@ export namespace ListTagsForStreamOutput {
  * <p>The caller is not authorized to perform this operation.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -768,7 +771,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -793,7 +796,7 @@ export interface ResourceEndpointListItem {
 
 export namespace ResourceEndpointListItem {
   export function isa(o: any): o is ResourceEndpointListItem {
-    return _smithy.isa(o, "ResourceEndpointListItem");
+    return __isa(o, "ResourceEndpointListItem");
   }
 }
 
@@ -801,7 +804,7 @@ export namespace ResourceEndpointListItem {
  * <p>The stream is currently not available for this operation.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -810,7 +813,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -818,7 +821,7 @@ export namespace ResourceInUseException {
  * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -827,7 +830,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -858,7 +861,7 @@ export interface SingleMasterChannelEndpointConfiguration {
 
 export namespace SingleMasterChannelEndpointConfiguration {
   export function isa(o: any): o is SingleMasterChannelEndpointConfiguration {
-    return _smithy.isa(o, "SingleMasterChannelEndpointConfiguration");
+    return __isa(o, "SingleMasterChannelEndpointConfiguration");
   }
 }
 
@@ -877,7 +880,7 @@ export interface SingleMasterConfiguration {
 
 export namespace SingleMasterConfiguration {
   export function isa(o: any): o is SingleMasterConfiguration {
-    return _smithy.isa(o, "SingleMasterConfiguration");
+    return __isa(o, "SingleMasterConfiguration");
   }
 }
 
@@ -942,7 +945,7 @@ export interface StreamInfo {
 
 export namespace StreamInfo {
   export function isa(o: any): o is StreamInfo {
-    return _smithy.isa(o, "StreamInfo");
+    return __isa(o, "StreamInfo");
   }
 }
 
@@ -968,7 +971,7 @@ export interface StreamNameCondition {
 
 export namespace StreamNameCondition {
   export function isa(o: any): o is StreamNameCondition {
-    return _smithy.isa(o, "StreamNameCondition");
+    return __isa(o, "StreamNameCondition");
   }
 }
 
@@ -990,7 +993,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1010,7 +1013,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -1020,7 +1023,7 @@ export interface TagResourceOutput extends $MetadataBearer {
 
 export namespace TagResourceOutput {
   export function isa(o: any): o is TagResourceOutput {
-    return _smithy.isa(o, "TagResourceOutput");
+    return __isa(o, "TagResourceOutput");
   }
 }
 
@@ -1046,7 +1049,7 @@ export interface TagStreamInput {
 
 export namespace TagStreamInput {
   export function isa(o: any): o is TagStreamInput {
-    return _smithy.isa(o, "TagStreamInput");
+    return __isa(o, "TagStreamInput");
   }
 }
 
@@ -1056,7 +1059,7 @@ export interface TagStreamOutput extends $MetadataBearer {
 
 export namespace TagStreamOutput {
   export function isa(o: any): o is TagStreamOutput {
-    return _smithy.isa(o, "TagStreamOutput");
+    return __isa(o, "TagStreamOutput");
   }
 }
 
@@ -1065,7 +1068,7 @@ export namespace TagStreamOutput {
  *             Kinesis video streams support up to 50 tags. </p>
  */
 export interface TagsPerResourceExceededLimitException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TagsPerResourceExceededLimitException";
   $fault: "client";
@@ -1074,7 +1077,7 @@ export interface TagsPerResourceExceededLimitException
 
 export namespace TagsPerResourceExceededLimitException {
   export function isa(o: any): o is TagsPerResourceExceededLimitException {
-    return _smithy.isa(o, "TagsPerResourceExceededLimitException");
+    return __isa(o, "TagsPerResourceExceededLimitException");
   }
 }
 
@@ -1093,7 +1096,7 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }
 
@@ -1103,7 +1106,7 @@ export interface UntagResourceOutput extends $MetadataBearer {
 
 export namespace UntagResourceOutput {
   export function isa(o: any): o is UntagResourceOutput {
-    return _smithy.isa(o, "UntagResourceOutput");
+    return __isa(o, "UntagResourceOutput");
   }
 }
 
@@ -1128,7 +1131,7 @@ export interface UntagStreamInput {
 
 export namespace UntagStreamInput {
   export function isa(o: any): o is UntagStreamInput {
-    return _smithy.isa(o, "UntagStreamInput");
+    return __isa(o, "UntagStreamInput");
   }
 }
 
@@ -1138,7 +1141,7 @@ export interface UntagStreamOutput extends $MetadataBearer {
 
 export namespace UntagStreamOutput {
   export function isa(o: any): o is UntagStreamOutput {
-    return _smithy.isa(o, "UntagStreamOutput");
+    return __isa(o, "UntagStreamOutput");
   }
 }
 
@@ -1176,7 +1179,7 @@ export interface UpdateDataRetentionInput {
 
 export namespace UpdateDataRetentionInput {
   export function isa(o: any): o is UpdateDataRetentionInput {
-    return _smithy.isa(o, "UpdateDataRetentionInput");
+    return __isa(o, "UpdateDataRetentionInput");
   }
 }
 
@@ -1191,7 +1194,7 @@ export interface UpdateDataRetentionOutput extends $MetadataBearer {
 
 export namespace UpdateDataRetentionOutput {
   export function isa(o: any): o is UpdateDataRetentionOutput {
-    return _smithy.isa(o, "UpdateDataRetentionOutput");
+    return __isa(o, "UpdateDataRetentionOutput");
   }
 }
 
@@ -1216,7 +1219,7 @@ export interface UpdateSignalingChannelInput {
 
 export namespace UpdateSignalingChannelInput {
   export function isa(o: any): o is UpdateSignalingChannelInput {
-    return _smithy.isa(o, "UpdateSignalingChannelInput");
+    return __isa(o, "UpdateSignalingChannelInput");
   }
 }
 
@@ -1226,7 +1229,7 @@ export interface UpdateSignalingChannelOutput extends $MetadataBearer {
 
 export namespace UpdateSignalingChannelOutput {
   export function isa(o: any): o is UpdateSignalingChannelOutput {
-    return _smithy.isa(o, "UpdateSignalingChannelOutput");
+    return __isa(o, "UpdateSignalingChannelOutput");
   }
 }
 
@@ -1273,7 +1276,7 @@ export interface UpdateStreamInput {
 
 export namespace UpdateStreamInput {
   export function isa(o: any): o is UpdateStreamInput {
-    return _smithy.isa(o, "UpdateStreamInput");
+    return __isa(o, "UpdateStreamInput");
   }
 }
 
@@ -1283,7 +1286,7 @@ export interface UpdateStreamOutput extends $MetadataBearer {
 
 export namespace UpdateStreamOutput {
   export function isa(o: any): o is UpdateStreamOutput {
-    return _smithy.isa(o, "UpdateStreamOutput");
+    return __isa(o, "UpdateStreamOutput");
   }
 }
 
@@ -1293,7 +1296,7 @@ export namespace UpdateStreamOutput {
  *             API.</p>
  */
 export interface VersionMismatchException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "VersionMismatchException";
   $fault: "client";
@@ -1302,6 +1305,6 @@ export interface VersionMismatchException
 
 export namespace VersionMismatchException {
   export function isa(o: any): o is VersionMismatchException {
-    return _smithy.isa(o, "VersionMismatchException");
+    return __isa(o, "VersionMismatchException");
   }
 }

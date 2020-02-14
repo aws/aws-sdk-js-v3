@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An unexpected error has occurred.</p>
  */
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -17,7 +20,7 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
@@ -25,7 +28,7 @@ export namespace InternalFailureException {
  * <p>The request is not valid.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -37,7 +40,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -45,7 +48,7 @@ export namespace InvalidRequestException {
  * <p>The specified resource does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -57,7 +60,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -65,7 +68,7 @@ export namespace ResourceNotFoundException {
  * <p>The service is temporarily unavailable.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -77,7 +80,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -85,7 +88,7 @@ export namespace ServiceUnavailableException {
  * <p>The rate exceeds the limit.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -97,7 +100,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -105,7 +108,7 @@ export namespace ThrottlingException {
  * <p>You are not authorized to perform this operation.</p>
  */
 export interface UnauthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
@@ -117,7 +120,7 @@ export interface UnauthorizedException
 
 export namespace UnauthorizedException {
   export function isa(o: any): o is UnauthorizedException {
-    return _smithy.isa(o, "UnauthorizedException");
+    return __isa(o, "UnauthorizedException");
   }
 }
 
@@ -125,7 +128,7 @@ export namespace UnauthorizedException {
  * <p>The document encoding is not supported.</p>
  */
 export interface UnsupportedDocumentEncodingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedDocumentEncodingException";
   $fault: "client";
@@ -137,16 +140,14 @@ export interface UnsupportedDocumentEncodingException
 
 export namespace UnsupportedDocumentEncodingException {
   export function isa(o: any): o is UnsupportedDocumentEncodingException {
-    return _smithy.isa(o, "UnsupportedDocumentEncodingException");
+    return __isa(o, "UnsupportedDocumentEncodingException");
   }
 }
 
 /**
  * <p>The specified version does not match the version of the document.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
@@ -157,7 +158,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -174,7 +175,7 @@ export interface DeleteThingShadowRequest {
 
 export namespace DeleteThingShadowRequest {
   export function isa(o: any): o is DeleteThingShadowRequest {
-    return _smithy.isa(o, "DeleteThingShadowRequest");
+    return __isa(o, "DeleteThingShadowRequest");
   }
 }
 
@@ -191,7 +192,7 @@ export interface DeleteThingShadowResponse extends $MetadataBearer {
 
 export namespace DeleteThingShadowResponse {
   export function isa(o: any): o is DeleteThingShadowResponse {
-    return _smithy.isa(o, "DeleteThingShadowResponse");
+    return __isa(o, "DeleteThingShadowResponse");
   }
 }
 
@@ -208,7 +209,7 @@ export interface GetThingShadowRequest {
 
 export namespace GetThingShadowRequest {
   export function isa(o: any): o is GetThingShadowRequest {
-    return _smithy.isa(o, "GetThingShadowRequest");
+    return __isa(o, "GetThingShadowRequest");
   }
 }
 
@@ -225,7 +226,7 @@ export interface GetThingShadowResponse extends $MetadataBearer {
 
 export namespace GetThingShadowResponse {
   export function isa(o: any): o is GetThingShadowResponse {
-    return _smithy.isa(o, "GetThingShadowResponse");
+    return __isa(o, "GetThingShadowResponse");
   }
 }
 
@@ -233,7 +234,7 @@ export namespace GetThingShadowResponse {
  * <p>The specified combination of HTTP verb and URI is not supported.</p>
  */
 export interface MethodNotAllowedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MethodNotAllowedException";
   $fault: "client";
@@ -245,7 +246,7 @@ export interface MethodNotAllowedException
 
 export namespace MethodNotAllowedException {
   export function isa(o: any): o is MethodNotAllowedException {
-    return _smithy.isa(o, "MethodNotAllowedException");
+    return __isa(o, "MethodNotAllowedException");
   }
 }
 
@@ -272,7 +273,7 @@ export interface PublishRequest {
 
 export namespace PublishRequest {
   export function isa(o: any): o is PublishRequest {
-    return _smithy.isa(o, "PublishRequest");
+    return __isa(o, "PublishRequest");
   }
 }
 
@@ -280,7 +281,7 @@ export namespace PublishRequest {
  * <p>The payload exceeds the maximum size allowed.</p>
  */
 export interface RequestEntityTooLargeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RequestEntityTooLargeException";
   $fault: "client";
@@ -292,7 +293,7 @@ export interface RequestEntityTooLargeException
 
 export namespace RequestEntityTooLargeException {
   export function isa(o: any): o is RequestEntityTooLargeException {
-    return _smithy.isa(o, "RequestEntityTooLargeException");
+    return __isa(o, "RequestEntityTooLargeException");
   }
 }
 
@@ -314,7 +315,7 @@ export interface UpdateThingShadowRequest {
 
 export namespace UpdateThingShadowRequest {
   export function isa(o: any): o is UpdateThingShadowRequest {
-    return _smithy.isa(o, "UpdateThingShadowRequest");
+    return __isa(o, "UpdateThingShadowRequest");
   }
 }
 
@@ -331,6 +332,6 @@ export interface UpdateThingShadowResponse extends $MetadataBearer {
 
 export namespace UpdateThingShadowResponse {
   export function isa(o: any): o is UpdateThingShadowResponse {
-    return _smithy.isa(o, "UpdateThingShadowResponse");
+    return __isa(o, "UpdateThingShadowResponse");
   }
 }

@@ -30,7 +30,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -79,7 +82,7 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
-    const labelValue: string = input.AssociationArn.toString();
+    const labelValue: string = input.AssociationArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssociationArn."
@@ -87,7 +90,7 @@ export async function serializeAws_restJson1_1DescribeRepositoryAssociationComma
     }
     resolvedPath = resolvedPath.replace(
       "{AssociationArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
@@ -109,7 +112,7 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/associations/{AssociationArn}";
   if (input.AssociationArn !== undefined) {
-    const labelValue: string = input.AssociationArn.toString();
+    const labelValue: string = input.AssociationArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: AssociationArn."
@@ -117,7 +120,7 @@ export async function serializeAws_restJson1_1DisassociateRepositoryCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{AssociationArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: AssociationArn.");
@@ -140,22 +143,34 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
   let resolvedPath = "/associations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.Names !== undefined) {
-    query["Name"] = input.Names;
+    query[__extendedEncodeURIComponent("Name")] = input.Names.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.Owners !== undefined) {
-    query["Owner"] = input.Owners;
+    query[__extendedEncodeURIComponent("Owner")] = input.Owners.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   if (input.ProviderTypes !== undefined) {
-    query["ProviderType"] = input.ProviderTypes;
+    query[
+      __extendedEncodeURIComponent("ProviderType")
+    ] = input.ProviderTypes.map(entry => __extendedEncodeURIComponent(entry));
   }
   if (input.States !== undefined) {
-    query["State"] = input.States;
+    query[__extendedEncodeURIComponent("State")] = input.States.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,

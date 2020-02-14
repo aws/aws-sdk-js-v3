@@ -78,7 +78,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -95,7 +98,7 @@ export async function serializeAws_restJson1_1CancelSigningProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName.toString();
+    const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profileName."
@@ -103,7 +106,7 @@ export async function serializeAws_restJson1_1CancelSigningProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profileName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
@@ -125,13 +128,13 @@ export async function serializeAws_restJson1_1DescribeSigningJobCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-jobs/{jobId}";
   if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId.toString();
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
     resolvedPath = resolvedPath.replace(
       "{jobId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
@@ -153,13 +156,13 @@ export async function serializeAws_restJson1_1GetSigningPlatformCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-platforms/{platformId}";
   if (input.platformId !== undefined) {
-    const labelValue: string = input.platformId.toString();
+    const labelValue: string = input.platformId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: platformId.");
     }
     resolvedPath = resolvedPath.replace(
       "{platformId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: platformId.");
@@ -181,7 +184,7 @@ export async function serializeAws_restJson1_1GetSigningProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName.toString();
+    const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profileName."
@@ -189,7 +192,7 @@ export async function serializeAws_restJson1_1GetSigningProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profileName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
@@ -212,19 +215,29 @@ export async function serializeAws_restJson1_1ListSigningJobsCommand(
   let resolvedPath = "/signing-jobs";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   if (input.platformId !== undefined) {
-    query["platformId"] = input.platformId.toString();
+    query[
+      __extendedEncodeURIComponent("platformId")
+    ] = __extendedEncodeURIComponent(input.platformId);
   }
   if (input.requestedBy !== undefined) {
-    query["requestedBy"] = input.requestedBy.toString();
+    query[
+      __extendedEncodeURIComponent("requestedBy")
+    ] = __extendedEncodeURIComponent(input.requestedBy);
   }
   if (input.status !== undefined) {
-    query["status"] = input.status.toString();
+    query[
+      __extendedEncodeURIComponent("status")
+    ] = __extendedEncodeURIComponent(input.status);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -245,19 +258,29 @@ export async function serializeAws_restJson1_1ListSigningPlatformsCommand(
   let resolvedPath = "/signing-platforms";
   const query: any = {};
   if (input.category !== undefined) {
-    query["category"] = input.category.toString();
+    query[
+      __extendedEncodeURIComponent("category")
+    ] = __extendedEncodeURIComponent(input.category);
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   if (input.partner !== undefined) {
-    query["partner"] = input.partner.toString();
+    query[
+      __extendedEncodeURIComponent("partner")
+    ] = __extendedEncodeURIComponent(input.partner);
   }
   if (input.target !== undefined) {
-    query["target"] = input.target.toString();
+    query[
+      __extendedEncodeURIComponent("target")
+    ] = __extendedEncodeURIComponent(input.target);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -278,13 +301,19 @@ export async function serializeAws_restJson1_1ListSigningProfilesCommand(
   let resolvedPath = "/signing-profiles";
   const query: any = {};
   if (input.includeCanceled !== undefined) {
-    query["includeCanceled"] = input.includeCanceled.toString();
+    query[
+      __extendedEncodeURIComponent("includeCanceled")
+    ] = __extendedEncodeURIComponent(input.includeCanceled.toString());
   }
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -304,7 +333,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -312,7 +341,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -334,7 +363,7 @@ export async function serializeAws_restJson1_1PutSigningProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/signing-profiles/{profileName}";
   if (input.profileName !== undefined) {
-    const labelValue: string = input.profileName.toString();
+    const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: profileName."
@@ -342,7 +371,7 @@ export async function serializeAws_restJson1_1PutSigningProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{profileName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
@@ -433,7 +462,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -441,7 +470,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -470,7 +499,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -478,14 +507,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -510,6 +541,7 @@ export async function deserializeAws_restJson1_1CancelSigningProfileCommand(
   const contents: CancelSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1413,6 +1445,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1475,6 +1508,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

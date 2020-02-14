@@ -2068,6 +2068,7 @@ export async function deserializeAws_queryCreateCustomVerificationEmailTemplateC
       context
     );
   }
+  await collectBody(output.body, context);
   const response: CreateCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2644,6 +2645,7 @@ export async function deserializeAws_queryDeleteCustomVerificationEmailTemplateC
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3016,6 +3018,7 @@ export async function deserializeAws_queryDeleteVerifiedEmailAddressCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteVerifiedEmailAddressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5438,6 +5441,7 @@ export async function deserializeAws_queryUpdateAccountSendingEnabledCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateAccountSendingEnabledCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5573,6 +5577,7 @@ export async function deserializeAws_queryUpdateConfigurationSetReputationMetric
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateConfigurationSetReputationMetricsEnabledCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5626,6 +5631,7 @@ export async function deserializeAws_queryUpdateConfigurationSetSendingEnabledCo
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateConfigurationSetSendingEnabledCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5754,6 +5760,7 @@ export async function deserializeAws_queryUpdateCustomVerificationEmailTemplateC
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -6081,6 +6088,7 @@ export async function deserializeAws_queryVerifyEmailAddressCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryVerifyEmailAddressCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: VerifyEmailAddressCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

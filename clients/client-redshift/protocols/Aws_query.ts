@@ -3986,6 +3986,7 @@ export async function deserializeAws_queryCreateTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryCreateTagsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4139,6 +4140,7 @@ export async function deserializeAws_queryDeleteClusterParameterGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteClusterParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4199,6 +4201,7 @@ export async function deserializeAws_queryDeleteClusterSecurityGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteClusterSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4327,6 +4330,7 @@ export async function deserializeAws_queryDeleteClusterSubnetGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteClusterSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4394,6 +4398,7 @@ export async function deserializeAws_queryDeleteEventSubscriptionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4454,6 +4459,7 @@ export async function deserializeAws_queryDeleteHsmClientCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteHsmClientCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4514,6 +4520,7 @@ export async function deserializeAws_queryDeleteHsmConfigurationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteHsmConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4574,6 +4581,7 @@ export async function deserializeAws_queryDeleteScheduledActionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4634,6 +4642,7 @@ export async function deserializeAws_queryDeleteSnapshotCopyGrantCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteSnapshotCopyGrantCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4694,6 +4703,7 @@ export async function deserializeAws_queryDeleteSnapshotScheduleCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4751,6 +4761,7 @@ export async function deserializeAws_queryDeleteTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteTagsCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -7648,6 +7659,7 @@ export async function deserializeAws_queryModifyClusterSnapshotScheduleCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ModifyClusterSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

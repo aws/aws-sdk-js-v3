@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -25,7 +28,7 @@ export namespace AccessDeniedException {
  * 			profile.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -34,7 +37,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -48,7 +51,7 @@ export interface CancelSigningProfileRequest {
 
 export namespace CancelSigningProfileRequest {
   export function isa(o: any): o is CancelSigningProfileRequest {
-    return _smithy.isa(o, "CancelSigningProfileRequest");
+    return __isa(o, "CancelSigningProfileRequest");
   }
 }
 
@@ -64,7 +67,7 @@ export interface DescribeSigningJobRequest {
 
 export namespace DescribeSigningJobRequest {
   export function isa(o: any): o is DescribeSigningJobRequest {
-    return _smithy.isa(o, "DescribeSigningJobRequest");
+    return __isa(o, "DescribeSigningJobRequest");
   }
 }
 
@@ -140,7 +143,7 @@ export interface DescribeSigningJobResponse extends $MetadataBearer {
 
 export namespace DescribeSigningJobResponse {
   export function isa(o: any): o is DescribeSigningJobResponse {
-    return _smithy.isa(o, "DescribeSigningJobResponse");
+    return __isa(o, "DescribeSigningJobResponse");
   }
 }
 
@@ -158,7 +161,7 @@ export interface Destination {
 
 export namespace Destination {
   export function isa(o: any): o is Destination {
-    return _smithy.isa(o, "Destination");
+    return __isa(o, "Destination");
   }
 }
 
@@ -182,7 +185,7 @@ export interface EncryptionAlgorithmOptions {
 
 export namespace EncryptionAlgorithmOptions {
   export function isa(o: any): o is EncryptionAlgorithmOptions {
-    return _smithy.isa(o, "EncryptionAlgorithmOptions");
+    return __isa(o, "EncryptionAlgorithmOptions");
   }
 }
 
@@ -196,7 +199,7 @@ export interface GetSigningPlatformRequest {
 
 export namespace GetSigningPlatformRequest {
   export function isa(o: any): o is GetSigningPlatformRequest {
-    return _smithy.isa(o, "GetSigningPlatformRequest");
+    return __isa(o, "GetSigningPlatformRequest");
   }
 }
 
@@ -246,7 +249,7 @@ export interface GetSigningPlatformResponse extends $MetadataBearer {
 
 export namespace GetSigningPlatformResponse {
   export function isa(o: any): o is GetSigningPlatformResponse {
-    return _smithy.isa(o, "GetSigningPlatformResponse");
+    return __isa(o, "GetSigningPlatformResponse");
   }
 }
 
@@ -260,7 +263,7 @@ export interface GetSigningProfileRequest {
 
 export namespace GetSigningProfileRequest {
   export function isa(o: any): o is GetSigningProfileRequest {
-    return _smithy.isa(o, "GetSigningProfileRequest");
+    return __isa(o, "GetSigningProfileRequest");
   }
 }
 
@@ -315,7 +318,7 @@ export interface GetSigningProfileResponse extends $MetadataBearer {
 
 export namespace GetSigningProfileResponse {
   export function isa(o: any): o is GetSigningProfileResponse {
-    return _smithy.isa(o, "GetSigningProfileResponse");
+    return __isa(o, "GetSigningProfileResponse");
   }
 }
 
@@ -339,7 +342,7 @@ export interface HashAlgorithmOptions {
 
 export namespace HashAlgorithmOptions {
   export function isa(o: any): o is HashAlgorithmOptions {
-    return _smithy.isa(o, "HashAlgorithmOptions");
+    return __isa(o, "HashAlgorithmOptions");
   }
 }
 
@@ -349,7 +352,7 @@ export type ImageFormat = "JSON";
  * <p>An internal error occurred.</p>
  */
 export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
@@ -358,7 +361,7 @@ export interface InternalServiceErrorException
 
 export namespace InternalServiceErrorException {
   export function isa(o: any): o is InternalServiceErrorException {
-    return _smithy.isa(o, "InternalServiceErrorException");
+    return __isa(o, "InternalServiceErrorException");
   }
 }
 
@@ -399,7 +402,7 @@ export interface ListSigningJobsRequest {
 
 export namespace ListSigningJobsRequest {
   export function isa(o: any): o is ListSigningJobsRequest {
-    return _smithy.isa(o, "ListSigningJobsRequest");
+    return __isa(o, "ListSigningJobsRequest");
   }
 }
 
@@ -418,7 +421,7 @@ export interface ListSigningJobsResponse extends $MetadataBearer {
 
 export namespace ListSigningJobsResponse {
   export function isa(o: any): o is ListSigningJobsResponse {
-    return _smithy.isa(o, "ListSigningJobsResponse");
+    return __isa(o, "ListSigningJobsResponse");
   }
 }
 
@@ -454,7 +457,7 @@ export interface ListSigningPlatformsRequest {
 
 export namespace ListSigningPlatformsRequest {
   export function isa(o: any): o is ListSigningPlatformsRequest {
-    return _smithy.isa(o, "ListSigningPlatformsRequest");
+    return __isa(o, "ListSigningPlatformsRequest");
   }
 }
 
@@ -473,7 +476,7 @@ export interface ListSigningPlatformsResponse extends $MetadataBearer {
 
 export namespace ListSigningPlatformsResponse {
   export function isa(o: any): o is ListSigningPlatformsResponse {
-    return _smithy.isa(o, "ListSigningPlatformsResponse");
+    return __isa(o, "ListSigningPlatformsResponse");
   }
 }
 
@@ -500,7 +503,7 @@ export interface ListSigningProfilesRequest {
 
 export namespace ListSigningProfilesRequest {
   export function isa(o: any): o is ListSigningProfilesRequest {
-    return _smithy.isa(o, "ListSigningProfilesRequest");
+    return __isa(o, "ListSigningProfilesRequest");
   }
 }
 
@@ -521,7 +524,7 @@ export interface ListSigningProfilesResponse extends $MetadataBearer {
 
 export namespace ListSigningProfilesResponse {
   export function isa(o: any): o is ListSigningProfilesResponse {
-    return _smithy.isa(o, "ListSigningProfilesResponse");
+    return __isa(o, "ListSigningProfilesResponse");
   }
 }
 
@@ -537,7 +540,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -553,7 +556,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -562,9 +565,7 @@ export namespace ListTagsForResourceResponse {
  * 			profile was not
  * 			found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -572,7 +573,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -617,7 +618,7 @@ export interface PutSigningProfileRequest {
 
 export namespace PutSigningProfileRequest {
   export function isa(o: any): o is PutSigningProfileRequest {
-    return _smithy.isa(o, "PutSigningProfileRequest");
+    return __isa(o, "PutSigningProfileRequest");
   }
 }
 
@@ -631,7 +632,7 @@ export interface PutSigningProfileResponse extends $MetadataBearer {
 
 export namespace PutSigningProfileResponse {
   export function isa(o: any): o is PutSigningProfileResponse {
-    return _smithy.isa(o, "PutSigningProfileResponse");
+    return __isa(o, "PutSigningProfileResponse");
   }
 }
 
@@ -639,7 +640,7 @@ export namespace PutSigningProfileResponse {
  * <p>A specified resource could not be found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -648,7 +649,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -671,7 +672,7 @@ export interface S3Destination {
 
 export namespace S3Destination {
   export function isa(o: any): o is S3Destination {
-    return _smithy.isa(o, "S3Destination");
+    return __isa(o, "S3Destination");
   }
 }
 
@@ -693,7 +694,7 @@ export interface S3SignedObject {
 
 export namespace S3SignedObject {
   export function isa(o: any): o is S3SignedObject {
-    return _smithy.isa(o, "S3SignedObject");
+    return __isa(o, "S3SignedObject");
   }
 }
 
@@ -720,7 +721,7 @@ export interface S3Source {
 
 export namespace S3Source {
   export function isa(o: any): o is S3Source {
-    return _smithy.isa(o, "S3Source");
+    return __isa(o, "S3Source");
   }
 }
 
@@ -738,7 +739,7 @@ export interface SignedObject {
 
 export namespace SignedObject {
   export function isa(o: any): o is SignedObject {
-    return _smithy.isa(o, "SignedObject");
+    return __isa(o, "SignedObject");
   }
 }
 
@@ -760,7 +761,7 @@ export interface SigningConfiguration {
 
 export namespace SigningConfiguration {
   export function isa(o: any): o is SigningConfiguration {
-    return _smithy.isa(o, "SigningConfiguration");
+    return __isa(o, "SigningConfiguration");
   }
 }
 
@@ -785,7 +786,7 @@ export interface SigningConfigurationOverrides {
 
 export namespace SigningConfigurationOverrides {
   export function isa(o: any): o is SigningConfigurationOverrides {
-    return _smithy.isa(o, "SigningConfigurationOverrides");
+    return __isa(o, "SigningConfigurationOverrides");
   }
 }
 
@@ -807,7 +808,7 @@ export interface SigningImageFormat {
 
 export namespace SigningImageFormat {
   export function isa(o: any): o is SigningImageFormat {
-    return _smithy.isa(o, "SigningImageFormat");
+    return __isa(o, "SigningImageFormat");
   }
 }
 
@@ -852,7 +853,7 @@ export interface SigningJob {
 
 export namespace SigningJob {
   export function isa(o: any): o is SigningJob {
-    return _smithy.isa(o, "SigningJob");
+    return __isa(o, "SigningJob");
   }
 }
 
@@ -870,7 +871,7 @@ export interface SigningMaterial {
 
 export namespace SigningMaterial {
   export function isa(o: any): o is SigningMaterial {
-    return _smithy.isa(o, "SigningMaterial");
+    return __isa(o, "SigningMaterial");
   }
 }
 
@@ -924,7 +925,7 @@ export interface SigningPlatform {
 
 export namespace SigningPlatform {
   export function isa(o: any): o is SigningPlatform {
-    return _smithy.isa(o, "SigningPlatform");
+    return __isa(o, "SigningPlatform");
   }
 }
 
@@ -943,7 +944,7 @@ export interface SigningPlatformOverrides {
 
 export namespace SigningPlatformOverrides {
   export function isa(o: any): o is SigningPlatformOverrides {
-    return _smithy.isa(o, "SigningPlatformOverrides");
+    return __isa(o, "SigningPlatformOverrides");
   }
 }
 
@@ -997,7 +998,7 @@ export interface SigningProfile {
 
 export namespace SigningProfile {
   export function isa(o: any): o is SigningProfile {
-    return _smithy.isa(o, "SigningProfile");
+    return __isa(o, "SigningProfile");
   }
 }
 
@@ -1019,7 +1020,7 @@ export interface Source {
 
 export namespace Source {
   export function isa(o: any): o is Source {
-    return _smithy.isa(o, "Source");
+    return __isa(o, "Source");
   }
 }
 
@@ -1051,7 +1052,7 @@ export interface StartSigningJobRequest {
 
 export namespace StartSigningJobRequest {
   export function isa(o: any): o is StartSigningJobRequest {
-    return _smithy.isa(o, "StartSigningJobRequest");
+    return __isa(o, "StartSigningJobRequest");
   }
 }
 
@@ -1065,7 +1066,7 @@ export interface StartSigningJobResponse extends $MetadataBearer {
 
 export namespace StartSigningJobResponse {
   export function isa(o: any): o is StartSigningJobResponse {
-    return _smithy.isa(o, "StartSigningJobResponse");
+    return __isa(o, "StartSigningJobResponse");
   }
 }
 
@@ -1088,7 +1089,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1098,7 +1099,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1106,7 +1107,7 @@ export namespace TagResourceResponse {
  * <p>The signing job has been throttled.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -1115,7 +1116,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -1138,7 +1139,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1148,7 +1149,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1156,7 +1157,7 @@ export namespace UntagResourceResponse {
  * <p>You signing certificate could not be validated.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -1165,6 +1166,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

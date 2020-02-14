@@ -2653,6 +2653,7 @@ export async function deserializeAws_queryDeleteCacheParameterGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2727,6 +2728,7 @@ export async function deserializeAws_queryDeleteCacheSecurityGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2801,6 +2803,7 @@ export async function deserializeAws_queryDeleteCacheSubnetGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

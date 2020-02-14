@@ -184,7 +184,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -237,19 +240,19 @@ export async function serializeAws_restJson1_1CreateRouteCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -257,7 +260,7 @@ export async function serializeAws_restJson1_1CreateRouteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -300,13 +303,13 @@ export async function serializeAws_restJson1_1CreateVirtualNodeCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
@@ -350,13 +353,13 @@ export async function serializeAws_restJson1_1CreateVirtualRouterCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
@@ -400,13 +403,13 @@ export async function serializeAws_restJson1_1CreateVirtualServiceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
@@ -450,13 +453,13 @@ export async function serializeAws_restJson1_1DeleteMeshCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
@@ -479,31 +482,31 @@ export async function serializeAws_restJson1_1DeleteRouteCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.routeName !== undefined) {
-    const labelValue: string = input.routeName.toString();
+    const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: routeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{routeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -511,7 +514,7 @@ export async function serializeAws_restJson1_1DeleteRouteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -536,19 +539,19 @@ export async function serializeAws_restJson1_1DeleteVirtualNodeCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualNodeName !== undefined) {
-    const labelValue: string = input.virtualNodeName.toString();
+    const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualNodeName."
@@ -556,7 +559,7 @@ export async function serializeAws_restJson1_1DeleteVirtualNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualNodeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
@@ -579,19 +582,19 @@ export async function serializeAws_restJson1_1DeleteVirtualRouterCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -599,7 +602,7 @@ export async function serializeAws_restJson1_1DeleteVirtualRouterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -624,19 +627,19 @@ export async function serializeAws_restJson1_1DeleteVirtualServiceCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualServiceName !== undefined) {
-    const labelValue: string = input.virtualServiceName.toString();
+    const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualServiceName."
@@ -644,7 +647,7 @@ export async function serializeAws_restJson1_1DeleteVirtualServiceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualServiceName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -668,13 +671,13 @@ export async function serializeAws_restJson1_1DescribeMeshCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
@@ -697,31 +700,31 @@ export async function serializeAws_restJson1_1DescribeRouteCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.routeName !== undefined) {
-    const labelValue: string = input.routeName.toString();
+    const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: routeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{routeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -729,7 +732,7 @@ export async function serializeAws_restJson1_1DescribeRouteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -754,19 +757,19 @@ export async function serializeAws_restJson1_1DescribeVirtualNodeCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualNodeName !== undefined) {
-    const labelValue: string = input.virtualNodeName.toString();
+    const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualNodeName."
@@ -774,7 +777,7 @@ export async function serializeAws_restJson1_1DescribeVirtualNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualNodeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
@@ -797,19 +800,19 @@ export async function serializeAws_restJson1_1DescribeVirtualRouterCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -817,7 +820,7 @@ export async function serializeAws_restJson1_1DescribeVirtualRouterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -842,19 +845,19 @@ export async function serializeAws_restJson1_1DescribeVirtualServiceCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualServiceName !== undefined) {
-    const labelValue: string = input.virtualServiceName.toString();
+    const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualServiceName."
@@ -862,7 +865,7 @@ export async function serializeAws_restJson1_1DescribeVirtualServiceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualServiceName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -887,10 +890,14 @@ export async function serializeAws_restJson1_1ListMeshesCommand(
   let resolvedPath = "/v20190125/meshes";
   const query: any = {};
   if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.limit.toString()
+    );
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -911,19 +918,19 @@ export async function serializeAws_restJson1_1ListRoutesCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -931,7 +938,7 @@ export async function serializeAws_restJson1_1ListRoutesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -940,10 +947,14 @@ export async function serializeAws_restJson1_1ListRoutesCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.limit.toString()
+    );
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -964,13 +975,19 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/v20190125/tags";
   const query: any = {};
   if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.limit.toString()
+    );
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -990,23 +1007,27 @@ export async function serializeAws_restJson1_1ListVirtualNodesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualNodes";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.limit.toString()
+    );
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1026,23 +1047,27 @@ export async function serializeAws_restJson1_1ListVirtualRoutersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualRouters";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.limit.toString()
+    );
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1062,23 +1087,27 @@ export async function serializeAws_restJson1_1ListVirtualServicesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v20190125/meshes/{meshName}/virtualServices";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query["limit"] = input.limit.toString();
+    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
+      input.limit.toString()
+    );
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1099,7 +1128,9 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   let resolvedPath = "/v20190125/tag";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   let body: any;
   const bodyParams: any = {};
@@ -1127,7 +1158,9 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   let resolvedPath = "/v20190125/untag";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query["resourceArn"] = input.resourceArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceArn")
+    ] = __extendedEncodeURIComponent(input.resourceArn);
   }
   let body: any;
   const bodyParams: any = {};
@@ -1157,13 +1190,13 @@ export async function serializeAws_restJson1_1UpdateMeshCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v20190125/meshes/{meshName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
@@ -1199,31 +1232,31 @@ export async function serializeAws_restJson1_1UpdateRouteCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouter/{virtualRouterName}/routes/{routeName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.routeName !== undefined) {
-    const labelValue: string = input.routeName.toString();
+    const labelValue: string = input.routeName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: routeName.");
     }
     resolvedPath = resolvedPath.replace(
       "{routeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: routeName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -1231,7 +1264,7 @@ export async function serializeAws_restJson1_1UpdateRouteCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1269,19 +1302,19 @@ export async function serializeAws_restJson1_1UpdateVirtualNodeCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualNodes/{virtualNodeName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualNodeName !== undefined) {
-    const labelValue: string = input.virtualNodeName.toString();
+    const labelValue: string = input.virtualNodeName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualNodeName."
@@ -1289,7 +1322,7 @@ export async function serializeAws_restJson1_1UpdateVirtualNodeCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualNodeName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
@@ -1328,19 +1361,19 @@ export async function serializeAws_restJson1_1UpdateVirtualRouterCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualRouters/{virtualRouterName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualRouterName !== undefined) {
-    const labelValue: string = input.virtualRouterName.toString();
+    const labelValue: string = input.virtualRouterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualRouterName."
@@ -1348,7 +1381,7 @@ export async function serializeAws_restJson1_1UpdateVirtualRouterCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualRouterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -1389,19 +1422,19 @@ export async function serializeAws_restJson1_1UpdateVirtualServiceCommand(
   let resolvedPath =
     "/v20190125/meshes/{meshName}/virtualServices/{virtualServiceName}";
   if (input.meshName !== undefined) {
-    const labelValue: string = input.meshName.toString();
+    const labelValue: string = input.meshName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: meshName.");
     }
     resolvedPath = resolvedPath.replace(
       "{meshName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   if (input.virtualServiceName !== undefined) {
-    const labelValue: string = input.virtualServiceName.toString();
+    const labelValue: string = input.virtualServiceName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: virtualServiceName."
@@ -1409,7 +1442,7 @@ export async function serializeAws_restJson1_1UpdateVirtualServiceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{virtualServiceName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -3467,6 +3500,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3557,6 +3591,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

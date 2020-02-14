@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -25,7 +28,7 @@ export interface AppliedTerminology {
 
 export namespace AppliedTerminology {
   export function isa(o: any): o is AppliedTerminology {
-    return _smithy.isa(o, "AppliedTerminology");
+    return __isa(o, "AppliedTerminology");
   }
 }
 
@@ -39,7 +42,7 @@ export interface DeleteTerminologyRequest {
 
 export namespace DeleteTerminologyRequest {
   export function isa(o: any): o is DeleteTerminologyRequest {
-    return _smithy.isa(o, "DeleteTerminologyRequest");
+    return __isa(o, "DeleteTerminologyRequest");
   }
 }
 
@@ -54,7 +57,7 @@ export interface DescribeTextTranslationJobRequest {
 
 export namespace DescribeTextTranslationJobRequest {
   export function isa(o: any): o is DescribeTextTranslationJobRequest {
-    return _smithy.isa(o, "DescribeTextTranslationJobRequest");
+    return __isa(o, "DescribeTextTranslationJobRequest");
   }
 }
 
@@ -69,7 +72,7 @@ export interface DescribeTextTranslationJobResponse extends $MetadataBearer {
 
 export namespace DescribeTextTranslationJobResponse {
   export function isa(o: any): o is DescribeTextTranslationJobResponse {
-    return _smithy.isa(o, "DescribeTextTranslationJobResponse");
+    return __isa(o, "DescribeTextTranslationJobResponse");
   }
 }
 
@@ -80,7 +83,7 @@ export namespace DescribeTextTranslationJobResponse {
  *         Guide</i>. </p>
  */
 export interface DetectedLanguageLowConfidenceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
@@ -94,7 +97,7 @@ export interface DetectedLanguageLowConfidenceException
 
 export namespace DetectedLanguageLowConfidenceException {
   export function isa(o: any): o is DetectedLanguageLowConfidenceException {
-    return _smithy.isa(o, "DetectedLanguageLowConfidenceException");
+    return __isa(o, "DetectedLanguageLowConfidenceException");
   }
 }
 
@@ -117,7 +120,7 @@ export interface EncryptionKey {
 
 export namespace EncryptionKey {
   export function isa(o: any): o is EncryptionKey {
-    return _smithy.isa(o, "EncryptionKey");
+    return __isa(o, "EncryptionKey");
   }
 }
 
@@ -140,7 +143,7 @@ export interface GetTerminologyRequest {
 
 export namespace GetTerminologyRequest {
   export function isa(o: any): o is GetTerminologyRequest {
-    return _smithy.isa(o, "GetTerminologyRequest");
+    return __isa(o, "GetTerminologyRequest");
   }
 }
 
@@ -160,7 +163,7 @@ export interface GetTerminologyResponse extends $MetadataBearer {
 
 export namespace GetTerminologyResponse {
   export function isa(o: any): o is GetTerminologyResponse {
-    return _smithy.isa(o, "GetTerminologyResponse");
+    return __isa(o, "GetTerminologyResponse");
   }
 }
 
@@ -196,7 +199,7 @@ export interface ImportTerminologyRequest {
 
 export namespace ImportTerminologyRequest {
   export function isa(o: any): o is ImportTerminologyRequest {
-    return _smithy.isa(o, "ImportTerminologyRequest");
+    return __isa(o, "ImportTerminologyRequest");
   }
 }
 
@@ -210,7 +213,7 @@ export interface ImportTerminologyResponse extends $MetadataBearer {
 
 export namespace ImportTerminologyResponse {
   export function isa(o: any): o is ImportTerminologyResponse {
-    return _smithy.isa(o, "ImportTerminologyResponse");
+    return __isa(o, "ImportTerminologyResponse");
   }
 }
 
@@ -235,7 +238,7 @@ export interface InputDataConfig {
 
 export namespace InputDataConfig {
   export function isa(o: any): o is InputDataConfig {
-    return _smithy.isa(o, "InputDataConfig");
+    return __isa(o, "InputDataConfig");
   }
 }
 
@@ -243,7 +246,7 @@ export namespace InputDataConfig {
  * <p>An internal server error occurred. Retry your request.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -252,7 +255,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -260,7 +263,7 @@ export namespace InternalServerException {
  * <p>The filter specified for the operation is invalid. Specify a different filter.</p>
  */
 export interface InvalidFilterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidFilterException";
   $fault: "client";
@@ -269,7 +272,7 @@ export interface InvalidFilterException
 
 export namespace InvalidFilterException {
   export function isa(o: any): o is InvalidFilterException {
-    return _smithy.isa(o, "InvalidFilterException");
+    return __isa(o, "InvalidFilterException");
   }
 }
 
@@ -278,7 +281,7 @@ export namespace InvalidFilterException {
  *       correct it, and then retry your operation.</p>
  */
 export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
@@ -287,7 +290,7 @@ export interface InvalidParameterValueException
 
 export namespace InvalidParameterValueException {
   export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
+    return __isa(o, "InvalidParameterValueException");
   }
 }
 
@@ -296,7 +299,7 @@ export namespace InvalidParameterValueException {
  *       and then retry the request. </p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -305,7 +308,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -333,7 +336,7 @@ export interface JobDetails {
 
 export namespace JobDetails {
   export function isa(o: any): o is JobDetails {
-    return _smithy.isa(o, "JobDetails");
+    return __isa(o, "JobDetails");
   }
 }
 
@@ -352,7 +355,7 @@ export enum JobStatus {
  *       below the stated limit.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -361,7 +364,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -381,7 +384,7 @@ export interface ListTerminologiesRequest {
 
 export namespace ListTerminologiesRequest {
   export function isa(o: any): o is ListTerminologiesRequest {
-    return _smithy.isa(o, "ListTerminologiesRequest");
+    return __isa(o, "ListTerminologiesRequest");
   }
 }
 
@@ -401,7 +404,7 @@ export interface ListTerminologiesResponse extends $MetadataBearer {
 
 export namespace ListTerminologiesResponse {
   export function isa(o: any): o is ListTerminologiesResponse {
-    return _smithy.isa(o, "ListTerminologiesResponse");
+    return __isa(o, "ListTerminologiesResponse");
   }
 }
 
@@ -426,7 +429,7 @@ export interface ListTextTranslationJobsRequest {
 
 export namespace ListTextTranslationJobsRequest {
   export function isa(o: any): o is ListTextTranslationJobsRequest {
-    return _smithy.isa(o, "ListTextTranslationJobsRequest");
+    return __isa(o, "ListTextTranslationJobsRequest");
   }
 }
 
@@ -446,7 +449,7 @@ export interface ListTextTranslationJobsResponse extends $MetadataBearer {
 
 export namespace ListTextTranslationJobsResponse {
   export function isa(o: any): o is ListTextTranslationJobsResponse {
-    return _smithy.isa(o, "ListTextTranslationJobsResponse");
+    return __isa(o, "ListTextTranslationJobsResponse");
   }
 }
 
@@ -468,7 +471,7 @@ export interface OutputDataConfig {
 
 export namespace OutputDataConfig {
   export function isa(o: any): o is OutputDataConfig {
-    return _smithy.isa(o, "OutputDataConfig");
+    return __isa(o, "OutputDataConfig");
   }
 }
 
@@ -478,7 +481,7 @@ export namespace OutputDataConfig {
  *       request.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -487,7 +490,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -496,7 +499,7 @@ export namespace ResourceNotFoundException {
  *       request.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -505,7 +508,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -563,7 +566,7 @@ export interface StartTextTranslationJobRequest {
 
 export namespace StartTextTranslationJobRequest {
   export function isa(o: any): o is StartTextTranslationJobRequest {
-    return _smithy.isa(o, "StartTextTranslationJobRequest");
+    return __isa(o, "StartTextTranslationJobRequest");
   }
 }
 
@@ -617,7 +620,7 @@ export interface StartTextTranslationJobResponse extends $MetadataBearer {
 
 export namespace StartTextTranslationJobResponse {
   export function isa(o: any): o is StartTextTranslationJobResponse {
-    return _smithy.isa(o, "StartTextTranslationJobResponse");
+    return __isa(o, "StartTextTranslationJobResponse");
   }
 }
 
@@ -631,7 +634,7 @@ export interface StopTextTranslationJobRequest {
 
 export namespace StopTextTranslationJobRequest {
   export function isa(o: any): o is StopTextTranslationJobRequest {
-    return _smithy.isa(o, "StopTextTranslationJobRequest");
+    return __isa(o, "StopTextTranslationJobRequest");
   }
 }
 
@@ -651,7 +654,7 @@ export interface StopTextTranslationJobResponse extends $MetadataBearer {
 
 export namespace StopTextTranslationJobResponse {
   export function isa(o: any): o is StopTextTranslationJobResponse {
-    return _smithy.isa(o, "StopTextTranslationJobResponse");
+    return __isa(o, "StopTextTranslationJobResponse");
   }
 }
 
@@ -673,7 +676,7 @@ export interface Term {
 
 export namespace Term {
   export function isa(o: any): o is Term {
-    return _smithy.isa(o, "Term");
+    return __isa(o, "Term");
   }
 }
 
@@ -697,7 +700,7 @@ export interface TerminologyData {
 
 export namespace TerminologyData {
   export function isa(o: any): o is TerminologyData {
-    return _smithy.isa(o, "TerminologyData");
+    return __isa(o, "TerminologyData");
   }
 }
 
@@ -724,7 +727,7 @@ export interface TerminologyDataLocation {
 
 export namespace TerminologyDataLocation {
   export function isa(o: any): o is TerminologyDataLocation {
-    return _smithy.isa(o, "TerminologyDataLocation");
+    return __isa(o, "TerminologyDataLocation");
   }
 }
 
@@ -788,7 +791,7 @@ export interface TerminologyProperties {
 
 export namespace TerminologyProperties {
   export function isa(o: any): o is TerminologyProperties {
-    return _smithy.isa(o, "TerminologyProperties");
+    return __isa(o, "TerminologyProperties");
   }
 }
 
@@ -797,7 +800,7 @@ export namespace TerminologyProperties {
  *       use a smaller document and then retry your request. </p>
  */
 export interface TextSizeLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TextSizeLimitExceededException";
   $fault: "client";
@@ -806,7 +809,7 @@ export interface TextSizeLimitExceededException
 
 export namespace TextSizeLimitExceededException {
   export function isa(o: any): o is TextSizeLimitExceededException {
-    return _smithy.isa(o, "TextSizeLimitExceededException");
+    return __isa(o, "TextSizeLimitExceededException");
   }
 }
 
@@ -843,7 +846,7 @@ export interface TextTranslationJobFilter {
 
 export namespace TextTranslationJobFilter {
   export function isa(o: any): o is TextTranslationJobFilter {
-    return _smithy.isa(o, "TextTranslationJobFilter");
+    return __isa(o, "TextTranslationJobFilter");
   }
 }
 
@@ -926,7 +929,7 @@ export interface TextTranslationJobProperties {
 
 export namespace TextTranslationJobProperties {
   export function isa(o: any): o is TextTranslationJobProperties {
-    return _smithy.isa(o, "TextTranslationJobProperties");
+    return __isa(o, "TextTranslationJobProperties");
   }
 }
 
@@ -935,7 +938,7 @@ export namespace TextTranslationJobProperties {
  *       then try your request again.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -944,7 +947,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -982,7 +985,7 @@ export interface TranslateTextRequest {
 
 export namespace TranslateTextRequest {
   export function isa(o: any): o is TranslateTextRequest {
-    return _smithy.isa(o, "TranslateTextRequest");
+    return __isa(o, "TranslateTextRequest");
   }
 }
 
@@ -1012,7 +1015,7 @@ export interface TranslateTextResponse extends $MetadataBearer {
 
 export namespace TranslateTextResponse {
   export function isa(o: any): o is TranslateTextResponse {
-    return _smithy.isa(o, "TranslateTextResponse");
+    return __isa(o, "TranslateTextResponse");
   }
 }
 
@@ -1021,7 +1024,7 @@ export namespace TranslateTextResponse {
  *       target language. For more information, see <a>how-to-error-msg</a>. </p>
  */
 export interface UnsupportedLanguagePairException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnsupportedLanguagePairException";
   $fault: "client";
@@ -1039,6 +1042,6 @@ export interface UnsupportedLanguagePairException
 
 export namespace UnsupportedLanguagePairException {
   export function isa(o: any): o is UnsupportedLanguagePairException {
-    return _smithy.isa(o, "UnsupportedLanguagePairException");
+    return __isa(o, "UnsupportedLanguagePairException");
   }
 }

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -10,7 +13,7 @@ export interface AbortTransactionRequest {
 
 export namespace AbortTransactionRequest {
   export function isa(o: any): o is AbortTransactionRequest {
-    return _smithy.isa(o, "AbortTransactionRequest");
+    return __isa(o, "AbortTransactionRequest");
   }
 }
 
@@ -23,7 +26,7 @@ export interface AbortTransactionResult {
 
 export namespace AbortTransactionResult {
   export function isa(o: any): o is AbortTransactionResult {
-    return _smithy.isa(o, "AbortTransactionResult");
+    return __isa(o, "AbortTransactionResult");
   }
 }
 
@@ -31,7 +34,7 @@ export namespace AbortTransactionResult {
  * <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -41,7 +44,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -66,7 +69,7 @@ export interface CommitTransactionRequest {
 
 export namespace CommitTransactionRequest {
   export function isa(o: any): o is CommitTransactionRequest {
-    return _smithy.isa(o, "CommitTransactionRequest");
+    return __isa(o, "CommitTransactionRequest");
   }
 }
 
@@ -88,7 +91,7 @@ export interface CommitTransactionResult {
 
 export namespace CommitTransactionResult {
   export function isa(o: any): o is CommitTransactionResult {
-    return _smithy.isa(o, "CommitTransactionResult");
+    return __isa(o, "CommitTransactionResult");
   }
 }
 
@@ -101,7 +104,7 @@ export interface EndSessionRequest {
 
 export namespace EndSessionRequest {
   export function isa(o: any): o is EndSessionRequest {
-    return _smithy.isa(o, "EndSessionRequest");
+    return __isa(o, "EndSessionRequest");
   }
 }
 
@@ -114,7 +117,7 @@ export interface EndSessionResult {
 
 export namespace EndSessionResult {
   export function isa(o: any): o is EndSessionResult {
-    return _smithy.isa(o, "EndSessionResult");
+    return __isa(o, "EndSessionResult");
   }
 }
 
@@ -141,7 +144,7 @@ export interface ExecuteStatementRequest {
 
 export namespace ExecuteStatementRequest {
   export function isa(o: any): o is ExecuteStatementRequest {
-    return _smithy.isa(o, "ExecuteStatementRequest");
+    return __isa(o, "ExecuteStatementRequest");
   }
 }
 
@@ -158,7 +161,7 @@ export interface ExecuteStatementResult {
 
 export namespace ExecuteStatementResult {
   export function isa(o: any): o is ExecuteStatementResult {
-    return _smithy.isa(o, "ExecuteStatementResult");
+    return __isa(o, "ExecuteStatementResult");
   }
 }
 
@@ -180,7 +183,7 @@ export interface FetchPageRequest {
 
 export namespace FetchPageRequest {
   export function isa(o: any): o is FetchPageRequest {
-    return _smithy.isa(o, "FetchPageRequest");
+    return __isa(o, "FetchPageRequest");
   }
 }
 
@@ -197,7 +200,7 @@ export interface FetchPageResult {
 
 export namespace FetchPageResult {
   export function isa(o: any): o is FetchPageResult {
-    return _smithy.isa(o, "FetchPageResult");
+    return __isa(o, "FetchPageResult");
   }
 }
 
@@ -205,7 +208,7 @@ export namespace FetchPageResult {
  * <p>Returned if the session doesn't exist anymore because it timed-out or expired.</p>
  */
 export interface InvalidSessionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidSessionException";
   $fault: "client";
@@ -215,7 +218,7 @@ export interface InvalidSessionException
 
 export namespace InvalidSessionException {
   export function isa(o: any): o is InvalidSessionException {
-    return _smithy.isa(o, "InvalidSessionException");
+    return __isa(o, "InvalidSessionException");
   }
 }
 
@@ -223,7 +226,7 @@ export namespace InvalidSessionException {
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -232,7 +235,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -240,7 +243,7 @@ export namespace LimitExceededException {
  * <p>Returned when a transaction cannot be written to the journal due to a failure in the verification phase of Optimistic Concurrency Control.</p>
  */
 export interface OccConflictException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OccConflictException";
   $fault: "client";
@@ -249,7 +252,7 @@ export interface OccConflictException
 
 export namespace OccConflictException {
   export function isa(o: any): o is OccConflictException {
-    return _smithy.isa(o, "OccConflictException");
+    return __isa(o, "OccConflictException");
   }
 }
 
@@ -271,7 +274,7 @@ export interface Page {
 
 export namespace Page {
   export function isa(o: any): o is Page {
-    return _smithy.isa(o, "Page");
+    return __isa(o, "Page");
   }
 }
 
@@ -279,7 +282,7 @@ export namespace Page {
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
 export interface RateExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RateExceededException";
   $fault: "client";
@@ -288,7 +291,7 @@ export interface RateExceededException
 
 export namespace RateExceededException {
   export function isa(o: any): o is RateExceededException {
-    return _smithy.isa(o, "RateExceededException");
+    return __isa(o, "RateExceededException");
   }
 }
 
@@ -340,7 +343,7 @@ export interface SendCommandRequest {
 
 export namespace SendCommandRequest {
   export function isa(o: any): o is SendCommandRequest {
-    return _smithy.isa(o, "SendCommandRequest");
+    return __isa(o, "SendCommandRequest");
   }
 }
 
@@ -385,7 +388,7 @@ export interface SendCommandResult extends $MetadataBearer {
 
 export namespace SendCommandResult {
   export function isa(o: any): o is SendCommandResult {
-    return _smithy.isa(o, "SendCommandResult");
+    return __isa(o, "SendCommandResult");
   }
 }
 
@@ -402,7 +405,7 @@ export interface StartSessionRequest {
 
 export namespace StartSessionRequest {
   export function isa(o: any): o is StartSessionRequest {
-    return _smithy.isa(o, "StartSessionRequest");
+    return __isa(o, "StartSessionRequest");
   }
 }
 
@@ -420,7 +423,7 @@ export interface StartSessionResult {
 
 export namespace StartSessionResult {
   export function isa(o: any): o is StartSessionResult {
-    return _smithy.isa(o, "StartSessionResult");
+    return __isa(o, "StartSessionResult");
   }
 }
 
@@ -433,7 +436,7 @@ export interface StartTransactionRequest {
 
 export namespace StartTransactionRequest {
   export function isa(o: any): o is StartTransactionRequest {
-    return _smithy.isa(o, "StartTransactionRequest");
+    return __isa(o, "StartTransactionRequest");
   }
 }
 
@@ -450,7 +453,7 @@ export interface StartTransactionResult {
 
 export namespace StartTransactionResult {
   export function isa(o: any): o is StartTransactionResult {
-    return _smithy.isa(o, "StartTransactionResult");
+    return __isa(o, "StartTransactionResult");
   }
 }
 
@@ -472,6 +475,6 @@ export interface ValueHolder {
 
 export namespace ValueHolder {
   export function isa(o: any): o is ValueHolder {
-    return _smithy.isa(o, "ValueHolder");
+    return __isa(o, "ValueHolder");
   }
 }

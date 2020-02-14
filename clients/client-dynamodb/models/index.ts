@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DescribeEndpointsRequest {
@@ -7,7 +10,7 @@ export interface DescribeEndpointsRequest {
 
 export namespace DescribeEndpointsRequest {
   export function isa(o: any): o is DescribeEndpointsRequest {
-    return _smithy.isa(o, "DescribeEndpointsRequest");
+    return __isa(o, "DescribeEndpointsRequest");
   }
 }
 
@@ -21,7 +24,7 @@ export interface DescribeEndpointsResponse extends $MetadataBearer {
 
 export namespace DescribeEndpointsResponse {
   export function isa(o: any): o is DescribeEndpointsResponse {
-    return _smithy.isa(o, "DescribeEndpointsResponse");
+    return __isa(o, "DescribeEndpointsResponse");
   }
 }
 
@@ -43,12 +46,12 @@ export interface Endpoint {
 
 export namespace Endpoint {
   export function isa(o: any): o is Endpoint {
-    return _smithy.isa(o, "Endpoint");
+    return __isa(o, "Endpoint");
   }
 }
 
 export interface InvalidEndpointException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
@@ -57,7 +60,7 @@ export interface InvalidEndpointException
 
 export namespace InvalidEndpointException {
   export function isa(o: any): o is InvalidEndpointException {
-    return _smithy.isa(o, "InvalidEndpointException");
+    return __isa(o, "InvalidEndpointException");
   }
 }
 
@@ -99,7 +102,7 @@ export interface ArchivalSummary {
 
 export namespace ArchivalSummary {
   export function isa(o: any): o is ArchivalSummary {
-    return _smithy.isa(o, "ArchivalSummary");
+    return __isa(o, "ArchivalSummary");
   }
 }
 
@@ -137,7 +140,7 @@ export interface AttributeDefinition {
 
 export namespace AttributeDefinition {
   export function isa(o: any): o is AttributeDefinition {
-    return _smithy.isa(o, "AttributeDefinition");
+    return __isa(o, "AttributeDefinition");
   }
 }
 
@@ -234,7 +237,7 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export function isa(o: any): o is AttributeValue {
-    return _smithy.isa(o, "AttributeValue");
+    return __isa(o, "AttributeValue");
   }
 }
 
@@ -354,7 +357,7 @@ export interface AttributeValueUpdate {
 
 export namespace AttributeValueUpdate {
   export function isa(o: any): o is AttributeValueUpdate {
-    return _smithy.isa(o, "AttributeValueUpdate");
+    return __isa(o, "AttributeValueUpdate");
   }
 }
 
@@ -376,7 +379,7 @@ export interface AutoScalingPolicyDescription {
 
 export namespace AutoScalingPolicyDescription {
   export function isa(o: any): o is AutoScalingPolicyDescription {
-    return _smithy.isa(o, "AutoScalingPolicyDescription");
+    return __isa(o, "AutoScalingPolicyDescription");
   }
 }
 
@@ -400,7 +403,7 @@ export interface AutoScalingPolicyUpdate {
 
 export namespace AutoScalingPolicyUpdate {
   export function isa(o: any): o is AutoScalingPolicyUpdate {
-    return _smithy.isa(o, "AutoScalingPolicyUpdate");
+    return __isa(o, "AutoScalingPolicyUpdate");
   }
 }
 
@@ -438,7 +441,7 @@ export interface AutoScalingSettingsDescription {
 
 export namespace AutoScalingSettingsDescription {
   export function isa(o: any): o is AutoScalingSettingsDescription {
-    return _smithy.isa(o, "AutoScalingSettingsDescription");
+    return __isa(o, "AutoScalingSettingsDescription");
   }
 }
 
@@ -476,7 +479,7 @@ export interface AutoScalingSettingsUpdate {
 
 export namespace AutoScalingSettingsUpdate {
   export function isa(o: any): o is AutoScalingSettingsUpdate {
-    return _smithy.isa(o, "AutoScalingSettingsUpdate");
+    return __isa(o, "AutoScalingSettingsUpdate");
   }
 }
 
@@ -522,7 +525,7 @@ export namespace AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
   export function isa(
     o: any
   ): o is AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
-    return _smithy.isa(
+    return __isa(
       o,
       "AutoScalingTargetTrackingScalingPolicyConfigurationDescription"
     );
@@ -571,7 +574,7 @@ export namespace AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
   export function isa(
     o: any
   ): o is AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
-    return _smithy.isa(
+    return __isa(
       o,
       "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate"
     );
@@ -601,7 +604,7 @@ export interface BackupDescription {
 
 export namespace BackupDescription {
   export function isa(o: any): o is BackupDescription {
-    return _smithy.isa(o, "BackupDescription");
+    return __isa(o, "BackupDescription");
   }
 }
 
@@ -666,7 +669,7 @@ export interface BackupDetails {
 
 export namespace BackupDetails {
   export function isa(o: any): o is BackupDetails {
-    return _smithy.isa(o, "BackupDetails");
+    return __isa(o, "BackupDetails");
   }
 }
 
@@ -674,7 +677,7 @@ export namespace BackupDetails {
  * <p>There is another ongoing conflicting backup control plane operation on the table. The backup is either being created, deleted or restored to a table.</p>
  */
 export interface BackupInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BackupInUseException";
   $fault: "client";
@@ -683,7 +686,7 @@ export interface BackupInUseException
 
 export namespace BackupInUseException {
   export function isa(o: any): o is BackupInUseException {
-    return _smithy.isa(o, "BackupInUseException");
+    return __isa(o, "BackupInUseException");
   }
 }
 
@@ -691,7 +694,7 @@ export namespace BackupInUseException {
  * <p>Backup not found for the given BackupARN. </p>
  */
 export interface BackupNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BackupNotFoundException";
   $fault: "client";
@@ -700,7 +703,7 @@ export interface BackupNotFoundException
 
 export namespace BackupNotFoundException {
   export function isa(o: any): o is BackupNotFoundException {
-    return _smithy.isa(o, "BackupNotFoundException");
+    return __isa(o, "BackupNotFoundException");
   }
 }
 
@@ -783,7 +786,7 @@ export interface BackupSummary {
 
 export namespace BackupSummary {
   export function isa(o: any): o is BackupSummary {
-    return _smithy.isa(o, "BackupSummary");
+    return __isa(o, "BackupSummary");
   }
 }
 
@@ -912,7 +915,7 @@ export interface BatchGetItemInput {
 
 export namespace BatchGetItemInput {
   export function isa(o: any): o is BatchGetItemInput {
-    return _smithy.isa(o, "BatchGetItemInput");
+    return __isa(o, "BatchGetItemInput");
   }
 }
 
@@ -976,7 +979,7 @@ export interface BatchGetItemOutput extends $MetadataBearer {
 
 export namespace BatchGetItemOutput {
   export function isa(o: any): o is BatchGetItemOutput {
-    return _smithy.isa(o, "BatchGetItemOutput");
+    return __isa(o, "BatchGetItemOutput");
   }
 }
 
@@ -1055,7 +1058,7 @@ export interface BatchWriteItemInput {
 
 export namespace BatchWriteItemInput {
   export function isa(o: any): o is BatchWriteItemInput {
-    return _smithy.isa(o, "BatchWriteItemInput");
+    return __isa(o, "BatchWriteItemInput");
   }
 }
 
@@ -1149,7 +1152,7 @@ export interface BatchWriteItemOutput extends $MetadataBearer {
 
 export namespace BatchWriteItemOutput {
   export function isa(o: any): o is BatchWriteItemOutput {
-    return _smithy.isa(o, "BatchWriteItemOutput");
+    return __isa(o, "BatchWriteItemOutput");
   }
 }
 
@@ -1184,7 +1187,7 @@ export interface BillingModeSummary {
 
 export namespace BillingModeSummary {
   export function isa(o: any): o is BillingModeSummary {
-    return _smithy.isa(o, "BillingModeSummary");
+    return __isa(o, "BillingModeSummary");
   }
 }
 
@@ -1215,7 +1218,7 @@ export interface CancellationReason {
 
 export namespace CancellationReason {
   export function isa(o: any): o is CancellationReason {
-    return _smithy.isa(o, "CancellationReason");
+    return __isa(o, "CancellationReason");
   }
 }
 
@@ -1242,7 +1245,7 @@ export interface Capacity {
 
 export namespace Capacity {
   export function isa(o: any): o is Capacity {
-    return _smithy.isa(o, "Capacity");
+    return __isa(o, "Capacity");
   }
 }
 
@@ -1449,7 +1452,7 @@ export interface Condition {
 
 export namespace Condition {
   export function isa(o: any): o is Condition {
-    return _smithy.isa(o, "Condition");
+    return __isa(o, "Condition");
   }
 }
 
@@ -1498,7 +1501,7 @@ export interface ConditionCheck {
 
 export namespace ConditionCheck {
   export function isa(o: any): o is ConditionCheck {
-    return _smithy.isa(o, "ConditionCheck");
+    return __isa(o, "ConditionCheck");
   }
 }
 
@@ -1506,7 +1509,7 @@ export namespace ConditionCheck {
  * <p>A condition specified in the operation could not be evaluated.</p>
  */
 export interface ConditionalCheckFailedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConditionalCheckFailedException";
   $fault: "client";
@@ -1518,7 +1521,7 @@ export interface ConditionalCheckFailedException
 
 export namespace ConditionalCheckFailedException {
   export function isa(o: any): o is ConditionalCheckFailedException {
-    return _smithy.isa(o, "ConditionalCheckFailedException");
+    return __isa(o, "ConditionalCheckFailedException");
   }
 }
 
@@ -1571,7 +1574,7 @@ export interface ConsumedCapacity {
 
 export namespace ConsumedCapacity {
   export function isa(o: any): o is ConsumedCapacity {
-    return _smithy.isa(o, "ConsumedCapacity");
+    return __isa(o, "ConsumedCapacity");
   }
 }
 
@@ -1595,7 +1598,7 @@ export interface ContinuousBackupsDescription {
 
 export namespace ContinuousBackupsDescription {
   export function isa(o: any): o is ContinuousBackupsDescription {
-    return _smithy.isa(o, "ContinuousBackupsDescription");
+    return __isa(o, "ContinuousBackupsDescription");
   }
 }
 
@@ -1605,7 +1608,7 @@ export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
  * <p>Backups have not yet been enabled for this table.</p>
  */
 export interface ContinuousBackupsUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ContinuousBackupsUnavailableException";
   $fault: "client";
@@ -1614,7 +1617,7 @@ export interface ContinuousBackupsUnavailableException
 
 export namespace ContinuousBackupsUnavailableException {
   export function isa(o: any): o is ContinuousBackupsUnavailableException {
-    return _smithy.isa(o, "ContinuousBackupsUnavailableException");
+    return __isa(o, "ContinuousBackupsUnavailableException");
   }
 }
 
@@ -1650,7 +1653,7 @@ export interface ContributorInsightsSummary {
 
 export namespace ContributorInsightsSummary {
   export function isa(o: any): o is ContributorInsightsSummary {
-    return _smithy.isa(o, "ContributorInsightsSummary");
+    return __isa(o, "ContributorInsightsSummary");
   }
 }
 
@@ -1669,7 +1672,7 @@ export interface CreateBackupInput {
 
 export namespace CreateBackupInput {
   export function isa(o: any): o is CreateBackupInput {
-    return _smithy.isa(o, "CreateBackupInput");
+    return __isa(o, "CreateBackupInput");
   }
 }
 
@@ -1683,7 +1686,7 @@ export interface CreateBackupOutput extends $MetadataBearer {
 
 export namespace CreateBackupOutput {
   export function isa(o: any): o is CreateBackupOutput {
-    return _smithy.isa(o, "CreateBackupOutput");
+    return __isa(o, "CreateBackupOutput");
   }
 }
 
@@ -1718,7 +1721,7 @@ export interface CreateGlobalSecondaryIndexAction {
 
 export namespace CreateGlobalSecondaryIndexAction {
   export function isa(o: any): o is CreateGlobalSecondaryIndexAction {
-    return _smithy.isa(o, "CreateGlobalSecondaryIndexAction");
+    return __isa(o, "CreateGlobalSecondaryIndexAction");
   }
 }
 
@@ -1737,7 +1740,7 @@ export interface CreateGlobalTableInput {
 
 export namespace CreateGlobalTableInput {
   export function isa(o: any): o is CreateGlobalTableInput {
-    return _smithy.isa(o, "CreateGlobalTableInput");
+    return __isa(o, "CreateGlobalTableInput");
   }
 }
 
@@ -1751,7 +1754,7 @@ export interface CreateGlobalTableOutput extends $MetadataBearer {
 
 export namespace CreateGlobalTableOutput {
   export function isa(o: any): o is CreateGlobalTableOutput {
-    return _smithy.isa(o, "CreateGlobalTableOutput");
+    return __isa(o, "CreateGlobalTableOutput");
   }
 }
 
@@ -1768,7 +1771,7 @@ export interface CreateReplicaAction {
 
 export namespace CreateReplicaAction {
   export function isa(o: any): o is CreateReplicaAction {
-    return _smithy.isa(o, "CreateReplicaAction");
+    return __isa(o, "CreateReplicaAction");
   }
 }
 
@@ -1804,7 +1807,7 @@ export interface CreateReplicationGroupMemberAction {
 
 export namespace CreateReplicationGroupMemberAction {
   export function isa(o: any): o is CreateReplicationGroupMemberAction {
-    return _smithy.isa(o, "CreateReplicationGroupMemberAction");
+    return __isa(o, "CreateReplicationGroupMemberAction");
   }
 }
 
@@ -2069,7 +2072,7 @@ export interface CreateTableInput {
 
 export namespace CreateTableInput {
   export function isa(o: any): o is CreateTableInput {
-    return _smithy.isa(o, "CreateTableInput");
+    return __isa(o, "CreateTableInput");
   }
 }
 
@@ -2086,7 +2089,7 @@ export interface CreateTableOutput extends $MetadataBearer {
 
 export namespace CreateTableOutput {
   export function isa(o: any): o is CreateTableOutput {
-    return _smithy.isa(o, "CreateTableOutput");
+    return __isa(o, "CreateTableOutput");
   }
 }
 
@@ -2134,7 +2137,7 @@ export interface Delete {
 
 export namespace Delete {
   export function isa(o: any): o is Delete {
-    return _smithy.isa(o, "Delete");
+    return __isa(o, "Delete");
   }
 }
 
@@ -2148,7 +2151,7 @@ export interface DeleteBackupInput {
 
 export namespace DeleteBackupInput {
   export function isa(o: any): o is DeleteBackupInput {
-    return _smithy.isa(o, "DeleteBackupInput");
+    return __isa(o, "DeleteBackupInput");
   }
 }
 
@@ -2162,7 +2165,7 @@ export interface DeleteBackupOutput extends $MetadataBearer {
 
 export namespace DeleteBackupOutput {
   export function isa(o: any): o is DeleteBackupOutput {
-    return _smithy.isa(o, "DeleteBackupOutput");
+    return __isa(o, "DeleteBackupOutput");
   }
 }
 
@@ -2179,7 +2182,7 @@ export interface DeleteGlobalSecondaryIndexAction {
 
 export namespace DeleteGlobalSecondaryIndexAction {
   export function isa(o: any): o is DeleteGlobalSecondaryIndexAction {
-    return _smithy.isa(o, "DeleteGlobalSecondaryIndexAction");
+    return __isa(o, "DeleteGlobalSecondaryIndexAction");
   }
 }
 
@@ -2354,7 +2357,7 @@ export interface DeleteItemInput {
 
 export namespace DeleteItemInput {
   export function isa(o: any): o is DeleteItemInput {
-    return _smithy.isa(o, "DeleteItemInput");
+    return __isa(o, "DeleteItemInput");
   }
 }
 
@@ -2413,7 +2416,7 @@ export interface DeleteItemOutput extends $MetadataBearer {
 
 export namespace DeleteItemOutput {
   export function isa(o: any): o is DeleteItemOutput {
-    return _smithy.isa(o, "DeleteItemOutput");
+    return __isa(o, "DeleteItemOutput");
   }
 }
 
@@ -2430,7 +2433,7 @@ export interface DeleteReplicaAction {
 
 export namespace DeleteReplicaAction {
   export function isa(o: any): o is DeleteReplicaAction {
-    return _smithy.isa(o, "DeleteReplicaAction");
+    return __isa(o, "DeleteReplicaAction");
   }
 }
 
@@ -2447,7 +2450,7 @@ export interface DeleteReplicationGroupMemberAction {
 
 export namespace DeleteReplicationGroupMemberAction {
   export function isa(o: any): o is DeleteReplicationGroupMemberAction {
-    return _smithy.isa(o, "DeleteReplicationGroupMemberAction");
+    return __isa(o, "DeleteReplicationGroupMemberAction");
   }
 }
 
@@ -2464,7 +2467,7 @@ export interface DeleteRequest {
 
 export namespace DeleteRequest {
   export function isa(o: any): o is DeleteRequest {
-    return _smithy.isa(o, "DeleteRequest");
+    return __isa(o, "DeleteRequest");
   }
 }
 
@@ -2481,7 +2484,7 @@ export interface DeleteTableInput {
 
 export namespace DeleteTableInput {
   export function isa(o: any): o is DeleteTableInput {
-    return _smithy.isa(o, "DeleteTableInput");
+    return __isa(o, "DeleteTableInput");
   }
 }
 
@@ -2498,7 +2501,7 @@ export interface DeleteTableOutput extends $MetadataBearer {
 
 export namespace DeleteTableOutput {
   export function isa(o: any): o is DeleteTableOutput {
-    return _smithy.isa(o, "DeleteTableOutput");
+    return __isa(o, "DeleteTableOutput");
   }
 }
 
@@ -2512,7 +2515,7 @@ export interface DescribeBackupInput {
 
 export namespace DescribeBackupInput {
   export function isa(o: any): o is DescribeBackupInput {
-    return _smithy.isa(o, "DescribeBackupInput");
+    return __isa(o, "DescribeBackupInput");
   }
 }
 
@@ -2526,7 +2529,7 @@ export interface DescribeBackupOutput extends $MetadataBearer {
 
 export namespace DescribeBackupOutput {
   export function isa(o: any): o is DescribeBackupOutput {
-    return _smithy.isa(o, "DescribeBackupOutput");
+    return __isa(o, "DescribeBackupOutput");
   }
 }
 
@@ -2540,7 +2543,7 @@ export interface DescribeContinuousBackupsInput {
 
 export namespace DescribeContinuousBackupsInput {
   export function isa(o: any): o is DescribeContinuousBackupsInput {
-    return _smithy.isa(o, "DescribeContinuousBackupsInput");
+    return __isa(o, "DescribeContinuousBackupsInput");
   }
 }
 
@@ -2554,7 +2557,7 @@ export interface DescribeContinuousBackupsOutput extends $MetadataBearer {
 
 export namespace DescribeContinuousBackupsOutput {
   export function isa(o: any): o is DescribeContinuousBackupsOutput {
-    return _smithy.isa(o, "DescribeContinuousBackupsOutput");
+    return __isa(o, "DescribeContinuousBackupsOutput");
   }
 }
 
@@ -2573,7 +2576,7 @@ export interface DescribeContributorInsightsInput {
 
 export namespace DescribeContributorInsightsInput {
   export function isa(o: any): o is DescribeContributorInsightsInput {
-    return _smithy.isa(o, "DescribeContributorInsightsInput");
+    return __isa(o, "DescribeContributorInsightsInput");
   }
 }
 
@@ -2628,7 +2631,7 @@ export interface DescribeContributorInsightsOutput extends $MetadataBearer {
 
 export namespace DescribeContributorInsightsOutput {
   export function isa(o: any): o is DescribeContributorInsightsOutput {
-    return _smithy.isa(o, "DescribeContributorInsightsOutput");
+    return __isa(o, "DescribeContributorInsightsOutput");
   }
 }
 
@@ -2642,7 +2645,7 @@ export interface DescribeGlobalTableInput {
 
 export namespace DescribeGlobalTableInput {
   export function isa(o: any): o is DescribeGlobalTableInput {
-    return _smithy.isa(o, "DescribeGlobalTableInput");
+    return __isa(o, "DescribeGlobalTableInput");
   }
 }
 
@@ -2656,7 +2659,7 @@ export interface DescribeGlobalTableOutput extends $MetadataBearer {
 
 export namespace DescribeGlobalTableOutput {
   export function isa(o: any): o is DescribeGlobalTableOutput {
-    return _smithy.isa(o, "DescribeGlobalTableOutput");
+    return __isa(o, "DescribeGlobalTableOutput");
   }
 }
 
@@ -2670,7 +2673,7 @@ export interface DescribeGlobalTableSettingsInput {
 
 export namespace DescribeGlobalTableSettingsInput {
   export function isa(o: any): o is DescribeGlobalTableSettingsInput {
-    return _smithy.isa(o, "DescribeGlobalTableSettingsInput");
+    return __isa(o, "DescribeGlobalTableSettingsInput");
   }
 }
 
@@ -2689,7 +2692,7 @@ export interface DescribeGlobalTableSettingsOutput extends $MetadataBearer {
 
 export namespace DescribeGlobalTableSettingsOutput {
   export function isa(o: any): o is DescribeGlobalTableSettingsOutput {
-    return _smithy.isa(o, "DescribeGlobalTableSettingsOutput");
+    return __isa(o, "DescribeGlobalTableSettingsOutput");
   }
 }
 
@@ -2702,7 +2705,7 @@ export interface DescribeLimitsInput {
 
 export namespace DescribeLimitsInput {
   export function isa(o: any): o is DescribeLimitsInput {
-    return _smithy.isa(o, "DescribeLimitsInput");
+    return __isa(o, "DescribeLimitsInput");
   }
 }
 
@@ -2740,7 +2743,7 @@ export interface DescribeLimitsOutput extends $MetadataBearer {
 
 export namespace DescribeLimitsOutput {
   export function isa(o: any): o is DescribeLimitsOutput {
-    return _smithy.isa(o, "DescribeLimitsOutput");
+    return __isa(o, "DescribeLimitsOutput");
   }
 }
 
@@ -2757,7 +2760,7 @@ export interface DescribeTableInput {
 
 export namespace DescribeTableInput {
   export function isa(o: any): o is DescribeTableInput {
-    return _smithy.isa(o, "DescribeTableInput");
+    return __isa(o, "DescribeTableInput");
   }
 }
 
@@ -2774,7 +2777,7 @@ export interface DescribeTableOutput extends $MetadataBearer {
 
 export namespace DescribeTableOutput {
   export function isa(o: any): o is DescribeTableOutput {
-    return _smithy.isa(o, "DescribeTableOutput");
+    return __isa(o, "DescribeTableOutput");
   }
 }
 
@@ -2788,7 +2791,7 @@ export interface DescribeTableReplicaAutoScalingInput {
 
 export namespace DescribeTableReplicaAutoScalingInput {
   export function isa(o: any): o is DescribeTableReplicaAutoScalingInput {
-    return _smithy.isa(o, "DescribeTableReplicaAutoScalingInput");
+    return __isa(o, "DescribeTableReplicaAutoScalingInput");
   }
 }
 
@@ -2802,7 +2805,7 @@ export interface DescribeTableReplicaAutoScalingOutput extends $MetadataBearer {
 
 export namespace DescribeTableReplicaAutoScalingOutput {
   export function isa(o: any): o is DescribeTableReplicaAutoScalingOutput {
-    return _smithy.isa(o, "DescribeTableReplicaAutoScalingOutput");
+    return __isa(o, "DescribeTableReplicaAutoScalingOutput");
   }
 }
 
@@ -2816,7 +2819,7 @@ export interface DescribeTimeToLiveInput {
 
 export namespace DescribeTimeToLiveInput {
   export function isa(o: any): o is DescribeTimeToLiveInput {
-    return _smithy.isa(o, "DescribeTimeToLiveInput");
+    return __isa(o, "DescribeTimeToLiveInput");
   }
 }
 
@@ -2830,7 +2833,7 @@ export interface DescribeTimeToLiveOutput extends $MetadataBearer {
 
 export namespace DescribeTimeToLiveOutput {
   export function isa(o: any): o is DescribeTimeToLiveOutput {
-    return _smithy.isa(o, "DescribeTimeToLiveOutput");
+    return __isa(o, "DescribeTimeToLiveOutput");
   }
 }
 
@@ -3069,7 +3072,7 @@ export interface ExpectedAttributeValue {
 
 export namespace ExpectedAttributeValue {
   export function isa(o: any): o is ExpectedAttributeValue {
-    return _smithy.isa(o, "ExpectedAttributeValue");
+    return __isa(o, "ExpectedAttributeValue");
   }
 }
 
@@ -3091,7 +3094,7 @@ export interface FailureException {
 
 export namespace FailureException {
   export function isa(o: any): o is FailureException {
-    return _smithy.isa(o, "FailureException");
+    return __isa(o, "FailureException");
   }
 }
 
@@ -3130,7 +3133,7 @@ export interface Get {
 
 export namespace Get {
   export function isa(o: any): o is Get {
-    return _smithy.isa(o, "Get");
+    return __isa(o, "Get");
   }
 }
 
@@ -3239,7 +3242,7 @@ export interface GetItemInput {
 
 export namespace GetItemInput {
   export function isa(o: any): o is GetItemInput {
-    return _smithy.isa(o, "GetItemInput");
+    return __isa(o, "GetItemInput");
   }
 }
 
@@ -3267,7 +3270,7 @@ export interface GetItemOutput extends $MetadataBearer {
 
 export namespace GetItemOutput {
   export function isa(o: any): o is GetItemOutput {
-    return _smithy.isa(o, "GetItemOutput");
+    return __isa(o, "GetItemOutput");
   }
 }
 
@@ -3320,7 +3323,7 @@ export interface GlobalSecondaryIndex {
 
 export namespace GlobalSecondaryIndex {
   export function isa(o: any): o is GlobalSecondaryIndex {
-    return _smithy.isa(o, "GlobalSecondaryIndex");
+    return __isa(o, "GlobalSecondaryIndex");
   }
 }
 
@@ -3344,7 +3347,7 @@ export interface GlobalSecondaryIndexAutoScalingUpdate {
 
 export namespace GlobalSecondaryIndexAutoScalingUpdate {
   export function isa(o: any): o is GlobalSecondaryIndexAutoScalingUpdate {
-    return _smithy.isa(o, "GlobalSecondaryIndexAutoScalingUpdate");
+    return __isa(o, "GlobalSecondaryIndexAutoScalingUpdate");
   }
 }
 
@@ -3450,7 +3453,7 @@ export interface GlobalSecondaryIndexDescription {
 
 export namespace GlobalSecondaryIndexDescription {
   export function isa(o: any): o is GlobalSecondaryIndexDescription {
-    return _smithy.isa(o, "GlobalSecondaryIndexDescription");
+    return __isa(o, "GlobalSecondaryIndexDescription");
   }
 }
 
@@ -3504,7 +3507,7 @@ export interface GlobalSecondaryIndexInfo {
 
 export namespace GlobalSecondaryIndexInfo {
   export function isa(o: any): o is GlobalSecondaryIndexInfo {
-    return _smithy.isa(o, "GlobalSecondaryIndexInfo");
+    return __isa(o, "GlobalSecondaryIndexInfo");
   }
 }
 
@@ -3569,7 +3572,7 @@ export interface GlobalSecondaryIndexUpdate {
 
 export namespace GlobalSecondaryIndexUpdate {
   export function isa(o: any): o is GlobalSecondaryIndexUpdate {
-    return _smithy.isa(o, "GlobalSecondaryIndexUpdate");
+    return __isa(o, "GlobalSecondaryIndexUpdate");
   }
 }
 
@@ -3591,7 +3594,7 @@ export interface GlobalTable {
 
 export namespace GlobalTable {
   export function isa(o: any): o is GlobalTable {
-    return _smithy.isa(o, "GlobalTable");
+    return __isa(o, "GlobalTable");
   }
 }
 
@@ -3599,7 +3602,7 @@ export namespace GlobalTable {
  * <p>The specified global table already exists.</p>
  */
 export interface GlobalTableAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "GlobalTableAlreadyExistsException";
   $fault: "client";
@@ -3608,7 +3611,7 @@ export interface GlobalTableAlreadyExistsException
 
 export namespace GlobalTableAlreadyExistsException {
   export function isa(o: any): o is GlobalTableAlreadyExistsException {
-    return _smithy.isa(o, "GlobalTableAlreadyExistsException");
+    return __isa(o, "GlobalTableAlreadyExistsException");
   }
 }
 
@@ -3663,7 +3666,7 @@ export interface GlobalTableDescription {
 
 export namespace GlobalTableDescription {
   export function isa(o: any): o is GlobalTableDescription {
-    return _smithy.isa(o, "GlobalTableDescription");
+    return __isa(o, "GlobalTableDescription");
   }
 }
 
@@ -3694,7 +3697,7 @@ export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
   export function isa(
     o: any
   ): o is GlobalTableGlobalSecondaryIndexSettingsUpdate {
-    return _smithy.isa(o, "GlobalTableGlobalSecondaryIndexSettingsUpdate");
+    return __isa(o, "GlobalTableGlobalSecondaryIndexSettingsUpdate");
   }
 }
 
@@ -3702,7 +3705,7 @@ export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
  * <p>The specified global table does not exist.</p>
  */
 export interface GlobalTableNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "GlobalTableNotFoundException";
   $fault: "client";
@@ -3711,7 +3714,7 @@ export interface GlobalTableNotFoundException
 
 export namespace GlobalTableNotFoundException {
   export function isa(o: any): o is GlobalTableNotFoundException {
-    return _smithy.isa(o, "GlobalTableNotFoundException");
+    return __isa(o, "GlobalTableNotFoundException");
   }
 }
 
@@ -3722,7 +3725,7 @@ export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
  *       with an idempotent token that was already used.</p>
  */
 export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
@@ -3731,7 +3734,7 @@ export interface IdempotentParameterMismatchException
 
 export namespace IdempotentParameterMismatchException {
   export function isa(o: any): o is IdempotentParameterMismatchException {
-    return _smithy.isa(o, "IdempotentParameterMismatchException");
+    return __isa(o, "IdempotentParameterMismatchException");
   }
 }
 
@@ -3739,7 +3742,7 @@ export namespace IdempotentParameterMismatchException {
  * <p>The operation tried to access a nonexistent index.</p>
  */
 export interface IndexNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IndexNotFoundException";
   $fault: "client";
@@ -3748,7 +3751,7 @@ export interface IndexNotFoundException
 
 export namespace IndexNotFoundException {
   export function isa(o: any): o is IndexNotFoundException {
-    return _smithy.isa(o, "IndexNotFoundException");
+    return __isa(o, "IndexNotFoundException");
   }
 }
 
@@ -3758,7 +3761,7 @@ export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
  * <p>An error occurred on the server side.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -3770,7 +3773,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -3778,7 +3781,7 @@ export namespace InternalServerError {
  * <p>An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.</p>
  */
 export interface InvalidRestoreTimeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRestoreTimeException";
   $fault: "client";
@@ -3787,7 +3790,7 @@ export interface InvalidRestoreTimeException
 
 export namespace InvalidRestoreTimeException {
   export function isa(o: any): o is InvalidRestoreTimeException {
-    return _smithy.isa(o, "InvalidRestoreTimeException");
+    return __isa(o, "InvalidRestoreTimeException");
   }
 }
 
@@ -3812,7 +3815,7 @@ export interface ItemCollectionMetrics {
 
 export namespace ItemCollectionMetrics {
   export function isa(o: any): o is ItemCollectionMetrics {
-    return _smithy.isa(o, "ItemCollectionMetrics");
+    return __isa(o, "ItemCollectionMetrics");
   }
 }
 
@@ -3820,7 +3823,7 @@ export namespace ItemCollectionMetrics {
  * <p>An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.</p>
  */
 export interface ItemCollectionSizeLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ItemCollectionSizeLimitExceededException";
   $fault: "client";
@@ -3832,7 +3835,7 @@ export interface ItemCollectionSizeLimitExceededException
 
 export namespace ItemCollectionSizeLimitExceededException {
   export function isa(o: any): o is ItemCollectionSizeLimitExceededException {
-    return _smithy.isa(o, "ItemCollectionSizeLimitExceededException");
+    return __isa(o, "ItemCollectionSizeLimitExceededException");
   }
 }
 
@@ -3849,7 +3852,7 @@ export interface ItemResponse {
 
 export namespace ItemResponse {
   export function isa(o: any): o is ItemResponse {
-    return _smithy.isa(o, "ItemResponse");
+    return __isa(o, "ItemResponse");
   }
 }
 
@@ -3895,7 +3898,7 @@ export interface KeySchemaElement {
 
 export namespace KeySchemaElement {
   export function isa(o: any): o is KeySchemaElement {
-    return _smithy.isa(o, "KeySchemaElement");
+    return __isa(o, "KeySchemaElement");
   }
 }
 
@@ -3982,7 +3985,7 @@ export interface KeysAndAttributes {
 
 export namespace KeysAndAttributes {
   export function isa(o: any): o is KeysAndAttributes {
-    return _smithy.isa(o, "KeysAndAttributes");
+    return __isa(o, "KeysAndAttributes");
   }
 }
 
@@ -3998,7 +4001,7 @@ export namespace KeysAndAttributes {
  *         <p>There is a soft account limit of 256 tables.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -4010,7 +4013,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -4069,7 +4072,7 @@ export interface ListBackupsInput {
 
 export namespace ListBackupsInput {
   export function isa(o: any): o is ListBackupsInput {
-    return _smithy.isa(o, "ListBackupsInput");
+    return __isa(o, "ListBackupsInput");
   }
 }
 
@@ -4099,7 +4102,7 @@ export interface ListBackupsOutput extends $MetadataBearer {
 
 export namespace ListBackupsOutput {
   export function isa(o: any): o is ListBackupsOutput {
-    return _smithy.isa(o, "ListBackupsOutput");
+    return __isa(o, "ListBackupsOutput");
   }
 }
 
@@ -4123,7 +4126,7 @@ export interface ListContributorInsightsInput {
 
 export namespace ListContributorInsightsInput {
   export function isa(o: any): o is ListContributorInsightsInput {
-    return _smithy.isa(o, "ListContributorInsightsInput");
+    return __isa(o, "ListContributorInsightsInput");
   }
 }
 
@@ -4142,7 +4145,7 @@ export interface ListContributorInsightsOutput extends $MetadataBearer {
 
 export namespace ListContributorInsightsOutput {
   export function isa(o: any): o is ListContributorInsightsOutput {
-    return _smithy.isa(o, "ListContributorInsightsOutput");
+    return __isa(o, "ListContributorInsightsOutput");
   }
 }
 
@@ -4166,7 +4169,7 @@ export interface ListGlobalTablesInput {
 
 export namespace ListGlobalTablesInput {
   export function isa(o: any): o is ListGlobalTablesInput {
-    return _smithy.isa(o, "ListGlobalTablesInput");
+    return __isa(o, "ListGlobalTablesInput");
   }
 }
 
@@ -4185,7 +4188,7 @@ export interface ListGlobalTablesOutput extends $MetadataBearer {
 
 export namespace ListGlobalTablesOutput {
   export function isa(o: any): o is ListGlobalTablesOutput {
-    return _smithy.isa(o, "ListGlobalTablesOutput");
+    return __isa(o, "ListGlobalTablesOutput");
   }
 }
 
@@ -4209,7 +4212,7 @@ export interface ListTablesInput {
 
 export namespace ListTablesInput {
   export function isa(o: any): o is ListTablesInput {
-    return _smithy.isa(o, "ListTablesInput");
+    return __isa(o, "ListTablesInput");
   }
 }
 
@@ -4238,7 +4241,7 @@ export interface ListTablesOutput extends $MetadataBearer {
 
 export namespace ListTablesOutput {
   export function isa(o: any): o is ListTablesOutput {
-    return _smithy.isa(o, "ListTablesOutput");
+    return __isa(o, "ListTablesOutput");
   }
 }
 
@@ -4258,7 +4261,7 @@ export interface ListTagsOfResourceInput {
 
 export namespace ListTagsOfResourceInput {
   export function isa(o: any): o is ListTagsOfResourceInput {
-    return _smithy.isa(o, "ListTagsOfResourceInput");
+    return __isa(o, "ListTagsOfResourceInput");
   }
 }
 
@@ -4278,7 +4281,7 @@ export interface ListTagsOfResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsOfResourceOutput {
   export function isa(o: any): o is ListTagsOfResourceOutput {
-    return _smithy.isa(o, "ListTagsOfResourceOutput");
+    return __isa(o, "ListTagsOfResourceOutput");
   }
 }
 
@@ -4325,7 +4328,7 @@ export interface LocalSecondaryIndex {
 
 export namespace LocalSecondaryIndex {
   export function isa(o: any): o is LocalSecondaryIndex {
-    return _smithy.isa(o, "LocalSecondaryIndex");
+    return __isa(o, "LocalSecondaryIndex");
   }
 }
 
@@ -4387,7 +4390,7 @@ export interface LocalSecondaryIndexDescription {
 
 export namespace LocalSecondaryIndexDescription {
   export function isa(o: any): o is LocalSecondaryIndexDescription {
-    return _smithy.isa(o, "LocalSecondaryIndexDescription");
+    return __isa(o, "LocalSecondaryIndexDescription");
   }
 }
 
@@ -4433,7 +4436,7 @@ export interface LocalSecondaryIndexInfo {
 
 export namespace LocalSecondaryIndexInfo {
   export function isa(o: any): o is LocalSecondaryIndexInfo {
-    return _smithy.isa(o, "LocalSecondaryIndexInfo");
+    return __isa(o, "LocalSecondaryIndexInfo");
   }
 }
 
@@ -4477,7 +4480,7 @@ export interface PointInTimeRecoveryDescription {
 
 export namespace PointInTimeRecoveryDescription {
   export function isa(o: any): o is PointInTimeRecoveryDescription {
-    return _smithy.isa(o, "PointInTimeRecoveryDescription");
+    return __isa(o, "PointInTimeRecoveryDescription");
   }
 }
 
@@ -4494,7 +4497,7 @@ export interface PointInTimeRecoverySpecification {
 
 export namespace PointInTimeRecoverySpecification {
   export function isa(o: any): o is PointInTimeRecoverySpecification {
-    return _smithy.isa(o, "PointInTimeRecoverySpecification");
+    return __isa(o, "PointInTimeRecoverySpecification");
   }
 }
 
@@ -4504,7 +4507,7 @@ export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
  * <p>Point in time recovery has not yet been enabled for this source table.</p>
  */
 export interface PointInTimeRecoveryUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PointInTimeRecoveryUnavailableException";
   $fault: "client";
@@ -4513,7 +4516,7 @@ export interface PointInTimeRecoveryUnavailableException
 
 export namespace PointInTimeRecoveryUnavailableException {
   export function isa(o: any): o is PointInTimeRecoveryUnavailableException {
-    return _smithy.isa(o, "PointInTimeRecoveryUnavailableException");
+    return __isa(o, "PointInTimeRecoveryUnavailableException");
   }
 }
 
@@ -4554,7 +4557,7 @@ export interface Projection {
 
 export namespace Projection {
   export function isa(o: any): o is Projection {
-    return _smithy.isa(o, "Projection");
+    return __isa(o, "Projection");
   }
 }
 
@@ -4586,7 +4589,7 @@ export interface ProvisionedThroughput {
 
 export namespace ProvisionedThroughput {
   export function isa(o: any): o is ProvisionedThroughput {
-    return _smithy.isa(o, "ProvisionedThroughput");
+    return __isa(o, "ProvisionedThroughput");
   }
 }
 
@@ -4628,7 +4631,7 @@ export interface ProvisionedThroughputDescription {
 
 export namespace ProvisionedThroughputDescription {
   export function isa(o: any): o is ProvisionedThroughputDescription {
-    return _smithy.isa(o, "ProvisionedThroughputDescription");
+    return __isa(o, "ProvisionedThroughputDescription");
   }
 }
 
@@ -4640,7 +4643,7 @@ export namespace ProvisionedThroughputDescription {
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface ProvisionedThroughputExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
@@ -4652,7 +4655,7 @@ export interface ProvisionedThroughputExceededException
 
 export namespace ProvisionedThroughputExceededException {
   export function isa(o: any): o is ProvisionedThroughputExceededException {
-    return _smithy.isa(o, "ProvisionedThroughputExceededException");
+    return __isa(o, "ProvisionedThroughputExceededException");
   }
 }
 
@@ -4671,7 +4674,7 @@ export interface ProvisionedThroughputOverride {
 
 export namespace ProvisionedThroughputOverride {
   export function isa(o: any): o is ProvisionedThroughputOverride {
-    return _smithy.isa(o, "ProvisionedThroughputOverride");
+    return __isa(o, "ProvisionedThroughputOverride");
   }
 }
 
@@ -4722,7 +4725,7 @@ export interface Put {
 
 export namespace Put {
   export function isa(o: any): o is Put {
-    return _smithy.isa(o, "Put");
+    return __isa(o, "Put");
   }
 }
 
@@ -4901,7 +4904,7 @@ export interface PutItemInput {
 
 export namespace PutItemInput {
   export function isa(o: any): o is PutItemInput {
-    return _smithy.isa(o, "PutItemInput");
+    return __isa(o, "PutItemInput");
   }
 }
 
@@ -4958,7 +4961,7 @@ export interface PutItemOutput extends $MetadataBearer {
 
 export namespace PutItemOutput {
   export function isa(o: any): o is PutItemOutput {
-    return _smithy.isa(o, "PutItemOutput");
+    return __isa(o, "PutItemOutput");
   }
 }
 
@@ -4979,7 +4982,7 @@ export interface PutRequest {
 
 export namespace PutRequest {
   export function isa(o: any): o is PutRequest {
-    return _smithy.isa(o, "PutRequest");
+    return __isa(o, "PutRequest");
   }
 }
 
@@ -5346,7 +5349,7 @@ export interface QueryInput {
 
 export namespace QueryInput {
   export function isa(o: any): o is QueryInput {
-    return _smithy.isa(o, "QueryInput");
+    return __isa(o, "QueryInput");
   }
 }
 
@@ -5400,7 +5403,7 @@ export interface QueryOutput extends $MetadataBearer {
 
 export namespace QueryOutput {
   export function isa(o: any): o is QueryOutput {
-    return _smithy.isa(o, "QueryOutput");
+    return __isa(o, "QueryOutput");
   }
 }
 
@@ -5417,7 +5420,7 @@ export interface Replica {
 
 export namespace Replica {
   export function isa(o: any): o is Replica {
-    return _smithy.isa(o, "Replica");
+    return __isa(o, "Replica");
   }
 }
 
@@ -5425,7 +5428,7 @@ export namespace Replica {
  * <p>The specified replica is already part of the global table.</p>
  */
 export interface ReplicaAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ReplicaAlreadyExistsException";
   $fault: "client";
@@ -5434,7 +5437,7 @@ export interface ReplicaAlreadyExistsException
 
 export namespace ReplicaAlreadyExistsException {
   export function isa(o: any): o is ReplicaAlreadyExistsException {
-    return _smithy.isa(o, "ReplicaAlreadyExistsException");
+    return __isa(o, "ReplicaAlreadyExistsException");
   }
 }
 
@@ -5493,7 +5496,7 @@ export interface ReplicaAutoScalingDescription {
 
 export namespace ReplicaAutoScalingDescription {
   export function isa(o: any): o is ReplicaAutoScalingDescription {
-    return _smithy.isa(o, "ReplicaAutoScalingDescription");
+    return __isa(o, "ReplicaAutoScalingDescription");
   }
 }
 
@@ -5524,7 +5527,7 @@ export interface ReplicaAutoScalingUpdate {
 
 export namespace ReplicaAutoScalingUpdate {
   export function isa(o: any): o is ReplicaAutoScalingUpdate {
-    return _smithy.isa(o, "ReplicaAutoScalingUpdate");
+    return __isa(o, "ReplicaAutoScalingUpdate");
   }
 }
 
@@ -5592,7 +5595,7 @@ export interface ReplicaDescription {
 
 export namespace ReplicaDescription {
   export function isa(o: any): o is ReplicaDescription {
-    return _smithy.isa(o, "ReplicaDescription");
+    return __isa(o, "ReplicaDescription");
   }
 }
 
@@ -5615,7 +5618,7 @@ export interface ReplicaGlobalSecondaryIndex {
 
 export namespace ReplicaGlobalSecondaryIndex {
   export function isa(o: any): o is ReplicaGlobalSecondaryIndex {
-    return _smithy.isa(o, "ReplicaGlobalSecondaryIndex");
+    return __isa(o, "ReplicaGlobalSecondaryIndex");
   }
 }
 
@@ -5669,7 +5672,7 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
   export function isa(
     o: any
   ): o is ReplicaGlobalSecondaryIndexAutoScalingDescription {
-    return _smithy.isa(o, "ReplicaGlobalSecondaryIndexAutoScalingDescription");
+    return __isa(o, "ReplicaGlobalSecondaryIndexAutoScalingDescription");
   }
 }
 
@@ -5695,7 +5698,7 @@ export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
   export function isa(
     o: any
   ): o is ReplicaGlobalSecondaryIndexAutoScalingUpdate {
-    return _smithy.isa(o, "ReplicaGlobalSecondaryIndexAutoScalingUpdate");
+    return __isa(o, "ReplicaGlobalSecondaryIndexAutoScalingUpdate");
   }
 }
 
@@ -5717,7 +5720,7 @@ export interface ReplicaGlobalSecondaryIndexDescription {
 
 export namespace ReplicaGlobalSecondaryIndexDescription {
   export function isa(o: any): o is ReplicaGlobalSecondaryIndexDescription {
-    return _smithy.isa(o, "ReplicaGlobalSecondaryIndexDescription");
+    return __isa(o, "ReplicaGlobalSecondaryIndexDescription");
   }
 }
 
@@ -5781,7 +5784,7 @@ export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
   export function isa(
     o: any
   ): o is ReplicaGlobalSecondaryIndexSettingsDescription {
-    return _smithy.isa(o, "ReplicaGlobalSecondaryIndexSettingsDescription");
+    return __isa(o, "ReplicaGlobalSecondaryIndexSettingsDescription");
   }
 }
 
@@ -5809,7 +5812,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
 
 export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
   export function isa(o: any): o is ReplicaGlobalSecondaryIndexSettingsUpdate {
-    return _smithy.isa(o, "ReplicaGlobalSecondaryIndexSettingsUpdate");
+    return __isa(o, "ReplicaGlobalSecondaryIndexSettingsUpdate");
   }
 }
 
@@ -5817,7 +5820,7 @@ export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
  * <p>The specified replica is no longer part of the global table.</p>
  */
 export interface ReplicaNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ReplicaNotFoundException";
   $fault: "client";
@@ -5826,7 +5829,7 @@ export interface ReplicaNotFoundException
 
 export namespace ReplicaNotFoundException {
   export function isa(o: any): o is ReplicaNotFoundException {
-    return _smithy.isa(o, "ReplicaNotFoundException");
+    return __isa(o, "ReplicaNotFoundException");
   }
 }
 
@@ -5903,7 +5906,7 @@ export interface ReplicaSettingsDescription {
 
 export namespace ReplicaSettingsDescription {
   export function isa(o: any): o is ReplicaSettingsDescription {
-    return _smithy.isa(o, "ReplicaSettingsDescription");
+    return __isa(o, "ReplicaSettingsDescription");
   }
 }
 
@@ -5940,7 +5943,7 @@ export interface ReplicaSettingsUpdate {
 
 export namespace ReplicaSettingsUpdate {
   export function isa(o: any): o is ReplicaSettingsUpdate {
-    return _smithy.isa(o, "ReplicaSettingsUpdate");
+    return __isa(o, "ReplicaSettingsUpdate");
   }
 }
 
@@ -5980,7 +5983,7 @@ export interface ReplicaUpdate {
 
 export namespace ReplicaUpdate {
   export function isa(o: any): o is ReplicaUpdate {
-    return _smithy.isa(o, "ReplicaUpdate");
+    return __isa(o, "ReplicaUpdate");
   }
 }
 
@@ -6023,7 +6026,7 @@ export interface ReplicationGroupUpdate {
 
 export namespace ReplicationGroupUpdate {
   export function isa(o: any): o is ReplicationGroupUpdate {
-    return _smithy.isa(o, "ReplicationGroupUpdate");
+    return __isa(o, "ReplicationGroupUpdate");
   }
 }
 
@@ -6031,7 +6034,7 @@ export namespace ReplicationGroupUpdate {
  * <p>Throughput exceeds the current throughput limit for your account. Please contact AWS Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a limit increase.</p>
  */
 export interface RequestLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RequestLimitExceeded";
   $fault: "client";
@@ -6040,7 +6043,7 @@ export interface RequestLimitExceeded
 
 export namespace RequestLimitExceeded {
   export function isa(o: any): o is RequestLimitExceeded {
-    return _smithy.isa(o, "RequestLimitExceeded");
+    return __isa(o, "RequestLimitExceeded");
   }
 }
 
@@ -6050,7 +6053,7 @@ export namespace RequestLimitExceeded {
  *       state.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -6062,7 +6065,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -6071,7 +6074,7 @@ export namespace ResourceInUseException {
  *       correctly, or its status might not be <code>ACTIVE</code>.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -6083,7 +6086,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -6115,7 +6118,7 @@ export interface RestoreSummary {
 
 export namespace RestoreSummary {
   export function isa(o: any): o is RestoreSummary {
-    return _smithy.isa(o, "RestoreSummary");
+    return __isa(o, "RestoreSummary");
   }
 }
 
@@ -6158,7 +6161,7 @@ export interface RestoreTableFromBackupInput {
 
 export namespace RestoreTableFromBackupInput {
   export function isa(o: any): o is RestoreTableFromBackupInput {
-    return _smithy.isa(o, "RestoreTableFromBackupInput");
+    return __isa(o, "RestoreTableFromBackupInput");
   }
 }
 
@@ -6172,7 +6175,7 @@ export interface RestoreTableFromBackupOutput extends $MetadataBearer {
 
 export namespace RestoreTableFromBackupOutput {
   export function isa(o: any): o is RestoreTableFromBackupOutput {
-    return _smithy.isa(o, "RestoreTableFromBackupOutput");
+    return __isa(o, "RestoreTableFromBackupOutput");
   }
 }
 
@@ -6226,7 +6229,7 @@ export interface RestoreTableToPointInTimeInput {
 
 export namespace RestoreTableToPointInTimeInput {
   export function isa(o: any): o is RestoreTableToPointInTimeInput {
-    return _smithy.isa(o, "RestoreTableToPointInTimeInput");
+    return __isa(o, "RestoreTableToPointInTimeInput");
   }
 }
 
@@ -6240,7 +6243,7 @@ export interface RestoreTableToPointInTimeOutput extends $MetadataBearer {
 
 export namespace RestoreTableToPointInTimeOutput {
   export function isa(o: any): o is RestoreTableToPointInTimeOutput {
-    return _smithy.isa(o, "RestoreTableToPointInTimeOutput");
+    return __isa(o, "RestoreTableToPointInTimeOutput");
   }
 }
 
@@ -6307,7 +6310,7 @@ export interface SSEDescription {
 
 export namespace SSEDescription {
   export function isa(o: any): o is SSEDescription {
-    return _smithy.isa(o, "SSEDescription");
+    return __isa(o, "SSEDescription");
   }
 }
 
@@ -6347,7 +6350,7 @@ export interface SSESpecification {
 
 export namespace SSESpecification {
   export function isa(o: any): o is SSESpecification {
-    return _smithy.isa(o, "SSESpecification");
+    return __isa(o, "SSESpecification");
   }
 }
 
@@ -6634,7 +6637,7 @@ export interface ScanInput {
 
 export namespace ScanInput {
   export function isa(o: any): o is ScanInput {
-    return _smithy.isa(o, "ScanInput");
+    return __isa(o, "ScanInput");
   }
 }
 
@@ -6693,7 +6696,7 @@ export interface ScanOutput extends $MetadataBearer {
 
 export namespace ScanOutput {
   export function isa(o: any): o is ScanOutput {
-    return _smithy.isa(o, "ScanOutput");
+    return __isa(o, "ScanOutput");
   }
 }
 
@@ -6767,7 +6770,7 @@ export interface SourceTableDetails {
 
 export namespace SourceTableDetails {
   export function isa(o: any): o is SourceTableDetails {
-    return _smithy.isa(o, "SourceTableDetails");
+    return __isa(o, "SourceTableDetails");
   }
 }
 
@@ -6806,7 +6809,7 @@ export interface SourceTableFeatureDetails {
 
 export namespace SourceTableFeatureDetails {
   export function isa(o: any): o is SourceTableFeatureDetails {
-    return _smithy.isa(o, "SourceTableFeatureDetails");
+    return __isa(o, "SourceTableFeatureDetails");
   }
 }
 
@@ -6852,7 +6855,7 @@ export interface StreamSpecification {
 
 export namespace StreamSpecification {
   export function isa(o: any): o is StreamSpecification {
-    return _smithy.isa(o, "StreamSpecification");
+    return __isa(o, "StreamSpecification");
   }
 }
 
@@ -6866,7 +6869,7 @@ export type StreamViewType =
  * <p>A target table with the specified name already exists. </p>
  */
 export interface TableAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TableAlreadyExistsException";
   $fault: "client";
@@ -6875,7 +6878,7 @@ export interface TableAlreadyExistsException
 
 export namespace TableAlreadyExistsException {
   export function isa(o: any): o is TableAlreadyExistsException {
-    return _smithy.isa(o, "TableAlreadyExistsException");
+    return __isa(o, "TableAlreadyExistsException");
   }
 }
 
@@ -6920,7 +6923,7 @@ export interface TableAutoScalingDescription {
 
 export namespace TableAutoScalingDescription {
   export function isa(o: any): o is TableAutoScalingDescription {
-    return _smithy.isa(o, "TableAutoScalingDescription");
+    return __isa(o, "TableAutoScalingDescription");
   }
 }
 
@@ -7303,7 +7306,7 @@ export interface TableDescription {
 
 export namespace TableDescription {
   export function isa(o: any): o is TableDescription {
-    return _smithy.isa(o, "TableDescription");
+    return __isa(o, "TableDescription");
   }
 }
 
@@ -7311,7 +7314,7 @@ export namespace TableDescription {
  * <p>A target table with the specified name is either being created or deleted. </p>
  */
 export interface TableInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TableInUseException";
   $fault: "client";
@@ -7320,7 +7323,7 @@ export interface TableInUseException
 
 export namespace TableInUseException {
   export function isa(o: any): o is TableInUseException {
-    return _smithy.isa(o, "TableInUseException");
+    return __isa(o, "TableInUseException");
   }
 }
 
@@ -7328,7 +7331,7 @@ export namespace TableInUseException {
  * <p>A source table with the name <code>TableName</code> does not currently exist within the subscriber's account.</p>
  */
 export interface TableNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TableNotFoundException";
   $fault: "client";
@@ -7337,7 +7340,7 @@ export interface TableNotFoundException
 
 export namespace TableNotFoundException {
   export function isa(o: any): o is TableNotFoundException {
-    return _smithy.isa(o, "TableNotFoundException");
+    return __isa(o, "TableNotFoundException");
   }
 }
 
@@ -7378,7 +7381,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -7397,7 +7400,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -7419,7 +7422,7 @@ export interface TimeToLiveDescription {
 
 export namespace TimeToLiveDescription {
   export function isa(o: any): o is TimeToLiveDescription {
-    return _smithy.isa(o, "TimeToLiveDescription");
+    return __isa(o, "TimeToLiveDescription");
   }
 }
 
@@ -7443,7 +7446,7 @@ export interface TimeToLiveSpecification {
 
 export namespace TimeToLiveSpecification {
   export function isa(o: any): o is TimeToLiveSpecification {
-    return _smithy.isa(o, "TimeToLiveSpecification");
+    return __isa(o, "TimeToLiveSpecification");
   }
 }
 
@@ -7468,7 +7471,7 @@ export interface TransactGetItem {
 
 export namespace TransactGetItem {
   export function isa(o: any): o is TransactGetItem {
-    return _smithy.isa(o, "TransactGetItem");
+    return __isa(o, "TransactGetItem");
   }
 }
 
@@ -7490,7 +7493,7 @@ export interface TransactGetItemsInput {
 
 export namespace TransactGetItemsInput {
   export function isa(o: any): o is TransactGetItemsInput {
-    return _smithy.isa(o, "TransactGetItemsInput");
+    return __isa(o, "TransactGetItemsInput");
   }
 }
 
@@ -7520,7 +7523,7 @@ export interface TransactGetItemsOutput extends $MetadataBearer {
 
 export namespace TransactGetItemsOutput {
   export function isa(o: any): o is TransactGetItemsOutput {
-    return _smithy.isa(o, "TransactGetItemsOutput");
+    return __isa(o, "TransactGetItemsOutput");
   }
 }
 
@@ -7552,7 +7555,7 @@ export interface TransactWriteItem {
 
 export namespace TransactWriteItem {
   export function isa(o: any): o is TransactWriteItem {
-    return _smithy.isa(o, "TransactWriteItem");
+    return __isa(o, "TransactWriteItem");
   }
 }
 
@@ -7619,7 +7622,7 @@ export interface TransactWriteItemsInput {
 
 export namespace TransactWriteItemsInput {
   export function isa(o: any): o is TransactWriteItemsInput {
-    return _smithy.isa(o, "TransactWriteItemsInput");
+    return __isa(o, "TransactWriteItemsInput");
   }
 }
 
@@ -7644,7 +7647,7 @@ export interface TransactWriteItemsOutput extends $MetadataBearer {
 
 export namespace TransactWriteItemsOutput {
   export function isa(o: any): o is TransactWriteItemsOutput {
-    return _smithy.isa(o, "TransactWriteItemsOutput");
+    return __isa(o, "TransactWriteItemsOutput");
   }
 }
 
@@ -7854,7 +7857,7 @@ export namespace TransactWriteItemsOutput {
  *          </ul>
  */
 export interface TransactionCanceledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TransactionCanceledException";
   $fault: "client";
@@ -7868,7 +7871,7 @@ export interface TransactionCanceledException
 
 export namespace TransactionCanceledException {
   export function isa(o: any): o is TransactionCanceledException {
-    return _smithy.isa(o, "TransactionCanceledException");
+    return __isa(o, "TransactionCanceledException");
   }
 }
 
@@ -7876,7 +7879,7 @@ export namespace TransactionCanceledException {
  * <p>Operation was rejected because there is an ongoing transaction for the item.</p>
  */
 export interface TransactionConflictException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TransactionConflictException";
   $fault: "client";
@@ -7885,7 +7888,7 @@ export interface TransactionConflictException
 
 export namespace TransactionConflictException {
   export function isa(o: any): o is TransactionConflictException {
-    return _smithy.isa(o, "TransactionConflictException");
+    return __isa(o, "TransactionConflictException");
   }
 }
 
@@ -7893,7 +7896,7 @@ export namespace TransactionConflictException {
  * <p>The transaction with the given request token is already in progress.</p>
  */
 export interface TransactionInProgressException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TransactionInProgressException";
   $fault: "client";
@@ -7902,7 +7905,7 @@ export interface TransactionInProgressException
 
 export namespace TransactionInProgressException {
   export function isa(o: any): o is TransactionInProgressException {
-    return _smithy.isa(o, "TransactionInProgressException");
+    return __isa(o, "TransactionInProgressException");
   }
 }
 
@@ -7923,7 +7926,7 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }
 
@@ -7978,7 +7981,7 @@ export interface Update {
 
 export namespace Update {
   export function isa(o: any): o is Update {
-    return _smithy.isa(o, "Update");
+    return __isa(o, "Update");
   }
 }
 
@@ -7999,7 +8002,7 @@ export interface UpdateContinuousBackupsInput {
 
 export namespace UpdateContinuousBackupsInput {
   export function isa(o: any): o is UpdateContinuousBackupsInput {
-    return _smithy.isa(o, "UpdateContinuousBackupsInput");
+    return __isa(o, "UpdateContinuousBackupsInput");
   }
 }
 
@@ -8013,7 +8016,7 @@ export interface UpdateContinuousBackupsOutput extends $MetadataBearer {
 
 export namespace UpdateContinuousBackupsOutput {
   export function isa(o: any): o is UpdateContinuousBackupsOutput {
-    return _smithy.isa(o, "UpdateContinuousBackupsOutput");
+    return __isa(o, "UpdateContinuousBackupsOutput");
   }
 }
 
@@ -8037,7 +8040,7 @@ export interface UpdateContributorInsightsInput {
 
 export namespace UpdateContributorInsightsInput {
   export function isa(o: any): o is UpdateContributorInsightsInput {
-    return _smithy.isa(o, "UpdateContributorInsightsInput");
+    return __isa(o, "UpdateContributorInsightsInput");
   }
 }
 
@@ -8061,7 +8064,7 @@ export interface UpdateContributorInsightsOutput extends $MetadataBearer {
 
 export namespace UpdateContributorInsightsOutput {
   export function isa(o: any): o is UpdateContributorInsightsOutput {
-    return _smithy.isa(o, "UpdateContributorInsightsOutput");
+    return __isa(o, "UpdateContributorInsightsOutput");
   }
 }
 
@@ -8084,7 +8087,7 @@ export interface UpdateGlobalSecondaryIndexAction {
 
 export namespace UpdateGlobalSecondaryIndexAction {
   export function isa(o: any): o is UpdateGlobalSecondaryIndexAction {
-    return _smithy.isa(o, "UpdateGlobalSecondaryIndexAction");
+    return __isa(o, "UpdateGlobalSecondaryIndexAction");
   }
 }
 
@@ -8103,7 +8106,7 @@ export interface UpdateGlobalTableInput {
 
 export namespace UpdateGlobalTableInput {
   export function isa(o: any): o is UpdateGlobalTableInput {
-    return _smithy.isa(o, "UpdateGlobalTableInput");
+    return __isa(o, "UpdateGlobalTableInput");
   }
 }
 
@@ -8117,7 +8120,7 @@ export interface UpdateGlobalTableOutput extends $MetadataBearer {
 
 export namespace UpdateGlobalTableOutput {
   export function isa(o: any): o is UpdateGlobalTableOutput {
-    return _smithy.isa(o, "UpdateGlobalTableOutput");
+    return __isa(o, "UpdateGlobalTableOutput");
   }
 }
 
@@ -8171,7 +8174,7 @@ export interface UpdateGlobalTableSettingsInput {
 
 export namespace UpdateGlobalTableSettingsInput {
   export function isa(o: any): o is UpdateGlobalTableSettingsInput {
-    return _smithy.isa(o, "UpdateGlobalTableSettingsInput");
+    return __isa(o, "UpdateGlobalTableSettingsInput");
   }
 }
 
@@ -8190,7 +8193,7 @@ export interface UpdateGlobalTableSettingsOutput extends $MetadataBearer {
 
 export namespace UpdateGlobalTableSettingsOutput {
   export function isa(o: any): o is UpdateGlobalTableSettingsOutput {
-    return _smithy.isa(o, "UpdateGlobalTableSettingsOutput");
+    return __isa(o, "UpdateGlobalTableSettingsOutput");
   }
 }
 
@@ -8479,7 +8482,7 @@ export interface UpdateItemInput {
 
 export namespace UpdateItemInput {
   export function isa(o: any): o is UpdateItemInput {
-    return _smithy.isa(o, "UpdateItemInput");
+    return __isa(o, "UpdateItemInput");
   }
 }
 
@@ -8538,7 +8541,7 @@ export interface UpdateItemOutput extends $MetadataBearer {
 
 export namespace UpdateItemOutput {
   export function isa(o: any): o is UpdateItemOutput {
-    return _smithy.isa(o, "UpdateItemOutput");
+    return __isa(o, "UpdateItemOutput");
   }
 }
 
@@ -8574,7 +8577,7 @@ export interface UpdateReplicationGroupMemberAction {
 
 export namespace UpdateReplicationGroupMemberAction {
   export function isa(o: any): o is UpdateReplicationGroupMemberAction {
-    return _smithy.isa(o, "UpdateReplicationGroupMemberAction");
+    return __isa(o, "UpdateReplicationGroupMemberAction");
   }
 }
 
@@ -8665,7 +8668,7 @@ export interface UpdateTableInput {
 
 export namespace UpdateTableInput {
   export function isa(o: any): o is UpdateTableInput {
-    return _smithy.isa(o, "UpdateTableInput");
+    return __isa(o, "UpdateTableInput");
   }
 }
 
@@ -8682,7 +8685,7 @@ export interface UpdateTableOutput extends $MetadataBearer {
 
 export namespace UpdateTableOutput {
   export function isa(o: any): o is UpdateTableOutput {
-    return _smithy.isa(o, "UpdateTableOutput");
+    return __isa(o, "UpdateTableOutput");
   }
 }
 
@@ -8714,7 +8717,7 @@ export interface UpdateTableReplicaAutoScalingInput {
 
 export namespace UpdateTableReplicaAutoScalingInput {
   export function isa(o: any): o is UpdateTableReplicaAutoScalingInput {
-    return _smithy.isa(o, "UpdateTableReplicaAutoScalingInput");
+    return __isa(o, "UpdateTableReplicaAutoScalingInput");
   }
 }
 
@@ -8728,7 +8731,7 @@ export interface UpdateTableReplicaAutoScalingOutput extends $MetadataBearer {
 
 export namespace UpdateTableReplicaAutoScalingOutput {
   export function isa(o: any): o is UpdateTableReplicaAutoScalingOutput {
-    return _smithy.isa(o, "UpdateTableReplicaAutoScalingOutput");
+    return __isa(o, "UpdateTableReplicaAutoScalingOutput");
   }
 }
 
@@ -8750,7 +8753,7 @@ export interface UpdateTimeToLiveInput {
 
 export namespace UpdateTimeToLiveInput {
   export function isa(o: any): o is UpdateTimeToLiveInput {
-    return _smithy.isa(o, "UpdateTimeToLiveInput");
+    return __isa(o, "UpdateTimeToLiveInput");
   }
 }
 
@@ -8764,7 +8767,7 @@ export interface UpdateTimeToLiveOutput extends $MetadataBearer {
 
 export namespace UpdateTimeToLiveOutput {
   export function isa(o: any): o is UpdateTimeToLiveOutput {
-    return _smithy.isa(o, "UpdateTimeToLiveOutput");
+    return __isa(o, "UpdateTimeToLiveOutput");
   }
 }
 
@@ -8789,6 +8792,6 @@ export interface WriteRequest {
 
 export namespace WriteRequest {
   export function isa(o: any): o is WriteRequest {
-    return _smithy.isa(o, "WriteRequest");
+    return __isa(o, "WriteRequest");
   }
 }

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetPersonalizedRankingRequest {
@@ -31,7 +34,7 @@ export interface GetPersonalizedRankingRequest {
 
 export namespace GetPersonalizedRankingRequest {
   export function isa(o: any): o is GetPersonalizedRankingRequest {
-    return _smithy.isa(o, "GetPersonalizedRankingRequest");
+    return __isa(o, "GetPersonalizedRankingRequest");
   }
 }
 
@@ -45,7 +48,7 @@ export interface GetPersonalizedRankingResponse extends $MetadataBearer {
 
 export namespace GetPersonalizedRankingResponse {
   export function isa(o: any): o is GetPersonalizedRankingResponse {
-    return _smithy.isa(o, "GetPersonalizedRankingResponse");
+    return __isa(o, "GetPersonalizedRankingResponse");
   }
 }
 
@@ -84,7 +87,7 @@ export interface GetRecommendationsRequest {
 
 export namespace GetRecommendationsRequest {
   export function isa(o: any): o is GetRecommendationsRequest {
-    return _smithy.isa(o, "GetRecommendationsRequest");
+    return __isa(o, "GetRecommendationsRequest");
   }
 }
 
@@ -99,7 +102,7 @@ export interface GetRecommendationsResponse extends $MetadataBearer {
 
 export namespace GetRecommendationsResponse {
   export function isa(o: any): o is GetRecommendationsResponse {
-    return _smithy.isa(o, "GetRecommendationsResponse");
+    return __isa(o, "GetRecommendationsResponse");
   }
 }
 
@@ -118,7 +121,7 @@ export interface PredictedItem {
 
 export namespace PredictedItem {
   export function isa(o: any): o is PredictedItem {
-    return _smithy.isa(o, "PredictedItem");
+    return __isa(o, "PredictedItem");
   }
 }
 
@@ -126,7 +129,7 @@ export namespace PredictedItem {
  * <p>Provide a valid value for the field or parameter.</p>
  */
 export interface InvalidInputException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
@@ -135,7 +138,7 @@ export interface InvalidInputException
 
 export namespace InvalidInputException {
   export function isa(o: any): o is InvalidInputException {
-    return _smithy.isa(o, "InvalidInputException");
+    return __isa(o, "InvalidInputException");
   }
 }
 
@@ -143,7 +146,7 @@ export namespace InvalidInputException {
  * <p>The specified resource does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -152,6 +155,6 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }

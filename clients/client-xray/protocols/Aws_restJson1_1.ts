@@ -932,6 +932,7 @@ export async function deserializeAws_restJson1_1DeleteGroupCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteGroupResult"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1867,6 +1868,7 @@ export async function deserializeAws_restJson1_1PutTelemetryRecordsCommand(
     $metadata: deserializeMetadata(output),
     __type: "PutTelemetryRecordsResult"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
