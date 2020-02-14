@@ -8,4 +8,3 @@
 *.tgz
 *.log
 package-lock.json
-/src/suite.fixture.ts
