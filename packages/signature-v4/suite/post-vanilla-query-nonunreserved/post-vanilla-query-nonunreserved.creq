@@ -1,8 +1,0 @@
-POST
-/
-%2B=%2F%2C%3F%3E%3C%60%22%3B%3A%5C%7C%5D%5B%7B%7D&%40%23%24%25%5E=
-host:example.amazonaws.com
-x-amz-date:20150830T123600Z
-
-host;x-amz-date
-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

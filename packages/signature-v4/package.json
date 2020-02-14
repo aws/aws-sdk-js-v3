@@ -7,7 +7,7 @@
   "scripts": {
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "node scripts/buildSuiteFixture.js && yarn build:es && yarn build:cjs",
+    "build": "yarn build:es && yarn build:cjs",
     "prepublishOnly": "yarn build",
     "pretest": "yarn build",
     "test": "jest --coverage"
