@@ -652,6 +652,7 @@ export async function deserializeAws_json1_1ActivateEventSourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ActivateEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -894,6 +895,7 @@ export async function deserializeAws_json1_1DeactivateEventSourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeactivateEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -959,6 +961,7 @@ export async function deserializeAws_json1_1DeleteEventBusCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteEventBusCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteEventBusCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1013,6 +1016,7 @@ export async function deserializeAws_json1_1DeletePartnerEventSourceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeletePartnerEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1064,6 +1068,7 @@ export async function deserializeAws_json1_1DeleteRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteRuleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1397,6 +1402,7 @@ export async function deserializeAws_json1_1DisableRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DisableRuleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DisableRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1469,6 +1475,7 @@ export async function deserializeAws_json1_1EnableRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1EnableRuleCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: EnableRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2154,6 +2161,7 @@ export async function deserializeAws_json1_1PutPermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutPermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutPermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2401,6 +2409,7 @@ export async function deserializeAws_json1_1RemovePermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RemovePermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

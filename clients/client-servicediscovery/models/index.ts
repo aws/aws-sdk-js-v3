@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateHttpNamespaceRequest {
@@ -22,7 +25,7 @@ export interface CreateHttpNamespaceRequest {
 
 export namespace CreateHttpNamespaceRequest {
   export function isa(o: any): o is CreateHttpNamespaceRequest {
-    return _smithy.isa(o, "CreateHttpNamespaceRequest");
+    return __isa(o, "CreateHttpNamespaceRequest");
   }
 }
 
@@ -37,7 +40,7 @@ export interface CreateHttpNamespaceResponse extends $MetadataBearer {
 
 export namespace CreateHttpNamespaceResponse {
   export function isa(o: any): o is CreateHttpNamespaceResponse {
-    return _smithy.isa(o, "CreateHttpNamespaceResponse");
+    return __isa(o, "CreateHttpNamespaceResponse");
   }
 }
 
@@ -68,7 +71,7 @@ export interface CreatePrivateDnsNamespaceRequest {
 
 export namespace CreatePrivateDnsNamespaceRequest {
   export function isa(o: any): o is CreatePrivateDnsNamespaceRequest {
-    return _smithy.isa(o, "CreatePrivateDnsNamespaceRequest");
+    return __isa(o, "CreatePrivateDnsNamespaceRequest");
   }
 }
 
@@ -83,7 +86,7 @@ export interface CreatePrivateDnsNamespaceResponse extends $MetadataBearer {
 
 export namespace CreatePrivateDnsNamespaceResponse {
   export function isa(o: any): o is CreatePrivateDnsNamespaceResponse {
-    return _smithy.isa(o, "CreatePrivateDnsNamespaceResponse");
+    return __isa(o, "CreatePrivateDnsNamespaceResponse");
   }
 }
 
@@ -108,7 +111,7 @@ export interface CreatePublicDnsNamespaceRequest {
 
 export namespace CreatePublicDnsNamespaceRequest {
   export function isa(o: any): o is CreatePublicDnsNamespaceRequest {
-    return _smithy.isa(o, "CreatePublicDnsNamespaceRequest");
+    return __isa(o, "CreatePublicDnsNamespaceRequest");
   }
 }
 
@@ -123,7 +126,7 @@ export interface CreatePublicDnsNamespaceResponse extends $MetadataBearer {
 
 export namespace CreatePublicDnsNamespaceResponse {
   export function isa(o: any): o is CreatePublicDnsNamespaceResponse {
-    return _smithy.isa(o, "CreatePublicDnsNamespaceResponse");
+    return __isa(o, "CreatePublicDnsNamespaceResponse");
   }
 }
 
@@ -180,7 +183,7 @@ export interface CreateServiceRequest {
 
 export namespace CreateServiceRequest {
   export function isa(o: any): o is CreateServiceRequest {
-    return _smithy.isa(o, "CreateServiceRequest");
+    return __isa(o, "CreateServiceRequest");
   }
 }
 
@@ -194,7 +197,7 @@ export interface CreateServiceResponse extends $MetadataBearer {
 
 export namespace CreateServiceResponse {
   export function isa(o: any): o is CreateServiceResponse {
-    return _smithy.isa(o, "CreateServiceResponse");
+    return __isa(o, "CreateServiceResponse");
   }
 }
 
@@ -202,7 +205,7 @@ export namespace CreateServiceResponse {
  * <p>The health check for the instance that is specified by <code>ServiceId</code> and <code>InstanceId</code> is not a custom health check. </p>
  */
 export interface CustomHealthNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CustomHealthNotFound";
   $fault: "client";
@@ -211,7 +214,7 @@ export interface CustomHealthNotFound
 
 export namespace CustomHealthNotFound {
   export function isa(o: any): o is CustomHealthNotFound {
-    return _smithy.isa(o, "CustomHealthNotFound");
+    return __isa(o, "CustomHealthNotFound");
   }
 }
 
@@ -230,7 +233,7 @@ export interface DeleteNamespaceRequest {
 
 export namespace DeleteNamespaceRequest {
   export function isa(o: any): o is DeleteNamespaceRequest {
-    return _smithy.isa(o, "DeleteNamespaceRequest");
+    return __isa(o, "DeleteNamespaceRequest");
   }
 }
 
@@ -245,7 +248,7 @@ export interface DeleteNamespaceResponse extends $MetadataBearer {
 
 export namespace DeleteNamespaceResponse {
   export function isa(o: any): o is DeleteNamespaceResponse {
-    return _smithy.isa(o, "DeleteNamespaceResponse");
+    return __isa(o, "DeleteNamespaceResponse");
   }
 }
 
@@ -259,7 +262,7 @@ export interface DeleteServiceRequest {
 
 export namespace DeleteServiceRequest {
   export function isa(o: any): o is DeleteServiceRequest {
-    return _smithy.isa(o, "DeleteServiceRequest");
+    return __isa(o, "DeleteServiceRequest");
   }
 }
 
@@ -269,7 +272,7 @@ export interface DeleteServiceResponse extends $MetadataBearer {
 
 export namespace DeleteServiceResponse {
   export function isa(o: any): o is DeleteServiceResponse {
-    return _smithy.isa(o, "DeleteServiceResponse");
+    return __isa(o, "DeleteServiceResponse");
   }
 }
 
@@ -288,7 +291,7 @@ export interface DeregisterInstanceRequest {
 
 export namespace DeregisterInstanceRequest {
   export function isa(o: any): o is DeregisterInstanceRequest {
-    return _smithy.isa(o, "DeregisterInstanceRequest");
+    return __isa(o, "DeregisterInstanceRequest");
   }
 }
 
@@ -302,7 +305,7 @@ export interface DeregisterInstanceResponse extends $MetadataBearer {
 
 export namespace DeregisterInstanceResponse {
   export function isa(o: any): o is DeregisterInstanceResponse {
-    return _smithy.isa(o, "DeregisterInstanceResponse");
+    return __isa(o, "DeregisterInstanceResponse");
   }
 }
 
@@ -338,7 +341,7 @@ export interface DiscoverInstancesRequest {
 
 export namespace DiscoverInstancesRequest {
   export function isa(o: any): o is DiscoverInstancesRequest {
-    return _smithy.isa(o, "DiscoverInstancesRequest");
+    return __isa(o, "DiscoverInstancesRequest");
   }
 }
 
@@ -352,7 +355,7 @@ export interface DiscoverInstancesResponse extends $MetadataBearer {
 
 export namespace DiscoverInstancesResponse {
   export function isa(o: any): o is DiscoverInstancesResponse {
-    return _smithy.isa(o, "DiscoverInstancesResponse");
+    return __isa(o, "DiscoverInstancesResponse");
   }
 }
 
@@ -414,7 +417,7 @@ export interface DnsConfig {
 
 export namespace DnsConfig {
   export function isa(o: any): o is DnsConfig {
-    return _smithy.isa(o, "DnsConfig");
+    return __isa(o, "DnsConfig");
   }
 }
 
@@ -433,7 +436,7 @@ export interface DnsConfigChange {
 
 export namespace DnsConfigChange {
   export function isa(o: any): o is DnsConfigChange {
-    return _smithy.isa(o, "DnsConfigChange");
+    return __isa(o, "DnsConfigChange");
   }
 }
 
@@ -450,7 +453,7 @@ export interface DnsProperties {
 
 export namespace DnsProperties {
   export function isa(o: any): o is DnsProperties {
-    return _smithy.isa(o, "DnsProperties");
+    return __isa(o, "DnsProperties");
   }
 }
 
@@ -572,16 +575,14 @@ export interface DnsRecord {
 
 export namespace DnsRecord {
   export function isa(o: any): o is DnsRecord {
-    return _smithy.isa(o, "DnsRecord");
+    return __isa(o, "DnsRecord");
   }
 }
 
 /**
  * <p>The operation is already in progress.</p>
  */
-export interface DuplicateRequest
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
   name: "DuplicateRequest";
   $fault: "client";
   /**
@@ -594,7 +595,7 @@ export interface DuplicateRequest
 
 export namespace DuplicateRequest {
   export function isa(o: any): o is DuplicateRequest {
-    return _smithy.isa(o, "DuplicateRequest");
+    return __isa(o, "DuplicateRequest");
   }
 }
 
@@ -619,7 +620,7 @@ export interface GetInstanceRequest {
 
 export namespace GetInstanceRequest {
   export function isa(o: any): o is GetInstanceRequest {
-    return _smithy.isa(o, "GetInstanceRequest");
+    return __isa(o, "GetInstanceRequest");
   }
 }
 
@@ -633,7 +634,7 @@ export interface GetInstanceResponse extends $MetadataBearer {
 
 export namespace GetInstanceResponse {
   export function isa(o: any): o is GetInstanceResponse {
-    return _smithy.isa(o, "GetInstanceResponse");
+    return __isa(o, "GetInstanceResponse");
   }
 }
 
@@ -671,7 +672,7 @@ export interface GetInstancesHealthStatusRequest {
 
 export namespace GetInstancesHealthStatusRequest {
   export function isa(o: any): o is GetInstancesHealthStatusRequest {
-    return _smithy.isa(o, "GetInstancesHealthStatusRequest");
+    return __isa(o, "GetInstancesHealthStatusRequest");
   }
 }
 
@@ -692,7 +693,7 @@ export interface GetInstancesHealthStatusResponse extends $MetadataBearer {
 
 export namespace GetInstancesHealthStatusResponse {
   export function isa(o: any): o is GetInstancesHealthStatusResponse {
-    return _smithy.isa(o, "GetInstancesHealthStatusResponse");
+    return __isa(o, "GetInstancesHealthStatusResponse");
   }
 }
 
@@ -706,7 +707,7 @@ export interface GetNamespaceRequest {
 
 export namespace GetNamespaceRequest {
   export function isa(o: any): o is GetNamespaceRequest {
-    return _smithy.isa(o, "GetNamespaceRequest");
+    return __isa(o, "GetNamespaceRequest");
   }
 }
 
@@ -720,7 +721,7 @@ export interface GetNamespaceResponse extends $MetadataBearer {
 
 export namespace GetNamespaceResponse {
   export function isa(o: any): o is GetNamespaceResponse {
-    return _smithy.isa(o, "GetNamespaceResponse");
+    return __isa(o, "GetNamespaceResponse");
   }
 }
 
@@ -734,7 +735,7 @@ export interface GetOperationRequest {
 
 export namespace GetOperationRequest {
   export function isa(o: any): o is GetOperationRequest {
-    return _smithy.isa(o, "GetOperationRequest");
+    return __isa(o, "GetOperationRequest");
   }
 }
 
@@ -748,7 +749,7 @@ export interface GetOperationResponse extends $MetadataBearer {
 
 export namespace GetOperationResponse {
   export function isa(o: any): o is GetOperationResponse {
-    return _smithy.isa(o, "GetOperationResponse");
+    return __isa(o, "GetOperationResponse");
   }
 }
 
@@ -762,7 +763,7 @@ export interface GetServiceRequest {
 
 export namespace GetServiceRequest {
   export function isa(o: any): o is GetServiceRequest {
-    return _smithy.isa(o, "GetServiceRequest");
+    return __isa(o, "GetServiceRequest");
   }
 }
 
@@ -776,7 +777,7 @@ export interface GetServiceResponse extends $MetadataBearer {
 
 export namespace GetServiceResponse {
   export function isa(o: any): o is GetServiceResponse {
-    return _smithy.isa(o, "GetServiceResponse");
+    return __isa(o, "GetServiceResponse");
   }
 }
 
@@ -902,7 +903,7 @@ export interface HealthCheckConfig {
 
 export namespace HealthCheckConfig {
   export function isa(o: any): o is HealthCheckConfig {
-    return _smithy.isa(o, "HealthCheckConfig");
+    return __isa(o, "HealthCheckConfig");
   }
 }
 
@@ -979,7 +980,7 @@ export interface HealthCheckCustomConfig {
 
 export namespace HealthCheckCustomConfig {
   export function isa(o: any): o is HealthCheckCustomConfig {
-    return _smithy.isa(o, "HealthCheckCustomConfig");
+    return __isa(o, "HealthCheckCustomConfig");
   }
 }
 
@@ -1035,7 +1036,7 @@ export interface HttpInstanceSummary {
 
 export namespace HttpInstanceSummary {
   export function isa(o: any): o is HttpInstanceSummary {
-    return _smithy.isa(o, "HttpInstanceSummary");
+    return __isa(o, "HttpInstanceSummary");
   }
 }
 
@@ -1052,7 +1053,7 @@ export interface HttpProperties {
 
 export namespace HttpProperties {
   export function isa(o: any): o is HttpProperties {
-    return _smithy.isa(o, "HttpProperties");
+    return __isa(o, "HttpProperties");
   }
 }
 
@@ -1178,16 +1179,14 @@ export interface Instance {
 
 export namespace Instance {
   export function isa(o: any): o is Instance {
-    return _smithy.isa(o, "Instance");
+    return __isa(o, "Instance");
   }
 }
 
 /**
  * <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>
  */
-export interface InstanceNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InstanceNotFound extends __SmithyException, $MetadataBearer {
   name: "InstanceNotFound";
   $fault: "client";
   Message?: string;
@@ -1195,7 +1194,7 @@ export interface InstanceNotFound
 
 export namespace InstanceNotFound {
   export function isa(o: any): o is InstanceNotFound {
-    return _smithy.isa(o, "InstanceNotFound");
+    return __isa(o, "InstanceNotFound");
   }
 }
 
@@ -1254,7 +1253,7 @@ export interface InstanceSummary {
 
 export namespace InstanceSummary {
   export function isa(o: any): o is InstanceSummary {
-    return _smithy.isa(o, "InstanceSummary");
+    return __isa(o, "InstanceSummary");
   }
 }
 
@@ -1262,7 +1261,7 @@ export namespace InstanceSummary {
  * <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range,
  * 			or a string value might exceed length constraints.</p>
  */
-export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInput extends __SmithyException, $MetadataBearer {
   name: "InvalidInput";
   $fault: "client";
   Message?: string;
@@ -1270,7 +1269,7 @@ export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace InvalidInput {
   export function isa(o: any): o is InvalidInput {
-    return _smithy.isa(o, "InvalidInput");
+    return __isa(o, "InvalidInput");
   }
 }
 
@@ -1297,7 +1296,7 @@ export interface ListInstancesRequest {
 
 export namespace ListInstancesRequest {
   export function isa(o: any): o is ListInstancesRequest {
-    return _smithy.isa(o, "ListInstancesRequest");
+    return __isa(o, "ListInstancesRequest");
   }
 }
 
@@ -1317,7 +1316,7 @@ export interface ListInstancesResponse extends $MetadataBearer {
 
 export namespace ListInstancesResponse {
   export function isa(o: any): o is ListInstancesResponse {
-    return _smithy.isa(o, "ListInstancesResponse");
+    return __isa(o, "ListInstancesResponse");
   }
 }
 
@@ -1350,7 +1349,7 @@ export interface ListNamespacesRequest {
 
 export namespace ListNamespacesRequest {
   export function isa(o: any): o is ListNamespacesRequest {
-    return _smithy.isa(o, "ListNamespacesRequest");
+    return __isa(o, "ListNamespacesRequest");
   }
 }
 
@@ -1375,7 +1374,7 @@ export interface ListNamespacesResponse extends $MetadataBearer {
 
 export namespace ListNamespacesResponse {
   export function isa(o: any): o is ListNamespacesResponse {
-    return _smithy.isa(o, "ListNamespacesResponse");
+    return __isa(o, "ListNamespacesResponse");
   }
 }
 
@@ -1409,7 +1408,7 @@ export interface ListOperationsRequest {
 
 export namespace ListOperationsRequest {
   export function isa(o: any): o is ListOperationsRequest {
-    return _smithy.isa(o, "ListOperationsRequest");
+    return __isa(o, "ListOperationsRequest");
   }
 }
 
@@ -1434,7 +1433,7 @@ export interface ListOperationsResponse extends $MetadataBearer {
 
 export namespace ListOperationsResponse {
   export function isa(o: any): o is ListOperationsResponse {
-    return _smithy.isa(o, "ListOperationsResponse");
+    return __isa(o, "ListOperationsResponse");
   }
 }
 
@@ -1467,7 +1466,7 @@ export interface ListServicesRequest {
 
 export namespace ListServicesRequest {
   export function isa(o: any): o is ListServicesRequest {
-    return _smithy.isa(o, "ListServicesRequest");
+    return __isa(o, "ListServicesRequest");
   }
 }
 
@@ -1492,7 +1491,7 @@ export interface ListServicesResponse extends $MetadataBearer {
 
 export namespace ListServicesResponse {
   export function isa(o: any): o is ListServicesResponse {
-    return _smithy.isa(o, "ListServicesResponse");
+    return __isa(o, "ListServicesResponse");
   }
 }
 
@@ -1550,7 +1549,7 @@ export interface Namespace {
 
 export namespace Namespace {
   export function isa(o: any): o is Namespace {
-    return _smithy.isa(o, "Namespace");
+    return __isa(o, "Namespace");
   }
 }
 
@@ -1558,7 +1557,7 @@ export namespace Namespace {
  * <p>The namespace that you're trying to create already exists.</p>
  */
 export interface NamespaceAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NamespaceAlreadyExists";
   $fault: "client";
@@ -1576,7 +1575,7 @@ export interface NamespaceAlreadyExists
 
 export namespace NamespaceAlreadyExists {
   export function isa(o: any): o is NamespaceAlreadyExists {
-    return _smithy.isa(o, "NamespaceAlreadyExists");
+    return __isa(o, "NamespaceAlreadyExists");
   }
 }
 
@@ -1622,7 +1621,7 @@ export interface NamespaceFilter {
 
 export namespace NamespaceFilter {
   export function isa(o: any): o is NamespaceFilter {
-    return _smithy.isa(o, "NamespaceFilter");
+    return __isa(o, "NamespaceFilter");
   }
 }
 
@@ -1633,9 +1632,7 @@ export enum NamespaceFilterName {
 /**
  * <p>No namespace exists with the specified ID.</p>
  */
-export interface NamespaceNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NamespaceNotFound extends __SmithyException, $MetadataBearer {
   name: "NamespaceNotFound";
   $fault: "client";
   Message?: string;
@@ -1643,7 +1640,7 @@ export interface NamespaceNotFound
 
 export namespace NamespaceNotFound {
   export function isa(o: any): o is NamespaceNotFound {
-    return _smithy.isa(o, "NamespaceNotFound");
+    return __isa(o, "NamespaceNotFound");
   }
 }
 
@@ -1665,7 +1662,7 @@ export interface NamespaceProperties {
 
 export namespace NamespaceProperties {
   export function isa(o: any): o is NamespaceProperties {
-    return _smithy.isa(o, "NamespaceProperties");
+    return __isa(o, "NamespaceProperties");
   }
 }
 
@@ -1718,7 +1715,7 @@ export interface NamespaceSummary {
 
 export namespace NamespaceSummary {
   export function isa(o: any): o is NamespaceSummary {
-    return _smithy.isa(o, "NamespaceSummary");
+    return __isa(o, "NamespaceSummary");
   }
 }
 
@@ -1848,7 +1845,7 @@ export interface Operation {
 
 export namespace Operation {
   export function isa(o: any): o is Operation {
-    return _smithy.isa(o, "Operation");
+    return __isa(o, "Operation");
   }
 }
 
@@ -1944,7 +1941,7 @@ export interface OperationFilter {
 
 export namespace OperationFilter {
   export function isa(o: any): o is OperationFilter {
-    return _smithy.isa(o, "OperationFilter");
+    return __isa(o, "OperationFilter");
   }
 }
 
@@ -1959,9 +1956,7 @@ export enum OperationFilterName {
 /**
  * <p>No operation exists with the specified ID.</p>
  */
-export interface OperationNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface OperationNotFound extends __SmithyException, $MetadataBearer {
   name: "OperationNotFound";
   $fault: "client";
   Message?: string;
@@ -1969,7 +1964,7 @@ export interface OperationNotFound
 
 export namespace OperationNotFound {
   export function isa(o: any): o is OperationNotFound {
-    return _smithy.isa(o, "OperationNotFound");
+    return __isa(o, "OperationNotFound");
   }
 }
 
@@ -2017,7 +2012,7 @@ export interface OperationSummary {
 
 export namespace OperationSummary {
   export function isa(o: any): o is OperationSummary {
-    return _smithy.isa(o, "OperationSummary");
+    return __isa(o, "OperationSummary");
   }
 }
 
@@ -2180,7 +2175,7 @@ export interface RegisterInstanceRequest {
 
 export namespace RegisterInstanceRequest {
   export function isa(o: any): o is RegisterInstanceRequest {
-    return _smithy.isa(o, "RegisterInstanceRequest");
+    return __isa(o, "RegisterInstanceRequest");
   }
 }
 
@@ -2195,7 +2190,7 @@ export interface RegisterInstanceResponse extends $MetadataBearer {
 
 export namespace RegisterInstanceResponse {
   export function isa(o: any): o is RegisterInstanceResponse {
-    return _smithy.isa(o, "RegisterInstanceResponse");
+    return __isa(o, "RegisterInstanceResponse");
   }
 }
 
@@ -2203,9 +2198,7 @@ export namespace RegisterInstanceResponse {
  * <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that
  * 			contains any instances.</p>
  */
-export interface ResourceInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ResourceInUse extends __SmithyException, $MetadataBearer {
   name: "ResourceInUse";
   $fault: "client";
   Message?: string;
@@ -2213,7 +2206,7 @@ export interface ResourceInUse
 
 export namespace ResourceInUse {
   export function isa(o: any): o is ResourceInUse {
-    return _smithy.isa(o, "ResourceInUse");
+    return __isa(o, "ResourceInUse");
   }
 }
 
@@ -2221,7 +2214,7 @@ export namespace ResourceInUse {
  * <p>The resource can't be created because you've reached the limit on the number of resources.</p>
  */
 export interface ResourceLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceLimitExceeded";
   $fault: "client";
@@ -2230,7 +2223,7 @@ export interface ResourceLimitExceeded
 
 export namespace ResourceLimitExceeded {
   export function isa(o: any): o is ResourceLimitExceeded {
-    return _smithy.isa(o, "ResourceLimitExceeded");
+    return __isa(o, "ResourceLimitExceeded");
   }
 }
 
@@ -2313,7 +2306,7 @@ export interface Service {
 
 export namespace Service {
   export function isa(o: any): o is Service {
-    return _smithy.isa(o, "Service");
+    return __isa(o, "Service");
   }
 }
 
@@ -2321,7 +2314,7 @@ export namespace Service {
  * <p>The service can't be created because a service with the same name already exists.</p>
  */
 export interface ServiceAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceAlreadyExists";
   $fault: "client";
@@ -2339,7 +2332,7 @@ export interface ServiceAlreadyExists
 
 export namespace ServiceAlreadyExists {
   export function isa(o: any): o is ServiceAlreadyExists {
-    return _smithy.isa(o, "ServiceAlreadyExists");
+    return __isa(o, "ServiceAlreadyExists");
   }
 }
 
@@ -2428,7 +2421,7 @@ export interface ServiceChange {
 
 export namespace ServiceChange {
   export function isa(o: any): o is ServiceChange {
-    return _smithy.isa(o, "ServiceChange");
+    return __isa(o, "ServiceChange");
   }
 }
 
@@ -2472,7 +2465,7 @@ export interface ServiceFilter {
 
 export namespace ServiceFilter {
   export function isa(o: any): o is ServiceFilter {
-    return _smithy.isa(o, "ServiceFilter");
+    return __isa(o, "ServiceFilter");
   }
 }
 
@@ -2483,9 +2476,7 @@ export enum ServiceFilterName {
 /**
  * <p>No service exists with the specified ID.</p>
  */
-export interface ServiceNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceNotFound extends __SmithyException, $MetadataBearer {
   name: "ServiceNotFound";
   $fault: "client";
   Message?: string;
@@ -2493,7 +2484,7 @@ export interface ServiceNotFound
 
 export namespace ServiceNotFound {
   export function isa(o: any): o is ServiceNotFound {
-    return _smithy.isa(o, "ServiceNotFound");
+    return __isa(o, "ServiceNotFound");
   }
 }
 
@@ -2667,7 +2658,7 @@ export interface ServiceSummary {
 
 export namespace ServiceSummary {
   export function isa(o: any): o is ServiceSummary {
-    return _smithy.isa(o, "ServiceSummary");
+    return __isa(o, "ServiceSummary");
   }
 }
 
@@ -2691,7 +2682,7 @@ export interface UpdateInstanceCustomHealthStatusRequest {
 
 export namespace UpdateInstanceCustomHealthStatusRequest {
   export function isa(o: any): o is UpdateInstanceCustomHealthStatusRequest {
-    return _smithy.isa(o, "UpdateInstanceCustomHealthStatusRequest");
+    return __isa(o, "UpdateInstanceCustomHealthStatusRequest");
   }
 }
 
@@ -2710,7 +2701,7 @@ export interface UpdateServiceRequest {
 
 export namespace UpdateServiceRequest {
   export function isa(o: any): o is UpdateServiceRequest {
-    return _smithy.isa(o, "UpdateServiceRequest");
+    return __isa(o, "UpdateServiceRequest");
   }
 }
 
@@ -2725,6 +2716,6 @@ export interface UpdateServiceResponse extends $MetadataBearer {
 
 export namespace UpdateServiceResponse {
   export function isa(o: any): o is UpdateServiceResponse {
-    return _smithy.isa(o, "UpdateServiceResponse");
+    return __isa(o, "UpdateServiceResponse");
   }
 }

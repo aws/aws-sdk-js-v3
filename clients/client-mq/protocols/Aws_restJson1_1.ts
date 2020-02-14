@@ -118,7 +118,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -267,7 +270,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -275,7 +278,7 @@ export async function serializeAws_restJson1_1CreateTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -307,25 +310,25 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   if (input.Username !== undefined) {
-    const labelValue: string = input.Username.toString();
+    const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -363,13 +366,13 @@ export async function serializeAws_restJson1_1DeleteBrokerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/brokers/{BrokerId}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -391,7 +394,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -399,14 +402,16 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -426,25 +431,25 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   if (input.Username !== undefined) {
-    const labelValue: string = input.Username.toString();
+    const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -466,13 +471,13 @@ export async function serializeAws_restJson1_1DescribeBrokerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/brokers/{BrokerId}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -495,13 +500,19 @@ export async function serializeAws_restJson1_1DescribeBrokerEngineTypesCommand(
   let resolvedPath = "/v1/broker-engine-types";
   const query: any = {};
   if (input.EngineType !== undefined) {
-    query["engineType"] = input.EngineType.toString();
+    query[
+      __extendedEncodeURIComponent("engineType")
+    ] = __extendedEncodeURIComponent(input.EngineType);
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -522,19 +533,29 @@ export async function serializeAws_restJson1_1DescribeBrokerInstanceOptionsComma
   let resolvedPath = "/v1/broker-instance-options";
   const query: any = {};
   if (input.EngineType !== undefined) {
-    query["engineType"] = input.EngineType.toString();
+    query[
+      __extendedEncodeURIComponent("engineType")
+    ] = __extendedEncodeURIComponent(input.EngineType);
   }
   if (input.HostInstanceType !== undefined) {
-    query["hostInstanceType"] = input.HostInstanceType.toString();
+    query[
+      __extendedEncodeURIComponent("hostInstanceType")
+    ] = __extendedEncodeURIComponent(input.HostInstanceType);
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.StorageType !== undefined) {
-    query["storageType"] = input.StorageType.toString();
+    query[
+      __extendedEncodeURIComponent("storageType")
+    ] = __extendedEncodeURIComponent(input.StorageType);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -554,7 +575,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/configurations/{ConfigurationId}";
   if (input.ConfigurationId !== undefined) {
-    const labelValue: string = input.ConfigurationId.toString();
+    const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationId."
@@ -562,7 +583,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
@@ -585,7 +606,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
   let resolvedPath =
     "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}";
   if (input.ConfigurationId !== undefined) {
-    const labelValue: string = input.ConfigurationId.toString();
+    const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationId."
@@ -593,13 +614,13 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   if (input.ConfigurationRevision !== undefined) {
-    const labelValue: string = input.ConfigurationRevision.toString();
+    const labelValue: string = input.ConfigurationRevision;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationRevision."
@@ -607,7 +628,7 @@ export async function serializeAws_restJson1_1DescribeConfigurationRevisionComma
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationRevision}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -631,25 +652,25 @@ export async function serializeAws_restJson1_1DescribeUserCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   if (input.Username !== undefined) {
-    const labelValue: string = input.Username.toString();
+    const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -672,10 +693,14 @@ export async function serializeAws_restJson1_1ListBrokersCommand(
   let resolvedPath = "/v1/brokers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -695,7 +720,7 @@ export async function serializeAws_restJson1_1ListConfigurationRevisionsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/configurations/{ConfigurationId}/revisions";
   if (input.ConfigurationId !== undefined) {
-    const labelValue: string = input.ConfigurationId.toString();
+    const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationId."
@@ -703,17 +728,21 @@ export async function serializeAws_restJson1_1ListConfigurationRevisionsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -734,10 +763,14 @@ export async function serializeAws_restJson1_1ListConfigurationsCommand(
   let resolvedPath = "/v1/configurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -757,7 +790,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -765,7 +798,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -787,23 +820,27 @@ export async function serializeAws_restJson1_1ListUsersCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/brokers/{BrokerId}/users";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -823,13 +860,13 @@ export async function serializeAws_restJson1_1RebootBrokerCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/brokers/{BrokerId}/reboot";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -851,13 +888,13 @@ export async function serializeAws_restJson1_1UpdateBrokerCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/brokers/{BrokerId}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
@@ -907,7 +944,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/configurations/{ConfigurationId}";
   if (input.ConfigurationId !== undefined) {
-    const labelValue: string = input.ConfigurationId.toString();
+    const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationId."
@@ -915,7 +952,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
@@ -947,25 +984,25 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/v1/brokers/{BrokerId}/users/{Username}";
   if (input.BrokerId !== undefined) {
-    const labelValue: string = input.BrokerId.toString();
+    const labelValue: string = input.BrokerId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
     resolvedPath = resolvedPath.replace(
       "{BrokerId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   if (input.Username !== undefined) {
-    const labelValue: string = input.Username.toString();
+    const labelValue: string = input.Username;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
     resolvedPath = resolvedPath.replace(
       "{Username}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
@@ -1186,6 +1223,7 @@ export async function deserializeAws_restJson1_1CreateTagsCommand(
   const contents: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1255,6 +1293,7 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1404,6 +1443,7 @@ export async function deserializeAws_restJson1_1DeleteTagsCommand(
   const contents: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1473,6 +1513,7 @@ export async function deserializeAws_restJson1_1DeleteUserCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2634,6 +2675,7 @@ export async function deserializeAws_restJson1_1RebootBrokerCommand(
     $metadata: deserializeMetadata(output),
     __type: "RebootBrokerResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2927,6 +2969,7 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

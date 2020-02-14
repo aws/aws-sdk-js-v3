@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -24,7 +27,7 @@ export interface BatchCreateVariableError {
 
 export namespace BatchCreateVariableError {
   export function isa(o: any): o is BatchCreateVariableError {
-    return _smithy.isa(o, "BatchCreateVariableError");
+    return __isa(o, "BatchCreateVariableError");
   }
 }
 
@@ -38,7 +41,7 @@ export interface BatchCreateVariableRequest {
 
 export namespace BatchCreateVariableRequest {
   export function isa(o: any): o is BatchCreateVariableRequest {
-    return _smithy.isa(o, "BatchCreateVariableRequest");
+    return __isa(o, "BatchCreateVariableRequest");
   }
 }
 
@@ -52,7 +55,7 @@ export interface BatchCreateVariableResult extends $MetadataBearer {
 
 export namespace BatchCreateVariableResult {
   export function isa(o: any): o is BatchCreateVariableResult {
-    return _smithy.isa(o, "BatchCreateVariableResult");
+    return __isa(o, "BatchCreateVariableResult");
   }
 }
 
@@ -79,7 +82,7 @@ export interface BatchGetVariableError {
 
 export namespace BatchGetVariableError {
   export function isa(o: any): o is BatchGetVariableError {
-    return _smithy.isa(o, "BatchGetVariableError");
+    return __isa(o, "BatchGetVariableError");
   }
 }
 
@@ -93,7 +96,7 @@ export interface BatchGetVariableRequest {
 
 export namespace BatchGetVariableRequest {
   export function isa(o: any): o is BatchGetVariableRequest {
-    return _smithy.isa(o, "BatchGetVariableRequest");
+    return __isa(o, "BatchGetVariableRequest");
   }
 }
 
@@ -112,7 +115,7 @@ export interface BatchGetVariableResult extends $MetadataBearer {
 
 export namespace BatchGetVariableResult {
   export function isa(o: any): o is BatchGetVariableResult {
-    return _smithy.isa(o, "BatchGetVariableResult");
+    return __isa(o, "BatchGetVariableResult");
   }
 }
 
@@ -146,7 +149,7 @@ export interface CreateDetectorVersionRequest {
 
 export namespace CreateDetectorVersionRequest {
   export function isa(o: any): o is CreateDetectorVersionRequest {
-    return _smithy.isa(o, "CreateDetectorVersionRequest");
+    return __isa(o, "CreateDetectorVersionRequest");
   }
 }
 
@@ -170,7 +173,7 @@ export interface CreateDetectorVersionResult extends $MetadataBearer {
 
 export namespace CreateDetectorVersionResult {
   export function isa(o: any): o is CreateDetectorVersionResult {
-    return _smithy.isa(o, "CreateDetectorVersionResult");
+    return __isa(o, "CreateDetectorVersionResult");
   }
 }
 
@@ -194,7 +197,7 @@ export interface CreateModelVersionRequest {
 
 export namespace CreateModelVersionRequest {
   export function isa(o: any): o is CreateModelVersionRequest {
-    return _smithy.isa(o, "CreateModelVersionRequest");
+    return __isa(o, "CreateModelVersionRequest");
   }
 }
 
@@ -223,7 +226,7 @@ export interface CreateModelVersionResult extends $MetadataBearer {
 
 export namespace CreateModelVersionResult {
   export function isa(o: any): o is CreateModelVersionResult {
-    return _smithy.isa(o, "CreateModelVersionResult");
+    return __isa(o, "CreateModelVersionResult");
   }
 }
 
@@ -262,7 +265,7 @@ export interface CreateRuleRequest {
 
 export namespace CreateRuleRequest {
   export function isa(o: any): o is CreateRuleRequest {
-    return _smithy.isa(o, "CreateRuleRequest");
+    return __isa(o, "CreateRuleRequest");
   }
 }
 
@@ -276,7 +279,7 @@ export interface CreateRuleResult extends $MetadataBearer {
 
 export namespace CreateRuleResult {
   export function isa(o: any): o is CreateRuleResult {
-    return _smithy.isa(o, "CreateRuleResult");
+    return __isa(o, "CreateRuleResult");
   }
 }
 
@@ -315,7 +318,7 @@ export interface CreateVariableRequest {
 
 export namespace CreateVariableRequest {
   export function isa(o: any): o is CreateVariableRequest {
-    return _smithy.isa(o, "CreateVariableRequest");
+    return __isa(o, "CreateVariableRequest");
   }
 }
 
@@ -325,7 +328,7 @@ export interface CreateVariableResult extends $MetadataBearer {
 
 export namespace CreateVariableResult {
   export function isa(o: any): o is CreateVariableResult {
-    return _smithy.isa(o, "CreateVariableResult");
+    return __isa(o, "CreateVariableResult");
   }
 }
 
@@ -357,7 +360,7 @@ export interface DeleteDetectorVersionRequest {
 
 export namespace DeleteDetectorVersionRequest {
   export function isa(o: any): o is DeleteDetectorVersionRequest {
-    return _smithy.isa(o, "DeleteDetectorVersionRequest");
+    return __isa(o, "DeleteDetectorVersionRequest");
   }
 }
 
@@ -367,7 +370,7 @@ export interface DeleteDetectorVersionResult extends $MetadataBearer {
 
 export namespace DeleteDetectorVersionResult {
   export function isa(o: any): o is DeleteDetectorVersionResult {
-    return _smithy.isa(o, "DeleteDetectorVersionResult");
+    return __isa(o, "DeleteDetectorVersionResult");
   }
 }
 
@@ -381,7 +384,7 @@ export interface DeleteEventRequest {
 
 export namespace DeleteEventRequest {
   export function isa(o: any): o is DeleteEventRequest {
-    return _smithy.isa(o, "DeleteEventRequest");
+    return __isa(o, "DeleteEventRequest");
   }
 }
 
@@ -391,7 +394,7 @@ export interface DeleteEventResult extends $MetadataBearer {
 
 export namespace DeleteEventResult {
   export function isa(o: any): o is DeleteEventResult {
-    return _smithy.isa(o, "DeleteEventResult");
+    return __isa(o, "DeleteEventResult");
   }
 }
 
@@ -415,7 +418,7 @@ export interface DescribeDetectorRequest {
 
 export namespace DescribeDetectorRequest {
   export function isa(o: any): o is DescribeDetectorRequest {
-    return _smithy.isa(o, "DescribeDetectorRequest");
+    return __isa(o, "DescribeDetectorRequest");
   }
 }
 
@@ -439,7 +442,7 @@ export interface DescribeDetectorResult extends $MetadataBearer {
 
 export namespace DescribeDetectorResult {
   export function isa(o: any): o is DescribeDetectorResult {
-    return _smithy.isa(o, "DescribeDetectorResult");
+    return __isa(o, "DescribeDetectorResult");
   }
 }
 
@@ -473,7 +476,7 @@ export interface DescribeModelVersionsRequest {
 
 export namespace DescribeModelVersionsRequest {
   export function isa(o: any): o is DescribeModelVersionsRequest {
-    return _smithy.isa(o, "DescribeModelVersionsRequest");
+    return __isa(o, "DescribeModelVersionsRequest");
   }
 }
 
@@ -492,7 +495,7 @@ export interface DescribeModelVersionsResult extends $MetadataBearer {
 
 export namespace DescribeModelVersionsResult {
   export function isa(o: any): o is DescribeModelVersionsResult {
-    return _smithy.isa(o, "DescribeModelVersionsResult");
+    return __isa(o, "DescribeModelVersionsResult");
   }
 }
 
@@ -524,7 +527,7 @@ export interface Detector {
 
 export namespace Detector {
   export function isa(o: any): o is Detector {
-    return _smithy.isa(o, "Detector");
+    return __isa(o, "Detector");
   }
 }
 
@@ -562,7 +565,7 @@ export interface DetectorVersionSummary {
 
 export namespace DetectorVersionSummary {
   export function isa(o: any): o is DetectorVersionSummary {
-    return _smithy.isa(o, "DetectorVersionSummary");
+    return __isa(o, "DetectorVersionSummary");
   }
 }
 
@@ -614,7 +617,7 @@ export interface ExternalModel {
 
 export namespace ExternalModel {
   export function isa(o: any): o is ExternalModel {
-    return _smithy.isa(o, "ExternalModel");
+    return __isa(o, "ExternalModel");
   }
 }
 
@@ -633,7 +636,7 @@ export interface GetDetectorVersionRequest {
 
 export namespace GetDetectorVersionRequest {
   export function isa(o: any): o is GetDetectorVersionRequest {
-    return _smithy.isa(o, "GetDetectorVersionRequest");
+    return __isa(o, "GetDetectorVersionRequest");
   }
 }
 
@@ -688,7 +691,7 @@ export interface GetDetectorVersionResult extends $MetadataBearer {
 
 export namespace GetDetectorVersionResult {
   export function isa(o: any): o is GetDetectorVersionResult {
-    return _smithy.isa(o, "GetDetectorVersionResult");
+    return __isa(o, "GetDetectorVersionResult");
   }
 }
 
@@ -712,7 +715,7 @@ export interface GetDetectorsRequest {
 
 export namespace GetDetectorsRequest {
   export function isa(o: any): o is GetDetectorsRequest {
-    return _smithy.isa(o, "GetDetectorsRequest");
+    return __isa(o, "GetDetectorsRequest");
   }
 }
 
@@ -731,7 +734,7 @@ export interface GetDetectorsResult extends $MetadataBearer {
 
 export namespace GetDetectorsResult {
   export function isa(o: any): o is GetDetectorsResult {
-    return _smithy.isa(o, "GetDetectorsResult");
+    return __isa(o, "GetDetectorsResult");
   }
 }
 
@@ -755,7 +758,7 @@ export interface GetExternalModelsRequest {
 
 export namespace GetExternalModelsRequest {
   export function isa(o: any): o is GetExternalModelsRequest {
-    return _smithy.isa(o, "GetExternalModelsRequest");
+    return __isa(o, "GetExternalModelsRequest");
   }
 }
 
@@ -774,7 +777,7 @@ export interface GetExternalModelsResult extends $MetadataBearer {
 
 export namespace GetExternalModelsResult {
   export function isa(o: any): o is GetExternalModelsResult {
-    return _smithy.isa(o, "GetExternalModelsResult");
+    return __isa(o, "GetExternalModelsResult");
   }
 }
 
@@ -798,7 +801,7 @@ export interface GetModelVersionRequest {
 
 export namespace GetModelVersionRequest {
   export function isa(o: any): o is GetModelVersionRequest {
-    return _smithy.isa(o, "GetModelVersionRequest");
+    return __isa(o, "GetModelVersionRequest");
   }
 }
 
@@ -832,7 +835,7 @@ export interface GetModelVersionResult extends $MetadataBearer {
 
 export namespace GetModelVersionResult {
   export function isa(o: any): o is GetModelVersionResult {
-    return _smithy.isa(o, "GetModelVersionResult");
+    return __isa(o, "GetModelVersionResult");
   }
 }
 
@@ -861,7 +864,7 @@ export interface GetModelsRequest {
 
 export namespace GetModelsRequest {
   export function isa(o: any): o is GetModelsRequest {
-    return _smithy.isa(o, "GetModelsRequest");
+    return __isa(o, "GetModelsRequest");
   }
 }
 
@@ -880,7 +883,7 @@ export interface GetModelsResult extends $MetadataBearer {
 
 export namespace GetModelsResult {
   export function isa(o: any): o is GetModelsResult {
-    return _smithy.isa(o, "GetModelsResult");
+    return __isa(o, "GetModelsResult");
   }
 }
 
@@ -904,7 +907,7 @@ export interface GetOutcomesRequest {
 
 export namespace GetOutcomesRequest {
   export function isa(o: any): o is GetOutcomesRequest {
-    return _smithy.isa(o, "GetOutcomesRequest");
+    return __isa(o, "GetOutcomesRequest");
   }
 }
 
@@ -923,7 +926,7 @@ export interface GetOutcomesResult extends $MetadataBearer {
 
 export namespace GetOutcomesResult {
   export function isa(o: any): o is GetOutcomesResult {
-    return _smithy.isa(o, "GetOutcomesResult");
+    return __isa(o, "GetOutcomesResult");
   }
 }
 
@@ -957,7 +960,7 @@ export interface GetPredictionRequest {
 
 export namespace GetPredictionRequest {
   export function isa(o: any): o is GetPredictionRequest {
-    return _smithy.isa(o, "GetPredictionRequest");
+    return __isa(o, "GetPredictionRequest");
   }
 }
 
@@ -976,7 +979,7 @@ export interface GetPredictionResult extends $MetadataBearer {
 
 export namespace GetPredictionResult {
   export function isa(o: any): o is GetPredictionResult {
-    return _smithy.isa(o, "GetPredictionResult");
+    return __isa(o, "GetPredictionResult");
   }
 }
 
@@ -1010,7 +1013,7 @@ export interface GetRulesRequest {
 
 export namespace GetRulesRequest {
   export function isa(o: any): o is GetRulesRequest {
-    return _smithy.isa(o, "GetRulesRequest");
+    return __isa(o, "GetRulesRequest");
   }
 }
 
@@ -1029,7 +1032,7 @@ export interface GetRulesResult extends $MetadataBearer {
 
 export namespace GetRulesResult {
   export function isa(o: any): o is GetRulesResult {
-    return _smithy.isa(o, "GetRulesResult");
+    return __isa(o, "GetRulesResult");
   }
 }
 
@@ -1053,7 +1056,7 @@ export interface GetVariablesRequest {
 
 export namespace GetVariablesRequest {
   export function isa(o: any): o is GetVariablesRequest {
-    return _smithy.isa(o, "GetVariablesRequest");
+    return __isa(o, "GetVariablesRequest");
   }
 }
 
@@ -1072,7 +1075,7 @@ export interface GetVariablesResult extends $MetadataBearer {
 
 export namespace GetVariablesResult {
   export function isa(o: any): o is GetVariablesResult {
-    return _smithy.isa(o, "GetVariablesResult");
+    return __isa(o, "GetVariablesResult");
   }
 }
 
@@ -1099,7 +1102,7 @@ export interface LabelSchema {
 
 export namespace LabelSchema {
   export function isa(o: any): o is LabelSchema {
-    return _smithy.isa(o, "LabelSchema");
+    return __isa(o, "LabelSchema");
   }
 }
 
@@ -1155,7 +1158,7 @@ export interface Model {
 
 export namespace Model {
   export function isa(o: any): o is Model {
-    return _smithy.isa(o, "Model");
+    return __isa(o, "Model");
   }
 }
 
@@ -1177,7 +1180,7 @@ export interface ModelEndpointDataBlob {
 
 export namespace ModelEndpointDataBlob {
   export function isa(o: any): o is ModelEndpointDataBlob {
-    return _smithy.isa(o, "ModelEndpointDataBlob");
+    return __isa(o, "ModelEndpointDataBlob");
   }
 }
 
@@ -1221,7 +1224,7 @@ export interface ModelInputConfiguration {
 
 export namespace ModelInputConfiguration {
   export function isa(o: any): o is ModelInputConfiguration {
-    return _smithy.isa(o, "ModelInputConfiguration");
+    return __isa(o, "ModelInputConfiguration");
   }
 }
 
@@ -1253,7 +1256,7 @@ export interface ModelOutputConfiguration {
 
 export namespace ModelOutputConfiguration {
   export function isa(o: any): o is ModelOutputConfiguration {
-    return _smithy.isa(o, "ModelOutputConfiguration");
+    return __isa(o, "ModelOutputConfiguration");
   }
 }
 
@@ -1280,7 +1283,7 @@ export interface ModelScores {
 
 export namespace ModelScores {
   export function isa(o: any): o is ModelScores {
-    return _smithy.isa(o, "ModelScores");
+    return __isa(o, "ModelScores");
   }
 }
 
@@ -1310,7 +1313,7 @@ export interface ModelVariable {
 
 export namespace ModelVariable {
   export function isa(o: any): o is ModelVariable {
-    return _smithy.isa(o, "ModelVariable");
+    return __isa(o, "ModelVariable");
   }
 }
 
@@ -1337,7 +1340,7 @@ export interface ModelVersion {
 
 export namespace ModelVersion {
   export function isa(o: any): o is ModelVersion {
-    return _smithy.isa(o, "ModelVersion");
+    return __isa(o, "ModelVersion");
   }
 }
 
@@ -1409,7 +1412,7 @@ export interface ModelVersionDetail {
 
 export namespace ModelVersionDetail {
   export function isa(o: any): o is ModelVersionDetail {
-    return _smithy.isa(o, "ModelVersionDetail");
+    return __isa(o, "ModelVersionDetail");
   }
 }
 
@@ -1452,7 +1455,7 @@ export interface Outcome {
 
 export namespace Outcome {
   export function isa(o: any): o is Outcome {
-    return _smithy.isa(o, "Outcome");
+    return __isa(o, "Outcome");
   }
 }
 
@@ -1471,7 +1474,7 @@ export interface PutDetectorRequest {
 
 export namespace PutDetectorRequest {
   export function isa(o: any): o is PutDetectorRequest {
-    return _smithy.isa(o, "PutDetectorRequest");
+    return __isa(o, "PutDetectorRequest");
   }
 }
 
@@ -1481,7 +1484,7 @@ export interface PutDetectorResult extends $MetadataBearer {
 
 export namespace PutDetectorResult {
   export function isa(o: any): o is PutDetectorResult {
-    return _smithy.isa(o, "PutDetectorResult");
+    return __isa(o, "PutDetectorResult");
   }
 }
 
@@ -1520,7 +1523,7 @@ export interface PutExternalModelRequest {
 
 export namespace PutExternalModelRequest {
   export function isa(o: any): o is PutExternalModelRequest {
-    return _smithy.isa(o, "PutExternalModelRequest");
+    return __isa(o, "PutExternalModelRequest");
   }
 }
 
@@ -1530,7 +1533,7 @@ export interface PutExternalModelResult extends $MetadataBearer {
 
 export namespace PutExternalModelResult {
   export function isa(o: any): o is PutExternalModelResult {
-    return _smithy.isa(o, "PutExternalModelResult");
+    return __isa(o, "PutExternalModelResult");
   }
 }
 
@@ -1569,7 +1572,7 @@ export interface PutModelRequest {
 
 export namespace PutModelRequest {
   export function isa(o: any): o is PutModelRequest {
-    return _smithy.isa(o, "PutModelRequest");
+    return __isa(o, "PutModelRequest");
   }
 }
 
@@ -1579,7 +1582,7 @@ export interface PutModelResult extends $MetadataBearer {
 
 export namespace PutModelResult {
   export function isa(o: any): o is PutModelResult {
-    return _smithy.isa(o, "PutModelResult");
+    return __isa(o, "PutModelResult");
   }
 }
 
@@ -1598,7 +1601,7 @@ export interface PutOutcomeRequest {
 
 export namespace PutOutcomeRequest {
   export function isa(o: any): o is PutOutcomeRequest {
-    return _smithy.isa(o, "PutOutcomeRequest");
+    return __isa(o, "PutOutcomeRequest");
   }
 }
 
@@ -1608,7 +1611,7 @@ export interface PutOutcomeResult extends $MetadataBearer {
 
 export namespace PutOutcomeResult {
   export function isa(o: any): o is PutOutcomeResult {
-    return _smithy.isa(o, "PutOutcomeResult");
+    return __isa(o, "PutOutcomeResult");
   }
 }
 
@@ -1630,7 +1633,7 @@ export interface Role {
 
 export namespace Role {
   export function isa(o: any): o is Role {
-    return _smithy.isa(o, "Role");
+    return __isa(o, "Role");
   }
 }
 
@@ -1657,7 +1660,7 @@ export interface Rule {
 
 export namespace Rule {
   export function isa(o: any): o is Rule {
-    return _smithy.isa(o, "Rule");
+    return __isa(o, "Rule");
   }
 }
 
@@ -1714,7 +1717,7 @@ export interface RuleDetail {
 
 export namespace RuleDetail {
   export function isa(o: any): o is RuleDetail {
-    return _smithy.isa(o, "RuleDetail");
+    return __isa(o, "RuleDetail");
   }
 }
 
@@ -1736,7 +1739,7 @@ export interface TrainingDataSource {
 
 export namespace TrainingDataSource {
   export function isa(o: any): o is TrainingDataSource {
-    return _smithy.isa(o, "TrainingDataSource");
+    return __isa(o, "TrainingDataSource");
   }
 }
 
@@ -1760,7 +1763,7 @@ export interface UpdateDetectorVersionMetadataRequest {
 
 export namespace UpdateDetectorVersionMetadataRequest {
   export function isa(o: any): o is UpdateDetectorVersionMetadataRequest {
-    return _smithy.isa(o, "UpdateDetectorVersionMetadataRequest");
+    return __isa(o, "UpdateDetectorVersionMetadataRequest");
   }
 }
 
@@ -1770,7 +1773,7 @@ export interface UpdateDetectorVersionMetadataResult extends $MetadataBearer {
 
 export namespace UpdateDetectorVersionMetadataResult {
   export function isa(o: any): o is UpdateDetectorVersionMetadataResult {
-    return _smithy.isa(o, "UpdateDetectorVersionMetadataResult");
+    return __isa(o, "UpdateDetectorVersionMetadataResult");
   }
 }
 
@@ -1809,7 +1812,7 @@ export interface UpdateDetectorVersionRequest {
 
 export namespace UpdateDetectorVersionRequest {
   export function isa(o: any): o is UpdateDetectorVersionRequest {
-    return _smithy.isa(o, "UpdateDetectorVersionRequest");
+    return __isa(o, "UpdateDetectorVersionRequest");
   }
 }
 
@@ -1819,7 +1822,7 @@ export interface UpdateDetectorVersionResult extends $MetadataBearer {
 
 export namespace UpdateDetectorVersionResult {
   export function isa(o: any): o is UpdateDetectorVersionResult {
-    return _smithy.isa(o, "UpdateDetectorVersionResult");
+    return __isa(o, "UpdateDetectorVersionResult");
   }
 }
 
@@ -1843,7 +1846,7 @@ export interface UpdateDetectorVersionStatusRequest {
 
 export namespace UpdateDetectorVersionStatusRequest {
   export function isa(o: any): o is UpdateDetectorVersionStatusRequest {
-    return _smithy.isa(o, "UpdateDetectorVersionStatusRequest");
+    return __isa(o, "UpdateDetectorVersionStatusRequest");
   }
 }
 
@@ -1853,7 +1856,7 @@ export interface UpdateDetectorVersionStatusResult extends $MetadataBearer {
 
 export namespace UpdateDetectorVersionStatusResult {
   export function isa(o: any): o is UpdateDetectorVersionStatusResult {
-    return _smithy.isa(o, "UpdateDetectorVersionStatusResult");
+    return __isa(o, "UpdateDetectorVersionStatusResult");
   }
 }
 
@@ -1887,7 +1890,7 @@ export interface UpdateModelVersionRequest {
 
 export namespace UpdateModelVersionRequest {
   export function isa(o: any): o is UpdateModelVersionRequest {
-    return _smithy.isa(o, "UpdateModelVersionRequest");
+    return __isa(o, "UpdateModelVersionRequest");
   }
 }
 
@@ -1897,7 +1900,7 @@ export interface UpdateModelVersionResult extends $MetadataBearer {
 
 export namespace UpdateModelVersionResult {
   export function isa(o: any): o is UpdateModelVersionResult {
-    return _smithy.isa(o, "UpdateModelVersionResult");
+    return __isa(o, "UpdateModelVersionResult");
   }
 }
 
@@ -1916,7 +1919,7 @@ export interface UpdateRuleMetadataRequest {
 
 export namespace UpdateRuleMetadataRequest {
   export function isa(o: any): o is UpdateRuleMetadataRequest {
-    return _smithy.isa(o, "UpdateRuleMetadataRequest");
+    return __isa(o, "UpdateRuleMetadataRequest");
   }
 }
 
@@ -1926,7 +1929,7 @@ export interface UpdateRuleMetadataResult extends $MetadataBearer {
 
 export namespace UpdateRuleMetadataResult {
   export function isa(o: any): o is UpdateRuleMetadataResult {
-    return _smithy.isa(o, "UpdateRuleMetadataResult");
+    return __isa(o, "UpdateRuleMetadataResult");
   }
 }
 
@@ -1960,7 +1963,7 @@ export interface UpdateRuleVersionRequest {
 
 export namespace UpdateRuleVersionRequest {
   export function isa(o: any): o is UpdateRuleVersionRequest {
-    return _smithy.isa(o, "UpdateRuleVersionRequest");
+    return __isa(o, "UpdateRuleVersionRequest");
   }
 }
 
@@ -1974,7 +1977,7 @@ export interface UpdateRuleVersionResult extends $MetadataBearer {
 
 export namespace UpdateRuleVersionResult {
   export function isa(o: any): o is UpdateRuleVersionResult {
-    return _smithy.isa(o, "UpdateRuleVersionResult");
+    return __isa(o, "UpdateRuleVersionResult");
   }
 }
 
@@ -2003,7 +2006,7 @@ export interface UpdateVariableRequest {
 
 export namespace UpdateVariableRequest {
   export function isa(o: any): o is UpdateVariableRequest {
-    return _smithy.isa(o, "UpdateVariableRequest");
+    return __isa(o, "UpdateVariableRequest");
   }
 }
 
@@ -2013,7 +2016,7 @@ export interface UpdateVariableResult extends $MetadataBearer {
 
 export namespace UpdateVariableResult {
   export function isa(o: any): o is UpdateVariableResult {
-    return _smithy.isa(o, "UpdateVariableResult");
+    return __isa(o, "UpdateVariableResult");
   }
 }
 
@@ -2065,7 +2068,7 @@ export interface Variable {
 
 export namespace Variable {
   export function isa(o: any): o is Variable {
-    return _smithy.isa(o, "Variable");
+    return __isa(o, "Variable");
   }
 }
 
@@ -2107,7 +2110,7 @@ export interface VariableEntry {
 
 export namespace VariableEntry {
   export function isa(o: any): o is VariableEntry {
-    return _smithy.isa(o, "VariableEntry");
+    return __isa(o, "VariableEntry");
   }
 }
 
@@ -2115,7 +2118,7 @@ export namespace VariableEntry {
  * <p>An exception indicating an internal server error.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -2124,7 +2127,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -2132,7 +2135,7 @@ export namespace InternalServerException {
  * <p>An exception indicating the specified resource was not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -2141,7 +2144,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -2149,7 +2152,7 @@ export namespace ResourceNotFoundException {
  * <p>An exception indicating a throttling error.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -2158,7 +2161,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -2166,7 +2169,7 @@ export namespace ThrottlingException {
  * <p>An exception indicating a specified value is not allowed.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -2175,6 +2178,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

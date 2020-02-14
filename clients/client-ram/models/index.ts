@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptResourceShareInvitationRequest {
@@ -16,7 +19,7 @@ export interface AcceptResourceShareInvitationRequest {
 
 export namespace AcceptResourceShareInvitationRequest {
   export function isa(o: any): o is AcceptResourceShareInvitationRequest {
-    return _smithy.isa(o, "AcceptResourceShareInvitationRequest");
+    return __isa(o, "AcceptResourceShareInvitationRequest");
   }
 }
 
@@ -35,7 +38,7 @@ export interface AcceptResourceShareInvitationResponse extends $MetadataBearer {
 
 export namespace AcceptResourceShareInvitationResponse {
   export function isa(o: any): o is AcceptResourceShareInvitationResponse {
-    return _smithy.isa(o, "AcceptResourceShareInvitationResponse");
+    return __isa(o, "AcceptResourceShareInvitationResponse");
   }
 }
 
@@ -66,7 +69,7 @@ export interface AssociateResourceSharePermissionRequest {
 
 export namespace AssociateResourceSharePermissionRequest {
   export function isa(o: any): o is AssociateResourceSharePermissionRequest {
-    return _smithy.isa(o, "AssociateResourceSharePermissionRequest");
+    return __isa(o, "AssociateResourceSharePermissionRequest");
   }
 }
 
@@ -86,7 +89,7 @@ export interface AssociateResourceSharePermissionResponse
 
 export namespace AssociateResourceSharePermissionResponse {
   export function isa(o: any): o is AssociateResourceSharePermissionResponse {
-    return _smithy.isa(o, "AssociateResourceSharePermissionResponse");
+    return __isa(o, "AssociateResourceSharePermissionResponse");
   }
 }
 
@@ -115,7 +118,7 @@ export interface AssociateResourceShareRequest {
 
 export namespace AssociateResourceShareRequest {
   export function isa(o: any): o is AssociateResourceShareRequest {
-    return _smithy.isa(o, "AssociateResourceShareRequest");
+    return __isa(o, "AssociateResourceShareRequest");
   }
 }
 
@@ -134,7 +137,7 @@ export interface AssociateResourceShareResponse extends $MetadataBearer {
 
 export namespace AssociateResourceShareResponse {
   export function isa(o: any): o is AssociateResourceShareResponse {
-    return _smithy.isa(o, "AssociateResourceShareResponse");
+    return __isa(o, "AssociateResourceShareResponse");
   }
 }
 
@@ -181,7 +184,7 @@ export interface CreateResourceShareRequest {
 
 export namespace CreateResourceShareRequest {
   export function isa(o: any): o is CreateResourceShareRequest {
-    return _smithy.isa(o, "CreateResourceShareRequest");
+    return __isa(o, "CreateResourceShareRequest");
   }
 }
 
@@ -200,7 +203,7 @@ export interface CreateResourceShareResponse extends $MetadataBearer {
 
 export namespace CreateResourceShareResponse {
   export function isa(o: any): o is CreateResourceShareResponse {
-    return _smithy.isa(o, "CreateResourceShareResponse");
+    return __isa(o, "CreateResourceShareResponse");
   }
 }
 
@@ -219,7 +222,7 @@ export interface DeleteResourceShareRequest {
 
 export namespace DeleteResourceShareRequest {
   export function isa(o: any): o is DeleteResourceShareRequest {
-    return _smithy.isa(o, "DeleteResourceShareRequest");
+    return __isa(o, "DeleteResourceShareRequest");
   }
 }
 
@@ -238,7 +241,7 @@ export interface DeleteResourceShareResponse extends $MetadataBearer {
 
 export namespace DeleteResourceShareResponse {
   export function isa(o: any): o is DeleteResourceShareResponse {
-    return _smithy.isa(o, "DeleteResourceShareResponse");
+    return __isa(o, "DeleteResourceShareResponse");
   }
 }
 
@@ -262,7 +265,7 @@ export interface DisassociateResourceSharePermissionRequest {
 
 export namespace DisassociateResourceSharePermissionRequest {
   export function isa(o: any): o is DisassociateResourceSharePermissionRequest {
-    return _smithy.isa(o, "DisassociateResourceSharePermissionRequest");
+    return __isa(o, "DisassociateResourceSharePermissionRequest");
   }
 }
 
@@ -284,7 +287,7 @@ export namespace DisassociateResourceSharePermissionResponse {
   export function isa(
     o: any
   ): o is DisassociateResourceSharePermissionResponse {
-    return _smithy.isa(o, "DisassociateResourceSharePermissionResponse");
+    return __isa(o, "DisassociateResourceSharePermissionResponse");
   }
 }
 
@@ -313,7 +316,7 @@ export interface DisassociateResourceShareRequest {
 
 export namespace DisassociateResourceShareRequest {
   export function isa(o: any): o is DisassociateResourceShareRequest {
-    return _smithy.isa(o, "DisassociateResourceShareRequest");
+    return __isa(o, "DisassociateResourceShareRequest");
   }
 }
 
@@ -332,7 +335,7 @@ export interface DisassociateResourceShareResponse extends $MetadataBearer {
 
 export namespace DisassociateResourceShareResponse {
   export function isa(o: any): o is DisassociateResourceShareResponse {
-    return _smithy.isa(o, "DisassociateResourceShareResponse");
+    return __isa(o, "DisassociateResourceShareResponse");
   }
 }
 
@@ -342,7 +345,7 @@ export interface EnableSharingWithAwsOrganizationRequest {
 
 export namespace EnableSharingWithAwsOrganizationRequest {
   export function isa(o: any): o is EnableSharingWithAwsOrganizationRequest {
-    return _smithy.isa(o, "EnableSharingWithAwsOrganizationRequest");
+    return __isa(o, "EnableSharingWithAwsOrganizationRequest");
   }
 }
 
@@ -357,7 +360,7 @@ export interface EnableSharingWithAwsOrganizationResponse
 
 export namespace EnableSharingWithAwsOrganizationResponse {
   export function isa(o: any): o is EnableSharingWithAwsOrganizationResponse {
-    return _smithy.isa(o, "EnableSharingWithAwsOrganizationResponse");
+    return __isa(o, "EnableSharingWithAwsOrganizationResponse");
   }
 }
 
@@ -376,7 +379,7 @@ export interface GetPermissionRequest {
 
 export namespace GetPermissionRequest {
   export function isa(o: any): o is GetPermissionRequest {
-    return _smithy.isa(o, "GetPermissionRequest");
+    return __isa(o, "GetPermissionRequest");
   }
 }
 
@@ -390,7 +393,7 @@ export interface GetPermissionResponse extends $MetadataBearer {
 
 export namespace GetPermissionResponse {
   export function isa(o: any): o is GetPermissionResponse {
-    return _smithy.isa(o, "GetPermissionResponse");
+    return __isa(o, "GetPermissionResponse");
   }
 }
 
@@ -420,7 +423,7 @@ export interface GetResourcePoliciesRequest {
 
 export namespace GetResourcePoliciesRequest {
   export function isa(o: any): o is GetResourcePoliciesRequest {
-    return _smithy.isa(o, "GetResourcePoliciesRequest");
+    return __isa(o, "GetResourcePoliciesRequest");
   }
 }
 
@@ -439,7 +442,7 @@ export interface GetResourcePoliciesResponse extends $MetadataBearer {
 
 export namespace GetResourcePoliciesResponse {
   export function isa(o: any): o is GetResourcePoliciesResponse {
-    return _smithy.isa(o, "GetResourcePoliciesResponse");
+    return __isa(o, "GetResourcePoliciesResponse");
   }
 }
 
@@ -488,7 +491,7 @@ export interface GetResourceShareAssociationsRequest {
 
 export namespace GetResourceShareAssociationsRequest {
   export function isa(o: any): o is GetResourceShareAssociationsRequest {
-    return _smithy.isa(o, "GetResourceShareAssociationsRequest");
+    return __isa(o, "GetResourceShareAssociationsRequest");
   }
 }
 
@@ -507,7 +510,7 @@ export interface GetResourceShareAssociationsResponse extends $MetadataBearer {
 
 export namespace GetResourceShareAssociationsResponse {
   export function isa(o: any): o is GetResourceShareAssociationsResponse {
-    return _smithy.isa(o, "GetResourceShareAssociationsResponse");
+    return __isa(o, "GetResourceShareAssociationsResponse");
   }
 }
 
@@ -537,7 +540,7 @@ export interface GetResourceShareInvitationsRequest {
 
 export namespace GetResourceShareInvitationsRequest {
   export function isa(o: any): o is GetResourceShareInvitationsRequest {
-    return _smithy.isa(o, "GetResourceShareInvitationsRequest");
+    return __isa(o, "GetResourceShareInvitationsRequest");
   }
 }
 
@@ -556,7 +559,7 @@ export interface GetResourceShareInvitationsResponse extends $MetadataBearer {
 
 export namespace GetResourceShareInvitationsResponse {
   export function isa(o: any): o is GetResourceShareInvitationsResponse {
-    return _smithy.isa(o, "GetResourceShareInvitationsResponse");
+    return __isa(o, "GetResourceShareInvitationsResponse");
   }
 }
 
@@ -601,7 +604,7 @@ export interface GetResourceSharesRequest {
 
 export namespace GetResourceSharesRequest {
   export function isa(o: any): o is GetResourceSharesRequest {
-    return _smithy.isa(o, "GetResourceSharesRequest");
+    return __isa(o, "GetResourceSharesRequest");
   }
 }
 
@@ -620,7 +623,7 @@ export interface GetResourceSharesResponse extends $MetadataBearer {
 
 export namespace GetResourceSharesResponse {
   export function isa(o: any): o is GetResourceSharesResponse {
-    return _smithy.isa(o, "GetResourceSharesResponse");
+    return __isa(o, "GetResourceSharesResponse");
   }
 }
 
@@ -629,7 +632,7 @@ export namespace GetResourceSharesResponse {
  *         the other input parameters is different from the previous call to the operation.</p>
  */
 export interface IdempotentParameterMismatchException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
@@ -638,7 +641,7 @@ export interface IdempotentParameterMismatchException
 
 export namespace IdempotentParameterMismatchException {
   export function isa(o: any): o is IdempotentParameterMismatchException {
-    return _smithy.isa(o, "IdempotentParameterMismatchException");
+    return __isa(o, "IdempotentParameterMismatchException");
   }
 }
 
@@ -646,7 +649,7 @@ export namespace IdempotentParameterMismatchException {
  * <p>A client token is not valid.</p>
  */
 export interface InvalidClientTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidClientTokenException";
   $fault: "client";
@@ -655,7 +658,7 @@ export interface InvalidClientTokenException
 
 export namespace InvalidClientTokenException {
   export function isa(o: any): o is InvalidClientTokenException {
-    return _smithy.isa(o, "InvalidClientTokenException");
+    return __isa(o, "InvalidClientTokenException");
   }
 }
 
@@ -663,7 +666,7 @@ export namespace InvalidClientTokenException {
  * <p>The specified value for MaxResults is not valid.</p>
  */
 export interface InvalidMaxResultsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
@@ -672,7 +675,7 @@ export interface InvalidMaxResultsException
 
 export namespace InvalidMaxResultsException {
   export function isa(o: any): o is InvalidMaxResultsException {
-    return _smithy.isa(o, "InvalidMaxResultsException");
+    return __isa(o, "InvalidMaxResultsException");
   }
 }
 
@@ -680,7 +683,7 @@ export namespace InvalidMaxResultsException {
  * <p>The specified value for NextToken is not valid.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -689,7 +692,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -697,7 +700,7 @@ export namespace InvalidNextTokenException {
  * <p>A parameter is not valid.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -706,7 +709,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -714,7 +717,7 @@ export namespace InvalidParameterException {
  * <p>The specified resource type is not valid.</p>
  */
 export interface InvalidResourceTypeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidResourceTypeException";
   $fault: "client";
@@ -723,7 +726,7 @@ export interface InvalidResourceTypeException
 
 export namespace InvalidResourceTypeException {
   export function isa(o: any): o is InvalidResourceTypeException {
-    return _smithy.isa(o, "InvalidResourceTypeException");
+    return __isa(o, "InvalidResourceTypeException");
   }
 }
 
@@ -731,7 +734,7 @@ export namespace InvalidResourceTypeException {
  * <p>The requested state transition is not valid.</p>
  */
 export interface InvalidStateTransitionException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
@@ -740,7 +743,7 @@ export interface InvalidStateTransitionException
 
 export namespace InvalidStateTransitionException {
   export function isa(o: any): o is InvalidStateTransitionException {
-    return _smithy.isa(o, "InvalidStateTransitionException");
+    return __isa(o, "InvalidStateTransitionException");
   }
 }
 
@@ -765,7 +768,7 @@ export interface ListPendingInvitationResourcesRequest {
 
 export namespace ListPendingInvitationResourcesRequest {
   export function isa(o: any): o is ListPendingInvitationResourcesRequest {
-    return _smithy.isa(o, "ListPendingInvitationResourcesRequest");
+    return __isa(o, "ListPendingInvitationResourcesRequest");
   }
 }
 
@@ -785,7 +788,7 @@ export interface ListPendingInvitationResourcesResponse
 
 export namespace ListPendingInvitationResourcesResponse {
   export function isa(o: any): o is ListPendingInvitationResourcesResponse {
-    return _smithy.isa(o, "ListPendingInvitationResourcesResponse");
+    return __isa(o, "ListPendingInvitationResourcesResponse");
   }
 }
 
@@ -811,7 +814,7 @@ export interface ListPermissionsRequest {
 
 export namespace ListPermissionsRequest {
   export function isa(o: any): o is ListPermissionsRequest {
-    return _smithy.isa(o, "ListPermissionsRequest");
+    return __isa(o, "ListPermissionsRequest");
   }
 }
 
@@ -830,7 +833,7 @@ export interface ListPermissionsResponse extends $MetadataBearer {
 
 export namespace ListPermissionsResponse {
   export function isa(o: any): o is ListPermissionsResponse {
-    return _smithy.isa(o, "ListPermissionsResponse");
+    return __isa(o, "ListPermissionsResponse");
   }
 }
 
@@ -881,7 +884,7 @@ export interface ListPrincipalsRequest {
 
 export namespace ListPrincipalsRequest {
   export function isa(o: any): o is ListPrincipalsRequest {
-    return _smithy.isa(o, "ListPrincipalsRequest");
+    return __isa(o, "ListPrincipalsRequest");
   }
 }
 
@@ -900,7 +903,7 @@ export interface ListPrincipalsResponse extends $MetadataBearer {
 
 export namespace ListPrincipalsResponse {
   export function isa(o: any): o is ListPrincipalsResponse {
-    return _smithy.isa(o, "ListPrincipalsResponse");
+    return __isa(o, "ListPrincipalsResponse");
   }
 }
 
@@ -925,7 +928,7 @@ export interface ListResourceSharePermissionsRequest {
 
 export namespace ListResourceSharePermissionsRequest {
   export function isa(o: any): o is ListResourceSharePermissionsRequest {
-    return _smithy.isa(o, "ListResourceSharePermissionsRequest");
+    return __isa(o, "ListResourceSharePermissionsRequest");
   }
 }
 
@@ -944,7 +947,7 @@ export interface ListResourceSharePermissionsResponse extends $MetadataBearer {
 
 export namespace ListResourceSharePermissionsResponse {
   export function isa(o: any): o is ListResourceSharePermissionsResponse {
-    return _smithy.isa(o, "ListResourceSharePermissionsResponse");
+    return __isa(o, "ListResourceSharePermissionsResponse");
   }
 }
 
@@ -995,7 +998,7 @@ export interface ListResourcesRequest {
 
 export namespace ListResourcesRequest {
   export function isa(o: any): o is ListResourcesRequest {
-    return _smithy.isa(o, "ListResourcesRequest");
+    return __isa(o, "ListResourcesRequest");
   }
 }
 
@@ -1014,7 +1017,7 @@ export interface ListResourcesResponse extends $MetadataBearer {
 
 export namespace ListResourcesResponse {
   export function isa(o: any): o is ListResourcesResponse {
-    return _smithy.isa(o, "ListResourcesResponse");
+    return __isa(o, "ListResourcesResponse");
   }
 }
 
@@ -1022,7 +1025,7 @@ export namespace ListResourcesResponse {
  * <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  */
 export interface MalformedArnException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MalformedArnException";
   $fault: "client";
@@ -1031,7 +1034,7 @@ export interface MalformedArnException
 
 export namespace MalformedArnException {
   export function isa(o: any): o is MalformedArnException {
-    return _smithy.isa(o, "MalformedArnException");
+    return __isa(o, "MalformedArnException");
   }
 }
 
@@ -1039,7 +1042,7 @@ export namespace MalformedArnException {
  * <p>A required input parameter is missing.</p>
  */
 export interface MissingRequiredParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MissingRequiredParameterException";
   $fault: "client";
@@ -1048,7 +1051,7 @@ export interface MissingRequiredParameterException
 
 export namespace MissingRequiredParameterException {
   export function isa(o: any): o is MissingRequiredParameterException {
-    return _smithy.isa(o, "MissingRequiredParameterException");
+    return __isa(o, "MissingRequiredParameterException");
   }
 }
 
@@ -1056,7 +1059,7 @@ export namespace MissingRequiredParameterException {
  * <p>The requested operation is not permitted.</p>
  */
 export interface OperationNotPermittedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
@@ -1065,7 +1068,7 @@ export interface OperationNotPermittedException
 
 export namespace OperationNotPermittedException {
   export function isa(o: any): o is OperationNotPermittedException {
-    return _smithy.isa(o, "OperationNotPermittedException");
+    return __isa(o, "OperationNotPermittedException");
   }
 }
 
@@ -1102,7 +1105,7 @@ export interface Principal {
 
 export namespace Principal {
   export function isa(o: any): o is Principal {
-    return _smithy.isa(o, "Principal");
+    return __isa(o, "Principal");
   }
 }
 
@@ -1118,7 +1121,7 @@ export namespace PromoteResourceShareCreatedFromPolicyRequest {
   export function isa(
     o: any
   ): o is PromoteResourceShareCreatedFromPolicyRequest {
-    return _smithy.isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
+    return __isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
   }
 }
 
@@ -1135,7 +1138,7 @@ export namespace PromoteResourceShareCreatedFromPolicyResponse {
   export function isa(
     o: any
   ): o is PromoteResourceShareCreatedFromPolicyResponse {
-    return _smithy.isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
+    return __isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
   }
 }
 
@@ -1154,7 +1157,7 @@ export interface RejectResourceShareInvitationRequest {
 
 export namespace RejectResourceShareInvitationRequest {
   export function isa(o: any): o is RejectResourceShareInvitationRequest {
-    return _smithy.isa(o, "RejectResourceShareInvitationRequest");
+    return __isa(o, "RejectResourceShareInvitationRequest");
   }
 }
 
@@ -1173,7 +1176,7 @@ export interface RejectResourceShareInvitationResponse extends $MetadataBearer {
 
 export namespace RejectResourceShareInvitationResponse {
   export function isa(o: any): o is RejectResourceShareInvitationResponse {
-    return _smithy.isa(o, "RejectResourceShareInvitationResponse");
+    return __isa(o, "RejectResourceShareInvitationResponse");
   }
 }
 
@@ -1226,7 +1229,7 @@ export interface Resource {
 
 export namespace Resource {
   export function isa(o: any): o is Resource {
-    return _smithy.isa(o, "Resource");
+    return __isa(o, "Resource");
   }
 }
 
@@ -1234,7 +1237,7 @@ export namespace Resource {
  * <p>An Amazon Resource Name (ARN) was not found.</p>
  */
 export interface ResourceArnNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceArnNotFoundException";
   $fault: "client";
@@ -1243,7 +1246,7 @@ export interface ResourceArnNotFoundException
 
 export namespace ResourceArnNotFoundException {
   export function isa(o: any): o is ResourceArnNotFoundException {
-    return _smithy.isa(o, "ResourceArnNotFoundException");
+    return __isa(o, "ResourceArnNotFoundException");
   }
 }
 
@@ -1331,7 +1334,7 @@ export interface ResourceShare {
 
 export namespace ResourceShare {
   export function isa(o: any): o is ResourceShare {
-    return _smithy.isa(o, "ResourceShare");
+    return __isa(o, "ResourceShare");
   }
 }
 
@@ -1390,7 +1393,7 @@ export interface ResourceShareAssociation {
 
 export namespace ResourceShareAssociation {
   export function isa(o: any): o is ResourceShareAssociation {
-    return _smithy.isa(o, "ResourceShareAssociation");
+    return __isa(o, "ResourceShareAssociation");
   }
 }
 
@@ -1458,7 +1461,7 @@ export interface ResourceShareInvitation {
 
 export namespace ResourceShareInvitation {
   export function isa(o: any): o is ResourceShareInvitation {
-    return _smithy.isa(o, "ResourceShareInvitation");
+    return __isa(o, "ResourceShareInvitation");
   }
 }
 
@@ -1466,7 +1469,7 @@ export namespace ResourceShareInvitation {
  * <p>The invitation was already accepted.</p>
  */
 export interface ResourceShareInvitationAlreadyAcceptedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceShareInvitationAlreadyAcceptedException";
   $fault: "client";
@@ -1477,7 +1480,7 @@ export namespace ResourceShareInvitationAlreadyAcceptedException {
   export function isa(
     o: any
   ): o is ResourceShareInvitationAlreadyAcceptedException {
-    return _smithy.isa(o, "ResourceShareInvitationAlreadyAcceptedException");
+    return __isa(o, "ResourceShareInvitationAlreadyAcceptedException");
   }
 }
 
@@ -1485,7 +1488,7 @@ export namespace ResourceShareInvitationAlreadyAcceptedException {
  * <p>The invitation was already rejected.</p>
  */
 export interface ResourceShareInvitationAlreadyRejectedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceShareInvitationAlreadyRejectedException";
   $fault: "client";
@@ -1496,7 +1499,7 @@ export namespace ResourceShareInvitationAlreadyRejectedException {
   export function isa(
     o: any
   ): o is ResourceShareInvitationAlreadyRejectedException {
-    return _smithy.isa(o, "ResourceShareInvitationAlreadyRejectedException");
+    return __isa(o, "ResourceShareInvitationAlreadyRejectedException");
   }
 }
 
@@ -1504,7 +1507,7 @@ export namespace ResourceShareInvitationAlreadyRejectedException {
  * <p>The Amazon Resource Name (ARN) for an invitation was not found.</p>
  */
 export interface ResourceShareInvitationArnNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceShareInvitationArnNotFoundException";
   $fault: "client";
@@ -1515,7 +1518,7 @@ export namespace ResourceShareInvitationArnNotFoundException {
   export function isa(
     o: any
   ): o is ResourceShareInvitationArnNotFoundException {
-    return _smithy.isa(o, "ResourceShareInvitationArnNotFoundException");
+    return __isa(o, "ResourceShareInvitationArnNotFoundException");
   }
 }
 
@@ -1523,7 +1526,7 @@ export namespace ResourceShareInvitationArnNotFoundException {
  * <p>The invitation is expired.</p>
  */
 export interface ResourceShareInvitationExpiredException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceShareInvitationExpiredException";
   $fault: "client";
@@ -1532,7 +1535,7 @@ export interface ResourceShareInvitationExpiredException
 
 export namespace ResourceShareInvitationExpiredException {
   export function isa(o: any): o is ResourceShareInvitationExpiredException {
-    return _smithy.isa(o, "ResourceShareInvitationExpiredException");
+    return __isa(o, "ResourceShareInvitationExpiredException");
   }
 }
 
@@ -1546,7 +1549,7 @@ export type ResourceShareInvitationStatus =
  * <p>The requested resource share exceeds the limit for your account.</p>
  */
 export interface ResourceShareLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceShareLimitExceededException";
   $fault: "client";
@@ -1555,7 +1558,7 @@ export interface ResourceShareLimitExceededException
 
 export namespace ResourceShareLimitExceededException {
   export function isa(o: any): o is ResourceShareLimitExceededException {
-    return _smithy.isa(o, "ResourceShareLimitExceededException");
+    return __isa(o, "ResourceShareLimitExceededException");
   }
 }
 
@@ -1610,7 +1613,7 @@ export interface ResourceSharePermissionDetail {
 
 export namespace ResourceSharePermissionDetail {
   export function isa(o: any): o is ResourceSharePermissionDetail {
-    return _smithy.isa(o, "ResourceSharePermissionDetail");
+    return __isa(o, "ResourceSharePermissionDetail");
   }
 }
 
@@ -1662,7 +1665,7 @@ export interface ResourceSharePermissionSummary {
 
 export namespace ResourceSharePermissionSummary {
   export function isa(o: any): o is ResourceSharePermissionSummary {
-    return _smithy.isa(o, "ResourceSharePermissionSummary");
+    return __isa(o, "ResourceSharePermissionSummary");
   }
 }
 
@@ -1684,7 +1687,7 @@ export type ResourceStatus =
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
 export interface ServerInternalException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServerInternalException";
   $fault: "server";
@@ -1693,7 +1696,7 @@ export interface ServerInternalException
 
 export namespace ServerInternalException {
   export function isa(o: any): o is ServerInternalException {
-    return _smithy.isa(o, "ServerInternalException");
+    return __isa(o, "ServerInternalException");
   }
 }
 
@@ -1701,7 +1704,7 @@ export namespace ServerInternalException {
  * <p>The service is not available.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -1710,7 +1713,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -1732,7 +1735,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1754,7 +1757,7 @@ export interface TagFilter {
 
 export namespace TagFilter {
   export function isa(o: any): o is TagFilter {
-    return _smithy.isa(o, "TagFilter");
+    return __isa(o, "TagFilter");
   }
 }
 
@@ -1762,7 +1765,7 @@ export namespace TagFilter {
  * <p>The requested tags exceed the limit for your account.</p>
  */
 export interface TagLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
@@ -1771,7 +1774,7 @@ export interface TagLimitExceededException
 
 export namespace TagLimitExceededException {
   export function isa(o: any): o is TagLimitExceededException {
-    return _smithy.isa(o, "TagLimitExceededException");
+    return __isa(o, "TagLimitExceededException");
   }
 }
 
@@ -1779,7 +1782,7 @@ export namespace TagLimitExceededException {
  * <p>The specified tag is a reserved word and cannot be used.</p>
  */
 export interface TagPolicyViolationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TagPolicyViolationException";
   $fault: "client";
@@ -1788,7 +1791,7 @@ export interface TagPolicyViolationException
 
 export namespace TagPolicyViolationException {
   export function isa(o: any): o is TagPolicyViolationException {
-    return _smithy.isa(o, "TagPolicyViolationException");
+    return __isa(o, "TagPolicyViolationException");
   }
 }
 
@@ -1807,7 +1810,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -1817,7 +1820,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -1825,7 +1828,7 @@ export namespace TagResourceResponse {
  * <p>A specified resource was not found.</p>
  */
 export interface UnknownResourceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnknownResourceException";
   $fault: "client";
@@ -1834,7 +1837,7 @@ export interface UnknownResourceException
 
 export namespace UnknownResourceException {
   export function isa(o: any): o is UnknownResourceException {
-    return _smithy.isa(o, "UnknownResourceException");
+    return __isa(o, "UnknownResourceException");
   }
 }
 
@@ -1853,7 +1856,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -1863,7 +1866,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -1892,7 +1895,7 @@ export interface UpdateResourceShareRequest {
 
 export namespace UpdateResourceShareRequest {
   export function isa(o: any): o is UpdateResourceShareRequest {
-    return _smithy.isa(o, "UpdateResourceShareRequest");
+    return __isa(o, "UpdateResourceShareRequest");
   }
 }
 
@@ -1911,6 +1914,6 @@ export interface UpdateResourceShareResponse extends $MetadataBearer {
 
 export namespace UpdateResourceShareResponse {
   export function isa(o: any): o is UpdateResourceShareResponse {
-    return _smithy.isa(o, "UpdateResourceShareResponse");
+    return __isa(o, "UpdateResourceShareResponse");
   }
 }

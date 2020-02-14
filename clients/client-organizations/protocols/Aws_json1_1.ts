@@ -1126,6 +1126,7 @@ export async function deserializeAws_json1_1AttachPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AttachPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AttachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2053,6 +2054,7 @@ export async function deserializeAws_json1_1DeleteOrganizationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2149,6 +2151,7 @@ export async function deserializeAws_json1_1DeleteOrganizationalUnitCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2249,6 +2252,7 @@ export async function deserializeAws_json1_1DeletePolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3042,6 +3046,7 @@ export async function deserializeAws_json1_1DetachPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DetachPolicyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DetachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3173,6 +3178,7 @@ export async function deserializeAws_json1_1DisableAWSServiceAccessCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisableAWSServiceAccessCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3395,6 +3401,7 @@ export async function deserializeAws_json1_1EnableAWSServiceAccessCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: EnableAWSServiceAccessCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3844,6 +3851,7 @@ export async function deserializeAws_json1_1LeaveOrganizationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1LeaveOrganizationCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: LeaveOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5260,6 +5268,7 @@ export async function deserializeAws_json1_1MoveAccountCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1MoveAccountCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: MoveAccountCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5377,6 +5386,7 @@ export async function deserializeAws_json1_1RemoveAccountFromOrganizationCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveAccountFromOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5484,6 +5494,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5584,6 +5595,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

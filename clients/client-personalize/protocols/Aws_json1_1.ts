@@ -1573,6 +1573,7 @@ export async function deserializeAws_json1_1DeleteCampaignCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteCampaignCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteCampaignCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1638,6 +1639,7 @@ export async function deserializeAws_json1_1DeleteDatasetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1706,6 +1708,7 @@ export async function deserializeAws_json1_1DeleteDatasetGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1774,6 +1777,7 @@ export async function deserializeAws_json1_1DeleteEventTrackerCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1839,6 +1843,7 @@ export async function deserializeAws_json1_1DeleteSchemaCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteSchemaCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSchemaCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1904,6 +1909,7 @@ export async function deserializeAws_json1_1DeleteSolutionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteSolutionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteSolutionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

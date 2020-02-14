@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Invalid request parameters.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -36,7 +39,7 @@ export interface CdnConfiguration {
 
 export namespace CdnConfiguration {
   export function isa(o: any): o is CdnConfiguration {
-    return _smithy.isa(o, "CdnConfiguration");
+    return __isa(o, "CdnConfiguration");
   }
 }
 
@@ -63,7 +66,7 @@ export interface DashConfiguration {
 
 export namespace DashConfiguration {
   export function isa(o: any): o is DashConfiguration {
-    return _smithy.isa(o, "DashConfiguration");
+    return __isa(o, "DashConfiguration");
   }
 }
 
@@ -85,7 +88,7 @@ export interface DashConfigurationForPut {
 
 export namespace DashConfigurationForPut {
   export function isa(o: any): o is DashConfigurationForPut {
-    return _smithy.isa(o, "DashConfigurationForPut");
+    return __isa(o, "DashConfigurationForPut");
   }
 }
 
@@ -99,7 +102,7 @@ export interface DeletePlaybackConfigurationRequest {
 
 export namespace DeletePlaybackConfigurationRequest {
   export function isa(o: any): o is DeletePlaybackConfigurationRequest {
-    return _smithy.isa(o, "DeletePlaybackConfigurationRequest");
+    return __isa(o, "DeletePlaybackConfigurationRequest");
   }
 }
 
@@ -109,7 +112,7 @@ export interface DeletePlaybackConfigurationResponse extends $MetadataBearer {
 
 export namespace DeletePlaybackConfigurationResponse {
   export function isa(o: any): o is DeletePlaybackConfigurationResponse {
-    return _smithy.isa(o, "DeletePlaybackConfigurationResponse");
+    return __isa(o, "DeletePlaybackConfigurationResponse");
   }
 }
 
@@ -123,7 +126,7 @@ export interface GetPlaybackConfigurationRequest {
 
 export namespace GetPlaybackConfigurationRequest {
   export function isa(o: any): o is GetPlaybackConfigurationRequest {
-    return _smithy.isa(o, "GetPlaybackConfigurationRequest");
+    return __isa(o, "GetPlaybackConfigurationRequest");
   }
 }
 
@@ -197,7 +200,7 @@ export interface GetPlaybackConfigurationResponse extends $MetadataBearer {
 
 export namespace GetPlaybackConfigurationResponse {
   export function isa(o: any): o is GetPlaybackConfigurationResponse {
-    return _smithy.isa(o, "GetPlaybackConfigurationResponse");
+    return __isa(o, "GetPlaybackConfigurationResponse");
   }
 }
 
@@ -214,7 +217,7 @@ export interface HlsConfiguration {
 
 export namespace HlsConfiguration {
   export function isa(o: any): o is HlsConfiguration {
-    return _smithy.isa(o, "HlsConfiguration");
+    return __isa(o, "HlsConfiguration");
   }
 }
 
@@ -233,7 +236,7 @@ export interface ListPlaybackConfigurationsRequest {
 
 export namespace ListPlaybackConfigurationsRequest {
   export function isa(o: any): o is ListPlaybackConfigurationsRequest {
-    return _smithy.isa(o, "ListPlaybackConfigurationsRequest");
+    return __isa(o, "ListPlaybackConfigurationsRequest");
   }
 }
 
@@ -252,7 +255,7 @@ export interface ListPlaybackConfigurationsResponse extends $MetadataBearer {
 
 export namespace ListPlaybackConfigurationsResponse {
   export function isa(o: any): o is ListPlaybackConfigurationsResponse {
-    return _smithy.isa(o, "ListPlaybackConfigurationsResponse");
+    return __isa(o, "ListPlaybackConfigurationsResponse");
   }
 }
 
@@ -266,7 +269,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -285,7 +288,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -307,7 +310,7 @@ export interface LivePreRollConfiguration {
 
 export namespace LivePreRollConfiguration {
   export function isa(o: any): o is LivePreRollConfiguration {
-    return _smithy.isa(o, "LivePreRollConfiguration");
+    return __isa(o, "LivePreRollConfiguration");
   }
 }
 
@@ -384,7 +387,7 @@ export interface PlaybackConfiguration {
 
 export namespace PlaybackConfiguration {
   export function isa(o: any): o is PlaybackConfiguration {
-    return _smithy.isa(o, "PlaybackConfiguration");
+    return __isa(o, "PlaybackConfiguration");
   }
 }
 
@@ -438,7 +441,7 @@ export interface PutPlaybackConfigurationRequest {
 
 export namespace PutPlaybackConfigurationRequest {
   export function isa(o: any): o is PutPlaybackConfigurationRequest {
-    return _smithy.isa(o, "PutPlaybackConfigurationRequest");
+    return __isa(o, "PutPlaybackConfigurationRequest");
   }
 }
 
@@ -512,7 +515,7 @@ export interface PutPlaybackConfigurationResponse extends $MetadataBearer {
 
 export namespace PutPlaybackConfigurationResponse {
   export function isa(o: any): o is PutPlaybackConfigurationResponse {
-    return _smithy.isa(o, "PutPlaybackConfigurationResponse");
+    return __isa(o, "PutPlaybackConfigurationResponse");
   }
 }
 
@@ -536,7 +539,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -555,6 +558,6 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }

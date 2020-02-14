@@ -36,7 +36,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -52,7 +55,7 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
-    const labelValue: string = input.HumanLoopName.toString();
+    const labelValue: string = input.HumanLoopName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HumanLoopName."
@@ -60,7 +63,7 @@ export async function serializeAws_restJson1_1DeleteHumanLoopCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HumanLoopName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
@@ -82,7 +85,7 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
-    const labelValue: string = input.HumanLoopName.toString();
+    const labelValue: string = input.HumanLoopName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: HumanLoopName."
@@ -90,7 +93,7 @@ export async function serializeAws_restJson1_1DescribeHumanLoopCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{HumanLoopName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: HumanLoopName.");
@@ -113,19 +116,29 @@ export async function serializeAws_restJson1_1ListHumanLoopsCommand(
   let resolvedPath = "/human-loops";
   const query: any = {};
   if (input.CreationTimeAfter !== undefined) {
-    query["CreationTimeAfter"] = input.CreationTimeAfter.toISOString();
+    query[
+      __extendedEncodeURIComponent("CreationTimeAfter")
+    ] = __extendedEncodeURIComponent(input.CreationTimeAfter.toISOString());
   }
   if (input.CreationTimeBefore !== undefined) {
-    query["CreationTimeBefore"] = input.CreationTimeBefore.toISOString();
+    query[
+      __extendedEncodeURIComponent("CreationTimeBefore")
+    ] = __extendedEncodeURIComponent(input.CreationTimeBefore.toISOString());
   }
   if (input.MaxResults !== undefined) {
-    query["MaxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("MaxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.SortOrder !== undefined) {
-    query["SortOrder"] = input.SortOrder.toString();
+    query[
+      __extendedEncodeURIComponent("SortOrder")
+    ] = __extendedEncodeURIComponent(input.SortOrder);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -216,6 +229,7 @@ export async function deserializeAws_restJson1_1DeleteHumanLoopCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteHumanLoopResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -569,6 +583,7 @@ export async function deserializeAws_restJson1_1StopHumanLoopCommand(
     $metadata: deserializeMetadata(output),
     __type: "StopHumanLoopResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

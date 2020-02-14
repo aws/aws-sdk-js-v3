@@ -701,6 +701,7 @@ export async function deserializeAws_json1_1DeletePipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePipelineCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1610,6 +1611,7 @@ export async function deserializeAws_json1_1SetStatusCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SetStatusCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetStatusCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

@@ -52,7 +52,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -92,7 +95,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -100,7 +103,7 @@ export async function serializeAws_restJson1_1CreateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -139,7 +142,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -147,7 +150,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -172,7 +175,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -180,7 +183,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -188,7 +191,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
@@ -196,7 +199,7 @@ export async function serializeAws_restJson1_1DeleteConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -221,7 +224,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -229,7 +232,7 @@ export async function serializeAws_restJson1_1GetConfigurationSetEventDestinatio
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -254,10 +257,14 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query["NextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("NextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.PageSize !== undefined) {
-    query["PageSize"] = input.PageSize.toString();
+    query[
+      __extendedEncodeURIComponent("PageSize")
+    ] = __extendedEncodeURIComponent(input.PageSize);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -316,7 +323,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName.toString();
+    const labelValue: string = input.ConfigurationSetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConfigurationSetName."
@@ -324,7 +331,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{ConfigurationSetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -332,7 +339,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     );
   }
   if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName.toString();
+    const labelValue: string = input.EventDestinationName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: EventDestinationName."
@@ -340,7 +347,7 @@ export async function serializeAws_restJson1_1UpdateConfigurationSetEventDestina
     }
     resolvedPath = resolvedPath.replace(
       "{EventDestinationName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -382,6 +389,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateConfigurationSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -461,6 +469,7 @@ export async function deserializeAws_restJson1_1CreateConfigurationSetEventDesti
     $metadata: deserializeMetadata(output),
     __type: "CreateConfigurationSetEventDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -547,6 +556,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteConfigurationSetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -619,6 +629,7 @@ export async function deserializeAws_restJson1_1DeleteConfigurationSetEventDesti
     $metadata: deserializeMetadata(output),
     __type: "DeleteConfigurationSetEventDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -918,6 +929,7 @@ export async function deserializeAws_restJson1_1UpdateConfigurationSetEventDesti
     $metadata: deserializeMetadata(output),
     __type: "UpdateConfigurationSetEventDestinationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

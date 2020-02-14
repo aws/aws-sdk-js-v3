@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,7 +22,7 @@ export interface Bucket {
 
 export namespace Bucket {
   export function isa(o: any): o is Bucket {
-    return _smithy.isa(o, "Bucket");
+    return __isa(o, "Bucket");
   }
 }
 
@@ -36,7 +39,7 @@ export interface BucketInfo {
 
 export namespace BucketInfo {
   export function isa(o: any): o is BucketInfo {
-    return _smithy.isa(o, "BucketInfo");
+    return __isa(o, "BucketInfo");
   }
 }
 
@@ -46,7 +49,7 @@ export type ContentType = "application/json" | "application/xml";
  * <p>Information about any problems encountered while processing an upload request.</p>
  */
 export interface DocumentServiceException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DocumentServiceException";
   $fault: "client";
@@ -63,7 +66,7 @@ export interface DocumentServiceException
 
 export namespace DocumentServiceException {
   export function isa(o: any): o is DocumentServiceException {
-    return _smithy.isa(o, "DocumentServiceException");
+    return __isa(o, "DocumentServiceException");
   }
 }
 
@@ -80,7 +83,7 @@ export interface DocumentServiceWarning {
 
 export namespace DocumentServiceWarning {
   export function isa(o: any): o is DocumentServiceWarning {
-    return _smithy.isa(o, "DocumentServiceWarning");
+    return __isa(o, "DocumentServiceWarning");
   }
 }
 
@@ -135,7 +138,7 @@ export interface FieldStats {
 
 export namespace FieldStats {
   export function isa(o: any): o is FieldStats {
-    return _smithy.isa(o, "FieldStats");
+    return __isa(o, "FieldStats");
   }
 }
 
@@ -167,7 +170,7 @@ export interface Hit {
 
 export namespace Hit {
   export function isa(o: any): o is Hit {
-    return _smithy.isa(o, "Hit");
+    return __isa(o, "Hit");
   }
 }
 
@@ -199,7 +202,7 @@ export interface Hits {
 
 export namespace Hits {
   export function isa(o: any): o is Hits {
-    return _smithy.isa(o, "Hits");
+    return __isa(o, "Hits");
   }
 }
 
@@ -208,9 +211,7 @@ export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
 /**
  * <p>Information about any problems encountered while processing a search request.</p>
  */
-export interface SearchException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface SearchException extends __SmithyException, $MetadataBearer {
   name: "SearchException";
   $fault: "client";
   /**
@@ -221,7 +222,7 @@ export interface SearchException
 
 export namespace SearchException {
   export function isa(o: any): o is SearchException {
-    return _smithy.isa(o, "SearchException");
+    return __isa(o, "SearchException");
   }
 }
 
@@ -513,7 +514,7 @@ export interface SearchRequest {
 
 export namespace SearchRequest {
   export function isa(o: any): o is SearchRequest {
-    return _smithy.isa(o, "SearchRequest");
+    return __isa(o, "SearchRequest");
   }
 }
 
@@ -545,7 +546,7 @@ export interface SearchResponse extends $MetadataBearer {
 
 export namespace SearchResponse {
   export function isa(o: any): o is SearchResponse {
-    return _smithy.isa(o, "SearchResponse");
+    return __isa(o, "SearchResponse");
   }
 }
 
@@ -567,7 +568,7 @@ export interface SearchStatus {
 
 export namespace SearchStatus {
   export function isa(o: any): o is SearchStatus {
-    return _smithy.isa(o, "SearchStatus");
+    return __isa(o, "SearchStatus");
   }
 }
 
@@ -594,7 +595,7 @@ export interface SuggestModel {
 
 export namespace SuggestModel {
   export function isa(o: any): o is SuggestModel {
-    return _smithy.isa(o, "SuggestModel");
+    return __isa(o, "SuggestModel");
   }
 }
 
@@ -621,7 +622,7 @@ export interface SuggestRequest {
 
 export namespace SuggestRequest {
   export function isa(o: any): o is SuggestRequest {
-    return _smithy.isa(o, "SuggestRequest");
+    return __isa(o, "SuggestRequest");
   }
 }
 
@@ -643,7 +644,7 @@ export interface SuggestResponse extends $MetadataBearer {
 
 export namespace SuggestResponse {
   export function isa(o: any): o is SuggestResponse {
-    return _smithy.isa(o, "SuggestResponse");
+    return __isa(o, "SuggestResponse");
   }
 }
 
@@ -665,7 +666,7 @@ export interface SuggestStatus {
 
 export namespace SuggestStatus {
   export function isa(o: any): o is SuggestStatus {
-    return _smithy.isa(o, "SuggestStatus");
+    return __isa(o, "SuggestStatus");
   }
 }
 
@@ -692,7 +693,7 @@ export interface SuggestionMatch {
 
 export namespace SuggestionMatch {
   export function isa(o: any): o is SuggestionMatch {
-    return _smithy.isa(o, "SuggestionMatch");
+    return __isa(o, "SuggestionMatch");
   }
 }
 
@@ -718,7 +719,7 @@ export interface UploadDocumentsRequest {
 
 export namespace UploadDocumentsRequest {
   export function isa(o: any): o is UploadDocumentsRequest {
-    return _smithy.isa(o, "UploadDocumentsRequest");
+    return __isa(o, "UploadDocumentsRequest");
   }
 }
 
@@ -750,6 +751,6 @@ export interface UploadDocumentsResponse extends $MetadataBearer {
 
 export namespace UploadDocumentsResponse {
   export function isa(o: any): o is UploadDocumentsResponse {
-    return _smithy.isa(o, "UploadDocumentsResponse");
+    return __isa(o, "UploadDocumentsResponse");
   }
 }

@@ -933,6 +933,7 @@ export async function deserializeAws_json1_1DeleteFaqCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteFaqCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteFaqCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1019,6 +1020,7 @@ export async function deserializeAws_json1_1DeleteIndexCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteIndexCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteIndexCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1900,6 +1902,7 @@ export async function deserializeAws_json1_1StopDataSourceSyncJobCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: StopDataSourceSyncJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1979,6 +1982,7 @@ export async function deserializeAws_json1_1SubmitFeedbackCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SubmitFeedbackCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SubmitFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2065,6 +2069,7 @@ export async function deserializeAws_json1_1UpdateDataSourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateDataSourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2151,6 +2156,7 @@ export async function deserializeAws_json1_1UpdateIndexCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateIndexCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateIndexCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

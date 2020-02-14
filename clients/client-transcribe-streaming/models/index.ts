@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,7 +22,7 @@ export interface Alternative {
 
 export namespace Alternative {
   export function isa(o: any): o is Alternative {
-    return _smithy.isa(o, "Alternative");
+    return __isa(o, "Alternative");
   }
 }
 
@@ -36,7 +39,7 @@ export interface AudioEvent {
 
 export namespace AudioEvent {
   export function isa(o: any): o is AudioEvent {
-    return _smithy.isa(o, "AudioEvent");
+    return __isa(o, "AudioEvent");
   }
 }
 
@@ -81,7 +84,7 @@ export namespace AudioStream {
  *       request again.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -90,7 +93,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -98,9 +101,7 @@ export namespace BadRequestException {
  * <p>A new stream started with the same session ID. The current stream has been
  *       terminated.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -108,7 +109,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -117,7 +118,7 @@ export namespace ConflictException {
  *       request again.</p>
  */
 export interface InternalFailureException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -126,7 +127,7 @@ export interface InternalFailureException
 
 export namespace InternalFailureException {
   export function isa(o: any): o is InternalFailureException {
-    return _smithy.isa(o, "InternalFailureException");
+    return __isa(o, "InternalFailureException");
   }
 }
 
@@ -162,7 +163,7 @@ export interface Item {
 
 export namespace Item {
   export function isa(o: any): o is Item {
-    return _smithy.isa(o, "Item");
+    return __isa(o, "Item");
   }
 }
 
@@ -187,7 +188,7 @@ export enum LanguageCode {
  *       again.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -196,7 +197,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -240,7 +241,7 @@ export interface Result {
 
 export namespace Result {
   export function isa(o: any): o is Result {
-    return _smithy.isa(o, "Result");
+    return __isa(o, "Result");
   }
 }
 
@@ -283,7 +284,7 @@ export interface StartStreamTranscriptionRequest {
 
 export namespace StartStreamTranscriptionRequest {
   export function isa(o: any): o is StartStreamTranscriptionRequest {
-    return _smithy.isa(o, "StartStreamTranscriptionRequest");
+    return __isa(o, "StartStreamTranscriptionRequest");
   }
 }
 
@@ -328,7 +329,7 @@ export interface StartStreamTranscriptionResponse extends $MetadataBearer {
 
 export namespace StartStreamTranscriptionResponse {
   export function isa(o: any): o is StartStreamTranscriptionResponse {
-    return _smithy.isa(o, "StartStreamTranscriptionResponse");
+    return __isa(o, "StartStreamTranscriptionResponse");
   }
 }
 
@@ -347,7 +348,7 @@ export interface Transcript {
 
 export namespace Transcript {
   export function isa(o: any): o is Transcript {
-    return _smithy.isa(o, "Transcript");
+    return __isa(o, "Transcript");
   }
 }
 
@@ -366,7 +367,7 @@ export interface TranscriptEvent {
 
 export namespace TranscriptEvent {
   export function isa(o: any): o is TranscriptEvent {
-    return _smithy.isa(o, "TranscriptEvent");
+    return __isa(o, "TranscriptEvent");
   }
 }
 

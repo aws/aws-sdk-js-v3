@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsToCertificateRequest {
@@ -23,7 +26,7 @@ export interface AddTagsToCertificateRequest {
 
 export namespace AddTagsToCertificateRequest {
   export function isa(o: any): o is AddTagsToCertificateRequest {
-    return _smithy.isa(o, "AddTagsToCertificateRequest");
+    return __isa(o, "AddTagsToCertificateRequest");
   }
 }
 
@@ -202,7 +205,7 @@ export interface CertificateDetail {
 
 export namespace CertificateDetail {
   export function isa(o: any): o is CertificateDetail {
-    return _smithy.isa(o, "CertificateDetail");
+    return __isa(o, "CertificateDetail");
   }
 }
 
@@ -228,7 +231,7 @@ export interface CertificateOptions {
 
 export namespace CertificateOptions {
   export function isa(o: any): o is CertificateOptions {
-    return _smithy.isa(o, "CertificateOptions");
+    return __isa(o, "CertificateOptions");
   }
 }
 
@@ -268,7 +271,7 @@ export interface CertificateSummary {
 
 export namespace CertificateSummary {
   export function isa(o: any): o is CertificateSummary {
-    return _smithy.isa(o, "CertificateSummary");
+    return __isa(o, "CertificateSummary");
   }
 }
 
@@ -298,7 +301,7 @@ export interface DeleteCertificateRequest {
 
 export namespace DeleteCertificateRequest {
   export function isa(o: any): o is DeleteCertificateRequest {
-    return _smithy.isa(o, "DeleteCertificateRequest");
+    return __isa(o, "DeleteCertificateRequest");
   }
 }
 
@@ -317,7 +320,7 @@ export interface DescribeCertificateRequest {
 
 export namespace DescribeCertificateRequest {
   export function isa(o: any): o is DescribeCertificateRequest {
-    return _smithy.isa(o, "DescribeCertificateRequest");
+    return __isa(o, "DescribeCertificateRequest");
   }
 }
 
@@ -331,7 +334,7 @@ export interface DescribeCertificateResponse extends $MetadataBearer {
 
 export namespace DescribeCertificateResponse {
   export function isa(o: any): o is DescribeCertificateResponse {
-    return _smithy.isa(o, "DescribeCertificateResponse");
+    return __isa(o, "DescribeCertificateResponse");
   }
 }
 
@@ -397,7 +400,7 @@ export interface DomainValidation {
 
 export namespace DomainValidation {
   export function isa(o: any): o is DomainValidation {
-    return _smithy.isa(o, "DomainValidation");
+    return __isa(o, "DomainValidation");
   }
 }
 
@@ -442,7 +445,7 @@ export interface DomainValidationOption {
 
 export namespace DomainValidationOption {
   export function isa(o: any): o is DomainValidationOption {
-    return _smithy.isa(o, "DomainValidationOption");
+    return __isa(o, "DomainValidationOption");
   }
 }
 
@@ -469,7 +472,7 @@ export interface ExportCertificateRequest {
 
 export namespace ExportCertificateRequest {
   export function isa(o: any): o is ExportCertificateRequest {
-    return _smithy.isa(o, "ExportCertificateRequest");
+    return __isa(o, "ExportCertificateRequest");
   }
 }
 
@@ -495,7 +498,7 @@ export interface ExportCertificateResponse extends $MetadataBearer {
 
 export namespace ExportCertificateResponse {
   export function isa(o: any): o is ExportCertificateResponse {
-    return _smithy.isa(o, "ExportCertificateResponse");
+    return __isa(o, "ExportCertificateResponse");
   }
 }
 
@@ -568,7 +571,7 @@ export interface ExtendedKeyUsage {
 
 export namespace ExtendedKeyUsage {
   export function isa(o: any): o is ExtendedKeyUsage {
-    return _smithy.isa(o, "ExtendedKeyUsage");
+    return __isa(o, "ExtendedKeyUsage");
   }
 }
 
@@ -634,7 +637,7 @@ export interface Filters {
 
 export namespace Filters {
   export function isa(o: any): o is Filters {
-    return _smithy.isa(o, "Filters");
+    return __isa(o, "Filters");
   }
 }
 
@@ -652,7 +655,7 @@ export interface GetCertificateRequest {
 
 export namespace GetCertificateRequest {
   export function isa(o: any): o is GetCertificateRequest {
-    return _smithy.isa(o, "GetCertificateRequest");
+    return __isa(o, "GetCertificateRequest");
   }
 }
 
@@ -673,7 +676,7 @@ export interface GetCertificateResponse extends $MetadataBearer {
 
 export namespace GetCertificateResponse {
   export function isa(o: any): o is GetCertificateResponse {
-    return _smithy.isa(o, "GetCertificateResponse");
+    return __isa(o, "GetCertificateResponse");
   }
 }
 
@@ -710,7 +713,7 @@ export interface ImportCertificateRequest {
 
 export namespace ImportCertificateRequest {
   export function isa(o: any): o is ImportCertificateRequest {
-    return _smithy.isa(o, "ImportCertificateRequest");
+    return __isa(o, "ImportCertificateRequest");
   }
 }
 
@@ -725,7 +728,7 @@ export interface ImportCertificateResponse extends $MetadataBearer {
 
 export namespace ImportCertificateResponse {
   export function isa(o: any): o is ImportCertificateResponse {
-    return _smithy.isa(o, "ImportCertificateResponse");
+    return __isa(o, "ImportCertificateResponse");
   }
 }
 
@@ -733,7 +736,7 @@ export namespace ImportCertificateResponse {
  * <p>One or more of of request parameters specified is not valid.</p>
  */
 export interface InvalidArgsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
@@ -742,7 +745,7 @@ export interface InvalidArgsException
 
 export namespace InvalidArgsException {
   export function isa(o: any): o is InvalidArgsException {
-    return _smithy.isa(o, "InvalidArgsException");
+    return __isa(o, "InvalidArgsException");
   }
 }
 
@@ -750,7 +753,7 @@ export namespace InvalidArgsException {
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
 export interface InvalidArnException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
@@ -759,7 +762,7 @@ export interface InvalidArnException
 
 export namespace InvalidArnException {
   export function isa(o: any): o is InvalidArnException {
-    return _smithy.isa(o, "InvalidArnException");
+    return __isa(o, "InvalidArnException");
   }
 }
 
@@ -768,7 +771,7 @@ export namespace InvalidArnException {
  *       incorrect.</p>
  */
 export interface InvalidDomainValidationOptionsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidDomainValidationOptionsException";
   $fault: "client";
@@ -777,7 +780,7 @@ export interface InvalidDomainValidationOptionsException
 
 export namespace InvalidDomainValidationOptionsException {
   export function isa(o: any): o is InvalidDomainValidationOptionsException {
-    return _smithy.isa(o, "InvalidDomainValidationOptionsException");
+    return __isa(o, "InvalidDomainValidationOptionsException");
   }
 }
 
@@ -785,7 +788,7 @@ export namespace InvalidDomainValidationOptionsException {
  * <p>An input parameter was invalid.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -794,7 +797,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -802,7 +805,7 @@ export namespace InvalidParameterException {
  * <p>Processing has reached an invalid state.</p>
  */
 export interface InvalidStateException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidStateException";
   $fault: "client";
@@ -811,7 +814,7 @@ export interface InvalidStateException
 
 export namespace InvalidStateException {
   export function isa(o: any): o is InvalidStateException {
-    return _smithy.isa(o, "InvalidStateException");
+    return __isa(o, "InvalidStateException");
   }
 }
 
@@ -820,7 +823,7 @@ export namespace InvalidStateException {
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  */
 export interface InvalidTagException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
@@ -829,7 +832,7 @@ export interface InvalidTagException
 
 export namespace InvalidTagException {
   export function isa(o: any): o is InvalidTagException {
-    return _smithy.isa(o, "InvalidTagException");
+    return __isa(o, "InvalidTagException");
   }
 }
 
@@ -856,7 +859,7 @@ export interface KeyUsage {
 
 export namespace KeyUsage {
   export function isa(o: any): o is KeyUsage {
-    return _smithy.isa(o, "KeyUsage");
+    return __isa(o, "KeyUsage");
   }
 }
 
@@ -878,7 +881,7 @@ export enum KeyUsageName {
  * <p>An ACM limit has been exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -887,7 +890,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -922,7 +925,7 @@ export interface ListCertificatesRequest {
 
 export namespace ListCertificatesRequest {
   export function isa(o: any): o is ListCertificatesRequest {
-    return _smithy.isa(o, "ListCertificatesRequest");
+    return __isa(o, "ListCertificatesRequest");
   }
 }
 
@@ -942,7 +945,7 @@ export interface ListCertificatesResponse extends $MetadataBearer {
 
 export namespace ListCertificatesResponse {
   export function isa(o: any): o is ListCertificatesResponse {
-    return _smithy.isa(o, "ListCertificatesResponse");
+    return __isa(o, "ListCertificatesResponse");
   }
 }
 
@@ -961,7 +964,7 @@ export interface ListTagsForCertificateRequest {
 
 export namespace ListTagsForCertificateRequest {
   export function isa(o: any): o is ListTagsForCertificateRequest {
-    return _smithy.isa(o, "ListTagsForCertificateRequest");
+    return __isa(o, "ListTagsForCertificateRequest");
   }
 }
 
@@ -975,7 +978,7 @@ export interface ListTagsForCertificateResponse extends $MetadataBearer {
 
 export namespace ListTagsForCertificateResponse {
   export function isa(o: any): o is ListTagsForCertificateResponse {
-    return _smithy.isa(o, "ListTagsForCertificateResponse");
+    return __isa(o, "ListTagsForCertificateResponse");
   }
 }
 
@@ -1005,7 +1008,7 @@ export interface RemoveTagsFromCertificateRequest {
 
 export namespace RemoveTagsFromCertificateRequest {
   export function isa(o: any): o is RemoveTagsFromCertificateRequest {
-    return _smithy.isa(o, "RemoveTagsFromCertificateRequest");
+    return __isa(o, "RemoveTagsFromCertificateRequest");
   }
 }
 
@@ -1024,7 +1027,7 @@ export interface RenewCertificateRequest {
 
 export namespace RenewCertificateRequest {
   export function isa(o: any): o is RenewCertificateRequest {
-    return _smithy.isa(o, "RenewCertificateRequest");
+    return __isa(o, "RenewCertificateRequest");
   }
 }
 
@@ -1073,7 +1076,7 @@ export interface RenewalSummary {
 
 export namespace RenewalSummary {
   export function isa(o: any): o is RenewalSummary {
-    return _smithy.isa(o, "RenewalSummary");
+    return __isa(o, "RenewalSummary");
   }
 }
 
@@ -1174,7 +1177,7 @@ export interface RequestCertificateRequest {
 
 export namespace RequestCertificateRequest {
   export function isa(o: any): o is RequestCertificateRequest {
-    return _smithy.isa(o, "RequestCertificateRequest");
+    return __isa(o, "RequestCertificateRequest");
   }
 }
 
@@ -1191,7 +1194,7 @@ export interface RequestCertificateResponse extends $MetadataBearer {
 
 export namespace RequestCertificateResponse {
   export function isa(o: any): o is RequestCertificateResponse {
-    return _smithy.isa(o, "RequestCertificateResponse");
+    return __isa(o, "RequestCertificateResponse");
   }
 }
 
@@ -1200,7 +1203,7 @@ export namespace RequestCertificateResponse {
  *       issued.</p>
  */
 export interface RequestInProgressException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RequestInProgressException";
   $fault: "client";
@@ -1209,7 +1212,7 @@ export interface RequestInProgressException
 
 export namespace RequestInProgressException {
   export function isa(o: any): o is RequestInProgressException {
-    return _smithy.isa(o, "RequestInProgressException");
+    return __isa(o, "RequestInProgressException");
   }
 }
 
@@ -1263,7 +1266,7 @@ export interface ResendValidationEmailRequest {
 
 export namespace ResendValidationEmailRequest {
   export function isa(o: any): o is ResendValidationEmailRequest {
-    return _smithy.isa(o, "ResendValidationEmailRequest");
+    return __isa(o, "ResendValidationEmailRequest");
   }
 }
 
@@ -1272,7 +1275,7 @@ export namespace ResendValidationEmailRequest {
  *       association and try again.</p>
  */
 export interface ResourceInUseException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
@@ -1281,7 +1284,7 @@ export interface ResourceInUseException
 
 export namespace ResourceInUseException {
   export function isa(o: any): o is ResourceInUseException {
-    return _smithy.isa(o, "ResourceInUseException");
+    return __isa(o, "ResourceInUseException");
   }
 }
 
@@ -1290,7 +1293,7 @@ export namespace ResourceInUseException {
  *       cannot be found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -1299,7 +1302,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -1328,7 +1331,7 @@ export interface ResourceRecord {
 
 export namespace ResourceRecord {
   export function isa(o: any): o is ResourceRecord {
-    return _smithy.isa(o, "ResourceRecord");
+    return __isa(o, "ResourceRecord");
   }
 }
 
@@ -1363,16 +1366,14 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
 /**
  * <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
  */
-export interface TagPolicyException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TagPolicyException extends __SmithyException, $MetadataBearer {
   name: "TagPolicyException";
   $fault: "client";
   message?: string;
@@ -1380,7 +1381,7 @@ export interface TagPolicyException
 
 export namespace TagPolicyException {
   export function isa(o: any): o is TagPolicyException {
-    return _smithy.isa(o, "TagPolicyException");
+    return __isa(o, "TagPolicyException");
   }
 }
 
@@ -1388,7 +1389,7 @@ export namespace TagPolicyException {
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
 export interface TooManyTagsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
@@ -1397,7 +1398,7 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export function isa(o: any): o is TooManyTagsException {
-    return _smithy.isa(o, "TooManyTagsException");
+    return __isa(o, "TooManyTagsException");
   }
 }
 
@@ -1423,7 +1424,7 @@ export interface UpdateCertificateOptionsRequest {
 
 export namespace UpdateCertificateOptionsRequest {
   export function isa(o: any): o is UpdateCertificateOptionsRequest {
-    return _smithy.isa(o, "UpdateCertificateOptionsRequest");
+    return __isa(o, "UpdateCertificateOptionsRequest");
   }
 }
 

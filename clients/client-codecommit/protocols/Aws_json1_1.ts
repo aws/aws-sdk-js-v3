@@ -1756,6 +1756,7 @@ export async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRep
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AssociateApprovalRuleTemplateWithRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2667,6 +2668,7 @@ export async function deserializeAws_json1_1CreateBranchCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateBranchCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateBranchCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5046,6 +5048,7 @@ export async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFrom
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisassociateApprovalRuleTemplateFromRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -10066,6 +10069,7 @@ export async function deserializeAws_json1_1OverridePullRequestApprovalRulesComm
       context
     );
   }
+  await collectBody(output.body, context);
   const response: OverridePullRequestApprovalRulesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11238,6 +11242,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -11544,6 +11549,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12015,6 +12021,7 @@ export async function deserializeAws_json1_1UpdateDefaultBranchCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateDefaultBranchCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12306,6 +12313,7 @@ export async function deserializeAws_json1_1UpdatePullRequestApprovalStateComman
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdatePullRequestApprovalStateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12778,6 +12786,7 @@ export async function deserializeAws_json1_1UpdateRepositoryDescriptionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateRepositoryDescriptionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -12888,6 +12897,7 @@ export async function deserializeAws_json1_1UpdateRepositoryNameCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateRepositoryNameCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

@@ -635,6 +635,7 @@ export async function deserializeAws_json1_1DeleteAcceleratorCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAcceleratorCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -717,6 +718,7 @@ export async function deserializeAws_json1_1DeleteEndpointGroupCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -782,6 +784,7 @@ export async function deserializeAws_json1_1DeleteListenerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteListenerCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteListenerCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

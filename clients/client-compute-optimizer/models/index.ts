@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -46,7 +49,7 @@ export interface AutoScalingGroupConfiguration {
 
 export namespace AutoScalingGroupConfiguration {
   export function isa(o: any): o is AutoScalingGroupConfiguration {
-    return _smithy.isa(o, "AutoScalingGroupConfiguration");
+    return __isa(o, "AutoScalingGroupConfiguration");
   }
 }
 
@@ -130,7 +133,7 @@ export interface AutoScalingGroupRecommendation {
 
 export namespace AutoScalingGroupRecommendation {
   export function isa(o: any): o is AutoScalingGroupRecommendation {
-    return _smithy.isa(o, "AutoScalingGroupRecommendation");
+    return __isa(o, "AutoScalingGroupRecommendation");
   }
 }
 
@@ -168,7 +171,7 @@ export interface AutoScalingGroupRecommendationOption {
 
 export namespace AutoScalingGroupRecommendationOption {
   export function isa(o: any): o is AutoScalingGroupRecommendationOption {
-    return _smithy.isa(o, "AutoScalingGroupRecommendationOption");
+    return __isa(o, "AutoScalingGroupRecommendationOption");
   }
 }
 
@@ -204,7 +207,7 @@ export interface Filter {
 
 export namespace Filter {
   export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
+    return __isa(o, "Filter");
   }
 }
 
@@ -255,7 +258,7 @@ export interface GetAutoScalingGroupRecommendationsRequest {
 
 export namespace GetAutoScalingGroupRecommendationsRequest {
   export function isa(o: any): o is GetAutoScalingGroupRecommendationsRequest {
-    return _smithy.isa(o, "GetAutoScalingGroupRecommendationsRequest");
+    return __isa(o, "GetAutoScalingGroupRecommendationsRequest");
   }
 }
 
@@ -284,7 +287,7 @@ export interface GetAutoScalingGroupRecommendationsResponse
 
 export namespace GetAutoScalingGroupRecommendationsResponse {
   export function isa(o: any): o is GetAutoScalingGroupRecommendationsResponse {
-    return _smithy.isa(o, "GetAutoScalingGroupRecommendationsResponse");
+    return __isa(o, "GetAutoScalingGroupRecommendationsResponse");
   }
 }
 
@@ -323,7 +326,7 @@ export interface GetEC2InstanceRecommendationsRequest {
 
 export namespace GetEC2InstanceRecommendationsRequest {
   export function isa(o: any): o is GetEC2InstanceRecommendationsRequest {
-    return _smithy.isa(o, "GetEC2InstanceRecommendationsRequest");
+    return __isa(o, "GetEC2InstanceRecommendationsRequest");
   }
 }
 
@@ -351,7 +354,7 @@ export interface GetEC2InstanceRecommendationsResponse extends $MetadataBearer {
 
 export namespace GetEC2InstanceRecommendationsResponse {
   export function isa(o: any): o is GetEC2InstanceRecommendationsResponse {
-    return _smithy.isa(o, "GetEC2InstanceRecommendationsResponse");
+    return __isa(o, "GetEC2InstanceRecommendationsResponse");
   }
 }
 
@@ -388,7 +391,7 @@ export namespace GetEC2RecommendationProjectedMetricsRequest {
   export function isa(
     o: any
   ): o is GetEC2RecommendationProjectedMetricsRequest {
-    return _smithy.isa(o, "GetEC2RecommendationProjectedMetricsRequest");
+    return __isa(o, "GetEC2RecommendationProjectedMetricsRequest");
   }
 }
 
@@ -405,7 +408,7 @@ export namespace GetEC2RecommendationProjectedMetricsResponse {
   export function isa(
     o: any
   ): o is GetEC2RecommendationProjectedMetricsResponse {
-    return _smithy.isa(o, "GetEC2RecommendationProjectedMetricsResponse");
+    return __isa(o, "GetEC2RecommendationProjectedMetricsResponse");
   }
 }
 
@@ -415,7 +418,7 @@ export interface GetEnrollmentStatusRequest {
 
 export namespace GetEnrollmentStatusRequest {
   export function isa(o: any): o is GetEnrollmentStatusRequest {
-    return _smithy.isa(o, "GetEnrollmentStatusRequest");
+    return __isa(o, "GetEnrollmentStatusRequest");
   }
 }
 
@@ -442,7 +445,7 @@ export interface GetEnrollmentStatusResponse extends $MetadataBearer {
 
 export namespace GetEnrollmentStatusResponse {
   export function isa(o: any): o is GetEnrollmentStatusResponse {
-    return _smithy.isa(o, "GetEnrollmentStatusResponse");
+    return __isa(o, "GetEnrollmentStatusResponse");
   }
 }
 
@@ -472,7 +475,7 @@ export interface GetRecommendationError {
 
 export namespace GetRecommendationError {
   export function isa(o: any): o is GetRecommendationError {
-    return _smithy.isa(o, "GetRecommendationError");
+    return __isa(o, "GetRecommendationError");
   }
 }
 
@@ -499,7 +502,7 @@ export interface GetRecommendationSummariesRequest {
 
 export namespace GetRecommendationSummariesRequest {
   export function isa(o: any): o is GetRecommendationSummariesRequest {
-    return _smithy.isa(o, "GetRecommendationSummariesRequest");
+    return __isa(o, "GetRecommendationSummariesRequest");
   }
 }
 
@@ -520,7 +523,7 @@ export interface GetRecommendationSummariesResponse extends $MetadataBearer {
 
 export namespace GetRecommendationSummariesResponse {
   export function isa(o: any): o is GetRecommendationSummariesResponse {
-    return _smithy.isa(o, "GetRecommendationSummariesResponse");
+    return __isa(o, "GetRecommendationSummariesResponse");
   }
 }
 
@@ -622,7 +625,7 @@ export interface InstanceRecommendation {
 
 export namespace InstanceRecommendation {
   export function isa(o: any): o is InstanceRecommendation {
-    return _smithy.isa(o, "InstanceRecommendation");
+    return __isa(o, "InstanceRecommendation");
   }
 }
 
@@ -660,7 +663,7 @@ export interface InstanceRecommendationOption {
 
 export namespace InstanceRecommendationOption {
   export function isa(o: any): o is InstanceRecommendationOption {
-    return _smithy.isa(o, "InstanceRecommendationOption");
+    return __isa(o, "InstanceRecommendationOption");
   }
 }
 
@@ -669,7 +672,7 @@ export namespace InstanceRecommendationOption {
  *             failure.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -678,7 +681,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -686,7 +689,7 @@ export namespace InternalServerException {
  * <p>An invalid or out-of-range value was supplied for the input parameter.</p>
  */
 export interface InvalidParameterValueException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
@@ -695,7 +698,7 @@ export interface InvalidParameterValueException
 
 export namespace InvalidParameterValueException {
   export function isa(o: any): o is InvalidParameterValueException {
-    return _smithy.isa(o, "InvalidParameterValueException");
+    return __isa(o, "InvalidParameterValueException");
   }
 }
 
@@ -714,7 +717,7 @@ export enum MetricStatistic {
  *             certificate.</p>
  */
 export interface MissingAuthenticationToken
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "MissingAuthenticationToken";
   $fault: "client";
@@ -723,7 +726,7 @@ export interface MissingAuthenticationToken
 
 export namespace MissingAuthenticationToken {
   export function isa(o: any): o is MissingAuthenticationToken {
-    return _smithy.isa(o, "MissingAuthenticationToken");
+    return __isa(o, "MissingAuthenticationToken");
   }
 }
 
@@ -731,7 +734,7 @@ export namespace MissingAuthenticationToken {
  * <p>You must opt in to the service to perform this action.</p>
  */
 export interface OptInRequiredException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OptInRequiredException";
   $fault: "client";
@@ -740,7 +743,7 @@ export interface OptInRequiredException
 
 export namespace OptInRequiredException {
   export function isa(o: any): o is OptInRequiredException {
-    return _smithy.isa(o, "OptInRequiredException");
+    return __isa(o, "OptInRequiredException");
   }
 }
 
@@ -772,7 +775,7 @@ export interface ProjectedMetric {
 
 export namespace ProjectedMetric {
   export function isa(o: any): o is ProjectedMetric {
-    return _smithy.isa(o, "ProjectedMetric");
+    return __isa(o, "ProjectedMetric");
   }
 }
 
@@ -795,7 +798,7 @@ export interface RecommendationSource {
 
 export namespace RecommendationSource {
   export function isa(o: any): o is RecommendationSource {
-    return _smithy.isa(o, "RecommendationSource");
+    return __isa(o, "RecommendationSource");
   }
 }
 
@@ -827,7 +830,7 @@ export interface RecommendationSummary {
 
 export namespace RecommendationSummary {
   export function isa(o: any): o is RecommendationSummary {
-    return _smithy.isa(o, "RecommendationSummary");
+    return __isa(o, "RecommendationSummary");
   }
 }
 
@@ -858,7 +861,7 @@ export interface RecommendedOptionProjectedMetric {
 
 export namespace RecommendedOptionProjectedMetric {
   export function isa(o: any): o is RecommendedOptionProjectedMetric {
-    return _smithy.isa(o, "RecommendedOptionProjectedMetric");
+    return __isa(o, "RecommendedOptionProjectedMetric");
   }
 }
 
@@ -866,7 +869,7 @@ export namespace RecommendedOptionProjectedMetric {
  * <p>The specified resource was not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -875,7 +878,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -883,7 +886,7 @@ export namespace ResourceNotFoundException {
  * <p>The request has failed due to a temporary failure of the server.</p>
  */
 export interface ServiceUnavailableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
@@ -892,7 +895,7 @@ export interface ServiceUnavailableException
 
 export namespace ServiceUnavailableException {
   export function isa(o: any): o is ServiceUnavailableException {
-    return _smithy.isa(o, "ServiceUnavailableException");
+    return __isa(o, "ServiceUnavailableException");
   }
 }
 
@@ -921,7 +924,7 @@ export interface Summary {
 
 export namespace Summary {
   export function isa(o: any): o is Summary {
-    return _smithy.isa(o, "Summary");
+    return __isa(o, "Summary");
   }
 }
 
@@ -929,7 +932,7 @@ export namespace Summary {
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -938,7 +941,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -960,7 +963,7 @@ export interface UpdateEnrollmentStatusRequest {
 
 export namespace UpdateEnrollmentStatusRequest {
   export function isa(o: any): o is UpdateEnrollmentStatusRequest {
-    return _smithy.isa(o, "UpdateEnrollmentStatusRequest");
+    return __isa(o, "UpdateEnrollmentStatusRequest");
   }
 }
 
@@ -981,7 +984,7 @@ export interface UpdateEnrollmentStatusResponse extends $MetadataBearer {
 
 export namespace UpdateEnrollmentStatusResponse {
   export function isa(o: any): o is UpdateEnrollmentStatusResponse {
-    return _smithy.isa(o, "UpdateEnrollmentStatusResponse");
+    return __isa(o, "UpdateEnrollmentStatusResponse");
   }
 }
 
@@ -1012,6 +1015,6 @@ export interface UtilizationMetric {
 
 export namespace UtilizationMetric {
   export function isa(o: any): o is UtilizationMetric {
-    return _smithy.isa(o, "UtilizationMetric");
+    return __isa(o, "UtilizationMetric");
   }
 }

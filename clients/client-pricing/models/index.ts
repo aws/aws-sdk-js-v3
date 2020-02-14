@@ -1,4 +1,8 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  LazyJsonString as __LazyJsonString,
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -16,7 +20,7 @@ export interface AttributeValue {
 
 export namespace AttributeValue {
   export function isa(o: any): o is AttributeValue {
-    return _smithy.isa(o, "AttributeValue");
+    return __isa(o, "AttributeValue");
   }
 }
 
@@ -50,7 +54,7 @@ export interface DescribeServicesRequest {
 
 export namespace DescribeServicesRequest {
   export function isa(o: any): o is DescribeServicesRequest {
-    return _smithy.isa(o, "DescribeServicesRequest");
+    return __isa(o, "DescribeServicesRequest");
   }
 }
 
@@ -74,7 +78,7 @@ export interface DescribeServicesResponse extends $MetadataBearer {
 
 export namespace DescribeServicesResponse {
   export function isa(o: any): o is DescribeServicesResponse {
-    return _smithy.isa(o, "DescribeServicesResponse");
+    return __isa(o, "DescribeServicesResponse");
   }
 }
 
@@ -82,7 +86,7 @@ export namespace DescribeServicesResponse {
  * <p>The pagination token expired. Try again without a pagination token.</p>
  */
 export interface ExpiredNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
@@ -91,7 +95,7 @@ export interface ExpiredNextTokenException
 
 export namespace ExpiredNextTokenException {
   export function isa(o: any): o is ExpiredNextTokenException {
-    return _smithy.isa(o, "ExpiredNextTokenException");
+    return __isa(o, "ExpiredNextTokenException");
   }
 }
 
@@ -130,7 +134,7 @@ export interface Filter {
 
 export namespace Filter {
   export function isa(o: any): o is Filter {
-    return _smithy.isa(o, "Filter");
+    return __isa(o, "Filter");
   }
 }
 
@@ -164,7 +168,7 @@ export interface GetAttributeValuesRequest {
 
 export namespace GetAttributeValuesRequest {
   export function isa(o: any): o is GetAttributeValuesRequest {
-    return _smithy.isa(o, "GetAttributeValuesRequest");
+    return __isa(o, "GetAttributeValuesRequest");
   }
 }
 
@@ -185,7 +189,7 @@ export interface GetAttributeValuesResponse extends $MetadataBearer {
 
 export namespace GetAttributeValuesResponse {
   export function isa(o: any): o is GetAttributeValuesResponse {
-    return _smithy.isa(o, "GetAttributeValuesResponse");
+    return __isa(o, "GetAttributeValuesResponse");
   }
 }
 
@@ -222,7 +226,7 @@ export interface GetProductsRequest {
 
 export namespace GetProductsRequest {
   export function isa(o: any): o is GetProductsRequest {
-    return _smithy.isa(o, "GetProductsRequest");
+    return __isa(o, "GetProductsRequest");
   }
 }
 
@@ -242,12 +246,12 @@ export interface GetProductsResponse extends $MetadataBearer {
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    */
-  PriceList?: Array<string>;
+  PriceList?: Array<__LazyJsonString | string>;
 }
 
 export namespace GetProductsResponse {
   export function isa(o: any): o is GetProductsResponse {
-    return _smithy.isa(o, "GetProductsResponse");
+    return __isa(o, "GetProductsResponse");
   }
 }
 
@@ -255,7 +259,7 @@ export namespace GetProductsResponse {
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export interface InternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
@@ -264,7 +268,7 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export function isa(o: any): o is InternalErrorException {
-    return _smithy.isa(o, "InternalErrorException");
+    return __isa(o, "InternalErrorException");
   }
 }
 
@@ -272,7 +276,7 @@ export namespace InternalErrorException {
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -281,7 +285,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -289,7 +293,7 @@ export namespace InvalidNextTokenException {
  * <p>One or more parameters had an invalid value.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -298,16 +302,14 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
 /**
  * <p>The requested resource can't be found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -315,7 +317,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -337,6 +339,6 @@ export interface Service {
 
 export namespace Service {
   export function isa(o: any): o is Service {
-    return _smithy.isa(o, "Service");
+    return __isa(o, "Service");
   }
 }

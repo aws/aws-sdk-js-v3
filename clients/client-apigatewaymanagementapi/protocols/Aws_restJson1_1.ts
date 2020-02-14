@@ -21,7 +21,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -37,7 +40,7 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId.toString();
+    const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectionId."
@@ -45,7 +48,7 @@ export async function serializeAws_restJson1_1DeleteConnectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
@@ -67,7 +70,7 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId.toString();
+    const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectionId."
@@ -75,7 +78,7 @@ export async function serializeAws_restJson1_1GetConnectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
@@ -97,7 +100,7 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
   headers["Content-Type"] = "application/octet-stream";
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
-    const labelValue: string = input.ConnectionId.toString();
+    const labelValue: string = input.ConnectionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ConnectionId."
@@ -105,7 +108,7 @@ export async function serializeAws_restJson1_1PostToConnectionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ConnectionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ConnectionId.");
@@ -137,6 +140,7 @@ export async function deserializeAws_restJson1_1DeleteConnectionCommand(
   const contents: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -279,6 +283,7 @@ export async function deserializeAws_restJson1_1PostToConnectionCommand(
   const contents: PostToConnectionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -346,6 +351,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -358,6 +364,7 @@ const deserializeAws_restJson1_1GoneExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -370,6 +377,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return contents;
 };
 

@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The specified container was not found for the specified account.</p>
  */
 export interface ContainerNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ContainerNotFoundException";
   $fault: "client";
@@ -14,7 +17,7 @@ export interface ContainerNotFoundException
 
 export namespace ContainerNotFoundException {
   export function isa(o: any): o is ContainerNotFoundException {
-    return _smithy.isa(o, "ContainerNotFoundException");
+    return __isa(o, "ContainerNotFoundException");
   }
 }
 
@@ -29,7 +32,7 @@ export interface DeleteObjectRequest {
 
 export namespace DeleteObjectRequest {
   export function isa(o: any): o is DeleteObjectRequest {
-    return _smithy.isa(o, "DeleteObjectRequest");
+    return __isa(o, "DeleteObjectRequest");
   }
 }
 
@@ -39,7 +42,7 @@ export interface DeleteObjectResponse extends $MetadataBearer {
 
 export namespace DeleteObjectResponse {
   export function isa(o: any): o is DeleteObjectResponse {
-    return _smithy.isa(o, "DeleteObjectResponse");
+    return __isa(o, "DeleteObjectResponse");
   }
 }
 
@@ -54,7 +57,7 @@ export interface DescribeObjectRequest {
 
 export namespace DescribeObjectRequest {
   export function isa(o: any): o is DescribeObjectRequest {
-    return _smithy.isa(o, "DescribeObjectRequest");
+    return __isa(o, "DescribeObjectRequest");
   }
 }
 
@@ -90,7 +93,7 @@ export interface DescribeObjectResponse extends $MetadataBearer {
 
 export namespace DescribeObjectResponse {
   export function isa(o: any): o is DescribeObjectResponse {
-    return _smithy.isa(o, "DescribeObjectResponse");
+    return __isa(o, "DescribeObjectResponse");
   }
 }
 
@@ -127,7 +130,7 @@ export interface GetObjectRequest {
 
 export namespace GetObjectRequest {
   export function isa(o: any): o is GetObjectRequest {
-    return _smithy.isa(o, "GetObjectRequest");
+    return __isa(o, "GetObjectRequest");
   }
 }
 
@@ -173,7 +176,7 @@ export interface GetObjectResponse extends $MetadataBearer {
 
 export namespace GetObjectResponse {
   export function isa(o: any): o is GetObjectResponse {
-    return _smithy.isa(o, "GetObjectResponse");
+    return __isa(o, "GetObjectResponse");
   }
 }
 
@@ -181,7 +184,7 @@ export namespace GetObjectResponse {
  * <p>The service is temporarily unavailable.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -190,7 +193,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -232,7 +235,7 @@ export interface Item {
 
 export namespace Item {
   export function isa(o: any): o is Item {
-    return _smithy.isa(o, "Item");
+    return __isa(o, "Item");
   }
 }
 
@@ -274,7 +277,7 @@ export interface ListItemsRequest {
 
 export namespace ListItemsRequest {
   export function isa(o: any): o is ListItemsRequest {
-    return _smithy.isa(o, "ListItemsRequest");
+    return __isa(o, "ListItemsRequest");
   }
 }
 
@@ -297,7 +300,7 @@ export interface ListItemsResponse extends $MetadataBearer {
 
 export namespace ListItemsResponse {
   export function isa(o: any): o is ListItemsResponse {
-    return _smithy.isa(o, "ListItemsResponse");
+    return __isa(o, "ListItemsResponse");
   }
 }
 
@@ -305,7 +308,7 @@ export namespace ListItemsResponse {
  * <p>Could not perform an operation on an object that does not exist.</p>
  */
 export interface ObjectNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ObjectNotFoundException";
   $fault: "client";
@@ -314,7 +317,7 @@ export interface ObjectNotFoundException
 
 export namespace ObjectNotFoundException {
   export function isa(o: any): o is ObjectNotFoundException {
-    return _smithy.isa(o, "ObjectNotFoundException");
+    return __isa(o, "ObjectNotFoundException");
   }
 }
 
@@ -369,7 +372,7 @@ export interface PutObjectRequest {
 
 export namespace PutObjectRequest {
   export function isa(o: any): o is PutObjectRequest {
-    return _smithy.isa(o, "PutObjectRequest");
+    return __isa(o, "PutObjectRequest");
   }
 }
 
@@ -394,7 +397,7 @@ export interface PutObjectResponse extends $MetadataBearer {
 
 export namespace PutObjectResponse {
   export function isa(o: any): o is PutObjectResponse {
-    return _smithy.isa(o, "PutObjectResponse");
+    return __isa(o, "PutObjectResponse");
   }
 }
 
@@ -402,7 +405,7 @@ export namespace PutObjectResponse {
  * <p>The requested content range is not valid.</p>
  */
 export interface RequestedRangeNotSatisfiableException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RequestedRangeNotSatisfiableException";
   $fault: "client";
@@ -411,7 +414,7 @@ export interface RequestedRangeNotSatisfiableException
 
 export namespace RequestedRangeNotSatisfiableException {
   export function isa(o: any): o is RequestedRangeNotSatisfiableException {
-    return _smithy.isa(o, "RequestedRangeNotSatisfiableException");
+    return __isa(o, "RequestedRangeNotSatisfiableException");
   }
 }
 

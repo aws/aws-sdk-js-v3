@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -39,7 +42,7 @@ export interface BillingRecord {
 
 export namespace BillingRecord {
   export function isa(o: any): o is BillingRecord {
-    return _smithy.isa(o, "BillingRecord");
+    return __isa(o, "BillingRecord");
   }
 }
 
@@ -63,7 +66,7 @@ export interface CheckDomainAvailabilityRequest {
 
 export namespace CheckDomainAvailabilityRequest {
   export function isa(o: any): o is CheckDomainAvailabilityRequest {
-    return _smithy.isa(o, "CheckDomainAvailabilityRequest");
+    return __isa(o, "CheckDomainAvailabilityRequest");
   }
 }
 
@@ -125,7 +128,7 @@ export interface CheckDomainAvailabilityResponse extends $MetadataBearer {
 
 export namespace CheckDomainAvailabilityResponse {
   export function isa(o: any): o is CheckDomainAvailabilityResponse {
-    return _smithy.isa(o, "CheckDomainAvailabilityResponse");
+    return __isa(o, "CheckDomainAvailabilityResponse");
   }
 }
 
@@ -150,7 +153,7 @@ export interface CheckDomainTransferabilityRequest {
 
 export namespace CheckDomainTransferabilityRequest {
   export function isa(o: any): o is CheckDomainTransferabilityRequest {
-    return _smithy.isa(o, "CheckDomainTransferabilityRequest");
+    return __isa(o, "CheckDomainTransferabilityRequest");
   }
 }
 
@@ -167,7 +170,7 @@ export interface CheckDomainTransferabilityResponse extends $MetadataBearer {
 
 export namespace CheckDomainTransferabilityResponse {
   export function isa(o: any): o is CheckDomainTransferabilityResponse {
-    return _smithy.isa(o, "CheckDomainTransferabilityResponse");
+    return __isa(o, "CheckDomainTransferabilityResponse");
   }
 }
 
@@ -255,7 +258,7 @@ export interface ContactDetail {
 
 export namespace ContactDetail {
   export function isa(o: any): o is ContactDetail {
-    return _smithy.isa(o, "ContactDetail");
+    return __isa(o, "ContactDetail");
   }
 }
 
@@ -515,7 +518,7 @@ export interface DeleteTagsForDomainRequest {
 
 export namespace DeleteTagsForDomainRequest {
   export function isa(o: any): o is DeleteTagsForDomainRequest {
-    return _smithy.isa(o, "DeleteTagsForDomainRequest");
+    return __isa(o, "DeleteTagsForDomainRequest");
   }
 }
 
@@ -525,7 +528,7 @@ export interface DeleteTagsForDomainResponse extends $MetadataBearer {
 
 export namespace DeleteTagsForDomainResponse {
   export function isa(o: any): o is DeleteTagsForDomainResponse {
-    return _smithy.isa(o, "DeleteTagsForDomainResponse");
+    return __isa(o, "DeleteTagsForDomainResponse");
   }
 }
 
@@ -539,7 +542,7 @@ export interface DisableDomainAutoRenewRequest {
 
 export namespace DisableDomainAutoRenewRequest {
   export function isa(o: any): o is DisableDomainAutoRenewRequest {
-    return _smithy.isa(o, "DisableDomainAutoRenewRequest");
+    return __isa(o, "DisableDomainAutoRenewRequest");
   }
 }
 
@@ -549,7 +552,7 @@ export interface DisableDomainAutoRenewResponse extends $MetadataBearer {
 
 export namespace DisableDomainAutoRenewResponse {
   export function isa(o: any): o is DisableDomainAutoRenewResponse {
-    return _smithy.isa(o, "DisableDomainAutoRenewResponse");
+    return __isa(o, "DisableDomainAutoRenewResponse");
   }
 }
 
@@ -566,7 +569,7 @@ export interface DisableDomainTransferLockRequest {
 
 export namespace DisableDomainTransferLockRequest {
   export function isa(o: any): o is DisableDomainTransferLockRequest {
-    return _smithy.isa(o, "DisableDomainTransferLockRequest");
+    return __isa(o, "DisableDomainTransferLockRequest");
   }
 }
 
@@ -584,7 +587,7 @@ export interface DisableDomainTransferLockResponse extends $MetadataBearer {
 
 export namespace DisableDomainTransferLockResponse {
   export function isa(o: any): o is DisableDomainTransferLockResponse {
-    return _smithy.isa(o, "DisableDomainTransferLockResponse");
+    return __isa(o, "DisableDomainTransferLockResponse");
   }
 }
 
@@ -602,7 +605,7 @@ export type DomainAvailability =
  * <p>The number of domains has exceeded the allowed threshold for the account.</p>
  */
 export interface DomainLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DomainLimitExceeded";
   $fault: "client";
@@ -614,7 +617,7 @@ export interface DomainLimitExceeded
 
 export namespace DomainLimitExceeded {
   export function isa(o: any): o is DomainLimitExceeded {
-    return _smithy.isa(o, "DomainLimitExceeded");
+    return __isa(o, "DomainLimitExceeded");
   }
 }
 
@@ -681,7 +684,7 @@ export interface DomainSuggestion {
 
 export namespace DomainSuggestion {
   export function isa(o: any): o is DomainSuggestion {
-    return _smithy.isa(o, "DomainSuggestion");
+    return __isa(o, "DomainSuggestion");
   }
 }
 
@@ -713,7 +716,7 @@ export interface DomainSummary {
 
 export namespace DomainSummary {
   export function isa(o: any): o is DomainSummary {
-    return _smithy.isa(o, "DomainSummary");
+    return __isa(o, "DomainSummary");
   }
 }
 
@@ -749,16 +752,14 @@ export interface DomainTransferability {
 
 export namespace DomainTransferability {
   export function isa(o: any): o is DomainTransferability {
-    return _smithy.isa(o, "DomainTransferability");
+    return __isa(o, "DomainTransferability");
   }
 }
 
 /**
  * <p>The request is already in progress for the domain.</p>
  */
-export interface DuplicateRequest
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
   name: "DuplicateRequest";
   $fault: "client";
   /**
@@ -769,7 +770,7 @@ export interface DuplicateRequest
 
 export namespace DuplicateRequest {
   export function isa(o: any): o is DuplicateRequest {
-    return _smithy.isa(o, "DuplicateRequest");
+    return __isa(o, "DuplicateRequest");
   }
 }
 
@@ -783,7 +784,7 @@ export interface EnableDomainAutoRenewRequest {
 
 export namespace EnableDomainAutoRenewRequest {
   export function isa(o: any): o is EnableDomainAutoRenewRequest {
-    return _smithy.isa(o, "EnableDomainAutoRenewRequest");
+    return __isa(o, "EnableDomainAutoRenewRequest");
   }
 }
 
@@ -793,7 +794,7 @@ export interface EnableDomainAutoRenewResponse extends $MetadataBearer {
 
 export namespace EnableDomainAutoRenewResponse {
   export function isa(o: any): o is EnableDomainAutoRenewResponse {
-    return _smithy.isa(o, "EnableDomainAutoRenewResponse");
+    return __isa(o, "EnableDomainAutoRenewResponse");
   }
 }
 
@@ -810,7 +811,7 @@ export interface EnableDomainTransferLockRequest {
 
 export namespace EnableDomainTransferLockRequest {
   export function isa(o: any): o is EnableDomainTransferLockRequest {
-    return _smithy.isa(o, "EnableDomainTransferLockRequest");
+    return __isa(o, "EnableDomainTransferLockRequest");
   }
 }
 
@@ -827,7 +828,7 @@ export interface EnableDomainTransferLockResponse extends $MetadataBearer {
 
 export namespace EnableDomainTransferLockResponse {
   export function isa(o: any): o is EnableDomainTransferLockResponse {
-    return _smithy.isa(o, "EnableDomainTransferLockResponse");
+    return __isa(o, "EnableDomainTransferLockResponse");
   }
 }
 
@@ -920,7 +921,7 @@ export interface ExtraParam {
 
 export namespace ExtraParam {
   export function isa(o: any): o is ExtraParam {
-    return _smithy.isa(o, "ExtraParam");
+    return __isa(o, "ExtraParam");
   }
 }
 
@@ -963,7 +964,7 @@ export interface GetContactReachabilityStatusRequest {
 
 export namespace GetContactReachabilityStatusRequest {
   export function isa(o: any): o is GetContactReachabilityStatusRequest {
-    return _smithy.isa(o, "GetContactReachabilityStatusRequest");
+    return __isa(o, "GetContactReachabilityStatusRequest");
   }
 }
 
@@ -996,7 +997,7 @@ export interface GetContactReachabilityStatusResponse extends $MetadataBearer {
 
 export namespace GetContactReachabilityStatusResponse {
   export function isa(o: any): o is GetContactReachabilityStatusResponse {
-    return _smithy.isa(o, "GetContactReachabilityStatusResponse");
+    return __isa(o, "GetContactReachabilityStatusResponse");
   }
 }
 
@@ -1013,7 +1014,7 @@ export interface GetDomainDetailRequest {
 
 export namespace GetDomainDetailRequest {
   export function isa(o: any): o is GetDomainDetailRequest {
-    return _smithy.isa(o, "GetDomainDetailRequest");
+    return __isa(o, "GetDomainDetailRequest");
   }
 }
 
@@ -1152,7 +1153,7 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
 
 export namespace GetDomainDetailResponse {
   export function isa(o: any): o is GetDomainDetailResponse {
-    return _smithy.isa(o, "GetDomainDetailResponse");
+    return __isa(o, "GetDomainDetailResponse");
   }
 }
 
@@ -1182,7 +1183,7 @@ export interface GetDomainSuggestionsRequest {
 
 export namespace GetDomainSuggestionsRequest {
   export function isa(o: any): o is GetDomainSuggestionsRequest {
-    return _smithy.isa(o, "GetDomainSuggestionsRequest");
+    return __isa(o, "GetDomainSuggestionsRequest");
   }
 }
 
@@ -1197,7 +1198,7 @@ export interface GetDomainSuggestionsResponse extends $MetadataBearer {
 
 export namespace GetDomainSuggestionsResponse {
   export function isa(o: any): o is GetDomainSuggestionsResponse {
-    return _smithy.isa(o, "GetDomainSuggestionsResponse");
+    return __isa(o, "GetDomainSuggestionsResponse");
   }
 }
 
@@ -1215,7 +1216,7 @@ export interface GetOperationDetailRequest {
 
 export namespace GetOperationDetailRequest {
   export function isa(o: any): o is GetOperationDetailRequest {
-    return _smithy.isa(o, "GetOperationDetailRequest");
+    return __isa(o, "GetOperationDetailRequest");
   }
 }
 
@@ -1257,7 +1258,7 @@ export interface GetOperationDetailResponse extends $MetadataBearer {
 
 export namespace GetOperationDetailResponse {
   export function isa(o: any): o is GetOperationDetailResponse {
-    return _smithy.isa(o, "GetOperationDetailResponse");
+    return __isa(o, "GetOperationDetailResponse");
   }
 }
 
@@ -1265,7 +1266,7 @@ export namespace GetOperationDetailResponse {
  * <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation
  * 			that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
  */
-export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInput extends __SmithyException, $MetadataBearer {
   name: "InvalidInput";
   $fault: "client";
   /**
@@ -1277,7 +1278,7 @@ export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace InvalidInput {
   export function isa(o: any): o is InvalidInput {
-    return _smithy.isa(o, "InvalidInput");
+    return __isa(o, "InvalidInput");
   }
 }
 
@@ -1305,7 +1306,7 @@ export interface ListDomainsRequest {
 
 export namespace ListDomainsRequest {
   export function isa(o: any): o is ListDomainsRequest {
-    return _smithy.isa(o, "ListDomainsRequest");
+    return __isa(o, "ListDomainsRequest");
   }
 }
 
@@ -1328,7 +1329,7 @@ export interface ListDomainsResponse extends $MetadataBearer {
 
 export namespace ListDomainsResponse {
   export function isa(o: any): o is ListDomainsResponse {
-    return _smithy.isa(o, "ListDomainsResponse");
+    return __isa(o, "ListDomainsResponse");
   }
 }
 
@@ -1360,7 +1361,7 @@ export interface ListOperationsRequest {
 
 export namespace ListOperationsRequest {
   export function isa(o: any): o is ListOperationsRequest {
-    return _smithy.isa(o, "ListOperationsRequest");
+    return __isa(o, "ListOperationsRequest");
   }
 }
 
@@ -1383,7 +1384,7 @@ export interface ListOperationsResponse extends $MetadataBearer {
 
 export namespace ListOperationsResponse {
   export function isa(o: any): o is ListOperationsResponse {
-    return _smithy.isa(o, "ListOperationsResponse");
+    return __isa(o, "ListOperationsResponse");
   }
 }
 
@@ -1400,7 +1401,7 @@ export interface ListTagsForDomainRequest {
 
 export namespace ListTagsForDomainRequest {
   export function isa(o: any): o is ListTagsForDomainRequest {
-    return _smithy.isa(o, "ListTagsForDomainRequest");
+    return __isa(o, "ListTagsForDomainRequest");
   }
 }
 
@@ -1417,7 +1418,7 @@ export interface ListTagsForDomainResponse extends $MetadataBearer {
 
 export namespace ListTagsForDomainResponse {
   export function isa(o: any): o is ListTagsForDomainResponse {
-    return _smithy.isa(o, "ListTagsForDomainResponse");
+    return __isa(o, "ListTagsForDomainResponse");
   }
 }
 
@@ -1441,7 +1442,7 @@ export interface Nameserver {
 
 export namespace Nameserver {
   export function isa(o: any): o is Nameserver {
-    return _smithy.isa(o, "Nameserver");
+    return __isa(o, "Nameserver");
   }
 }
 
@@ -1449,7 +1450,7 @@ export namespace Nameserver {
  * <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
  */
 export interface OperationLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OperationLimitExceeded";
   $fault: "client";
@@ -1461,7 +1462,7 @@ export interface OperationLimitExceeded
 
 export namespace OperationLimitExceeded {
   export function isa(o: any): o is OperationLimitExceeded {
-    return _smithy.isa(o, "OperationLimitExceeded");
+    return __isa(o, "OperationLimitExceeded");
   }
 }
 
@@ -1500,7 +1501,7 @@ export interface OperationSummary {
 
 export namespace OperationSummary {
   export function isa(o: any): o is OperationSummary {
-    return _smithy.isa(o, "OperationSummary");
+    return __isa(o, "OperationSummary");
   }
 }
 
@@ -1611,7 +1612,7 @@ export interface RegisterDomainRequest {
 
 export namespace RegisterDomainRequest {
   export function isa(o: any): o is RegisterDomainRequest {
-    return _smithy.isa(o, "RegisterDomainRequest");
+    return __isa(o, "RegisterDomainRequest");
   }
 }
 
@@ -1629,7 +1630,7 @@ export interface RegisterDomainResponse extends $MetadataBearer {
 
 export namespace RegisterDomainResponse {
   export function isa(o: any): o is RegisterDomainResponse {
-    return _smithy.isa(o, "RegisterDomainResponse");
+    return __isa(o, "RegisterDomainResponse");
   }
 }
 
@@ -1660,7 +1661,7 @@ export interface RenewDomainRequest {
 
 export namespace RenewDomainRequest {
   export function isa(o: any): o is RenewDomainRequest {
-    return _smithy.isa(o, "RenewDomainRequest");
+    return __isa(o, "RenewDomainRequest");
   }
 }
 
@@ -1675,7 +1676,7 @@ export interface RenewDomainResponse extends $MetadataBearer {
 
 export namespace RenewDomainResponse {
   export function isa(o: any): o is RenewDomainResponse {
-    return _smithy.isa(o, "RenewDomainResponse");
+    return __isa(o, "RenewDomainResponse");
   }
 }
 
@@ -1689,7 +1690,7 @@ export interface ResendContactReachabilityEmailRequest {
 
 export namespace ResendContactReachabilityEmailRequest {
   export function isa(o: any): o is ResendContactReachabilityEmailRequest {
-    return _smithy.isa(o, "ResendContactReachabilityEmailRequest");
+    return __isa(o, "ResendContactReachabilityEmailRequest");
   }
 }
 
@@ -1716,7 +1717,7 @@ export interface ResendContactReachabilityEmailResponse
 
 export namespace ResendContactReachabilityEmailResponse {
   export function isa(o: any): o is ResendContactReachabilityEmailResponse {
-    return _smithy.isa(o, "ResendContactReachabilityEmailResponse");
+    return __isa(o, "ResendContactReachabilityEmailResponse");
   }
 }
 
@@ -1734,7 +1735,7 @@ export interface RetrieveDomainAuthCodeRequest {
 
 export namespace RetrieveDomainAuthCodeRequest {
   export function isa(o: any): o is RetrieveDomainAuthCodeRequest {
-    return _smithy.isa(o, "RetrieveDomainAuthCodeRequest");
+    return __isa(o, "RetrieveDomainAuthCodeRequest");
   }
 }
 
@@ -1751,16 +1752,14 @@ export interface RetrieveDomainAuthCodeResponse extends $MetadataBearer {
 
 export namespace RetrieveDomainAuthCodeResponse {
   export function isa(o: any): o is RetrieveDomainAuthCodeResponse {
-    return _smithy.isa(o, "RetrieveDomainAuthCodeResponse");
+    return __isa(o, "RetrieveDomainAuthCodeResponse");
   }
 }
 
 /**
  * <p>The top-level domain does not support this operation.</p>
  */
-export interface TLDRulesViolation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
   name: "TLDRulesViolation";
   $fault: "client";
   /**
@@ -1771,7 +1770,7 @@ export interface TLDRulesViolation
 
 export namespace TLDRulesViolation {
   export function isa(o: any): o is TLDRulesViolation {
-    return _smithy.isa(o, "TLDRulesViolation");
+    return __isa(o, "TLDRulesViolation");
   }
 }
 
@@ -1797,7 +1796,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1890,7 +1889,7 @@ export interface TransferDomainRequest {
 
 export namespace TransferDomainRequest {
   export function isa(o: any): o is TransferDomainRequest {
-    return _smithy.isa(o, "TransferDomainRequest");
+    return __isa(o, "TransferDomainRequest");
   }
 }
 
@@ -1908,7 +1907,7 @@ export interface TransferDomainResponse extends $MetadataBearer {
 
 export namespace TransferDomainResponse {
   export function isa(o: any): o is TransferDomainResponse {
-    return _smithy.isa(o, "TransferDomainResponse");
+    return __isa(o, "TransferDomainResponse");
   }
 }
 
@@ -1921,9 +1920,7 @@ export enum Transferable {
 /**
  * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  */
-export interface UnsupportedTLD
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
   name: "UnsupportedTLD";
   $fault: "client";
   /**
@@ -1934,7 +1931,7 @@ export interface UnsupportedTLD
 
 export namespace UnsupportedTLD {
   export function isa(o: any): o is UnsupportedTLD {
-    return _smithy.isa(o, "UnsupportedTLD");
+    return __isa(o, "UnsupportedTLD");
   }
 }
 
@@ -1975,7 +1972,7 @@ export interface UpdateDomainContactPrivacyRequest {
 
 export namespace UpdateDomainContactPrivacyRequest {
   export function isa(o: any): o is UpdateDomainContactPrivacyRequest {
-    return _smithy.isa(o, "UpdateDomainContactPrivacyRequest");
+    return __isa(o, "UpdateDomainContactPrivacyRequest");
   }
 }
 
@@ -1992,7 +1989,7 @@ export interface UpdateDomainContactPrivacyResponse extends $MetadataBearer {
 
 export namespace UpdateDomainContactPrivacyResponse {
   export function isa(o: any): o is UpdateDomainContactPrivacyResponse {
-    return _smithy.isa(o, "UpdateDomainContactPrivacyResponse");
+    return __isa(o, "UpdateDomainContactPrivacyResponse");
   }
 }
 
@@ -2024,7 +2021,7 @@ export interface UpdateDomainContactRequest {
 
 export namespace UpdateDomainContactRequest {
   export function isa(o: any): o is UpdateDomainContactRequest {
-    return _smithy.isa(o, "UpdateDomainContactRequest");
+    return __isa(o, "UpdateDomainContactRequest");
   }
 }
 
@@ -2042,7 +2039,7 @@ export interface UpdateDomainContactResponse extends $MetadataBearer {
 
 export namespace UpdateDomainContactResponse {
   export function isa(o: any): o is UpdateDomainContactResponse {
-    return _smithy.isa(o, "UpdateDomainContactResponse");
+    return __isa(o, "UpdateDomainContactResponse");
   }
 }
 
@@ -2072,7 +2069,7 @@ export interface UpdateDomainNameserversRequest {
 
 export namespace UpdateDomainNameserversRequest {
   export function isa(o: any): o is UpdateDomainNameserversRequest {
-    return _smithy.isa(o, "UpdateDomainNameserversRequest");
+    return __isa(o, "UpdateDomainNameserversRequest");
   }
 }
 
@@ -2090,7 +2087,7 @@ export interface UpdateDomainNameserversResponse extends $MetadataBearer {
 
 export namespace UpdateDomainNameserversResponse {
   export function isa(o: any): o is UpdateDomainNameserversResponse {
-    return _smithy.isa(o, "UpdateDomainNameserversResponse");
+    return __isa(o, "UpdateDomainNameserversResponse");
   }
 }
 
@@ -2113,7 +2110,7 @@ export interface UpdateTagsForDomainRequest {
 
 export namespace UpdateTagsForDomainRequest {
   export function isa(o: any): o is UpdateTagsForDomainRequest {
-    return _smithy.isa(o, "UpdateTagsForDomainRequest");
+    return __isa(o, "UpdateTagsForDomainRequest");
   }
 }
 
@@ -2123,7 +2120,7 @@ export interface UpdateTagsForDomainResponse extends $MetadataBearer {
 
 export namespace UpdateTagsForDomainResponse {
   export function isa(o: any): o is UpdateTagsForDomainResponse {
-    return _smithy.isa(o, "UpdateTagsForDomainResponse");
+    return __isa(o, "UpdateTagsForDomainResponse");
   }
 }
 
@@ -2164,7 +2161,7 @@ export interface ViewBillingRequest {
 
 export namespace ViewBillingRequest {
   export function isa(o: any): o is ViewBillingRequest {
-    return _smithy.isa(o, "ViewBillingRequest");
+    return __isa(o, "ViewBillingRequest");
   }
 }
 
@@ -2187,6 +2184,6 @@ export interface ViewBillingResponse extends $MetadataBearer {
 
 export namespace ViewBillingResponse {
   export function isa(o: any): o is ViewBillingResponse {
-    return _smithy.isa(o, "ViewBillingResponse");
+    return __isa(o, "ViewBillingResponse");
   }
 }

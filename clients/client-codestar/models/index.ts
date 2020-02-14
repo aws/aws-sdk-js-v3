@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateTeamMemberRequest {
@@ -35,7 +38,7 @@ export interface AssociateTeamMemberRequest {
 
 export namespace AssociateTeamMemberRequest {
   export function isa(o: any): o is AssociateTeamMemberRequest {
-    return _smithy.isa(o, "AssociateTeamMemberRequest");
+    return __isa(o, "AssociateTeamMemberRequest");
   }
 }
 
@@ -50,7 +53,7 @@ export interface AssociateTeamMemberResult extends $MetadataBearer {
 
 export namespace AssociateTeamMemberResult {
   export function isa(o: any): o is AssociateTeamMemberResult {
-    return _smithy.isa(o, "AssociateTeamMemberResult");
+    return __isa(o, "AssociateTeamMemberResult");
   }
 }
 
@@ -76,7 +79,7 @@ export interface Code {
 
 export namespace Code {
   export function isa(o: any): o is Code {
-    return _smithy.isa(o, "Code");
+    return __isa(o, "Code");
   }
 }
 
@@ -94,7 +97,7 @@ export interface CodeCommitCodeDestination {
 
 export namespace CodeCommitCodeDestination {
   export function isa(o: any): o is CodeCommitCodeDestination {
-    return _smithy.isa(o, "CodeCommitCodeDestination");
+    return __isa(o, "CodeCommitCodeDestination");
   }
 }
 
@@ -119,7 +122,7 @@ export interface CodeDestination {
 
 export namespace CodeDestination {
   export function isa(o: any): o is CodeDestination {
-    return _smithy.isa(o, "CodeDestination");
+    return __isa(o, "CodeDestination");
   }
 }
 
@@ -138,7 +141,7 @@ export interface CodeSource {
 
 export namespace CodeSource {
   export function isa(o: any): o is CodeSource {
-    return _smithy.isa(o, "CodeSource");
+    return __isa(o, "CodeSource");
   }
 }
 
@@ -147,7 +150,7 @@ export namespace CodeSource {
  *       your change.</p>
  */
 export interface ConcurrentModificationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "server";
@@ -156,7 +159,7 @@ export interface ConcurrentModificationException
 
 export namespace ConcurrentModificationException {
   export function isa(o: any): o is ConcurrentModificationException {
-    return _smithy.isa(o, "ConcurrentModificationException");
+    return __isa(o, "ConcurrentModificationException");
   }
 }
 
@@ -203,7 +206,7 @@ export interface CreateProjectRequest {
 
 export namespace CreateProjectRequest {
   export function isa(o: any): o is CreateProjectRequest {
-    return _smithy.isa(o, "CreateProjectRequest");
+    return __isa(o, "CreateProjectRequest");
   }
 }
 
@@ -233,7 +236,7 @@ export interface CreateProjectResult extends $MetadataBearer {
 
 export namespace CreateProjectResult {
   export function isa(o: any): o is CreateProjectResult {
-    return _smithy.isa(o, "CreateProjectResult");
+    return __isa(o, "CreateProjectResult");
   }
 }
 
@@ -265,7 +268,7 @@ export interface CreateUserProfileRequest {
 
 export namespace CreateUserProfileRequest {
   export function isa(o: any): o is CreateUserProfileRequest {
-    return _smithy.isa(o, "CreateUserProfileRequest");
+    return __isa(o, "CreateUserProfileRequest");
   }
 }
 
@@ -306,7 +309,7 @@ export interface CreateUserProfileResult extends $MetadataBearer {
 
 export namespace CreateUserProfileResult {
   export function isa(o: any): o is CreateUserProfileResult {
-    return _smithy.isa(o, "CreateUserProfileResult");
+    return __isa(o, "CreateUserProfileResult");
   }
 }
 
@@ -334,7 +337,7 @@ export interface DeleteProjectRequest {
 
 export namespace DeleteProjectRequest {
   export function isa(o: any): o is DeleteProjectRequest {
-    return _smithy.isa(o, "DeleteProjectRequest");
+    return __isa(o, "DeleteProjectRequest");
   }
 }
 
@@ -354,7 +357,7 @@ export interface DeleteProjectResult extends $MetadataBearer {
 
 export namespace DeleteProjectResult {
   export function isa(o: any): o is DeleteProjectResult {
-    return _smithy.isa(o, "DeleteProjectResult");
+    return __isa(o, "DeleteProjectResult");
   }
 }
 
@@ -368,7 +371,7 @@ export interface DeleteUserProfileRequest {
 
 export namespace DeleteUserProfileRequest {
   export function isa(o: any): o is DeleteUserProfileRequest {
-    return _smithy.isa(o, "DeleteUserProfileRequest");
+    return __isa(o, "DeleteUserProfileRequest");
   }
 }
 
@@ -382,7 +385,7 @@ export interface DeleteUserProfileResult extends $MetadataBearer {
 
 export namespace DeleteUserProfileResult {
   export function isa(o: any): o is DeleteUserProfileResult {
-    return _smithy.isa(o, "DeleteUserProfileResult");
+    return __isa(o, "DeleteUserProfileResult");
   }
 }
 
@@ -396,7 +399,7 @@ export interface DescribeProjectRequest {
 
 export namespace DescribeProjectRequest {
   export function isa(o: any): o is DescribeProjectRequest {
-    return _smithy.isa(o, "DescribeProjectRequest");
+    return __isa(o, "DescribeProjectRequest");
   }
 }
 
@@ -452,7 +455,7 @@ export interface DescribeProjectResult extends $MetadataBearer {
 
 export namespace DescribeProjectResult {
   export function isa(o: any): o is DescribeProjectResult {
-    return _smithy.isa(o, "DescribeProjectResult");
+    return __isa(o, "DescribeProjectResult");
   }
 }
 
@@ -466,7 +469,7 @@ export interface DescribeUserProfileRequest {
 
 export namespace DescribeUserProfileRequest {
   export function isa(o: any): o is DescribeUserProfileRequest {
-    return _smithy.isa(o, "DescribeUserProfileRequest");
+    return __isa(o, "DescribeUserProfileRequest");
   }
 }
 
@@ -517,7 +520,7 @@ export interface DescribeUserProfileResult extends $MetadataBearer {
 
 export namespace DescribeUserProfileResult {
   export function isa(o: any): o is DescribeUserProfileResult {
-    return _smithy.isa(o, "DescribeUserProfileResult");
+    return __isa(o, "DescribeUserProfileResult");
   }
 }
 
@@ -537,7 +540,7 @@ export interface DisassociateTeamMemberRequest {
 
 export namespace DisassociateTeamMemberRequest {
   export function isa(o: any): o is DisassociateTeamMemberRequest {
-    return _smithy.isa(o, "DisassociateTeamMemberRequest");
+    return __isa(o, "DisassociateTeamMemberRequest");
   }
 }
 
@@ -547,7 +550,7 @@ export interface DisassociateTeamMemberResult extends $MetadataBearer {
 
 export namespace DisassociateTeamMemberResult {
   export function isa(o: any): o is DisassociateTeamMemberResult {
-    return _smithy.isa(o, "DisassociateTeamMemberResult");
+    return __isa(o, "DisassociateTeamMemberResult");
   }
 }
 
@@ -597,7 +600,7 @@ export interface GitHubCodeDestination {
 
 export namespace GitHubCodeDestination {
   export function isa(o: any): o is GitHubCodeDestination {
-    return _smithy.isa(o, "GitHubCodeDestination");
+    return __isa(o, "GitHubCodeDestination");
   }
 }
 
@@ -605,7 +608,7 @@ export namespace GitHubCodeDestination {
  * <p>The next token is not valid.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -614,7 +617,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -622,7 +625,7 @@ export namespace InvalidNextTokenException {
  * <p>The service role is not valid.</p>
  */
 export interface InvalidServiceRoleException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidServiceRoleException";
   $fault: "client";
@@ -631,7 +634,7 @@ export interface InvalidServiceRoleException
 
 export namespace InvalidServiceRoleException {
   export function isa(o: any): o is InvalidServiceRoleException {
-    return _smithy.isa(o, "InvalidServiceRoleException");
+    return __isa(o, "InvalidServiceRoleException");
   }
 }
 
@@ -639,7 +642,7 @@ export namespace InvalidServiceRoleException {
  * <p>A resource limit has been exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -648,7 +651,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -668,7 +671,7 @@ export interface ListProjectsRequest {
 
 export namespace ListProjectsRequest {
   export function isa(o: any): o is ListProjectsRequest {
-    return _smithy.isa(o, "ListProjectsRequest");
+    return __isa(o, "ListProjectsRequest");
   }
 }
 
@@ -688,7 +691,7 @@ export interface ListProjectsResult extends $MetadataBearer {
 
 export namespace ListProjectsResult {
   export function isa(o: any): o is ListProjectsResult {
-    return _smithy.isa(o, "ListProjectsResult");
+    return __isa(o, "ListProjectsResult");
   }
 }
 
@@ -713,7 +716,7 @@ export interface ListResourcesRequest {
 
 export namespace ListResourcesRequest {
   export function isa(o: any): o is ListResourcesRequest {
-    return _smithy.isa(o, "ListResourcesRequest");
+    return __isa(o, "ListResourcesRequest");
   }
 }
 
@@ -733,7 +736,7 @@ export interface ListResourcesResult extends $MetadataBearer {
 
 export namespace ListResourcesResult {
   export function isa(o: any): o is ListResourcesResult {
-    return _smithy.isa(o, "ListResourcesResult");
+    return __isa(o, "ListResourcesResult");
   }
 }
 
@@ -757,7 +760,7 @@ export interface ListTagsForProjectRequest {
 
 export namespace ListTagsForProjectRequest {
   export function isa(o: any): o is ListTagsForProjectRequest {
-    return _smithy.isa(o, "ListTagsForProjectRequest");
+    return __isa(o, "ListTagsForProjectRequest");
   }
 }
 
@@ -776,7 +779,7 @@ export interface ListTagsForProjectResult extends $MetadataBearer {
 
 export namespace ListTagsForProjectResult {
   export function isa(o: any): o is ListTagsForProjectResult {
-    return _smithy.isa(o, "ListTagsForProjectResult");
+    return __isa(o, "ListTagsForProjectResult");
   }
 }
 
@@ -801,7 +804,7 @@ export interface ListTeamMembersRequest {
 
 export namespace ListTeamMembersRequest {
   export function isa(o: any): o is ListTeamMembersRequest {
-    return _smithy.isa(o, "ListTeamMembersRequest");
+    return __isa(o, "ListTeamMembersRequest");
   }
 }
 
@@ -821,7 +824,7 @@ export interface ListTeamMembersResult extends $MetadataBearer {
 
 export namespace ListTeamMembersResult {
   export function isa(o: any): o is ListTeamMembersResult {
-    return _smithy.isa(o, "ListTeamMembersResult");
+    return __isa(o, "ListTeamMembersResult");
   }
 }
 
@@ -841,7 +844,7 @@ export interface ListUserProfilesRequest {
 
 export namespace ListUserProfilesRequest {
   export function isa(o: any): o is ListUserProfilesRequest {
-    return _smithy.isa(o, "ListUserProfilesRequest");
+    return __isa(o, "ListUserProfilesRequest");
   }
 }
 
@@ -861,7 +864,7 @@ export interface ListUserProfilesResult extends $MetadataBearer {
 
 export namespace ListUserProfilesResult {
   export function isa(o: any): o is ListUserProfilesResult {
-    return _smithy.isa(o, "ListUserProfilesResult");
+    return __isa(o, "ListUserProfilesResult");
   }
 }
 
@@ -870,7 +873,7 @@ export namespace ListUserProfilesResult {
  *       AWS CodeStar project IDs must be unique within a region for the AWS account.</p>
  */
 export interface ProjectAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProjectAlreadyExistsException";
   $fault: "client";
@@ -879,7 +882,7 @@ export interface ProjectAlreadyExistsException
 
 export namespace ProjectAlreadyExistsException {
   export function isa(o: any): o is ProjectAlreadyExistsException {
-    return _smithy.isa(o, "ProjectAlreadyExistsException");
+    return __isa(o, "ProjectAlreadyExistsException");
   }
 }
 
@@ -887,7 +890,7 @@ export namespace ProjectAlreadyExistsException {
  * <p>Project configuration information is required but not specified.</p>
  */
 export interface ProjectConfigurationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProjectConfigurationException";
   $fault: "client";
@@ -896,7 +899,7 @@ export interface ProjectConfigurationException
 
 export namespace ProjectConfigurationException {
   export function isa(o: any): o is ProjectConfigurationException {
-    return _smithy.isa(o, "ProjectConfigurationException");
+    return __isa(o, "ProjectConfigurationException");
   }
 }
 
@@ -905,7 +908,7 @@ export namespace ProjectConfigurationException {
  *       during project creation. The project could not be created in AWS CodeStar.</p>
  */
 export interface ProjectCreationFailedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProjectCreationFailedException";
   $fault: "client";
@@ -914,7 +917,7 @@ export interface ProjectCreationFailedException
 
 export namespace ProjectCreationFailedException {
   export function isa(o: any): o is ProjectCreationFailedException {
-    return _smithy.isa(o, "ProjectCreationFailedException");
+    return __isa(o, "ProjectCreationFailedException");
   }
 }
 
@@ -922,7 +925,7 @@ export namespace ProjectCreationFailedException {
  * <p>The specified AWS CodeStar project was not found.</p>
  */
 export interface ProjectNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ProjectNotFoundException";
   $fault: "client";
@@ -931,7 +934,7 @@ export interface ProjectNotFoundException
 
 export namespace ProjectNotFoundException {
   export function isa(o: any): o is ProjectNotFoundException {
-    return _smithy.isa(o, "ProjectNotFoundException");
+    return __isa(o, "ProjectNotFoundException");
   }
 }
 
@@ -955,7 +958,7 @@ export interface ProjectStatus {
 
 export namespace ProjectStatus {
   export function isa(o: any): o is ProjectStatus {
-    return _smithy.isa(o, "ProjectStatus");
+    return __isa(o, "ProjectStatus");
   }
 }
 
@@ -977,7 +980,7 @@ export interface ProjectSummary {
 
 export namespace ProjectSummary {
   export function isa(o: any): o is ProjectSummary {
-    return _smithy.isa(o, "ProjectSummary");
+    return __isa(o, "ProjectSummary");
   }
 }
 
@@ -994,7 +997,7 @@ export interface Resource {
 
 export namespace Resource {
   export function isa(o: any): o is Resource {
-    return _smithy.isa(o, "Resource");
+    return __isa(o, "Resource");
   }
 }
 
@@ -1019,7 +1022,7 @@ export interface S3Location {
 
 export namespace S3Location {
   export function isa(o: any): o is S3Location {
-    return _smithy.isa(o, "S3Location");
+    return __isa(o, "S3Location");
   }
 }
 
@@ -1038,7 +1041,7 @@ export interface TagProjectRequest {
 
 export namespace TagProjectRequest {
   export function isa(o: any): o is TagProjectRequest {
-    return _smithy.isa(o, "TagProjectRequest");
+    return __isa(o, "TagProjectRequest");
   }
 }
 
@@ -1052,7 +1055,7 @@ export interface TagProjectResult extends $MetadataBearer {
 
 export namespace TagProjectResult {
   export function isa(o: any): o is TagProjectResult {
-    return _smithy.isa(o, "TagProjectResult");
+    return __isa(o, "TagProjectResult");
   }
 }
 
@@ -1082,7 +1085,7 @@ export interface TeamMember {
 
 export namespace TeamMember {
   export function isa(o: any): o is TeamMember {
-    return _smithy.isa(o, "TeamMember");
+    return __isa(o, "TeamMember");
   }
 }
 
@@ -1090,7 +1093,7 @@ export namespace TeamMember {
  * <p>The team member is already associated with a role in this project.</p>
  */
 export interface TeamMemberAlreadyAssociatedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TeamMemberAlreadyAssociatedException";
   $fault: "client";
@@ -1099,7 +1102,7 @@ export interface TeamMemberAlreadyAssociatedException
 
 export namespace TeamMemberAlreadyAssociatedException {
   export function isa(o: any): o is TeamMemberAlreadyAssociatedException {
-    return _smithy.isa(o, "TeamMemberAlreadyAssociatedException");
+    return __isa(o, "TeamMemberAlreadyAssociatedException");
   }
 }
 
@@ -1107,7 +1110,7 @@ export namespace TeamMemberAlreadyAssociatedException {
  * <p>The specified team member was not found.</p>
  */
 export interface TeamMemberNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TeamMemberNotFoundException";
   $fault: "client";
@@ -1116,7 +1119,7 @@ export interface TeamMemberNotFoundException
 
 export namespace TeamMemberNotFoundException {
   export function isa(o: any): o is TeamMemberNotFoundException {
-    return _smithy.isa(o, "TeamMemberNotFoundException");
+    return __isa(o, "TeamMemberNotFoundException");
   }
 }
 
@@ -1147,7 +1150,7 @@ export interface Toolchain {
 
 export namespace Toolchain {
   export function isa(o: any): o is Toolchain {
-    return _smithy.isa(o, "Toolchain");
+    return __isa(o, "Toolchain");
   }
 }
 
@@ -1166,7 +1169,7 @@ export interface ToolchainSource {
 
 export namespace ToolchainSource {
   export function isa(o: any): o is ToolchainSource {
-    return _smithy.isa(o, "ToolchainSource");
+    return __isa(o, "ToolchainSource");
   }
 }
 
@@ -1185,7 +1188,7 @@ export interface UntagProjectRequest {
 
 export namespace UntagProjectRequest {
   export function isa(o: any): o is UntagProjectRequest {
-    return _smithy.isa(o, "UntagProjectRequest");
+    return __isa(o, "UntagProjectRequest");
   }
 }
 
@@ -1195,7 +1198,7 @@ export interface UntagProjectResult extends $MetadataBearer {
 
 export namespace UntagProjectResult {
   export function isa(o: any): o is UntagProjectResult {
-    return _smithy.isa(o, "UntagProjectResult");
+    return __isa(o, "UntagProjectResult");
   }
 }
 
@@ -1219,7 +1222,7 @@ export interface UpdateProjectRequest {
 
 export namespace UpdateProjectRequest {
   export function isa(o: any): o is UpdateProjectRequest {
-    return _smithy.isa(o, "UpdateProjectRequest");
+    return __isa(o, "UpdateProjectRequest");
   }
 }
 
@@ -1229,7 +1232,7 @@ export interface UpdateProjectResult extends $MetadataBearer {
 
 export namespace UpdateProjectResult {
   export function isa(o: any): o is UpdateProjectResult {
-    return _smithy.isa(o, "UpdateProjectResult");
+    return __isa(o, "UpdateProjectResult");
   }
 }
 
@@ -1263,7 +1266,7 @@ export interface UpdateTeamMemberRequest {
 
 export namespace UpdateTeamMemberRequest {
   export function isa(o: any): o is UpdateTeamMemberRequest {
-    return _smithy.isa(o, "UpdateTeamMemberRequest");
+    return __isa(o, "UpdateTeamMemberRequest");
   }
 }
 
@@ -1289,7 +1292,7 @@ export interface UpdateTeamMemberResult extends $MetadataBearer {
 
 export namespace UpdateTeamMemberResult {
   export function isa(o: any): o is UpdateTeamMemberResult {
-    return _smithy.isa(o, "UpdateTeamMemberResult");
+    return __isa(o, "UpdateTeamMemberResult");
   }
 }
 
@@ -1322,7 +1325,7 @@ export interface UpdateUserProfileRequest {
 
 export namespace UpdateUserProfileRequest {
   export function isa(o: any): o is UpdateUserProfileRequest {
-    return _smithy.isa(o, "UpdateUserProfileRequest");
+    return __isa(o, "UpdateUserProfileRequest");
   }
 }
 
@@ -1364,7 +1367,7 @@ export interface UpdateUserProfileResult extends $MetadataBearer {
 
 export namespace UpdateUserProfileResult {
   export function isa(o: any): o is UpdateUserProfileResult {
-    return _smithy.isa(o, "UpdateUserProfileResult");
+    return __isa(o, "UpdateUserProfileResult");
   }
 }
 
@@ -1373,7 +1376,7 @@ export namespace UpdateUserProfileResult {
  *       CodeStar user profile names must be unique within a region for the AWS account. </p>
  */
 export interface UserProfileAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UserProfileAlreadyExistsException";
   $fault: "client";
@@ -1382,7 +1385,7 @@ export interface UserProfileAlreadyExistsException
 
 export namespace UserProfileAlreadyExistsException {
   export function isa(o: any): o is UserProfileAlreadyExistsException {
-    return _smithy.isa(o, "UserProfileAlreadyExistsException");
+    return __isa(o, "UserProfileAlreadyExistsException");
   }
 }
 
@@ -1390,7 +1393,7 @@ export namespace UserProfileAlreadyExistsException {
  * <p>The user profile was not found.</p>
  */
 export interface UserProfileNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UserProfileNotFoundException";
   $fault: "client";
@@ -1399,7 +1402,7 @@ export interface UserProfileNotFoundException
 
 export namespace UserProfileNotFoundException {
   export function isa(o: any): o is UserProfileNotFoundException {
-    return _smithy.isa(o, "UserProfileNotFoundException");
+    return __isa(o, "UserProfileNotFoundException");
   }
 }
 
@@ -1440,7 +1443,7 @@ export interface UserProfileSummary {
 
 export namespace UserProfileSummary {
   export function isa(o: any): o is UserProfileSummary {
-    return _smithy.isa(o, "UserProfileSummary");
+    return __isa(o, "UserProfileSummary");
   }
 }
 
@@ -1448,7 +1451,7 @@ export namespace UserProfileSummary {
  * <p>The specified input is either not valid, or it could not be validated.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -1457,6 +1460,6 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }

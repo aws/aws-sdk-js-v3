@@ -802,6 +802,7 @@ export async function deserializeAws_queryAddPermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryAddPermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AddPermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1319,6 +1320,7 @@ export async function deserializeAws_queryDeleteEndpointCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteEndpointCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1386,6 +1388,7 @@ export async function deserializeAws_queryDeletePlatformApplicationCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeletePlatformApplicationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1450,6 +1453,7 @@ export async function deserializeAws_queryDeleteTopicCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryDeleteTopicCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteTopicCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2729,6 +2733,7 @@ export async function deserializeAws_queryRemovePermissionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryRemovePermissionCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2803,6 +2808,7 @@ export async function deserializeAws_querySetEndpointAttributesCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetEndpointAttributesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2877,6 +2883,7 @@ export async function deserializeAws_querySetPlatformApplicationAttributesComman
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetPlatformApplicationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3030,6 +3037,7 @@ export async function deserializeAws_querySetSubscriptionAttributesCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SetSubscriptionAttributesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3108,6 +3116,7 @@ export async function deserializeAws_querySetTopicAttributesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_querySetTopicAttributesCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: SetTopicAttributesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3386,6 +3395,7 @@ export async function deserializeAws_queryUnsubscribeCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_queryUnsubscribeCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UnsubscribeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

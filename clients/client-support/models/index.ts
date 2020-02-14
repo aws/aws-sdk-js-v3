@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -20,7 +23,7 @@ export interface Attachment {
 
 export namespace Attachment {
   export function isa(o: any): o is Attachment {
-    return _smithy.isa(o, "Attachment");
+    return __isa(o, "Attachment");
   }
 }
 
@@ -44,7 +47,7 @@ export interface AttachmentDetails {
 
 export namespace AttachmentDetails {
   export function isa(o: any): o is AttachmentDetails {
-    return _smithy.isa(o, "AttachmentDetails");
+    return __isa(o, "AttachmentDetails");
   }
 }
 
@@ -200,7 +203,7 @@ export interface CaseDetails {
 
 export namespace CaseDetails {
   export function isa(o: any): o is CaseDetails {
-    return _smithy.isa(o, "CaseDetails");
+    return __isa(o, "CaseDetails");
   }
 }
 
@@ -224,7 +227,7 @@ export interface Category {
 
 export namespace Category {
   export function isa(o: any): o is Category {
-    return _smithy.isa(o, "Category");
+    return __isa(o, "Category");
   }
 }
 
@@ -270,7 +273,7 @@ export interface Communication {
 
 export namespace Communication {
   export function isa(o: any): o is Communication {
-    return _smithy.isa(o, "Communication");
+    return __isa(o, "Communication");
   }
 }
 
@@ -292,7 +295,7 @@ export interface RecentCaseCommunications {
 
 export namespace RecentCaseCommunications {
   export function isa(o: any): o is RecentCaseCommunications {
-    return _smithy.isa(o, "RecentCaseCommunications");
+    return __isa(o, "RecentCaseCommunications");
   }
 }
 
@@ -325,7 +328,7 @@ export interface Service {
 
 export namespace Service {
   export function isa(o: any): o is Service {
-    return _smithy.isa(o, "Service");
+    return __isa(o, "Service");
   }
 }
 
@@ -333,7 +336,7 @@ export namespace Service {
  * <p>An attachment with the specified ID could not be found.</p>
  */
 export interface AttachmentIdNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AttachmentIdNotFound";
   $fault: "client";
@@ -345,7 +348,7 @@ export interface AttachmentIdNotFound
 
 export namespace AttachmentIdNotFound {
   export function isa(o: any): o is AttachmentIdNotFound {
-    return _smithy.isa(o, "AttachmentIdNotFound");
+    return __isa(o, "AttachmentIdNotFound");
   }
 }
 
@@ -354,7 +357,7 @@ export namespace AttachmentIdNotFound {
  *             been exceeded.</p>
  */
 export interface AttachmentLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AttachmentLimitExceeded";
   $fault: "client";
@@ -367,7 +370,7 @@ export interface AttachmentLimitExceeded
 
 export namespace AttachmentLimitExceeded {
   export function isa(o: any): o is AttachmentLimitExceeded {
-    return _smithy.isa(o, "AttachmentLimitExceeded");
+    return __isa(o, "AttachmentLimitExceeded");
   }
 }
 
@@ -376,7 +379,7 @@ export namespace AttachmentLimitExceeded {
  *             it is created.</p>
  */
 export interface AttachmentSetExpired
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AttachmentSetExpired";
   $fault: "client";
@@ -389,7 +392,7 @@ export interface AttachmentSetExpired
 
 export namespace AttachmentSetExpired {
   export function isa(o: any): o is AttachmentSetExpired {
-    return _smithy.isa(o, "AttachmentSetExpired");
+    return __isa(o, "AttachmentSetExpired");
   }
 }
 
@@ -397,7 +400,7 @@ export namespace AttachmentSetExpired {
  * <p>An attachment set with the specified ID could not be found.</p>
  */
 export interface AttachmentSetIdNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AttachmentSetIdNotFound";
   $fault: "client";
@@ -409,7 +412,7 @@ export interface AttachmentSetIdNotFound
 
 export namespace AttachmentSetIdNotFound {
   export function isa(o: any): o is AttachmentSetIdNotFound {
-    return _smithy.isa(o, "AttachmentSetIdNotFound");
+    return __isa(o, "AttachmentSetIdNotFound");
   }
 }
 
@@ -418,7 +421,7 @@ export namespace AttachmentSetIdNotFound {
  *             attachments and 5 MB per attachment.</p>
  */
 export interface AttachmentSetSizeLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AttachmentSetSizeLimitExceeded";
   $fault: "client";
@@ -431,7 +434,7 @@ export interface AttachmentSetSizeLimitExceeded
 
 export namespace AttachmentSetSizeLimitExceeded {
   export function isa(o: any): o is AttachmentSetSizeLimitExceeded {
-    return _smithy.isa(o, "AttachmentSetSizeLimitExceeded");
+    return __isa(o, "AttachmentSetSizeLimitExceeded");
   }
 }
 
@@ -439,7 +442,7 @@ export namespace AttachmentSetSizeLimitExceeded {
  * <p>The case creation limit for the account has been exceeded.</p>
  */
 export interface CaseCreationLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CaseCreationLimitExceeded";
   $fault: "client";
@@ -452,16 +455,14 @@ export interface CaseCreationLimitExceeded
 
 export namespace CaseCreationLimitExceeded {
   export function isa(o: any): o is CaseCreationLimitExceeded {
-    return _smithy.isa(o, "CaseCreationLimitExceeded");
+    return __isa(o, "CaseCreationLimitExceeded");
   }
 }
 
 /**
  * <p>The requested <code>caseId</code> could not be located.</p>
  */
-export interface CaseIdNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
   name: "CaseIdNotFound";
   $fault: "client";
   /**
@@ -472,7 +473,7 @@ export interface CaseIdNotFound
 
 export namespace CaseIdNotFound {
   export function isa(o: any): o is CaseIdNotFound {
-    return _smithy.isa(o, "CaseIdNotFound");
+    return __isa(o, "CaseIdNotFound");
   }
 }
 
@@ -481,7 +482,7 @@ export namespace CaseIdNotFound {
  *             short period of time has been exceeded.</p>
  */
 export interface DescribeAttachmentLimitExceeded
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DescribeAttachmentLimitExceeded";
   $fault: "client";
@@ -494,7 +495,7 @@ export interface DescribeAttachmentLimitExceeded
 
 export namespace DescribeAttachmentLimitExceeded {
   export function isa(o: any): o is DescribeAttachmentLimitExceeded {
-    return _smithy.isa(o, "DescribeAttachmentLimitExceeded");
+    return __isa(o, "DescribeAttachmentLimitExceeded");
   }
 }
 
@@ -502,7 +503,7 @@ export namespace DescribeAttachmentLimitExceeded {
  * <p>An internal server error occurred.</p>
  */
 export interface InternalServerError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
@@ -514,7 +515,7 @@ export interface InternalServerError
 
 export namespace InternalServerError {
   export function isa(o: any): o is InternalServerError {
-    return _smithy.isa(o, "InternalServerError");
+    return __isa(o, "InternalServerError");
   }
 }
 
@@ -540,7 +541,7 @@ export interface AddAttachmentsToSetRequest {
 
 export namespace AddAttachmentsToSetRequest {
   export function isa(o: any): o is AddAttachmentsToSetRequest {
-    return _smithy.isa(o, "AddAttachmentsToSetRequest");
+    return __isa(o, "AddAttachmentsToSetRequest");
   }
 }
 
@@ -565,7 +566,7 @@ export interface AddAttachmentsToSetResponse extends $MetadataBearer {
 
 export namespace AddAttachmentsToSetResponse {
   export function isa(o: any): o is AddAttachmentsToSetResponse {
-    return _smithy.isa(o, "AddAttachmentsToSetResponse");
+    return __isa(o, "AddAttachmentsToSetResponse");
   }
 }
 
@@ -603,7 +604,7 @@ export interface AddCommunicationToCaseRequest {
 
 export namespace AddCommunicationToCaseRequest {
   export function isa(o: any): o is AddCommunicationToCaseRequest {
-    return _smithy.isa(o, "AddCommunicationToCaseRequest");
+    return __isa(o, "AddCommunicationToCaseRequest");
   }
 }
 
@@ -621,7 +622,7 @@ export interface AddCommunicationToCaseResponse extends $MetadataBearer {
 
 export namespace AddCommunicationToCaseResponse {
   export function isa(o: any): o is AddCommunicationToCaseResponse {
-    return _smithy.isa(o, "AddCommunicationToCaseResponse");
+    return __isa(o, "AddCommunicationToCaseResponse");
   }
 }
 
@@ -688,7 +689,7 @@ export interface CreateCaseRequest {
 
 export namespace CreateCaseRequest {
   export function isa(o: any): o is CreateCaseRequest {
-    return _smithy.isa(o, "CreateCaseRequest");
+    return __isa(o, "CreateCaseRequest");
   }
 }
 
@@ -708,7 +709,7 @@ export interface CreateCaseResponse extends $MetadataBearer {
 
 export namespace CreateCaseResponse {
   export function isa(o: any): o is CreateCaseResponse {
-    return _smithy.isa(o, "CreateCaseResponse");
+    return __isa(o, "CreateCaseResponse");
   }
 }
 
@@ -722,7 +723,7 @@ export interface DescribeAttachmentRequest {
 
 export namespace DescribeAttachmentRequest {
   export function isa(o: any): o is DescribeAttachmentRequest {
-    return _smithy.isa(o, "DescribeAttachmentRequest");
+    return __isa(o, "DescribeAttachmentRequest");
   }
 }
 
@@ -739,7 +740,7 @@ export interface DescribeAttachmentResponse extends $MetadataBearer {
 
 export namespace DescribeAttachmentResponse {
   export function isa(o: any): o is DescribeAttachmentResponse {
-    return _smithy.isa(o, "DescribeAttachmentResponse");
+    return __isa(o, "DescribeAttachmentResponse");
   }
 }
 
@@ -800,7 +801,7 @@ export interface DescribeCasesRequest {
 
 export namespace DescribeCasesRequest {
   export function isa(o: any): o is DescribeCasesRequest {
-    return _smithy.isa(o, "DescribeCasesRequest");
+    return __isa(o, "DescribeCasesRequest");
   }
 }
 
@@ -824,7 +825,7 @@ export interface DescribeCasesResponse extends $MetadataBearer {
 
 export namespace DescribeCasesResponse {
   export function isa(o: any): o is DescribeCasesResponse {
-    return _smithy.isa(o, "DescribeCasesResponse");
+    return __isa(o, "DescribeCasesResponse");
   }
 }
 
@@ -863,7 +864,7 @@ export interface DescribeCommunicationsRequest {
 
 export namespace DescribeCommunicationsRequest {
   export function isa(o: any): o is DescribeCommunicationsRequest {
-    return _smithy.isa(o, "DescribeCommunicationsRequest");
+    return __isa(o, "DescribeCommunicationsRequest");
   }
 }
 
@@ -886,7 +887,7 @@ export interface DescribeCommunicationsResponse extends $MetadataBearer {
 
 export namespace DescribeCommunicationsResponse {
   export function isa(o: any): o is DescribeCommunicationsResponse {
-    return _smithy.isa(o, "DescribeCommunicationsResponse");
+    return __isa(o, "DescribeCommunicationsResponse");
   }
 }
 
@@ -907,7 +908,7 @@ export interface DescribeServicesRequest {
 
 export namespace DescribeServicesRequest {
   export function isa(o: any): o is DescribeServicesRequest {
-    return _smithy.isa(o, "DescribeServicesRequest");
+    return __isa(o, "DescribeServicesRequest");
   }
 }
 
@@ -925,7 +926,7 @@ export interface DescribeServicesResponse extends $MetadataBearer {
 
 export namespace DescribeServicesResponse {
   export function isa(o: any): o is DescribeServicesResponse {
-    return _smithy.isa(o, "DescribeServicesResponse");
+    return __isa(o, "DescribeServicesResponse");
   }
 }
 
@@ -941,7 +942,7 @@ export interface DescribeSeverityLevelsRequest {
 
 export namespace DescribeSeverityLevelsRequest {
   export function isa(o: any): o is DescribeSeverityLevelsRequest {
-    return _smithy.isa(o, "DescribeSeverityLevelsRequest");
+    return __isa(o, "DescribeSeverityLevelsRequest");
   }
 }
 
@@ -959,7 +960,7 @@ export interface DescribeSeverityLevelsResponse extends $MetadataBearer {
 
 export namespace DescribeSeverityLevelsResponse {
   export function isa(o: any): o is DescribeSeverityLevelsResponse {
-    return _smithy.isa(o, "DescribeSeverityLevelsResponse");
+    return __isa(o, "DescribeSeverityLevelsResponse");
   }
 }
 
@@ -976,7 +977,7 @@ export interface ResolveCaseRequest {
 
 export namespace ResolveCaseRequest {
   export function isa(o: any): o is ResolveCaseRequest {
-    return _smithy.isa(o, "ResolveCaseRequest");
+    return __isa(o, "ResolveCaseRequest");
   }
 }
 
@@ -1001,7 +1002,7 @@ export interface ResolveCaseResponse extends $MetadataBearer {
 
 export namespace ResolveCaseResponse {
   export function isa(o: any): o is ResolveCaseResponse {
-    return _smithy.isa(o, "ResolveCaseResponse");
+    return __isa(o, "ResolveCaseResponse");
   }
 }
 
@@ -1061,7 +1062,7 @@ export interface SeverityLevel {
 
 export namespace SeverityLevel {
   export function isa(o: any): o is SeverityLevel {
-    return _smithy.isa(o, "SeverityLevel");
+    return __isa(o, "SeverityLevel");
   }
 }
 
@@ -1081,7 +1082,7 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
   export function isa(
     o: any
   ): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-    return _smithy.isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
+    return __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
   }
 }
 
@@ -1101,7 +1102,7 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
   export function isa(
     o: any
   ): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-    return _smithy.isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
+    return __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
   }
 }
 
@@ -1125,7 +1126,7 @@ export interface DescribeTrustedAdvisorCheckResultRequest {
 
 export namespace DescribeTrustedAdvisorCheckResultRequest {
   export function isa(o: any): o is DescribeTrustedAdvisorCheckResultRequest {
-    return _smithy.isa(o, "DescribeTrustedAdvisorCheckResultRequest");
+    return __isa(o, "DescribeTrustedAdvisorCheckResultRequest");
   }
 }
 
@@ -1143,7 +1144,7 @@ export interface DescribeTrustedAdvisorCheckResultResponse
 
 export namespace DescribeTrustedAdvisorCheckResultResponse {
   export function isa(o: any): o is DescribeTrustedAdvisorCheckResultResponse {
-    return _smithy.isa(o, "DescribeTrustedAdvisorCheckResultResponse");
+    return __isa(o, "DescribeTrustedAdvisorCheckResultResponse");
   }
 }
 
@@ -1159,7 +1160,7 @@ export namespace DescribeTrustedAdvisorCheckSummariesRequest {
   export function isa(
     o: any
   ): o is DescribeTrustedAdvisorCheckSummariesRequest {
-    return _smithy.isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
+    return __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
   }
 }
 
@@ -1179,7 +1180,7 @@ export namespace DescribeTrustedAdvisorCheckSummariesResponse {
   export function isa(
     o: any
   ): o is DescribeTrustedAdvisorCheckSummariesResponse {
-    return _smithy.isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
+    return __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
   }
 }
 
@@ -1198,7 +1199,7 @@ export interface DescribeTrustedAdvisorChecksRequest {
 
 export namespace DescribeTrustedAdvisorChecksRequest {
   export function isa(o: any): o is DescribeTrustedAdvisorChecksRequest {
-    return _smithy.isa(o, "DescribeTrustedAdvisorChecksRequest");
+    return __isa(o, "DescribeTrustedAdvisorChecksRequest");
   }
 }
 
@@ -1215,7 +1216,7 @@ export interface DescribeTrustedAdvisorChecksResponse extends $MetadataBearer {
 
 export namespace DescribeTrustedAdvisorChecksResponse {
   export function isa(o: any): o is DescribeTrustedAdvisorChecksResponse {
-    return _smithy.isa(o, "DescribeTrustedAdvisorChecksResponse");
+    return __isa(o, "DescribeTrustedAdvisorChecksResponse");
   }
 }
 
@@ -1233,7 +1234,7 @@ export interface RefreshTrustedAdvisorCheckRequest {
 
 export namespace RefreshTrustedAdvisorCheckRequest {
   export function isa(o: any): o is RefreshTrustedAdvisorCheckRequest {
-    return _smithy.isa(o, "RefreshTrustedAdvisorCheckRequest");
+    return __isa(o, "RefreshTrustedAdvisorCheckRequest");
   }
 }
 
@@ -1251,7 +1252,7 @@ export interface RefreshTrustedAdvisorCheckResponse extends $MetadataBearer {
 
 export namespace RefreshTrustedAdvisorCheckResponse {
   export function isa(o: any): o is RefreshTrustedAdvisorCheckResponse {
-    return _smithy.isa(o, "RefreshTrustedAdvisorCheckResponse");
+    return __isa(o, "RefreshTrustedAdvisorCheckResponse");
   }
 }
 
@@ -1270,7 +1271,7 @@ export interface TrustedAdvisorCategorySpecificSummary {
 
 export namespace TrustedAdvisorCategorySpecificSummary {
   export function isa(o: any): o is TrustedAdvisorCategorySpecificSummary {
-    return _smithy.isa(o, "TrustedAdvisorCategorySpecificSummary");
+    return __isa(o, "TrustedAdvisorCategorySpecificSummary");
   }
 }
 
@@ -1312,7 +1313,7 @@ export interface TrustedAdvisorCheckDescription {
 
 export namespace TrustedAdvisorCheckDescription {
   export function isa(o: any): o is TrustedAdvisorCheckDescription {
-    return _smithy.isa(o, "TrustedAdvisorCheckDescription");
+    return __isa(o, "TrustedAdvisorCheckDescription");
   }
 }
 
@@ -1366,7 +1367,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
 
 export namespace TrustedAdvisorCheckRefreshStatus {
   export function isa(o: any): o is TrustedAdvisorCheckRefreshStatus {
-    return _smithy.isa(o, "TrustedAdvisorCheckRefreshStatus");
+    return __isa(o, "TrustedAdvisorCheckRefreshStatus");
   }
 }
 
@@ -1410,7 +1411,7 @@ export interface TrustedAdvisorCheckResult {
 
 export namespace TrustedAdvisorCheckResult {
   export function isa(o: any): o is TrustedAdvisorCheckResult {
-    return _smithy.isa(o, "TrustedAdvisorCheckResult");
+    return __isa(o, "TrustedAdvisorCheckResult");
   }
 }
 
@@ -1455,7 +1456,7 @@ export interface TrustedAdvisorCheckSummary {
 
 export namespace TrustedAdvisorCheckSummary {
   export function isa(o: any): o is TrustedAdvisorCheckSummary {
-    return _smithy.isa(o, "TrustedAdvisorCheckSummary");
+    return __isa(o, "TrustedAdvisorCheckSummary");
   }
 }
 
@@ -1480,7 +1481,7 @@ export interface TrustedAdvisorCostOptimizingSummary {
 
 export namespace TrustedAdvisorCostOptimizingSummary {
   export function isa(o: any): o is TrustedAdvisorCostOptimizingSummary {
-    return _smithy.isa(o, "TrustedAdvisorCostOptimizingSummary");
+    return __isa(o, "TrustedAdvisorCostOptimizingSummary");
   }
 }
 
@@ -1522,7 +1523,7 @@ export interface TrustedAdvisorResourceDetail {
 
 export namespace TrustedAdvisorResourceDetail {
   export function isa(o: any): o is TrustedAdvisorResourceDetail {
-    return _smithy.isa(o, "TrustedAdvisorResourceDetail");
+    return __isa(o, "TrustedAdvisorResourceDetail");
   }
 }
 
@@ -1558,6 +1559,6 @@ export interface TrustedAdvisorResourcesSummary {
 
 export namespace TrustedAdvisorResourcesSummary {
   export function isa(o: any): o is TrustedAdvisorResourcesSummary {
-    return _smithy.isa(o, "TrustedAdvisorResourcesSummary");
+    return __isa(o, "TrustedAdvisorResourcesSummary");
   }
 }

@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -45,7 +48,7 @@ export interface Entitlement {
 
 export namespace Entitlement {
   export function isa(o: any): o is Entitlement {
-    return _smithy.isa(o, "Entitlement");
+    return __isa(o, "Entitlement");
   }
 }
 
@@ -82,7 +85,7 @@ export interface EntitlementValue {
 
 export namespace EntitlementValue {
   export function isa(o: any): o is EntitlementValue {
-    return _smithy.isa(o, "EntitlementValue");
+    return __isa(o, "EntitlementValue");
   }
 }
 
@@ -126,7 +129,7 @@ export interface GetEntitlementsRequest {
 
 export namespace GetEntitlementsRequest {
   export function isa(o: any): o is GetEntitlementsRequest {
-    return _smithy.isa(o, "GetEntitlementsRequest");
+    return __isa(o, "GetEntitlementsRequest");
   }
 }
 
@@ -152,7 +155,7 @@ export interface GetEntitlementsResult extends $MetadataBearer {
 
 export namespace GetEntitlementsResult {
   export function isa(o: any): o is GetEntitlementsResult {
-    return _smithy.isa(o, "GetEntitlementsResult");
+    return __isa(o, "GetEntitlementsResult");
   }
 }
 
@@ -161,7 +164,7 @@ export namespace GetEntitlementsResult {
  *    message with details on the AWS forums.</p>
  */
 export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
@@ -170,7 +173,7 @@ export interface InternalServiceErrorException
 
 export namespace InternalServiceErrorException {
   export function isa(o: any): o is InternalServiceErrorException {
-    return _smithy.isa(o, "InternalServiceErrorException");
+    return __isa(o, "InternalServiceErrorException");
   }
 }
 
@@ -178,7 +181,7 @@ export namespace InternalServiceErrorException {
  * <p>One or more parameters in your request was invalid.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -187,7 +190,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -195,7 +198,7 @@ export namespace InvalidParameterException {
  * <p>The calls to the GetEntitlements API are throttled.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -204,6 +207,6 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }

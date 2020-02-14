@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,7 +22,7 @@ export interface Attribute {
 
 export namespace Attribute {
   export function isa(o: any): o is Attribute {
-    return _smithy.isa(o, "Attribute");
+    return __isa(o, "Attribute");
   }
 }
 
@@ -53,7 +56,7 @@ export interface AuthorizationData {
 
 export namespace AuthorizationData {
   export function isa(o: any): o is AuthorizationData {
-    return _smithy.isa(o, "AuthorizationData");
+    return __isa(o, "AuthorizationData");
   }
 }
 
@@ -78,7 +81,7 @@ export interface BatchCheckLayerAvailabilityRequest {
 
 export namespace BatchCheckLayerAvailabilityRequest {
   export function isa(o: any): o is BatchCheckLayerAvailabilityRequest {
-    return _smithy.isa(o, "BatchCheckLayerAvailabilityRequest");
+    return __isa(o, "BatchCheckLayerAvailabilityRequest");
   }
 }
 
@@ -98,7 +101,7 @@ export interface BatchCheckLayerAvailabilityResponse extends $MetadataBearer {
 
 export namespace BatchCheckLayerAvailabilityResponse {
   export function isa(o: any): o is BatchCheckLayerAvailabilityResponse {
-    return _smithy.isa(o, "BatchCheckLayerAvailabilityResponse");
+    return __isa(o, "BatchCheckLayerAvailabilityResponse");
   }
 }
 
@@ -129,7 +132,7 @@ export interface BatchDeleteImageRequest {
 
 export namespace BatchDeleteImageRequest {
   export function isa(o: any): o is BatchDeleteImageRequest {
-    return _smithy.isa(o, "BatchDeleteImageRequest");
+    return __isa(o, "BatchDeleteImageRequest");
   }
 }
 
@@ -148,7 +151,7 @@ export interface BatchDeleteImageResponse extends $MetadataBearer {
 
 export namespace BatchDeleteImageResponse {
   export function isa(o: any): o is BatchDeleteImageResponse {
-    return _smithy.isa(o, "BatchDeleteImageResponse");
+    return __isa(o, "BatchDeleteImageResponse");
   }
 }
 
@@ -184,7 +187,7 @@ export interface BatchGetImageRequest {
 
 export namespace BatchGetImageRequest {
   export function isa(o: any): o is BatchGetImageRequest {
-    return _smithy.isa(o, "BatchGetImageRequest");
+    return __isa(o, "BatchGetImageRequest");
   }
 }
 
@@ -203,7 +206,7 @@ export interface BatchGetImageResponse extends $MetadataBearer {
 
 export namespace BatchGetImageResponse {
   export function isa(o: any): o is BatchGetImageResponse {
-    return _smithy.isa(o, "BatchGetImageResponse");
+    return __isa(o, "BatchGetImageResponse");
   }
 }
 
@@ -234,7 +237,7 @@ export interface CompleteLayerUploadRequest {
 
 export namespace CompleteLayerUploadRequest {
   export function isa(o: any): o is CompleteLayerUploadRequest {
-    return _smithy.isa(o, "CompleteLayerUploadRequest");
+    return __isa(o, "CompleteLayerUploadRequest");
   }
 }
 
@@ -263,7 +266,7 @@ export interface CompleteLayerUploadResponse extends $MetadataBearer {
 
 export namespace CompleteLayerUploadResponse {
   export function isa(o: any): o is CompleteLayerUploadResponse {
-    return _smithy.isa(o, "CompleteLayerUploadResponse");
+    return __isa(o, "CompleteLayerUploadResponse");
   }
 }
 
@@ -302,7 +305,7 @@ export interface CreateRepositoryRequest {
 
 export namespace CreateRepositoryRequest {
   export function isa(o: any): o is CreateRepositoryRequest {
-    return _smithy.isa(o, "CreateRepositoryRequest");
+    return __isa(o, "CreateRepositoryRequest");
   }
 }
 
@@ -316,7 +319,7 @@ export interface CreateRepositoryResponse extends $MetadataBearer {
 
 export namespace CreateRepositoryResponse {
   export function isa(o: any): o is CreateRepositoryResponse {
-    return _smithy.isa(o, "CreateRepositoryResponse");
+    return __isa(o, "CreateRepositoryResponse");
   }
 }
 
@@ -336,7 +339,7 @@ export interface DeleteLifecyclePolicyRequest {
 
 export namespace DeleteLifecyclePolicyRequest {
   export function isa(o: any): o is DeleteLifecyclePolicyRequest {
-    return _smithy.isa(o, "DeleteLifecyclePolicyRequest");
+    return __isa(o, "DeleteLifecyclePolicyRequest");
   }
 }
 
@@ -365,7 +368,7 @@ export interface DeleteLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace DeleteLifecyclePolicyResponse {
   export function isa(o: any): o is DeleteLifecyclePolicyResponse {
-    return _smithy.isa(o, "DeleteLifecyclePolicyResponse");
+    return __isa(o, "DeleteLifecyclePolicyResponse");
   }
 }
 
@@ -386,7 +389,7 @@ export interface DeleteRepositoryPolicyRequest {
 
 export namespace DeleteRepositoryPolicyRequest {
   export function isa(o: any): o is DeleteRepositoryPolicyRequest {
-    return _smithy.isa(o, "DeleteRepositoryPolicyRequest");
+    return __isa(o, "DeleteRepositoryPolicyRequest");
   }
 }
 
@@ -410,7 +413,7 @@ export interface DeleteRepositoryPolicyResponse extends $MetadataBearer {
 
 export namespace DeleteRepositoryPolicyResponse {
   export function isa(o: any): o is DeleteRepositoryPolicyResponse {
-    return _smithy.isa(o, "DeleteRepositoryPolicyResponse");
+    return __isa(o, "DeleteRepositoryPolicyResponse");
   }
 }
 
@@ -435,7 +438,7 @@ export interface DeleteRepositoryRequest {
 
 export namespace DeleteRepositoryRequest {
   export function isa(o: any): o is DeleteRepositoryRequest {
-    return _smithy.isa(o, "DeleteRepositoryRequest");
+    return __isa(o, "DeleteRepositoryRequest");
   }
 }
 
@@ -449,7 +452,7 @@ export interface DeleteRepositoryResponse extends $MetadataBearer {
 
 export namespace DeleteRepositoryResponse {
   export function isa(o: any): o is DeleteRepositoryResponse {
-    return _smithy.isa(o, "DeleteRepositoryResponse");
+    return __isa(o, "DeleteRepositoryResponse");
   }
 }
 
@@ -497,7 +500,7 @@ export interface DescribeImageScanFindingsRequest {
 
 export namespace DescribeImageScanFindingsRequest {
   export function isa(o: any): o is DescribeImageScanFindingsRequest {
-    return _smithy.isa(o, "DescribeImageScanFindingsRequest");
+    return __isa(o, "DescribeImageScanFindingsRequest");
   }
 }
 
@@ -540,7 +543,7 @@ export interface DescribeImageScanFindingsResponse extends $MetadataBearer {
 
 export namespace DescribeImageScanFindingsResponse {
   export function isa(o: any): o is DescribeImageScanFindingsResponse {
-    return _smithy.isa(o, "DescribeImageScanFindingsResponse");
+    return __isa(o, "DescribeImageScanFindingsResponse");
   }
 }
 
@@ -560,7 +563,7 @@ export interface DescribeImagesFilter {
 
 export namespace DescribeImagesFilter {
   export function isa(o: any): o is DescribeImagesFilter {
-    return _smithy.isa(o, "DescribeImagesFilter");
+    return __isa(o, "DescribeImagesFilter");
   }
 }
 
@@ -614,7 +617,7 @@ export interface DescribeImagesRequest {
 
 export namespace DescribeImagesRequest {
   export function isa(o: any): o is DescribeImagesRequest {
-    return _smithy.isa(o, "DescribeImagesRequest");
+    return __isa(o, "DescribeImagesRequest");
   }
 }
 
@@ -638,7 +641,7 @@ export interface DescribeImagesResponse extends $MetadataBearer {
 
 export namespace DescribeImagesResponse {
   export function isa(o: any): o is DescribeImagesResponse {
-    return _smithy.isa(o, "DescribeImagesResponse");
+    return __isa(o, "DescribeImagesResponse");
   }
 }
 
@@ -687,7 +690,7 @@ export interface DescribeRepositoriesRequest {
 
 export namespace DescribeRepositoriesRequest {
   export function isa(o: any): o is DescribeRepositoriesRequest {
-    return _smithy.isa(o, "DescribeRepositoriesRequest");
+    return __isa(o, "DescribeRepositoriesRequest");
   }
 }
 
@@ -710,7 +713,7 @@ export interface DescribeRepositoriesResponse extends $MetadataBearer {
 
 export namespace DescribeRepositoriesResponse {
   export function isa(o: any): o is DescribeRepositoriesResponse {
-    return _smithy.isa(o, "DescribeRepositoriesResponse");
+    return __isa(o, "DescribeRepositoriesResponse");
   }
 }
 
@@ -718,7 +721,7 @@ export namespace DescribeRepositoriesResponse {
  * <p>The specified layer upload does not contain any layer parts.</p>
  */
 export interface EmptyUploadException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "EmptyUploadException";
   $fault: "client";
@@ -730,7 +733,7 @@ export interface EmptyUploadException
 
 export namespace EmptyUploadException {
   export function isa(o: any): o is EmptyUploadException {
-    return _smithy.isa(o, "EmptyUploadException");
+    return __isa(o, "EmptyUploadException");
   }
 }
 
@@ -754,7 +757,7 @@ export interface GetAuthorizationTokenRequest {
 
 export namespace GetAuthorizationTokenRequest {
   export function isa(o: any): o is GetAuthorizationTokenRequest {
-    return _smithy.isa(o, "GetAuthorizationTokenRequest");
+    return __isa(o, "GetAuthorizationTokenRequest");
   }
 }
 
@@ -769,7 +772,7 @@ export interface GetAuthorizationTokenResponse extends $MetadataBearer {
 
 export namespace GetAuthorizationTokenResponse {
   export function isa(o: any): o is GetAuthorizationTokenResponse {
-    return _smithy.isa(o, "GetAuthorizationTokenResponse");
+    return __isa(o, "GetAuthorizationTokenResponse");
   }
 }
 
@@ -794,7 +797,7 @@ export interface GetDownloadUrlForLayerRequest {
 
 export namespace GetDownloadUrlForLayerRequest {
   export function isa(o: any): o is GetDownloadUrlForLayerRequest {
-    return _smithy.isa(o, "GetDownloadUrlForLayerRequest");
+    return __isa(o, "GetDownloadUrlForLayerRequest");
   }
 }
 
@@ -813,7 +816,7 @@ export interface GetDownloadUrlForLayerResponse extends $MetadataBearer {
 
 export namespace GetDownloadUrlForLayerResponse {
   export function isa(o: any): o is GetDownloadUrlForLayerResponse {
-    return _smithy.isa(o, "GetDownloadUrlForLayerResponse");
+    return __isa(o, "GetDownloadUrlForLayerResponse");
   }
 }
 
@@ -869,7 +872,7 @@ export interface GetLifecyclePolicyPreviewRequest {
 
 export namespace GetLifecyclePolicyPreviewRequest {
   export function isa(o: any): o is GetLifecyclePolicyPreviewRequest {
-    return _smithy.isa(o, "GetLifecyclePolicyPreviewRequest");
+    return __isa(o, "GetLifecyclePolicyPreviewRequest");
   }
 }
 
@@ -917,7 +920,7 @@ export interface GetLifecyclePolicyPreviewResponse extends $MetadataBearer {
 
 export namespace GetLifecyclePolicyPreviewResponse {
   export function isa(o: any): o is GetLifecyclePolicyPreviewResponse {
-    return _smithy.isa(o, "GetLifecyclePolicyPreviewResponse");
+    return __isa(o, "GetLifecyclePolicyPreviewResponse");
   }
 }
 
@@ -937,7 +940,7 @@ export interface GetLifecyclePolicyRequest {
 
 export namespace GetLifecyclePolicyRequest {
   export function isa(o: any): o is GetLifecyclePolicyRequest {
-    return _smithy.isa(o, "GetLifecyclePolicyRequest");
+    return __isa(o, "GetLifecyclePolicyRequest");
   }
 }
 
@@ -966,7 +969,7 @@ export interface GetLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace GetLifecyclePolicyResponse {
   export function isa(o: any): o is GetLifecyclePolicyResponse {
-    return _smithy.isa(o, "GetLifecyclePolicyResponse");
+    return __isa(o, "GetLifecyclePolicyResponse");
   }
 }
 
@@ -986,7 +989,7 @@ export interface GetRepositoryPolicyRequest {
 
 export namespace GetRepositoryPolicyRequest {
   export function isa(o: any): o is GetRepositoryPolicyRequest {
-    return _smithy.isa(o, "GetRepositoryPolicyRequest");
+    return __isa(o, "GetRepositoryPolicyRequest");
   }
 }
 
@@ -1010,7 +1013,7 @@ export interface GetRepositoryPolicyResponse extends $MetadataBearer {
 
 export namespace GetRepositoryPolicyResponse {
   export function isa(o: any): o is GetRepositoryPolicyResponse {
-    return _smithy.isa(o, "GetRepositoryPolicyResponse");
+    return __isa(o, "GetRepositoryPolicyResponse");
   }
 }
 
@@ -1042,7 +1045,7 @@ export interface Image {
 
 export namespace Image {
   export function isa(o: any): o is Image {
-    return _smithy.isa(o, "Image");
+    return __isa(o, "Image");
   }
 }
 
@@ -1055,7 +1058,7 @@ export enum ImageActionType {
  *             or image tag after the last push.</p>
  */
 export interface ImageAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ImageAlreadyExistsException";
   $fault: "client";
@@ -1067,7 +1070,7 @@ export interface ImageAlreadyExistsException
 
 export namespace ImageAlreadyExistsException {
   export function isa(o: any): o is ImageAlreadyExistsException {
-    return _smithy.isa(o, "ImageAlreadyExistsException");
+    return __isa(o, "ImageAlreadyExistsException");
   }
 }
 
@@ -1127,7 +1130,7 @@ export interface ImageDetail {
 
 export namespace ImageDetail {
   export function isa(o: any): o is ImageDetail {
-    return _smithy.isa(o, "ImageDetail");
+    return __isa(o, "ImageDetail");
   }
 }
 
@@ -1154,7 +1157,7 @@ export interface ImageFailure {
 
 export namespace ImageFailure {
   export function isa(o: any): o is ImageFailure {
-    return _smithy.isa(o, "ImageFailure");
+    return __isa(o, "ImageFailure");
   }
 }
 
@@ -1184,7 +1187,7 @@ export interface ImageIdentifier {
 
 export namespace ImageIdentifier {
   export function isa(o: any): o is ImageIdentifier {
-    return _smithy.isa(o, "ImageIdentifier");
+    return __isa(o, "ImageIdentifier");
   }
 }
 
@@ -1192,7 +1195,7 @@ export namespace ImageIdentifier {
  * <p>The image requested does not exist in the specified repository.</p>
  */
 export interface ImageNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ImageNotFoundException";
   $fault: "client";
@@ -1201,7 +1204,7 @@ export interface ImageNotFoundException
 
 export namespace ImageNotFoundException {
   export function isa(o: any): o is ImageNotFoundException {
-    return _smithy.isa(o, "ImageNotFoundException");
+    return __isa(o, "ImageNotFoundException");
   }
 }
 
@@ -1238,7 +1241,7 @@ export interface ImageScanFinding {
 
 export namespace ImageScanFinding {
   export function isa(o: any): o is ImageScanFinding {
-    return _smithy.isa(o, "ImageScanFinding");
+    return __isa(o, "ImageScanFinding");
   }
 }
 
@@ -1270,7 +1273,7 @@ export interface ImageScanFindings {
 
 export namespace ImageScanFindings {
   export function isa(o: any): o is ImageScanFindings {
-    return _smithy.isa(o, "ImageScanFindings");
+    return __isa(o, "ImageScanFindings");
   }
 }
 
@@ -1297,7 +1300,7 @@ export interface ImageScanFindingsSummary {
 
 export namespace ImageScanFindingsSummary {
   export function isa(o: any): o is ImageScanFindingsSummary {
-    return _smithy.isa(o, "ImageScanFindingsSummary");
+    return __isa(o, "ImageScanFindingsSummary");
   }
 }
 
@@ -1319,7 +1322,7 @@ export interface ImageScanStatus {
 
 export namespace ImageScanStatus {
   export function isa(o: any): o is ImageScanStatus {
-    return _smithy.isa(o, "ImageScanStatus");
+    return __isa(o, "ImageScanStatus");
   }
 }
 
@@ -1339,7 +1342,7 @@ export interface ImageScanningConfiguration {
 
 export namespace ImageScanningConfiguration {
   export function isa(o: any): o is ImageScanningConfiguration {
-    return _smithy.isa(o, "ImageScanningConfiguration");
+    return __isa(o, "ImageScanningConfiguration");
   }
 }
 
@@ -1348,7 +1351,7 @@ export namespace ImageScanningConfiguration {
  *             configured for tag immutability.</p>
  */
 export interface ImageTagAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ImageTagAlreadyExistsException";
   $fault: "client";
@@ -1357,7 +1360,7 @@ export interface ImageTagAlreadyExistsException
 
 export namespace ImageTagAlreadyExistsException {
   export function isa(o: any): o is ImageTagAlreadyExistsException {
-    return _smithy.isa(o, "ImageTagAlreadyExistsException");
+    return __isa(o, "ImageTagAlreadyExistsException");
   }
 }
 
@@ -1382,7 +1385,7 @@ export interface InitiateLayerUploadRequest {
 
 export namespace InitiateLayerUploadRequest {
   export function isa(o: any): o is InitiateLayerUploadRequest {
-    return _smithy.isa(o, "InitiateLayerUploadRequest");
+    return __isa(o, "InitiateLayerUploadRequest");
   }
 }
 
@@ -1402,7 +1405,7 @@ export interface InitiateLayerUploadResponse extends $MetadataBearer {
 
 export namespace InitiateLayerUploadResponse {
   export function isa(o: any): o is InitiateLayerUploadResponse {
-    return _smithy.isa(o, "InitiateLayerUploadResponse");
+    return __isa(o, "InitiateLayerUploadResponse");
   }
 }
 
@@ -1411,7 +1414,7 @@ export namespace InitiateLayerUploadResponse {
  *             not match the digest specified.</p>
  */
 export interface InvalidLayerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidLayerException";
   $fault: "client";
@@ -1423,7 +1426,7 @@ export interface InvalidLayerException
 
 export namespace InvalidLayerException {
   export function isa(o: any): o is InvalidLayerException {
-    return _smithy.isa(o, "InvalidLayerException");
+    return __isa(o, "InvalidLayerException");
   }
 }
 
@@ -1432,7 +1435,7 @@ export namespace InvalidLayerException {
  *             the last byte of a previous layer part upload.</p>
  */
 export interface InvalidLayerPartException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidLayerPartException";
   $fault: "client";
@@ -1465,7 +1468,7 @@ export interface InvalidLayerPartException
 
 export namespace InvalidLayerPartException {
   export function isa(o: any): o is InvalidLayerPartException {
-    return _smithy.isa(o, "InvalidLayerPartException");
+    return __isa(o, "InvalidLayerPartException");
   }
 }
 
@@ -1474,7 +1477,7 @@ export namespace InvalidLayerPartException {
  *             request.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -1486,7 +1489,7 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
@@ -1495,7 +1498,7 @@ export namespace InvalidParameterException {
  *             a maximum length of 256 characters.</p>
  */
 export interface InvalidTagParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTagParameterException";
   $fault: "client";
@@ -1504,7 +1507,7 @@ export interface InvalidTagParameterException
 
 export namespace InvalidTagParameterException {
   export function isa(o: any): o is InvalidTagParameterException {
-    return _smithy.isa(o, "InvalidTagParameterException");
+    return __isa(o, "InvalidTagParameterException");
   }
 }
 
@@ -1538,7 +1541,7 @@ export interface Layer {
 
 export namespace Layer {
   export function isa(o: any): o is Layer {
-    return _smithy.isa(o, "Layer");
+    return __isa(o, "Layer");
   }
 }
 
@@ -1546,7 +1549,7 @@ export namespace Layer {
  * <p>The image layer already exists in the associated repository.</p>
  */
 export interface LayerAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LayerAlreadyExistsException";
   $fault: "client";
@@ -1558,7 +1561,7 @@ export interface LayerAlreadyExistsException
 
 export namespace LayerAlreadyExistsException {
   export function isa(o: any): o is LayerAlreadyExistsException {
-    return _smithy.isa(o, "LayerAlreadyExistsException");
+    return __isa(o, "LayerAlreadyExistsException");
   }
 }
 
@@ -1590,7 +1593,7 @@ export interface LayerFailure {
 
 export namespace LayerFailure {
   export function isa(o: any): o is LayerFailure {
-    return _smithy.isa(o, "LayerFailure");
+    return __isa(o, "LayerFailure");
   }
 }
 
@@ -1604,7 +1607,7 @@ export enum LayerFailureCode {
  *             Unassociated image layers may be cleaned up at any time.</p>
  */
 export interface LayerInaccessibleException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LayerInaccessibleException";
   $fault: "client";
@@ -1616,7 +1619,7 @@ export interface LayerInaccessibleException
 
 export namespace LayerInaccessibleException {
   export function isa(o: any): o is LayerInaccessibleException {
-    return _smithy.isa(o, "LayerInaccessibleException");
+    return __isa(o, "LayerInaccessibleException");
   }
 }
 
@@ -1624,7 +1627,7 @@ export namespace LayerInaccessibleException {
  * <p>Layer parts must be at least 5 MiB in size.</p>
  */
 export interface LayerPartTooSmallException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LayerPartTooSmallException";
   $fault: "client";
@@ -1636,7 +1639,7 @@ export interface LayerPartTooSmallException
 
 export namespace LayerPartTooSmallException {
   export function isa(o: any): o is LayerPartTooSmallException {
-    return _smithy.isa(o, "LayerPartTooSmallException");
+    return __isa(o, "LayerPartTooSmallException");
   }
 }
 
@@ -1645,7 +1648,7 @@ export namespace LayerPartTooSmallException {
  *             repository.</p>
  */
 export interface LayersNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LayersNotFoundException";
   $fault: "client";
@@ -1657,7 +1660,7 @@ export interface LayersNotFoundException
 
 export namespace LayersNotFoundException {
   export function isa(o: any): o is LayersNotFoundException {
-    return _smithy.isa(o, "LayersNotFoundException");
+    return __isa(o, "LayersNotFoundException");
   }
 }
 
@@ -1666,7 +1669,7 @@ export namespace LayersNotFoundException {
  *             repository.</p>
  */
 export interface LifecyclePolicyNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LifecyclePolicyNotFoundException";
   $fault: "client";
@@ -1675,7 +1678,7 @@ export interface LifecyclePolicyNotFoundException
 
 export namespace LifecyclePolicyNotFoundException {
   export function isa(o: any): o is LifecyclePolicyNotFoundException {
-    return _smithy.isa(o, "LifecyclePolicyNotFoundException");
+    return __isa(o, "LifecyclePolicyNotFoundException");
   }
 }
 
@@ -1692,7 +1695,7 @@ export interface LifecyclePolicyPreviewFilter {
 
 export namespace LifecyclePolicyPreviewFilter {
   export function isa(o: any): o is LifecyclePolicyPreviewFilter {
-    return _smithy.isa(o, "LifecyclePolicyPreviewFilter");
+    return __isa(o, "LifecyclePolicyPreviewFilter");
   }
 }
 
@@ -1701,7 +1704,7 @@ export namespace LifecyclePolicyPreviewFilter {
  *             later.</p>
  */
 export interface LifecyclePolicyPreviewInProgressException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LifecyclePolicyPreviewInProgressException";
   $fault: "client";
@@ -1710,7 +1713,7 @@ export interface LifecyclePolicyPreviewInProgressException
 
 export namespace LifecyclePolicyPreviewInProgressException {
   export function isa(o: any): o is LifecyclePolicyPreviewInProgressException {
-    return _smithy.isa(o, "LifecyclePolicyPreviewInProgressException");
+    return __isa(o, "LifecyclePolicyPreviewInProgressException");
   }
 }
 
@@ -1718,7 +1721,7 @@ export namespace LifecyclePolicyPreviewInProgressException {
  * <p>There is no dry run for this repository.</p>
  */
 export interface LifecyclePolicyPreviewNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LifecyclePolicyPreviewNotFoundException";
   $fault: "client";
@@ -1727,7 +1730,7 @@ export interface LifecyclePolicyPreviewNotFoundException
 
 export namespace LifecyclePolicyPreviewNotFoundException {
   export function isa(o: any): o is LifecyclePolicyPreviewNotFoundException {
-    return _smithy.isa(o, "LifecyclePolicyPreviewNotFoundException");
+    return __isa(o, "LifecyclePolicyPreviewNotFoundException");
   }
 }
 
@@ -1765,7 +1768,7 @@ export interface LifecyclePolicyPreviewResult {
 
 export namespace LifecyclePolicyPreviewResult {
   export function isa(o: any): o is LifecyclePolicyPreviewResult {
-    return _smithy.isa(o, "LifecyclePolicyPreviewResult");
+    return __isa(o, "LifecyclePolicyPreviewResult");
   }
 }
 
@@ -1789,7 +1792,7 @@ export interface LifecyclePolicyPreviewSummary {
 
 export namespace LifecyclePolicyPreviewSummary {
   export function isa(o: any): o is LifecyclePolicyPreviewSummary {
-    return _smithy.isa(o, "LifecyclePolicyPreviewSummary");
+    return __isa(o, "LifecyclePolicyPreviewSummary");
   }
 }
 
@@ -1806,7 +1809,7 @@ export interface LifecyclePolicyRuleAction {
 
 export namespace LifecyclePolicyRuleAction {
   export function isa(o: any): o is LifecyclePolicyRuleAction {
-    return _smithy.isa(o, "LifecyclePolicyRuleAction");
+    return __isa(o, "LifecyclePolicyRuleAction");
   }
 }
 
@@ -1816,7 +1819,7 @@ export namespace LifecyclePolicyRuleAction {
  *                 Limits</a> in the Amazon Elastic Container Registry User Guide.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -1828,7 +1831,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -1847,7 +1850,7 @@ export interface ListImagesFilter {
 
 export namespace ListImagesFilter {
   export function isa(o: any): o is ListImagesFilter {
-    return _smithy.isa(o, "ListImagesFilter");
+    return __isa(o, "ListImagesFilter");
   }
 }
 
@@ -1898,7 +1901,7 @@ export interface ListImagesRequest {
 
 export namespace ListImagesRequest {
   export function isa(o: any): o is ListImagesRequest {
-    return _smithy.isa(o, "ListImagesRequest");
+    return __isa(o, "ListImagesRequest");
   }
 }
 
@@ -1921,7 +1924,7 @@ export interface ListImagesResponse extends $MetadataBearer {
 
 export namespace ListImagesResponse {
   export function isa(o: any): o is ListImagesResponse {
-    return _smithy.isa(o, "ListImagesResponse");
+    return __isa(o, "ListImagesResponse");
   }
 }
 
@@ -1936,7 +1939,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -1950,7 +1953,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -1981,7 +1984,7 @@ export interface PutImageRequest {
 
 export namespace PutImageRequest {
   export function isa(o: any): o is PutImageRequest {
-    return _smithy.isa(o, "PutImageRequest");
+    return __isa(o, "PutImageRequest");
   }
 }
 
@@ -1995,7 +1998,7 @@ export interface PutImageResponse extends $MetadataBearer {
 
 export namespace PutImageResponse {
   export function isa(o: any): o is PutImageResponse {
-    return _smithy.isa(o, "PutImageResponse");
+    return __isa(o, "PutImageResponse");
   }
 }
 
@@ -2024,7 +2027,7 @@ export interface PutImageScanningConfigurationRequest {
 
 export namespace PutImageScanningConfigurationRequest {
   export function isa(o: any): o is PutImageScanningConfigurationRequest {
-    return _smithy.isa(o, "PutImageScanningConfigurationRequest");
+    return __isa(o, "PutImageScanningConfigurationRequest");
   }
 }
 
@@ -2048,7 +2051,7 @@ export interface PutImageScanningConfigurationResponse extends $MetadataBearer {
 
 export namespace PutImageScanningConfigurationResponse {
   export function isa(o: any): o is PutImageScanningConfigurationResponse {
-    return _smithy.isa(o, "PutImageScanningConfigurationResponse");
+    return __isa(o, "PutImageScanningConfigurationResponse");
   }
 }
 
@@ -2077,7 +2080,7 @@ export interface PutImageTagMutabilityRequest {
 
 export namespace PutImageTagMutabilityRequest {
   export function isa(o: any): o is PutImageTagMutabilityRequest {
-    return _smithy.isa(o, "PutImageTagMutabilityRequest");
+    return __isa(o, "PutImageTagMutabilityRequest");
   }
 }
 
@@ -2101,7 +2104,7 @@ export interface PutImageTagMutabilityResponse extends $MetadataBearer {
 
 export namespace PutImageTagMutabilityResponse {
   export function isa(o: any): o is PutImageTagMutabilityResponse {
-    return _smithy.isa(o, "PutImageTagMutabilityResponse");
+    return __isa(o, "PutImageTagMutabilityResponse");
   }
 }
 
@@ -2126,7 +2129,7 @@ export interface PutLifecyclePolicyRequest {
 
 export namespace PutLifecyclePolicyRequest {
   export function isa(o: any): o is PutLifecyclePolicyRequest {
-    return _smithy.isa(o, "PutLifecyclePolicyRequest");
+    return __isa(o, "PutLifecyclePolicyRequest");
   }
 }
 
@@ -2150,7 +2153,7 @@ export interface PutLifecyclePolicyResponse extends $MetadataBearer {
 
 export namespace PutLifecyclePolicyResponse {
   export function isa(o: any): o is PutLifecyclePolicyResponse {
-    return _smithy.isa(o, "PutLifecyclePolicyResponse");
+    return __isa(o, "PutLifecyclePolicyResponse");
   }
 }
 
@@ -2200,7 +2203,7 @@ export interface Repository {
 
 export namespace Repository {
   export function isa(o: any): o is Repository {
-    return _smithy.isa(o, "Repository");
+    return __isa(o, "Repository");
   }
 }
 
@@ -2208,7 +2211,7 @@ export namespace Repository {
  * <p>The specified repository already exists in the specified registry.</p>
  */
 export interface RepositoryAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RepositoryAlreadyExistsException";
   $fault: "client";
@@ -2220,7 +2223,7 @@ export interface RepositoryAlreadyExistsException
 
 export namespace RepositoryAlreadyExistsException {
   export function isa(o: any): o is RepositoryAlreadyExistsException {
-    return _smithy.isa(o, "RepositoryAlreadyExistsException");
+    return __isa(o, "RepositoryAlreadyExistsException");
   }
 }
 
@@ -2229,7 +2232,7 @@ export namespace RepositoryAlreadyExistsException {
  *             you must force the deletion with the <code>force</code> parameter.</p>
  */
 export interface RepositoryNotEmptyException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RepositoryNotEmptyException";
   $fault: "client";
@@ -2241,7 +2244,7 @@ export interface RepositoryNotEmptyException
 
 export namespace RepositoryNotEmptyException {
   export function isa(o: any): o is RepositoryNotEmptyException {
-    return _smithy.isa(o, "RepositoryNotEmptyException");
+    return __isa(o, "RepositoryNotEmptyException");
   }
 }
 
@@ -2250,7 +2253,7 @@ export namespace RepositoryNotEmptyException {
  *             repository and ensure that you are performing operations on the correct registry.</p>
  */
 export interface RepositoryNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RepositoryNotFoundException";
   $fault: "client";
@@ -2262,7 +2265,7 @@ export interface RepositoryNotFoundException
 
 export namespace RepositoryNotFoundException {
   export function isa(o: any): o is RepositoryNotFoundException {
-    return _smithy.isa(o, "RepositoryNotFoundException");
+    return __isa(o, "RepositoryNotFoundException");
   }
 }
 
@@ -2271,7 +2274,7 @@ export namespace RepositoryNotFoundException {
  *             repository policy.</p>
  */
 export interface RepositoryPolicyNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "RepositoryPolicyNotFoundException";
   $fault: "client";
@@ -2283,7 +2286,7 @@ export interface RepositoryPolicyNotFoundException
 
 export namespace RepositoryPolicyNotFoundException {
   export function isa(o: any): o is RepositoryPolicyNotFoundException {
-    return _smithy.isa(o, "RepositoryPolicyNotFoundException");
+    return __isa(o, "RepositoryPolicyNotFoundException");
   }
 }
 
@@ -2292,7 +2295,7 @@ export namespace RepositoryPolicyNotFoundException {
  *             the repository and try again.</p>
  */
 export interface ScanNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ScanNotFoundException";
   $fault: "client";
@@ -2301,7 +2304,7 @@ export interface ScanNotFoundException
 
 export namespace ScanNotFoundException {
   export function isa(o: any): o is ScanNotFoundException {
-    return _smithy.isa(o, "ScanNotFoundException");
+    return __isa(o, "ScanNotFoundException");
   }
 }
 
@@ -2314,9 +2317,7 @@ export enum ScanStatus {
 /**
  * <p>These errors are usually caused by a server-side issue.</p>
  */
-export interface ServerException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServerException extends __SmithyException, $MetadataBearer {
   name: "ServerException";
   $fault: "server";
   /**
@@ -2327,7 +2328,7 @@ export interface ServerException
 
 export namespace ServerException {
   export function isa(o: any): o is ServerException {
-    return _smithy.isa(o, "ServerException");
+    return __isa(o, "ServerException");
   }
 }
 
@@ -2362,7 +2363,7 @@ export interface SetRepositoryPolicyRequest {
 
 export namespace SetRepositoryPolicyRequest {
   export function isa(o: any): o is SetRepositoryPolicyRequest {
-    return _smithy.isa(o, "SetRepositoryPolicyRequest");
+    return __isa(o, "SetRepositoryPolicyRequest");
   }
 }
 
@@ -2386,7 +2387,7 @@ export interface SetRepositoryPolicyResponse extends $MetadataBearer {
 
 export namespace SetRepositoryPolicyResponse {
   export function isa(o: any): o is SetRepositoryPolicyResponse {
-    return _smithy.isa(o, "SetRepositoryPolicyResponse");
+    return __isa(o, "SetRepositoryPolicyResponse");
   }
 }
 
@@ -2411,7 +2412,7 @@ export interface StartImageScanRequest {
 
 export namespace StartImageScanRequest {
   export function isa(o: any): o is StartImageScanRequest {
-    return _smithy.isa(o, "StartImageScanRequest");
+    return __isa(o, "StartImageScanRequest");
   }
 }
 
@@ -2440,7 +2441,7 @@ export interface StartImageScanResponse extends $MetadataBearer {
 
 export namespace StartImageScanResponse {
   export function isa(o: any): o is StartImageScanResponse {
-    return _smithy.isa(o, "StartImageScanResponse");
+    return __isa(o, "StartImageScanResponse");
   }
 }
 
@@ -2466,7 +2467,7 @@ export interface StartLifecyclePolicyPreviewRequest {
 
 export namespace StartLifecyclePolicyPreviewRequest {
   export function isa(o: any): o is StartLifecyclePolicyPreviewRequest {
-    return _smithy.isa(o, "StartLifecyclePolicyPreviewRequest");
+    return __isa(o, "StartLifecyclePolicyPreviewRequest");
   }
 }
 
@@ -2495,7 +2496,7 @@ export interface StartLifecyclePolicyPreviewResponse extends $MetadataBearer {
 
 export namespace StartLifecyclePolicyPreviewResponse {
   export function isa(o: any): o is StartLifecyclePolicyPreviewResponse {
-    return _smithy.isa(o, "StartLifecyclePolicyPreviewResponse");
+    return __isa(o, "StartLifecyclePolicyPreviewResponse");
   }
 }
 
@@ -2522,7 +2523,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -2544,7 +2545,7 @@ export interface TagResourceRequest {
 
 export namespace TagResourceRequest {
   export function isa(o: any): o is TagResourceRequest {
-    return _smithy.isa(o, "TagResourceRequest");
+    return __isa(o, "TagResourceRequest");
   }
 }
 
@@ -2554,7 +2555,7 @@ export interface TagResourceResponse extends $MetadataBearer {
 
 export namespace TagResourceResponse {
   export function isa(o: any): o is TagResourceResponse {
-    return _smithy.isa(o, "TagResourceResponse");
+    return __isa(o, "TagResourceResponse");
   }
 }
 
@@ -2569,7 +2570,7 @@ export enum TagStatus {
  *             can be applied to a repository is 50.</p>
  */
 export interface TooManyTagsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
@@ -2578,7 +2579,7 @@ export interface TooManyTagsException
 
 export namespace TooManyTagsException {
   export function isa(o: any): o is TooManyTagsException {
-    return _smithy.isa(o, "TooManyTagsException");
+    return __isa(o, "TooManyTagsException");
   }
 }
 
@@ -2598,7 +2599,7 @@ export interface UntagResourceRequest {
 
 export namespace UntagResourceRequest {
   export function isa(o: any): o is UntagResourceRequest {
-    return _smithy.isa(o, "UntagResourceRequest");
+    return __isa(o, "UntagResourceRequest");
   }
 }
 
@@ -2608,7 +2609,7 @@ export interface UntagResourceResponse extends $MetadataBearer {
 
 export namespace UntagResourceResponse {
   export function isa(o: any): o is UntagResourceResponse {
-    return _smithy.isa(o, "UntagResourceResponse");
+    return __isa(o, "UntagResourceResponse");
   }
 }
 
@@ -2649,7 +2650,7 @@ export interface UploadLayerPartRequest {
 
 export namespace UploadLayerPartRequest {
   export function isa(o: any): o is UploadLayerPartRequest {
-    return _smithy.isa(o, "UploadLayerPartRequest");
+    return __isa(o, "UploadLayerPartRequest");
   }
 }
 
@@ -2678,7 +2679,7 @@ export interface UploadLayerPartResponse extends $MetadataBearer {
 
 export namespace UploadLayerPartResponse {
   export function isa(o: any): o is UploadLayerPartResponse {
-    return _smithy.isa(o, "UploadLayerPartResponse");
+    return __isa(o, "UploadLayerPartResponse");
   }
 }
 
@@ -2687,7 +2688,7 @@ export namespace UploadLayerPartResponse {
  *             repository.</p>
  */
 export interface UploadNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UploadNotFoundException";
   $fault: "client";
@@ -2699,6 +2700,6 @@ export interface UploadNotFoundException
 
 export namespace UploadNotFoundException {
   export function isa(o: any): o is UploadNotFoundException {
-    return _smithy.isa(o, "UploadNotFoundException");
+    return __isa(o, "UploadNotFoundException");
   }
 }
