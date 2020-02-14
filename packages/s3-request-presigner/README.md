@@ -16,7 +16,7 @@ const signer = new S3Presigner({
   credentials: credentialsProvider,
   sha256: nodeSha256 //if the signer is used in browser, use `browserSha256` then
 });
-const url = signer.presign(request);
+const url = await signer.presign(request);
 ```
 
 Typescript Example:
@@ -30,7 +30,7 @@ const signer = new S3RequestPresigner({
   credentials: credentialsProvider,
   sha256: nodeSha256 //if the signer is used in browser, use `browserSha256` then
 });
-const url = signer.presign(request);
+const url = await signer.presign(request);
 ```
 
 To avoid redundant construction parameters when instantiate the s3 presigner,
