@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -39,7 +42,7 @@ export interface ActivityTask extends $MetadataBearer {
 
 export namespace ActivityTask {
   export function isa(o: any): o is ActivityTask {
-    return _smithy.isa(o, "ActivityTask");
+    return __isa(o, "ActivityTask");
   }
 }
 
@@ -62,7 +65,7 @@ export interface ActivityTaskCancelRequestedEventAttributes {
 
 export namespace ActivityTaskCancelRequestedEventAttributes {
   export function isa(o: any): o is ActivityTaskCancelRequestedEventAttributes {
-    return _smithy.isa(o, "ActivityTaskCancelRequestedEventAttributes");
+    return __isa(o, "ActivityTaskCancelRequestedEventAttributes");
   }
 }
 
@@ -96,7 +99,7 @@ export interface ActivityTaskCanceledEventAttributes {
 
 export namespace ActivityTaskCanceledEventAttributes {
   export function isa(o: any): o is ActivityTaskCanceledEventAttributes {
-    return _smithy.isa(o, "ActivityTaskCanceledEventAttributes");
+    return __isa(o, "ActivityTaskCanceledEventAttributes");
   }
 }
 
@@ -125,7 +128,7 @@ export interface ActivityTaskCompletedEventAttributes {
 
 export namespace ActivityTaskCompletedEventAttributes {
   export function isa(o: any): o is ActivityTaskCompletedEventAttributes {
-    return _smithy.isa(o, "ActivityTaskCompletedEventAttributes");
+    return __isa(o, "ActivityTaskCompletedEventAttributes");
   }
 }
 
@@ -159,7 +162,7 @@ export interface ActivityTaskFailedEventAttributes {
 
 export namespace ActivityTaskFailedEventAttributes {
   export function isa(o: any): o is ActivityTaskFailedEventAttributes {
-    return _smithy.isa(o, "ActivityTaskFailedEventAttributes");
+    return __isa(o, "ActivityTaskFailedEventAttributes");
   }
 }
 
@@ -233,7 +236,7 @@ export interface ActivityTaskScheduledEventAttributes {
 
 export namespace ActivityTaskScheduledEventAttributes {
   export function isa(o: any): o is ActivityTaskScheduledEventAttributes {
-    return _smithy.isa(o, "ActivityTaskScheduledEventAttributes");
+    return __isa(o, "ActivityTaskScheduledEventAttributes");
   }
 }
 
@@ -255,7 +258,7 @@ export interface ActivityTaskStartedEventAttributes {
 
 export namespace ActivityTaskStartedEventAttributes {
   export function isa(o: any): o is ActivityTaskStartedEventAttributes {
-    return _smithy.isa(o, "ActivityTaskStartedEventAttributes");
+    return __isa(o, "ActivityTaskStartedEventAttributes");
   }
 }
 
@@ -272,7 +275,7 @@ export interface ActivityTaskStatus extends $MetadataBearer {
 
 export namespace ActivityTaskStatus {
   export function isa(o: any): o is ActivityTaskStatus {
-    return _smithy.isa(o, "ActivityTaskStatus");
+    return __isa(o, "ActivityTaskStatus");
   }
 }
 
@@ -307,7 +310,7 @@ export interface ActivityTaskTimedOutEventAttributes {
 
 export namespace ActivityTaskTimedOutEventAttributes {
   export function isa(o: any): o is ActivityTaskTimedOutEventAttributes {
-    return _smithy.isa(o, "ActivityTaskTimedOutEventAttributes");
+    return __isa(o, "ActivityTaskTimedOutEventAttributes");
   }
 }
 
@@ -341,7 +344,7 @@ export interface ActivityType {
 
 export namespace ActivityType {
   export function isa(o: any): o is ActivityType {
-    return _smithy.isa(o, "ActivityType");
+    return __isa(o, "ActivityType");
   }
 }
 
@@ -416,7 +419,7 @@ export interface ActivityTypeConfiguration {
 
 export namespace ActivityTypeConfiguration {
   export function isa(o: any): o is ActivityTypeConfiguration {
-    return _smithy.isa(o, "ActivityTypeConfiguration");
+    return __isa(o, "ActivityTypeConfiguration");
   }
 }
 
@@ -454,7 +457,7 @@ export interface ActivityTypeDetail extends $MetadataBearer {
 
 export namespace ActivityTypeDetail {
   export function isa(o: any): o is ActivityTypeDetail {
-    return _smithy.isa(o, "ActivityTypeDetail");
+    return __isa(o, "ActivityTypeDetail");
   }
 }
 
@@ -491,7 +494,7 @@ export interface ActivityTypeInfo {
 
 export namespace ActivityTypeInfo {
   export function isa(o: any): o is ActivityTypeInfo {
-    return _smithy.isa(o, "ActivityTypeInfo");
+    return __isa(o, "ActivityTypeInfo");
   }
 }
 
@@ -516,7 +519,7 @@ export interface ActivityTypeInfos extends $MetadataBearer {
 
 export namespace ActivityTypeInfos {
   export function isa(o: any): o is ActivityTypeInfos {
-    return _smithy.isa(o, "ActivityTypeInfos");
+    return __isa(o, "ActivityTypeInfos");
   }
 }
 
@@ -554,7 +557,7 @@ export interface CancelTimerDecisionAttributes {
 
 export namespace CancelTimerDecisionAttributes {
   export function isa(o: any): o is CancelTimerDecisionAttributes {
-    return _smithy.isa(o, "CancelTimerDecisionAttributes");
+    return __isa(o, "CancelTimerDecisionAttributes");
   }
 }
 
@@ -590,7 +593,7 @@ export interface CancelTimerFailedEventAttributes {
 
 export namespace CancelTimerFailedEventAttributes {
   export function isa(o: any): o is CancelTimerFailedEventAttributes {
-    return _smithy.isa(o, "CancelTimerFailedEventAttributes");
+    return __isa(o, "CancelTimerFailedEventAttributes");
   }
 }
 
@@ -628,7 +631,7 @@ export interface CancelWorkflowExecutionDecisionAttributes {
 
 export namespace CancelWorkflowExecutionDecisionAttributes {
   export function isa(o: any): o is CancelWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "CancelWorkflowExecutionDecisionAttributes");
+    return __isa(o, "CancelWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -661,7 +664,7 @@ export namespace CancelWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is CancelWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "CancelWorkflowExecutionFailedEventAttributes");
+    return __isa(o, "CancelWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -708,7 +711,7 @@ export namespace ChildWorkflowExecutionCanceledEventAttributes {
   export function isa(
     o: any
   ): o is ChildWorkflowExecutionCanceledEventAttributes {
-    return _smithy.isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
+    return __isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
   }
 }
 
@@ -750,7 +753,7 @@ export namespace ChildWorkflowExecutionCompletedEventAttributes {
   export function isa(
     o: any
   ): o is ChildWorkflowExecutionCompletedEventAttributes {
-    return _smithy.isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
+    return __isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
   }
 }
 
@@ -800,7 +803,7 @@ export namespace ChildWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is ChildWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "ChildWorkflowExecutionFailedEventAttributes");
+    return __isa(o, "ChildWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -833,7 +836,7 @@ export namespace ChildWorkflowExecutionStartedEventAttributes {
   export function isa(
     o: any
   ): o is ChildWorkflowExecutionStartedEventAttributes {
-    return _smithy.isa(o, "ChildWorkflowExecutionStartedEventAttributes");
+    return __isa(o, "ChildWorkflowExecutionStartedEventAttributes");
   }
 }
 
@@ -873,7 +876,7 @@ export namespace ChildWorkflowExecutionTerminatedEventAttributes {
   export function isa(
     o: any
   ): o is ChildWorkflowExecutionTerminatedEventAttributes {
-    return _smithy.isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
+    return __isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
   }
 }
 
@@ -917,7 +920,7 @@ export namespace ChildWorkflowExecutionTimedOutEventAttributes {
   export function isa(
     o: any
   ): o is ChildWorkflowExecutionTimedOutEventAttributes {
-    return _smithy.isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
+    return __isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
   }
 }
 
@@ -944,7 +947,7 @@ export interface CloseStatusFilter {
 
 export namespace CloseStatusFilter {
   export function isa(o: any): o is CloseStatusFilter {
-    return _smithy.isa(o, "CloseStatusFilter");
+    return __isa(o, "CloseStatusFilter");
   }
 }
 
@@ -983,7 +986,7 @@ export namespace CompleteWorkflowExecutionDecisionAttributes {
   export function isa(
     o: any
   ): o is CompleteWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "CompleteWorkflowExecutionDecisionAttributes");
+    return __isa(o, "CompleteWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -1018,7 +1021,7 @@ export namespace CompleteWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is CompleteWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
+    return __isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -1154,7 +1157,7 @@ export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
   export function isa(
     o: any
   ): o is ContinueAsNewWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
+    return __isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -1196,10 +1199,7 @@ export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is ContinueAsNewWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(
-      o,
-      "ContinueAsNewWorkflowExecutionFailedEventAttributes"
-    );
+    return __isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -1556,7 +1556,7 @@ export interface Decision {
 
 export namespace Decision {
   export function isa(o: any): o is Decision {
-    return _smithy.isa(o, "Decision");
+    return __isa(o, "Decision");
   }
 }
 
@@ -1606,7 +1606,7 @@ export interface DecisionTask extends $MetadataBearer {
 
 export namespace DecisionTask {
   export function isa(o: any): o is DecisionTask {
-    return _smithy.isa(o, "DecisionTask");
+    return __isa(o, "DecisionTask");
   }
 }
 
@@ -1637,7 +1637,7 @@ export interface DecisionTaskCompletedEventAttributes {
 
 export namespace DecisionTaskCompletedEventAttributes {
   export function isa(o: any): o is DecisionTaskCompletedEventAttributes {
-    return _smithy.isa(o, "DecisionTaskCompletedEventAttributes");
+    return __isa(o, "DecisionTaskCompletedEventAttributes");
   }
 }
 
@@ -1669,7 +1669,7 @@ export interface DecisionTaskScheduledEventAttributes {
 
 export namespace DecisionTaskScheduledEventAttributes {
   export function isa(o: any): o is DecisionTaskScheduledEventAttributes {
-    return _smithy.isa(o, "DecisionTaskScheduledEventAttributes");
+    return __isa(o, "DecisionTaskScheduledEventAttributes");
   }
 }
 
@@ -1693,7 +1693,7 @@ export interface DecisionTaskStartedEventAttributes {
 
 export namespace DecisionTaskStartedEventAttributes {
   export function isa(o: any): o is DecisionTaskStartedEventAttributes {
-    return _smithy.isa(o, "DecisionTaskStartedEventAttributes");
+    return __isa(o, "DecisionTaskStartedEventAttributes");
   }
 }
 
@@ -1724,7 +1724,7 @@ export interface DecisionTaskTimedOutEventAttributes {
 
 export namespace DecisionTaskTimedOutEventAttributes {
   export function isa(o: any): o is DecisionTaskTimedOutEventAttributes {
-    return _smithy.isa(o, "DecisionTaskTimedOutEventAttributes");
+    return __isa(o, "DecisionTaskTimedOutEventAttributes");
   }
 }
 
@@ -1759,7 +1759,7 @@ export type DecisionType =
  *          </note>
  */
 export interface DefaultUndefinedFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DefaultUndefinedFault";
   $fault: "client";
@@ -1768,7 +1768,7 @@ export interface DefaultUndefinedFault
 
 export namespace DefaultUndefinedFault {
   export function isa(o: any): o is DefaultUndefinedFault {
-    return _smithy.isa(o, "DefaultUndefinedFault");
+    return __isa(o, "DefaultUndefinedFault");
   }
 }
 
@@ -1776,7 +1776,7 @@ export namespace DefaultUndefinedFault {
  * <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
  */
 export interface DomainAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DomainAlreadyExistsFault";
   $fault: "client";
@@ -1788,7 +1788,7 @@ export interface DomainAlreadyExistsFault
 
 export namespace DomainAlreadyExistsFault {
   export function isa(o: any): o is DomainAlreadyExistsFault {
-    return _smithy.isa(o, "DomainAlreadyExistsFault");
+    return __isa(o, "DomainAlreadyExistsFault");
   }
 }
 
@@ -1805,7 +1805,7 @@ export interface DomainConfiguration {
 
 export namespace DomainConfiguration {
   export function isa(o: any): o is DomainConfiguration {
-    return _smithy.isa(o, "DomainConfiguration");
+    return __isa(o, "DomainConfiguration");
   }
 }
 
@@ -1813,7 +1813,7 @@ export namespace DomainConfiguration {
  * <p>Returned when the specified domain has been deprecated.</p>
  */
 export interface DomainDeprecatedFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DomainDeprecatedFault";
   $fault: "client";
@@ -1825,7 +1825,7 @@ export interface DomainDeprecatedFault
 
 export namespace DomainDeprecatedFault {
   export function isa(o: any): o is DomainDeprecatedFault {
-    return _smithy.isa(o, "DomainDeprecatedFault");
+    return __isa(o, "DomainDeprecatedFault");
   }
 }
 
@@ -1849,7 +1849,7 @@ export interface DomainDetail extends $MetadataBearer {
 
 export namespace DomainDetail {
   export function isa(o: any): o is DomainDetail {
-    return _smithy.isa(o, "DomainDetail");
+    return __isa(o, "DomainDetail");
   }
 }
 
@@ -1895,7 +1895,7 @@ export interface DomainInfo {
 
 export namespace DomainInfo {
   export function isa(o: any): o is DomainInfo {
-    return _smithy.isa(o, "DomainInfo");
+    return __isa(o, "DomainInfo");
   }
 }
 
@@ -1920,7 +1920,7 @@ export interface DomainInfos extends $MetadataBearer {
 
 export namespace DomainInfos {
   export function isa(o: any): o is DomainInfos {
-    return _smithy.isa(o, "DomainInfos");
+    return __isa(o, "DomainInfos");
   }
 }
 
@@ -2003,7 +2003,7 @@ export interface ExecutionTimeFilter {
 
 export namespace ExecutionTimeFilter {
   export function isa(o: any): o is ExecutionTimeFilter {
-    return _smithy.isa(o, "ExecutionTimeFilter");
+    return __isa(o, "ExecutionTimeFilter");
   }
 }
 
@@ -2030,10 +2030,7 @@ export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
   export function isa(
     o: any
   ): o is ExternalWorkflowExecutionCancelRequestedEventAttributes {
-    return _smithy.isa(
-      o,
-      "ExternalWorkflowExecutionCancelRequestedEventAttributes"
-    );
+    return __isa(o, "ExternalWorkflowExecutionCancelRequestedEventAttributes");
   }
 }
 
@@ -2059,7 +2056,7 @@ export namespace ExternalWorkflowExecutionSignaledEventAttributes {
   export function isa(
     o: any
   ): o is ExternalWorkflowExecutionSignaledEventAttributes {
-    return _smithy.isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
+    return __isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
   }
 }
 
@@ -2103,7 +2100,7 @@ export interface FailWorkflowExecutionDecisionAttributes {
 
 export namespace FailWorkflowExecutionDecisionAttributes {
   export function isa(o: any): o is FailWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "FailWorkflowExecutionDecisionAttributes");
+    return __isa(o, "FailWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -2136,7 +2133,7 @@ export interface FailWorkflowExecutionFailedEventAttributes {
 
 export namespace FailWorkflowExecutionFailedEventAttributes {
   export function isa(o: any): o is FailWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "FailWorkflowExecutionFailedEventAttributes");
+    return __isa(o, "FailWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -2161,7 +2158,7 @@ export interface History extends $MetadataBearer {
 
 export namespace History {
   export function isa(o: any): o is History {
-    return _smithy.isa(o, "History");
+    return __isa(o, "History");
   }
 }
 
@@ -2729,7 +2726,7 @@ export interface HistoryEvent {
 
 export namespace HistoryEvent {
   export function isa(o: any): o is HistoryEvent {
-    return _smithy.isa(o, "HistoryEvent");
+    return __isa(o, "HistoryEvent");
   }
 }
 
@@ -2759,7 +2756,7 @@ export interface LambdaFunctionCompletedEventAttributes {
 
 export namespace LambdaFunctionCompletedEventAttributes {
   export function isa(o: any): o is LambdaFunctionCompletedEventAttributes {
-    return _smithy.isa(o, "LambdaFunctionCompletedEventAttributes");
+    return __isa(o, "LambdaFunctionCompletedEventAttributes");
   }
 }
 
@@ -2794,7 +2791,7 @@ export interface LambdaFunctionFailedEventAttributes {
 
 export namespace LambdaFunctionFailedEventAttributes {
   export function isa(o: any): o is LambdaFunctionFailedEventAttributes {
-    return _smithy.isa(o, "LambdaFunctionFailedEventAttributes");
+    return __isa(o, "LambdaFunctionFailedEventAttributes");
   }
 }
 
@@ -2839,7 +2836,7 @@ export interface LambdaFunctionScheduledEventAttributes {
 
 export namespace LambdaFunctionScheduledEventAttributes {
   export function isa(o: any): o is LambdaFunctionScheduledEventAttributes {
-    return _smithy.isa(o, "LambdaFunctionScheduledEventAttributes");
+    return __isa(o, "LambdaFunctionScheduledEventAttributes");
   }
 }
 
@@ -2858,7 +2855,7 @@ export interface LambdaFunctionStartedEventAttributes {
 
 export namespace LambdaFunctionStartedEventAttributes {
   export function isa(o: any): o is LambdaFunctionStartedEventAttributes {
-    return _smithy.isa(o, "LambdaFunctionStartedEventAttributes");
+    return __isa(o, "LambdaFunctionStartedEventAttributes");
   }
 }
 
@@ -2887,7 +2884,7 @@ export interface LambdaFunctionTimedOutEventAttributes {
 
 export namespace LambdaFunctionTimedOutEventAttributes {
   export function isa(o: any): o is LambdaFunctionTimedOutEventAttributes {
-    return _smithy.isa(o, "LambdaFunctionTimedOutEventAttributes");
+    return __isa(o, "LambdaFunctionTimedOutEventAttributes");
   }
 }
 
@@ -2896,9 +2893,7 @@ export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
 /**
  * <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
  */
-export interface LimitExceededFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
   name: "LimitExceededFault";
   $fault: "client";
   /**
@@ -2909,7 +2904,7 @@ export interface LimitExceededFault
 
 export namespace LimitExceededFault {
   export function isa(o: any): o is LimitExceededFault {
-    return _smithy.isa(o, "LimitExceededFault");
+    return __isa(o, "LimitExceededFault");
   }
 }
 
@@ -2938,7 +2933,7 @@ export interface MarkerRecordedEventAttributes {
 
 export namespace MarkerRecordedEventAttributes {
   export function isa(o: any): o is MarkerRecordedEventAttributes {
-    return _smithy.isa(o, "MarkerRecordedEventAttributes");
+    return __isa(o, "MarkerRecordedEventAttributes");
   }
 }
 
@@ -2946,7 +2941,7 @@ export namespace MarkerRecordedEventAttributes {
  * <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
  */
 export interface OperationNotPermittedFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "OperationNotPermittedFault";
   $fault: "client";
@@ -2958,7 +2953,7 @@ export interface OperationNotPermittedFault
 
 export namespace OperationNotPermittedFault {
   export function isa(o: any): o is OperationNotPermittedFault {
-    return _smithy.isa(o, "OperationNotPermittedFault");
+    return __isa(o, "OperationNotPermittedFault");
   }
 }
 
@@ -2980,7 +2975,7 @@ export interface PendingTaskCount extends $MetadataBearer {
 
 export namespace PendingTaskCount {
   export function isa(o: any): o is PendingTaskCount {
-    return _smithy.isa(o, "PendingTaskCount");
+    return __isa(o, "PendingTaskCount");
   }
 }
 
@@ -3024,7 +3019,7 @@ export interface RecordMarkerDecisionAttributes {
 
 export namespace RecordMarkerDecisionAttributes {
   export function isa(o: any): o is RecordMarkerDecisionAttributes {
-    return _smithy.isa(o, "RecordMarkerDecisionAttributes");
+    return __isa(o, "RecordMarkerDecisionAttributes");
   }
 }
 
@@ -3060,7 +3055,7 @@ export interface RecordMarkerFailedEventAttributes {
 
 export namespace RecordMarkerFailedEventAttributes {
   export function isa(o: any): o is RecordMarkerFailedEventAttributes {
-    return _smithy.isa(o, "RecordMarkerFailedEventAttributes");
+    return __isa(o, "RecordMarkerFailedEventAttributes");
   }
 }
 
@@ -3102,7 +3097,7 @@ export namespace RequestCancelActivityTaskDecisionAttributes {
   export function isa(
     o: any
   ): o is RequestCancelActivityTaskDecisionAttributes {
-    return _smithy.isa(o, "RequestCancelActivityTaskDecisionAttributes");
+    return __isa(o, "RequestCancelActivityTaskDecisionAttributes");
   }
 }
 
@@ -3142,7 +3137,7 @@ export namespace RequestCancelActivityTaskFailedEventAttributes {
   export function isa(
     o: any
   ): o is RequestCancelActivityTaskFailedEventAttributes {
-    return _smithy.isa(o, "RequestCancelActivityTaskFailedEventAttributes");
+    return __isa(o, "RequestCancelActivityTaskFailedEventAttributes");
   }
 }
 
@@ -3192,10 +3187,7 @@ export namespace RequestCancelExternalWorkflowExecutionDecisionAttributes {
   export function isa(
     o: any
   ): o is RequestCancelExternalWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(
-      o,
-      "RequestCancelExternalWorkflowExecutionDecisionAttributes"
-    );
+    return __isa(o, "RequestCancelExternalWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -3255,7 +3247,7 @@ export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(
+    return __isa(
       o,
       "RequestCancelExternalWorkflowExecutionFailedEventAttributes"
     );
@@ -3295,7 +3287,7 @@ export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
   export function isa(
     o: any
   ): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-    return _smithy.isa(
+    return __isa(
       o,
       "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes"
     );
@@ -3322,7 +3314,7 @@ export interface ResourceTag {
 
 export namespace ResourceTag {
   export function isa(o: any): o is ResourceTag {
-    return _smithy.isa(o, "ResourceTag");
+    return __isa(o, "ResourceTag");
   }
 }
 
@@ -3456,7 +3448,7 @@ export interface ScheduleActivityTaskDecisionAttributes {
 
 export namespace ScheduleActivityTaskDecisionAttributes {
   export function isa(o: any): o is ScheduleActivityTaskDecisionAttributes {
-    return _smithy.isa(o, "ScheduleActivityTaskDecisionAttributes");
+    return __isa(o, "ScheduleActivityTaskDecisionAttributes");
   }
 }
 
@@ -3508,7 +3500,7 @@ export interface ScheduleActivityTaskFailedEventAttributes {
 
 export namespace ScheduleActivityTaskFailedEventAttributes {
   export function isa(o: any): o is ScheduleActivityTaskFailedEventAttributes {
-    return _smithy.isa(o, "ScheduleActivityTaskFailedEventAttributes");
+    return __isa(o, "ScheduleActivityTaskFailedEventAttributes");
   }
 }
 
@@ -3547,7 +3539,7 @@ export interface ScheduleLambdaFunctionDecisionAttributes {
 
 export namespace ScheduleLambdaFunctionDecisionAttributes {
   export function isa(o: any): o is ScheduleLambdaFunctionDecisionAttributes {
-    return _smithy.isa(o, "ScheduleLambdaFunctionDecisionAttributes");
+    return __isa(o, "ScheduleLambdaFunctionDecisionAttributes");
   }
 }
 
@@ -3597,7 +3589,7 @@ export namespace ScheduleLambdaFunctionFailedEventAttributes {
   export function isa(
     o: any
   ): o is ScheduleLambdaFunctionFailedEventAttributes {
-    return _smithy.isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
+    return __isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
   }
 }
 
@@ -3661,7 +3653,7 @@ export namespace SignalExternalWorkflowExecutionDecisionAttributes {
   export function isa(
     o: any
   ): o is SignalExternalWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
+    return __isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -3720,10 +3712,7 @@ export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is SignalExternalWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(
-      o,
-      "SignalExternalWorkflowExecutionFailedEventAttributes"
-    );
+    return __isa(o, "SignalExternalWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -3769,10 +3758,7 @@ export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
   export function isa(
     o: any
   ): o is SignalExternalWorkflowExecutionInitiatedEventAttributes {
-    return _smithy.isa(
-      o,
-      "SignalExternalWorkflowExecutionInitiatedEventAttributes"
-    );
+    return __isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
   }
 }
 
@@ -3931,7 +3917,7 @@ export namespace StartChildWorkflowExecutionDecisionAttributes {
   export function isa(
     o: any
   ): o is StartChildWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "StartChildWorkflowExecutionDecisionAttributes");
+    return __isa(o, "StartChildWorkflowExecutionDecisionAttributes");
   }
 }
 
@@ -4001,7 +3987,7 @@ export namespace StartChildWorkflowExecutionFailedEventAttributes {
   export function isa(
     o: any
   ): o is StartChildWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
+    return __isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -4102,10 +4088,7 @@ export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
   export function isa(
     o: any
   ): o is StartChildWorkflowExecutionInitiatedEventAttributes {
-    return _smithy.isa(
-      o,
-      "StartChildWorkflowExecutionInitiatedEventAttributes"
-    );
+    return __isa(o, "StartChildWorkflowExecutionInitiatedEventAttributes");
   }
 }
 
@@ -4142,7 +4125,7 @@ export interface StartLambdaFunctionFailedEventAttributes {
 
 export namespace StartLambdaFunctionFailedEventAttributes {
   export function isa(o: any): o is StartLambdaFunctionFailedEventAttributes {
-    return _smithy.isa(o, "StartLambdaFunctionFailedEventAttributes");
+    return __isa(o, "StartLambdaFunctionFailedEventAttributes");
   }
 }
 
@@ -4194,7 +4177,7 @@ export interface StartTimerDecisionAttributes {
 
 export namespace StartTimerDecisionAttributes {
   export function isa(o: any): o is StartTimerDecisionAttributes {
-    return _smithy.isa(o, "StartTimerDecisionAttributes");
+    return __isa(o, "StartTimerDecisionAttributes");
   }
 }
 
@@ -4234,7 +4217,7 @@ export interface StartTimerFailedEventAttributes {
 
 export namespace StartTimerFailedEventAttributes {
   export function isa(o: any): o is StartTimerFailedEventAttributes {
-    return _smithy.isa(o, "StartTimerFailedEventAttributes");
+    return __isa(o, "StartTimerFailedEventAttributes");
   }
 }
 
@@ -4254,7 +4237,7 @@ export interface TagFilter {
 
 export namespace TagFilter {
   export function isa(o: any): o is TagFilter {
-    return _smithy.isa(o, "TagFilter");
+    return __isa(o, "TagFilter");
   }
 }
 
@@ -4271,7 +4254,7 @@ export interface TaskList {
 
 export namespace TaskList {
   export function isa(o: any): o is TaskList {
-    return _smithy.isa(o, "TaskList");
+    return __isa(o, "TaskList");
   }
 }
 
@@ -4304,7 +4287,7 @@ export interface TimerCanceledEventAttributes {
 
 export namespace TimerCanceledEventAttributes {
   export function isa(o: any): o is TimerCanceledEventAttributes {
-    return _smithy.isa(o, "TimerCanceledEventAttributes");
+    return __isa(o, "TimerCanceledEventAttributes");
   }
 }
 
@@ -4328,7 +4311,7 @@ export interface TimerFiredEventAttributes {
 
 export namespace TimerFiredEventAttributes {
   export function isa(o: any): o is TimerFiredEventAttributes {
-    return _smithy.isa(o, "TimerFiredEventAttributes");
+    return __isa(o, "TimerFiredEventAttributes");
   }
 }
 
@@ -4363,16 +4346,14 @@ export interface TimerStartedEventAttributes {
 
 export namespace TimerStartedEventAttributes {
   export function isa(o: any): o is TimerStartedEventAttributes {
-    return _smithy.isa(o, "TimerStartedEventAttributes");
+    return __isa(o, "TimerStartedEventAttributes");
   }
 }
 
 /**
  * <p>You've exceeded the number of tags allowed for a domain.</p>
  */
-export interface TooManyTagsFault
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsFault extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsFault";
   $fault: "client";
   message?: string;
@@ -4380,7 +4361,7 @@ export interface TooManyTagsFault
 
 export namespace TooManyTagsFault {
   export function isa(o: any): o is TooManyTagsFault {
-    return _smithy.isa(o, "TooManyTagsFault");
+    return __isa(o, "TooManyTagsFault");
   }
 }
 
@@ -4388,7 +4369,7 @@ export namespace TooManyTagsFault {
  * <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
  */
 export interface TypeAlreadyExistsFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TypeAlreadyExistsFault";
   $fault: "client";
@@ -4400,7 +4381,7 @@ export interface TypeAlreadyExistsFault
 
 export namespace TypeAlreadyExistsFault {
   export function isa(o: any): o is TypeAlreadyExistsFault {
-    return _smithy.isa(o, "TypeAlreadyExistsFault");
+    return __isa(o, "TypeAlreadyExistsFault");
   }
 }
 
@@ -4408,7 +4389,7 @@ export namespace TypeAlreadyExistsFault {
  * <p>Returned when the specified activity or workflow type was already deprecated.</p>
  */
 export interface TypeDeprecatedFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TypeDeprecatedFault";
   $fault: "client";
@@ -4420,7 +4401,7 @@ export interface TypeDeprecatedFault
 
 export namespace TypeDeprecatedFault {
   export function isa(o: any): o is TypeDeprecatedFault {
-    return _smithy.isa(o, "TypeDeprecatedFault");
+    return __isa(o, "TypeDeprecatedFault");
   }
 }
 
@@ -4428,7 +4409,7 @@ export namespace TypeDeprecatedFault {
  * <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  */
 export interface UnknownResourceFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "UnknownResourceFault";
   $fault: "client";
@@ -4440,7 +4421,7 @@ export interface UnknownResourceFault
 
 export namespace UnknownResourceFault {
   export function isa(o: any): o is UnknownResourceFault {
-    return _smithy.isa(o, "UnknownResourceFault");
+    return __isa(o, "UnknownResourceFault");
   }
 }
 
@@ -4462,7 +4443,7 @@ export interface WorkflowExecution {
 
 export namespace WorkflowExecution {
   export function isa(o: any): o is WorkflowExecution {
-    return _smithy.isa(o, "WorkflowExecution");
+    return __isa(o, "WorkflowExecution");
   }
 }
 
@@ -4471,7 +4452,7 @@ export namespace WorkflowExecution {
  *       the specified domain.</p>
  */
 export interface WorkflowExecutionAlreadyStartedFault
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "WorkflowExecutionAlreadyStartedFault";
   $fault: "client";
@@ -4483,7 +4464,7 @@ export interface WorkflowExecutionAlreadyStartedFault
 
 export namespace WorkflowExecutionAlreadyStartedFault {
   export function isa(o: any): o is WorkflowExecutionAlreadyStartedFault {
-    return _smithy.isa(o, "WorkflowExecutionAlreadyStartedFault");
+    return __isa(o, "WorkflowExecutionAlreadyStartedFault");
   }
 }
 
@@ -4517,7 +4498,7 @@ export namespace WorkflowExecutionCancelRequestedEventAttributes {
   export function isa(
     o: any
   ): o is WorkflowExecutionCancelRequestedEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
+    return __isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
   }
 }
 
@@ -4541,7 +4522,7 @@ export interface WorkflowExecutionCanceledEventAttributes {
 
 export namespace WorkflowExecutionCanceledEventAttributes {
   export function isa(o: any): o is WorkflowExecutionCanceledEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionCanceledEventAttributes");
+    return __isa(o, "WorkflowExecutionCanceledEventAttributes");
   }
 }
 
@@ -4565,7 +4546,7 @@ export interface WorkflowExecutionCompletedEventAttributes {
 
 export namespace WorkflowExecutionCompletedEventAttributes {
   export function isa(o: any): o is WorkflowExecutionCompletedEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionCompletedEventAttributes");
+    return __isa(o, "WorkflowExecutionCompletedEventAttributes");
   }
 }
 
@@ -4629,7 +4610,7 @@ export interface WorkflowExecutionConfiguration {
 
 export namespace WorkflowExecutionConfiguration {
   export function isa(o: any): o is WorkflowExecutionConfiguration {
-    return _smithy.isa(o, "WorkflowExecutionConfiguration");
+    return __isa(o, "WorkflowExecutionConfiguration");
   }
 }
 
@@ -4722,7 +4703,7 @@ export namespace WorkflowExecutionContinuedAsNewEventAttributes {
   export function isa(
     o: any
   ): o is WorkflowExecutionContinuedAsNewEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
+    return __isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
   }
 }
 
@@ -4746,7 +4727,7 @@ export interface WorkflowExecutionCount extends $MetadataBearer {
 
 export namespace WorkflowExecutionCount {
   export function isa(o: any): o is WorkflowExecutionCount {
-    return _smithy.isa(o, "WorkflowExecutionCount");
+    return __isa(o, "WorkflowExecutionCount");
   }
 }
 
@@ -4784,7 +4765,7 @@ export interface WorkflowExecutionDetail extends $MetadataBearer {
 
 export namespace WorkflowExecutionDetail {
   export function isa(o: any): o is WorkflowExecutionDetail {
-    return _smithy.isa(o, "WorkflowExecutionDetail");
+    return __isa(o, "WorkflowExecutionDetail");
   }
 }
 
@@ -4813,7 +4794,7 @@ export interface WorkflowExecutionFailedEventAttributes {
 
 export namespace WorkflowExecutionFailedEventAttributes {
   export function isa(o: any): o is WorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionFailedEventAttributes");
+    return __isa(o, "WorkflowExecutionFailedEventAttributes");
   }
 }
 
@@ -4830,7 +4811,7 @@ export interface WorkflowExecutionFilter {
 
 export namespace WorkflowExecutionFilter {
   export function isa(o: any): o is WorkflowExecutionFilter {
-    return _smithy.isa(o, "WorkflowExecutionFilter");
+    return __isa(o, "WorkflowExecutionFilter");
   }
 }
 
@@ -4916,7 +4897,7 @@ export interface WorkflowExecutionInfo {
 
 export namespace WorkflowExecutionInfo {
   export function isa(o: any): o is WorkflowExecutionInfo {
-    return _smithy.isa(o, "WorkflowExecutionInfo");
+    return __isa(o, "WorkflowExecutionInfo");
   }
 }
 
@@ -4941,7 +4922,7 @@ export interface WorkflowExecutionInfos extends $MetadataBearer {
 
 export namespace WorkflowExecutionInfos {
   export function isa(o: any): o is WorkflowExecutionInfos {
-    return _smithy.isa(o, "WorkflowExecutionInfos");
+    return __isa(o, "WorkflowExecutionInfos");
   }
 }
 
@@ -4978,7 +4959,7 @@ export interface WorkflowExecutionOpenCounts {
 
 export namespace WorkflowExecutionOpenCounts {
   export function isa(o: any): o is WorkflowExecutionOpenCounts {
-    return _smithy.isa(o, "WorkflowExecutionOpenCounts");
+    return __isa(o, "WorkflowExecutionOpenCounts");
   }
 }
 
@@ -5014,7 +4995,7 @@ export interface WorkflowExecutionSignaledEventAttributes {
 
 export namespace WorkflowExecutionSignaledEventAttributes {
   export function isa(o: any): o is WorkflowExecutionSignaledEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionSignaledEventAttributes");
+    return __isa(o, "WorkflowExecutionSignaledEventAttributes");
   }
 }
 
@@ -5112,7 +5093,7 @@ export interface WorkflowExecutionStartedEventAttributes {
 
 export namespace WorkflowExecutionStartedEventAttributes {
   export function isa(o: any): o is WorkflowExecutionStartedEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionStartedEventAttributes");
+    return __isa(o, "WorkflowExecutionStartedEventAttributes");
   }
 }
 
@@ -5166,7 +5147,7 @@ export interface WorkflowExecutionTerminatedEventAttributes {
 
 export namespace WorkflowExecutionTerminatedEventAttributes {
   export function isa(o: any): o is WorkflowExecutionTerminatedEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionTerminatedEventAttributes");
+    return __isa(o, "WorkflowExecutionTerminatedEventAttributes");
   }
 }
 
@@ -5205,7 +5186,7 @@ export interface WorkflowExecutionTimedOutEventAttributes {
 
 export namespace WorkflowExecutionTimedOutEventAttributes {
   export function isa(o: any): o is WorkflowExecutionTimedOutEventAttributes {
-    return _smithy.isa(o, "WorkflowExecutionTimedOutEventAttributes");
+    return __isa(o, "WorkflowExecutionTimedOutEventAttributes");
   }
 }
 
@@ -5237,7 +5218,7 @@ export interface WorkflowType {
 
 export namespace WorkflowType {
   export function isa(o: any): o is WorkflowType {
-    return _smithy.isa(o, "WorkflowType");
+    return __isa(o, "WorkflowType");
   }
 }
 
@@ -5329,7 +5310,7 @@ export interface WorkflowTypeConfiguration {
 
 export namespace WorkflowTypeConfiguration {
   export function isa(o: any): o is WorkflowTypeConfiguration {
-    return _smithy.isa(o, "WorkflowTypeConfiguration");
+    return __isa(o, "WorkflowTypeConfiguration");
   }
 }
 
@@ -5364,7 +5345,7 @@ export interface WorkflowTypeDetail extends $MetadataBearer {
 
 export namespace WorkflowTypeDetail {
   export function isa(o: any): o is WorkflowTypeDetail {
-    return _smithy.isa(o, "WorkflowTypeDetail");
+    return __isa(o, "WorkflowTypeDetail");
   }
 }
 
@@ -5387,7 +5368,7 @@ export interface WorkflowTypeFilter {
 
 export namespace WorkflowTypeFilter {
   export function isa(o: any): o is WorkflowTypeFilter {
-    return _smithy.isa(o, "WorkflowTypeFilter");
+    return __isa(o, "WorkflowTypeFilter");
   }
 }
 
@@ -5424,7 +5405,7 @@ export interface WorkflowTypeInfo {
 
 export namespace WorkflowTypeInfo {
   export function isa(o: any): o is WorkflowTypeInfo {
-    return _smithy.isa(o, "WorkflowTypeInfo");
+    return __isa(o, "WorkflowTypeInfo");
   }
 }
 
@@ -5449,7 +5430,7 @@ export interface WorkflowTypeInfos extends $MetadataBearer {
 
 export namespace WorkflowTypeInfos {
   export function isa(o: any): o is WorkflowTypeInfos {
-    return _smithy.isa(o, "WorkflowTypeInfos");
+    return __isa(o, "WorkflowTypeInfos");
   }
 }
 
@@ -5533,7 +5514,7 @@ export interface CountClosedWorkflowExecutionsInput {
 
 export namespace CountClosedWorkflowExecutionsInput {
   export function isa(o: any): o is CountClosedWorkflowExecutionsInput {
-    return _smithy.isa(o, "CountClosedWorkflowExecutionsInput");
+    return __isa(o, "CountClosedWorkflowExecutionsInput");
   }
 }
 
@@ -5585,7 +5566,7 @@ export interface CountOpenWorkflowExecutionsInput {
 
 export namespace CountOpenWorkflowExecutionsInput {
   export function isa(o: any): o is CountOpenWorkflowExecutionsInput {
-    return _smithy.isa(o, "CountOpenWorkflowExecutionsInput");
+    return __isa(o, "CountOpenWorkflowExecutionsInput");
   }
 }
 
@@ -5604,7 +5585,7 @@ export interface CountPendingActivityTasksInput {
 
 export namespace CountPendingActivityTasksInput {
   export function isa(o: any): o is CountPendingActivityTasksInput {
-    return _smithy.isa(o, "CountPendingActivityTasksInput");
+    return __isa(o, "CountPendingActivityTasksInput");
   }
 }
 
@@ -5623,7 +5604,7 @@ export interface CountPendingDecisionTasksInput {
 
 export namespace CountPendingDecisionTasksInput {
   export function isa(o: any): o is CountPendingDecisionTasksInput {
-    return _smithy.isa(o, "CountPendingDecisionTasksInput");
+    return __isa(o, "CountPendingDecisionTasksInput");
   }
 }
 
@@ -5642,7 +5623,7 @@ export interface DeprecateActivityTypeInput {
 
 export namespace DeprecateActivityTypeInput {
   export function isa(o: any): o is DeprecateActivityTypeInput {
-    return _smithy.isa(o, "DeprecateActivityTypeInput");
+    return __isa(o, "DeprecateActivityTypeInput");
   }
 }
 
@@ -5656,7 +5637,7 @@ export interface DeprecateDomainInput {
 
 export namespace DeprecateDomainInput {
   export function isa(o: any): o is DeprecateDomainInput {
-    return _smithy.isa(o, "DeprecateDomainInput");
+    return __isa(o, "DeprecateDomainInput");
   }
 }
 
@@ -5675,7 +5656,7 @@ export interface DeprecateWorkflowTypeInput {
 
 export namespace DeprecateWorkflowTypeInput {
   export function isa(o: any): o is DeprecateWorkflowTypeInput {
-    return _smithy.isa(o, "DeprecateWorkflowTypeInput");
+    return __isa(o, "DeprecateWorkflowTypeInput");
   }
 }
 
@@ -5696,7 +5677,7 @@ export interface DescribeActivityTypeInput {
 
 export namespace DescribeActivityTypeInput {
   export function isa(o: any): o is DescribeActivityTypeInput {
-    return _smithy.isa(o, "DescribeActivityTypeInput");
+    return __isa(o, "DescribeActivityTypeInput");
   }
 }
 
@@ -5710,7 +5691,7 @@ export interface DescribeDomainInput {
 
 export namespace DescribeDomainInput {
   export function isa(o: any): o is DescribeDomainInput {
-    return _smithy.isa(o, "DescribeDomainInput");
+    return __isa(o, "DescribeDomainInput");
   }
 }
 
@@ -5729,7 +5710,7 @@ export interface DescribeWorkflowExecutionInput {
 
 export namespace DescribeWorkflowExecutionInput {
   export function isa(o: any): o is DescribeWorkflowExecutionInput {
-    return _smithy.isa(o, "DescribeWorkflowExecutionInput");
+    return __isa(o, "DescribeWorkflowExecutionInput");
   }
 }
 
@@ -5748,7 +5729,7 @@ export interface DescribeWorkflowTypeInput {
 
 export namespace DescribeWorkflowTypeInput {
   export function isa(o: any): o is DescribeWorkflowTypeInput {
-    return _smithy.isa(o, "DescribeWorkflowTypeInput");
+    return __isa(o, "DescribeWorkflowTypeInput");
   }
 }
 
@@ -5792,7 +5773,7 @@ export interface GetWorkflowExecutionHistoryInput {
 
 export namespace GetWorkflowExecutionHistoryInput {
   export function isa(o: any): o is GetWorkflowExecutionHistoryInput {
-    return _smithy.isa(o, "GetWorkflowExecutionHistoryInput");
+    return __isa(o, "GetWorkflowExecutionHistoryInput");
   }
 }
 
@@ -5841,7 +5822,7 @@ export interface ListActivityTypesInput {
 
 export namespace ListActivityTypesInput {
   export function isa(o: any): o is ListActivityTypesInput {
-    return _smithy.isa(o, "ListActivityTypesInput");
+    return __isa(o, "ListActivityTypesInput");
   }
 }
 
@@ -5952,7 +5933,7 @@ export interface ListClosedWorkflowExecutionsInput {
 
 export namespace ListClosedWorkflowExecutionsInput {
   export function isa(o: any): o is ListClosedWorkflowExecutionsInput {
-    return _smithy.isa(o, "ListClosedWorkflowExecutionsInput");
+    return __isa(o, "ListClosedWorkflowExecutionsInput");
   }
 }
 
@@ -5991,7 +5972,7 @@ export interface ListDomainsInput {
 
 export namespace ListDomainsInput {
   export function isa(o: any): o is ListDomainsInput {
-    return _smithy.isa(o, "ListDomainsInput");
+    return __isa(o, "ListDomainsInput");
   }
 }
 
@@ -6067,7 +6048,7 @@ export interface ListOpenWorkflowExecutionsInput {
 
 export namespace ListOpenWorkflowExecutionsInput {
   export function isa(o: any): o is ListOpenWorkflowExecutionsInput {
-    return _smithy.isa(o, "ListOpenWorkflowExecutionsInput");
+    return __isa(o, "ListOpenWorkflowExecutionsInput");
   }
 }
 
@@ -6081,7 +6062,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -6095,7 +6076,7 @@ export interface ListTagsForResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
-    return _smithy.isa(o, "ListTagsForResourceOutput");
+    return __isa(o, "ListTagsForResourceOutput");
   }
 }
 
@@ -6144,7 +6125,7 @@ export interface ListWorkflowTypesInput {
 
 export namespace ListWorkflowTypesInput {
   export function isa(o: any): o is ListWorkflowTypesInput {
-    return _smithy.isa(o, "ListWorkflowTypesInput");
+    return __isa(o, "ListWorkflowTypesInput");
   }
 }
 
@@ -6175,7 +6156,7 @@ export interface PollForActivityTaskInput {
 
 export namespace PollForActivityTaskInput {
   export function isa(o: any): o is PollForActivityTaskInput {
-    return _smithy.isa(o, "PollForActivityTaskInput");
+    return __isa(o, "PollForActivityTaskInput");
   }
 }
 
@@ -6239,7 +6220,7 @@ export interface PollForDecisionTaskInput {
 
 export namespace PollForDecisionTaskInput {
   export function isa(o: any): o is PollForDecisionTaskInput {
-    return _smithy.isa(o, "PollForDecisionTaskInput");
+    return __isa(o, "PollForDecisionTaskInput");
   }
 }
 
@@ -6264,7 +6245,7 @@ export interface RecordActivityTaskHeartbeatInput {
 
 export namespace RecordActivityTaskHeartbeatInput {
   export function isa(o: any): o is RecordActivityTaskHeartbeatInput {
-    return _smithy.isa(o, "RecordActivityTaskHeartbeatInput");
+    return __isa(o, "RecordActivityTaskHeartbeatInput");
   }
 }
 
@@ -6370,7 +6351,7 @@ export interface RegisterActivityTypeInput {
 
 export namespace RegisterActivityTypeInput {
   export function isa(o: any): o is RegisterActivityTypeInput {
-    return _smithy.isa(o, "RegisterActivityTypeInput");
+    return __isa(o, "RegisterActivityTypeInput");
   }
 }
 
@@ -6414,7 +6395,7 @@ export interface RegisterDomainInput {
 
 export namespace RegisterDomainInput {
   export function isa(o: any): o is RegisterDomainInput {
-    return _smithy.isa(o, "RegisterDomainInput");
+    return __isa(o, "RegisterDomainInput");
   }
 }
 
@@ -6537,7 +6518,7 @@ export interface RegisterWorkflowTypeInput {
 
 export namespace RegisterWorkflowTypeInput {
   export function isa(o: any): o is RegisterWorkflowTypeInput {
-    return _smithy.isa(o, "RegisterWorkflowTypeInput");
+    return __isa(o, "RegisterWorkflowTypeInput");
   }
 }
 
@@ -6561,7 +6542,7 @@ export interface RequestCancelWorkflowExecutionInput {
 
 export namespace RequestCancelWorkflowExecutionInput {
   export function isa(o: any): o is RequestCancelWorkflowExecutionInput {
-    return _smithy.isa(o, "RequestCancelWorkflowExecutionInput");
+    return __isa(o, "RequestCancelWorkflowExecutionInput");
   }
 }
 
@@ -6586,7 +6567,7 @@ export interface RespondActivityTaskCanceledInput {
 
 export namespace RespondActivityTaskCanceledInput {
   export function isa(o: any): o is RespondActivityTaskCanceledInput {
-    return _smithy.isa(o, "RespondActivityTaskCanceledInput");
+    return __isa(o, "RespondActivityTaskCanceledInput");
   }
 }
 
@@ -6612,7 +6593,7 @@ export interface RespondActivityTaskCompletedInput {
 
 export namespace RespondActivityTaskCompletedInput {
   export function isa(o: any): o is RespondActivityTaskCompletedInput {
-    return _smithy.isa(o, "RespondActivityTaskCompletedInput");
+    return __isa(o, "RespondActivityTaskCompletedInput");
   }
 }
 
@@ -6643,7 +6624,7 @@ export interface RespondActivityTaskFailedInput {
 
 export namespace RespondActivityTaskFailedInput {
   export function isa(o: any): o is RespondActivityTaskFailedInput {
-    return _smithy.isa(o, "RespondActivityTaskFailedInput");
+    return __isa(o, "RespondActivityTaskFailedInput");
   }
 }
 
@@ -6678,7 +6659,7 @@ export interface RespondDecisionTaskCompletedInput {
 
 export namespace RespondDecisionTaskCompletedInput {
   export function isa(o: any): o is RespondDecisionTaskCompletedInput {
-    return _smithy.isa(o, "RespondDecisionTaskCompletedInput");
+    return __isa(o, "RespondDecisionTaskCompletedInput");
   }
 }
 
@@ -6696,7 +6677,7 @@ export interface Run extends $MetadataBearer {
 
 export namespace Run {
   export function isa(o: any): o is Run {
-    return _smithy.isa(o, "Run");
+    return __isa(o, "Run");
   }
 }
 
@@ -6731,7 +6712,7 @@ export interface SignalWorkflowExecutionInput {
 
 export namespace SignalWorkflowExecutionInput {
   export function isa(o: any): o is SignalWorkflowExecutionInput {
-    return _smithy.isa(o, "SignalWorkflowExecutionInput");
+    return __isa(o, "SignalWorkflowExecutionInput");
   }
 }
 
@@ -6882,7 +6863,7 @@ export interface StartWorkflowExecutionInput {
 
 export namespace StartWorkflowExecutionInput {
   export function isa(o: any): o is StartWorkflowExecutionInput {
-    return _smithy.isa(o, "StartWorkflowExecutionInput");
+    return __isa(o, "StartWorkflowExecutionInput");
   }
 }
 
@@ -6902,7 +6883,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -6967,7 +6948,7 @@ export interface TerminateWorkflowExecutionInput {
 
 export namespace TerminateWorkflowExecutionInput {
   export function isa(o: any): o is TerminateWorkflowExecutionInput {
-    return _smithy.isa(o, "TerminateWorkflowExecutionInput");
+    return __isa(o, "TerminateWorkflowExecutionInput");
   }
 }
 
@@ -6986,7 +6967,7 @@ export interface UndeprecateActivityTypeInput {
 
 export namespace UndeprecateActivityTypeInput {
   export function isa(o: any): o is UndeprecateActivityTypeInput {
-    return _smithy.isa(o, "UndeprecateActivityTypeInput");
+    return __isa(o, "UndeprecateActivityTypeInput");
   }
 }
 
@@ -7000,7 +6981,7 @@ export interface UndeprecateDomainInput {
 
 export namespace UndeprecateDomainInput {
   export function isa(o: any): o is UndeprecateDomainInput {
-    return _smithy.isa(o, "UndeprecateDomainInput");
+    return __isa(o, "UndeprecateDomainInput");
   }
 }
 
@@ -7019,7 +7000,7 @@ export interface UndeprecateWorkflowTypeInput {
 
 export namespace UndeprecateWorkflowTypeInput {
   export function isa(o: any): o is UndeprecateWorkflowTypeInput {
-    return _smithy.isa(o, "UndeprecateWorkflowTypeInput");
+    return __isa(o, "UndeprecateWorkflowTypeInput");
   }
 }
 
@@ -7038,6 +7019,6 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }

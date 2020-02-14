@@ -1,12 +1,13 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Indicates that either your AWS credentials are invalid or you do not have access to the EC2 instance.</p>
  */
-export interface AuthException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface AuthException extends __SmithyException, $MetadataBearer {
   name: "AuthException";
   $fault: "client";
   Message?: string;
@@ -14,7 +15,7 @@ export interface AuthException
 
 export namespace AuthException {
   export function isa(o: any): o is AuthException {
-    return _smithy.isa(o, "AuthException");
+    return __isa(o, "AuthException");
   }
 }
 
@@ -22,7 +23,7 @@ export namespace AuthException {
  * <p>Indicates that the instance requested was not found in the given zone.  Check that you have provided a valid instance ID and the correct zone.</p>
  */
 export interface EC2InstanceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "EC2InstanceNotFoundException";
   $fault: "client";
@@ -31,7 +32,7 @@ export interface EC2InstanceNotFoundException
 
 export namespace EC2InstanceNotFoundException {
   export function isa(o: any): o is EC2InstanceNotFoundException {
-    return _smithy.isa(o, "EC2InstanceNotFoundException");
+    return __isa(o, "EC2InstanceNotFoundException");
   }
 }
 
@@ -39,7 +40,7 @@ export namespace EC2InstanceNotFoundException {
  * <p>Indicates that you provided bad input.  Ensure you have a valid instance ID, the correct zone, and a valid SSH public key.</p>
  */
 export interface InvalidArgsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgsException";
   $fault: "client";
@@ -48,7 +49,7 @@ export interface InvalidArgsException
 
 export namespace InvalidArgsException {
   export function isa(o: any): o is InvalidArgsException {
-    return _smithy.isa(o, "InvalidArgsException");
+    return __isa(o, "InvalidArgsException");
   }
 }
 
@@ -77,7 +78,7 @@ export interface SendSSHPublicKeyRequest {
 
 export namespace SendSSHPublicKeyRequest {
   export function isa(o: any): o is SendSSHPublicKeyRequest {
-    return _smithy.isa(o, "SendSSHPublicKeyRequest");
+    return __isa(o, "SendSSHPublicKeyRequest");
   }
 }
 
@@ -96,16 +97,14 @@ export interface SendSSHPublicKeyResponse extends $MetadataBearer {
 
 export namespace SendSSHPublicKeyResponse {
   export function isa(o: any): o is SendSSHPublicKeyResponse {
-    return _smithy.isa(o, "SendSSHPublicKeyResponse");
+    return __isa(o, "SendSSHPublicKeyResponse");
   }
 }
 
 /**
  * <p>Indicates that the service encountered an error.  Follow the message's instructions and try again.</p>
  */
-export interface ServiceException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -113,7 +112,7 @@ export interface ServiceException
 
 export namespace ServiceException {
   export function isa(o: any): o is ServiceException {
-    return _smithy.isa(o, "ServiceException");
+    return __isa(o, "ServiceException");
   }
 }
 
@@ -121,7 +120,7 @@ export namespace ServiceException {
  * <p>Indicates you have been making requests too frequently and have been throttled.  Wait for a while and try again.  If higher call volume is warranted contact AWS Support.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -130,6 +129,6 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }

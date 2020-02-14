@@ -68,7 +68,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -84,13 +87,13 @@ export async function serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/claims/{ClaimCode}";
   if (input.ClaimCode !== undefined) {
-    const labelValue: string = input.ClaimCode.toString();
+    const labelValue: string = input.ClaimCode;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ClaimCode.");
     }
     resolvedPath = resolvedPath.replace(
       "{ClaimCode}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ClaimCode.");
@@ -112,13 +115,13 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -140,13 +143,13 @@ export async function serializeAws_restJson1_1FinalizeDeviceClaimCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/finalize-claim";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -178,13 +181,13 @@ export async function serializeAws_restJson1_1GetDeviceMethodsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -206,13 +209,13 @@ export async function serializeAws_restJson1_1InitiateDeviceClaimCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/initiate-claim";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -234,13 +237,13 @@ export async function serializeAws_restJson1_1InvokeDeviceMethodCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/methods";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -275,29 +278,37 @@ export async function serializeAws_restJson1_1ListDeviceEventsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/events";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   const query: any = {};
   if (input.FromTimeStamp !== undefined) {
-    query["fromTimeStamp"] = input.FromTimeStamp.toISOString();
+    query[
+      __extendedEncodeURIComponent("fromTimeStamp")
+    ] = __extendedEncodeURIComponent(input.FromTimeStamp.toISOString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.ToTimeStamp !== undefined) {
-    query["toTimeStamp"] = input.ToTimeStamp.toISOString();
+    query[
+      __extendedEncodeURIComponent("toTimeStamp")
+    ] = __extendedEncodeURIComponent(input.ToTimeStamp.toISOString());
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -318,13 +329,19 @@ export async function serializeAws_restJson1_1ListDevicesCommand(
   let resolvedPath = "/devices";
   const query: any = {};
   if (input.DeviceType !== undefined) {
-    query["deviceType"] = input.DeviceType.toString();
+    query[
+      __extendedEncodeURIComponent("deviceType")
+    ] = __extendedEncodeURIComponent(input.DeviceType);
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -344,7 +361,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -352,7 +369,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -374,7 +391,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -382,7 +399,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
@@ -414,13 +431,13 @@ export async function serializeAws_restJson1_1UnclaimDeviceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/devices/{DeviceId}/unclaim";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -442,7 +459,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
-    const labelValue: string = input.ResourceArn.toString();
+    const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: ResourceArn."
@@ -450,14 +467,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{ResourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query["tagKeys"] = input.TagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -477,13 +496,13 @@ export async function serializeAws_restJson1_1UpdateDeviceStateCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/devices/{DeviceId}/state";
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
@@ -1213,6 +1232,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1341,6 +1361,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1406,6 +1427,7 @@ export async function deserializeAws_restJson1_1UpdateDeviceStateCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeviceStateResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

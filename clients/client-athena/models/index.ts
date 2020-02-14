@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface BatchGetNamedQueryInput {
@@ -11,7 +14,7 @@ export interface BatchGetNamedQueryInput {
 
 export namespace BatchGetNamedQueryInput {
   export function isa(o: any): o is BatchGetNamedQueryInput {
-    return _smithy.isa(o, "BatchGetNamedQueryInput");
+    return __isa(o, "BatchGetNamedQueryInput");
   }
 }
 
@@ -30,7 +33,7 @@ export interface BatchGetNamedQueryOutput extends $MetadataBearer {
 
 export namespace BatchGetNamedQueryOutput {
   export function isa(o: any): o is BatchGetNamedQueryOutput {
-    return _smithy.isa(o, "BatchGetNamedQueryOutput");
+    return __isa(o, "BatchGetNamedQueryOutput");
   }
 }
 
@@ -44,7 +47,7 @@ export interface BatchGetQueryExecutionInput {
 
 export namespace BatchGetQueryExecutionInput {
   export function isa(o: any): o is BatchGetQueryExecutionInput {
-    return _smithy.isa(o, "BatchGetQueryExecutionInput");
+    return __isa(o, "BatchGetQueryExecutionInput");
   }
 }
 
@@ -63,7 +66,7 @@ export interface BatchGetQueryExecutionOutput extends $MetadataBearer {
 
 export namespace BatchGetQueryExecutionOutput {
   export function isa(o: any): o is BatchGetQueryExecutionOutput {
-    return _smithy.isa(o, "BatchGetQueryExecutionOutput");
+    return __isa(o, "BatchGetQueryExecutionOutput");
   }
 }
 
@@ -125,7 +128,7 @@ export interface ColumnInfo {
 
 export namespace ColumnInfo {
   export function isa(o: any): o is ColumnInfo {
-    return _smithy.isa(o, "ColumnInfo");
+    return __isa(o, "ColumnInfo");
   }
 }
 
@@ -173,7 +176,7 @@ export interface CreateNamedQueryInput {
 
 export namespace CreateNamedQueryInput {
   export function isa(o: any): o is CreateNamedQueryInput {
-    return _smithy.isa(o, "CreateNamedQueryInput");
+    return __isa(o, "CreateNamedQueryInput");
   }
 }
 
@@ -187,7 +190,7 @@ export interface CreateNamedQueryOutput extends $MetadataBearer {
 
 export namespace CreateNamedQueryOutput {
   export function isa(o: any): o is CreateNamedQueryOutput {
-    return _smithy.isa(o, "CreateNamedQueryOutput");
+    return __isa(o, "CreateNamedQueryOutput");
   }
 }
 
@@ -221,7 +224,7 @@ export interface CreateWorkGroupInput {
 
 export namespace CreateWorkGroupInput {
   export function isa(o: any): o is CreateWorkGroupInput {
-    return _smithy.isa(o, "CreateWorkGroupInput");
+    return __isa(o, "CreateWorkGroupInput");
   }
 }
 
@@ -231,7 +234,7 @@ export interface CreateWorkGroupOutput extends $MetadataBearer {
 
 export namespace CreateWorkGroupOutput {
   export function isa(o: any): o is CreateWorkGroupOutput {
-    return _smithy.isa(o, "CreateWorkGroupOutput");
+    return __isa(o, "CreateWorkGroupOutput");
   }
 }
 
@@ -248,7 +251,7 @@ export interface Datum {
 
 export namespace Datum {
   export function isa(o: any): o is Datum {
-    return _smithy.isa(o, "Datum");
+    return __isa(o, "Datum");
   }
 }
 
@@ -262,7 +265,7 @@ export interface DeleteNamedQueryInput {
 
 export namespace DeleteNamedQueryInput {
   export function isa(o: any): o is DeleteNamedQueryInput {
-    return _smithy.isa(o, "DeleteNamedQueryInput");
+    return __isa(o, "DeleteNamedQueryInput");
   }
 }
 
@@ -272,7 +275,7 @@ export interface DeleteNamedQueryOutput extends $MetadataBearer {
 
 export namespace DeleteNamedQueryOutput {
   export function isa(o: any): o is DeleteNamedQueryOutput {
-    return _smithy.isa(o, "DeleteNamedQueryOutput");
+    return __isa(o, "DeleteNamedQueryOutput");
   }
 }
 
@@ -291,7 +294,7 @@ export interface DeleteWorkGroupInput {
 
 export namespace DeleteWorkGroupInput {
   export function isa(o: any): o is DeleteWorkGroupInput {
-    return _smithy.isa(o, "DeleteWorkGroupInput");
+    return __isa(o, "DeleteWorkGroupInput");
   }
 }
 
@@ -301,7 +304,7 @@ export interface DeleteWorkGroupOutput extends $MetadataBearer {
 
 export namespace DeleteWorkGroupOutput {
   export function isa(o: any): o is DeleteWorkGroupOutput {
-    return _smithy.isa(o, "DeleteWorkGroupOutput");
+    return __isa(o, "DeleteWorkGroupOutput");
   }
 }
 
@@ -331,7 +334,7 @@ export interface EncryptionConfiguration {
 
 export namespace EncryptionConfiguration {
   export function isa(o: any): o is EncryptionConfiguration {
-    return _smithy.isa(o, "EncryptionConfiguration");
+    return __isa(o, "EncryptionConfiguration");
   }
 }
 
@@ -351,7 +354,7 @@ export interface GetNamedQueryInput {
 
 export namespace GetNamedQueryInput {
   export function isa(o: any): o is GetNamedQueryInput {
-    return _smithy.isa(o, "GetNamedQueryInput");
+    return __isa(o, "GetNamedQueryInput");
   }
 }
 
@@ -365,7 +368,7 @@ export interface GetNamedQueryOutput extends $MetadataBearer {
 
 export namespace GetNamedQueryOutput {
   export function isa(o: any): o is GetNamedQueryOutput {
-    return _smithy.isa(o, "GetNamedQueryOutput");
+    return __isa(o, "GetNamedQueryOutput");
   }
 }
 
@@ -379,7 +382,7 @@ export interface GetQueryExecutionInput {
 
 export namespace GetQueryExecutionInput {
   export function isa(o: any): o is GetQueryExecutionInput {
-    return _smithy.isa(o, "GetQueryExecutionInput");
+    return __isa(o, "GetQueryExecutionInput");
   }
 }
 
@@ -393,7 +396,7 @@ export interface GetQueryExecutionOutput extends $MetadataBearer {
 
 export namespace GetQueryExecutionOutput {
   export function isa(o: any): o is GetQueryExecutionOutput {
-    return _smithy.isa(o, "GetQueryExecutionOutput");
+    return __isa(o, "GetQueryExecutionOutput");
   }
 }
 
@@ -417,7 +420,7 @@ export interface GetQueryResultsInput {
 
 export namespace GetQueryResultsInput {
   export function isa(o: any): o is GetQueryResultsInput {
-    return _smithy.isa(o, "GetQueryResultsInput");
+    return __isa(o, "GetQueryResultsInput");
   }
 }
 
@@ -442,7 +445,7 @@ export interface GetQueryResultsOutput extends $MetadataBearer {
 
 export namespace GetQueryResultsOutput {
   export function isa(o: any): o is GetQueryResultsOutput {
-    return _smithy.isa(o, "GetQueryResultsOutput");
+    return __isa(o, "GetQueryResultsOutput");
   }
 }
 
@@ -456,7 +459,7 @@ export interface GetWorkGroupInput {
 
 export namespace GetWorkGroupInput {
   export function isa(o: any): o is GetWorkGroupInput {
-    return _smithy.isa(o, "GetWorkGroupInput");
+    return __isa(o, "GetWorkGroupInput");
   }
 }
 
@@ -470,7 +473,7 @@ export interface GetWorkGroupOutput extends $MetadataBearer {
 
 export namespace GetWorkGroupOutput {
   export function isa(o: any): o is GetWorkGroupOutput {
-    return _smithy.isa(o, "GetWorkGroupOutput");
+    return __isa(o, "GetWorkGroupOutput");
   }
 }
 
@@ -478,7 +481,7 @@ export namespace GetWorkGroupOutput {
  * <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
  */
 export interface InternalServerException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -487,7 +490,7 @@ export interface InternalServerException
 
 export namespace InternalServerException {
   export function isa(o: any): o is InternalServerException {
-    return _smithy.isa(o, "InternalServerException");
+    return __isa(o, "InternalServerException");
   }
 }
 
@@ -495,7 +498,7 @@ export namespace InternalServerException {
  * <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -509,7 +512,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -533,7 +536,7 @@ export interface ListNamedQueriesInput {
 
 export namespace ListNamedQueriesInput {
   export function isa(o: any): o is ListNamedQueriesInput {
-    return _smithy.isa(o, "ListNamedQueriesInput");
+    return __isa(o, "ListNamedQueriesInput");
   }
 }
 
@@ -552,7 +555,7 @@ export interface ListNamedQueriesOutput extends $MetadataBearer {
 
 export namespace ListNamedQueriesOutput {
   export function isa(o: any): o is ListNamedQueriesOutput {
-    return _smithy.isa(o, "ListNamedQueriesOutput");
+    return __isa(o, "ListNamedQueriesOutput");
   }
 }
 
@@ -576,7 +579,7 @@ export interface ListQueryExecutionsInput {
 
 export namespace ListQueryExecutionsInput {
   export function isa(o: any): o is ListQueryExecutionsInput {
-    return _smithy.isa(o, "ListQueryExecutionsInput");
+    return __isa(o, "ListQueryExecutionsInput");
   }
 }
 
@@ -595,7 +598,7 @@ export interface ListQueryExecutionsOutput extends $MetadataBearer {
 
 export namespace ListQueryExecutionsOutput {
   export function isa(o: any): o is ListQueryExecutionsOutput {
-    return _smithy.isa(o, "ListQueryExecutionsOutput");
+    return __isa(o, "ListQueryExecutionsOutput");
   }
 }
 
@@ -619,7 +622,7 @@ export interface ListTagsForResourceInput {
 
 export namespace ListTagsForResourceInput {
   export function isa(o: any): o is ListTagsForResourceInput {
-    return _smithy.isa(o, "ListTagsForResourceInput");
+    return __isa(o, "ListTagsForResourceInput");
   }
 }
 
@@ -638,7 +641,7 @@ export interface ListTagsForResourceOutput extends $MetadataBearer {
 
 export namespace ListTagsForResourceOutput {
   export function isa(o: any): o is ListTagsForResourceOutput {
-    return _smithy.isa(o, "ListTagsForResourceOutput");
+    return __isa(o, "ListTagsForResourceOutput");
   }
 }
 
@@ -657,7 +660,7 @@ export interface ListWorkGroupsInput {
 
 export namespace ListWorkGroupsInput {
   export function isa(o: any): o is ListWorkGroupsInput {
-    return _smithy.isa(o, "ListWorkGroupsInput");
+    return __isa(o, "ListWorkGroupsInput");
   }
 }
 
@@ -676,7 +679,7 @@ export interface ListWorkGroupsOutput extends $MetadataBearer {
 
 export namespace ListWorkGroupsOutput {
   export function isa(o: any): o is ListWorkGroupsOutput {
-    return _smithy.isa(o, "ListWorkGroupsOutput");
+    return __isa(o, "ListWorkGroupsOutput");
   }
 }
 
@@ -718,7 +721,7 @@ export interface NamedQuery {
 
 export namespace NamedQuery {
   export function isa(o: any): o is NamedQuery {
-    return _smithy.isa(o, "NamedQuery");
+    return __isa(o, "NamedQuery");
   }
 }
 
@@ -779,7 +782,7 @@ export interface QueryExecution {
 
 export namespace QueryExecution {
   export function isa(o: any): o is QueryExecution {
-    return _smithy.isa(o, "QueryExecution");
+    return __isa(o, "QueryExecution");
   }
 }
 
@@ -796,7 +799,7 @@ export interface QueryExecutionContext {
 
 export namespace QueryExecutionContext {
   export function isa(o: any): o is QueryExecutionContext {
-    return _smithy.isa(o, "QueryExecutionContext");
+    return __isa(o, "QueryExecutionContext");
   }
 }
 
@@ -852,7 +855,7 @@ export interface QueryExecutionStatistics {
 
 export namespace QueryExecutionStatistics {
   export function isa(o: any): o is QueryExecutionStatistics {
-    return _smithy.isa(o, "QueryExecutionStatistics");
+    return __isa(o, "QueryExecutionStatistics");
   }
 }
 
@@ -889,7 +892,7 @@ export interface QueryExecutionStatus {
 
 export namespace QueryExecutionStatus {
   export function isa(o: any): o is QueryExecutionStatus {
-    return _smithy.isa(o, "QueryExecutionStatus");
+    return __isa(o, "QueryExecutionStatus");
   }
 }
 
@@ -897,7 +900,7 @@ export namespace QueryExecutionStatus {
  * <p>A resource, such as a workgroup, was not found.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -907,7 +910,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -943,7 +946,7 @@ export interface ResultConfiguration {
 
 export namespace ResultConfiguration {
   export function isa(o: any): o is ResultConfiguration {
-    return _smithy.isa(o, "ResultConfiguration");
+    return __isa(o, "ResultConfiguration");
   }
 }
 
@@ -984,7 +987,7 @@ export interface ResultConfigurationUpdates {
 
 export namespace ResultConfigurationUpdates {
   export function isa(o: any): o is ResultConfigurationUpdates {
-    return _smithy.isa(o, "ResultConfigurationUpdates");
+    return __isa(o, "ResultConfigurationUpdates");
   }
 }
 
@@ -1006,7 +1009,7 @@ export interface ResultSet {
 
 export namespace ResultSet {
   export function isa(o: any): o is ResultSet {
-    return _smithy.isa(o, "ResultSet");
+    return __isa(o, "ResultSet");
   }
 }
 
@@ -1024,7 +1027,7 @@ export interface ResultSetMetadata {
 
 export namespace ResultSetMetadata {
   export function isa(o: any): o is ResultSetMetadata {
-    return _smithy.isa(o, "ResultSetMetadata");
+    return __isa(o, "ResultSetMetadata");
   }
 }
 
@@ -1041,7 +1044,7 @@ export interface Row {
 
 export namespace Row {
   export function isa(o: any): o is Row {
-    return _smithy.isa(o, "Row");
+    return __isa(o, "Row");
   }
 }
 
@@ -1080,7 +1083,7 @@ export interface StartQueryExecutionInput {
 
 export namespace StartQueryExecutionInput {
   export function isa(o: any): o is StartQueryExecutionInput {
-    return _smithy.isa(o, "StartQueryExecutionInput");
+    return __isa(o, "StartQueryExecutionInput");
   }
 }
 
@@ -1094,7 +1097,7 @@ export interface StartQueryExecutionOutput extends $MetadataBearer {
 
 export namespace StartQueryExecutionOutput {
   export function isa(o: any): o is StartQueryExecutionOutput {
-    return _smithy.isa(o, "StartQueryExecutionOutput");
+    return __isa(o, "StartQueryExecutionOutput");
   }
 }
 
@@ -1114,7 +1117,7 @@ export interface StopQueryExecutionInput {
 
 export namespace StopQueryExecutionInput {
   export function isa(o: any): o is StopQueryExecutionInput {
-    return _smithy.isa(o, "StopQueryExecutionInput");
+    return __isa(o, "StopQueryExecutionInput");
   }
 }
 
@@ -1124,7 +1127,7 @@ export interface StopQueryExecutionOutput extends $MetadataBearer {
 
 export namespace StopQueryExecutionOutput {
   export function isa(o: any): o is StopQueryExecutionOutput {
-    return _smithy.isa(o, "StopQueryExecutionOutput");
+    return __isa(o, "StopQueryExecutionOutput");
   }
 }
 
@@ -1153,7 +1156,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1172,7 +1175,7 @@ export interface TagResourceInput {
 
 export namespace TagResourceInput {
   export function isa(o: any): o is TagResourceInput {
-    return _smithy.isa(o, "TagResourceInput");
+    return __isa(o, "TagResourceInput");
   }
 }
 
@@ -1182,7 +1185,7 @@ export interface TagResourceOutput extends $MetadataBearer {
 
 export namespace TagResourceOutput {
   export function isa(o: any): o is TagResourceOutput {
-    return _smithy.isa(o, "TagResourceOutput");
+    return __isa(o, "TagResourceOutput");
   }
 }
 
@@ -1194,7 +1197,7 @@ export enum ThrottleReason {
  * <p>Indicates that the request was throttled.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -1207,7 +1210,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -1234,7 +1237,7 @@ export interface UnprocessedNamedQueryId {
 
 export namespace UnprocessedNamedQueryId {
   export function isa(o: any): o is UnprocessedNamedQueryId {
-    return _smithy.isa(o, "UnprocessedNamedQueryId");
+    return __isa(o, "UnprocessedNamedQueryId");
   }
 }
 
@@ -1261,7 +1264,7 @@ export interface UnprocessedQueryExecutionId {
 
 export namespace UnprocessedQueryExecutionId {
   export function isa(o: any): o is UnprocessedQueryExecutionId {
-    return _smithy.isa(o, "UnprocessedQueryExecutionId");
+    return __isa(o, "UnprocessedQueryExecutionId");
   }
 }
 
@@ -1280,7 +1283,7 @@ export interface UntagResourceInput {
 
 export namespace UntagResourceInput {
   export function isa(o: any): o is UntagResourceInput {
-    return _smithy.isa(o, "UntagResourceInput");
+    return __isa(o, "UntagResourceInput");
   }
 }
 
@@ -1290,7 +1293,7 @@ export interface UntagResourceOutput extends $MetadataBearer {
 
 export namespace UntagResourceOutput {
   export function isa(o: any): o is UntagResourceOutput {
-    return _smithy.isa(o, "UntagResourceOutput");
+    return __isa(o, "UntagResourceOutput");
   }
 }
 
@@ -1319,7 +1322,7 @@ export interface UpdateWorkGroupInput {
 
 export namespace UpdateWorkGroupInput {
   export function isa(o: any): o is UpdateWorkGroupInput {
-    return _smithy.isa(o, "UpdateWorkGroupInput");
+    return __isa(o, "UpdateWorkGroupInput");
   }
 }
 
@@ -1329,7 +1332,7 @@ export interface UpdateWorkGroupOutput extends $MetadataBearer {
 
 export namespace UpdateWorkGroupOutput {
   export function isa(o: any): o is UpdateWorkGroupOutput {
-    return _smithy.isa(o, "UpdateWorkGroupOutput");
+    return __isa(o, "UpdateWorkGroupOutput");
   }
 }
 
@@ -1377,7 +1380,7 @@ export interface WorkGroup {
 
 export namespace WorkGroup {
   export function isa(o: any): o is WorkGroup {
-    return _smithy.isa(o, "WorkGroup");
+    return __isa(o, "WorkGroup");
   }
 }
 
@@ -1425,7 +1428,7 @@ export interface WorkGroupConfiguration {
 
 export namespace WorkGroupConfiguration {
   export function isa(o: any): o is WorkGroupConfiguration {
-    return _smithy.isa(o, "WorkGroupConfiguration");
+    return __isa(o, "WorkGroupConfiguration");
   }
 }
 
@@ -1474,7 +1477,7 @@ export interface WorkGroupConfigurationUpdates {
 
 export namespace WorkGroupConfigurationUpdates {
   export function isa(o: any): o is WorkGroupConfigurationUpdates {
-    return _smithy.isa(o, "WorkGroupConfigurationUpdates");
+    return __isa(o, "WorkGroupConfigurationUpdates");
   }
 }
 
@@ -1512,6 +1515,6 @@ export interface WorkGroupSummary {
 
 export namespace WorkGroupSummary {
   export function isa(o: any): o is WorkGroupSummary {
-    return _smithy.isa(o, "WorkGroupSummary");
+    return __isa(o, "WorkGroupSummary");
   }
 }

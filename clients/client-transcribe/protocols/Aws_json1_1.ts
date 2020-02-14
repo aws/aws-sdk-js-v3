@@ -473,6 +473,7 @@ export async function deserializeAws_json1_1DeleteTranscriptionJobCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -538,6 +539,7 @@ export async function deserializeAws_json1_1DeleteVocabularyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteVocabularyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -613,6 +615,7 @@ export async function deserializeAws_json1_1DeleteVocabularyFilterCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

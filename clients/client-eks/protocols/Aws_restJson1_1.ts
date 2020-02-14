@@ -121,7 +121,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -188,7 +191,7 @@ export async function serializeAws_restJson1_1CreateFargateProfileCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/clusters/{clusterName}/fargate-profiles";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -196,7 +199,7 @@ export async function serializeAws_restJson1_1CreateFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -249,7 +252,7 @@ export async function serializeAws_restJson1_1CreateNodegroupCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/clusters/{clusterName}/node-groups";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -257,7 +260,7 @@ export async function serializeAws_restJson1_1CreateNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
@@ -342,13 +345,13 @@ export async function serializeAws_restJson1_1DeleteClusterCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{name}";
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -371,7 +374,7 @@ export async function serializeAws_restJson1_1DeleteFargateProfileCommand(
   let resolvedPath =
     "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -379,13 +382,13 @@ export async function serializeAws_restJson1_1DeleteFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   if (input.fargateProfileName !== undefined) {
-    const labelValue: string = input.fargateProfileName.toString();
+    const labelValue: string = input.fargateProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: fargateProfileName."
@@ -393,7 +396,7 @@ export async function serializeAws_restJson1_1DeleteFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{fargateProfileName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -417,7 +420,7 @@ export async function serializeAws_restJson1_1DeleteNodegroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -425,13 +428,13 @@ export async function serializeAws_restJson1_1DeleteNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName.toString();
+    const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: nodegroupName."
@@ -439,7 +442,7 @@ export async function serializeAws_restJson1_1DeleteNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -461,13 +464,13 @@ export async function serializeAws_restJson1_1DescribeClusterCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{name}";
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -490,7 +493,7 @@ export async function serializeAws_restJson1_1DescribeFargateProfileCommand(
   let resolvedPath =
     "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -498,13 +501,13 @@ export async function serializeAws_restJson1_1DescribeFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   if (input.fargateProfileName !== undefined) {
-    const labelValue: string = input.fargateProfileName.toString();
+    const labelValue: string = input.fargateProfileName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: fargateProfileName."
@@ -512,7 +515,7 @@ export async function serializeAws_restJson1_1DescribeFargateProfileCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{fargateProfileName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error(
@@ -536,7 +539,7 @@ export async function serializeAws_restJson1_1DescribeNodegroupCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -544,13 +547,13 @@ export async function serializeAws_restJson1_1DescribeNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName.toString();
+    const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: nodegroupName."
@@ -558,7 +561,7 @@ export async function serializeAws_restJson1_1DescribeNodegroupCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -580,32 +583,34 @@ export async function serializeAws_restJson1_1DescribeUpdateCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{name}/updates/{updateId}";
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   if (input.updateId !== undefined) {
-    const labelValue: string = input.updateId.toString();
+    const labelValue: string = input.updateId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: updateId.");
     }
     resolvedPath = resolvedPath.replace(
       "{updateId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: updateId.");
   }
   const query: any = {};
   if (input.nodegroupName !== undefined) {
-    query["nodegroupName"] = input.nodegroupName.toString();
+    query[
+      __extendedEncodeURIComponent("nodegroupName")
+    ] = __extendedEncodeURIComponent(input.nodegroupName);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -626,10 +631,14 @@ export async function serializeAws_restJson1_1ListClustersCommand(
   let resolvedPath = "/clusters";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -649,7 +658,7 @@ export async function serializeAws_restJson1_1ListFargateProfilesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{clusterName}/fargate-profiles";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -657,17 +666,21 @@ export async function serializeAws_restJson1_1ListFargateProfilesCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -687,7 +700,7 @@ export async function serializeAws_restJson1_1ListNodegroupsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{clusterName}/node-groups";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -695,17 +708,21 @@ export async function serializeAws_restJson1_1ListNodegroupsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -725,7 +742,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -733,7 +750,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -755,26 +772,32 @@ export async function serializeAws_restJson1_1ListUpdatesCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/clusters/{name}/updates";
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query["maxResults"] = input.maxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.maxResults.toString());
   }
   if (input.nextToken !== undefined) {
-    query["nextToken"] = input.nextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.nextToken);
   }
   if (input.nodegroupName !== undefined) {
-    query["nodegroupName"] = input.nodegroupName.toString();
+    query[
+      __extendedEncodeURIComponent("nodegroupName")
+    ] = __extendedEncodeURIComponent(input.nodegroupName);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -794,7 +817,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -802,7 +825,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
@@ -831,7 +854,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn.toString();
+    const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: resourceArn."
@@ -839,14 +862,16 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{resourceArn}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query["tagKeys"] = input.tagKeys;
+    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
+      __extendedEncodeURIComponent(entry)
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -866,13 +891,13 @@ export async function serializeAws_restJson1_1UpdateClusterConfigCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/clusters/{name}/update-config";
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -916,13 +941,13 @@ export async function serializeAws_restJson1_1UpdateClusterVersionCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/clusters/{name}/updates";
   if (input.name !== undefined) {
-    const labelValue: string = input.name.toString();
+    const labelValue: string = input.name;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
     resolvedPath = resolvedPath.replace(
       "{name}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: name.");
@@ -958,7 +983,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
   let resolvedPath =
     "/clusters/{clusterName}/node-groups/{nodegroupName}/update-config";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -966,13 +991,13 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName.toString();
+    const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: nodegroupName."
@@ -980,7 +1005,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupConfigCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -1027,7 +1052,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
   let resolvedPath =
     "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
   if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName.toString();
+    const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: clusterName."
@@ -1035,13 +1060,13 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{clusterName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName.toString();
+    const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: nodegroupName."
@@ -1049,7 +1074,7 @@ export async function serializeAws_restJson1_1UpdateNodegroupVersionCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{nodegroupName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
@@ -2362,6 +2387,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2417,6 +2443,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

@@ -1193,6 +1193,7 @@ export async function deserializeAws_json1_1DeleteCustomActionTypeCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteCustomActionTypeCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1251,6 +1252,7 @@ export async function deserializeAws_json1_1DeletePipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeletePipelineCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1444,6 +1446,7 @@ export async function deserializeAws_json1_1DisableStageTransitionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisableStageTransitionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1512,6 +1515,7 @@ export async function deserializeAws_json1_1EnableStageTransitionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: EnableStageTransitionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2648,6 +2652,7 @@ export async function deserializeAws_json1_1PutJobFailureResultCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutJobFailureResultCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2716,6 +2721,7 @@ export async function deserializeAws_json1_1PutJobSuccessResultCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutJobSuccessResultCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2791,6 +2797,7 @@ export async function deserializeAws_json1_1PutThirdPartyJobFailureResultCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutThirdPartyJobFailureResultCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2866,6 +2873,7 @@ export async function deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutThirdPartyJobSuccessResultCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

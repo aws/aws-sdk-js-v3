@@ -126,7 +126,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -289,10 +292,14 @@ export async function serializeAws_restJson1_1DeleteResourceShareCommand(
   let resolvedPath = "/deleteresourceshare";
   const query: any = {};
   if (input.clientToken !== undefined) {
-    query["clientToken"] = input.clientToken.toString();
+    query[
+      __extendedEncodeURIComponent("clientToken")
+    ] = __extendedEncodeURIComponent(input.clientToken);
   }
   if (input.resourceShareArn !== undefined) {
-    query["resourceShareArn"] = input.resourceShareArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceShareArn")
+    ] = __extendedEncodeURIComponent(input.resourceShareArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -779,7 +786,9 @@ export async function serializeAws_restJson1_1PromoteResourceShareCreatedFromPol
   let resolvedPath = "/promoteresourcesharecreatedfrompolicy";
   const query: any = {};
   if (input.resourceShareArn !== undefined) {
-    query["resourceShareArn"] = input.resourceShareArn.toString();
+    query[
+      __extendedEncodeURIComponent("resourceShareArn")
+    ] = __extendedEncodeURIComponent(input.resourceShareArn);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3056,6 +3065,7 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3146,6 +3156,7 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

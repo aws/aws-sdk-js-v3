@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You are not authorized to use this operation with the given parameters.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -17,7 +20,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -117,7 +120,7 @@ export interface Budget {
 
 export namespace Budget {
   export function isa(o: any): o is Budget {
-    return _smithy.isa(o, "Budget");
+    return __isa(o, "Budget");
   }
 }
 
@@ -161,7 +164,7 @@ export interface BudgetPerformanceHistory {
 
 export namespace BudgetPerformanceHistory {
   export function isa(o: any): o is BudgetPerformanceHistory {
-    return _smithy.isa(o, "BudgetPerformanceHistory");
+    return __isa(o, "BudgetPerformanceHistory");
   }
 }
 
@@ -197,7 +200,7 @@ export interface BudgetedAndActualAmounts {
 
 export namespace BudgetedAndActualAmounts {
   export function isa(o: any): o is BudgetedAndActualAmounts {
-    return _smithy.isa(o, "BudgetedAndActualAmounts");
+    return __isa(o, "BudgetedAndActualAmounts");
   }
 }
 
@@ -220,7 +223,7 @@ export interface CalculatedSpend {
 
 export namespace CalculatedSpend {
   export function isa(o: any): o is CalculatedSpend {
-    return _smithy.isa(o, "CalculatedSpend");
+    return __isa(o, "CalculatedSpend");
   }
 }
 
@@ -306,7 +309,7 @@ export interface CostTypes {
 
 export namespace CostTypes {
   export function isa(o: any): o is CostTypes {
-    return _smithy.isa(o, "CostTypes");
+    return __isa(o, "CostTypes");
   }
 }
 
@@ -333,7 +336,7 @@ export interface CreateBudgetRequest {
 
 export namespace CreateBudgetRequest {
   export function isa(o: any): o is CreateBudgetRequest {
-    return _smithy.isa(o, "CreateBudgetRequest");
+    return __isa(o, "CreateBudgetRequest");
   }
 }
 
@@ -346,7 +349,7 @@ export interface CreateBudgetResponse extends $MetadataBearer {
 
 export namespace CreateBudgetResponse {
   export function isa(o: any): o is CreateBudgetResponse {
-    return _smithy.isa(o, "CreateBudgetResponse");
+    return __isa(o, "CreateBudgetResponse");
   }
 }
 
@@ -378,7 +381,7 @@ export interface CreateNotificationRequest {
 
 export namespace CreateNotificationRequest {
   export function isa(o: any): o is CreateNotificationRequest {
-    return _smithy.isa(o, "CreateNotificationRequest");
+    return __isa(o, "CreateNotificationRequest");
   }
 }
 
@@ -391,7 +394,7 @@ export interface CreateNotificationResponse extends $MetadataBearer {
 
 export namespace CreateNotificationResponse {
   export function isa(o: any): o is CreateNotificationResponse {
-    return _smithy.isa(o, "CreateNotificationResponse");
+    return __isa(o, "CreateNotificationResponse");
   }
 }
 
@@ -423,7 +426,7 @@ export interface CreateSubscriberRequest {
 
 export namespace CreateSubscriberRequest {
   export function isa(o: any): o is CreateSubscriberRequest {
-    return _smithy.isa(o, "CreateSubscriberRequest");
+    return __isa(o, "CreateSubscriberRequest");
   }
 }
 
@@ -436,7 +439,7 @@ export interface CreateSubscriberResponse extends $MetadataBearer {
 
 export namespace CreateSubscriberResponse {
   export function isa(o: any): o is CreateSubscriberResponse {
-    return _smithy.isa(o, "CreateSubscriberResponse");
+    return __isa(o, "CreateSubscriberResponse");
   }
 }
 
@@ -444,7 +447,7 @@ export namespace CreateSubscriberResponse {
  * <p>You've exceeded the notification or subscriber limit.</p>
  */
 export interface CreationLimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "CreationLimitExceededException";
   $fault: "client";
@@ -456,7 +459,7 @@ export interface CreationLimitExceededException
 
 export namespace CreationLimitExceededException {
   export function isa(o: any): o is CreationLimitExceededException {
-    return _smithy.isa(o, "CreationLimitExceededException");
+    return __isa(o, "CreationLimitExceededException");
   }
 }
 
@@ -478,7 +481,7 @@ export interface DeleteBudgetRequest {
 
 export namespace DeleteBudgetRequest {
   export function isa(o: any): o is DeleteBudgetRequest {
-    return _smithy.isa(o, "DeleteBudgetRequest");
+    return __isa(o, "DeleteBudgetRequest");
   }
 }
 
@@ -491,7 +494,7 @@ export interface DeleteBudgetResponse extends $MetadataBearer {
 
 export namespace DeleteBudgetResponse {
   export function isa(o: any): o is DeleteBudgetResponse {
-    return _smithy.isa(o, "DeleteBudgetResponse");
+    return __isa(o, "DeleteBudgetResponse");
   }
 }
 
@@ -518,7 +521,7 @@ export interface DeleteNotificationRequest {
 
 export namespace DeleteNotificationRequest {
   export function isa(o: any): o is DeleteNotificationRequest {
-    return _smithy.isa(o, "DeleteNotificationRequest");
+    return __isa(o, "DeleteNotificationRequest");
   }
 }
 
@@ -531,7 +534,7 @@ export interface DeleteNotificationResponse extends $MetadataBearer {
 
 export namespace DeleteNotificationResponse {
   export function isa(o: any): o is DeleteNotificationResponse {
-    return _smithy.isa(o, "DeleteNotificationResponse");
+    return __isa(o, "DeleteNotificationResponse");
   }
 }
 
@@ -563,7 +566,7 @@ export interface DeleteSubscriberRequest {
 
 export namespace DeleteSubscriberRequest {
   export function isa(o: any): o is DeleteSubscriberRequest {
-    return _smithy.isa(o, "DeleteSubscriberRequest");
+    return __isa(o, "DeleteSubscriberRequest");
   }
 }
 
@@ -576,7 +579,7 @@ export interface DeleteSubscriberResponse extends $MetadataBearer {
 
 export namespace DeleteSubscriberResponse {
   export function isa(o: any): o is DeleteSubscriberResponse {
-    return _smithy.isa(o, "DeleteSubscriberResponse");
+    return __isa(o, "DeleteSubscriberResponse");
   }
 }
 
@@ -610,7 +613,7 @@ export interface DescribeBudgetPerformanceHistoryRequest {
 
 export namespace DescribeBudgetPerformanceHistoryRequest {
   export function isa(o: any): o is DescribeBudgetPerformanceHistoryRequest {
-    return _smithy.isa(o, "DescribeBudgetPerformanceHistoryRequest");
+    return __isa(o, "DescribeBudgetPerformanceHistoryRequest");
   }
 }
 
@@ -631,7 +634,7 @@ export interface DescribeBudgetPerformanceHistoryResponse
 
 export namespace DescribeBudgetPerformanceHistoryResponse {
   export function isa(o: any): o is DescribeBudgetPerformanceHistoryResponse {
-    return _smithy.isa(o, "DescribeBudgetPerformanceHistoryResponse");
+    return __isa(o, "DescribeBudgetPerformanceHistoryResponse");
   }
 }
 
@@ -653,7 +656,7 @@ export interface DescribeBudgetRequest {
 
 export namespace DescribeBudgetRequest {
   export function isa(o: any): o is DescribeBudgetRequest {
-    return _smithy.isa(o, "DescribeBudgetRequest");
+    return __isa(o, "DescribeBudgetRequest");
   }
 }
 
@@ -670,7 +673,7 @@ export interface DescribeBudgetResponse extends $MetadataBearer {
 
 export namespace DescribeBudgetResponse {
   export function isa(o: any): o is DescribeBudgetResponse {
-    return _smithy.isa(o, "DescribeBudgetResponse");
+    return __isa(o, "DescribeBudgetResponse");
   }
 }
 
@@ -697,7 +700,7 @@ export interface DescribeBudgetsRequest {
 
 export namespace DescribeBudgetsRequest {
   export function isa(o: any): o is DescribeBudgetsRequest {
-    return _smithy.isa(o, "DescribeBudgetsRequest");
+    return __isa(o, "DescribeBudgetsRequest");
   }
 }
 
@@ -719,7 +722,7 @@ export interface DescribeBudgetsResponse extends $MetadataBearer {
 
 export namespace DescribeBudgetsResponse {
   export function isa(o: any): o is DescribeBudgetsResponse {
-    return _smithy.isa(o, "DescribeBudgetsResponse");
+    return __isa(o, "DescribeBudgetsResponse");
   }
 }
 
@@ -751,7 +754,7 @@ export interface DescribeNotificationsForBudgetRequest {
 
 export namespace DescribeNotificationsForBudgetRequest {
   export function isa(o: any): o is DescribeNotificationsForBudgetRequest {
-    return _smithy.isa(o, "DescribeNotificationsForBudgetRequest");
+    return __isa(o, "DescribeNotificationsForBudgetRequest");
   }
 }
 
@@ -774,7 +777,7 @@ export interface DescribeNotificationsForBudgetResponse
 
 export namespace DescribeNotificationsForBudgetResponse {
   export function isa(o: any): o is DescribeNotificationsForBudgetResponse {
-    return _smithy.isa(o, "DescribeNotificationsForBudgetResponse");
+    return __isa(o, "DescribeNotificationsForBudgetResponse");
   }
 }
 
@@ -811,7 +814,7 @@ export interface DescribeSubscribersForNotificationRequest {
 
 export namespace DescribeSubscribersForNotificationRequest {
   export function isa(o: any): o is DescribeSubscribersForNotificationRequest {
-    return _smithy.isa(o, "DescribeSubscribersForNotificationRequest");
+    return __isa(o, "DescribeSubscribersForNotificationRequest");
   }
 }
 
@@ -834,7 +837,7 @@ export interface DescribeSubscribersForNotificationResponse
 
 export namespace DescribeSubscribersForNotificationResponse {
   export function isa(o: any): o is DescribeSubscribersForNotificationResponse {
-    return _smithy.isa(o, "DescribeSubscribersForNotificationResponse");
+    return __isa(o, "DescribeSubscribersForNotificationResponse");
   }
 }
 
@@ -842,7 +845,7 @@ export namespace DescribeSubscribersForNotificationResponse {
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
 export interface DuplicateRecordException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DuplicateRecordException";
   $fault: "client";
@@ -854,7 +857,7 @@ export interface DuplicateRecordException
 
 export namespace DuplicateRecordException {
   export function isa(o: any): o is DuplicateRecordException {
-    return _smithy.isa(o, "DuplicateRecordException");
+    return __isa(o, "DuplicateRecordException");
   }
 }
 
@@ -862,7 +865,7 @@ export namespace DuplicateRecordException {
  * <p>The pagination token expired.</p>
  */
 export interface ExpiredNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
@@ -874,7 +877,7 @@ export interface ExpiredNextTokenException
 
 export namespace ExpiredNextTokenException {
   export function isa(o: any): o is ExpiredNextTokenException {
-    return _smithy.isa(o, "ExpiredNextTokenException");
+    return __isa(o, "ExpiredNextTokenException");
   }
 }
 
@@ -882,7 +885,7 @@ export namespace ExpiredNextTokenException {
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
 export interface InternalErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
@@ -894,7 +897,7 @@ export interface InternalErrorException
 
 export namespace InternalErrorException {
   export function isa(o: any): o is InternalErrorException {
-    return _smithy.isa(o, "InternalErrorException");
+    return __isa(o, "InternalErrorException");
   }
 }
 
@@ -902,7 +905,7 @@ export namespace InternalErrorException {
  * <p>The pagination token is invalid.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -914,7 +917,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -922,7 +925,7 @@ export namespace InvalidNextTokenException {
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
 export interface InvalidParameterException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
@@ -934,16 +937,14 @@ export interface InvalidParameterException
 
 export namespace InvalidParameterException {
   export function isa(o: any): o is InvalidParameterException {
-    return _smithy.isa(o, "InvalidParameterException");
+    return __isa(o, "InvalidParameterException");
   }
 }
 
 /**
  * <p>We can’t locate the resource that you specified.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -954,7 +955,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -1011,7 +1012,7 @@ export interface Notification {
 
 export namespace Notification {
   export function isa(o: any): o is Notification {
-    return _smithy.isa(o, "Notification");
+    return __isa(o, "Notification");
   }
 }
 
@@ -1043,7 +1044,7 @@ export interface NotificationWithSubscribers {
 
 export namespace NotificationWithSubscribers {
   export function isa(o: any): o is NotificationWithSubscribers {
-    return _smithy.isa(o, "NotificationWithSubscribers");
+    return __isa(o, "NotificationWithSubscribers");
   }
 }
 
@@ -1076,7 +1077,7 @@ export interface Spend {
 
 export namespace Spend {
   export function isa(o: any): o is Spend {
-    return _smithy.isa(o, "Spend");
+    return __isa(o, "Spend");
   }
 }
 
@@ -1110,7 +1111,7 @@ export interface Subscriber {
 
 export namespace Subscriber {
   export function isa(o: any): o is Subscriber {
-    return _smithy.isa(o, "Subscriber");
+    return __isa(o, "Subscriber");
   }
 }
 
@@ -1144,7 +1145,7 @@ export interface TimePeriod {
 
 export namespace TimePeriod {
   export function isa(o: any): o is TimePeriod {
-    return _smithy.isa(o, "TimePeriod");
+    return __isa(o, "TimePeriod");
   }
 }
 
@@ -1173,7 +1174,7 @@ export interface UpdateBudgetRequest {
 
 export namespace UpdateBudgetRequest {
   export function isa(o: any): o is UpdateBudgetRequest {
-    return _smithy.isa(o, "UpdateBudgetRequest");
+    return __isa(o, "UpdateBudgetRequest");
   }
 }
 
@@ -1186,7 +1187,7 @@ export interface UpdateBudgetResponse extends $MetadataBearer {
 
 export namespace UpdateBudgetResponse {
   export function isa(o: any): o is UpdateBudgetResponse {
-    return _smithy.isa(o, "UpdateBudgetResponse");
+    return __isa(o, "UpdateBudgetResponse");
   }
 }
 
@@ -1218,7 +1219,7 @@ export interface UpdateNotificationRequest {
 
 export namespace UpdateNotificationRequest {
   export function isa(o: any): o is UpdateNotificationRequest {
-    return _smithy.isa(o, "UpdateNotificationRequest");
+    return __isa(o, "UpdateNotificationRequest");
   }
 }
 
@@ -1231,7 +1232,7 @@ export interface UpdateNotificationResponse extends $MetadataBearer {
 
 export namespace UpdateNotificationResponse {
   export function isa(o: any): o is UpdateNotificationResponse {
-    return _smithy.isa(o, "UpdateNotificationResponse");
+    return __isa(o, "UpdateNotificationResponse");
   }
 }
 
@@ -1268,7 +1269,7 @@ export interface UpdateSubscriberRequest {
 
 export namespace UpdateSubscriberRequest {
   export function isa(o: any): o is UpdateSubscriberRequest {
-    return _smithy.isa(o, "UpdateSubscriberRequest");
+    return __isa(o, "UpdateSubscriberRequest");
   }
 }
 
@@ -1281,6 +1282,6 @@ export interface UpdateSubscriberResponse extends $MetadataBearer {
 
 export namespace UpdateSubscriberResponse {
   export function isa(o: any): o is UpdateSubscriberResponse {
-    return _smithy.isa(o, "UpdateSubscriberResponse");
+    return __isa(o, "UpdateSubscriberResponse");
   }
 }

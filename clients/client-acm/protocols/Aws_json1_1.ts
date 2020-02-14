@@ -304,6 +304,7 @@ export async function deserializeAws_json1_1AddTagsToCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AddTagsToCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -390,6 +391,7 @@ export async function deserializeAws_json1_1DeleteCertificateCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteCertificateCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -880,6 +882,7 @@ export async function deserializeAws_json1_1RemoveTagsFromCertificateCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveTagsFromCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -959,6 +962,7 @@ export async function deserializeAws_json1_1RenewCertificateCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RenewCertificateCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: RenewCertificateCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1121,6 +1125,7 @@ export async function deserializeAws_json1_1ResendValidationEmailCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ResendValidationEmailCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1196,6 +1201,7 @@ export async function deserializeAws_json1_1UpdateCertificateOptionsCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: UpdateCertificateOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

@@ -93,7 +93,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -109,7 +112,7 @@ export async function serializeAws_restJson1_1BulkPublishCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/bulkpublish";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -117,7 +120,7 @@ export async function serializeAws_restJson1_1BulkPublishCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -140,7 +143,7 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
-    const labelValue: string = input.DatasetName.toString();
+    const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DatasetName."
@@ -148,25 +151,25 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -174,7 +177,7 @@ export async function serializeAws_restJson1_1DeleteDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -197,7 +200,7 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
-    const labelValue: string = input.DatasetName.toString();
+    const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DatasetName."
@@ -205,25 +208,25 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -231,7 +234,7 @@ export async function serializeAws_restJson1_1DescribeDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -253,7 +256,7 @@ export async function serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -261,7 +264,7 @@ export async function serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -283,19 +286,19 @@ export async function serializeAws_restJson1_1DescribeIdentityUsageCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -303,7 +306,7 @@ export async function serializeAws_restJson1_1DescribeIdentityUsageCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -325,7 +328,7 @@ export async function serializeAws_restJson1_1GetBulkPublishDetailsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/getBulkPublishDetails";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -333,7 +336,7 @@ export async function serializeAws_restJson1_1GetBulkPublishDetailsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -355,7 +358,7 @@ export async function serializeAws_restJson1_1GetCognitoEventsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -363,7 +366,7 @@ export async function serializeAws_restJson1_1GetCognitoEventsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -385,7 +388,7 @@ export async function serializeAws_restJson1_1GetIdentityPoolConfigurationComman
   headers["Content-Type"] = "";
   let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -393,7 +396,7 @@ export async function serializeAws_restJson1_1GetIdentityPoolConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -416,19 +419,19 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -436,17 +439,21 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults);
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -467,10 +474,14 @@ export async function serializeAws_restJson1_1ListIdentityPoolUsageCommand(
   let resolvedPath = "/identitypools";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -491,7 +502,7 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
   if (input.DatasetName !== undefined) {
-    const labelValue: string = input.DatasetName.toString();
+    const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DatasetName."
@@ -499,25 +510,25 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -525,23 +536,31 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   const query: any = {};
   if (input.LastSyncCount !== undefined) {
-    query["lastSyncCount"] = input.LastSyncCount.toString();
+    query[
+      __extendedEncodeURIComponent("lastSyncCount")
+    ] = __extendedEncodeURIComponent(input.LastSyncCount.toString());
   }
   if (input.MaxResults !== undefined) {
-    query["maxResults"] = input.MaxResults.toString();
+    query[
+      __extendedEncodeURIComponent("maxResults")
+    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
   }
   if (input.NextToken !== undefined) {
-    query["nextToken"] = input.NextToken.toString();
+    query[
+      __extendedEncodeURIComponent("nextToken")
+    ] = __extendedEncodeURIComponent(input.NextToken);
   }
   if (input.SyncSessionToken !== undefined) {
-    query["syncSessionToken"] = input.SyncSessionToken.toString();
+    query[
+      __extendedEncodeURIComponent("syncSessionToken")
+    ] = __extendedEncodeURIComponent(input.SyncSessionToken);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -562,19 +581,19 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -582,7 +601,7 @@ export async function serializeAws_restJson1_1RegisterDeviceCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -614,7 +633,7 @@ export async function serializeAws_restJson1_1SetCognitoEventsCommand(
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -622,7 +641,7 @@ export async function serializeAws_restJson1_1SetCognitoEventsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -654,7 +673,7 @@ export async function serializeAws_restJson1_1SetIdentityPoolConfigurationComman
   headers["Content-Type"] = "application/json";
   let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -662,7 +681,7 @@ export async function serializeAws_restJson1_1SetIdentityPoolConfigurationComman
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -701,7 +720,7 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.DatasetName !== undefined) {
-    const labelValue: string = input.DatasetName.toString();
+    const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DatasetName."
@@ -709,37 +728,37 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -747,7 +766,7 @@ export async function serializeAws_restJson1_1SubscribeToDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -770,7 +789,7 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.DatasetName !== undefined) {
-    const labelValue: string = input.DatasetName.toString();
+    const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DatasetName."
@@ -778,37 +797,37 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   if (input.DeviceId !== undefined) {
-    const labelValue: string = input.DeviceId.toString();
+    const labelValue: string = input.DeviceId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
     resolvedPath = resolvedPath.replace(
       "{DeviceId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -816,7 +835,7 @@ export async function serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -837,12 +856,12 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/json";
   if (input.ClientContext !== undefined) {
-    headers["x-amz-Client-Context"] = input.ClientContext.toString();
+    headers["x-amz-Client-Context"] = input.ClientContext;
   }
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
-    const labelValue: string = input.DatasetName.toString();
+    const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DatasetName."
@@ -850,25 +869,25 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DatasetName}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   if (input.IdentityId !== undefined) {
-    const labelValue: string = input.IdentityId.toString();
+    const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId.toString();
+    const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: IdentityPoolId."
@@ -876,7 +895,7 @@ export async function serializeAws_restJson1_1UpdateRecordsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{IdentityPoolId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
@@ -2028,6 +2047,7 @@ export async function deserializeAws_restJson1_1SetCognitoEventsCommand(
   const contents: SetCognitoEventsCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2212,6 +2232,7 @@ export async function deserializeAws_restJson1_1SubscribeToDatasetCommand(
     $metadata: deserializeMetadata(output),
     __type: "SubscribeToDatasetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2298,6 +2319,7 @@ export async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(
     $metadata: deserializeMetadata(output),
     __type: "UnsubscribeFromDatasetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

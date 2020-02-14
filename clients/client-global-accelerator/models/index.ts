@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -64,7 +67,7 @@ export interface Accelerator {
 
 export namespace Accelerator {
   export function isa(o: any): o is Accelerator {
-    return _smithy.isa(o, "Accelerator");
+    return __isa(o, "Accelerator");
   }
 }
 
@@ -98,7 +101,7 @@ export interface AcceleratorAttributes {
 
 export namespace AcceleratorAttributes {
   export function isa(o: any): o is AcceleratorAttributes {
-    return _smithy.isa(o, "AcceleratorAttributes");
+    return __isa(o, "AcceleratorAttributes");
   }
 }
 
@@ -106,7 +109,7 @@ export namespace AcceleratorAttributes {
  * <p>The accelerator that you specified could not be disabled.</p>
  */
 export interface AcceleratorNotDisabledException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AcceleratorNotDisabledException";
   $fault: "client";
@@ -115,7 +118,7 @@ export interface AcceleratorNotDisabledException
 
 export namespace AcceleratorNotDisabledException {
   export function isa(o: any): o is AcceleratorNotDisabledException {
-    return _smithy.isa(o, "AcceleratorNotDisabledException");
+    return __isa(o, "AcceleratorNotDisabledException");
   }
 }
 
@@ -123,7 +126,7 @@ export namespace AcceleratorNotDisabledException {
  * <p>The accelerator that you specified doesn't exist.</p>
  */
 export interface AcceleratorNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AcceleratorNotFoundException";
   $fault: "client";
@@ -132,7 +135,7 @@ export interface AcceleratorNotFoundException
 
 export namespace AcceleratorNotFoundException {
   export function isa(o: any): o is AcceleratorNotFoundException {
-    return _smithy.isa(o, "AcceleratorNotFoundException");
+    return __isa(o, "AcceleratorNotFoundException");
   }
 }
 
@@ -142,7 +145,7 @@ export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
  * <p>You don't have access permission.</p>
  */
 export interface AccessDeniedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -151,7 +154,7 @@ export interface AccessDeniedException
 
 export namespace AccessDeniedException {
   export function isa(o: any): o is AccessDeniedException {
-    return _smithy.isa(o, "AccessDeniedException");
+    return __isa(o, "AccessDeniedException");
   }
 }
 
@@ -160,7 +163,7 @@ export namespace AccessDeniedException {
  * 			from a listener before you can delete it.</p>
  */
 export interface AssociatedEndpointGroupFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AssociatedEndpointGroupFoundException";
   $fault: "client";
@@ -169,7 +172,7 @@ export interface AssociatedEndpointGroupFoundException
 
 export namespace AssociatedEndpointGroupFoundException {
   export function isa(o: any): o is AssociatedEndpointGroupFoundException {
-    return _smithy.isa(o, "AssociatedEndpointGroupFoundException");
+    return __isa(o, "AssociatedEndpointGroupFoundException");
   }
 }
 
@@ -178,7 +181,7 @@ export namespace AssociatedEndpointGroupFoundException {
  * 			accelerator before you can delete it.</p>
  */
 export interface AssociatedListenerFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "AssociatedListenerFoundException";
   $fault: "client";
@@ -187,7 +190,7 @@ export interface AssociatedListenerFoundException
 
 export namespace AssociatedListenerFoundException {
   export function isa(o: any): o is AssociatedListenerFoundException {
-    return _smithy.isa(o, "AssociatedListenerFoundException");
+    return __isa(o, "AssociatedListenerFoundException");
   }
 }
 
@@ -222,7 +225,7 @@ export interface CreateAcceleratorRequest {
 
 export namespace CreateAcceleratorRequest {
   export function isa(o: any): o is CreateAcceleratorRequest {
-    return _smithy.isa(o, "CreateAcceleratorRequest");
+    return __isa(o, "CreateAcceleratorRequest");
   }
 }
 
@@ -236,7 +239,7 @@ export interface CreateAcceleratorResponse extends $MetadataBearer {
 
 export namespace CreateAcceleratorResponse {
   export function isa(o: any): o is CreateAcceleratorResponse {
-    return _smithy.isa(o, "CreateAcceleratorResponse");
+    return __isa(o, "CreateAcceleratorResponse");
   }
 }
 
@@ -306,7 +309,7 @@ export interface CreateEndpointGroupRequest {
 
 export namespace CreateEndpointGroupRequest {
   export function isa(o: any): o is CreateEndpointGroupRequest {
-    return _smithy.isa(o, "CreateEndpointGroupRequest");
+    return __isa(o, "CreateEndpointGroupRequest");
   }
 }
 
@@ -320,7 +323,7 @@ export interface CreateEndpointGroupResponse extends $MetadataBearer {
 
 export namespace CreateEndpointGroupResponse {
   export function isa(o: any): o is CreateEndpointGroupResponse {
-    return _smithy.isa(o, "CreateEndpointGroupResponse");
+    return __isa(o, "CreateEndpointGroupResponse");
   }
 }
 
@@ -366,7 +369,7 @@ export interface CreateListenerRequest {
 
 export namespace CreateListenerRequest {
   export function isa(o: any): o is CreateListenerRequest {
-    return _smithy.isa(o, "CreateListenerRequest");
+    return __isa(o, "CreateListenerRequest");
   }
 }
 
@@ -380,7 +383,7 @@ export interface CreateListenerResponse extends $MetadataBearer {
 
 export namespace CreateListenerResponse {
   export function isa(o: any): o is CreateListenerResponse {
-    return _smithy.isa(o, "CreateListenerResponse");
+    return __isa(o, "CreateListenerResponse");
   }
 }
 
@@ -394,7 +397,7 @@ export interface DeleteAcceleratorRequest {
 
 export namespace DeleteAcceleratorRequest {
   export function isa(o: any): o is DeleteAcceleratorRequest {
-    return _smithy.isa(o, "DeleteAcceleratorRequest");
+    return __isa(o, "DeleteAcceleratorRequest");
   }
 }
 
@@ -408,7 +411,7 @@ export interface DeleteEndpointGroupRequest {
 
 export namespace DeleteEndpointGroupRequest {
   export function isa(o: any): o is DeleteEndpointGroupRequest {
-    return _smithy.isa(o, "DeleteEndpointGroupRequest");
+    return __isa(o, "DeleteEndpointGroupRequest");
   }
 }
 
@@ -422,7 +425,7 @@ export interface DeleteListenerRequest {
 
 export namespace DeleteListenerRequest {
   export function isa(o: any): o is DeleteListenerRequest {
-    return _smithy.isa(o, "DeleteListenerRequest");
+    return __isa(o, "DeleteListenerRequest");
   }
 }
 
@@ -436,7 +439,7 @@ export interface DescribeAcceleratorAttributesRequest {
 
 export namespace DescribeAcceleratorAttributesRequest {
   export function isa(o: any): o is DescribeAcceleratorAttributesRequest {
-    return _smithy.isa(o, "DescribeAcceleratorAttributesRequest");
+    return __isa(o, "DescribeAcceleratorAttributesRequest");
   }
 }
 
@@ -450,7 +453,7 @@ export interface DescribeAcceleratorAttributesResponse extends $MetadataBearer {
 
 export namespace DescribeAcceleratorAttributesResponse {
   export function isa(o: any): o is DescribeAcceleratorAttributesResponse {
-    return _smithy.isa(o, "DescribeAcceleratorAttributesResponse");
+    return __isa(o, "DescribeAcceleratorAttributesResponse");
   }
 }
 
@@ -464,7 +467,7 @@ export interface DescribeAcceleratorRequest {
 
 export namespace DescribeAcceleratorRequest {
   export function isa(o: any): o is DescribeAcceleratorRequest {
-    return _smithy.isa(o, "DescribeAcceleratorRequest");
+    return __isa(o, "DescribeAcceleratorRequest");
   }
 }
 
@@ -478,7 +481,7 @@ export interface DescribeAcceleratorResponse extends $MetadataBearer {
 
 export namespace DescribeAcceleratorResponse {
   export function isa(o: any): o is DescribeAcceleratorResponse {
-    return _smithy.isa(o, "DescribeAcceleratorResponse");
+    return __isa(o, "DescribeAcceleratorResponse");
   }
 }
 
@@ -492,7 +495,7 @@ export interface DescribeEndpointGroupRequest {
 
 export namespace DescribeEndpointGroupRequest {
   export function isa(o: any): o is DescribeEndpointGroupRequest {
-    return _smithy.isa(o, "DescribeEndpointGroupRequest");
+    return __isa(o, "DescribeEndpointGroupRequest");
   }
 }
 
@@ -506,7 +509,7 @@ export interface DescribeEndpointGroupResponse extends $MetadataBearer {
 
 export namespace DescribeEndpointGroupResponse {
   export function isa(o: any): o is DescribeEndpointGroupResponse {
-    return _smithy.isa(o, "DescribeEndpointGroupResponse");
+    return __isa(o, "DescribeEndpointGroupResponse");
   }
 }
 
@@ -520,7 +523,7 @@ export interface DescribeListenerRequest {
 
 export namespace DescribeListenerRequest {
   export function isa(o: any): o is DescribeListenerRequest {
-    return _smithy.isa(o, "DescribeListenerRequest");
+    return __isa(o, "DescribeListenerRequest");
   }
 }
 
@@ -534,7 +537,7 @@ export interface DescribeListenerResponse extends $MetadataBearer {
 
 export namespace DescribeListenerResponse {
   export function isa(o: any): o is DescribeListenerResponse {
-    return _smithy.isa(o, "DescribeListenerResponse");
+    return __isa(o, "DescribeListenerResponse");
   }
 }
 
@@ -572,7 +575,7 @@ export interface EndpointConfiguration {
 
 export namespace EndpointConfiguration {
   export function isa(o: any): o is EndpointConfiguration {
-    return _smithy.isa(o, "EndpointConfiguration");
+    return __isa(o, "EndpointConfiguration");
   }
 }
 
@@ -650,7 +653,7 @@ export interface EndpointDescription {
 
 export namespace EndpointDescription {
   export function isa(o: any): o is EndpointDescription {
-    return _smithy.isa(o, "EndpointDescription");
+    return __isa(o, "EndpointDescription");
   }
 }
 
@@ -718,7 +721,7 @@ export interface EndpointGroup {
 
 export namespace EndpointGroup {
   export function isa(o: any): o is EndpointGroup {
-    return _smithy.isa(o, "EndpointGroup");
+    return __isa(o, "EndpointGroup");
   }
 }
 
@@ -726,7 +729,7 @@ export namespace EndpointGroup {
  * <p>The endpoint group that you specified already exists.</p>
  */
 export interface EndpointGroupAlreadyExistsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "EndpointGroupAlreadyExistsException";
   $fault: "client";
@@ -735,7 +738,7 @@ export interface EndpointGroupAlreadyExistsException
 
 export namespace EndpointGroupAlreadyExistsException {
   export function isa(o: any): o is EndpointGroupAlreadyExistsException {
-    return _smithy.isa(o, "EndpointGroupAlreadyExistsException");
+    return __isa(o, "EndpointGroupAlreadyExistsException");
   }
 }
 
@@ -743,7 +746,7 @@ export namespace EndpointGroupAlreadyExistsException {
  * <p>The endpoint group that you specified doesn't exist.</p>
  */
 export interface EndpointGroupNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "EndpointGroupNotFoundException";
   $fault: "client";
@@ -752,7 +755,7 @@ export interface EndpointGroupNotFoundException
 
 export namespace EndpointGroupNotFoundException {
   export function isa(o: any): o is EndpointGroupNotFoundException {
-    return _smithy.isa(o, "EndpointGroupNotFoundException");
+    return __isa(o, "EndpointGroupNotFoundException");
   }
 }
 
@@ -768,7 +771,7 @@ export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
  * <p>There was an internal error for AWS Global Accelerator.</p>
  */
 export interface InternalServiceErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
@@ -777,7 +780,7 @@ export interface InternalServiceErrorException
 
 export namespace InternalServiceErrorException {
   export function isa(o: any): o is InternalServiceErrorException {
-    return _smithy.isa(o, "InternalServiceErrorException");
+    return __isa(o, "InternalServiceErrorException");
   }
 }
 
@@ -785,7 +788,7 @@ export namespace InternalServiceErrorException {
  * <p>An argument that you specified is invalid.</p>
  */
 export interface InvalidArgumentException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
@@ -794,7 +797,7 @@ export interface InvalidArgumentException
 
 export namespace InvalidArgumentException {
   export function isa(o: any): o is InvalidArgumentException {
-    return _smithy.isa(o, "InvalidArgumentException");
+    return __isa(o, "InvalidArgumentException");
   }
 }
 
@@ -802,7 +805,7 @@ export namespace InvalidArgumentException {
  * <p>There isn't another item to return.</p>
  */
 export interface InvalidNextTokenException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
@@ -811,7 +814,7 @@ export interface InvalidNextTokenException
 
 export namespace InvalidNextTokenException {
   export function isa(o: any): o is InvalidNextTokenException {
-    return _smithy.isa(o, "InvalidNextTokenException");
+    return __isa(o, "InvalidNextTokenException");
   }
 }
 
@@ -819,7 +822,7 @@ export namespace InvalidNextTokenException {
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
 export interface InvalidPortRangeException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPortRangeException";
   $fault: "client";
@@ -828,7 +831,7 @@ export interface InvalidPortRangeException
 
 export namespace InvalidPortRangeException {
   export function isa(o: any): o is InvalidPortRangeException {
-    return _smithy.isa(o, "InvalidPortRangeException");
+    return __isa(o, "InvalidPortRangeException");
   }
 }
 
@@ -854,7 +857,7 @@ export interface IpSet {
 
 export namespace IpSet {
   export function isa(o: any): o is IpSet {
-    return _smithy.isa(o, "IpSet");
+    return __isa(o, "IpSet");
   }
 }
 
@@ -862,7 +865,7 @@ export namespace IpSet {
  * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -871,7 +874,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -890,7 +893,7 @@ export interface ListAcceleratorsRequest {
 
 export namespace ListAcceleratorsRequest {
   export function isa(o: any): o is ListAcceleratorsRequest {
-    return _smithy.isa(o, "ListAcceleratorsRequest");
+    return __isa(o, "ListAcceleratorsRequest");
   }
 }
 
@@ -909,7 +912,7 @@ export interface ListAcceleratorsResponse extends $MetadataBearer {
 
 export namespace ListAcceleratorsResponse {
   export function isa(o: any): o is ListAcceleratorsResponse {
-    return _smithy.isa(o, "ListAcceleratorsResponse");
+    return __isa(o, "ListAcceleratorsResponse");
   }
 }
 
@@ -933,7 +936,7 @@ export interface ListEndpointGroupsRequest {
 
 export namespace ListEndpointGroupsRequest {
   export function isa(o: any): o is ListEndpointGroupsRequest {
-    return _smithy.isa(o, "ListEndpointGroupsRequest");
+    return __isa(o, "ListEndpointGroupsRequest");
   }
 }
 
@@ -952,7 +955,7 @@ export interface ListEndpointGroupsResponse extends $MetadataBearer {
 
 export namespace ListEndpointGroupsResponse {
   export function isa(o: any): o is ListEndpointGroupsResponse {
-    return _smithy.isa(o, "ListEndpointGroupsResponse");
+    return __isa(o, "ListEndpointGroupsResponse");
   }
 }
 
@@ -976,7 +979,7 @@ export interface ListListenersRequest {
 
 export namespace ListListenersRequest {
   export function isa(o: any): o is ListListenersRequest {
-    return _smithy.isa(o, "ListListenersRequest");
+    return __isa(o, "ListListenersRequest");
   }
 }
 
@@ -995,7 +998,7 @@ export interface ListListenersResponse extends $MetadataBearer {
 
 export namespace ListListenersResponse {
   export function isa(o: any): o is ListListenersResponse {
-    return _smithy.isa(o, "ListListenersResponse");
+    return __isa(o, "ListListenersResponse");
   }
 }
 
@@ -1038,7 +1041,7 @@ export interface Listener {
 
 export namespace Listener {
   export function isa(o: any): o is Listener {
-    return _smithy.isa(o, "Listener");
+    return __isa(o, "Listener");
   }
 }
 
@@ -1046,7 +1049,7 @@ export namespace Listener {
  * <p>The listener that you specified doesn't exist.</p>
  */
 export interface ListenerNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ListenerNotFoundException";
   $fault: "client";
@@ -1055,7 +1058,7 @@ export interface ListenerNotFoundException
 
 export namespace ListenerNotFoundException {
   export function isa(o: any): o is ListenerNotFoundException {
-    return _smithy.isa(o, "ListenerNotFoundException");
+    return __isa(o, "ListenerNotFoundException");
   }
 }
 
@@ -1077,7 +1080,7 @@ export interface PortRange {
 
 export namespace PortRange {
   export function isa(o: any): o is PortRange {
-    return _smithy.isa(o, "PortRange");
+    return __isa(o, "PortRange");
   }
 }
 
@@ -1118,7 +1121,7 @@ export interface UpdateAcceleratorAttributesRequest {
 
 export namespace UpdateAcceleratorAttributesRequest {
   export function isa(o: any): o is UpdateAcceleratorAttributesRequest {
-    return _smithy.isa(o, "UpdateAcceleratorAttributesRequest");
+    return __isa(o, "UpdateAcceleratorAttributesRequest");
   }
 }
 
@@ -1132,7 +1135,7 @@ export interface UpdateAcceleratorAttributesResponse extends $MetadataBearer {
 
 export namespace UpdateAcceleratorAttributesResponse {
   export function isa(o: any): o is UpdateAcceleratorAttributesResponse {
-    return _smithy.isa(o, "UpdateAcceleratorAttributesResponse");
+    return __isa(o, "UpdateAcceleratorAttributesResponse");
   }
 }
 
@@ -1164,7 +1167,7 @@ export interface UpdateAcceleratorRequest {
 
 export namespace UpdateAcceleratorRequest {
   export function isa(o: any): o is UpdateAcceleratorRequest {
-    return _smithy.isa(o, "UpdateAcceleratorRequest");
+    return __isa(o, "UpdateAcceleratorRequest");
   }
 }
 
@@ -1178,7 +1181,7 @@ export interface UpdateAcceleratorResponse extends $MetadataBearer {
 
 export namespace UpdateAcceleratorResponse {
   export function isa(o: any): o is UpdateAcceleratorResponse {
-    return _smithy.isa(o, "UpdateAcceleratorResponse");
+    return __isa(o, "UpdateAcceleratorResponse");
   }
 }
 
@@ -1236,7 +1239,7 @@ export interface UpdateEndpointGroupRequest {
 
 export namespace UpdateEndpointGroupRequest {
   export function isa(o: any): o is UpdateEndpointGroupRequest {
-    return _smithy.isa(o, "UpdateEndpointGroupRequest");
+    return __isa(o, "UpdateEndpointGroupRequest");
   }
 }
 
@@ -1250,7 +1253,7 @@ export interface UpdateEndpointGroupResponse extends $MetadataBearer {
 
 export namespace UpdateEndpointGroupResponse {
   export function isa(o: any): o is UpdateEndpointGroupResponse {
-    return _smithy.isa(o, "UpdateEndpointGroupResponse");
+    return __isa(o, "UpdateEndpointGroupResponse");
   }
 }
 
@@ -1290,7 +1293,7 @@ export interface UpdateListenerRequest {
 
 export namespace UpdateListenerRequest {
   export function isa(o: any): o is UpdateListenerRequest {
-    return _smithy.isa(o, "UpdateListenerRequest");
+    return __isa(o, "UpdateListenerRequest");
   }
 }
 
@@ -1304,6 +1307,6 @@ export interface UpdateListenerResponse extends $MetadataBearer {
 
 export namespace UpdateListenerResponse {
   export function isa(o: any): o is UpdateListenerResponse {
-    return _smithy.isa(o, "UpdateListenerResponse");
+    return __isa(o, "UpdateListenerResponse");
   }
 }

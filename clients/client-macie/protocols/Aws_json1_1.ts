@@ -172,6 +172,7 @@ export async function deserializeAws_json1_1AssociateMemberAccountCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AssociateMemberAccountCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -320,6 +321,7 @@ export async function deserializeAws_json1_1DisassociateMemberAccountCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisassociateMemberAccountCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

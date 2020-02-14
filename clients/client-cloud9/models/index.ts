@@ -1,11 +1,14 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The target request is invalid.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -16,16 +19,14 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
 /**
  * <p>A conflict occurred.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   className?: string;
@@ -35,7 +36,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -81,7 +82,7 @@ export interface CreateEnvironmentEC2Request {
 
 export namespace CreateEnvironmentEC2Request {
   export function isa(o: any): o is CreateEnvironmentEC2Request {
-    return _smithy.isa(o, "CreateEnvironmentEC2Request");
+    return __isa(o, "CreateEnvironmentEC2Request");
   }
 }
 
@@ -95,7 +96,7 @@ export interface CreateEnvironmentEC2Result extends $MetadataBearer {
 
 export namespace CreateEnvironmentEC2Result {
   export function isa(o: any): o is CreateEnvironmentEC2Result {
-    return _smithy.isa(o, "CreateEnvironmentEC2Result");
+    return __isa(o, "CreateEnvironmentEC2Result");
   }
 }
 
@@ -129,7 +130,7 @@ export interface CreateEnvironmentMembershipRequest {
 
 export namespace CreateEnvironmentMembershipRequest {
   export function isa(o: any): o is CreateEnvironmentMembershipRequest {
-    return _smithy.isa(o, "CreateEnvironmentMembershipRequest");
+    return __isa(o, "CreateEnvironmentMembershipRequest");
   }
 }
 
@@ -143,7 +144,7 @@ export interface CreateEnvironmentMembershipResult extends $MetadataBearer {
 
 export namespace CreateEnvironmentMembershipResult {
   export function isa(o: any): o is CreateEnvironmentMembershipResult {
-    return _smithy.isa(o, "CreateEnvironmentMembershipResult");
+    return __isa(o, "CreateEnvironmentMembershipResult");
   }
 }
 
@@ -162,7 +163,7 @@ export interface DeleteEnvironmentMembershipRequest {
 
 export namespace DeleteEnvironmentMembershipRequest {
   export function isa(o: any): o is DeleteEnvironmentMembershipRequest {
-    return _smithy.isa(o, "DeleteEnvironmentMembershipRequest");
+    return __isa(o, "DeleteEnvironmentMembershipRequest");
   }
 }
 
@@ -172,7 +173,7 @@ export interface DeleteEnvironmentMembershipResult extends $MetadataBearer {
 
 export namespace DeleteEnvironmentMembershipResult {
   export function isa(o: any): o is DeleteEnvironmentMembershipResult {
-    return _smithy.isa(o, "DeleteEnvironmentMembershipResult");
+    return __isa(o, "DeleteEnvironmentMembershipResult");
   }
 }
 
@@ -186,7 +187,7 @@ export interface DeleteEnvironmentRequest {
 
 export namespace DeleteEnvironmentRequest {
   export function isa(o: any): o is DeleteEnvironmentRequest {
-    return _smithy.isa(o, "DeleteEnvironmentRequest");
+    return __isa(o, "DeleteEnvironmentRequest");
   }
 }
 
@@ -196,7 +197,7 @@ export interface DeleteEnvironmentResult extends $MetadataBearer {
 
 export namespace DeleteEnvironmentResult {
   export function isa(o: any): o is DeleteEnvironmentResult {
-    return _smithy.isa(o, "DeleteEnvironmentResult");
+    return __isa(o, "DeleteEnvironmentResult");
   }
 }
 
@@ -245,7 +246,7 @@ export interface DescribeEnvironmentMembershipsRequest {
 
 export namespace DescribeEnvironmentMembershipsRequest {
   export function isa(o: any): o is DescribeEnvironmentMembershipsRequest {
-    return _smithy.isa(o, "DescribeEnvironmentMembershipsRequest");
+    return __isa(o, "DescribeEnvironmentMembershipsRequest");
   }
 }
 
@@ -264,7 +265,7 @@ export interface DescribeEnvironmentMembershipsResult extends $MetadataBearer {
 
 export namespace DescribeEnvironmentMembershipsResult {
   export function isa(o: any): o is DescribeEnvironmentMembershipsResult {
-    return _smithy.isa(o, "DescribeEnvironmentMembershipsResult");
+    return __isa(o, "DescribeEnvironmentMembershipsResult");
   }
 }
 
@@ -278,7 +279,7 @@ export interface DescribeEnvironmentStatusRequest {
 
 export namespace DescribeEnvironmentStatusRequest {
   export function isa(o: any): o is DescribeEnvironmentStatusRequest {
-    return _smithy.isa(o, "DescribeEnvironmentStatusRequest");
+    return __isa(o, "DescribeEnvironmentStatusRequest");
   }
 }
 
@@ -327,7 +328,7 @@ export interface DescribeEnvironmentStatusResult extends $MetadataBearer {
 
 export namespace DescribeEnvironmentStatusResult {
   export function isa(o: any): o is DescribeEnvironmentStatusResult {
-    return _smithy.isa(o, "DescribeEnvironmentStatusResult");
+    return __isa(o, "DescribeEnvironmentStatusResult");
   }
 }
 
@@ -341,7 +342,7 @@ export interface DescribeEnvironmentsRequest {
 
 export namespace DescribeEnvironmentsRequest {
   export function isa(o: any): o is DescribeEnvironmentsRequest {
-    return _smithy.isa(o, "DescribeEnvironmentsRequest");
+    return __isa(o, "DescribeEnvironmentsRequest");
   }
 }
 
@@ -355,7 +356,7 @@ export interface DescribeEnvironmentsResult extends $MetadataBearer {
 
 export namespace DescribeEnvironmentsResult {
   export function isa(o: any): o is DescribeEnvironmentsResult {
-    return _smithy.isa(o, "DescribeEnvironmentsResult");
+    return __isa(o, "DescribeEnvironmentsResult");
   }
 }
 
@@ -412,7 +413,7 @@ export interface Environment {
 
 export namespace Environment {
   export function isa(o: any): o is Environment {
-    return _smithy.isa(o, "Environment");
+    return __isa(o, "Environment");
   }
 }
 
@@ -461,7 +462,7 @@ export interface EnvironmentLifecycle {
 
 export namespace EnvironmentLifecycle {
   export function isa(o: any): o is EnvironmentLifecycle {
-    return _smithy.isa(o, "EnvironmentLifecycle");
+    return __isa(o, "EnvironmentLifecycle");
   }
 }
 
@@ -520,7 +521,7 @@ export interface EnvironmentMember {
 
 export namespace EnvironmentMember {
   export function isa(o: any): o is EnvironmentMember {
-    return _smithy.isa(o, "EnvironmentMember");
+    return __isa(o, "EnvironmentMember");
   }
 }
 
@@ -542,9 +543,7 @@ export enum EnvironmentType {
 /**
  * <p>An access permissions issue occurred.</p>
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   className?: string;
@@ -554,7 +553,7 @@ export interface ForbiddenException
 
 export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
-    return _smithy.isa(o, "ForbiddenException");
+    return __isa(o, "ForbiddenException");
   }
 }
 
@@ -562,7 +561,7 @@ export namespace ForbiddenException {
  * <p>An internal server error occurred.</p>
  */
 export interface InternalServerErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
@@ -573,7 +572,7 @@ export interface InternalServerErrorException
 
 export namespace InternalServerErrorException {
   export function isa(o: any): o is InternalServerErrorException {
-    return _smithy.isa(o, "InternalServerErrorException");
+    return __isa(o, "InternalServerErrorException");
   }
 }
 
@@ -581,7 +580,7 @@ export namespace InternalServerErrorException {
  * <p>A service limit was exceeded.</p>
  */
 export interface LimitExceededException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
@@ -592,7 +591,7 @@ export interface LimitExceededException
 
 export namespace LimitExceededException {
   export function isa(o: any): o is LimitExceededException {
-    return _smithy.isa(o, "LimitExceededException");
+    return __isa(o, "LimitExceededException");
   }
 }
 
@@ -611,7 +610,7 @@ export interface ListEnvironmentsRequest {
 
 export namespace ListEnvironmentsRequest {
   export function isa(o: any): o is ListEnvironmentsRequest {
-    return _smithy.isa(o, "ListEnvironmentsRequest");
+    return __isa(o, "ListEnvironmentsRequest");
   }
 }
 
@@ -630,7 +629,7 @@ export interface ListEnvironmentsResult extends $MetadataBearer {
 
 export namespace ListEnvironmentsResult {
   export function isa(o: any): o is ListEnvironmentsResult {
-    return _smithy.isa(o, "ListEnvironmentsResult");
+    return __isa(o, "ListEnvironmentsResult");
   }
 }
 
@@ -642,9 +641,7 @@ export enum MemberPermissions {
 /**
  * <p>The target resource cannot be found.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   className?: string;
@@ -654,7 +651,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -668,7 +665,7 @@ export enum Permissions {
  * <p>Too many service requests were made over the given time period.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -679,7 +676,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -713,7 +710,7 @@ export interface UpdateEnvironmentMembershipRequest {
 
 export namespace UpdateEnvironmentMembershipRequest {
   export function isa(o: any): o is UpdateEnvironmentMembershipRequest {
-    return _smithy.isa(o, "UpdateEnvironmentMembershipRequest");
+    return __isa(o, "UpdateEnvironmentMembershipRequest");
   }
 }
 
@@ -727,7 +724,7 @@ export interface UpdateEnvironmentMembershipResult extends $MetadataBearer {
 
 export namespace UpdateEnvironmentMembershipResult {
   export function isa(o: any): o is UpdateEnvironmentMembershipResult {
-    return _smithy.isa(o, "UpdateEnvironmentMembershipResult");
+    return __isa(o, "UpdateEnvironmentMembershipResult");
   }
 }
 
@@ -751,7 +748,7 @@ export interface UpdateEnvironmentRequest {
 
 export namespace UpdateEnvironmentRequest {
   export function isa(o: any): o is UpdateEnvironmentRequest {
-    return _smithy.isa(o, "UpdateEnvironmentRequest");
+    return __isa(o, "UpdateEnvironmentRequest");
   }
 }
 
@@ -761,6 +758,6 @@ export interface UpdateEnvironmentResult extends $MetadataBearer {
 
 export namespace UpdateEnvironmentResult {
   export function isa(o: any): o is UpdateEnvironmentResult {
-    return _smithy.isa(o, "UpdateEnvironmentResult");
+    return __isa(o, "UpdateEnvironmentResult");
   }
 }

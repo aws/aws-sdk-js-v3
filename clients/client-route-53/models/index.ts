@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -48,7 +51,7 @@ export interface AccountLimit {
 
 export namespace AccountLimit {
   export function isa(o: any): o is AccountLimit {
-    return _smithy.isa(o, "AccountLimit");
+    return __isa(o, "AccountLimit");
   }
 }
 
@@ -94,7 +97,7 @@ export interface AlarmIdentifier {
 
 export namespace AlarmIdentifier {
   export function isa(o: any): o is AlarmIdentifier {
-    return _smithy.isa(o, "AlarmIdentifier");
+    return __isa(o, "AlarmIdentifier");
   }
 }
 
@@ -453,7 +456,7 @@ export interface AliasTarget {
 
 export namespace AliasTarget {
   export function isa(o: any): o is AliasTarget {
-    return _smithy.isa(o, "AliasTarget");
+    return __isa(o, "AliasTarget");
   }
 }
 
@@ -482,7 +485,7 @@ export interface AssociateVPCWithHostedZoneRequest {
 
 export namespace AssociateVPCWithHostedZoneRequest {
   export function isa(o: any): o is AssociateVPCWithHostedZoneRequest {
-    return _smithy.isa(o, "AssociateVPCWithHostedZoneRequest");
+    return __isa(o, "AssociateVPCWithHostedZoneRequest");
   }
 }
 
@@ -499,7 +502,7 @@ export interface AssociateVPCWithHostedZoneResponse extends $MetadataBearer {
 
 export namespace AssociateVPCWithHostedZoneResponse {
   export function isa(o: any): o is AssociateVPCWithHostedZoneResponse {
-    return _smithy.isa(o, "AssociateVPCWithHostedZoneResponse");
+    return __isa(o, "AssociateVPCWithHostedZoneResponse");
   }
 }
 
@@ -543,7 +546,7 @@ export interface Change {
 
 export namespace Change {
   export function isa(o: any): o is Change {
-    return _smithy.isa(o, "Change");
+    return __isa(o, "Change");
   }
 }
 
@@ -569,7 +572,7 @@ export interface ChangeBatch {
 
 export namespace ChangeBatch {
   export function isa(o: any): o is ChangeBatch {
-    return _smithy.isa(o, "ChangeBatch");
+    return __isa(o, "ChangeBatch");
   }
 }
 
@@ -609,7 +612,7 @@ export interface ChangeInfo {
 
 export namespace ChangeInfo {
   export function isa(o: any): o is ChangeInfo {
-    return _smithy.isa(o, "ChangeInfo");
+    return __isa(o, "ChangeInfo");
   }
 }
 
@@ -631,7 +634,7 @@ export interface ChangeResourceRecordSetsRequest {
 
 export namespace ChangeResourceRecordSetsRequest {
   export function isa(o: any): o is ChangeResourceRecordSetsRequest {
-    return _smithy.isa(o, "ChangeResourceRecordSetsRequest");
+    return __isa(o, "ChangeResourceRecordSetsRequest");
   }
 }
 
@@ -651,7 +654,7 @@ export interface ChangeResourceRecordSetsResponse extends $MetadataBearer {
 
 export namespace ChangeResourceRecordSetsResponse {
   export function isa(o: any): o is ChangeResourceRecordSetsResponse {
-    return _smithy.isa(o, "ChangeResourceRecordSetsResponse");
+    return __isa(o, "ChangeResourceRecordSetsResponse");
   }
 }
 
@@ -696,7 +699,7 @@ export interface ChangeTagsForResourceRequest {
 
 export namespace ChangeTagsForResourceRequest {
   export function isa(o: any): o is ChangeTagsForResourceRequest {
-    return _smithy.isa(o, "ChangeTagsForResourceRequest");
+    return __isa(o, "ChangeTagsForResourceRequest");
   }
 }
 
@@ -709,7 +712,7 @@ export interface ChangeTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ChangeTagsForResourceResponse {
   export function isa(o: any): o is ChangeTagsForResourceResponse {
-    return _smithy.isa(o, "ChangeTagsForResourceResponse");
+    return __isa(o, "ChangeTagsForResourceResponse");
   }
 }
 
@@ -765,7 +768,7 @@ export interface CloudWatchAlarmConfiguration {
 
 export namespace CloudWatchAlarmConfiguration {
   export function isa(o: any): o is CloudWatchAlarmConfiguration {
-    return _smithy.isa(o, "CloudWatchAlarmConfiguration");
+    return __isa(o, "CloudWatchAlarmConfiguration");
   }
 }
 
@@ -802,7 +805,7 @@ export type ComparisonOperator =
  * <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
  */
 export interface ConcurrentModification
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConcurrentModification";
   $fault: "client";
@@ -814,7 +817,7 @@ export interface ConcurrentModification
 
 export namespace ConcurrentModification {
   export function isa(o: any): o is ConcurrentModification {
-    return _smithy.isa(o, "ConcurrentModification");
+    return __isa(o, "ConcurrentModification");
   }
 }
 
@@ -838,7 +841,7 @@ export namespace ConcurrentModification {
  *          </ul>
  */
 export interface ConflictingDomainExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ConflictingDomainExists";
   $fault: "client";
@@ -847,7 +850,7 @@ export interface ConflictingDomainExists
 
 export namespace ConflictingDomainExists {
   export function isa(o: any): o is ConflictingDomainExists {
-    return _smithy.isa(o, "ConflictingDomainExists");
+    return __isa(o, "ConflictingDomainExists");
   }
 }
 
@@ -856,9 +859,7 @@ export namespace ConflictingDomainExists {
  * 			than the current type for the instance. You specified the type in the JSON document in the <code>CreateTrafficPolicy</code> or
  * 			<code>CreateTrafficPolicyVersion</code>request. </p>
  */
-export interface ConflictingTypes
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictingTypes extends __SmithyException, $MetadataBearer {
   name: "ConflictingTypes";
   $fault: "client";
   /**
@@ -869,7 +870,7 @@ export interface ConflictingTypes
 
 export namespace ConflictingTypes {
   export function isa(o: any): o is ConflictingTypes {
-    return _smithy.isa(o, "ConflictingTypes");
+    return __isa(o, "ConflictingTypes");
   }
 }
 
@@ -911,7 +912,7 @@ export interface CreateHealthCheckRequest {
 
 export namespace CreateHealthCheckRequest {
   export function isa(o: any): o is CreateHealthCheckRequest {
-    return _smithy.isa(o, "CreateHealthCheckRequest");
+    return __isa(o, "CreateHealthCheckRequest");
   }
 }
 
@@ -933,7 +934,7 @@ export interface CreateHealthCheckResponse extends $MetadataBearer {
 
 export namespace CreateHealthCheckResponse {
   export function isa(o: any): o is CreateHealthCheckResponse {
-    return _smithy.isa(o, "CreateHealthCheckResponse");
+    return __isa(o, "CreateHealthCheckResponse");
   }
 }
 
@@ -992,7 +993,7 @@ export interface CreateHostedZoneRequest {
 
 export namespace CreateHostedZoneRequest {
   export function isa(o: any): o is CreateHostedZoneRequest {
-    return _smithy.isa(o, "CreateHostedZoneRequest");
+    return __isa(o, "CreateHostedZoneRequest");
   }
 }
 
@@ -1029,7 +1030,7 @@ export interface CreateHostedZoneResponse extends $MetadataBearer {
 
 export namespace CreateHostedZoneResponse {
   export function isa(o: any): o is CreateHostedZoneResponse {
-    return _smithy.isa(o, "CreateHostedZoneResponse");
+    return __isa(o, "CreateHostedZoneResponse");
   }
 }
 
@@ -1057,7 +1058,7 @@ export interface CreateQueryLoggingConfigRequest {
 
 export namespace CreateQueryLoggingConfigRequest {
   export function isa(o: any): o is CreateQueryLoggingConfigRequest {
-    return _smithy.isa(o, "CreateQueryLoggingConfigRequest");
+    return __isa(o, "CreateQueryLoggingConfigRequest");
   }
 }
 
@@ -1077,7 +1078,7 @@ export interface CreateQueryLoggingConfigResponse extends $MetadataBearer {
 
 export namespace CreateQueryLoggingConfigResponse {
   export function isa(o: any): o is CreateQueryLoggingConfigResponse {
-    return _smithy.isa(o, "CreateQueryLoggingConfigResponse");
+    return __isa(o, "CreateQueryLoggingConfigResponse");
   }
 }
 
@@ -1101,7 +1102,7 @@ export interface CreateReusableDelegationSetRequest {
 
 export namespace CreateReusableDelegationSetRequest {
   export function isa(o: any): o is CreateReusableDelegationSetRequest {
-    return _smithy.isa(o, "CreateReusableDelegationSetRequest");
+    return __isa(o, "CreateReusableDelegationSetRequest");
   }
 }
 
@@ -1120,7 +1121,7 @@ export interface CreateReusableDelegationSetResponse extends $MetadataBearer {
 
 export namespace CreateReusableDelegationSetResponse {
   export function isa(o: any): o is CreateReusableDelegationSetResponse {
-    return _smithy.isa(o, "CreateReusableDelegationSetResponse");
+    return __isa(o, "CreateReusableDelegationSetResponse");
   }
 }
 
@@ -1158,7 +1159,7 @@ export interface CreateTrafficPolicyInstanceRequest {
 
 export namespace CreateTrafficPolicyInstanceRequest {
   export function isa(o: any): o is CreateTrafficPolicyInstanceRequest {
-    return _smithy.isa(o, "CreateTrafficPolicyInstanceRequest");
+    return __isa(o, "CreateTrafficPolicyInstanceRequest");
   }
 }
 
@@ -1180,7 +1181,7 @@ export interface CreateTrafficPolicyInstanceResponse extends $MetadataBearer {
 
 export namespace CreateTrafficPolicyInstanceResponse {
   export function isa(o: any): o is CreateTrafficPolicyInstanceResponse {
-    return _smithy.isa(o, "CreateTrafficPolicyInstanceResponse");
+    return __isa(o, "CreateTrafficPolicyInstanceResponse");
   }
 }
 
@@ -1208,7 +1209,7 @@ export interface CreateTrafficPolicyRequest {
 
 export namespace CreateTrafficPolicyRequest {
   export function isa(o: any): o is CreateTrafficPolicyRequest {
-    return _smithy.isa(o, "CreateTrafficPolicyRequest");
+    return __isa(o, "CreateTrafficPolicyRequest");
   }
 }
 
@@ -1230,7 +1231,7 @@ export interface CreateTrafficPolicyResponse extends $MetadataBearer {
 
 export namespace CreateTrafficPolicyResponse {
   export function isa(o: any): o is CreateTrafficPolicyResponse {
-    return _smithy.isa(o, "CreateTrafficPolicyResponse");
+    return __isa(o, "CreateTrafficPolicyResponse");
   }
 }
 
@@ -1259,7 +1260,7 @@ export interface CreateTrafficPolicyVersionRequest {
 
 export namespace CreateTrafficPolicyVersionRequest {
   export function isa(o: any): o is CreateTrafficPolicyVersionRequest {
-    return _smithy.isa(o, "CreateTrafficPolicyVersionRequest");
+    return __isa(o, "CreateTrafficPolicyVersionRequest");
   }
 }
 
@@ -1281,7 +1282,7 @@ export interface CreateTrafficPolicyVersionResponse extends $MetadataBearer {
 
 export namespace CreateTrafficPolicyVersionResponse {
   export function isa(o: any): o is CreateTrafficPolicyVersionResponse {
-    return _smithy.isa(o, "CreateTrafficPolicyVersionResponse");
+    return __isa(o, "CreateTrafficPolicyVersionResponse");
   }
 }
 
@@ -1305,7 +1306,7 @@ export interface CreateVPCAssociationAuthorizationRequest {
 
 export namespace CreateVPCAssociationAuthorizationRequest {
   export function isa(o: any): o is CreateVPCAssociationAuthorizationRequest {
-    return _smithy.isa(o, "CreateVPCAssociationAuthorizationRequest");
+    return __isa(o, "CreateVPCAssociationAuthorizationRequest");
   }
 }
 
@@ -1328,7 +1329,7 @@ export interface CreateVPCAssociationAuthorizationResponse
 
 export namespace CreateVPCAssociationAuthorizationResponse {
   export function isa(o: any): o is CreateVPCAssociationAuthorizationResponse {
-    return _smithy.isa(o, "CreateVPCAssociationAuthorizationResponse");
+    return __isa(o, "CreateVPCAssociationAuthorizationResponse");
   }
 }
 
@@ -1356,7 +1357,7 @@ export interface DelegationSet {
 
 export namespace DelegationSet {
   export function isa(o: any): o is DelegationSet {
-    return _smithy.isa(o, "DelegationSet");
+    return __isa(o, "DelegationSet");
   }
 }
 
@@ -1364,7 +1365,7 @@ export namespace DelegationSet {
  * <p>A delegation set with the same owner and caller reference combination has already been created.</p>
  */
 export interface DelegationSetAlreadyCreated
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DelegationSetAlreadyCreated";
   $fault: "client";
@@ -1376,7 +1377,7 @@ export interface DelegationSetAlreadyCreated
 
 export namespace DelegationSetAlreadyCreated {
   export function isa(o: any): o is DelegationSetAlreadyCreated {
-    return _smithy.isa(o, "DelegationSetAlreadyCreated");
+    return __isa(o, "DelegationSetAlreadyCreated");
   }
 }
 
@@ -1384,7 +1385,7 @@ export namespace DelegationSetAlreadyCreated {
  * <p>The specified delegation set has already been marked as reusable.</p>
  */
 export interface DelegationSetAlreadyReusable
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DelegationSetAlreadyReusable";
   $fault: "client";
@@ -1396,7 +1397,7 @@ export interface DelegationSetAlreadyReusable
 
 export namespace DelegationSetAlreadyReusable {
   export function isa(o: any): o is DelegationSetAlreadyReusable {
-    return _smithy.isa(o, "DelegationSetAlreadyReusable");
+    return __isa(o, "DelegationSetAlreadyReusable");
   }
 }
 
@@ -1404,9 +1405,7 @@ export namespace DelegationSetAlreadyReusable {
  * <p>The specified delegation contains associated hosted zones which must be deleted before the reusable delegation set
  * 			can be deleted.</p>
  */
-export interface DelegationSetInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface DelegationSetInUse extends __SmithyException, $MetadataBearer {
   name: "DelegationSetInUse";
   $fault: "client";
   /**
@@ -1417,7 +1416,7 @@ export interface DelegationSetInUse
 
 export namespace DelegationSetInUse {
   export function isa(o: any): o is DelegationSetInUse {
-    return _smithy.isa(o, "DelegationSetInUse");
+    return __isa(o, "DelegationSetInUse");
   }
 }
 
@@ -1427,7 +1426,7 @@ export namespace DelegationSetInUse {
  * 			the domain name and Route 53 generates this error, contact Customer Support.</p>
  */
 export interface DelegationSetNotAvailable
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DelegationSetNotAvailable";
   $fault: "client";
@@ -1439,7 +1438,7 @@ export interface DelegationSetNotAvailable
 
 export namespace DelegationSetNotAvailable {
   export function isa(o: any): o is DelegationSetNotAvailable {
-    return _smithy.isa(o, "DelegationSetNotAvailable");
+    return __isa(o, "DelegationSetNotAvailable");
   }
 }
 
@@ -1447,7 +1446,7 @@ export namespace DelegationSetNotAvailable {
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
 export interface DelegationSetNotReusable
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "DelegationSetNotReusable";
   $fault: "client";
@@ -1459,7 +1458,7 @@ export interface DelegationSetNotReusable
 
 export namespace DelegationSetNotReusable {
   export function isa(o: any): o is DelegationSetNotReusable {
-    return _smithy.isa(o, "DelegationSetNotReusable");
+    return __isa(o, "DelegationSetNotReusable");
   }
 }
 
@@ -1476,7 +1475,7 @@ export interface DeleteHealthCheckRequest {
 
 export namespace DeleteHealthCheckRequest {
   export function isa(o: any): o is DeleteHealthCheckRequest {
-    return _smithy.isa(o, "DeleteHealthCheckRequest");
+    return __isa(o, "DeleteHealthCheckRequest");
   }
 }
 
@@ -1489,7 +1488,7 @@ export interface DeleteHealthCheckResponse extends $MetadataBearer {
 
 export namespace DeleteHealthCheckResponse {
   export function isa(o: any): o is DeleteHealthCheckResponse {
-    return _smithy.isa(o, "DeleteHealthCheckResponse");
+    return __isa(o, "DeleteHealthCheckResponse");
   }
 }
 
@@ -1506,7 +1505,7 @@ export interface DeleteHostedZoneRequest {
 
 export namespace DeleteHostedZoneRequest {
   export function isa(o: any): o is DeleteHostedZoneRequest {
-    return _smithy.isa(o, "DeleteHostedZoneRequest");
+    return __isa(o, "DeleteHostedZoneRequest");
   }
 }
 
@@ -1523,7 +1522,7 @@ export interface DeleteHostedZoneResponse extends $MetadataBearer {
 
 export namespace DeleteHostedZoneResponse {
   export function isa(o: any): o is DeleteHostedZoneResponse {
-    return _smithy.isa(o, "DeleteHostedZoneResponse");
+    return __isa(o, "DeleteHostedZoneResponse");
   }
 }
 
@@ -1537,7 +1536,7 @@ export interface DeleteQueryLoggingConfigRequest {
 
 export namespace DeleteQueryLoggingConfigRequest {
   export function isa(o: any): o is DeleteQueryLoggingConfigRequest {
-    return _smithy.isa(o, "DeleteQueryLoggingConfigRequest");
+    return __isa(o, "DeleteQueryLoggingConfigRequest");
   }
 }
 
@@ -1547,7 +1546,7 @@ export interface DeleteQueryLoggingConfigResponse extends $MetadataBearer {
 
 export namespace DeleteQueryLoggingConfigResponse {
   export function isa(o: any): o is DeleteQueryLoggingConfigResponse {
-    return _smithy.isa(o, "DeleteQueryLoggingConfigResponse");
+    return __isa(o, "DeleteQueryLoggingConfigResponse");
   }
 }
 
@@ -1564,7 +1563,7 @@ export interface DeleteReusableDelegationSetRequest {
 
 export namespace DeleteReusableDelegationSetRequest {
   export function isa(o: any): o is DeleteReusableDelegationSetRequest {
-    return _smithy.isa(o, "DeleteReusableDelegationSetRequest");
+    return __isa(o, "DeleteReusableDelegationSetRequest");
   }
 }
 
@@ -1577,7 +1576,7 @@ export interface DeleteReusableDelegationSetResponse extends $MetadataBearer {
 
 export namespace DeleteReusableDelegationSetResponse {
   export function isa(o: any): o is DeleteReusableDelegationSetResponse {
-    return _smithy.isa(o, "DeleteReusableDelegationSetResponse");
+    return __isa(o, "DeleteReusableDelegationSetResponse");
   }
 }
 
@@ -1598,7 +1597,7 @@ export interface DeleteTrafficPolicyInstanceRequest {
 
 export namespace DeleteTrafficPolicyInstanceRequest {
   export function isa(o: any): o is DeleteTrafficPolicyInstanceRequest {
-    return _smithy.isa(o, "DeleteTrafficPolicyInstanceRequest");
+    return __isa(o, "DeleteTrafficPolicyInstanceRequest");
   }
 }
 
@@ -1611,7 +1610,7 @@ export interface DeleteTrafficPolicyInstanceResponse extends $MetadataBearer {
 
 export namespace DeleteTrafficPolicyInstanceResponse {
   export function isa(o: any): o is DeleteTrafficPolicyInstanceResponse {
-    return _smithy.isa(o, "DeleteTrafficPolicyInstanceResponse");
+    return __isa(o, "DeleteTrafficPolicyInstanceResponse");
   }
 }
 
@@ -1633,7 +1632,7 @@ export interface DeleteTrafficPolicyRequest {
 
 export namespace DeleteTrafficPolicyRequest {
   export function isa(o: any): o is DeleteTrafficPolicyRequest {
-    return _smithy.isa(o, "DeleteTrafficPolicyRequest");
+    return __isa(o, "DeleteTrafficPolicyRequest");
   }
 }
 
@@ -1646,7 +1645,7 @@ export interface DeleteTrafficPolicyResponse extends $MetadataBearer {
 
 export namespace DeleteTrafficPolicyResponse {
   export function isa(o: any): o is DeleteTrafficPolicyResponse {
-    return _smithy.isa(o, "DeleteTrafficPolicyResponse");
+    return __isa(o, "DeleteTrafficPolicyResponse");
   }
 }
 
@@ -1671,7 +1670,7 @@ export interface DeleteVPCAssociationAuthorizationRequest {
 
 export namespace DeleteVPCAssociationAuthorizationRequest {
   export function isa(o: any): o is DeleteVPCAssociationAuthorizationRequest {
-    return _smithy.isa(o, "DeleteVPCAssociationAuthorizationRequest");
+    return __isa(o, "DeleteVPCAssociationAuthorizationRequest");
   }
 }
 
@@ -1685,7 +1684,7 @@ export interface DeleteVPCAssociationAuthorizationResponse
 
 export namespace DeleteVPCAssociationAuthorizationResponse {
   export function isa(o: any): o is DeleteVPCAssociationAuthorizationResponse {
-    return _smithy.isa(o, "DeleteVPCAssociationAuthorizationResponse");
+    return __isa(o, "DeleteVPCAssociationAuthorizationResponse");
   }
 }
 
@@ -1707,7 +1706,7 @@ export interface Dimension {
 
 export namespace Dimension {
   export function isa(o: any): o is Dimension {
-    return _smithy.isa(o, "Dimension");
+    return __isa(o, "Dimension");
   }
 }
 
@@ -1737,7 +1736,7 @@ export interface DisassociateVPCFromHostedZoneRequest {
 
 export namespace DisassociateVPCFromHostedZoneRequest {
   export function isa(o: any): o is DisassociateVPCFromHostedZoneRequest {
-    return _smithy.isa(o, "DisassociateVPCFromHostedZoneRequest");
+    return __isa(o, "DisassociateVPCFromHostedZoneRequest");
   }
 }
 
@@ -1754,7 +1753,7 @@ export interface DisassociateVPCFromHostedZoneResponse extends $MetadataBearer {
 
 export namespace DisassociateVPCFromHostedZoneResponse {
   export function isa(o: any): o is DisassociateVPCFromHostedZoneResponse {
-    return _smithy.isa(o, "DisassociateVPCFromHostedZoneResponse");
+    return __isa(o, "DisassociateVPCFromHostedZoneResponse");
   }
 }
 
@@ -1785,7 +1784,7 @@ export interface GeoLocation {
 
 export namespace GeoLocation {
   export function isa(o: any): o is GeoLocation {
-    return _smithy.isa(o, "GeoLocation");
+    return __isa(o, "GeoLocation");
   }
 }
 
@@ -1827,7 +1826,7 @@ export interface GeoLocationDetails {
 
 export namespace GeoLocationDetails {
   export function isa(o: any): o is GeoLocationDetails {
-    return _smithy.isa(o, "GeoLocationDetails");
+    return __isa(o, "GeoLocationDetails");
   }
 }
 
@@ -1872,7 +1871,7 @@ export interface GetAccountLimitRequest {
 
 export namespace GetAccountLimitRequest {
   export function isa(o: any): o is GetAccountLimitRequest {
-    return _smithy.isa(o, "GetAccountLimitRequest");
+    return __isa(o, "GetAccountLimitRequest");
   }
 }
 
@@ -1898,7 +1897,7 @@ export interface GetAccountLimitResponse extends $MetadataBearer {
 
 export namespace GetAccountLimitResponse {
   export function isa(o: any): o is GetAccountLimitResponse {
-    return _smithy.isa(o, "GetAccountLimitResponse");
+    return __isa(o, "GetAccountLimitResponse");
   }
 }
 
@@ -1916,7 +1915,7 @@ export interface GetChangeRequest {
 
 export namespace GetChangeRequest {
   export function isa(o: any): o is GetChangeRequest {
-    return _smithy.isa(o, "GetChangeRequest");
+    return __isa(o, "GetChangeRequest");
   }
 }
 
@@ -1933,7 +1932,7 @@ export interface GetChangeResponse extends $MetadataBearer {
 
 export namespace GetChangeResponse {
   export function isa(o: any): o is GetChangeResponse {
-    return _smithy.isa(o, "GetChangeResponse");
+    return __isa(o, "GetChangeResponse");
   }
 }
 
@@ -1946,7 +1945,7 @@ export interface GetCheckerIpRangesRequest {
 
 export namespace GetCheckerIpRangesRequest {
   export function isa(o: any): o is GetCheckerIpRangesRequest {
-    return _smithy.isa(o, "GetCheckerIpRangesRequest");
+    return __isa(o, "GetCheckerIpRangesRequest");
   }
 }
 
@@ -1964,7 +1963,7 @@ export interface GetCheckerIpRangesResponse extends $MetadataBearer {
 
 export namespace GetCheckerIpRangesResponse {
   export function isa(o: any): o is GetCheckerIpRangesResponse {
-    return _smithy.isa(o, "GetCheckerIpRangesResponse");
+    return __isa(o, "GetCheckerIpRangesResponse");
   }
 }
 
@@ -2024,7 +2023,7 @@ export interface GetGeoLocationRequest {
 
 export namespace GetGeoLocationRequest {
   export function isa(o: any): o is GetGeoLocationRequest {
-    return _smithy.isa(o, "GetGeoLocationRequest");
+    return __isa(o, "GetGeoLocationRequest");
   }
 }
 
@@ -2041,7 +2040,7 @@ export interface GetGeoLocationResponse extends $MetadataBearer {
 
 export namespace GetGeoLocationResponse {
   export function isa(o: any): o is GetGeoLocationResponse {
-    return _smithy.isa(o, "GetGeoLocationResponse");
+    return __isa(o, "GetGeoLocationResponse");
   }
 }
 
@@ -2054,7 +2053,7 @@ export interface GetHealthCheckCountRequest {
 
 export namespace GetHealthCheckCountRequest {
   export function isa(o: any): o is GetHealthCheckCountRequest {
-    return _smithy.isa(o, "GetHealthCheckCountRequest");
+    return __isa(o, "GetHealthCheckCountRequest");
   }
 }
 
@@ -2071,7 +2070,7 @@ export interface GetHealthCheckCountResponse extends $MetadataBearer {
 
 export namespace GetHealthCheckCountResponse {
   export function isa(o: any): o is GetHealthCheckCountResponse {
-    return _smithy.isa(o, "GetHealthCheckCountResponse");
+    return __isa(o, "GetHealthCheckCountResponse");
   }
 }
 
@@ -2093,7 +2092,7 @@ export interface GetHealthCheckLastFailureReasonRequest {
 
 export namespace GetHealthCheckLastFailureReasonRequest {
   export function isa(o: any): o is GetHealthCheckLastFailureReasonRequest {
-    return _smithy.isa(o, "GetHealthCheckLastFailureReasonRequest");
+    return __isa(o, "GetHealthCheckLastFailureReasonRequest");
   }
 }
 
@@ -2111,7 +2110,7 @@ export interface GetHealthCheckLastFailureReasonResponse
 
 export namespace GetHealthCheckLastFailureReasonResponse {
   export function isa(o: any): o is GetHealthCheckLastFailureReasonResponse {
-    return _smithy.isa(o, "GetHealthCheckLastFailureReasonResponse");
+    return __isa(o, "GetHealthCheckLastFailureReasonResponse");
   }
 }
 
@@ -2129,7 +2128,7 @@ export interface GetHealthCheckRequest {
 
 export namespace GetHealthCheckRequest {
   export function isa(o: any): o is GetHealthCheckRequest {
-    return _smithy.isa(o, "GetHealthCheckRequest");
+    return __isa(o, "GetHealthCheckRequest");
   }
 }
 
@@ -2147,7 +2146,7 @@ export interface GetHealthCheckResponse extends $MetadataBearer {
 
 export namespace GetHealthCheckResponse {
   export function isa(o: any): o is GetHealthCheckResponse {
-    return _smithy.isa(o, "GetHealthCheckResponse");
+    return __isa(o, "GetHealthCheckResponse");
   }
 }
 
@@ -2169,7 +2168,7 @@ export interface GetHealthCheckStatusRequest {
 
 export namespace GetHealthCheckStatusRequest {
   export function isa(o: any): o is GetHealthCheckStatusRequest {
-    return _smithy.isa(o, "GetHealthCheckStatusRequest");
+    return __isa(o, "GetHealthCheckStatusRequest");
   }
 }
 
@@ -2188,7 +2187,7 @@ export interface GetHealthCheckStatusResponse extends $MetadataBearer {
 
 export namespace GetHealthCheckStatusResponse {
   export function isa(o: any): o is GetHealthCheckStatusResponse {
-    return _smithy.isa(o, "GetHealthCheckStatusResponse");
+    return __isa(o, "GetHealthCheckStatusResponse");
   }
 }
 
@@ -2201,7 +2200,7 @@ export interface GetHostedZoneCountRequest {
 
 export namespace GetHostedZoneCountRequest {
   export function isa(o: any): o is GetHostedZoneCountRequest {
-    return _smithy.isa(o, "GetHostedZoneCountRequest");
+    return __isa(o, "GetHostedZoneCountRequest");
   }
 }
 
@@ -2218,7 +2217,7 @@ export interface GetHostedZoneCountResponse extends $MetadataBearer {
 
 export namespace GetHostedZoneCountResponse {
   export function isa(o: any): o is GetHostedZoneCountResponse {
-    return _smithy.isa(o, "GetHostedZoneCountResponse");
+    return __isa(o, "GetHostedZoneCountResponse");
   }
 }
 
@@ -2252,7 +2251,7 @@ export interface GetHostedZoneLimitRequest {
 
 export namespace GetHostedZoneLimitRequest {
   export function isa(o: any): o is GetHostedZoneLimitRequest {
-    return _smithy.isa(o, "GetHostedZoneLimitRequest");
+    return __isa(o, "GetHostedZoneLimitRequest");
   }
 }
 
@@ -2278,7 +2277,7 @@ export interface GetHostedZoneLimitResponse extends $MetadataBearer {
 
 export namespace GetHostedZoneLimitResponse {
   export function isa(o: any): o is GetHostedZoneLimitResponse {
-    return _smithy.isa(o, "GetHostedZoneLimitResponse");
+    return __isa(o, "GetHostedZoneLimitResponse");
   }
 }
 
@@ -2295,7 +2294,7 @@ export interface GetHostedZoneRequest {
 
 export namespace GetHostedZoneRequest {
   export function isa(o: any): o is GetHostedZoneRequest {
-    return _smithy.isa(o, "GetHostedZoneRequest");
+    return __isa(o, "GetHostedZoneRequest");
   }
 }
 
@@ -2322,7 +2321,7 @@ export interface GetHostedZoneResponse extends $MetadataBearer {
 
 export namespace GetHostedZoneResponse {
   export function isa(o: any): o is GetHostedZoneResponse {
-    return _smithy.isa(o, "GetHostedZoneResponse");
+    return __isa(o, "GetHostedZoneResponse");
   }
 }
 
@@ -2336,7 +2335,7 @@ export interface GetQueryLoggingConfigRequest {
 
 export namespace GetQueryLoggingConfigRequest {
   export function isa(o: any): o is GetQueryLoggingConfigRequest {
-    return _smithy.isa(o, "GetQueryLoggingConfigRequest");
+    return __isa(o, "GetQueryLoggingConfigRequest");
   }
 }
 
@@ -2351,7 +2350,7 @@ export interface GetQueryLoggingConfigResponse extends $MetadataBearer {
 
 export namespace GetQueryLoggingConfigResponse {
   export function isa(o: any): o is GetQueryLoggingConfigResponse {
-    return _smithy.isa(o, "GetQueryLoggingConfigResponse");
+    return __isa(o, "GetQueryLoggingConfigResponse");
   }
 }
 
@@ -2374,7 +2373,7 @@ export interface GetReusableDelegationSetLimitRequest {
 
 export namespace GetReusableDelegationSetLimitRequest {
   export function isa(o: any): o is GetReusableDelegationSetLimitRequest {
-    return _smithy.isa(o, "GetReusableDelegationSetLimitRequest");
+    return __isa(o, "GetReusableDelegationSetLimitRequest");
   }
 }
 
@@ -2396,7 +2395,7 @@ export interface GetReusableDelegationSetLimitResponse extends $MetadataBearer {
 
 export namespace GetReusableDelegationSetLimitResponse {
   export function isa(o: any): o is GetReusableDelegationSetLimitResponse {
-    return _smithy.isa(o, "GetReusableDelegationSetLimitResponse");
+    return __isa(o, "GetReusableDelegationSetLimitResponse");
   }
 }
 
@@ -2413,7 +2412,7 @@ export interface GetReusableDelegationSetRequest {
 
 export namespace GetReusableDelegationSetRequest {
   export function isa(o: any): o is GetReusableDelegationSetRequest {
-    return _smithy.isa(o, "GetReusableDelegationSetRequest");
+    return __isa(o, "GetReusableDelegationSetRequest");
   }
 }
 
@@ -2430,7 +2429,7 @@ export interface GetReusableDelegationSetResponse extends $MetadataBearer {
 
 export namespace GetReusableDelegationSetResponse {
   export function isa(o: any): o is GetReusableDelegationSetResponse {
-    return _smithy.isa(o, "GetReusableDelegationSetResponse");
+    return __isa(o, "GetReusableDelegationSetResponse");
   }
 }
 
@@ -2443,7 +2442,7 @@ export interface GetTrafficPolicyInstanceCountRequest {
 
 export namespace GetTrafficPolicyInstanceCountRequest {
   export function isa(o: any): o is GetTrafficPolicyInstanceCountRequest {
-    return _smithy.isa(o, "GetTrafficPolicyInstanceCountRequest");
+    return __isa(o, "GetTrafficPolicyInstanceCountRequest");
   }
 }
 
@@ -2460,7 +2459,7 @@ export interface GetTrafficPolicyInstanceCountResponse extends $MetadataBearer {
 
 export namespace GetTrafficPolicyInstanceCountResponse {
   export function isa(o: any): o is GetTrafficPolicyInstanceCountResponse {
-    return _smithy.isa(o, "GetTrafficPolicyInstanceCountResponse");
+    return __isa(o, "GetTrafficPolicyInstanceCountResponse");
   }
 }
 
@@ -2477,7 +2476,7 @@ export interface GetTrafficPolicyInstanceRequest {
 
 export namespace GetTrafficPolicyInstanceRequest {
   export function isa(o: any): o is GetTrafficPolicyInstanceRequest {
-    return _smithy.isa(o, "GetTrafficPolicyInstanceRequest");
+    return __isa(o, "GetTrafficPolicyInstanceRequest");
   }
 }
 
@@ -2494,7 +2493,7 @@ export interface GetTrafficPolicyInstanceResponse extends $MetadataBearer {
 
 export namespace GetTrafficPolicyInstanceResponse {
   export function isa(o: any): o is GetTrafficPolicyInstanceResponse {
-    return _smithy.isa(o, "GetTrafficPolicyInstanceResponse");
+    return __isa(o, "GetTrafficPolicyInstanceResponse");
   }
 }
 
@@ -2516,7 +2515,7 @@ export interface GetTrafficPolicyRequest {
 
 export namespace GetTrafficPolicyRequest {
   export function isa(o: any): o is GetTrafficPolicyRequest {
-    return _smithy.isa(o, "GetTrafficPolicyRequest");
+    return __isa(o, "GetTrafficPolicyRequest");
   }
 }
 
@@ -2533,7 +2532,7 @@ export interface GetTrafficPolicyResponse extends $MetadataBearer {
 
 export namespace GetTrafficPolicyResponse {
   export function isa(o: any): o is GetTrafficPolicyResponse {
-    return _smithy.isa(o, "GetTrafficPolicyResponse");
+    return __isa(o, "GetTrafficPolicyResponse");
   }
 }
 
@@ -2578,7 +2577,7 @@ export interface HealthCheck {
 
 export namespace HealthCheck {
   export function isa(o: any): o is HealthCheck {
-    return _smithy.isa(o, "HealthCheck");
+    return __isa(o, "HealthCheck");
   }
 }
 
@@ -2597,7 +2596,7 @@ export namespace HealthCheck {
  *          </ul>
  */
 export interface HealthCheckAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "HealthCheckAlreadyExists";
   $fault: "client";
@@ -2609,7 +2608,7 @@ export interface HealthCheckAlreadyExists
 
 export namespace HealthCheckAlreadyExists {
   export function isa(o: any): o is HealthCheckAlreadyExists {
-    return _smithy.isa(o, "HealthCheckAlreadyExists");
+    return __isa(o, "HealthCheckAlreadyExists");
   }
 }
 
@@ -2939,16 +2938,14 @@ export interface HealthCheckConfig {
 
 export namespace HealthCheckConfig {
   export function isa(o: any): o is HealthCheckConfig {
-    return _smithy.isa(o, "HealthCheckConfig");
+    return __isa(o, "HealthCheckConfig");
   }
 }
 
 /**
  * <p>This error code is not in use.</p>
  */
-export interface HealthCheckInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface HealthCheckInUse extends __SmithyException, $MetadataBearer {
   name: "HealthCheckInUse";
   $fault: "client";
   /**
@@ -2959,7 +2956,7 @@ export interface HealthCheckInUse
 
 export namespace HealthCheckInUse {
   export function isa(o: any): o is HealthCheckInUse {
-    return _smithy.isa(o, "HealthCheckInUse");
+    return __isa(o, "HealthCheckInUse");
   }
 }
 
@@ -2986,7 +2983,7 @@ export interface HealthCheckObservation {
 
 export namespace HealthCheckObservation {
   export function isa(o: any): o is HealthCheckObservation {
-    return _smithy.isa(o, "HealthCheckObservation");
+    return __isa(o, "HealthCheckObservation");
   }
 }
 
@@ -3015,7 +3012,7 @@ export enum HealthCheckType {
  * 			in the health check.</p>
  */
 export interface HealthCheckVersionMismatch
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "HealthCheckVersionMismatch";
   $fault: "client";
@@ -3024,7 +3021,7 @@ export interface HealthCheckVersionMismatch
 
 export namespace HealthCheckVersionMismatch {
   export function isa(o: any): o is HealthCheckVersionMismatch {
-    return _smithy.isa(o, "HealthCheckVersionMismatch");
+    return __isa(o, "HealthCheckVersionMismatch");
   }
 }
 
@@ -3075,7 +3072,7 @@ export interface HostedZone {
 
 export namespace HostedZone {
   export function isa(o: any): o is HostedZone {
-    return _smithy.isa(o, "HostedZone");
+    return __isa(o, "HostedZone");
   }
 }
 
@@ -3084,7 +3081,7 @@ export namespace HostedZone {
  * 			with the specified <code>CallerReference</code>.</p>
  */
 export interface HostedZoneAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "HostedZoneAlreadyExists";
   $fault: "client";
@@ -3096,7 +3093,7 @@ export interface HostedZoneAlreadyExists
 
 export namespace HostedZoneAlreadyExists {
   export function isa(o: any): o is HostedZoneAlreadyExists {
-    return _smithy.isa(o, "HostedZoneAlreadyExists");
+    return __isa(o, "HostedZoneAlreadyExists");
   }
 }
 
@@ -3120,7 +3117,7 @@ export interface HostedZoneConfig {
 
 export namespace HostedZoneConfig {
   export function isa(o: any): o is HostedZoneConfig {
-    return _smithy.isa(o, "HostedZoneConfig");
+    return __isa(o, "HostedZoneConfig");
   }
 }
 
@@ -3154,7 +3151,7 @@ export interface HostedZoneLimit {
 
 export namespace HostedZoneLimit {
   export function isa(o: any): o is HostedZoneLimit {
-    return _smithy.isa(o, "HostedZoneLimit");
+    return __isa(o, "HostedZoneLimit");
   }
 }
 
@@ -3165,9 +3162,7 @@ export type HostedZoneLimitType =
 /**
  * <p>The hosted zone contains resource records that are not SOA or NS records.</p>
  */
-export interface HostedZoneNotEmpty
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface HostedZoneNotEmpty extends __SmithyException, $MetadataBearer {
   name: "HostedZoneNotEmpty";
   $fault: "client";
   /**
@@ -3178,16 +3173,14 @@ export interface HostedZoneNotEmpty
 
 export namespace HostedZoneNotEmpty {
   export function isa(o: any): o is HostedZoneNotEmpty {
-    return _smithy.isa(o, "HostedZoneNotEmpty");
+    return __isa(o, "HostedZoneNotEmpty");
   }
 }
 
 /**
  * <p>The specified HostedZone can't be found.</p>
  */
-export interface HostedZoneNotFound
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface HostedZoneNotFound extends __SmithyException, $MetadataBearer {
   name: "HostedZoneNotFound";
   $fault: "client";
   /**
@@ -3198,7 +3191,7 @@ export interface HostedZoneNotFound
 
 export namespace HostedZoneNotFound {
   export function isa(o: any): o is HostedZoneNotFound {
-    return _smithy.isa(o, "HostedZoneNotFound");
+    return __isa(o, "HostedZoneNotFound");
   }
 }
 
@@ -3206,7 +3199,7 @@ export namespace HostedZoneNotFound {
  * <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
  */
 export interface HostedZoneNotPrivate
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "HostedZoneNotPrivate";
   $fault: "client";
@@ -3218,7 +3211,7 @@ export interface HostedZoneNotPrivate
 
 export namespace HostedZoneNotPrivate {
   export function isa(o: any): o is HostedZoneNotPrivate {
-    return _smithy.isa(o, "HostedZoneNotPrivate");
+    return __isa(o, "HostedZoneNotPrivate");
   }
 }
 
@@ -3226,7 +3219,7 @@ export namespace HostedZoneNotPrivate {
  * <p>The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.</p>
  */
 export interface IncompatibleVersion
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "IncompatibleVersion";
   $fault: "client";
@@ -3235,7 +3228,7 @@ export interface IncompatibleVersion
 
 export namespace IncompatibleVersion {
   export function isa(o: any): o is IncompatibleVersion {
-    return _smithy.isa(o, "IncompatibleVersion");
+    return __isa(o, "IncompatibleVersion");
   }
 }
 
@@ -3256,7 +3249,7 @@ export namespace IncompatibleVersion {
  *          </ul>
  */
 export interface InsufficientCloudWatchLogsResourcePolicy
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InsufficientCloudWatchLogsResourcePolicy";
   $fault: "client";
@@ -3265,7 +3258,7 @@ export interface InsufficientCloudWatchLogsResourcePolicy
 
 export namespace InsufficientCloudWatchLogsResourcePolicy {
   export function isa(o: any): o is InsufficientCloudWatchLogsResourcePolicy {
-    return _smithy.isa(o, "InsufficientCloudWatchLogsResourcePolicy");
+    return __isa(o, "InsufficientCloudWatchLogsResourcePolicy");
   }
 }
 
@@ -3277,9 +3270,7 @@ export type InsufficientDataHealthStatus =
 /**
  * <p>Parameter name is invalid.</p>
  */
-export interface InvalidArgument
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidArgument extends __SmithyException, $MetadataBearer {
   name: "InvalidArgument";
   $fault: "client";
   /**
@@ -3290,7 +3281,7 @@ export interface InvalidArgument
 
 export namespace InvalidArgument {
   export function isa(o: any): o is InvalidArgument {
-    return _smithy.isa(o, "InvalidArgument");
+    return __isa(o, "InvalidArgument");
   }
 }
 
@@ -3298,9 +3289,7 @@ export namespace InvalidArgument {
  * <p>This exception contains a list of messages that might contain one or more error messages. Each error message indicates
  * 			one error in the change batch.</p>
  */
-export interface InvalidChangeBatch
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidChangeBatch extends __SmithyException, $MetadataBearer {
   name: "InvalidChangeBatch";
   $fault: "client";
   message?: string;
@@ -3312,16 +3301,14 @@ export interface InvalidChangeBatch
 
 export namespace InvalidChangeBatch {
   export function isa(o: any): o is InvalidChangeBatch {
-    return _smithy.isa(o, "InvalidChangeBatch");
+    return __isa(o, "InvalidChangeBatch");
   }
 }
 
 /**
  * <p>The specified domain name is not valid.</p>
  */
-export interface InvalidDomainName
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface InvalidDomainName extends __SmithyException, $MetadataBearer {
   name: "InvalidDomainName";
   $fault: "client";
   /**
@@ -3332,14 +3319,14 @@ export interface InvalidDomainName
 
 export namespace InvalidDomainName {
   export function isa(o: any): o is InvalidDomainName {
-    return _smithy.isa(o, "InvalidDomainName");
+    return __isa(o, "InvalidDomainName");
   }
 }
 
 /**
  * <p>The input is not valid.</p>
  */
-export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInput extends __SmithyException, $MetadataBearer {
   name: "InvalidInput";
   $fault: "client";
   /**
@@ -3350,7 +3337,7 @@ export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace InvalidInput {
   export function isa(o: any): o is InvalidInput {
-    return _smithy.isa(o, "InvalidInput");
+    return __isa(o, "InvalidInput");
   }
 }
 
@@ -3358,7 +3345,7 @@ export namespace InvalidInput {
  * <p>The value that you specified to get the second or subsequent page of results is invalid.</p>
  */
 export interface InvalidPaginationToken
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidPaginationToken";
   $fault: "client";
@@ -3367,7 +3354,7 @@ export interface InvalidPaginationToken
 
 export namespace InvalidPaginationToken {
   export function isa(o: any): o is InvalidPaginationToken {
-    return _smithy.isa(o, "InvalidPaginationToken");
+    return __isa(o, "InvalidPaginationToken");
   }
 }
 
@@ -3375,7 +3362,7 @@ export namespace InvalidPaginationToken {
  * <p>The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.</p>
  */
 export interface InvalidTrafficPolicyDocument
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidTrafficPolicyDocument";
   $fault: "client";
@@ -3387,14 +3374,14 @@ export interface InvalidTrafficPolicyDocument
 
 export namespace InvalidTrafficPolicyDocument {
   export function isa(o: any): o is InvalidTrafficPolicyDocument {
-    return _smithy.isa(o, "InvalidTrafficPolicyDocument");
+    return __isa(o, "InvalidTrafficPolicyDocument");
   }
 }
 
 /**
  * <p>The VPC ID that you specified either isn't a valid ID or the current account is not authorized to access this VPC.</p>
  */
-export interface InvalidVPCId extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidVPCId extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCId";
   $fault: "client";
   /**
@@ -3405,7 +3392,7 @@ export interface InvalidVPCId extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace InvalidVPCId {
   export function isa(o: any): o is InvalidVPCId {
-    return _smithy.isa(o, "InvalidVPCId");
+    return __isa(o, "InvalidVPCId");
   }
 }
 
@@ -3413,9 +3400,7 @@ export namespace InvalidVPCId {
  * <p>The VPC that you're trying to disassociate from the private hosted zone is the last VPC that is associated with
  * 			the hosted zone. Amazon Route 53 doesn't support disassociating the last VPC from a hosted zone.</p>
  */
-export interface LastVPCAssociation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LastVPCAssociation extends __SmithyException, $MetadataBearer {
   name: "LastVPCAssociation";
   $fault: "client";
   /**
@@ -3426,7 +3411,7 @@ export interface LastVPCAssociation
 
 export namespace LastVPCAssociation {
   export function isa(o: any): o is LastVPCAssociation {
-    return _smithy.isa(o, "LastVPCAssociation");
+    return __isa(o, "LastVPCAssociation");
   }
 }
 
@@ -3439,9 +3424,7 @@ export namespace LastVPCAssociation {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html">GetHostedZoneLimit</a>.
  * 			To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
-export interface LimitsExceeded
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface LimitsExceeded extends __SmithyException, $MetadataBearer {
   name: "LimitsExceeded";
   $fault: "client";
   /**
@@ -3452,7 +3435,7 @@ export interface LimitsExceeded
 
 export namespace LimitsExceeded {
   export function isa(o: any): o is LimitsExceeded {
-    return _smithy.isa(o, "LimitsExceeded");
+    return __isa(o, "LimitsExceeded");
   }
 }
 
@@ -3477,7 +3460,7 @@ export interface LinkedService {
 
 export namespace LinkedService {
   export function isa(o: any): o is LinkedService {
-    return _smithy.isa(o, "LinkedService");
+    return __isa(o, "LinkedService");
   }
 }
 
@@ -3522,7 +3505,7 @@ export interface ListGeoLocationsRequest {
 
 export namespace ListGeoLocationsRequest {
   export function isa(o: any): o is ListGeoLocationsRequest {
-    return _smithy.isa(o, "ListGeoLocationsRequest");
+    return __isa(o, "ListGeoLocationsRequest");
   }
 }
 
@@ -3570,7 +3553,7 @@ export interface ListGeoLocationsResponse extends $MetadataBearer {
 
 export namespace ListGeoLocationsResponse {
   export function isa(o: any): o is ListGeoLocationsResponse {
-    return _smithy.isa(o, "ListGeoLocationsResponse");
+    return __isa(o, "ListGeoLocationsResponse");
   }
 }
 
@@ -3597,7 +3580,7 @@ export interface ListHealthChecksRequest {
 
 export namespace ListHealthChecksRequest {
   export function isa(o: any): o is ListHealthChecksRequest {
-    return _smithy.isa(o, "ListHealthChecksRequest");
+    return __isa(o, "ListHealthChecksRequest");
   }
 }
 
@@ -3641,7 +3624,7 @@ export interface ListHealthChecksResponse extends $MetadataBearer {
 
 export namespace ListHealthChecksResponse {
   export function isa(o: any): o is ListHealthChecksResponse {
-    return _smithy.isa(o, "ListHealthChecksResponse");
+    return __isa(o, "ListHealthChecksResponse");
   }
 }
 
@@ -3678,7 +3661,7 @@ export interface ListHostedZonesByNameRequest {
 
 export namespace ListHostedZonesByNameRequest {
   export function isa(o: any): o is ListHostedZonesByNameRequest {
-    return _smithy.isa(o, "ListHostedZonesByNameRequest");
+    return __isa(o, "ListHostedZonesByNameRequest");
   }
 }
 
@@ -3735,7 +3718,7 @@ export interface ListHostedZonesByNameResponse extends $MetadataBearer {
 
 export namespace ListHostedZonesByNameResponse {
   export function isa(o: any): o is ListHostedZonesByNameResponse {
-    return _smithy.isa(o, "ListHostedZonesByNameResponse");
+    return __isa(o, "ListHostedZonesByNameResponse");
   }
 }
 
@@ -3769,7 +3752,7 @@ export interface ListHostedZonesRequest {
 
 export namespace ListHostedZonesRequest {
   export function isa(o: any): o is ListHostedZonesRequest {
-    return _smithy.isa(o, "ListHostedZonesRequest");
+    return __isa(o, "ListHostedZonesRequest");
   }
 }
 
@@ -3810,7 +3793,7 @@ export interface ListHostedZonesResponse extends $MetadataBearer {
 
 export namespace ListHostedZonesResponse {
   export function isa(o: any): o is ListHostedZonesResponse {
-    return _smithy.isa(o, "ListHostedZonesResponse");
+    return __isa(o, "ListHostedZonesResponse");
   }
 }
 
@@ -3845,7 +3828,7 @@ export interface ListQueryLoggingConfigsRequest {
 
 export namespace ListQueryLoggingConfigsRequest {
   export function isa(o: any): o is ListQueryLoggingConfigsRequest {
-    return _smithy.isa(o, "ListQueryLoggingConfigsRequest");
+    return __isa(o, "ListQueryLoggingConfigsRequest");
   }
 }
 
@@ -3871,7 +3854,7 @@ export interface ListQueryLoggingConfigsResponse extends $MetadataBearer {
 
 export namespace ListQueryLoggingConfigsResponse {
   export function isa(o: any): o is ListQueryLoggingConfigsResponse {
-    return _smithy.isa(o, "ListQueryLoggingConfigsResponse");
+    return __isa(o, "ListQueryLoggingConfigsResponse");
   }
 }
 
@@ -3953,7 +3936,7 @@ export interface ListResourceRecordSetsRequest {
 
 export namespace ListResourceRecordSetsRequest {
   export function isa(o: any): o is ListResourceRecordSetsRequest {
-    return _smithy.isa(o, "ListResourceRecordSetsRequest");
+    return __isa(o, "ListResourceRecordSetsRequest");
   }
 }
 
@@ -4003,7 +3986,7 @@ export interface ListResourceRecordSetsResponse extends $MetadataBearer {
 
 export namespace ListResourceRecordSetsResponse {
   export function isa(o: any): o is ListResourceRecordSetsResponse {
-    return _smithy.isa(o, "ListResourceRecordSetsResponse");
+    return __isa(o, "ListResourceRecordSetsResponse");
   }
 }
 
@@ -4030,7 +4013,7 @@ export interface ListReusableDelegationSetsRequest {
 
 export namespace ListReusableDelegationSetsRequest {
   export function isa(o: any): o is ListReusableDelegationSetsRequest {
-    return _smithy.isa(o, "ListReusableDelegationSetsRequest");
+    return __isa(o, "ListReusableDelegationSetsRequest");
   }
 }
 
@@ -4072,7 +4055,7 @@ export interface ListReusableDelegationSetsResponse extends $MetadataBearer {
 
 export namespace ListReusableDelegationSetsResponse {
   export function isa(o: any): o is ListReusableDelegationSetsResponse {
-    return _smithy.isa(o, "ListReusableDelegationSetsResponse");
+    return __isa(o, "ListReusableDelegationSetsResponse");
   }
 }
 
@@ -4102,7 +4085,7 @@ export interface ListTagsForResourceRequest {
 
 export namespace ListTagsForResourceRequest {
   export function isa(o: any): o is ListTagsForResourceRequest {
-    return _smithy.isa(o, "ListTagsForResourceRequest");
+    return __isa(o, "ListTagsForResourceRequest");
   }
 }
 
@@ -4119,7 +4102,7 @@ export interface ListTagsForResourceResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourceResponse {
   export function isa(o: any): o is ListTagsForResourceResponse {
-    return _smithy.isa(o, "ListTagsForResourceResponse");
+    return __isa(o, "ListTagsForResourceResponse");
   }
 }
 
@@ -4149,7 +4132,7 @@ export interface ListTagsForResourcesRequest {
 
 export namespace ListTagsForResourcesRequest {
   export function isa(o: any): o is ListTagsForResourcesRequest {
-    return _smithy.isa(o, "ListTagsForResourcesRequest");
+    return __isa(o, "ListTagsForResourcesRequest");
   }
 }
 
@@ -4166,7 +4149,7 @@ export interface ListTagsForResourcesResponse extends $MetadataBearer {
 
 export namespace ListTagsForResourcesResponse {
   export function isa(o: any): o is ListTagsForResourcesResponse {
-    return _smithy.isa(o, "ListTagsForResourcesResponse");
+    return __isa(o, "ListTagsForResourcesResponse");
   }
 }
 
@@ -4196,7 +4179,7 @@ export interface ListTrafficPoliciesRequest {
 
 export namespace ListTrafficPoliciesRequest {
   export function isa(o: any): o is ListTrafficPoliciesRequest {
-    return _smithy.isa(o, "ListTrafficPoliciesRequest");
+    return __isa(o, "ListTrafficPoliciesRequest");
   }
 }
 
@@ -4232,7 +4215,7 @@ export interface ListTrafficPoliciesResponse extends $MetadataBearer {
 
 export namespace ListTrafficPoliciesResponse {
   export function isa(o: any): o is ListTrafficPoliciesResponse {
-    return _smithy.isa(o, "ListTrafficPoliciesResponse");
+    return __isa(o, "ListTrafficPoliciesResponse");
   }
 }
 
@@ -4277,7 +4260,7 @@ export namespace ListTrafficPolicyInstancesByHostedZoneRequest {
   export function isa(
     o: any
   ): o is ListTrafficPolicyInstancesByHostedZoneRequest {
-    return _smithy.isa(o, "ListTrafficPolicyInstancesByHostedZoneRequest");
+    return __isa(o, "ListTrafficPolicyInstancesByHostedZoneRequest");
   }
 }
 
@@ -4323,7 +4306,7 @@ export namespace ListTrafficPolicyInstancesByHostedZoneResponse {
   export function isa(
     o: any
   ): o is ListTrafficPolicyInstancesByHostedZoneResponse {
-    return _smithy.isa(o, "ListTrafficPolicyInstancesByHostedZoneResponse");
+    return __isa(o, "ListTrafficPolicyInstancesByHostedZoneResponse");
   }
 }
 
@@ -4381,7 +4364,7 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
 
 export namespace ListTrafficPolicyInstancesByPolicyRequest {
   export function isa(o: any): o is ListTrafficPolicyInstancesByPolicyRequest {
-    return _smithy.isa(o, "ListTrafficPolicyInstancesByPolicyRequest");
+    return __isa(o, "ListTrafficPolicyInstancesByPolicyRequest");
   }
 }
 
@@ -4430,7 +4413,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse
 
 export namespace ListTrafficPolicyInstancesByPolicyResponse {
   export function isa(o: any): o is ListTrafficPolicyInstancesByPolicyResponse {
-    return _smithy.isa(o, "ListTrafficPolicyInstancesByPolicyResponse");
+    return __isa(o, "ListTrafficPolicyInstancesByPolicyResponse");
   }
 }
 
@@ -4478,7 +4461,7 @@ export interface ListTrafficPolicyInstancesRequest {
 
 export namespace ListTrafficPolicyInstancesRequest {
   export function isa(o: any): o is ListTrafficPolicyInstancesRequest {
-    return _smithy.isa(o, "ListTrafficPolicyInstancesRequest");
+    return __isa(o, "ListTrafficPolicyInstancesRequest");
   }
 }
 
@@ -4528,7 +4511,7 @@ export interface ListTrafficPolicyInstancesResponse extends $MetadataBearer {
 
 export namespace ListTrafficPolicyInstancesResponse {
   export function isa(o: any): o is ListTrafficPolicyInstancesResponse {
-    return _smithy.isa(o, "ListTrafficPolicyInstancesResponse");
+    return __isa(o, "ListTrafficPolicyInstancesResponse");
   }
 }
 
@@ -4563,7 +4546,7 @@ export interface ListTrafficPolicyVersionsRequest {
 
 export namespace ListTrafficPolicyVersionsRequest {
   export function isa(o: any): o is ListTrafficPolicyVersionsRequest {
-    return _smithy.isa(o, "ListTrafficPolicyVersionsRequest");
+    return __isa(o, "ListTrafficPolicyVersionsRequest");
   }
 }
 
@@ -4602,7 +4585,7 @@ export interface ListTrafficPolicyVersionsResponse extends $MetadataBearer {
 
 export namespace ListTrafficPolicyVersionsResponse {
   export function isa(o: any): o is ListTrafficPolicyVersionsResponse {
-    return _smithy.isa(o, "ListTrafficPolicyVersionsResponse");
+    return __isa(o, "ListTrafficPolicyVersionsResponse");
   }
 }
 
@@ -4635,7 +4618,7 @@ export interface ListVPCAssociationAuthorizationsRequest {
 
 export namespace ListVPCAssociationAuthorizationsRequest {
   export function isa(o: any): o is ListVPCAssociationAuthorizationsRequest {
-    return _smithy.isa(o, "ListVPCAssociationAuthorizationsRequest");
+    return __isa(o, "ListVPCAssociationAuthorizationsRequest");
   }
 }
 
@@ -4665,14 +4648,14 @@ export interface ListVPCAssociationAuthorizationsResponse
 
 export namespace ListVPCAssociationAuthorizationsResponse {
   export function isa(o: any): o is ListVPCAssociationAuthorizationsResponse {
-    return _smithy.isa(o, "ListVPCAssociationAuthorizationsResponse");
+    return __isa(o, "ListVPCAssociationAuthorizationsResponse");
   }
 }
 
 /**
  * <p>A change with the specified change ID does not exist.</p>
  */
-export interface NoSuchChange extends _smithy.SmithyException, $MetadataBearer {
+export interface NoSuchChange extends __SmithyException, $MetadataBearer {
   name: "NoSuchChange";
   $fault: "client";
   message?: string;
@@ -4680,7 +4663,7 @@ export interface NoSuchChange extends _smithy.SmithyException, $MetadataBearer {
 
 export namespace NoSuchChange {
   export function isa(o: any): o is NoSuchChange {
-    return _smithy.isa(o, "NoSuchChange");
+    return __isa(o, "NoSuchChange");
   }
 }
 
@@ -4688,7 +4671,7 @@ export namespace NoSuchChange {
  * <p>There is no CloudWatch Logs log group with the specified ARN.</p>
  */
 export interface NoSuchCloudWatchLogsLogGroup
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoSuchCloudWatchLogsLogGroup";
   $fault: "client";
@@ -4697,7 +4680,7 @@ export interface NoSuchCloudWatchLogsLogGroup
 
 export namespace NoSuchCloudWatchLogsLogGroup {
   export function isa(o: any): o is NoSuchCloudWatchLogsLogGroup {
-    return _smithy.isa(o, "NoSuchCloudWatchLogsLogGroup");
+    return __isa(o, "NoSuchCloudWatchLogsLogGroup");
   }
 }
 
@@ -4705,7 +4688,7 @@ export namespace NoSuchCloudWatchLogsLogGroup {
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
 export interface NoSuchDelegationSet
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoSuchDelegationSet";
   $fault: "client";
@@ -4717,16 +4700,14 @@ export interface NoSuchDelegationSet
 
 export namespace NoSuchDelegationSet {
   export function isa(o: any): o is NoSuchDelegationSet {
-    return _smithy.isa(o, "NoSuchDelegationSet");
+    return __isa(o, "NoSuchDelegationSet");
   }
 }
 
 /**
  * <p>Amazon Route 53 doesn't support the specified geographic location.</p>
  */
-export interface NoSuchGeoLocation
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NoSuchGeoLocation extends __SmithyException, $MetadataBearer {
   name: "NoSuchGeoLocation";
   $fault: "client";
   /**
@@ -4737,16 +4718,14 @@ export interface NoSuchGeoLocation
 
 export namespace NoSuchGeoLocation {
   export function isa(o: any): o is NoSuchGeoLocation {
-    return _smithy.isa(o, "NoSuchGeoLocation");
+    return __isa(o, "NoSuchGeoLocation");
   }
 }
 
 /**
  * <p>No health check exists with the specified ID.</p>
  */
-export interface NoSuchHealthCheck
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NoSuchHealthCheck extends __SmithyException, $MetadataBearer {
   name: "NoSuchHealthCheck";
   $fault: "client";
   /**
@@ -4757,16 +4736,14 @@ export interface NoSuchHealthCheck
 
 export namespace NoSuchHealthCheck {
   export function isa(o: any): o is NoSuchHealthCheck {
-    return _smithy.isa(o, "NoSuchHealthCheck");
+    return __isa(o, "NoSuchHealthCheck");
   }
 }
 
 /**
  * <p>No hosted zone exists with the ID that you specified.</p>
  */
-export interface NoSuchHostedZone
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NoSuchHostedZone extends __SmithyException, $MetadataBearer {
   name: "NoSuchHostedZone";
   $fault: "client";
   /**
@@ -4777,7 +4754,7 @@ export interface NoSuchHostedZone
 
 export namespace NoSuchHostedZone {
   export function isa(o: any): o is NoSuchHostedZone {
-    return _smithy.isa(o, "NoSuchHostedZone");
+    return __isa(o, "NoSuchHostedZone");
   }
 }
 
@@ -4785,7 +4762,7 @@ export namespace NoSuchHostedZone {
  * <p>There is no DNS query logging configuration with the specified ID.</p>
  */
 export interface NoSuchQueryLoggingConfig
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoSuchQueryLoggingConfig";
   $fault: "client";
@@ -4794,7 +4771,7 @@ export interface NoSuchQueryLoggingConfig
 
 export namespace NoSuchQueryLoggingConfig {
   export function isa(o: any): o is NoSuchQueryLoggingConfig {
-    return _smithy.isa(o, "NoSuchQueryLoggingConfig");
+    return __isa(o, "NoSuchQueryLoggingConfig");
   }
 }
 
@@ -4802,7 +4779,7 @@ export namespace NoSuchQueryLoggingConfig {
  * <p>No traffic policy exists with the specified ID.</p>
  */
 export interface NoSuchTrafficPolicy
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoSuchTrafficPolicy";
   $fault: "client";
@@ -4814,7 +4791,7 @@ export interface NoSuchTrafficPolicy
 
 export namespace NoSuchTrafficPolicy {
   export function isa(o: any): o is NoSuchTrafficPolicy {
-    return _smithy.isa(o, "NoSuchTrafficPolicy");
+    return __isa(o, "NoSuchTrafficPolicy");
   }
 }
 
@@ -4822,7 +4799,7 @@ export namespace NoSuchTrafficPolicy {
  * <p>No traffic policy instance exists with the specified ID.</p>
  */
 export interface NoSuchTrafficPolicyInstance
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NoSuchTrafficPolicyInstance";
   $fault: "client";
@@ -4834,7 +4811,7 @@ export interface NoSuchTrafficPolicyInstance
 
 export namespace NoSuchTrafficPolicyInstance {
   export function isa(o: any): o is NoSuchTrafficPolicyInstance {
-    return _smithy.isa(o, "NoSuchTrafficPolicyInstance");
+    return __isa(o, "NoSuchTrafficPolicyInstance");
   }
 }
 
@@ -4842,7 +4819,7 @@ export namespace NoSuchTrafficPolicyInstance {
  * <p>Associating the specified VPC with the specified hosted zone has not been authorized.</p>
  */
 export interface NotAuthorizedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
@@ -4854,7 +4831,7 @@ export interface NotAuthorizedException
 
 export namespace NotAuthorizedException {
   export function isa(o: any): o is NotAuthorizedException {
-    return _smithy.isa(o, "NotAuthorizedException");
+    return __isa(o, "NotAuthorizedException");
   }
 }
 
@@ -4866,7 +4843,7 @@ export namespace NotAuthorizedException {
  * 			again.</p>
  */
 export interface PriorRequestNotComplete
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PriorRequestNotComplete";
   $fault: "client";
@@ -4875,7 +4852,7 @@ export interface PriorRequestNotComplete
 
 export namespace PriorRequestNotComplete {
   export function isa(o: any): o is PriorRequestNotComplete {
-    return _smithy.isa(o, "PriorRequestNotComplete");
+    return __isa(o, "PriorRequestNotComplete");
   }
 }
 
@@ -4884,7 +4861,7 @@ export namespace PriorRequestNotComplete {
  * 			VPC with a public hosted zone.</p>
  */
 export interface PublicZoneVPCAssociation
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PublicZoneVPCAssociation";
   $fault: "client";
@@ -4896,7 +4873,7 @@ export interface PublicZoneVPCAssociation
 
 export namespace PublicZoneVPCAssociation {
   export function isa(o: any): o is PublicZoneVPCAssociation {
-    return _smithy.isa(o, "PublicZoneVPCAssociation");
+    return __isa(o, "PublicZoneVPCAssociation");
   }
 }
 
@@ -4923,7 +4900,7 @@ export interface QueryLoggingConfig {
 
 export namespace QueryLoggingConfig {
   export function isa(o: any): o is QueryLoggingConfig {
-    return _smithy.isa(o, "QueryLoggingConfig");
+    return __isa(o, "QueryLoggingConfig");
   }
 }
 
@@ -4932,7 +4909,7 @@ export namespace QueryLoggingConfig {
  * 			for this hosted zone.</p>
  */
 export interface QueryLoggingConfigAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "QueryLoggingConfigAlreadyExists";
   $fault: "client";
@@ -4941,7 +4918,7 @@ export interface QueryLoggingConfigAlreadyExists
 
 export namespace QueryLoggingConfigAlreadyExists {
   export function isa(o: any): o is QueryLoggingConfigAlreadyExists {
-    return _smithy.isa(o, "QueryLoggingConfigAlreadyExists");
+    return __isa(o, "QueryLoggingConfigAlreadyExists");
   }
 }
 
@@ -4989,7 +4966,7 @@ export interface ResourceRecord {
 
 export namespace ResourceRecord {
   export function isa(o: any): o is ResourceRecord {
-    return _smithy.isa(o, "ResourceRecord");
+    return __isa(o, "ResourceRecord");
   }
 }
 
@@ -5493,7 +5470,7 @@ export interface ResourceRecordSet {
 
 export namespace ResourceRecordSet {
   export function isa(o: any): o is ResourceRecordSet {
-    return _smithy.isa(o, "ResourceRecordSet");
+    return __isa(o, "ResourceRecordSet");
   }
 }
 
@@ -5553,7 +5530,7 @@ export interface ResourceTagSet {
 
 export namespace ResourceTagSet {
   export function isa(o: any): o is ResourceTagSet {
-    return _smithy.isa(o, "ResourceTagSet");
+    return __isa(o, "ResourceTagSet");
   }
 }
 
@@ -5576,7 +5553,7 @@ export interface ReusableDelegationSetLimit {
 
 export namespace ReusableDelegationSetLimit {
   export function isa(o: any): o is ReusableDelegationSetLimit {
-    return _smithy.isa(o, "ReusableDelegationSetLimit");
+    return __isa(o, "ReusableDelegationSetLimit");
   }
 }
 
@@ -5609,7 +5586,7 @@ export interface StatusReport {
 
 export namespace StatusReport {
   export function isa(o: any): o is StatusReport {
-    return _smithy.isa(o, "StatusReport");
+    return __isa(o, "StatusReport");
   }
 }
 
@@ -5662,7 +5639,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -5724,7 +5701,7 @@ export interface TestDNSAnswerRequest {
 
 export namespace TestDNSAnswerRequest {
   export function isa(o: any): o is TestDNSAnswerRequest {
-    return _smithy.isa(o, "TestDNSAnswerRequest");
+    return __isa(o, "TestDNSAnswerRequest");
   }
 }
 
@@ -5769,7 +5746,7 @@ export interface TestDNSAnswerResponse extends $MetadataBearer {
 
 export namespace TestDNSAnswerResponse {
   export function isa(o: any): o is TestDNSAnswerResponse {
-    return _smithy.isa(o, "TestDNSAnswerResponse");
+    return __isa(o, "TestDNSAnswerResponse");
   }
 }
 
@@ -5777,7 +5754,7 @@ export namespace TestDNSAnswerResponse {
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
 export interface ThrottlingException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -5786,7 +5763,7 @@ export interface ThrottlingException
 
 export namespace ThrottlingException {
   export function isa(o: any): o is ThrottlingException {
-    return _smithy.isa(o, "ThrottlingException");
+    return __isa(o, "ThrottlingException");
   }
 }
 
@@ -5802,7 +5779,7 @@ export namespace ThrottlingException {
  * 			<a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
 export interface TooManyHealthChecks
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyHealthChecks";
   $fault: "client";
@@ -5811,7 +5788,7 @@ export interface TooManyHealthChecks
 
 export namespace TooManyHealthChecks {
   export function isa(o: any): o is TooManyHealthChecks {
-    return _smithy.isa(o, "TooManyHealthChecks");
+    return __isa(o, "TooManyHealthChecks");
   }
 }
 
@@ -5826,9 +5803,7 @@ export namespace TooManyHealthChecks {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html">GetReusableDelegationSetLimit</a>.</p>
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
-export interface TooManyHostedZones
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TooManyHostedZones extends __SmithyException, $MetadataBearer {
   name: "TooManyHostedZones";
   $fault: "client";
   /**
@@ -5839,7 +5814,7 @@ export interface TooManyHostedZones
 
 export namespace TooManyHostedZones {
   export function isa(o: any): o is TooManyHostedZones {
-    return _smithy.isa(o, "TooManyHostedZones");
+    return __isa(o, "TooManyHostedZones");
   }
 }
 
@@ -5853,7 +5828,7 @@ export namespace TooManyHostedZones {
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
 export interface TooManyTrafficPolicies
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTrafficPolicies";
   $fault: "client";
@@ -5865,7 +5840,7 @@ export interface TooManyTrafficPolicies
 
 export namespace TooManyTrafficPolicies {
   export function isa(o: any): o is TooManyTrafficPolicies {
-    return _smithy.isa(o, "TooManyTrafficPolicies");
+    return __isa(o, "TooManyTrafficPolicies");
   }
 }
 
@@ -5880,7 +5855,7 @@ export namespace TooManyTrafficPolicies {
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
 export interface TooManyTrafficPolicyInstances
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTrafficPolicyInstances";
   $fault: "client";
@@ -5892,7 +5867,7 @@ export interface TooManyTrafficPolicyInstances
 
 export namespace TooManyTrafficPolicyInstances {
   export function isa(o: any): o is TooManyTrafficPolicyInstances {
-    return _smithy.isa(o, "TooManyTrafficPolicyInstances");
+    return __isa(o, "TooManyTrafficPolicyInstances");
   }
 }
 
@@ -5906,7 +5881,7 @@ export namespace TooManyTrafficPolicyInstances {
  * 			to create a new traffic policy using the traffic policy document.</p>
  */
 export interface TooManyTrafficPolicyVersionsForCurrentPolicy
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyTrafficPolicyVersionsForCurrentPolicy";
   $fault: "client";
@@ -5920,7 +5895,7 @@ export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
   export function isa(
     o: any
   ): o is TooManyTrafficPolicyVersionsForCurrentPolicy {
-    return _smithy.isa(o, "TooManyTrafficPolicyVersionsForCurrentPolicy");
+    return __isa(o, "TooManyTrafficPolicyVersionsForCurrentPolicy");
   }
 }
 
@@ -5931,7 +5906,7 @@ export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
  * 			<code>ListVPCAssociationAuthorizations</code> request.</p>
  */
 export interface TooManyVPCAssociationAuthorizations
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyVPCAssociationAuthorizations";
   $fault: "client";
@@ -5943,7 +5918,7 @@ export interface TooManyVPCAssociationAuthorizations
 
 export namespace TooManyVPCAssociationAuthorizations {
   export function isa(o: any): o is TooManyVPCAssociationAuthorizations {
-    return _smithy.isa(o, "TooManyVPCAssociationAuthorizations");
+    return __isa(o, "TooManyVPCAssociationAuthorizations");
   }
 }
 
@@ -5989,7 +5964,7 @@ export interface TrafficPolicy {
 
 export namespace TrafficPolicy {
   export function isa(o: any): o is TrafficPolicy {
-    return _smithy.isa(o, "TrafficPolicy");
+    return __isa(o, "TrafficPolicy");
   }
 }
 
@@ -5997,7 +5972,7 @@ export namespace TrafficPolicy {
  * <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  */
 export interface TrafficPolicyAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TrafficPolicyAlreadyExists";
   $fault: "client";
@@ -6009,16 +5984,14 @@ export interface TrafficPolicyAlreadyExists
 
 export namespace TrafficPolicyAlreadyExists {
   export function isa(o: any): o is TrafficPolicyAlreadyExists {
-    return _smithy.isa(o, "TrafficPolicyAlreadyExists");
+    return __isa(o, "TrafficPolicyAlreadyExists");
   }
 }
 
 /**
  * <p>One or more traffic policy instances were created by using the specified traffic policy.</p>
  */
-export interface TrafficPolicyInUse
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
   name: "TrafficPolicyInUse";
   $fault: "client";
   /**
@@ -6029,7 +6002,7 @@ export interface TrafficPolicyInUse
 
 export namespace TrafficPolicyInUse {
   export function isa(o: any): o is TrafficPolicyInUse {
-    return _smithy.isa(o, "TrafficPolicyInUse");
+    return __isa(o, "TrafficPolicyInUse");
   }
 }
 
@@ -6104,7 +6077,7 @@ export interface TrafficPolicyInstance {
 
 export namespace TrafficPolicyInstance {
   export function isa(o: any): o is TrafficPolicyInstance {
-    return _smithy.isa(o, "TrafficPolicyInstance");
+    return __isa(o, "TrafficPolicyInstance");
   }
 }
 
@@ -6112,7 +6085,7 @@ export namespace TrafficPolicyInstance {
  * <p>There is already a traffic policy instance with the specified ID.</p>
  */
 export interface TrafficPolicyInstanceAlreadyExists
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TrafficPolicyInstanceAlreadyExists";
   $fault: "client";
@@ -6124,7 +6097,7 @@ export interface TrafficPolicyInstanceAlreadyExists
 
 export namespace TrafficPolicyInstanceAlreadyExists {
   export function isa(o: any): o is TrafficPolicyInstanceAlreadyExists {
-    return _smithy.isa(o, "TrafficPolicyInstanceAlreadyExists");
+    return __isa(o, "TrafficPolicyInstanceAlreadyExists");
   }
 }
 
@@ -6163,7 +6136,7 @@ export interface TrafficPolicySummary {
 
 export namespace TrafficPolicySummary {
   export function isa(o: any): o is TrafficPolicySummary {
-    return _smithy.isa(o, "TrafficPolicySummary");
+    return __isa(o, "TrafficPolicySummary");
   }
 }
 
@@ -6491,7 +6464,7 @@ export interface UpdateHealthCheckRequest {
 
 export namespace UpdateHealthCheckRequest {
   export function isa(o: any): o is UpdateHealthCheckRequest {
-    return _smithy.isa(o, "UpdateHealthCheckRequest");
+    return __isa(o, "UpdateHealthCheckRequest");
   }
 }
 
@@ -6508,7 +6481,7 @@ export interface UpdateHealthCheckResponse extends $MetadataBearer {
 
 export namespace UpdateHealthCheckResponse {
   export function isa(o: any): o is UpdateHealthCheckResponse {
-    return _smithy.isa(o, "UpdateHealthCheckResponse");
+    return __isa(o, "UpdateHealthCheckResponse");
   }
 }
 
@@ -6531,7 +6504,7 @@ export interface UpdateHostedZoneCommentRequest {
 
 export namespace UpdateHostedZoneCommentRequest {
   export function isa(o: any): o is UpdateHostedZoneCommentRequest {
-    return _smithy.isa(o, "UpdateHostedZoneCommentRequest");
+    return __isa(o, "UpdateHostedZoneCommentRequest");
   }
 }
 
@@ -6548,7 +6521,7 @@ export interface UpdateHostedZoneCommentResponse extends $MetadataBearer {
 
 export namespace UpdateHostedZoneCommentResponse {
   export function isa(o: any): o is UpdateHostedZoneCommentResponse {
-    return _smithy.isa(o, "UpdateHostedZoneCommentResponse");
+    return __isa(o, "UpdateHostedZoneCommentResponse");
   }
 }
 
@@ -6575,7 +6548,7 @@ export interface UpdateTrafficPolicyCommentRequest {
 
 export namespace UpdateTrafficPolicyCommentRequest {
   export function isa(o: any): o is UpdateTrafficPolicyCommentRequest {
-    return _smithy.isa(o, "UpdateTrafficPolicyCommentRequest");
+    return __isa(o, "UpdateTrafficPolicyCommentRequest");
   }
 }
 
@@ -6592,7 +6565,7 @@ export interface UpdateTrafficPolicyCommentResponse extends $MetadataBearer {
 
 export namespace UpdateTrafficPolicyCommentResponse {
   export function isa(o: any): o is UpdateTrafficPolicyCommentResponse {
-    return _smithy.isa(o, "UpdateTrafficPolicyCommentResponse");
+    return __isa(o, "UpdateTrafficPolicyCommentResponse");
   }
 }
 
@@ -6624,7 +6597,7 @@ export interface UpdateTrafficPolicyInstanceRequest {
 
 export namespace UpdateTrafficPolicyInstanceRequest {
   export function isa(o: any): o is UpdateTrafficPolicyInstanceRequest {
-    return _smithy.isa(o, "UpdateTrafficPolicyInstanceRequest");
+    return __isa(o, "UpdateTrafficPolicyInstanceRequest");
   }
 }
 
@@ -6642,7 +6615,7 @@ export interface UpdateTrafficPolicyInstanceResponse extends $MetadataBearer {
 
 export namespace UpdateTrafficPolicyInstanceResponse {
   export function isa(o: any): o is UpdateTrafficPolicyInstanceResponse {
-    return _smithy.isa(o, "UpdateTrafficPolicyInstanceResponse");
+    return __isa(o, "UpdateTrafficPolicyInstanceResponse");
   }
 }
 
@@ -6664,7 +6637,7 @@ export interface VPC {
 
 export namespace VPC {
   export function isa(o: any): o is VPC {
-    return _smithy.isa(o, "VPC");
+    return __isa(o, "VPC");
   }
 }
 
@@ -6672,7 +6645,7 @@ export namespace VPC {
  * <p>The VPC that you specified is not authorized to be associated with the hosted zone.</p>
  */
 export interface VPCAssociationAuthorizationNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "VPCAssociationAuthorizationNotFound";
   $fault: "client";
@@ -6684,7 +6657,7 @@ export interface VPCAssociationAuthorizationNotFound
 
 export namespace VPCAssociationAuthorizationNotFound {
   export function isa(o: any): o is VPCAssociationAuthorizationNotFound {
-    return _smithy.isa(o, "VPCAssociationAuthorizationNotFound");
+    return __isa(o, "VPCAssociationAuthorizationNotFound");
   }
 }
 
@@ -6692,7 +6665,7 @@ export namespace VPCAssociationAuthorizationNotFound {
  * <p>The specified VPC and hosted zone are not currently associated.</p>
  */
 export interface VPCAssociationNotFound
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "VPCAssociationNotFound";
   $fault: "client";
@@ -6704,7 +6677,7 @@ export interface VPCAssociationNotFound
 
 export namespace VPCAssociationNotFound {
   export function isa(o: any): o is VPCAssociationNotFound {
-    return _smithy.isa(o, "VPCAssociationNotFound");
+    return __isa(o, "VPCAssociationNotFound");
   }
 }
 

@@ -1098,6 +1098,7 @@ export async function deserializeAws_json1_1AddTagsToOnPremisesInstancesCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: AddTagsToOnPremisesInstancesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1839,6 +1840,7 @@ export async function deserializeAws_json1_1ContinueDeploymentCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: ContinueDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2617,6 +2619,7 @@ export async function deserializeAws_json1_1DeleteApplicationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteApplicationCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2685,6 +2688,7 @@ export async function deserializeAws_json1_1DeleteDeploymentConfigCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteDeploymentConfigCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2937,6 +2941,7 @@ export async function deserializeAws_json1_1DeregisterOnPremisesInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeregisterOnPremisesInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4683,6 +4688,7 @@ export async function deserializeAws_json1_1RegisterApplicationRevisionCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RegisterApplicationRevisionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4772,6 +4778,7 @@ export async function deserializeAws_json1_1RegisterOnPremisesInstanceCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RegisterOnPremisesInstanceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4889,6 +4896,7 @@ export async function deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCom
       context
     );
   }
+  await collectBody(output.body, context);
   const response: RemoveTagsFromOnPremisesInstancesCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -4985,6 +4993,7 @@ export async function deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCo
       context
     );
   }
+  await collectBody(output.body, context);
   const response: SkipWaitTimeForInstanceTerminationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -5365,6 +5374,7 @@ export async function deserializeAws_json1_1UpdateApplicationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

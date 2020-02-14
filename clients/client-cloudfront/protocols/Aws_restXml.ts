@@ -349,7 +349,10 @@ import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
-import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
@@ -529,7 +532,7 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
   headers["Content-Type"] = "application/xml";
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId.toString();
+    const labelValue: string = input.DistributionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DistributionId."
@@ -537,7 +540,7 @@ export async function serializeAws_restXmlCreateInvalidationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DistributionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
@@ -670,15 +673,18 @@ export async function serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCo
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -698,15 +704,18 @@ export async function serializeAws_restXmlDeleteDistributionCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -726,15 +735,18 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionConfigComman
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -754,15 +766,18 @@ export async function serializeAws_restXmlDeleteFieldLevelEncryptionProfileComma
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -782,15 +797,18 @@ export async function serializeAws_restXmlDeletePublicKeyCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -810,15 +828,18 @@ export async function serializeAws_restXmlDeleteStreamingDistributionCommand(
   const headers: any = {};
   headers["Content-Type"] = "";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -839,11 +860,14 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityComma
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -865,11 +889,14 @@ export async function serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfi
   let resolvedPath =
     "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -890,11 +917,14 @@ export async function serializeAws_restXmlGetDistributionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -915,11 +945,14 @@ export async function serializeAws_restXmlGetDistributionConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -940,11 +973,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -965,11 +1001,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -990,11 +1029,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1015,11 +1057,14 @@ export async function serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCo
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1041,7 +1086,7 @@ export async function serializeAws_restXmlGetInvalidationCommand(
   let resolvedPath =
     "/2019-03-26/distribution/{DistributionId}/invalidation/{Id}";
   if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId.toString();
+    const labelValue: string = input.DistributionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DistributionId."
@@ -1049,17 +1094,20 @@ export async function serializeAws_restXmlGetInvalidationCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DistributionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1080,11 +1128,14 @@ export async function serializeAws_restXmlGetPublicKeyCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/public-key/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1105,11 +1156,14 @@ export async function serializeAws_restXmlGetPublicKeyConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1130,11 +1184,14 @@ export async function serializeAws_restXmlGetStreamingDistributionCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1155,11 +1212,14 @@ export async function serializeAws_restXmlGetStreamingDistributionConfigCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1181,10 +1241,14 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1205,10 +1269,14 @@ export async function serializeAws_restXmlListDistributionsCommand(
   let resolvedPath = "/2019-03-26/distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1228,23 +1296,27 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distributionsByWebACLId/{WebACLId}";
   if (input.WebACLId !== undefined) {
-    const labelValue: string = input.WebACLId.toString();
+    const labelValue: string = input.WebACLId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: WebACLId.");
     }
     resolvedPath = resolvedPath.replace(
       "{WebACLId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: WebACLId.");
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1265,10 +1337,14 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
   let resolvedPath = "/2019-03-26/field-level-encryption";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1289,10 +1365,14 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1312,7 +1392,7 @@ export async function serializeAws_restXmlListInvalidationsCommand(
   headers["Content-Type"] = "";
   let resolvedPath = "/2019-03-26/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
-    const labelValue: string = input.DistributionId.toString();
+    const labelValue: string = input.DistributionId;
     if (labelValue.length <= 0) {
       throw new Error(
         "Empty value provided for input HTTP label: DistributionId."
@@ -1320,17 +1400,21 @@ export async function serializeAws_restXmlListInvalidationsCommand(
     }
     resolvedPath = resolvedPath.replace(
       "{DistributionId}",
-      encodeURIComponent(labelValue)
+      __extendedEncodeURIComponent(labelValue)
     );
   } else {
     throw new Error("No value provided for input HTTP label: DistributionId.");
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1351,10 +1435,14 @@ export async function serializeAws_restXmlListPublicKeysCommand(
   let resolvedPath = "/2019-03-26/public-key";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1375,10 +1463,14 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
   let resolvedPath = "/2019-03-26/streaming-distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query["Marker"] = input.Marker.toString();
+    query[
+      __extendedEncodeURIComponent("Marker")
+    ] = __extendedEncodeURIComponent(input.Marker);
   }
   if (input.MaxItems !== undefined) {
-    query["MaxItems"] = input.MaxItems.toString();
+    query[
+      __extendedEncodeURIComponent("MaxItems")
+    ] = __extendedEncodeURIComponent(input.MaxItems);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1399,7 +1491,9 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {};
   if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource.toString();
+    query[
+      __extendedEncodeURIComponent("Resource")
+    ] = __extendedEncodeURIComponent(input.Resource);
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1422,7 +1516,9 @@ export async function serializeAws_restXmlTagResourceCommand(
     Operation: "Tag"
   };
   if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource.toString();
+    query[
+      __extendedEncodeURIComponent("Resource")
+    ] = __extendedEncodeURIComponent(input.Resource);
   }
   let body: any;
   let contents: any;
@@ -1457,7 +1553,9 @@ export async function serializeAws_restXmlUntagResourceCommand(
     Operation: "Untag"
   };
   if (input.Resource !== undefined) {
-    query["Resource"] = input.Resource.toString();
+    query[
+      __extendedEncodeURIComponent("Resource")
+    ] = __extendedEncodeURIComponent(input.Resource);
   }
   let body: any;
   let contents: any;
@@ -1488,16 +1586,19 @@ export async function serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCo
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath =
     "/2019-03-26/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1532,15 +1633,18 @@ export async function serializeAws_restXmlUpdateDistributionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/distribution/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1575,15 +1679,18 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionConfigComman
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1618,15 +1725,18 @@ export async function serializeAws_restXmlUpdateFieldLevelEncryptionProfileComma
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1661,15 +1771,18 @@ export async function serializeAws_restXmlUpdatePublicKeyCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/public-key/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -1704,15 +1817,18 @@ export async function serializeAws_restXmlUpdateStreamingDistributionCommand(
   const headers: any = {};
   headers["Content-Type"] = "application/xml";
   if (input.IfMatch !== undefined) {
-    headers["If-Match"] = input.IfMatch.toString();
+    headers["If-Match"] = input.IfMatch;
   }
   let resolvedPath = "/2019-03-26/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
-    const labelValue: string = input.Id.toString();
+    const labelValue: string = input.Id;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace("{Id}", encodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace(
+      "{Id}",
+      __extendedEncodeURIComponent(labelValue)
+    );
   } else {
     throw new Error("No value provided for input HTTP label: Id.");
   }
@@ -3298,6 +3414,7 @@ export async function deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentity
   const contents: DeleteCloudFrontOriginAccessIdentityCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3379,6 +3496,7 @@ export async function deserializeAws_restXmlDeleteDistributionCommand(
   const contents: DeleteDistributionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3460,6 +3578,7 @@ export async function deserializeAws_restXmlDeleteFieldLevelEncryptionConfigComm
   const contents: DeleteFieldLevelEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3541,6 +3660,7 @@ export async function deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCom
   const contents: DeleteFieldLevelEncryptionProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3619,6 +3739,7 @@ export async function deserializeAws_restXmlDeletePublicKeyCommand(
   const contents: DeletePublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3700,6 +3821,7 @@ export async function deserializeAws_restXmlDeleteStreamingDistributionCommand(
   const contents: DeleteStreamingDistributionCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5253,6 +5375,7 @@ export async function deserializeAws_restXmlTagResourceCommand(
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -5324,6 +5447,7 @@ export async function deserializeAws_restXmlUntagResourceCommand(
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

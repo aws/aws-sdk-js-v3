@@ -968,6 +968,7 @@ export async function deserializeAws_restJson1_1AssociateDomainCommand(
     $metadata: deserializeMetadata(output),
     __type: "AssociateDomainResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -1324,6 +1325,7 @@ export async function deserializeAws_restJson1_1DeleteFleetCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteFleetResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2201,6 +2203,7 @@ export async function deserializeAws_restJson1_1DisassociateDomainCommand(
     $metadata: deserializeMetadata(output),
     __type: "DisassociateDomainResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2280,6 +2283,7 @@ export async function deserializeAws_restJson1_1DisassociateWebsiteAuthorization
     $metadata: deserializeMetadata(output),
     __type: "DisassociateWebsiteAuthorizationProviderResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2366,6 +2370,7 @@ export async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAu
     $metadata: deserializeMetadata(output),
     __type: "DisassociateWebsiteCertificateAuthorityResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2876,6 +2881,7 @@ export async function deserializeAws_restJson1_1RestoreDomainAccessCommand(
     $metadata: deserializeMetadata(output),
     __type: "RestoreDomainAccessResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -2955,6 +2961,7 @@ export async function deserializeAws_restJson1_1RevokeDomainAccessCommand(
     $metadata: deserializeMetadata(output),
     __type: "RevokeDomainAccessResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3031,6 +3038,7 @@ export async function deserializeAws_restJson1_1SignOutUserCommand(
     $metadata: deserializeMetadata(output),
     __type: "SignOutUserResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3110,6 +3118,7 @@ export async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCo
     $metadata: deserializeMetadata(output),
     __type: "UpdateAuditStreamConfigurationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3189,6 +3198,7 @@ export async function deserializeAws_restJson1_1UpdateCompanyNetworkConfiguratio
     $metadata: deserializeMetadata(output),
     __type: "UpdateCompanyNetworkConfigurationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3268,6 +3278,7 @@ export async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationC
     $metadata: deserializeMetadata(output),
     __type: "UpdateDevicePolicyConfigurationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3347,6 +3358,7 @@ export async function deserializeAws_restJson1_1UpdateDomainMetadataCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateDomainMetadataResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3426,6 +3438,7 @@ export async function deserializeAws_restJson1_1UpdateFleetMetadataCommand(
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetMetadataResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 
@@ -3505,6 +3518,7 @@ export async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurat
     $metadata: deserializeMetadata(output),
     __type: "UpdateIdentityProviderConfigurationResponse"
   };
+  await collectBody(output.body, context);
   return Promise.resolve(contents);
 }
 

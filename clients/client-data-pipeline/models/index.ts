@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -24,7 +27,7 @@ export interface ActivatePipelineInput {
 
 export namespace ActivatePipelineInput {
   export function isa(o: any): o is ActivatePipelineInput {
-    return _smithy.isa(o, "ActivatePipelineInput");
+    return __isa(o, "ActivatePipelineInput");
   }
 }
 
@@ -37,7 +40,7 @@ export interface ActivatePipelineOutput extends $MetadataBearer {
 
 export namespace ActivatePipelineOutput {
   export function isa(o: any): o is ActivatePipelineOutput {
-    return _smithy.isa(o, "ActivatePipelineOutput");
+    return __isa(o, "ActivatePipelineOutput");
   }
 }
 
@@ -59,7 +62,7 @@ export interface AddTagsInput {
 
 export namespace AddTagsInput {
   export function isa(o: any): o is AddTagsInput {
-    return _smithy.isa(o, "AddTagsInput");
+    return __isa(o, "AddTagsInput");
   }
 }
 
@@ -72,7 +75,7 @@ export interface AddTagsOutput extends $MetadataBearer {
 
 export namespace AddTagsOutput {
   export function isa(o: any): o is AddTagsOutput {
-    return _smithy.isa(o, "AddTagsOutput");
+    return __isa(o, "AddTagsOutput");
   }
 }
 
@@ -113,7 +116,7 @@ export interface CreatePipelineInput {
 
 export namespace CreatePipelineInput {
   export function isa(o: any): o is CreatePipelineInput {
-    return _smithy.isa(o, "CreatePipelineInput");
+    return __isa(o, "CreatePipelineInput");
   }
 }
 
@@ -130,7 +133,7 @@ export interface CreatePipelineOutput extends $MetadataBearer {
 
 export namespace CreatePipelineOutput {
   export function isa(o: any): o is CreatePipelineOutput {
-    return _smithy.isa(o, "CreatePipelineOutput");
+    return __isa(o, "CreatePipelineOutput");
   }
 }
 
@@ -155,7 +158,7 @@ export interface DeactivatePipelineInput {
 
 export namespace DeactivatePipelineInput {
   export function isa(o: any): o is DeactivatePipelineInput {
-    return _smithy.isa(o, "DeactivatePipelineInput");
+    return __isa(o, "DeactivatePipelineInput");
   }
 }
 
@@ -168,7 +171,7 @@ export interface DeactivatePipelineOutput extends $MetadataBearer {
 
 export namespace DeactivatePipelineOutput {
   export function isa(o: any): o is DeactivatePipelineOutput {
-    return _smithy.isa(o, "DeactivatePipelineOutput");
+    return __isa(o, "DeactivatePipelineOutput");
   }
 }
 
@@ -185,7 +188,7 @@ export interface DeletePipelineInput {
 
 export namespace DeletePipelineInput {
   export function isa(o: any): o is DeletePipelineInput {
-    return _smithy.isa(o, "DeletePipelineInput");
+    return __isa(o, "DeletePipelineInput");
   }
 }
 
@@ -219,7 +222,7 @@ export interface DescribeObjectsInput {
 
 export namespace DescribeObjectsInput {
   export function isa(o: any): o is DescribeObjectsInput {
-    return _smithy.isa(o, "DescribeObjectsInput");
+    return __isa(o, "DescribeObjectsInput");
   }
 }
 
@@ -247,7 +250,7 @@ export interface DescribeObjectsOutput extends $MetadataBearer {
 
 export namespace DescribeObjectsOutput {
   export function isa(o: any): o is DescribeObjectsOutput {
-    return _smithy.isa(o, "DescribeObjectsOutput");
+    return __isa(o, "DescribeObjectsOutput");
   }
 }
 
@@ -265,7 +268,7 @@ export interface DescribePipelinesInput {
 
 export namespace DescribePipelinesInput {
   export function isa(o: any): o is DescribePipelinesInput {
-    return _smithy.isa(o, "DescribePipelinesInput");
+    return __isa(o, "DescribePipelinesInput");
   }
 }
 
@@ -282,7 +285,7 @@ export interface DescribePipelinesOutput extends $MetadataBearer {
 
 export namespace DescribePipelinesOutput {
   export function isa(o: any): o is DescribePipelinesOutput {
-    return _smithy.isa(o, "DescribePipelinesOutput");
+    return __isa(o, "DescribePipelinesOutput");
   }
 }
 
@@ -309,7 +312,7 @@ export interface EvaluateExpressionInput {
 
 export namespace EvaluateExpressionInput {
   export function isa(o: any): o is EvaluateExpressionInput {
-    return _smithy.isa(o, "EvaluateExpressionInput");
+    return __isa(o, "EvaluateExpressionInput");
   }
 }
 
@@ -326,7 +329,7 @@ export interface EvaluateExpressionOutput extends $MetadataBearer {
 
 export namespace EvaluateExpressionOutput {
   export function isa(o: any): o is EvaluateExpressionOutput {
-    return _smithy.isa(o, "EvaluateExpressionOutput");
+    return __isa(o, "EvaluateExpressionOutput");
   }
 }
 
@@ -353,7 +356,7 @@ export interface Field {
 
 export namespace Field {
   export function isa(o: any): o is Field {
-    return _smithy.isa(o, "Field");
+    return __isa(o, "Field");
   }
 }
 
@@ -377,7 +380,7 @@ export interface GetPipelineDefinitionInput {
 
 export namespace GetPipelineDefinitionInput {
   export function isa(o: any): o is GetPipelineDefinitionInput {
-    return _smithy.isa(o, "GetPipelineDefinitionInput");
+    return __isa(o, "GetPipelineDefinitionInput");
   }
 }
 
@@ -404,7 +407,7 @@ export interface GetPipelineDefinitionOutput extends $MetadataBearer {
 
 export namespace GetPipelineDefinitionOutput {
   export function isa(o: any): o is GetPipelineDefinitionOutput {
-    return _smithy.isa(o, "GetPipelineDefinitionOutput");
+    return __isa(o, "GetPipelineDefinitionOutput");
   }
 }
 
@@ -428,7 +431,7 @@ export interface InstanceIdentity {
 
 export namespace InstanceIdentity {
   export function isa(o: any): o is InstanceIdentity {
-    return _smithy.isa(o, "InstanceIdentity");
+    return __isa(o, "InstanceIdentity");
   }
 }
 
@@ -436,7 +439,7 @@ export namespace InstanceIdentity {
  * <p>An internal service error occurred.</p>
  */
 export interface InternalServiceError
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
@@ -448,7 +451,7 @@ export interface InternalServiceError
 
 export namespace InternalServiceError {
   export function isa(o: any): o is InternalServiceError {
-    return _smithy.isa(o, "InternalServiceError");
+    return __isa(o, "InternalServiceError");
   }
 }
 
@@ -456,7 +459,7 @@ export namespace InternalServiceError {
  * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  */
 export interface InvalidRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -468,7 +471,7 @@ export interface InvalidRequestException
 
 export namespace InvalidRequestException {
   export function isa(o: any): o is InvalidRequestException {
-    return _smithy.isa(o, "InvalidRequestException");
+    return __isa(o, "InvalidRequestException");
   }
 }
 
@@ -487,7 +490,7 @@ export interface ListPipelinesInput {
 
 export namespace ListPipelinesInput {
   export function isa(o: any): o is ListPipelinesInput {
-    return _smithy.isa(o, "ListPipelinesInput");
+    return __isa(o, "ListPipelinesInput");
   }
 }
 
@@ -516,7 +519,7 @@ export interface ListPipelinesOutput extends $MetadataBearer {
 
 export namespace ListPipelinesOutput {
   export function isa(o: any): o is ListPipelinesOutput {
-    return _smithy.isa(o, "ListPipelinesOutput");
+    return __isa(o, "ListPipelinesOutput");
   }
 }
 
@@ -592,7 +595,7 @@ export interface Operator {
 
 export namespace Operator {
   export function isa(o: any): o is Operator {
-    return _smithy.isa(o, "Operator");
+    return __isa(o, "Operator");
   }
 }
 
@@ -622,7 +625,7 @@ export interface ParameterAttribute {
 
 export namespace ParameterAttribute {
   export function isa(o: any): o is ParameterAttribute {
-    return _smithy.isa(o, "ParameterAttribute");
+    return __isa(o, "ParameterAttribute");
   }
 }
 
@@ -644,7 +647,7 @@ export interface ParameterObject {
 
 export namespace ParameterObject {
   export function isa(o: any): o is ParameterObject {
-    return _smithy.isa(o, "ParameterObject");
+    return __isa(o, "ParameterObject");
   }
 }
 
@@ -666,7 +669,7 @@ export interface ParameterValue {
 
 export namespace ParameterValue {
   export function isa(o: any): o is ParameterValue {
-    return _smithy.isa(o, "ParameterValue");
+    return __isa(o, "ParameterValue");
   }
 }
 
@@ -674,7 +677,7 @@ export namespace ParameterValue {
  * <p>The specified pipeline has been deleted.</p>
  */
 export interface PipelineDeletedException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PipelineDeletedException";
   $fault: "client";
@@ -686,7 +689,7 @@ export interface PipelineDeletedException
 
 export namespace PipelineDeletedException {
   export function isa(o: any): o is PipelineDeletedException {
-    return _smithy.isa(o, "PipelineDeletedException");
+    return __isa(o, "PipelineDeletedException");
   }
 }
 
@@ -724,7 +727,7 @@ export interface PipelineDescription {
 
 export namespace PipelineDescription {
   export function isa(o: any): o is PipelineDescription {
-    return _smithy.isa(o, "PipelineDescription");
+    return __isa(o, "PipelineDescription");
   }
 }
 
@@ -746,7 +749,7 @@ export interface PipelineIdName {
 
 export namespace PipelineIdName {
   export function isa(o: any): o is PipelineIdName {
-    return _smithy.isa(o, "PipelineIdName");
+    return __isa(o, "PipelineIdName");
   }
 }
 
@@ -754,7 +757,7 @@ export namespace PipelineIdName {
  * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  */
 export interface PipelineNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "PipelineNotFoundException";
   $fault: "client";
@@ -766,7 +769,7 @@ export interface PipelineNotFoundException
 
 export namespace PipelineNotFoundException {
   export function isa(o: any): o is PipelineNotFoundException {
-    return _smithy.isa(o, "PipelineNotFoundException");
+    return __isa(o, "PipelineNotFoundException");
   }
 }
 
@@ -793,7 +796,7 @@ export interface PipelineObject {
 
 export namespace PipelineObject {
   export function isa(o: any): o is PipelineObject {
-    return _smithy.isa(o, "PipelineObject");
+    return __isa(o, "PipelineObject");
   }
 }
 
@@ -822,7 +825,7 @@ export interface PollForTaskInput {
 
 export namespace PollForTaskInput {
   export function isa(o: any): o is PollForTaskInput {
-    return _smithy.isa(o, "PollForTaskInput");
+    return __isa(o, "PollForTaskInput");
   }
 }
 
@@ -841,7 +844,7 @@ export interface PollForTaskOutput extends $MetadataBearer {
 
 export namespace PollForTaskOutput {
   export function isa(o: any): o is PollForTaskOutput {
-    return _smithy.isa(o, "PollForTaskOutput");
+    return __isa(o, "PollForTaskOutput");
   }
 }
 
@@ -873,7 +876,7 @@ export interface PutPipelineDefinitionInput {
 
 export namespace PutPipelineDefinitionInput {
   export function isa(o: any): o is PutPipelineDefinitionInput {
-    return _smithy.isa(o, "PutPipelineDefinitionInput");
+    return __isa(o, "PutPipelineDefinitionInput");
   }
 }
 
@@ -901,7 +904,7 @@ export interface PutPipelineDefinitionOutput extends $MetadataBearer {
 
 export namespace PutPipelineDefinitionOutput {
   export function isa(o: any): o is PutPipelineDefinitionOutput {
-    return _smithy.isa(o, "PutPipelineDefinitionOutput");
+    return __isa(o, "PutPipelineDefinitionOutput");
   }
 }
 
@@ -918,7 +921,7 @@ export interface Query {
 
 export namespace Query {
   export function isa(o: any): o is Query {
-    return _smithy.isa(o, "Query");
+    return __isa(o, "Query");
   }
 }
 
@@ -960,7 +963,7 @@ export interface QueryObjectsInput {
 
 export namespace QueryObjectsInput {
   export function isa(o: any): o is QueryObjectsInput {
-    return _smithy.isa(o, "QueryObjectsInput");
+    return __isa(o, "QueryObjectsInput");
   }
 }
 
@@ -988,7 +991,7 @@ export interface QueryObjectsOutput extends $MetadataBearer {
 
 export namespace QueryObjectsOutput {
   export function isa(o: any): o is QueryObjectsOutput {
-    return _smithy.isa(o, "QueryObjectsOutput");
+    return __isa(o, "QueryObjectsOutput");
   }
 }
 
@@ -1010,7 +1013,7 @@ export interface RemoveTagsInput {
 
 export namespace RemoveTagsInput {
   export function isa(o: any): o is RemoveTagsInput {
-    return _smithy.isa(o, "RemoveTagsInput");
+    return __isa(o, "RemoveTagsInput");
   }
 }
 
@@ -1023,7 +1026,7 @@ export interface RemoveTagsOutput extends $MetadataBearer {
 
 export namespace RemoveTagsOutput {
   export function isa(o: any): o is RemoveTagsOutput {
-    return _smithy.isa(o, "RemoveTagsOutput");
+    return __isa(o, "RemoveTagsOutput");
   }
 }
 
@@ -1045,7 +1048,7 @@ export interface ReportTaskProgressInput {
 
 export namespace ReportTaskProgressInput {
   export function isa(o: any): o is ReportTaskProgressInput {
-    return _smithy.isa(o, "ReportTaskProgressInput");
+    return __isa(o, "ReportTaskProgressInput");
   }
 }
 
@@ -1062,7 +1065,7 @@ export interface ReportTaskProgressOutput extends $MetadataBearer {
 
 export namespace ReportTaskProgressOutput {
   export function isa(o: any): o is ReportTaskProgressOutput {
-    return _smithy.isa(o, "ReportTaskProgressOutput");
+    return __isa(o, "ReportTaskProgressOutput");
   }
 }
 
@@ -1091,7 +1094,7 @@ export interface ReportTaskRunnerHeartbeatInput {
 
 export namespace ReportTaskRunnerHeartbeatInput {
   export function isa(o: any): o is ReportTaskRunnerHeartbeatInput {
-    return _smithy.isa(o, "ReportTaskRunnerHeartbeatInput");
+    return __isa(o, "ReportTaskRunnerHeartbeatInput");
   }
 }
 
@@ -1108,7 +1111,7 @@ export interface ReportTaskRunnerHeartbeatOutput extends $MetadataBearer {
 
 export namespace ReportTaskRunnerHeartbeatOutput {
   export function isa(o: any): o is ReportTaskRunnerHeartbeatOutput {
-    return _smithy.isa(o, "ReportTaskRunnerHeartbeatOutput");
+    return __isa(o, "ReportTaskRunnerHeartbeatOutput");
   }
 }
 
@@ -1130,7 +1133,7 @@ export interface Selector {
 
 export namespace Selector {
   export function isa(o: any): o is Selector {
-    return _smithy.isa(o, "Selector");
+    return __isa(o, "Selector");
   }
 }
 
@@ -1158,7 +1161,7 @@ export interface SetStatusInput {
 
 export namespace SetStatusInput {
   export function isa(o: any): o is SetStatusInput {
-    return _smithy.isa(o, "SetStatusInput");
+    return __isa(o, "SetStatusInput");
   }
 }
 
@@ -1195,7 +1198,7 @@ export interface SetTaskStatusInput {
 
 export namespace SetTaskStatusInput {
   export function isa(o: any): o is SetTaskStatusInput {
-    return _smithy.isa(o, "SetTaskStatusInput");
+    return __isa(o, "SetTaskStatusInput");
   }
 }
 
@@ -1208,7 +1211,7 @@ export interface SetTaskStatusOutput extends $MetadataBearer {
 
 export namespace SetTaskStatusOutput {
   export function isa(o: any): o is SetTaskStatusOutput {
-    return _smithy.isa(o, "SetTaskStatusOutput");
+    return __isa(o, "SetTaskStatusOutput");
   }
 }
 
@@ -1233,7 +1236,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1241,7 +1244,7 @@ export namespace Tag {
  * <p>The specified task was not found.</p>
  */
 export interface TaskNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TaskNotFoundException";
   $fault: "client";
@@ -1253,7 +1256,7 @@ export interface TaskNotFoundException
 
 export namespace TaskNotFoundException {
   export function isa(o: any): o is TaskNotFoundException {
-    return _smithy.isa(o, "TaskNotFoundException");
+    return __isa(o, "TaskNotFoundException");
   }
 }
 
@@ -1285,7 +1288,7 @@ export interface TaskObject {
 
 export namespace TaskObject {
   export function isa(o: any): o is TaskObject {
-    return _smithy.isa(o, "TaskObject");
+    return __isa(o, "TaskObject");
   }
 }
 
@@ -1323,7 +1326,7 @@ export interface ValidatePipelineDefinitionInput {
 
 export namespace ValidatePipelineDefinitionInput {
   export function isa(o: any): o is ValidatePipelineDefinitionInput {
-    return _smithy.isa(o, "ValidatePipelineDefinitionInput");
+    return __isa(o, "ValidatePipelineDefinitionInput");
   }
 }
 
@@ -1350,7 +1353,7 @@ export interface ValidatePipelineDefinitionOutput extends $MetadataBearer {
 
 export namespace ValidatePipelineDefinitionOutput {
   export function isa(o: any): o is ValidatePipelineDefinitionOutput {
-    return _smithy.isa(o, "ValidatePipelineDefinitionOutput");
+    return __isa(o, "ValidatePipelineDefinitionOutput");
   }
 }
 
@@ -1372,7 +1375,7 @@ export interface ValidationError {
 
 export namespace ValidationError {
   export function isa(o: any): o is ValidationError {
-    return _smithy.isa(o, "ValidationError");
+    return __isa(o, "ValidationError");
   }
 }
 
@@ -1394,6 +1397,6 @@ export interface ValidationWarning {
 
 export namespace ValidationWarning {
   export function isa(o: any): o is ValidationWarning {
-    return _smithy.isa(o, "ValidationWarning");
+    return __isa(o, "ValidationWarning");
   }
 }

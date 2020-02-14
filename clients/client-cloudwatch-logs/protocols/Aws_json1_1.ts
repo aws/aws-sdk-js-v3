@@ -809,6 +809,7 @@ export async function deserializeAws_json1_1AssociateKmsKeyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AssociateKmsKeyCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: AssociateKmsKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -881,6 +882,7 @@ export async function deserializeAws_json1_1CancelExportTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CancelExportTaskCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CancelExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1044,6 +1046,7 @@ export async function deserializeAws_json1_1CreateLogGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLogGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1123,6 +1126,7 @@ export async function deserializeAws_json1_1CreateLogStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLogStreamCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: CreateLogStreamCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1195,6 +1199,7 @@ export async function deserializeAws_json1_1DeleteDestinationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteDestinationCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteDestinationCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1267,6 +1272,7 @@ export async function deserializeAws_json1_1DeleteLogGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLogGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1339,6 +1345,7 @@ export async function deserializeAws_json1_1DeleteLogStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLogStreamCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: DeleteLogStreamCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1414,6 +1421,7 @@ export async function deserializeAws_json1_1DeleteMetricFilterCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteMetricFilterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1489,6 +1497,7 @@ export async function deserializeAws_json1_1DeleteResourcePolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1557,6 +1566,7 @@ export async function deserializeAws_json1_1DeleteRetentionPolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -1632,6 +1642,7 @@ export async function deserializeAws_json1_1DeleteSubscriptionFilterCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DeleteSubscriptionFilterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2263,6 +2274,7 @@ export async function deserializeAws_json1_1DisassociateKmsKeyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: DisassociateKmsKeyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2835,6 +2847,7 @@ export async function deserializeAws_json1_1PutDestinationPolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutDestinationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -2991,6 +3004,7 @@ export async function deserializeAws_json1_1PutMetricFilterCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutMetricFilterCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: PutMetricFilterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3143,6 +3157,7 @@ export async function deserializeAws_json1_1PutRetentionPolicyCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3218,6 +3233,7 @@ export async function deserializeAws_json1_1PutSubscriptionFilterCommand(
       context
     );
   }
+  await collectBody(output.body, context);
   const response: PutSubscriptionFilterCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3451,6 +3467,7 @@ export async function deserializeAws_json1_1TagLogGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagLogGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: TagLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };
@@ -3572,6 +3589,7 @@ export async function deserializeAws_json1_1UntagLogGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagLogGroupCommandError(output, context);
   }
+  await collectBody(output.body, context);
   const response: UntagLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output)
   };

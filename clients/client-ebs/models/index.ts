@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,7 +22,7 @@ export interface Block {
 
 export namespace Block {
   export function isa(o: any): o is Block {
-    return _smithy.isa(o, "Block");
+    return __isa(o, "Block");
   }
 }
 
@@ -50,7 +53,7 @@ export interface ChangedBlock {
 
 export namespace ChangedBlock {
   export function isa(o: any): o is ChangedBlock {
-    return _smithy.isa(o, "ChangedBlock");
+    return __isa(o, "ChangedBlock");
   }
 }
 
@@ -86,7 +89,7 @@ export interface GetSnapshotBlockRequest {
 
 export namespace GetSnapshotBlockRequest {
   export function isa(o: any): o is GetSnapshotBlockRequest {
-    return _smithy.isa(o, "GetSnapshotBlockRequest");
+    return __isa(o, "GetSnapshotBlockRequest");
   }
 }
 
@@ -115,7 +118,7 @@ export interface GetSnapshotBlockResponse extends $MetadataBearer {
 
 export namespace GetSnapshotBlockResponse {
   export function isa(o: any): o is GetSnapshotBlockResponse {
-    return _smithy.isa(o, "GetSnapshotBlockResponse");
+    return __isa(o, "GetSnapshotBlockResponse");
   }
 }
 
@@ -153,7 +156,7 @@ export interface ListChangedBlocksRequest {
 
 export namespace ListChangedBlocksRequest {
   export function isa(o: any): o is ListChangedBlocksRequest {
-    return _smithy.isa(o, "ListChangedBlocksRequest");
+    return __isa(o, "ListChangedBlocksRequest");
   }
 }
 
@@ -188,7 +191,7 @@ export interface ListChangedBlocksResponse extends $MetadataBearer {
 
 export namespace ListChangedBlocksResponse {
   export function isa(o: any): o is ListChangedBlocksResponse {
-    return _smithy.isa(o, "ListChangedBlocksResponse");
+    return __isa(o, "ListChangedBlocksResponse");
   }
 }
 
@@ -218,7 +221,7 @@ export interface ListSnapshotBlocksRequest {
 
 export namespace ListSnapshotBlocksRequest {
   export function isa(o: any): o is ListSnapshotBlocksRequest {
-    return _smithy.isa(o, "ListSnapshotBlocksRequest");
+    return __isa(o, "ListSnapshotBlocksRequest");
   }
 }
 
@@ -253,7 +256,7 @@ export interface ListSnapshotBlocksResponse extends $MetadataBearer {
 
 export namespace ListSnapshotBlocksResponse {
   export function isa(o: any): o is ListSnapshotBlocksResponse {
-    return _smithy.isa(o, "ListSnapshotBlocksResponse");
+    return __isa(o, "ListSnapshotBlocksResponse");
   }
 }
 
@@ -261,7 +264,7 @@ export namespace ListSnapshotBlocksResponse {
  * <p>The specified resource does not exist.</p>
  */
 export interface ResourceNotFoundException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -270,7 +273,7 @@ export interface ResourceNotFoundException
 
 export namespace ResourceNotFoundException {
   export function isa(o: any): o is ResourceNotFoundException {
-    return _smithy.isa(o, "ResourceNotFoundException");
+    return __isa(o, "ResourceNotFoundException");
   }
 }
 
@@ -278,7 +281,7 @@ export namespace ResourceNotFoundException {
  * <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  */
 export interface ValidationException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -291,7 +294,7 @@ export interface ValidationException
 
 export namespace ValidationException {
   export function isa(o: any): o is ValidationException {
-    return _smithy.isa(o, "ValidationException");
+    return __isa(o, "ValidationException");
   }
 }
 

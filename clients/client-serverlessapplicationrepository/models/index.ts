@@ -1,4 +1,7 @@
-import * as _smithy from "@aws-sdk/smithy-client";
+import {
+  SmithyException as __SmithyException,
+  isa as __isa
+} from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -19,7 +22,7 @@ export interface ApplicationDependencySummary {
 
 export namespace ApplicationDependencySummary {
   export function isa(o: any): o is ApplicationDependencySummary {
-    return _smithy.isa(o, "ApplicationDependencySummary");
+    return __isa(o, "ApplicationDependencySummary");
   }
 }
 
@@ -47,7 +50,7 @@ export interface ApplicationPolicyStatement {
 
 export namespace ApplicationPolicyStatement {
   export function isa(o: any): o is ApplicationPolicyStatement {
-    return _smithy.isa(o, "ApplicationPolicyStatement");
+    return __isa(o, "ApplicationPolicyStatement");
   }
 }
 
@@ -99,7 +102,7 @@ export interface ApplicationSummary {
 
 export namespace ApplicationSummary {
   export function isa(o: any): o is ApplicationSummary {
-    return _smithy.isa(o, "ApplicationSummary");
+    return __isa(o, "ApplicationSummary");
   }
 }
 
@@ -107,7 +110,7 @@ export namespace ApplicationSummary {
  * <p>One of the parameters in the request is invalid.</p>
  */
 export interface BadRequestException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
@@ -124,7 +127,7 @@ export interface BadRequestException
 
 export namespace BadRequestException {
   export function isa(o: any): o is BadRequestException {
-    return _smithy.isa(o, "BadRequestException");
+    return __isa(o, "BadRequestException");
   }
 }
 
@@ -138,9 +141,7 @@ export enum Capability {
 /**
  * <p>The resource already exists.</p>
  */
-export interface ConflictException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
@@ -156,7 +157,7 @@ export interface ConflictException
 
 export namespace ConflictException {
   export function isa(o: any): o is ConflictException {
-    return _smithy.isa(o, "ConflictException");
+    return __isa(o, "ConflictException");
   }
 }
 
@@ -245,7 +246,7 @@ export interface CreateApplicationRequest {
 
 export namespace CreateApplicationRequest {
   export function isa(o: any): o is CreateApplicationRequest {
-    return _smithy.isa(o, "CreateApplicationRequest");
+    return __isa(o, "CreateApplicationRequest");
   }
 }
 
@@ -319,7 +320,7 @@ export interface CreateApplicationResponse extends $MetadataBearer {
 
 export namespace CreateApplicationResponse {
   export function isa(o: any): o is CreateApplicationResponse {
-    return _smithy.isa(o, "CreateApplicationResponse");
+    return __isa(o, "CreateApplicationResponse");
   }
 }
 
@@ -358,7 +359,7 @@ export interface CreateApplicationVersionRequest {
 
 export namespace CreateApplicationVersionRequest {
   export function isa(o: any): o is CreateApplicationVersionRequest {
-    return _smithy.isa(o, "CreateApplicationVersionRequest");
+    return __isa(o, "CreateApplicationVersionRequest");
   }
 }
 
@@ -437,7 +438,7 @@ export interface CreateApplicationVersionResponse extends $MetadataBearer {
 
 export namespace CreateApplicationVersionResponse {
   export function isa(o: any): o is CreateApplicationVersionResponse {
-    return _smithy.isa(o, "CreateApplicationVersionResponse");
+    return __isa(o, "CreateApplicationVersionResponse");
   }
 }
 
@@ -543,7 +544,7 @@ export interface CreateCloudFormationChangeSetRequest {
 
 export namespace CreateCloudFormationChangeSetRequest {
   export function isa(o: any): o is CreateCloudFormationChangeSetRequest {
-    return _smithy.isa(o, "CreateCloudFormationChangeSetRequest");
+    return __isa(o, "CreateCloudFormationChangeSetRequest");
   }
 }
 
@@ -574,7 +575,7 @@ export interface CreateCloudFormationChangeSetResponse extends $MetadataBearer {
 
 export namespace CreateCloudFormationChangeSetResponse {
   export function isa(o: any): o is CreateCloudFormationChangeSetResponse {
-    return _smithy.isa(o, "CreateCloudFormationChangeSetResponse");
+    return __isa(o, "CreateCloudFormationChangeSetResponse");
   }
 }
 
@@ -595,7 +596,7 @@ export interface CreateCloudFormationTemplateRequest {
 
 export namespace CreateCloudFormationTemplateRequest {
   export function isa(o: any): o is CreateCloudFormationTemplateRequest {
-    return _smithy.isa(o, "CreateCloudFormationTemplateRequest");
+    return __isa(o, "CreateCloudFormationTemplateRequest");
   }
 }
 
@@ -644,7 +645,7 @@ export interface CreateCloudFormationTemplateResponse extends $MetadataBearer {
 
 export namespace CreateCloudFormationTemplateResponse {
   export function isa(o: any): o is CreateCloudFormationTemplateResponse {
-    return _smithy.isa(o, "CreateCloudFormationTemplateResponse");
+    return __isa(o, "CreateCloudFormationTemplateResponse");
   }
 }
 
@@ -658,16 +659,14 @@ export interface DeleteApplicationRequest {
 
 export namespace DeleteApplicationRequest {
   export function isa(o: any): o is DeleteApplicationRequest {
-    return _smithy.isa(o, "DeleteApplicationRequest");
+    return __isa(o, "DeleteApplicationRequest");
   }
 }
 
 /**
  * <p>The client is not authenticated.</p>
  */
-export interface ForbiddenException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   /**
@@ -683,7 +682,7 @@ export interface ForbiddenException
 
 export namespace ForbiddenException {
   export function isa(o: any): o is ForbiddenException {
-    return _smithy.isa(o, "ForbiddenException");
+    return __isa(o, "ForbiddenException");
   }
 }
 
@@ -697,7 +696,7 @@ export interface GetApplicationPolicyRequest {
 
 export namespace GetApplicationPolicyRequest {
   export function isa(o: any): o is GetApplicationPolicyRequest {
-    return _smithy.isa(o, "GetApplicationPolicyRequest");
+    return __isa(o, "GetApplicationPolicyRequest");
   }
 }
 
@@ -711,7 +710,7 @@ export interface GetApplicationPolicyResponse extends $MetadataBearer {
 
 export namespace GetApplicationPolicyResponse {
   export function isa(o: any): o is GetApplicationPolicyResponse {
-    return _smithy.isa(o, "GetApplicationPolicyResponse");
+    return __isa(o, "GetApplicationPolicyResponse");
   }
 }
 
@@ -730,7 +729,7 @@ export interface GetApplicationRequest {
 
 export namespace GetApplicationRequest {
   export function isa(o: any): o is GetApplicationRequest {
-    return _smithy.isa(o, "GetApplicationRequest");
+    return __isa(o, "GetApplicationRequest");
   }
 }
 
@@ -804,7 +803,7 @@ export interface GetApplicationResponse extends $MetadataBearer {
 
 export namespace GetApplicationResponse {
   export function isa(o: any): o is GetApplicationResponse {
-    return _smithy.isa(o, "GetApplicationResponse");
+    return __isa(o, "GetApplicationResponse");
   }
 }
 
@@ -823,7 +822,7 @@ export interface GetCloudFormationTemplateRequest {
 
 export namespace GetCloudFormationTemplateRequest {
   export function isa(o: any): o is GetCloudFormationTemplateRequest {
-    return _smithy.isa(o, "GetCloudFormationTemplateRequest");
+    return __isa(o, "GetCloudFormationTemplateRequest");
   }
 }
 
@@ -872,7 +871,7 @@ export interface GetCloudFormationTemplateResponse extends $MetadataBearer {
 
 export namespace GetCloudFormationTemplateResponse {
   export function isa(o: any): o is GetCloudFormationTemplateResponse {
-    return _smithy.isa(o, "GetCloudFormationTemplateResponse");
+    return __isa(o, "GetCloudFormationTemplateResponse");
   }
 }
 
@@ -880,7 +879,7 @@ export namespace GetCloudFormationTemplateResponse {
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
 export interface InternalServerErrorException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
@@ -897,7 +896,7 @@ export interface InternalServerErrorException
 
 export namespace InternalServerErrorException {
   export function isa(o: any): o is InternalServerErrorException {
-    return _smithy.isa(o, "InternalServerErrorException");
+    return __isa(o, "InternalServerErrorException");
   }
 }
 
@@ -926,7 +925,7 @@ export interface ListApplicationDependenciesRequest {
 
 export namespace ListApplicationDependenciesRequest {
   export function isa(o: any): o is ListApplicationDependenciesRequest {
-    return _smithy.isa(o, "ListApplicationDependenciesRequest");
+    return __isa(o, "ListApplicationDependenciesRequest");
   }
 }
 
@@ -945,7 +944,7 @@ export interface ListApplicationDependenciesResponse extends $MetadataBearer {
 
 export namespace ListApplicationDependenciesResponse {
   export function isa(o: any): o is ListApplicationDependenciesResponse {
-    return _smithy.isa(o, "ListApplicationDependenciesResponse");
+    return __isa(o, "ListApplicationDependenciesResponse");
   }
 }
 
@@ -969,7 +968,7 @@ export interface ListApplicationVersionsRequest {
 
 export namespace ListApplicationVersionsRequest {
   export function isa(o: any): o is ListApplicationVersionsRequest {
-    return _smithy.isa(o, "ListApplicationVersionsRequest");
+    return __isa(o, "ListApplicationVersionsRequest");
   }
 }
 
@@ -988,7 +987,7 @@ export interface ListApplicationVersionsResponse extends $MetadataBearer {
 
 export namespace ListApplicationVersionsResponse {
   export function isa(o: any): o is ListApplicationVersionsResponse {
-    return _smithy.isa(o, "ListApplicationVersionsResponse");
+    return __isa(o, "ListApplicationVersionsResponse");
   }
 }
 
@@ -1007,7 +1006,7 @@ export interface ListApplicationsRequest {
 
 export namespace ListApplicationsRequest {
   export function isa(o: any): o is ListApplicationsRequest {
-    return _smithy.isa(o, "ListApplicationsRequest");
+    return __isa(o, "ListApplicationsRequest");
   }
 }
 
@@ -1026,16 +1025,14 @@ export interface ListApplicationsResponse extends $MetadataBearer {
 
 export namespace ListApplicationsResponse {
   export function isa(o: any): o is ListApplicationsResponse {
-    return _smithy.isa(o, "ListApplicationsResponse");
+    return __isa(o, "ListApplicationsResponse");
   }
 }
 
 /**
  * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
  */
-export interface NotFoundException
-  extends _smithy.SmithyException,
-    $MetadataBearer {
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   /**
@@ -1051,7 +1048,7 @@ export interface NotFoundException
 
 export namespace NotFoundException {
   export function isa(o: any): o is NotFoundException {
-    return _smithy.isa(o, "NotFoundException");
+    return __isa(o, "NotFoundException");
   }
 }
 
@@ -1145,7 +1142,7 @@ export interface ParameterDefinition {
 
 export namespace ParameterDefinition {
   export function isa(o: any): o is ParameterDefinition {
-    return _smithy.isa(o, "ParameterDefinition");
+    return __isa(o, "ParameterDefinition");
   }
 }
 
@@ -1168,7 +1165,7 @@ export interface ParameterValue {
 
 export namespace ParameterValue {
   export function isa(o: any): o is ParameterValue {
-    return _smithy.isa(o, "ParameterValue");
+    return __isa(o, "ParameterValue");
   }
 }
 
@@ -1187,7 +1184,7 @@ export interface PutApplicationPolicyRequest {
 
 export namespace PutApplicationPolicyRequest {
   export function isa(o: any): o is PutApplicationPolicyRequest {
-    return _smithy.isa(o, "PutApplicationPolicyRequest");
+    return __isa(o, "PutApplicationPolicyRequest");
   }
 }
 
@@ -1201,7 +1198,7 @@ export interface PutApplicationPolicyResponse extends $MetadataBearer {
 
 export namespace PutApplicationPolicyResponse {
   export function isa(o: any): o is PutApplicationPolicyResponse {
-    return _smithy.isa(o, "PutApplicationPolicyResponse");
+    return __isa(o, "PutApplicationPolicyResponse");
   }
 }
 
@@ -1226,7 +1223,7 @@ export interface RollbackConfiguration {
 
 export namespace RollbackConfiguration {
   export function isa(o: any): o is RollbackConfiguration {
-    return _smithy.isa(o, "RollbackConfiguration");
+    return __isa(o, "RollbackConfiguration");
   }
 }
 
@@ -1251,7 +1248,7 @@ export interface RollbackTrigger {
 
 export namespace RollbackTrigger {
   export function isa(o: any): o is RollbackTrigger {
-    return _smithy.isa(o, "RollbackTrigger");
+    return __isa(o, "RollbackTrigger");
   }
 }
 
@@ -1284,7 +1281,7 @@ export interface Tag {
 
 export namespace Tag {
   export function isa(o: any): o is Tag {
-    return _smithy.isa(o, "Tag");
+    return __isa(o, "Tag");
   }
 }
 
@@ -1292,7 +1289,7 @@ export namespace Tag {
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
 export interface TooManyRequestsException
-  extends _smithy.SmithyException,
+  extends __SmithyException,
     $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
@@ -1309,7 +1306,7 @@ export interface TooManyRequestsException
 
 export namespace TooManyRequestsException {
   export function isa(o: any): o is TooManyRequestsException {
-    return _smithy.isa(o, "TooManyRequestsException");
+    return __isa(o, "TooManyRequestsException");
   }
 }
 
@@ -1353,7 +1350,7 @@ export interface UpdateApplicationRequest {
 
 export namespace UpdateApplicationRequest {
   export function isa(o: any): o is UpdateApplicationRequest {
-    return _smithy.isa(o, "UpdateApplicationRequest");
+    return __isa(o, "UpdateApplicationRequest");
   }
 }
 
@@ -1427,7 +1424,7 @@ export interface UpdateApplicationResponse extends $MetadataBearer {
 
 export namespace UpdateApplicationResponse {
   export function isa(o: any): o is UpdateApplicationResponse {
-    return _smithy.isa(o, "UpdateApplicationResponse");
+    return __isa(o, "UpdateApplicationResponse");
   }
 }
 
@@ -1509,7 +1506,7 @@ export interface Version {
 
 export namespace Version {
   export function isa(o: any): o is Version {
-    return _smithy.isa(o, "Version");
+    return __isa(o, "Version");
   }
 }
 
@@ -1543,6 +1540,6 @@ export interface VersionSummary {
 
 export namespace VersionSummary {
   export function isa(o: any): o is VersionSummary {
-    return _smithy.isa(o, "VersionSummary");
+    return __isa(o, "VersionSummary");
   }
 }
