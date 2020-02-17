@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopBulkDeploymentCommandInput = StopBulkDeploymentRequest;
@@ -67,14 +67,14 @@ export class StopBulkDeploymentCommand extends $Command<
 
   private serialize(
     input: StopBulkDeploymentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StopBulkDeploymentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopBulkDeploymentCommandOutput> {
     return deserializeAws_restJson1_1StopBulkDeploymentCommand(output, context);
   }

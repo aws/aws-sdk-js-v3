@@ -23,6 +23,8 @@ import {
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  Message as __Message,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -30,7 +32,7 @@ import {
 
 export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
   input: StartStreamTranscriptionCommandInput,
-  context: __SerdeContext
+  context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
   headers["Content-Type"] = "";
@@ -54,7 +56,9 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
   let resolvedPath = "/stream-transcription";
   let body: any;
   if (input.AudioStream !== undefined) {
-    body = serializeAws_restJson1_1AudioStream(input.AudioStream, context);
+    body = context.eventStreamMarshaller.serialize(input.AudioStream, event =>
+      serializeAws_restJson1_1AudioStream_event(event, context)
+    );
   }
   if (body === undefined) {
     body = {};
@@ -72,7 +76,7 @@ export async function serializeAws_restJson1_1StartStreamTranscriptionCommand(
 
 export async function deserializeAws_restJson1_1StartStreamTranscriptionCommand(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartStreamTranscriptionCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
@@ -113,11 +117,31 @@ export async function deserializeAws_restJson1_1StartStreamTranscriptionCommand(
     contents.VocabularyName =
       output.headers["x-amzn-transcribe-vocabulary-name"];
   }
-  const data: any = await parseBody(output.body, context);
-  contents.TranscriptResultStream = deserializeAws_restJson1_1TranscriptResultStream(
-    data,
-    context
+  const data: any = context.eventStreamMarshaller.deserialize(
+    output.body,
+    async event => {
+      const eventName = Object.keys(event)[0];
+      const eventHeaders = Object.entries(event[eventName].headers).reduce(
+        (accummulator, curr) => {
+          accummulator[curr[0]] = curr[1].value;
+          return accummulator;
+        },
+        {} as { [key: string]: any }
+      );
+      const eventMessage = {
+        headers: eventHeaders,
+        body: event[eventName].body
+      };
+      const parsedEvent = {
+        [eventName]: eventMessage
+      };
+      return await deserializeAws_restJson1_1TranscriptResultStream_event(
+        parsedEvent,
+        context
+      );
+    }
   );
+  contents.TranscriptResultStream = data;
   return Promise.resolve(contents);
 }
 
@@ -176,6 +200,120 @@ async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
   return Promise.reject(Object.assign(new Error(message), response));
 }
 
+const serializeAws_restJson1_1AudioStream_event = (
+  input: any,
+  context: __SerdeContext
+): __Message => {
+  return AudioStream.visit(input, {
+    AudioEvent: value =>
+      serializeAws_restJson1_1AudioEvent_event(value, context),
+    _: value => value as any
+  });
+};
+const deserializeAws_restJson1_1TranscriptResultStream_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TranscriptResultStream> => {
+  if (output["BadRequestException"] !== undefined) {
+    return {
+      BadRequestException: await deserializeAws_restJson1_1BadRequestException_event(
+        output["BadRequestException"],
+        context
+      )
+    };
+  }
+  if (output["ConflictException"] !== undefined) {
+    return {
+      ConflictException: await deserializeAws_restJson1_1ConflictException_event(
+        output["ConflictException"],
+        context
+      )
+    };
+  }
+  if (output["InternalFailureException"] !== undefined) {
+    return {
+      InternalFailureException: await deserializeAws_restJson1_1InternalFailureException_event(
+        output["InternalFailureException"],
+        context
+      )
+    };
+  }
+  if (output["LimitExceededException"] !== undefined) {
+    return {
+      LimitExceededException: await deserializeAws_restJson1_1LimitExceededException_event(
+        output["LimitExceededException"],
+        context
+      )
+    };
+  }
+  if (output["TranscriptEvent"] !== undefined) {
+    return {
+      TranscriptEvent: await deserializeAws_restJson1_1TranscriptEvent_event(
+        output["TranscriptEvent"],
+        context
+      )
+    };
+  }
+  return { $unknown: output };
+};
+const serializeAws_restJson1_1AudioEvent_event = (
+  input: AudioEvent,
+  context: __SerdeContext
+): __Message => {
+  const message: __Message = {
+    headers: {
+      ":event-type": { type: "string", value: "AudioEvent" },
+      ":message-type": { type: "string", value: "event" }
+    },
+    body: new Uint8Array()
+  };
+  message.body = input.AudioChunk || message.body;
+  return message;
+};
+const deserializeAws_restJson1_1BadRequestException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<BadRequestException> => {
+  return deserializeAws_restJson1_1BadRequestExceptionResponse(output, context);
+};
+const deserializeAws_restJson1_1ConflictException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  return deserializeAws_restJson1_1ConflictExceptionResponse(output, context);
+};
+const deserializeAws_restJson1_1InternalFailureException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  return deserializeAws_restJson1_1InternalFailureExceptionResponse(
+    output,
+    context
+  );
+};
+const deserializeAws_restJson1_1LimitExceededException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  return deserializeAws_restJson1_1LimitExceededExceptionResponse(
+    output,
+    context
+  );
+};
+const deserializeAws_restJson1_1TranscriptEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<TranscriptEvent> => {
+  let contents: TranscriptEvent = {
+    __type: "TranscriptEvent"
+  } as any;
+  const data: any = await parseBody(output.body, context);
+  contents = {
+    ...contents,
+    ...deserializeAws_restJson1_1TranscriptEvent(data, context)
+  } as any;
+  return contents;
+};
 const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
@@ -292,48 +430,6 @@ const deserializeAws_restJson1_1AlternativeList = (
   );
 };
 
-const deserializeAws_restJson1_1BadRequestException = (
-  output: any,
-  context: __SerdeContext
-): BadRequestException => {
-  let contents: any = {
-    __type: "BadRequestException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
-};
-
-const deserializeAws_restJson1_1ConflictException = (
-  output: any,
-  context: __SerdeContext
-): ConflictException => {
-  let contents: any = {
-    __type: "ConflictException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
-};
-
-const deserializeAws_restJson1_1InternalFailureException = (
-  output: any,
-  context: __SerdeContext
-): InternalFailureException => {
-  let contents: any = {
-    __type: "InternalFailureException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
-};
-
 const deserializeAws_restJson1_1Item = (
   output: any,
   context: __SerdeContext
@@ -367,20 +463,6 @@ const deserializeAws_restJson1_1ItemList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Item(entry, context)
   );
-};
-
-const deserializeAws_restJson1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
-  let contents: any = {
-    __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
 };
 
 const deserializeAws_restJson1_1Result = (
@@ -459,66 +541,6 @@ const deserializeAws_restJson1_1TranscriptEvent = (
   return contents;
 };
 
-const deserializeAws_restJson1_1TranscriptResultStream = (
-  output: any,
-  context: __SerdeContext
-): TranscriptResultStream => {
-  if (
-    output.BadRequestException !== undefined &&
-    output.BadRequestException !== null
-  ) {
-    return {
-      BadRequestException: deserializeAws_restJson1_1BadRequestException(
-        output.BadRequestException,
-        context
-      )
-    };
-  }
-  if (
-    output.ConflictException !== undefined &&
-    output.ConflictException !== null
-  ) {
-    return {
-      ConflictException: deserializeAws_restJson1_1ConflictException(
-        output.ConflictException,
-        context
-      )
-    };
-  }
-  if (
-    output.InternalFailureException !== undefined &&
-    output.InternalFailureException !== null
-  ) {
-    return {
-      InternalFailureException: deserializeAws_restJson1_1InternalFailureException(
-        output.InternalFailureException,
-        context
-      )
-    };
-  }
-  if (
-    output.LimitExceededException !== undefined &&
-    output.LimitExceededException !== null
-  ) {
-    return {
-      LimitExceededException: deserializeAws_restJson1_1LimitExceededException(
-        output.LimitExceededException,
-        context
-      )
-    };
-  }
-  if (output.TranscriptEvent !== undefined && output.TranscriptEvent !== null) {
-    return {
-      TranscriptEvent: deserializeAws_restJson1_1TranscriptEvent(
-        output.TranscriptEvent,
-        context
-      )
-    };
-  }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
-};
-
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   httpHeaders: output.headers,
@@ -530,6 +552,9 @@ const collectBody = (
   streamBody: any,
   context: __SerdeContext
 ): Promise<Uint8Array> => {
+  if (streamBody instanceof Uint8Array) {
+    return Promise.resolve(streamBody);
+  }
   return (
     context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
   );

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateUnreferencedMergeCommitCommandInput = CreateUnreferencedMergeCommitInput;
@@ -70,7 +70,7 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
 
   private serialize(
     input: CreateUnreferencedMergeCommitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUnreferencedMergeCommitCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateUnreferencedMergeCommitCommandOutput> {
     return deserializeAws_json1_1CreateUnreferencedMergeCommitCommand(
       output,

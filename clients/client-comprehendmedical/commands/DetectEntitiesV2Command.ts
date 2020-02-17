@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectEntitiesV2CommandInput = DetectEntitiesV2Request;
@@ -67,14 +67,14 @@ export class DetectEntitiesV2Command extends $Command<
 
   private serialize(
     input: DetectEntitiesV2CommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectEntitiesV2Command(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetectEntitiesV2CommandOutput> {
     return deserializeAws_json1_1DetectEntitiesV2Command(output, context);
   }

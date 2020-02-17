@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateClusterConfigCommandInput = UpdateClusterConfigRequest;
@@ -70,14 +70,14 @@ export class UpdateClusterConfigCommand extends $Command<
 
   private serialize(
     input: UpdateClusterConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateClusterConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateClusterConfigCommandOutput> {
     return deserializeAws_restJson1_1UpdateClusterConfigCommand(
       output,

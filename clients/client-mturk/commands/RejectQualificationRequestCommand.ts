@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RejectQualificationRequestCommandInput = RejectQualificationRequestRequest;
@@ -70,7 +70,7 @@ export class RejectQualificationRequestCommand extends $Command<
 
   private serialize(
     input: RejectQualificationRequestCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectQualificationRequestCommand(
       input,
@@ -80,7 +80,7 @@ export class RejectQualificationRequestCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RejectQualificationRequestCommandOutput> {
     return deserializeAws_json1_1RejectQualificationRequestCommand(
       output,

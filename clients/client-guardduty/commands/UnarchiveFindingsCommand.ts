@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnarchiveFindingsCommandInput = UnarchiveFindingsRequest;
@@ -67,14 +67,14 @@ export class UnarchiveFindingsCommand extends $Command<
 
   private serialize(
     input: UnarchiveFindingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UnarchiveFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UnarchiveFindingsCommandOutput> {
     return deserializeAws_restJson1_1UnarchiveFindingsCommand(output, context);
   }

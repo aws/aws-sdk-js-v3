@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPipelineStateCommandInput = GetPipelineStateInput;
@@ -64,14 +64,14 @@ export class GetPipelineStateCommand extends $Command<
 
   private serialize(
     input: GetPipelineStateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPipelineStateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPipelineStateCommandOutput> {
     return deserializeAws_json1_1GetPipelineStateCommand(output, context);
   }

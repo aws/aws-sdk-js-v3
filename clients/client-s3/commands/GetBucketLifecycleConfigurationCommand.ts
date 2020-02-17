@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketLifecycleConfigurationCommandInput = GetBucketLifecycleConfigurationRequest;
@@ -72,7 +72,7 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
 
   private serialize(
     input: GetBucketLifecycleConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketLifecycleConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketLifecycleConfigurationCommandOutput> {
     return deserializeAws_restXmlGetBucketLifecycleConfigurationCommand(
       output,

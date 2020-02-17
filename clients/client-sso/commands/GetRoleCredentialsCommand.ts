@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRoleCredentialsCommandInput = GetRoleCredentialsRequest;
@@ -67,14 +67,14 @@ export class GetRoleCredentialsCommand extends $Command<
 
   private serialize(
     input: GetRoleCredentialsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetRoleCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRoleCredentialsCommandOutput> {
     return deserializeAws_restJson1_1GetRoleCredentialsCommand(output, context);
   }

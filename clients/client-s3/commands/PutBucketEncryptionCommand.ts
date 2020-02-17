@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBucketEncryptionCommandInput = PutBucketEncryptionRequest;
@@ -70,14 +70,14 @@ export class PutBucketEncryptionCommand extends $Command<
 
   private serialize(
     input: PutBucketEncryptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketEncryptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutBucketEncryptionCommandOutput> {
     return deserializeAws_restXmlPutBucketEncryptionCommand(output, context);
   }

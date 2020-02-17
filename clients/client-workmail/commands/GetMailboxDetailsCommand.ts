@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMailboxDetailsCommandInput = GetMailboxDetailsRequest;
@@ -67,14 +67,14 @@ export class GetMailboxDetailsCommand extends $Command<
 
   private serialize(
     input: GetMailboxDetailsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMailboxDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetMailboxDetailsCommandOutput> {
     return deserializeAws_json1_1GetMailboxDetailsCommand(output, context);
   }

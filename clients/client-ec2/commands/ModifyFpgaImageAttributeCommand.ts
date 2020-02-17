@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyFpgaImageAttributeCommandInput = ModifyFpgaImageAttributeRequest;
@@ -70,14 +70,14 @@ export class ModifyFpgaImageAttributeCommand extends $Command<
 
   private serialize(
     input: ModifyFpgaImageAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyFpgaImageAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyFpgaImageAttributeCommandOutput> {
     return deserializeAws_ec2ModifyFpgaImageAttributeCommand(output, context);
   }

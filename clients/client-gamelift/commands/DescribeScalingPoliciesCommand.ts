@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesInput;
@@ -70,14 +70,14 @@ export class DescribeScalingPoliciesCommand extends $Command<
 
   private serialize(
     input: DescribeScalingPoliciesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeScalingPoliciesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeScalingPoliciesCommandOutput> {
     return deserializeAws_json1_1DescribeScalingPoliciesCommand(
       output,

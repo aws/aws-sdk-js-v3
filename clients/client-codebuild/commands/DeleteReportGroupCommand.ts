@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReportGroupCommandInput = DeleteReportGroupInput;
@@ -67,14 +67,14 @@ export class DeleteReportGroupCommand extends $Command<
 
   private serialize(
     input: DeleteReportGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReportGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteReportGroupCommandOutput> {
     return deserializeAws_json1_1DeleteReportGroupCommand(output, context);
   }

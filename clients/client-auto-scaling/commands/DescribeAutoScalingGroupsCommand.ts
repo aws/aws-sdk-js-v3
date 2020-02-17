@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAutoScalingGroupsCommandInput = AutoScalingGroupNamesType;
@@ -70,14 +70,14 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
 
   private serialize(
     input: DescribeAutoScalingGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAutoScalingGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAutoScalingGroupsCommandOutput> {
     return deserializeAws_queryDescribeAutoScalingGroupsCommand(
       output,

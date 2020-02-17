@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListQueryLoggingConfigsCommandInput = ListQueryLoggingConfigsRequest;
@@ -72,14 +72,14 @@ export class ListQueryLoggingConfigsCommand extends $Command<
 
   private serialize(
     input: ListQueryLoggingConfigsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlListQueryLoggingConfigsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListQueryLoggingConfigsCommandOutput> {
     return deserializeAws_restXmlListQueryLoggingConfigsCommand(
       output,

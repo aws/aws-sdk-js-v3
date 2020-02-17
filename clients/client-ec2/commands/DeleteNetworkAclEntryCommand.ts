@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNetworkAclEntryCommandInput = DeleteNetworkAclEntryRequest;
@@ -68,14 +68,14 @@ export class DeleteNetworkAclEntryCommand extends $Command<
 
   private serialize(
     input: DeleteNetworkAclEntryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkAclEntryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteNetworkAclEntryCommandOutput> {
     return deserializeAws_ec2DeleteNetworkAclEntryCommand(output, context);
   }

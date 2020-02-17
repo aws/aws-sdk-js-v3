@@ -21,8 +21,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutObjectCommandInput = PutObjectRequest;
@@ -68,14 +68,14 @@ export class PutObjectCommand extends $Command<
 
   private serialize(
     input: PutObjectCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutObjectCommandOutput> {
     return deserializeAws_restXmlPutObjectCommand(output, context);
   }

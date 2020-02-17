@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchSystemTemplatesCommandInput = SearchSystemTemplatesRequest;
@@ -70,14 +70,14 @@ export class SearchSystemTemplatesCommand extends $Command<
 
   private serialize(
     input: SearchSystemTemplatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchSystemTemplatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchSystemTemplatesCommandOutput> {
     return deserializeAws_json1_1SearchSystemTemplatesCommand(output, context);
   }

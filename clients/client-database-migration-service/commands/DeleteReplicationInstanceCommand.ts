@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReplicationInstanceCommandInput = DeleteReplicationInstanceMessage;
@@ -70,14 +70,14 @@ export class DeleteReplicationInstanceCommand extends $Command<
 
   private serialize(
     input: DeleteReplicationInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteReplicationInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteReplicationInstanceCommandOutput> {
     return deserializeAws_json1_1DeleteReplicationInstanceCommand(
       output,

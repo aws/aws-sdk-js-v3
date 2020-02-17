@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateWebACLCommandInput = UpdateWebACLRequest;
@@ -64,14 +64,14 @@ export class UpdateWebACLCommand extends $Command<
 
   private serialize(
     input: UpdateWebACLCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateWebACLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateWebACLCommandOutput> {
     return deserializeAws_json1_1UpdateWebACLCommand(output, context);
   }

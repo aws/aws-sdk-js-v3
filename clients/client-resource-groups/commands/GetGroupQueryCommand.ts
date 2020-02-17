@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGroupQueryCommandInput = GetGroupQueryInput;
@@ -64,14 +64,14 @@ export class GetGroupQueryCommand extends $Command<
 
   private serialize(
     input: GetGroupQueryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetGroupQueryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetGroupQueryCommandOutput> {
     return deserializeAws_restJson1_1GetGroupQueryCommand(output, context);
   }

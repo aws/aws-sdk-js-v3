@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFacetNamesCommandInput = ListFacetNamesRequest;
@@ -64,14 +64,14 @@ export class ListFacetNamesCommand extends $Command<
 
   private serialize(
     input: ListFacetNamesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListFacetNamesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListFacetNamesCommandOutput> {
     return deserializeAws_restJson1_1ListFacetNamesCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFunctionEventInvokeConfigCommandInput = GetFunctionEventInvokeConfigRequest;
@@ -70,7 +70,7 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
 
   private serialize(
     input: GetFunctionEventInvokeConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(
       input,
@@ -80,7 +80,7 @@ export class GetFunctionEventInvokeConfigCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetFunctionEventInvokeConfigCommandOutput> {
     return deserializeAws_restJson1_1GetFunctionEventInvokeConfigCommand(
       output,

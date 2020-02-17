@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachDiskCommandInput = DetachDiskRequest;
@@ -64,14 +64,14 @@ export class DetachDiskCommand extends $Command<
 
   private serialize(
     input: DetachDiskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DetachDiskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetachDiskCommandOutput> {
     return deserializeAws_json1_1DetachDiskCommand(output, context);
   }

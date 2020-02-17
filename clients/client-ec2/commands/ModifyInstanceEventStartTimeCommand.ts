@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstanceEventStartTimeCommandInput = ModifyInstanceEventStartTimeRequest;
@@ -70,14 +70,14 @@ export class ModifyInstanceEventStartTimeCommand extends $Command<
 
   private serialize(
     input: ModifyInstanceEventStartTimeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceEventStartTimeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyInstanceEventStartTimeCommandOutput> {
     return deserializeAws_ec2ModifyInstanceEventStartTimeCommand(
       output,

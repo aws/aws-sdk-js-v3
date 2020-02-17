@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetTypeDefaultVersionCommandInput = SetTypeDefaultVersionInput;
@@ -70,14 +70,14 @@ export class SetTypeDefaultVersionCommand extends $Command<
 
   private serialize(
     input: SetTypeDefaultVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetTypeDefaultVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetTypeDefaultVersionCommandOutput> {
     return deserializeAws_querySetTypeDefaultVersionCommand(output, context);
   }

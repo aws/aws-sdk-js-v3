@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVirtualNodesCommandInput = ListVirtualNodesInput;
@@ -64,14 +64,14 @@ export class ListVirtualNodesCommand extends $Command<
 
   private serialize(
     input: ListVirtualNodesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListVirtualNodesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListVirtualNodesCommandOutput> {
     return deserializeAws_restJson1_1ListVirtualNodesCommand(output, context);
   }

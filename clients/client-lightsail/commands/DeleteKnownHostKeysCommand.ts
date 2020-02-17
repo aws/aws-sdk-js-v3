@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteKnownHostKeysCommandInput = DeleteKnownHostKeysRequest;
@@ -70,14 +70,14 @@ export class DeleteKnownHostKeysCommand extends $Command<
 
   private serialize(
     input: DeleteKnownHostKeysCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteKnownHostKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteKnownHostKeysCommandOutput> {
     return deserializeAws_json1_1DeleteKnownHostKeysCommand(output, context);
   }

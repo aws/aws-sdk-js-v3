@@ -20,8 +20,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListObjectsV2CommandInput = ListObjectsV2Request;
@@ -66,14 +66,14 @@ export class ListObjectsV2Command extends $Command<
 
   private serialize(
     input: ListObjectsV2CommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlListObjectsV2Command(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListObjectsV2CommandOutput> {
     return deserializeAws_restXmlListObjectsV2Command(output, context);
   }

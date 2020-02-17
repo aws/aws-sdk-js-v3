@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssignPrivateIpAddressesCommandInput = AssignPrivateIpAddressesRequest;
@@ -70,14 +70,14 @@ export class AssignPrivateIpAddressesCommand extends $Command<
 
   private serialize(
     input: AssignPrivateIpAddressesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2AssignPrivateIpAddressesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssignPrivateIpAddressesCommandOutput> {
     return deserializeAws_ec2AssignPrivateIpAddressesCommand(output, context);
   }

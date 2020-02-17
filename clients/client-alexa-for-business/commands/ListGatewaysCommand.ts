@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListGatewaysCommandInput = ListGatewaysRequest;
@@ -64,14 +64,14 @@ export class ListGatewaysCommand extends $Command<
 
   private serialize(
     input: ListGatewaysCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGatewaysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListGatewaysCommandOutput> {
     return deserializeAws_json1_1ListGatewaysCommand(output, context);
   }

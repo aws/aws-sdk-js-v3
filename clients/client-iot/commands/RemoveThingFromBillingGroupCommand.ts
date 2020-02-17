@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveThingFromBillingGroupCommandInput = RemoveThingFromBillingGroupRequest;
@@ -70,7 +70,7 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
 
   private serialize(
     input: RemoveThingFromBillingGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RemoveThingFromBillingGroupCommand(
       input,
@@ -80,7 +80,7 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RemoveThingFromBillingGroupCommandOutput> {
     return deserializeAws_restJson1_1RemoveThingFromBillingGroupCommand(
       output,

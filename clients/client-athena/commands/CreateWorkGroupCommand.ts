@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateWorkGroupCommandInput = CreateWorkGroupInput;
@@ -64,14 +64,14 @@ export class CreateWorkGroupCommand extends $Command<
 
   private serialize(
     input: CreateWorkGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateWorkGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateWorkGroupCommandOutput> {
     return deserializeAws_json1_1CreateWorkGroupCommand(output, context);
   }

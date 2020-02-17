@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetKeyPairCommandInput = GetKeyPairRequest;
@@ -64,14 +64,14 @@ export class GetKeyPairCommand extends $Command<
 
   private serialize(
     input: GetKeyPairCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetKeyPairCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetKeyPairCommandOutput> {
     return deserializeAws_json1_1GetKeyPairCommand(output, context);
   }

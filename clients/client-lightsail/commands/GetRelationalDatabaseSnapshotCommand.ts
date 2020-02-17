@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRelationalDatabaseSnapshotCommandInput = GetRelationalDatabaseSnapshotRequest;
@@ -70,7 +70,7 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
 
   private serialize(
     input: GetRelationalDatabaseSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRelationalDatabaseSnapshotCommand(
       input,
@@ -80,7 +80,7 @@ export class GetRelationalDatabaseSnapshotCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRelationalDatabaseSnapshotCommandOutput> {
     return deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand(
       output,

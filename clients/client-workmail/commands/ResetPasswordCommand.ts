@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetPasswordCommandInput = ResetPasswordRequest;
@@ -64,14 +64,14 @@ export class ResetPasswordCommand extends $Command<
 
   private serialize(
     input: ResetPasswordCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetPasswordCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ResetPasswordCommandOutput> {
     return deserializeAws_json1_1ResetPasswordCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInstanceSnapshotsCommandInput = GetInstanceSnapshotsRequest;
@@ -70,14 +70,14 @@ export class GetInstanceSnapshotsCommand extends $Command<
 
   private serialize(
     input: GetInstanceSnapshotsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceSnapshotsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetInstanceSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetInstanceSnapshotsCommand(output, context);
   }

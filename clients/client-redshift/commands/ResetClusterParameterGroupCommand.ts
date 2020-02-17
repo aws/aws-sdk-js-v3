@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetClusterParameterGroupCommandInput = ResetClusterParameterGroupMessage;
@@ -70,14 +70,14 @@ export class ResetClusterParameterGroupCommand extends $Command<
 
   private serialize(
     input: ResetClusterParameterGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryResetClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ResetClusterParameterGroupCommandOutput> {
     return deserializeAws_queryResetClusterParameterGroupCommand(
       output,

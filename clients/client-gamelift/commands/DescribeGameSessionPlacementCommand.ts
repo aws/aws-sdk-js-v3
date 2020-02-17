@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeGameSessionPlacementCommandInput = DescribeGameSessionPlacementInput;
@@ -70,7 +70,7 @@ export class DescribeGameSessionPlacementCommand extends $Command<
 
   private serialize(
     input: DescribeGameSessionPlacementCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeGameSessionPlacementCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeGameSessionPlacementCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeGameSessionPlacementCommandOutput> {
     return deserializeAws_json1_1DescribeGameSessionPlacementCommand(
       output,

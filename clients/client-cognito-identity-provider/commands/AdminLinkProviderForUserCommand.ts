@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminLinkProviderForUserCommandInput = AdminLinkProviderForUserRequest;
@@ -70,14 +70,14 @@ export class AdminLinkProviderForUserCommand extends $Command<
 
   private serialize(
     input: AdminLinkProviderForUserCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminLinkProviderForUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AdminLinkProviderForUserCommandOutput> {
     return deserializeAws_json1_1AdminLinkProviderForUserCommand(
       output,

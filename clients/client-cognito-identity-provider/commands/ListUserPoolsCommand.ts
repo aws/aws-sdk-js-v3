@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListUserPoolsCommandInput = ListUserPoolsRequest;
@@ -64,14 +64,14 @@ export class ListUserPoolsCommand extends $Command<
 
   private serialize(
     input: ListUserPoolsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUserPoolsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListUserPoolsCommandOutput> {
     return deserializeAws_json1_1ListUserPoolsCommand(output, context);
   }

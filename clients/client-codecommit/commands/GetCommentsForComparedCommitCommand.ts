@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCommentsForComparedCommitCommandInput = GetCommentsForComparedCommitInput;
@@ -70,7 +70,7 @@ export class GetCommentsForComparedCommitCommand extends $Command<
 
   private serialize(
     input: GetCommentsForComparedCommitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCommentsForComparedCommitCommand(
       input,
@@ -80,7 +80,7 @@ export class GetCommentsForComparedCommitCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCommentsForComparedCommitCommandOutput> {
     return deserializeAws_json1_1GetCommentsForComparedCommitCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAffectedEntitiesForOrganizationCommandInput = DescribeAffectedEntitiesForOrganizationRequest;
@@ -72,7 +72,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
 
   private serialize(
     input: DescribeAffectedEntitiesForOrganizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> {
     return deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand(
       output,

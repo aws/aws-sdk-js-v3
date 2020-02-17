@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddAttributesToFindingsCommandInput = AddAttributesToFindingsRequest;
@@ -70,14 +70,14 @@ export class AddAttributesToFindingsCommand extends $Command<
 
   private serialize(
     input: AddAttributesToFindingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddAttributesToFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddAttributesToFindingsCommandOutput> {
     return deserializeAws_json1_1AddAttributesToFindingsCommand(
       output,

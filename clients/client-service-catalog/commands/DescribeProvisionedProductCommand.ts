@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeProvisionedProductCommandInput = DescribeProvisionedProductInput;
@@ -70,7 +70,7 @@ export class DescribeProvisionedProductCommand extends $Command<
 
   private serialize(
     input: DescribeProvisionedProductCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProvisionedProductCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeProvisionedProductCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeProvisionedProductCommandOutput> {
     return deserializeAws_json1_1DescribeProvisionedProductCommand(
       output,

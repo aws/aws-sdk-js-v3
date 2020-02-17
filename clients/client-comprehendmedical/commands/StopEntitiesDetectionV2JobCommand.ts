@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopEntitiesDetectionV2JobCommandInput = StopEntitiesDetectionV2JobRequest;
@@ -70,7 +70,7 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
 
   private serialize(
     input: StopEntitiesDetectionV2JobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopEntitiesDetectionV2JobCommand(
       input,
@@ -80,7 +80,7 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopEntitiesDetectionV2JobCommandOutput> {
     return deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(
       output,

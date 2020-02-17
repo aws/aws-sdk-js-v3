@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCoreDefinitionCommandInput = UpdateCoreDefinitionRequest;
@@ -70,14 +70,14 @@ export class UpdateCoreDefinitionCommand extends $Command<
 
   private serialize(
     input: UpdateCoreDefinitionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateCoreDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateCoreDefinitionCommandOutput> {
     return deserializeAws_restJson1_1UpdateCoreDefinitionCommand(
       output,

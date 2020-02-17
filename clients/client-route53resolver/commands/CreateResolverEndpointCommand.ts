@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateResolverEndpointCommandInput = CreateResolverEndpointRequest;
@@ -70,14 +70,14 @@ export class CreateResolverEndpointCommand extends $Command<
 
   private serialize(
     input: CreateResolverEndpointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResolverEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateResolverEndpointCommandOutput> {
     return deserializeAws_json1_1CreateResolverEndpointCommand(output, context);
   }

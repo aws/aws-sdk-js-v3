@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBatchPredictionsCommandInput = DescribeBatchPredictionsInput;
@@ -70,14 +70,14 @@ export class DescribeBatchPredictionsCommand extends $Command<
 
   private serialize(
     input: DescribeBatchPredictionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBatchPredictionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeBatchPredictionsCommandOutput> {
     return deserializeAws_json1_1DescribeBatchPredictionsCommand(
       output,

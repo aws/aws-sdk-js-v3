@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendBulkTemplatedEmailCommandInput = SendBulkTemplatedEmailRequest;
@@ -70,14 +70,14 @@ export class SendBulkTemplatedEmailCommand extends $Command<
 
   private serialize(
     input: SendBulkTemplatedEmailCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySendBulkTemplatedEmailCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SendBulkTemplatedEmailCommandOutput> {
     return deserializeAws_querySendBulkTemplatedEmailCommand(output, context);
   }

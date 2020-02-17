@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSecretCommandInput = UpdateSecretRequest;
@@ -64,14 +64,14 @@ export class UpdateSecretCommand extends $Command<
 
   private serialize(
     input: UpdateSecretCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSecretCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSecretCommandOutput> {
     return deserializeAws_json1_1UpdateSecretCommand(output, context);
   }

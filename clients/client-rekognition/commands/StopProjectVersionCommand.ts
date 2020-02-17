@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopProjectVersionCommandInput = StopProjectVersionRequest;
@@ -67,14 +67,14 @@ export class StopProjectVersionCommand extends $Command<
 
   private serialize(
     input: StopProjectVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopProjectVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopProjectVersionCommandOutput> {
     return deserializeAws_json1_1StopProjectVersionCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAssessmentTemplateCommandInput = CreateAssessmentTemplateRequest;
@@ -70,14 +70,14 @@ export class CreateAssessmentTemplateCommand extends $Command<
 
   private serialize(
     input: CreateAssessmentTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAssessmentTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateAssessmentTemplateCommandOutput> {
     return deserializeAws_json1_1CreateAssessmentTemplateCommand(
       output,

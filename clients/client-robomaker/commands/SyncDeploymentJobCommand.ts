@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SyncDeploymentJobCommandInput = SyncDeploymentJobRequest;
@@ -67,14 +67,14 @@ export class SyncDeploymentJobCommand extends $Command<
 
   private serialize(
     input: SyncDeploymentJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SyncDeploymentJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SyncDeploymentJobCommandOutput> {
     return deserializeAws_restJson1_1SyncDeploymentJobCommand(output, context);
   }

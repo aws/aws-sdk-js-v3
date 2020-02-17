@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEffectivePatchesForPatchBaselineCommandInput = DescribeEffectivePatchesForPatchBaselineRequest;
@@ -72,7 +72,7 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
 
   private serialize(
     input: DescribeEffectivePatchesForPatchBaselineCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> {
     return deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCostCategoryDefinitionCommandInput = DescribeCostCategoryDefinitionRequest;
@@ -70,7 +70,7 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
 
   private serialize(
     input: DescribeCostCategoryDefinitionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCostCategoryDefinitionCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCostCategoryDefinitionCommandOutput> {
     return deserializeAws_json1_1DescribeCostCategoryDefinitionCommand(
       output,

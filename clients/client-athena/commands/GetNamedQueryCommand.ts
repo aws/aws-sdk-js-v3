@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetNamedQueryCommandInput = GetNamedQueryInput;
@@ -64,14 +64,14 @@ export class GetNamedQueryCommand extends $Command<
 
   private serialize(
     input: GetNamedQueryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNamedQueryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetNamedQueryCommandOutput> {
     return deserializeAws_json1_1GetNamedQueryCommand(output, context);
   }

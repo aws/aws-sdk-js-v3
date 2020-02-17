@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExecuteChangeSetCommandInput = ExecuteChangeSetInput;
@@ -64,14 +64,14 @@ export class ExecuteChangeSetCommand extends $Command<
 
   private serialize(
     input: ExecuteChangeSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryExecuteChangeSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ExecuteChangeSetCommandOutput> {
     return deserializeAws_queryExecuteChangeSetCommand(output, context);
   }

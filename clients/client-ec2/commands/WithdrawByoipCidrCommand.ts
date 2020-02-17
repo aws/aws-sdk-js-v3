@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type WithdrawByoipCidrCommandInput = WithdrawByoipCidrRequest;
@@ -67,14 +67,14 @@ export class WithdrawByoipCidrCommand extends $Command<
 
   private serialize(
     input: WithdrawByoipCidrCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2WithdrawByoipCidrCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<WithdrawByoipCidrCommandOutput> {
     return deserializeAws_ec2WithdrawByoipCidrCommand(output, context);
   }

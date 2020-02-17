@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TransactGetItemsCommandInput = TransactGetItemsInput;
@@ -64,14 +64,14 @@ export class TransactGetItemsCommand extends $Command<
 
   private serialize(
     input: TransactGetItemsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0TransactGetItemsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TransactGetItemsCommandOutput> {
     return deserializeAws_json1_0TransactGetItemsCommand(output, context);
   }

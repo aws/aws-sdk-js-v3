@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ActivateGatewayCommandInput = ActivateGatewayInput;
@@ -64,14 +64,14 @@ export class ActivateGatewayCommand extends $Command<
 
   private serialize(
     input: ActivateGatewayCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ActivateGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ActivateGatewayCommandOutput> {
     return deserializeAws_json1_1ActivateGatewayCommand(output, context);
   }

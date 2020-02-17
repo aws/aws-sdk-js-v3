@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreSecretCommandInput = RestoreSecretRequest;
@@ -64,14 +64,14 @@ export class RestoreSecretCommand extends $Command<
 
   private serialize(
     input: RestoreSecretCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreSecretCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreSecretCommandOutput> {
     return deserializeAws_json1_1RestoreSecretCommand(output, context);
   }

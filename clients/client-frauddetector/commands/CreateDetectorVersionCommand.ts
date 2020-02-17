@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDetectorVersionCommandInput = CreateDetectorVersionRequest;
@@ -70,14 +70,14 @@ export class CreateDetectorVersionCommand extends $Command<
 
   private serialize(
     input: CreateDetectorVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDetectorVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDetectorVersionCommandOutput> {
     return deserializeAws_json1_1CreateDetectorVersionCommand(output, context);
   }

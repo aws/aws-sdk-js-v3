@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAuthorizersCommandInput = ListAuthorizersRequest;
@@ -67,14 +67,14 @@ export class ListAuthorizersCommand extends $Command<
 
   private serialize(
     input: ListAuthorizersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAuthorizersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAuthorizersCommandOutput> {
     return deserializeAws_restJson1_1ListAuthorizersCommand(output, context);
   }

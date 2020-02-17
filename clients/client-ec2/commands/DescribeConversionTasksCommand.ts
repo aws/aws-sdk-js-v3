@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConversionTasksCommandInput = DescribeConversionTasksRequest;
@@ -70,14 +70,14 @@ export class DescribeConversionTasksCommand extends $Command<
 
   private serialize(
     input: DescribeConversionTasksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeConversionTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeConversionTasksCommandOutput> {
     return deserializeAws_ec2DescribeConversionTasksCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEC2RecommendationProjectedMetricsCommandInput = GetEC2RecommendationProjectedMetricsRequest;
@@ -72,7 +72,7 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
 
   private serialize(
     input: GetEC2RecommendationProjectedMetricsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
       input,
@@ -82,7 +82,7 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> {
     return deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
       output,

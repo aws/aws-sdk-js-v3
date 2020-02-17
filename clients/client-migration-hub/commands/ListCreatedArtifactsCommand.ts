@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCreatedArtifactsCommandInput = ListCreatedArtifactsRequest;
@@ -70,14 +70,14 @@ export class ListCreatedArtifactsCommand extends $Command<
 
   private serialize(
     input: ListCreatedArtifactsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCreatedArtifactsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListCreatedArtifactsCommandOutput> {
     return deserializeAws_json1_1ListCreatedArtifactsCommand(output, context);
   }

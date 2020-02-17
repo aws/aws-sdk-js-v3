@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelSpotFleetRequestsCommandInput = CancelSpotFleetRequestsRequest;
@@ -70,14 +70,14 @@ export class CancelSpotFleetRequestsCommand extends $Command<
 
   private serialize(
     input: CancelSpotFleetRequestsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CancelSpotFleetRequestsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelSpotFleetRequestsCommandOutput> {
     return deserializeAws_ec2CancelSpotFleetRequestsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTrialComponentCommandInput = DescribeTrialComponentRequest;
@@ -70,14 +70,14 @@ export class DescribeTrialComponentCommand extends $Command<
 
   private serialize(
     input: DescribeTrialComponentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrialComponentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTrialComponentCommandOutput> {
     return deserializeAws_json1_1DescribeTrialComponentCommand(output, context);
   }

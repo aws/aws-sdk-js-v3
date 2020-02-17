@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteJourneyCommandInput = DeleteJourneyRequest;
@@ -64,14 +64,14 @@ export class DeleteJourneyCommand extends $Command<
 
   private serialize(
     input: DeleteJourneyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteJourneyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteJourneyCommandOutput> {
     return deserializeAws_restJson1_1DeleteJourneyCommand(output, context);
   }

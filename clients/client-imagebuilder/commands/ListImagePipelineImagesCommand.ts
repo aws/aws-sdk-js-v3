@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListImagePipelineImagesCommandInput = ListImagePipelineImagesRequest;
@@ -70,7 +70,7 @@ export class ListImagePipelineImagesCommand extends $Command<
 
   private serialize(
     input: ListImagePipelineImagesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListImagePipelineImagesCommand(
       input,
@@ -80,7 +80,7 @@ export class ListImagePipelineImagesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListImagePipelineImagesCommandOutput> {
     return deserializeAws_restJson1_1ListImagePipelineImagesCommand(
       output,

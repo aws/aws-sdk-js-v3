@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateTransitGatewayMulticastDomainCommandInput = DisassociateTransitGatewayMulticastDomainRequest;
@@ -72,7 +72,7 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
 
   private serialize(
     input: DisassociateTransitGatewayMulticastDomainCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(
       input,
@@ -82,7 +82,7 @@ export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> {
     return deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand(
       output,

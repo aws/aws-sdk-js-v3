@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportClientVpnClientConfigurationCommandInput = ExportClientVpnClientConfigurationRequest;
@@ -70,7 +70,7 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
 
   private serialize(
     input: ExportClientVpnClientConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ExportClientVpnClientConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ExportClientVpnClientConfigurationCommandOutput> {
     return deserializeAws_ec2ExportClientVpnClientConfigurationCommand(
       output,

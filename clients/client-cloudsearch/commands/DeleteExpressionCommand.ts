@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteExpressionCommandInput = DeleteExpressionRequest;
@@ -67,14 +67,14 @@ export class DeleteExpressionCommand extends $Command<
 
   private serialize(
     input: DeleteExpressionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteExpressionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteExpressionCommandOutput> {
     return deserializeAws_queryDeleteExpressionCommand(output, context);
   }

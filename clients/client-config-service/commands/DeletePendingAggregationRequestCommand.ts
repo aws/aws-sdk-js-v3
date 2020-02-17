@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePendingAggregationRequestCommandInput = DeletePendingAggregationRequestRequest;
@@ -68,7 +68,7 @@ export class DeletePendingAggregationRequestCommand extends $Command<
 
   private serialize(
     input: DeletePendingAggregationRequestCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePendingAggregationRequestCommand(
       input,
@@ -78,7 +78,7 @@ export class DeletePendingAggregationRequestCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePendingAggregationRequestCommandOutput> {
     return deserializeAws_json1_1DeletePendingAggregationRequestCommand(
       output,

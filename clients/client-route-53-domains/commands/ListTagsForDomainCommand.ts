@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTagsForDomainCommandInput = ListTagsForDomainRequest;
@@ -67,14 +67,14 @@ export class ListTagsForDomainCommand extends $Command<
 
   private serialize(
     input: ListTagsForDomainCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsForDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTagsForDomainCommandOutput> {
     return deserializeAws_json1_1ListTagsForDomainCommand(output, context);
   }

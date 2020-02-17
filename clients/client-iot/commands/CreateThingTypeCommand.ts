@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateThingTypeCommandInput = CreateThingTypeRequest;
@@ -67,14 +67,14 @@ export class CreateThingTypeCommand extends $Command<
 
   private serialize(
     input: CreateThingTypeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateThingTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateThingTypeCommandOutput> {
     return deserializeAws_restJson1_1CreateThingTypeCommand(output, context);
   }

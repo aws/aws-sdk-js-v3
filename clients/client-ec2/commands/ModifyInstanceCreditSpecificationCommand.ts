@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstanceCreditSpecificationCommandInput = ModifyInstanceCreditSpecificationRequest;
@@ -70,7 +70,7 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
 
   private serialize(
     input: ModifyInstanceCreditSpecificationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceCreditSpecificationCommand(
       input,
@@ -80,7 +80,7 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyInstanceCreditSpecificationCommandOutput> {
     return deserializeAws_ec2ModifyInstanceCreditSpecificationCommand(
       output,

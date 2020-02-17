@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketAccelerateConfigurationCommandInput = GetBucketAccelerateConfigurationRequest;
@@ -72,7 +72,7 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
 
   private serialize(
     input: GetBucketAccelerateConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketAccelerateConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketAccelerateConfigurationCommandOutput> {
     return deserializeAws_restXmlGetBucketAccelerateConfigurationCommand(
       output,

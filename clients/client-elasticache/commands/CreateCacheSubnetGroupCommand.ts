@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCacheSubnetGroupCommandInput = CreateCacheSubnetGroupMessage;
@@ -70,14 +70,14 @@ export class CreateCacheSubnetGroupCommand extends $Command<
 
   private serialize(
     input: CreateCacheSubnetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCacheSubnetGroupCommandOutput> {
     return deserializeAws_queryCreateCacheSubnetGroupCommand(output, context);
   }

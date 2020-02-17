@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetServiceSettingCommandInput = ResetServiceSettingRequest;
@@ -70,14 +70,14 @@ export class ResetServiceSettingCommand extends $Command<
 
   private serialize(
     input: ResetServiceSettingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ResetServiceSettingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ResetServiceSettingCommandOutput> {
     return deserializeAws_json1_1ResetServiceSettingCommand(output, context);
   }

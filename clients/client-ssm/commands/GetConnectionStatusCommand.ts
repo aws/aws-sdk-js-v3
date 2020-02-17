@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConnectionStatusCommandInput = GetConnectionStatusRequest;
@@ -70,14 +70,14 @@ export class GetConnectionStatusCommand extends $Command<
 
   private serialize(
     input: GetConnectionStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetConnectionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetConnectionStatusCommandOutput> {
     return deserializeAws_json1_1GetConnectionStatusCommand(output, context);
   }

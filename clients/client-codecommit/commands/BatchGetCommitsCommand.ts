@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetCommitsCommandInput = BatchGetCommitsInput;
@@ -64,14 +64,14 @@ export class BatchGetCommitsCommand extends $Command<
 
   private serialize(
     input: BatchGetCommitsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetCommitsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchGetCommitsCommandOutput> {
     return deserializeAws_json1_1BatchGetCommitsCommand(output, context);
   }

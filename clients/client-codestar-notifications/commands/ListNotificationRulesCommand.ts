@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListNotificationRulesCommandInput = ListNotificationRulesRequest;
@@ -70,14 +70,14 @@ export class ListNotificationRulesCommand extends $Command<
 
   private serialize(
     input: ListNotificationRulesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListNotificationRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListNotificationRulesCommandOutput> {
     return deserializeAws_restJson1_1ListNotificationRulesCommand(
       output,

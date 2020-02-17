@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreFromSnapshotCommandInput = RestoreFromSnapshotRequest;
@@ -70,14 +70,14 @@ export class RestoreFromSnapshotCommand extends $Command<
 
   private serialize(
     input: RestoreFromSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreFromSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreFromSnapshotCommandOutput> {
     return deserializeAws_json1_1RestoreFromSnapshotCommand(output, context);
   }

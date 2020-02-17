@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CompleteLifecycleActionCommandInput = CompleteLifecycleActionType;
@@ -70,14 +70,14 @@ export class CompleteLifecycleActionCommand extends $Command<
 
   private serialize(
     input: CompleteLifecycleActionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCompleteLifecycleActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CompleteLifecycleActionCommandOutput> {
     return deserializeAws_queryCompleteLifecycleActionCommand(output, context);
   }

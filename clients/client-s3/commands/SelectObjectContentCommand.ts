@@ -24,8 +24,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SelectObjectContentCommandInput = SelectObjectContentRequest;
@@ -74,14 +75,14 @@ export class SelectObjectContentCommand extends $Command<
 
   private serialize(
     input: SelectObjectContentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlSelectObjectContentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<SelectObjectContentCommandOutput> {
     return deserializeAws_restXmlSelectObjectContentCommand(output, context);
   }

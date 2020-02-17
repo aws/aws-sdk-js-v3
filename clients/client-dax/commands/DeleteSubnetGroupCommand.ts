@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSubnetGroupCommandInput = DeleteSubnetGroupRequest;
@@ -67,14 +67,14 @@ export class DeleteSubnetGroupCommand extends $Command<
 
   private serialize(
     input: DeleteSubnetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSubnetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
   }

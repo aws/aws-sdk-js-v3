@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminAddUserToGroupCommandInput = AdminAddUserToGroupRequest;
@@ -68,14 +68,14 @@ export class AdminAddUserToGroupCommand extends $Command<
 
   private serialize(
     input: AdminAddUserToGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminAddUserToGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AdminAddUserToGroupCommandOutput> {
     return deserializeAws_json1_1AdminAddUserToGroupCommand(output, context);
   }

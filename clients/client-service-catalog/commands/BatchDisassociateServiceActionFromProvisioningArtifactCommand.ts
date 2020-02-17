@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDisassociateServiceActionFromProvisioningArtifactCommandInput = BatchDisassociateServiceActionFromProvisioningArtifactInput;
@@ -72,7 +72,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
 
   private serialize(
     input: BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand(
       input,
@@ -82,7 +82,7 @@ export class BatchDisassociateServiceActionFromProvisioningArtifactCommand exten
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<
     BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
   > {

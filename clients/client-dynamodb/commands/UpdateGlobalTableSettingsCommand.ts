@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGlobalTableSettingsCommandInput = UpdateGlobalTableSettingsInput;
@@ -70,14 +70,14 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
 
   private serialize(
     input: UpdateGlobalTableSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGlobalTableSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateGlobalTableSettingsCommandOutput> {
     return deserializeAws_json1_0UpdateGlobalTableSettingsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLoggerDefinitionsCommandInput = ListLoggerDefinitionsRequest;
@@ -70,14 +70,14 @@ export class ListLoggerDefinitionsCommand extends $Command<
 
   private serialize(
     input: ListLoggerDefinitionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListLoggerDefinitionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListLoggerDefinitionsCommandOutput> {
     return deserializeAws_restJson1_1ListLoggerDefinitionsCommand(
       output,

@@ -20,8 +20,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetObjectAclCommandInput = GetObjectAclRequest;
@@ -66,14 +66,14 @@ export class GetObjectAclCommand extends $Command<
 
   private serialize(
     input: GetObjectAclCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectAclCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetObjectAclCommandOutput> {
     return deserializeAws_restXmlGetObjectAclCommand(output, context);
   }

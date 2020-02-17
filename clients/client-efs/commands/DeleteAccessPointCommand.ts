@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAccessPointCommandInput = DeleteAccessPointRequest;
@@ -65,14 +65,14 @@ export class DeleteAccessPointCommand extends $Command<
 
   private serialize(
     input: DeleteAccessPointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteAccessPointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteAccessPointCommandOutput> {
     return deserializeAws_restJson1_1DeleteAccessPointCommand(output, context);
   }

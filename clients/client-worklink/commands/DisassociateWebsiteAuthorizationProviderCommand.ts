@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateWebsiteAuthorizationProviderCommandInput = DisassociateWebsiteAuthorizationProviderRequest;
@@ -72,7 +72,7 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
 
   private serialize(
     input: DisassociateWebsiteAuthorizationProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommand(
       input,
@@ -82,7 +82,7 @@ export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> {
     return deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommand(
       output,

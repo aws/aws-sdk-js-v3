@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchFlowExecutionsCommandInput = SearchFlowExecutionsRequest;
@@ -70,14 +70,14 @@ export class SearchFlowExecutionsCommand extends $Command<
 
   private serialize(
     input: SearchFlowExecutionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchFlowExecutionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchFlowExecutionsCommandOutput> {
     return deserializeAws_json1_1SearchFlowExecutionsCommand(output, context);
   }

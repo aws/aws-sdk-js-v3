@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDomainEndpointOptionsCommandInput = UpdateDomainEndpointOptionsRequest;
@@ -70,14 +70,14 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
 
   private serialize(
     input: UpdateDomainEndpointOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateDomainEndpointOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDomainEndpointOptionsCommandOutput> {
     return deserializeAws_queryUpdateDomainEndpointOptionsCommand(
       output,

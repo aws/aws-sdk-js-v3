@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSubscriptionAttributesCommandInput = GetSubscriptionAttributesInput;
@@ -70,14 +70,14 @@ export class GetSubscriptionAttributesCommand extends $Command<
 
   private serialize(
     input: GetSubscriptionAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetSubscriptionAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSubscriptionAttributesCommandOutput> {
     return deserializeAws_queryGetSubscriptionAttributesCommand(
       output,

@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketEncryptionCommandInput = GetBucketEncryptionRequest;
@@ -72,14 +72,14 @@ export class GetBucketEncryptionCommand extends $Command<
 
   private serialize(
     input: GetBucketEncryptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketEncryptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketEncryptionCommandOutput> {
     return deserializeAws_restXmlGetBucketEncryptionCommand(output, context);
   }

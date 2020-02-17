@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableMetricsCollectionCommandInput = EnableMetricsCollectionQuery;
@@ -68,14 +68,14 @@ export class EnableMetricsCollectionCommand extends $Command<
 
   private serialize(
     input: EnableMetricsCollectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryEnableMetricsCollectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableMetricsCollectionCommandOutput> {
     return deserializeAws_queryEnableMetricsCollectionCommand(output, context);
   }

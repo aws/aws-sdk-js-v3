@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddListenerCertificatesCommandInput = AddListenerCertificatesInput;
@@ -70,14 +70,14 @@ export class AddListenerCertificatesCommand extends $Command<
 
   private serialize(
     input: AddListenerCertificatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryAddListenerCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddListenerCertificatesCommandOutput> {
     return deserializeAws_queryAddListenerCertificatesCommand(output, context);
   }

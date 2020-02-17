@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCertificateOptionsCommandInput = UpdateCertificateOptionsRequest;
@@ -68,14 +68,14 @@ export class UpdateCertificateOptionsCommand extends $Command<
 
   private serialize(
     input: UpdateCertificateOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCertificateOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateCertificateOptionsCommandOutput> {
     return deserializeAws_json1_1UpdateCertificateOptionsCommand(
       output,

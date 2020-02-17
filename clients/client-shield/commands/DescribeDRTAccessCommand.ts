@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDRTAccessCommandInput = DescribeDRTAccessRequest;
@@ -67,14 +67,14 @@ export class DescribeDRTAccessCommand extends $Command<
 
   private serialize(
     input: DescribeDRTAccessCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDRTAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDRTAccessCommandOutput> {
     return deserializeAws_json1_1DescribeDRTAccessCommand(output, context);
   }

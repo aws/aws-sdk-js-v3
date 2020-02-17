@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput = AssociatePhoneNumbersWithVoiceConnectorGroupRequest;
@@ -72,7 +72,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
 
   private serialize(
     input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorGroupCommand(
       input,
@@ -82,7 +82,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput> {
     return deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorGroupCommand(
       output,

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateApprovalRuleTemplateWithRepositoryCommandInput = AssociateApprovalRuleTemplateWithRepositoryInput;
@@ -70,7 +70,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
 
   private serialize(
     input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
       input,
@@ -80,7 +80,7 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
     return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIpv6PoolsCommandInput = DescribeIpv6PoolsRequest;
@@ -67,14 +67,14 @@ export class DescribeIpv6PoolsCommand extends $Command<
 
   private serialize(
     input: DescribeIpv6PoolsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIpv6PoolsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeIpv6PoolsCommandOutput> {
     return deserializeAws_ec2DescribeIpv6PoolsCommand(output, context);
   }

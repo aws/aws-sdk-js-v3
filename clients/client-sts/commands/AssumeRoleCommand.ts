@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssumeRoleCommandInput = AssumeRoleRequest;
@@ -64,14 +64,14 @@ export class AssumeRoleCommand extends $Command<
 
   private serialize(
     input: AssumeRoleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryAssumeRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssumeRoleCommandOutput> {
     return deserializeAws_queryAssumeRoleCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateClientCertificateCommandInput = GenerateClientCertificateRequest;
@@ -70,7 +70,7 @@ export class GenerateClientCertificateCommand extends $Command<
 
   private serialize(
     input: GenerateClientCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GenerateClientCertificateCommand(
       input,
@@ -80,7 +80,7 @@ export class GenerateClientCertificateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GenerateClientCertificateCommandOutput> {
     return deserializeAws_restJson1_1GenerateClientCertificateCommand(
       output,

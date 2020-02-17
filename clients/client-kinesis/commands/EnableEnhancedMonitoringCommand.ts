@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableEnhancedMonitoringCommandInput = EnableEnhancedMonitoringInput;
@@ -70,14 +70,14 @@ export class EnableEnhancedMonitoringCommand extends $Command<
 
   private serialize(
     input: EnableEnhancedMonitoringCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableEnhancedMonitoringCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableEnhancedMonitoringCommandOutput> {
     return deserializeAws_json1_1EnableEnhancedMonitoringCommand(
       output,

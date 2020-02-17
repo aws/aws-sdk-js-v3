@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLaunchPathsCommandInput = ListLaunchPathsInput;
@@ -64,14 +64,14 @@ export class ListLaunchPathsCommand extends $Command<
 
   private serialize(
     input: ListLaunchPathsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLaunchPathsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListLaunchPathsCommandOutput> {
     return deserializeAws_json1_1ListLaunchPathsCommand(output, context);
   }

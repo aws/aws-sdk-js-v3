@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
@@ -70,14 +70,14 @@ export class ListTargetsForPolicyCommand extends $Command<
 
   private serialize(
     input: ListTargetsForPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListTargetsForPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTargetsForPolicyCommandOutput> {
     return deserializeAws_restJson1_1ListTargetsForPolicyCommand(
       output,

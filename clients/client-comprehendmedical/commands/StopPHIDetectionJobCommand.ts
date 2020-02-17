@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopPHIDetectionJobCommandInput = StopPHIDetectionJobRequest;
@@ -70,14 +70,14 @@ export class StopPHIDetectionJobCommand extends $Command<
 
   private serialize(
     input: StopPHIDetectionJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopPHIDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopPHIDetectionJobCommandOutput> {
     return deserializeAws_json1_1StopPHIDetectionJobCommand(output, context);
   }

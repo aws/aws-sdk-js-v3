@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDomainAssociationCommandInput = DeleteDomainAssociationRequest;
@@ -70,7 +70,7 @@ export class DeleteDomainAssociationCommand extends $Command<
 
   private serialize(
     input: DeleteDomainAssociationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteDomainAssociationCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteDomainAssociationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDomainAssociationCommandOutput> {
     return deserializeAws_restJson1_1DeleteDomainAssociationCommand(
       output,

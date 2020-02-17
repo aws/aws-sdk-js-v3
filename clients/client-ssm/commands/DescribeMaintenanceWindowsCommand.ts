@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMaintenanceWindowsCommandInput = DescribeMaintenanceWindowsRequest;
@@ -70,7 +70,7 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
 
   private serialize(
     input: DescribeMaintenanceWindowsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMaintenanceWindowsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowsCommandOutput> {
     return deserializeAws_json1_1DescribeMaintenanceWindowsCommand(
       output,

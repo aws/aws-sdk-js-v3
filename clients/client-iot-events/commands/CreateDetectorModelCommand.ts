@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDetectorModelCommandInput = CreateDetectorModelRequest;
@@ -70,14 +70,14 @@ export class CreateDetectorModelCommand extends $Command<
 
   private serialize(
     input: CreateDetectorModelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateDetectorModelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDetectorModelCommandOutput> {
     return deserializeAws_restJson1_1CreateDetectorModelCommand(
       output,

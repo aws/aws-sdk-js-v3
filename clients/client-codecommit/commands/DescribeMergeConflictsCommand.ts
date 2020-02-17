@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMergeConflictsCommandInput = DescribeMergeConflictsInput;
@@ -70,14 +70,14 @@ export class DescribeMergeConflictsCommand extends $Command<
 
   private serialize(
     input: DescribeMergeConflictsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMergeConflictsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeMergeConflictsCommandOutput> {
     return deserializeAws_json1_1DescribeMergeConflictsCommand(output, context);
   }

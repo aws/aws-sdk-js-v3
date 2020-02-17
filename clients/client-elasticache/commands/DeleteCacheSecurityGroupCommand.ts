@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCacheSecurityGroupCommandInput = DeleteCacheSecurityGroupMessage;
@@ -68,14 +68,14 @@ export class DeleteCacheSecurityGroupCommand extends $Command<
 
   private serialize(
     input: DeleteCacheSecurityGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheSecurityGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCacheSecurityGroupCommandOutput> {
     return deserializeAws_queryDeleteCacheSecurityGroupCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConsoleOutputCommandInput = GetConsoleOutputRequest;
@@ -67,14 +67,14 @@ export class GetConsoleOutputCommand extends $Command<
 
   private serialize(
     input: GetConsoleOutputCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2GetConsoleOutputCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetConsoleOutputCommandOutput> {
     return deserializeAws_ec2GetConsoleOutputCommand(output, context);
   }

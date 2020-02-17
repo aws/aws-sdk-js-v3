@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyWorkspacePropertiesCommandInput = ModifyWorkspacePropertiesRequest;
@@ -70,14 +70,14 @@ export class ModifyWorkspacePropertiesCommand extends $Command<
 
   private serialize(
     input: ModifyWorkspacePropertiesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyWorkspacePropertiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyWorkspacePropertiesCommandOutput> {
     return deserializeAws_json1_1ModifyWorkspacePropertiesCommand(
       output,

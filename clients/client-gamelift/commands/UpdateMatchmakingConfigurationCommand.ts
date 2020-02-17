@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMatchmakingConfigurationCommandInput = UpdateMatchmakingConfigurationInput;
@@ -70,7 +70,7 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
 
   private serialize(
     input: UpdateMatchmakingConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMatchmakingConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateMatchmakingConfigurationCommandOutput> {
     return deserializeAws_json1_1UpdateMatchmakingConfigurationCommand(
       output,

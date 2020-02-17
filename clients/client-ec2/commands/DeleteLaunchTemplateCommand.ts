@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLaunchTemplateCommandInput = DeleteLaunchTemplateRequest;
@@ -70,14 +70,14 @@ export class DeleteLaunchTemplateCommand extends $Command<
 
   private serialize(
     input: DeleteLaunchTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteLaunchTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteLaunchTemplateCommandOutput> {
     return deserializeAws_ec2DeleteLaunchTemplateCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DiscoverInstancesCommandInput = DiscoverInstancesRequest;
@@ -67,14 +67,14 @@ export class DiscoverInstancesCommand extends $Command<
 
   private serialize(
     input: DiscoverInstancesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DiscoverInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DiscoverInstancesCommandOutput> {
     return deserializeAws_json1_1DiscoverInstancesCommand(output, context);
   }

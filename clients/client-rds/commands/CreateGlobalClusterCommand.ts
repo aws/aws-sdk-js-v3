@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateGlobalClusterCommandInput = CreateGlobalClusterMessage;
@@ -70,14 +70,14 @@ export class CreateGlobalClusterCommand extends $Command<
 
   private serialize(
     input: CreateGlobalClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateGlobalClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateGlobalClusterCommandOutput> {
     return deserializeAws_queryCreateGlobalClusterCommand(output, context);
   }

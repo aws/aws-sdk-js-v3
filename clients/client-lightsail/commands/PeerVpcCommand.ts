@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PeerVpcCommandInput = PeerVpcRequest;
@@ -64,14 +64,14 @@ export class PeerVpcCommand extends $Command<
 
   private serialize(
     input: PeerVpcCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PeerVpcCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PeerVpcCommandOutput> {
     return deserializeAws_json1_1PeerVpcCommand(output, context);
   }

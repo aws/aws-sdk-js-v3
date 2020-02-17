@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutDashboardCommandInput = PutDashboardInput;
@@ -64,14 +64,14 @@ export class PutDashboardCommand extends $Command<
 
   private serialize(
     input: PutDashboardCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPutDashboardCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutDashboardCommandOutput> {
     return deserializeAws_queryPutDashboardCommand(output, context);
   }

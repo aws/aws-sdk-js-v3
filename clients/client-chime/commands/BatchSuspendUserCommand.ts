@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchSuspendUserCommandInput = BatchSuspendUserRequest;
@@ -67,14 +67,14 @@ export class BatchSuspendUserCommand extends $Command<
 
   private serialize(
     input: BatchSuspendUserCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchSuspendUserCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchSuspendUserCommandOutput> {
     return deserializeAws_restJson1_1BatchSuspendUserCommand(output, context);
   }

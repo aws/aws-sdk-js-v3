@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPlatformVersionsCommandInput = ListPlatformVersionsRequest;
@@ -70,14 +70,14 @@ export class ListPlatformVersionsCommand extends $Command<
 
   private serialize(
     input: ListPlatformVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListPlatformVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListPlatformVersionsCommandOutput> {
     return deserializeAws_queryListPlatformVersionsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetQueueAttributesCommandInput = GetQueueAttributesRequest;
@@ -67,14 +67,14 @@ export class GetQueueAttributesCommand extends $Command<
 
   private serialize(
     input: GetQueueAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetQueueAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetQueueAttributesCommandOutput> {
     return deserializeAws_queryGetQueueAttributesCommand(output, context);
   }

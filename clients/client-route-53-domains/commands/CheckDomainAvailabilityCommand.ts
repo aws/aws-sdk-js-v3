@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CheckDomainAvailabilityCommandInput = CheckDomainAvailabilityRequest;
@@ -70,14 +70,14 @@ export class CheckDomainAvailabilityCommand extends $Command<
 
   private serialize(
     input: CheckDomainAvailabilityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckDomainAvailabilityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CheckDomainAvailabilityCommandOutput> {
     return deserializeAws_json1_1CheckDomainAvailabilityCommand(
       output,

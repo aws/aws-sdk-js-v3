@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeHealthServiceStatusForOrganizationCommandInput = {};
@@ -69,7 +69,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
 
   private serialize(
     input: DescribeHealthServiceStatusForOrganizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
       input,
@@ -79,7 +79,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> {
     return deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand(
       output,

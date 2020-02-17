@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachGroupPolicyCommandInput = DetachGroupPolicyRequest;
@@ -65,14 +65,14 @@ export class DetachGroupPolicyCommand extends $Command<
 
   private serialize(
     input: DetachGroupPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDetachGroupPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetachGroupPolicyCommandOutput> {
     return deserializeAws_queryDetachGroupPolicyCommand(output, context);
   }

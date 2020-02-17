@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartJobRunCommandInput = StartJobRunRequest;
@@ -64,14 +64,14 @@ export class StartJobRunCommand extends $Command<
 
   private serialize(
     input: StartJobRunCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartJobRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartJobRunCommandOutput> {
     return deserializeAws_json1_1StartJobRunCommand(output, context);
   }

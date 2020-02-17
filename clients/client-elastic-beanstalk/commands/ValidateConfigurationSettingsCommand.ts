@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ValidateConfigurationSettingsCommandInput = ValidateConfigurationSettingsMessage;
@@ -70,7 +70,7 @@ export class ValidateConfigurationSettingsCommand extends $Command<
 
   private serialize(
     input: ValidateConfigurationSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryValidateConfigurationSettingsCommand(
       input,
@@ -80,7 +80,7 @@ export class ValidateConfigurationSettingsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ValidateConfigurationSettingsCommandOutput> {
     return deserializeAws_queryValidateConfigurationSettingsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteDocumentCommandInput = BatchDeleteDocumentRequest;
@@ -70,14 +70,14 @@ export class BatchDeleteDocumentCommand extends $Command<
 
   private serialize(
     input: BatchDeleteDocumentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteDocumentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchDeleteDocumentCommandOutput> {
     return deserializeAws_json1_1BatchDeleteDocumentCommand(output, context);
   }

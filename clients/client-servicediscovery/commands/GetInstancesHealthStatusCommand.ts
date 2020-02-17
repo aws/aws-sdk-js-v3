@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInstancesHealthStatusCommandInput = GetInstancesHealthStatusRequest;
@@ -70,14 +70,14 @@ export class GetInstancesHealthStatusCommand extends $Command<
 
   private serialize(
     input: GetInstancesHealthStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstancesHealthStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetInstancesHealthStatusCommandOutput> {
     return deserializeAws_json1_1GetInstancesHealthStatusCommand(
       output,

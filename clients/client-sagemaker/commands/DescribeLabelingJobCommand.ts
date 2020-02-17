@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLabelingJobCommandInput = DescribeLabelingJobRequest;
@@ -70,14 +70,14 @@ export class DescribeLabelingJobCommand extends $Command<
 
   private serialize(
     input: DescribeLabelingJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLabelingJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLabelingJobCommandOutput> {
     return deserializeAws_json1_1DescribeLabelingJobCommand(output, context);
   }

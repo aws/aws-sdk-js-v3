@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCommandInvocationCommandInput = GetCommandInvocationRequest;
@@ -70,14 +70,14 @@ export class GetCommandInvocationCommand extends $Command<
 
   private serialize(
     input: GetCommandInvocationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCommandInvocationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCommandInvocationCommandOutput> {
     return deserializeAws_json1_1GetCommandInvocationCommand(output, context);
   }

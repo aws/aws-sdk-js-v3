@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutCorsPolicyCommandInput = PutCorsPolicyInput;
@@ -64,14 +64,14 @@ export class PutCorsPolicyCommand extends $Command<
 
   private serialize(
     input: PutCorsPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutCorsPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutCorsPolicyCommandOutput> {
     return deserializeAws_json1_1PutCorsPolicyCommand(output, context);
   }

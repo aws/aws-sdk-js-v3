@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LookupPolicyCommandInput = LookupPolicyRequest;
@@ -64,14 +64,14 @@ export class LookupPolicyCommand extends $Command<
 
   private serialize(
     input: LookupPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1LookupPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<LookupPolicyCommandOutput> {
     return deserializeAws_restJson1_1LookupPolicyCommand(output, context);
   }

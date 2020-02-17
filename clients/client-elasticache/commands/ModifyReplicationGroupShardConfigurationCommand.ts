@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyReplicationGroupShardConfigurationCommandInput = ModifyReplicationGroupShardConfigurationMessage;
@@ -72,7 +72,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
 
   private serialize(
     input: ModifyReplicationGroupShardConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyReplicationGroupShardConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> {
     return deserializeAws_queryModifyReplicationGroupShardConfigurationCommand(
       output,

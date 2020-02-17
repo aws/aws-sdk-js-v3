@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTemplateAliasesCommandInput = ListTemplateAliasesRequest;
@@ -70,14 +70,14 @@ export class ListTemplateAliasesCommand extends $Command<
 
   private serialize(
     input: ListTemplateAliasesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListTemplateAliasesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTemplateAliasesCommandOutput> {
     return deserializeAws_restJson1_1ListTemplateAliasesCommand(
       output,

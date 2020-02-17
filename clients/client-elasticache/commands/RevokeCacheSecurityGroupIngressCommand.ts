@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeCacheSecurityGroupIngressCommandInput = RevokeCacheSecurityGroupIngressMessage;
@@ -70,7 +70,7 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
 
   private serialize(
     input: RevokeCacheSecurityGroupIngressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRevokeCacheSecurityGroupIngressCommand(
       input,
@@ -80,7 +80,7 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> {
     return deserializeAws_queryRevokeCacheSecurityGroupIngressCommand(
       output,

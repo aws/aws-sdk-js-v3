@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAlarmsCommandInput = DescribeAlarmsInput;
@@ -64,14 +64,14 @@ export class DescribeAlarmsCommand extends $Command<
 
   private serialize(
     input: DescribeAlarmsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAlarmsCommandOutput> {
     return deserializeAws_queryDescribeAlarmsCommand(output, context);
   }

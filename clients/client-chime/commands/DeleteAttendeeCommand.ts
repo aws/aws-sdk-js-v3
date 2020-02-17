@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAttendeeCommandInput = DeleteAttendeeRequest;
@@ -65,14 +65,14 @@ export class DeleteAttendeeCommand extends $Command<
 
   private serialize(
     input: DeleteAttendeeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteAttendeeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteAttendeeCommandOutput> {
     return deserializeAws_restJson1_1DeleteAttendeeCommand(output, context);
   }

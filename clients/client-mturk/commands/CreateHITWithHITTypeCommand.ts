@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHITWithHITTypeCommandInput = CreateHITWithHITTypeRequest;
@@ -70,14 +70,14 @@ export class CreateHITWithHITTypeCommand extends $Command<
 
   private serialize(
     input: CreateHITWithHITTypeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHITWithHITTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateHITWithHITTypeCommandOutput> {
     return deserializeAws_json1_1CreateHITWithHITTypeCommand(output, context);
   }

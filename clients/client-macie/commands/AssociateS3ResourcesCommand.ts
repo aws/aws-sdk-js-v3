@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateS3ResourcesCommandInput = AssociateS3ResourcesRequest;
@@ -70,14 +70,14 @@ export class AssociateS3ResourcesCommand extends $Command<
 
   private serialize(
     input: AssociateS3ResourcesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateS3ResourcesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateS3ResourcesCommandOutput> {
     return deserializeAws_json1_1AssociateS3ResourcesCommand(output, context);
   }

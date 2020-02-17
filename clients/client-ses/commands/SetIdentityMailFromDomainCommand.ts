@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityMailFromDomainCommandInput = SetIdentityMailFromDomainRequest;
@@ -70,14 +70,14 @@ export class SetIdentityMailFromDomainCommand extends $Command<
 
   private serialize(
     input: SetIdentityMailFromDomainCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityMailFromDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetIdentityMailFromDomainCommandOutput> {
     return deserializeAws_querySetIdentityMailFromDomainCommand(
       output,

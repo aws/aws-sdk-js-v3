@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportWorkspaceImageCommandInput = ImportWorkspaceImageRequest;
@@ -70,14 +70,14 @@ export class ImportWorkspaceImageCommand extends $Command<
 
   private serialize(
     input: ImportWorkspaceImageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportWorkspaceImageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ImportWorkspaceImageCommandOutput> {
     return deserializeAws_json1_1ImportWorkspaceImageCommand(output, context);
   }

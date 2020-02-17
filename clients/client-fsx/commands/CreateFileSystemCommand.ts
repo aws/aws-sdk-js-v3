@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFileSystemCommandInput = CreateFileSystemRequest;
@@ -67,14 +67,14 @@ export class CreateFileSystemCommand extends $Command<
 
   private serialize(
     input: CreateFileSystemCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFileSystemCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateFileSystemCommandOutput> {
     return deserializeAws_json1_1CreateFileSystemCommand(output, context);
   }

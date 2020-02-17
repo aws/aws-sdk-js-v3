@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCodeRepositoryCommandInput = DeleteCodeRepositoryInput;
@@ -68,14 +68,14 @@ export class DeleteCodeRepositoryCommand extends $Command<
 
   private serialize(
     input: DeleteCodeRepositoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCodeRepositoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCodeRepositoryCommandOutput> {
     return deserializeAws_json1_1DeleteCodeRepositoryCommand(output, context);
   }

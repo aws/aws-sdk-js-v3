@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBusinessReportSchedulesCommandInput = ListBusinessReportSchedulesRequest;
@@ -70,7 +70,7 @@ export class ListBusinessReportSchedulesCommand extends $Command<
 
   private serialize(
     input: ListBusinessReportSchedulesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBusinessReportSchedulesCommand(
       input,
@@ -80,7 +80,7 @@ export class ListBusinessReportSchedulesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListBusinessReportSchedulesCommandOutput> {
     return deserializeAws_json1_1ListBusinessReportSchedulesCommand(
       output,

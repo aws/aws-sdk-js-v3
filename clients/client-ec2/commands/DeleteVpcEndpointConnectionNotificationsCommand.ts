@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVpcEndpointConnectionNotificationsCommandInput = DeleteVpcEndpointConnectionNotificationsRequest;
@@ -72,7 +72,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
 
   private serialize(
     input: DeleteVpcEndpointConnectionNotificationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(
       input,
@@ -82,7 +82,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> {
     return deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(
       output,

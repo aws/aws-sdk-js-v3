@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateBrokerCommandInput = UpdateBrokerRequest;
@@ -64,14 +64,14 @@ export class UpdateBrokerCommand extends $Command<
 
   private serialize(
     input: UpdateBrokerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateBrokerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateBrokerCommandOutput> {
     return deserializeAws_restJson1_1UpdateBrokerCommand(output, context);
   }

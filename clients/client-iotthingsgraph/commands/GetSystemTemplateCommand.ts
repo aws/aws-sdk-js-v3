@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSystemTemplateCommandInput = GetSystemTemplateRequest;
@@ -67,14 +67,14 @@ export class GetSystemTemplateCommand extends $Command<
 
   private serialize(
     input: GetSystemTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSystemTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSystemTemplateCommandOutput> {
     return deserializeAws_json1_1GetSystemTemplateCommand(output, context);
   }

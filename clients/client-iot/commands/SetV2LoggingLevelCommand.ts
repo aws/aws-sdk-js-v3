@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetV2LoggingLevelCommandInput = SetV2LoggingLevelRequest;
@@ -65,14 +65,14 @@ export class SetV2LoggingLevelCommand extends $Command<
 
   private serialize(
     input: SetV2LoggingLevelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SetV2LoggingLevelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetV2LoggingLevelCommandOutput> {
     return deserializeAws_restJson1_1SetV2LoggingLevelCommand(output, context);
   }

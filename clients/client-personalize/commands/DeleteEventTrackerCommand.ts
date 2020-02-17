@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteEventTrackerCommandInput = DeleteEventTrackerRequest;
@@ -65,14 +65,14 @@ export class DeleteEventTrackerCommand extends $Command<
 
   private serialize(
     input: DeleteEventTrackerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteEventTrackerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteEventTrackerCommandOutput> {
     return deserializeAws_json1_1DeleteEventTrackerCommand(output, context);
   }

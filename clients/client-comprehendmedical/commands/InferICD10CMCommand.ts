@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InferICD10CMCommandInput = InferICD10CMRequest;
@@ -64,14 +64,14 @@ export class InferICD10CMCommand extends $Command<
 
   private serialize(
     input: InferICD10CMCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1InferICD10CMCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<InferICD10CMCommandOutput> {
     return deserializeAws_json1_1InferICD10CMCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateNotificationCommandInput = UpdateNotificationRequest;
@@ -67,14 +67,14 @@ export class UpdateNotificationCommand extends $Command<
 
   private serialize(
     input: UpdateNotificationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateNotificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateNotificationCommandOutput> {
     return deserializeAws_json1_1UpdateNotificationCommand(output, context);
   }

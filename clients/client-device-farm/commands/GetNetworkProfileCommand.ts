@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetNetworkProfileCommandInput = GetNetworkProfileRequest;
@@ -67,14 +67,14 @@ export class GetNetworkProfileCommand extends $Command<
 
   private serialize(
     input: GetNetworkProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNetworkProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetNetworkProfileCommandOutput> {
     return deserializeAws_json1_1GetNetworkProfileCommand(output, context);
   }

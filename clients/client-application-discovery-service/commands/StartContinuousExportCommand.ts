@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartContinuousExportCommandInput = StartContinuousExportRequest;
@@ -70,14 +70,14 @@ export class StartContinuousExportCommand extends $Command<
 
   private serialize(
     input: StartContinuousExportCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartContinuousExportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartContinuousExportCommandOutput> {
     return deserializeAws_json1_1StartContinuousExportCommand(output, context);
   }

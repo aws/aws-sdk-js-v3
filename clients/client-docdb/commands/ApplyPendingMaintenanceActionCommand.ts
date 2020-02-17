@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ApplyPendingMaintenanceActionCommandInput = ApplyPendingMaintenanceActionMessage;
@@ -70,7 +70,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
 
   private serialize(
     input: ApplyPendingMaintenanceActionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryApplyPendingMaintenanceActionCommand(
       input,
@@ -80,7 +80,7 @@ export class ApplyPendingMaintenanceActionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ApplyPendingMaintenanceActionCommandOutput> {
     return deserializeAws_queryApplyPendingMaintenanceActionCommand(
       output,

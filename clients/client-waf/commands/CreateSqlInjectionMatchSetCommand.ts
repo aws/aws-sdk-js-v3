@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSqlInjectionMatchSetCommandInput = CreateSqlInjectionMatchSetRequest;
@@ -70,7 +70,7 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
 
   private serialize(
     input: CreateSqlInjectionMatchSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSqlInjectionMatchSetCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateSqlInjectionMatchSetCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSqlInjectionMatchSetCommandOutput> {
     return deserializeAws_json1_1CreateSqlInjectionMatchSetCommand(
       output,

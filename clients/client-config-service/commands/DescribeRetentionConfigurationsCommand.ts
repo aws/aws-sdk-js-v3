@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRetentionConfigurationsCommandInput = DescribeRetentionConfigurationsRequest;
@@ -70,7 +70,7 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
 
   private serialize(
     input: DescribeRetentionConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRetentionConfigurationsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeRetentionConfigurationsCommandOutput> {
     return deserializeAws_json1_1DescribeRetentionConfigurationsCommand(
       output,

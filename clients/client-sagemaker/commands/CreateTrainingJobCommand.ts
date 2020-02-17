@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTrainingJobCommandInput = CreateTrainingJobRequest;
@@ -67,14 +67,14 @@ export class CreateTrainingJobCommand extends $Command<
 
   private serialize(
     input: CreateTrainingJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTrainingJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateTrainingJobCommandOutput> {
     return deserializeAws_json1_1CreateTrainingJobCommand(output, context);
   }

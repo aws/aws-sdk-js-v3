@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReceiptRuleCommandInput = DescribeReceiptRuleRequest;
@@ -70,14 +70,14 @@ export class DescribeReceiptRuleCommand extends $Command<
 
   private serialize(
     input: DescribeReceiptRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReceiptRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeReceiptRuleCommandOutput> {
     return deserializeAws_queryDescribeReceiptRuleCommand(output, context);
   }

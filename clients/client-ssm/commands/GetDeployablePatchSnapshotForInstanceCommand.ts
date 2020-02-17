@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeployablePatchSnapshotForInstanceCommandInput = GetDeployablePatchSnapshotForInstanceRequest;
@@ -72,7 +72,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
 
   private serialize(
     input: GetDeployablePatchSnapshotForInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(
       input,
@@ -82,7 +82,7 @@ export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> {
     return deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand(
       output,

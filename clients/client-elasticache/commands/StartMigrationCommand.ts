@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartMigrationCommandInput = StartMigrationMessage;
@@ -64,14 +64,14 @@ export class StartMigrationCommand extends $Command<
 
   private serialize(
     input: StartMigrationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryStartMigrationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartMigrationCommandOutput> {
     return deserializeAws_queryStartMigrationCommand(output, context);
   }

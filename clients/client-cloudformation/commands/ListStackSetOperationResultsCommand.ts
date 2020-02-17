@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListStackSetOperationResultsCommandInput = ListStackSetOperationResultsInput;
@@ -70,7 +70,7 @@ export class ListStackSetOperationResultsCommand extends $Command<
 
   private serialize(
     input: ListStackSetOperationResultsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListStackSetOperationResultsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListStackSetOperationResultsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListStackSetOperationResultsCommandOutput> {
     return deserializeAws_queryListStackSetOperationResultsCommand(
       output,

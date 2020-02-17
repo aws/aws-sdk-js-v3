@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchExecuteStatementCommandInput = BatchExecuteStatementRequest;
@@ -70,14 +70,14 @@ export class BatchExecuteStatementCommand extends $Command<
 
   private serialize(
     input: BatchExecuteStatementCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchExecuteStatementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchExecuteStatementCommandOutput> {
     return deserializeAws_restJson1_1BatchExecuteStatementCommand(
       output,

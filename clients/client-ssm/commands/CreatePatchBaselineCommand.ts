@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePatchBaselineCommandInput = CreatePatchBaselineRequest;
@@ -70,14 +70,14 @@ export class CreatePatchBaselineCommand extends $Command<
 
   private serialize(
     input: CreatePatchBaselineCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePatchBaselineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePatchBaselineCommandOutput> {
     return deserializeAws_json1_1CreatePatchBaselineCommand(output, context);
   }

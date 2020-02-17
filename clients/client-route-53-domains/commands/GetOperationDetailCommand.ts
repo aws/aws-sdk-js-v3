@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOperationDetailCommandInput = GetOperationDetailRequest;
@@ -67,14 +67,14 @@ export class GetOperationDetailCommand extends $Command<
 
   private serialize(
     input: GetOperationDetailCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOperationDetailCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetOperationDetailCommandOutput> {
     return deserializeAws_json1_1GetOperationDetailCommand(output, context);
   }

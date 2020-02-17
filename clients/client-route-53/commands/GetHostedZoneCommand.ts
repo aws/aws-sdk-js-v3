@@ -20,8 +20,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHostedZoneCommandInput = GetHostedZoneRequest;
@@ -66,14 +66,14 @@ export class GetHostedZoneCommand extends $Command<
 
   private serialize(
     input: GetHostedZoneCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHostedZoneCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetHostedZoneCommandOutput> {
     return deserializeAws_restXmlGetHostedZoneCommand(output, context);
   }

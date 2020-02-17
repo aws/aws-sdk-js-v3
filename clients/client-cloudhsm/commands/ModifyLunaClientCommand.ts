@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyLunaClientCommandInput = ModifyLunaClientRequest;
@@ -67,14 +67,14 @@ export class ModifyLunaClientCommand extends $Command<
 
   private serialize(
     input: ModifyLunaClientCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyLunaClientCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyLunaClientCommandOutput> {
     return deserializeAws_json1_1ModifyLunaClientCommand(output, context);
   }

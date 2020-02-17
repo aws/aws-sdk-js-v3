@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCustomAvailabilityZoneCommandInput = CreateCustomAvailabilityZoneMessage;
@@ -70,7 +70,7 @@ export class CreateCustomAvailabilityZoneCommand extends $Command<
 
   private serialize(
     input: CreateCustomAvailabilityZoneCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateCustomAvailabilityZoneCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateCustomAvailabilityZoneCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCustomAvailabilityZoneCommandOutput> {
     return deserializeAws_queryCreateCustomAvailabilityZoneCommand(
       output,

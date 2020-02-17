@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVPCAssociationAuthorizationsCommandInput = ListVPCAssociationAuthorizationsRequest;
@@ -72,7 +72,7 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
 
   private serialize(
     input: ListVPCAssociationAuthorizationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlListVPCAssociationAuthorizationsCommand(
       input,
@@ -82,7 +82,7 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListVPCAssociationAuthorizationsCommandOutput> {
     return deserializeAws_restXmlListVPCAssociationAuthorizationsCommand(
       output,

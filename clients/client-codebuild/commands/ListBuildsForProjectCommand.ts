@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBuildsForProjectCommandInput = ListBuildsForProjectInput;
@@ -70,14 +70,14 @@ export class ListBuildsForProjectCommand extends $Command<
 
   private serialize(
     input: ListBuildsForProjectCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListBuildsForProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListBuildsForProjectCommandOutput> {
     return deserializeAws_json1_1ListBuildsForProjectCommand(output, context);
   }

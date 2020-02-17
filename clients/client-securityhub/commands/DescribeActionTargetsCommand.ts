@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeActionTargetsCommandInput = DescribeActionTargetsRequest;
@@ -70,14 +70,14 @@ export class DescribeActionTargetsCommand extends $Command<
 
   private serialize(
     input: DescribeActionTargetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeActionTargetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeActionTargetsCommandOutput> {
     return deserializeAws_restJson1_1DescribeActionTargetsCommand(
       output,

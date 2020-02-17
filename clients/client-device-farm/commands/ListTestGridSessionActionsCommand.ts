@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTestGridSessionActionsCommandInput = ListTestGridSessionActionsRequest;
@@ -70,7 +70,7 @@ export class ListTestGridSessionActionsCommand extends $Command<
 
   private serialize(
     input: ListTestGridSessionActionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTestGridSessionActionsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListTestGridSessionActionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTestGridSessionActionsCommandOutput> {
     return deserializeAws_json1_1ListTestGridSessionActionsCommand(
       output,

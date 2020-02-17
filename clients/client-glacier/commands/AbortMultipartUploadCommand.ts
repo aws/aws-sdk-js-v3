@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AbortMultipartUploadCommandInput = AbortMultipartUploadInput;
@@ -68,14 +68,14 @@ export class AbortMultipartUploadCommand extends $Command<
 
   private serialize(
     input: AbortMultipartUploadCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AbortMultipartUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AbortMultipartUploadCommandOutput> {
     return deserializeAws_restJson1_1AbortMultipartUploadCommand(
       output,

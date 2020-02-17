@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAllowedNodeTypeModificationsCommandInput = ListAllowedNodeTypeModificationsMessage;
@@ -70,7 +70,7 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
 
   private serialize(
     input: ListAllowedNodeTypeModificationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListAllowedNodeTypeModificationsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListAllowedNodeTypeModificationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAllowedNodeTypeModificationsCommandOutput> {
     return deserializeAws_queryListAllowedNodeTypeModificationsCommand(
       output,

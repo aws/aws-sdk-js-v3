@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTestGridUrlCommandInput = CreateTestGridUrlRequest;
@@ -67,14 +67,14 @@ export class CreateTestGridUrlCommand extends $Command<
 
   private serialize(
     input: CreateTestGridUrlCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTestGridUrlCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateTestGridUrlCommandOutput> {
     return deserializeAws_json1_1CreateTestGridUrlCommand(output, context);
   }

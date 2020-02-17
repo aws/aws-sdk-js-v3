@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ValidateMatchmakingRuleSetCommandInput = ValidateMatchmakingRuleSetInput;
@@ -70,7 +70,7 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
 
   private serialize(
     input: ValidateMatchmakingRuleSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ValidateMatchmakingRuleSetCommand(
       input,
@@ -80,7 +80,7 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ValidateMatchmakingRuleSetCommandOutput> {
     return deserializeAws_json1_1ValidateMatchmakingRuleSetCommand(
       output,

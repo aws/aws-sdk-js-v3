@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPasswordDataCommandInput = GetPasswordDataRequest;
@@ -64,14 +64,14 @@ export class GetPasswordDataCommand extends $Command<
 
   private serialize(
     input: GetPasswordDataCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2GetPasswordDataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPasswordDataCommandOutput> {
     return deserializeAws_ec2GetPasswordDataCommand(output, context);
   }

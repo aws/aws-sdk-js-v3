@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAvailabilityMonitorTestCommandInput = DescribeAvailabilityMonitorTestInput;
@@ -70,7 +70,7 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
 
   private serialize(
     input: DescribeAvailabilityMonitorTestCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAvailabilityMonitorTestCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAvailabilityMonitorTestCommandOutput> {
     return deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand(
       output,

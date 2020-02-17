@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddApplicationInputProcessingConfigurationCommandInput = AddApplicationInputProcessingConfigurationRequest;
@@ -72,7 +72,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
 
   private serialize(
     input: AddApplicationInputProcessingConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> {
     return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(
       output,

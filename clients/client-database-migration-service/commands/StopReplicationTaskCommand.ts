@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopReplicationTaskCommandInput = StopReplicationTaskMessage;
@@ -70,14 +70,14 @@ export class StopReplicationTaskCommand extends $Command<
 
   private serialize(
     input: StopReplicationTaskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopReplicationTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopReplicationTaskCommandOutput> {
     return deserializeAws_json1_1StopReplicationTaskCommand(output, context);
   }

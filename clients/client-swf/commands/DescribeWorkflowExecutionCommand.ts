@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeWorkflowExecutionCommandInput = DescribeWorkflowExecutionInput;
@@ -70,14 +70,14 @@ export class DescribeWorkflowExecutionCommand extends $Command<
 
   private serialize(
     input: DescribeWorkflowExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeWorkflowExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeWorkflowExecutionCommandOutput> {
     return deserializeAws_json1_0DescribeWorkflowExecutionCommand(
       output,

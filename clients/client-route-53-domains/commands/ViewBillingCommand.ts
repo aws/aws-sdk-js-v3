@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ViewBillingCommandInput = ViewBillingRequest;
@@ -64,14 +64,14 @@ export class ViewBillingCommand extends $Command<
 
   private serialize(
     input: ViewBillingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ViewBillingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ViewBillingCommandOutput> {
     return deserializeAws_json1_1ViewBillingCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CloseInstancePublicPortsCommandInput = CloseInstancePublicPortsRequest;
@@ -70,14 +70,14 @@ export class CloseInstancePublicPortsCommand extends $Command<
 
   private serialize(
     input: CloseInstancePublicPortsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CloseInstancePublicPortsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CloseInstancePublicPortsCommandOutput> {
     return deserializeAws_json1_1CloseInstancePublicPortsCommand(
       output,

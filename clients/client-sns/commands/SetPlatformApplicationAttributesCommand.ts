@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetPlatformApplicationAttributesCommandInput = SetPlatformApplicationAttributesInput;
@@ -68,7 +68,7 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
 
   private serialize(
     input: SetPlatformApplicationAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetPlatformApplicationAttributesCommand(
       input,
@@ -78,7 +78,7 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetPlatformApplicationAttributesCommandOutput> {
     return deserializeAws_querySetPlatformApplicationAttributesCommand(
       output,

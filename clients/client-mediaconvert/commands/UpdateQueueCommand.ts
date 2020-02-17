@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateQueueCommandInput = UpdateQueueRequest;
@@ -64,14 +64,14 @@ export class UpdateQueueCommand extends $Command<
 
   private serialize(
     input: UpdateQueueCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateQueueCommandOutput> {
     return deserializeAws_restJson1_1UpdateQueueCommand(output, context);
   }

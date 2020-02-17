@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InitiateDeviceClaimCommandInput = InitiateDeviceClaimRequest;
@@ -70,14 +70,14 @@ export class InitiateDeviceClaimCommand extends $Command<
 
   private serialize(
     input: InitiateDeviceClaimCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1InitiateDeviceClaimCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<InitiateDeviceClaimCommandOutput> {
     return deserializeAws_restJson1_1InitiateDeviceClaimCommand(
       output,

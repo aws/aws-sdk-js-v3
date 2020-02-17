@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCustomKeyStoreCommandInput = UpdateCustomKeyStoreRequest;
@@ -70,14 +70,14 @@ export class UpdateCustomKeyStoreCommand extends $Command<
 
   private serialize(
     input: UpdateCustomKeyStoreCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCustomKeyStoreCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateCustomKeyStoreCommandOutput> {
     return deserializeAws_json1_1UpdateCustomKeyStoreCommand(output, context);
   }

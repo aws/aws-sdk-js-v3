@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutSecretValueCommandInput = PutSecretValueRequest;
@@ -64,14 +64,14 @@ export class PutSecretValueCommand extends $Command<
 
   private serialize(
     input: PutSecretValueCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutSecretValueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutSecretValueCommandOutput> {
     return deserializeAws_json1_1PutSecretValueCommand(output, context);
   }

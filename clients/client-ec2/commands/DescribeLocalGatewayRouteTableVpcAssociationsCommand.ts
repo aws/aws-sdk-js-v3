@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLocalGatewayRouteTableVpcAssociationsCommandInput = DescribeLocalGatewayRouteTableVpcAssociationsRequest;
@@ -72,7 +72,7 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
 
   private serialize(
     input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> {
     return deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand(
       output,

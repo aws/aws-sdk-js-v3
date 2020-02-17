@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDBClusterCommandInput = StartDBClusterMessage;
@@ -64,14 +64,14 @@ export class StartDBClusterCommand extends $Command<
 
   private serialize(
     input: StartDBClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryStartDBClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartDBClusterCommandOutput> {
     return deserializeAws_queryStartDBClusterCommand(output, context);
   }

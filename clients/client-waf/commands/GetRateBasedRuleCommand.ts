@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRateBasedRuleCommandInput = GetRateBasedRuleRequest;
@@ -67,14 +67,14 @@ export class GetRateBasedRuleCommand extends $Command<
 
   private serialize(
     input: GetRateBasedRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRateBasedRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRateBasedRuleCommandOutput> {
     return deserializeAws_json1_1GetRateBasedRuleCommand(output, context);
   }

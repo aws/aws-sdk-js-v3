@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterEcsClusterCommandInput = RegisterEcsClusterRequest;
@@ -67,14 +67,14 @@ export class RegisterEcsClusterCommand extends $Command<
 
   private serialize(
     input: RegisterEcsClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterEcsClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RegisterEcsClusterCommandOutput> {
     return deserializeAws_json1_1RegisterEcsClusterCommand(output, context);
   }

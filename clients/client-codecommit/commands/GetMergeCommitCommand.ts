@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMergeCommitCommandInput = GetMergeCommitInput;
@@ -64,14 +64,14 @@ export class GetMergeCommitCommand extends $Command<
 
   private serialize(
     input: GetMergeCommitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMergeCommitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetMergeCommitCommandOutput> {
     return deserializeAws_json1_1GetMergeCommitCommand(output, context);
   }

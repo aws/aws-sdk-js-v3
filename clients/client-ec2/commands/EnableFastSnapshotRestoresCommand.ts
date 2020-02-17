@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableFastSnapshotRestoresCommandInput = EnableFastSnapshotRestoresRequest;
@@ -70,14 +70,14 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
 
   private serialize(
     input: EnableFastSnapshotRestoresCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2EnableFastSnapshotRestoresCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableFastSnapshotRestoresCommandOutput> {
     return deserializeAws_ec2EnableFastSnapshotRestoresCommand(output, context);
   }

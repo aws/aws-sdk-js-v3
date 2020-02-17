@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeClientVpnIngressCommandInput = RevokeClientVpnIngressRequest;
@@ -70,14 +70,14 @@ export class RevokeClientVpnIngressCommand extends $Command<
 
   private serialize(
     input: RevokeClientVpnIngressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2RevokeClientVpnIngressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokeClientVpnIngressCommandOutput> {
     return deserializeAws_ec2RevokeClientVpnIngressCommand(output, context);
   }

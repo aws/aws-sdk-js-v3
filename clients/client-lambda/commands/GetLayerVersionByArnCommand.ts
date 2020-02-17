@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLayerVersionByArnCommandInput = GetLayerVersionByArnRequest;
@@ -70,14 +70,14 @@ export class GetLayerVersionByArnCommand extends $Command<
 
   private serialize(
     input: GetLayerVersionByArnCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetLayerVersionByArnCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetLayerVersionByArnCommandOutput> {
     return deserializeAws_restJson1_1GetLayerVersionByArnCommand(
       output,

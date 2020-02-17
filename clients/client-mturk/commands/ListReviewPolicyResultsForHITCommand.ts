@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListReviewPolicyResultsForHITCommandInput = ListReviewPolicyResultsForHITRequest;
@@ -70,7 +70,7 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
 
   private serialize(
     input: ListReviewPolicyResultsForHITCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReviewPolicyResultsForHITCommand(
       input,
@@ -80,7 +80,7 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListReviewPolicyResultsForHITCommandOutput> {
     return deserializeAws_json1_1ListReviewPolicyResultsForHITCommand(
       output,

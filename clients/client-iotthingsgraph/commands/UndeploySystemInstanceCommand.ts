@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UndeploySystemInstanceCommandInput = UndeploySystemInstanceRequest;
@@ -70,14 +70,14 @@ export class UndeploySystemInstanceCommand extends $Command<
 
   private serialize(
     input: UndeploySystemInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UndeploySystemInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UndeploySystemInstanceCommandOutput> {
     return deserializeAws_json1_1UndeploySystemInstanceCommand(output, context);
   }

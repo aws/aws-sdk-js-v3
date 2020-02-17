@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSubnetsCommandInput = DescribeSubnetsRequest;
@@ -64,14 +64,14 @@ export class DescribeSubnetsCommand extends $Command<
 
   private serialize(
     input: DescribeSubnetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSubnetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSubnetsCommandOutput> {
     return deserializeAws_ec2DescribeSubnetsCommand(output, context);
   }

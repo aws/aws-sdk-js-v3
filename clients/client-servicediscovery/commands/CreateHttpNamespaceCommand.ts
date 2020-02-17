@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHttpNamespaceCommandInput = CreateHttpNamespaceRequest;
@@ -70,14 +70,14 @@ export class CreateHttpNamespaceCommand extends $Command<
 
   private serialize(
     input: CreateHttpNamespaceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateHttpNamespaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateHttpNamespaceCommandOutput> {
     return deserializeAws_json1_1CreateHttpNamespaceCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeStreamSummaryCommandInput = DescribeStreamSummaryInput;
@@ -70,14 +70,14 @@ export class DescribeStreamSummaryCommand extends $Command<
 
   private serialize(
     input: DescribeStreamSummaryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeStreamSummaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeStreamSummaryCommandOutput> {
     return deserializeAws_json1_1DescribeStreamSummaryCommand(output, context);
   }

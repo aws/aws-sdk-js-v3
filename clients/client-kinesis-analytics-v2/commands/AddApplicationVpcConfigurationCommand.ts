@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddApplicationVpcConfigurationCommandInput = AddApplicationVpcConfigurationRequest;
@@ -70,7 +70,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
 
   private serialize(
     input: AddApplicationVpcConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddApplicationVpcConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class AddApplicationVpcConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddApplicationVpcConfigurationCommandOutput> {
     return deserializeAws_json1_1AddApplicationVpcConfigurationCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectStackDriftCommandInput = DetectStackDriftInput;
@@ -64,14 +64,14 @@ export class DetectStackDriftCommand extends $Command<
 
   private serialize(
     input: DetectStackDriftCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDetectStackDriftCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetectStackDriftCommandOutput> {
     return deserializeAws_queryDetectStackDriftCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateGeoMatchSetCommandInput = CreateGeoMatchSetRequest;
@@ -67,14 +67,14 @@ export class CreateGeoMatchSetCommand extends $Command<
 
   private serialize(
     input: CreateGeoMatchSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateGeoMatchSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateGeoMatchSetCommandOutput> {
     return deserializeAws_json1_1CreateGeoMatchSetCommand(output, context);
   }

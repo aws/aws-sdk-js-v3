@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeManagedRuleGroupCommandInput = DescribeManagedRuleGroupRequest;
@@ -70,14 +70,14 @@ export class DescribeManagedRuleGroupCommand extends $Command<
 
   private serialize(
     input: DescribeManagedRuleGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeManagedRuleGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeManagedRuleGroupCommandOutput> {
     return deserializeAws_json1_1DescribeManagedRuleGroupCommand(
       output,

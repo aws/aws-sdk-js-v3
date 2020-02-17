@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateReusableDelegationSetCommandInput = CreateReusableDelegationSetRequest;
@@ -72,7 +72,7 @@ export class CreateReusableDelegationSetCommand extends $Command<
 
   private serialize(
     input: CreateReusableDelegationSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateReusableDelegationSetCommand(
       input,
@@ -82,7 +82,7 @@ export class CreateReusableDelegationSetCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateReusableDelegationSetCommandOutput> {
     return deserializeAws_restXmlCreateReusableDelegationSetCommand(
       output,

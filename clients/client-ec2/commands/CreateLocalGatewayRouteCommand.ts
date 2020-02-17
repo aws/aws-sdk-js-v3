@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLocalGatewayRouteCommandInput = CreateLocalGatewayRouteRequest;
@@ -70,14 +70,14 @@ export class CreateLocalGatewayRouteCommand extends $Command<
 
   private serialize(
     input: CreateLocalGatewayRouteCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateLocalGatewayRouteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateLocalGatewayRouteCommandOutput> {
     return deserializeAws_ec2CreateLocalGatewayRouteCommand(output, context);
   }

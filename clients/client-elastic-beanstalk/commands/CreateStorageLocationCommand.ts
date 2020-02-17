@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateStorageLocationCommandInput = {};
@@ -67,14 +67,14 @@ export class CreateStorageLocationCommand extends $Command<
 
   private serialize(
     input: CreateStorageLocationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateStorageLocationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateStorageLocationCommandOutput> {
     return deserializeAws_queryCreateStorageLocationCommand(output, context);
   }

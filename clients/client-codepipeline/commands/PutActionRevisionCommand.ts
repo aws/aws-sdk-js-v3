@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutActionRevisionCommandInput = PutActionRevisionInput;
@@ -67,14 +67,14 @@ export class PutActionRevisionCommand extends $Command<
 
   private serialize(
     input: PutActionRevisionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutActionRevisionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutActionRevisionCommandOutput> {
     return deserializeAws_json1_1PutActionRevisionCommand(output, context);
   }

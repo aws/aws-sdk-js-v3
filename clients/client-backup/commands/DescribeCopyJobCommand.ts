@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCopyJobCommandInput = DescribeCopyJobInput;
@@ -64,14 +64,14 @@ export class DescribeCopyJobCommand extends $Command<
 
   private serialize(
     input: DescribeCopyJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeCopyJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCopyJobCommandOutput> {
     return deserializeAws_restJson1_1DescribeCopyJobCommand(output, context);
   }

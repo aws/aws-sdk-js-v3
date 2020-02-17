@@ -1,4 +1,5 @@
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
@@ -30,5 +31,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider,
   regionDefaultProvider,
   md5: Hash.bind(null, "md5"),
-  streamHasher
+  streamHasher,
+  eventStreamSerdeProvider
 };

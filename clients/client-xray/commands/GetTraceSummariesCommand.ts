@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTraceSummariesCommandInput = GetTraceSummariesRequest;
@@ -67,14 +67,14 @@ export class GetTraceSummariesCommand extends $Command<
 
   private serialize(
     input: GetTraceSummariesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetTraceSummariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetTraceSummariesCommandOutput> {
     return deserializeAws_restJson1_1GetTraceSummariesCommand(output, context);
   }

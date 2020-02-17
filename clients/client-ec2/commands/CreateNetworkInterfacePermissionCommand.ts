@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateNetworkInterfacePermissionCommandInput = CreateNetworkInterfacePermissionRequest;
@@ -70,7 +70,7 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
 
   private serialize(
     input: CreateNetworkInterfacePermissionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateNetworkInterfacePermissionCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateNetworkInterfacePermissionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateNetworkInterfacePermissionCommandOutput> {
     return deserializeAws_ec2CreateNetworkInterfacePermissionCommand(
       output,

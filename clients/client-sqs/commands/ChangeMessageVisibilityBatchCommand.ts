@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ChangeMessageVisibilityBatchCommandInput = ChangeMessageVisibilityBatchRequest;
@@ -70,7 +70,7 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
 
   private serialize(
     input: ChangeMessageVisibilityBatchCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryChangeMessageVisibilityBatchCommand(
       input,
@@ -80,7 +80,7 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ChangeMessageVisibilityBatchCommandOutput> {
     return deserializeAws_queryChangeMessageVisibilityBatchCommand(
       output,

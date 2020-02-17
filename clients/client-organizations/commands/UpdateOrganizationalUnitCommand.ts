@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateOrganizationalUnitCommandInput = UpdateOrganizationalUnitRequest;
@@ -70,14 +70,14 @@ export class UpdateOrganizationalUnitCommand extends $Command<
 
   private serialize(
     input: UpdateOrganizationalUnitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateOrganizationalUnitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateOrganizationalUnitCommandOutput> {
     return deserializeAws_json1_1UpdateOrganizationalUnitCommand(
       output,

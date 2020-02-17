@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteXssMatchSetCommandInput = DeleteXssMatchSetRequest;
@@ -67,14 +67,14 @@ export class DeleteXssMatchSetCommand extends $Command<
 
   private serialize(
     input: DeleteXssMatchSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteXssMatchSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteXssMatchSetCommandOutput> {
     return deserializeAws_json1_1DeleteXssMatchSetCommand(output, context);
   }

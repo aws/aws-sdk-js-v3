@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOpenIDConnectProviderCommandInput = GetOpenIDConnectProviderRequest;
@@ -70,14 +70,14 @@ export class GetOpenIDConnectProviderCommand extends $Command<
 
   private serialize(
     input: GetOpenIDConnectProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetOpenIDConnectProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetOpenIDConnectProviderCommandOutput> {
     return deserializeAws_queryGetOpenIDConnectProviderCommand(output, context);
   }

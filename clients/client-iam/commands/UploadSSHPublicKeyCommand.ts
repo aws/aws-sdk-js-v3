@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadSSHPublicKeyCommandInput = UploadSSHPublicKeyRequest;
@@ -67,14 +67,14 @@ export class UploadSSHPublicKeyCommand extends $Command<
 
   private serialize(
     input: UploadSSHPublicKeyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUploadSSHPublicKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UploadSSHPublicKeyCommandOutput> {
     return deserializeAws_queryUploadSSHPublicKeyCommand(output, context);
   }

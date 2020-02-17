@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SuspendProcessesCommandInput = ScalingProcessQuery;
@@ -65,14 +65,14 @@ export class SuspendProcessesCommand extends $Command<
 
   private serialize(
     input: SuspendProcessesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySuspendProcessesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SuspendProcessesCommandOutput> {
     return deserializeAws_querySuspendProcessesCommand(output, context);
   }

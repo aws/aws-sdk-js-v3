@@ -422,7 +422,6 @@ import {
   ParquetInput,
   Part,
   PolicyStatus,
-  Progress,
   ProgressEvent,
   PublicAccessBlockConfiguration,
   QueueConfiguration,
@@ -451,7 +450,6 @@ import {
   ServerSideEncryptionRule,
   SourceSelectionCriteria,
   SseKmsEncryptedObjects,
-  Stats,
   StatsEvent,
   StorageClassAnalysis,
   StorageClassAnalysisDataExport,
@@ -475,6 +473,7 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext
@@ -9807,7 +9806,7 @@ async function deserializeAws_restXmlRestoreObjectCommandError(
 
 export async function deserializeAws_restXmlSelectObjectContentCommand(
   output: __HttpResponse,
-  context: __SerdeContext
+  context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<SelectObjectContentCommandOutput> {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
     return deserializeAws_restXmlSelectObjectContentCommandError(
@@ -9820,11 +9819,31 @@ export async function deserializeAws_restXmlSelectObjectContentCommand(
     __type: "SelectObjectContentOutput",
     Payload: undefined
   };
-  const data: any = await parseBody(output.body, context);
-  contents.Payload = deserializeAws_restXmlSelectObjectContentEventStream(
-    data,
-    context
+  const data: any = context.eventStreamMarshaller.deserialize(
+    output.body,
+    async event => {
+      const eventName = Object.keys(event)[0];
+      const eventHeaders = Object.entries(event[eventName].headers).reduce(
+        (accummulator, curr) => {
+          accummulator[curr[0]] = curr[1].value;
+          return accummulator;
+        },
+        {} as { [key: string]: any }
+      );
+      const eventMessage = {
+        headers: eventHeaders,
+        body: event[eventName].body
+      };
+      const parsedEvent = {
+        [eventName]: eventMessage
+      };
+      return await deserializeAws_restXmlSelectObjectContentEventStream_event(
+        parsedEvent,
+        context
+      );
+    }
   );
+  contents.Payload = data;
   return Promise.resolve(contents);
 }
 
@@ -10020,6 +10039,93 @@ async function deserializeAws_restXmlUploadPartCopyCommandError(
   return Promise.reject(Object.assign(new Error(message), response));
 }
 
+const deserializeAws_restXmlSelectObjectContentEventStream_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<SelectObjectContentEventStream> => {
+  if (output["Cont"] !== undefined) {
+    return {
+      Cont: await deserializeAws_restXmlContinuationEvent_event(
+        output["Cont"],
+        context
+      )
+    };
+  }
+  if (output["End"] !== undefined) {
+    return {
+      End: await deserializeAws_restXmlEndEvent_event(output["End"], context)
+    };
+  }
+  if (output["Progress"] !== undefined) {
+    return {
+      Progress: await deserializeAws_restXmlProgressEvent_event(
+        output["Progress"],
+        context
+      )
+    };
+  }
+  if (output["Records"] !== undefined) {
+    return {
+      Records: await deserializeAws_restXmlRecordsEvent_event(
+        output["Records"],
+        context
+      )
+    };
+  }
+  if (output["Stats"] !== undefined) {
+    return {
+      Stats: await deserializeAws_restXmlStatsEvent_event(
+        output["Stats"],
+        context
+      )
+    };
+  }
+  return { $unknown: output };
+};
+const deserializeAws_restXmlContinuationEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ContinuationEvent> => {
+  let contents: ContinuationEvent = {} as any;
+  return contents;
+};
+const deserializeAws_restXmlEndEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<EndEvent> => {
+  let contents: EndEvent = {} as any;
+  return contents;
+};
+const deserializeAws_restXmlProgressEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ProgressEvent> => {
+  let contents: ProgressEvent = {
+    __type: "ProgressEvent"
+  } as any;
+  contents.Details = await parseBody(output.body, context);
+  return contents;
+};
+const deserializeAws_restXmlRecordsEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<RecordsEvent> => {
+  let contents: RecordsEvent = {
+    __type: "RecordsEvent"
+  } as any;
+  contents.Payload = output.body;
+  return contents;
+};
+const deserializeAws_restXmlStatsEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<StatsEvent> => {
+  let contents: StatsEvent = {
+    __type: "StatsEvent"
+  } as any;
+  contents.Details = await parseBody(output.body, context);
+  return contents;
+};
 const deserializeAws_restXmlBucketAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13043,16 +13149,6 @@ const deserializeAws_restXmlCondition = (
   return contents;
 };
 
-const deserializeAws_restXmlContinuationEvent = (
-  output: any,
-  context: __SerdeContext
-): ContinuationEvent => {
-  let contents: any = {
-    __type: "ContinuationEvent"
-  };
-  return contents;
-};
-
 const deserializeAws_restXmlCopyObjectResult = (
   output: any,
   context: __SerdeContext
@@ -13260,16 +13356,6 @@ const deserializeAws_restXmlEncryptionConfiguration = (
   if (output["ReplicaKmsKeyID"] !== undefined) {
     contents.ReplicaKmsKeyID = output["ReplicaKmsKeyID"];
   }
-  return contents;
-};
-
-const deserializeAws_restXmlEndEvent = (
-  output: any,
-  context: __SerdeContext
-): EndEvent => {
-  let contents: any = {
-    __type: "EndEvent"
-  };
   return contents;
 };
 
@@ -14315,45 +14401,6 @@ const deserializeAws_restXmlPolicyStatus = (
   return contents;
 };
 
-const deserializeAws_restXmlProgress = (
-  output: any,
-  context: __SerdeContext
-): Progress => {
-  let contents: any = {
-    __type: "Progress",
-    BytesProcessed: undefined,
-    BytesReturned: undefined,
-    BytesScanned: undefined
-  };
-  if (output["BytesProcessed"] !== undefined) {
-    contents.BytesProcessed = parseInt(output["BytesProcessed"]);
-  }
-  if (output["BytesReturned"] !== undefined) {
-    contents.BytesReturned = parseInt(output["BytesReturned"]);
-  }
-  if (output["BytesScanned"] !== undefined) {
-    contents.BytesScanned = parseInt(output["BytesScanned"]);
-  }
-  return contents;
-};
-
-const deserializeAws_restXmlProgressEvent = (
-  output: any,
-  context: __SerdeContext
-): ProgressEvent => {
-  let contents: any = {
-    __type: "ProgressEvent",
-    Details: undefined
-  };
-  if (output["Details"] !== undefined) {
-    contents.Details = deserializeAws_restXmlProgress(
-      output["Details"],
-      context
-    );
-  }
-  return contents;
-};
-
 const deserializeAws_restXmlPublicAccessBlockConfiguration = (
   output: any,
   context: __SerdeContext
@@ -14422,20 +14469,6 @@ const deserializeAws_restXmlQueueConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restXmlQueueConfiguration(entry, context)
   );
-};
-
-const deserializeAws_restXmlRecordsEvent = (
-  output: any,
-  context: __SerdeContext
-): RecordsEvent => {
-  let contents: any = {
-    __type: "RecordsEvent",
-    Payload: undefined
-  };
-  if (output["Payload"] !== undefined) {
-    contents.Payload = context.base64Decoder(output["Payload"]);
-  }
-  return contents;
 };
 
 const deserializeAws_restXmlRedirect = (
@@ -14749,39 +14782,6 @@ const deserializeAws_restXmlSSES3 = (
   return contents;
 };
 
-const deserializeAws_restXmlSelectObjectContentEventStream = (
-  output: any,
-  context: __SerdeContext
-): SelectObjectContentEventStream => {
-  if (output["Cont"] !== undefined) {
-    return {
-      Cont: deserializeAws_restXmlContinuationEvent(output["Cont"], context)
-    };
-  }
-  if (output["End"] !== undefined) {
-    return {
-      End: deserializeAws_restXmlEndEvent(output["End"], context)
-    };
-  }
-  if (output["Progress"] !== undefined) {
-    return {
-      Progress: deserializeAws_restXmlProgressEvent(output["Progress"], context)
-    };
-  }
-  if (output["Records"] !== undefined) {
-    return {
-      Records: deserializeAws_restXmlRecordsEvent(output["Records"], context)
-    };
-  }
-  if (output["Stats"] !== undefined) {
-    return {
-      Stats: deserializeAws_restXmlStatsEvent(output["Stats"], context)
-    };
-  }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
-};
-
 const deserializeAws_restXmlServerSideEncryptionByDefault = (
   output: any,
   context: __SerdeContext
@@ -14876,42 +14876,6 @@ const deserializeAws_restXmlSseKmsEncryptedObjects = (
   };
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
-  }
-  return contents;
-};
-
-const deserializeAws_restXmlStats = (
-  output: any,
-  context: __SerdeContext
-): Stats => {
-  let contents: any = {
-    __type: "Stats",
-    BytesProcessed: undefined,
-    BytesReturned: undefined,
-    BytesScanned: undefined
-  };
-  if (output["BytesProcessed"] !== undefined) {
-    contents.BytesProcessed = parseInt(output["BytesProcessed"]);
-  }
-  if (output["BytesReturned"] !== undefined) {
-    contents.BytesReturned = parseInt(output["BytesReturned"]);
-  }
-  if (output["BytesScanned"] !== undefined) {
-    contents.BytesScanned = parseInt(output["BytesScanned"]);
-  }
-  return contents;
-};
-
-const deserializeAws_restXmlStatsEvent = (
-  output: any,
-  context: __SerdeContext
-): StatsEvent => {
-  let contents: any = {
-    __type: "StatsEvent",
-    Details: undefined
-  };
-  if (output["Details"] !== undefined) {
-    contents.Details = deserializeAws_restXmlStats(output["Details"], context);
   }
   return contents;
 };
@@ -15097,6 +15061,9 @@ const collectBody = (
   streamBody: any,
   context: __SerdeContext
 ): Promise<Uint8Array> => {
+  if (streamBody instanceof Uint8Array) {
+    return Promise.resolve(streamBody);
+  }
   return (
     context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
   );

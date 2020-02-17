@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRouteTableCommandInput = CreateRouteTableRequest;
@@ -67,14 +67,14 @@ export class CreateRouteTableCommand extends $Command<
 
   private serialize(
     input: CreateRouteTableCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateRouteTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateRouteTableCommandOutput> {
     return deserializeAws_ec2CreateRouteTableCommand(output, context);
   }

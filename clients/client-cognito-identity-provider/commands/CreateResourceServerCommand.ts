@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateResourceServerCommandInput = CreateResourceServerRequest;
@@ -70,14 +70,14 @@ export class CreateResourceServerCommand extends $Command<
 
   private serialize(
     input: CreateResourceServerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateResourceServerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateResourceServerCommandOutput> {
     return deserializeAws_json1_1CreateResourceServerCommand(output, context);
   }

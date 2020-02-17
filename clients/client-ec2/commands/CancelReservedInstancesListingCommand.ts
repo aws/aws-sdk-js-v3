@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelReservedInstancesListingCommandInput = CancelReservedInstancesListingRequest;
@@ -70,7 +70,7 @@ export class CancelReservedInstancesListingCommand extends $Command<
 
   private serialize(
     input: CancelReservedInstancesListingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CancelReservedInstancesListingCommand(
       input,
@@ -80,7 +80,7 @@ export class CancelReservedInstancesListingCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelReservedInstancesListingCommandOutput> {
     return deserializeAws_ec2CancelReservedInstancesListingCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReportCreationCommandInput = DescribeReportCreationInput;
@@ -70,14 +70,14 @@ export class DescribeReportCreationCommand extends $Command<
 
   private serialize(
     input: DescribeReportCreationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReportCreationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeReportCreationCommandOutput> {
     return deserializeAws_json1_1DescribeReportCreationCommand(output, context);
   }

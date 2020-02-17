@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteConformancePackCommandInput = DeleteConformancePackRequest;
@@ -68,14 +68,14 @@ export class DeleteConformancePackCommand extends $Command<
 
   private serialize(
     input: DeleteConformancePackCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteConformancePackCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteConformancePackCommandOutput> {
     return deserializeAws_json1_1DeleteConformancePackCommand(output, context);
   }

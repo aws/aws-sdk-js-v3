@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateOriginEndpointCommandInput = CreateOriginEndpointRequest;
@@ -70,14 +70,14 @@ export class CreateOriginEndpointCommand extends $Command<
 
   private serialize(
     input: CreateOriginEndpointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateOriginEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateOriginEndpointCommandOutput> {
     return deserializeAws_restJson1_1CreateOriginEndpointCommand(
       output,

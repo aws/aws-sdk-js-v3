@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSnapshotScheduleCommandInput = CreateSnapshotScheduleMessage;
@@ -70,14 +70,14 @@ export class CreateSnapshotScheduleCommand extends $Command<
 
   private serialize(
     input: CreateSnapshotScheduleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateSnapshotScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSnapshotScheduleCommandOutput> {
     return deserializeAws_queryCreateSnapshotScheduleCommand(output, context);
   }

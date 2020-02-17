@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartStreamEncryptionCommandInput = StartStreamEncryptionInput;
@@ -68,14 +68,14 @@ export class StartStreamEncryptionCommand extends $Command<
 
   private serialize(
     input: StartStreamEncryptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartStreamEncryptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartStreamEncryptionCommandOutput> {
     return deserializeAws_json1_1StartStreamEncryptionCommand(output, context);
   }

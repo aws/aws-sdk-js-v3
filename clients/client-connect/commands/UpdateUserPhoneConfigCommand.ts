@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUserPhoneConfigCommandInput = UpdateUserPhoneConfigRequest;
@@ -68,14 +68,14 @@ export class UpdateUserPhoneConfigCommand extends $Command<
 
   private serialize(
     input: UpdateUserPhoneConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateUserPhoneConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateUserPhoneConfigCommandOutput> {
     return deserializeAws_restJson1_1UpdateUserPhoneConfigCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListConnectorDefinitionVersionsCommandInput = ListConnectorDefinitionVersionsRequest;
@@ -70,7 +70,7 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
 
   private serialize(
     input: ListConnectorDefinitionVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListConnectorDefinitionVersionsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListConnectorDefinitionVersionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListConnectorDefinitionVersionsCommandOutput> {
     return deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommand(
       output,

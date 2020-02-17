@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterFromS3CommandInput = RestoreDBClusterFromS3Message;
@@ -70,14 +70,14 @@ export class RestoreDBClusterFromS3Command extends $Command<
 
   private serialize(
     input: RestoreDBClusterFromS3CommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBClusterFromS3Command(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreDBClusterFromS3CommandOutput> {
     return deserializeAws_queryRestoreDBClusterFromS3Command(output, context);
   }

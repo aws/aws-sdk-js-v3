@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateDelegateFromResourceCommandInput = DisassociateDelegateFromResourceRequest;
@@ -70,7 +70,7 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
 
   private serialize(
     input: DisassociateDelegateFromResourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDelegateFromResourceCommand(
       input,
@@ -80,7 +80,7 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateDelegateFromResourceCommandOutput> {
     return deserializeAws_json1_1DisassociateDelegateFromResourceCommand(
       output,

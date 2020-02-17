@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFaceDetectionCommandInput = GetFaceDetectionRequest;
@@ -67,14 +67,14 @@ export class GetFaceDetectionCommand extends $Command<
 
   private serialize(
     input: GetFaceDetectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetFaceDetectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetFaceDetectionCommandOutput> {
     return deserializeAws_json1_1GetFaceDetectionCommand(output, context);
   }

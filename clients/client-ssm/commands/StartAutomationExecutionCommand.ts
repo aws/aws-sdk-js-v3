@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartAutomationExecutionCommandInput = StartAutomationExecutionRequest;
@@ -70,14 +70,14 @@ export class StartAutomationExecutionCommand extends $Command<
 
   private serialize(
     input: StartAutomationExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAutomationExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartAutomationExecutionCommandOutput> {
     return deserializeAws_json1_1StartAutomationExecutionCommand(
       output,

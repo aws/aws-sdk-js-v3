@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCompanyNetworkConfigurationCommandInput = DescribeCompanyNetworkConfigurationRequest;
@@ -70,7 +70,7 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
 
   private serialize(
     input: DescribeCompanyNetworkConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeCompanyNetworkConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
     return deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand(
       output,

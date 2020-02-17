@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGatewayResponseCommandInput = UpdateGatewayResponseRequest;
@@ -67,14 +67,14 @@ export class UpdateGatewayResponseCommand extends $Command<
 
   private serialize(
     input: UpdateGatewayResponseCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateGatewayResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateGatewayResponseCommandOutput> {
     return deserializeAws_restJson1_1UpdateGatewayResponseCommand(
       output,

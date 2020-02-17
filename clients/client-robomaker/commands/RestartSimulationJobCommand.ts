@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestartSimulationJobCommandInput = RestartSimulationJobRequest;
@@ -70,14 +70,14 @@ export class RestartSimulationJobCommand extends $Command<
 
   private serialize(
     input: RestartSimulationJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RestartSimulationJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestartSimulationJobCommandOutput> {
     return deserializeAws_restJson1_1RestartSimulationJobCommand(
       output,

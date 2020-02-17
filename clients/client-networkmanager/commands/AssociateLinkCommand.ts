@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateLinkCommandInput = AssociateLinkRequest;
@@ -64,14 +64,14 @@ export class AssociateLinkCommand extends $Command<
 
   private serialize(
     input: AssociateLinkCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AssociateLinkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateLinkCommandOutput> {
     return deserializeAws_restJson1_1AssociateLinkCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RecognizeCelebritiesCommandInput = RecognizeCelebritiesRequest;
@@ -70,14 +70,14 @@ export class RecognizeCelebritiesCommand extends $Command<
 
   private serialize(
     input: RecognizeCelebritiesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RecognizeCelebritiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RecognizeCelebritiesCommandOutput> {
     return deserializeAws_json1_1RecognizeCelebritiesCommand(output, context);
   }

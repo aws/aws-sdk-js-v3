@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetJourneyCommandInput = GetJourneyRequest;
@@ -64,14 +64,14 @@ export class GetJourneyCommand extends $Command<
 
   private serialize(
     input: GetJourneyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetJourneyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetJourneyCommandOutput> {
     return deserializeAws_restJson1_1GetJourneyCommand(output, context);
   }

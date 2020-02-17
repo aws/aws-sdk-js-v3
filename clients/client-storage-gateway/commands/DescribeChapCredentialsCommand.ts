@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeChapCredentialsCommandInput = DescribeChapCredentialsInput;
@@ -70,14 +70,14 @@ export class DescribeChapCredentialsCommand extends $Command<
 
   private serialize(
     input: DescribeChapCredentialsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeChapCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeChapCredentialsCommandOutput> {
     return deserializeAws_json1_1DescribeChapCredentialsCommand(
       output,

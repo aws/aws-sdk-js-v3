@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHostReservationPurchasePreviewCommandInput = GetHostReservationPurchasePreviewRequest;
@@ -70,7 +70,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
 
   private serialize(
     input: GetHostReservationPurchasePreviewCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2GetHostReservationPurchasePreviewCommand(
       input,
@@ -80,7 +80,7 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetHostReservationPurchasePreviewCommandOutput> {
     return deserializeAws_ec2GetHostReservationPurchasePreviewCommand(
       output,

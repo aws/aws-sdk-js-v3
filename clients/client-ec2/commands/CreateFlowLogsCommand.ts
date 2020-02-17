@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFlowLogsCommandInput = CreateFlowLogsRequest;
@@ -64,14 +64,14 @@ export class CreateFlowLogsCommand extends $Command<
 
   private serialize(
     input: CreateFlowLogsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateFlowLogsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateFlowLogsCommandOutput> {
     return deserializeAws_ec2CreateFlowLogsCommand(output, context);
   }

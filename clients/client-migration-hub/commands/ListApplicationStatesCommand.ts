@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListApplicationStatesCommandInput = ListApplicationStatesRequest;
@@ -70,14 +70,14 @@ export class ListApplicationStatesCommand extends $Command<
 
   private serialize(
     input: ListApplicationStatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationStatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListApplicationStatesCommandOutput> {
     return deserializeAws_json1_1ListApplicationStatesCommand(output, context);
   }

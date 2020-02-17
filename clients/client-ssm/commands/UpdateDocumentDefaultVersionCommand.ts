@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDocumentDefaultVersionCommandInput = UpdateDocumentDefaultVersionRequest;
@@ -70,7 +70,7 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
 
   private serialize(
     input: UpdateDocumentDefaultVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDocumentDefaultVersionCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateDocumentDefaultVersionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDocumentDefaultVersionCommandOutput> {
     return deserializeAws_json1_1UpdateDocumentDefaultVersionCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateOrganizationCommandInput = CreateOrganizationRequest;
@@ -67,14 +67,14 @@ export class CreateOrganizationCommand extends $Command<
 
   private serialize(
     input: CreateOrganizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateOrganizationCommandOutput> {
     return deserializeAws_json1_1CreateOrganizationCommand(output, context);
   }

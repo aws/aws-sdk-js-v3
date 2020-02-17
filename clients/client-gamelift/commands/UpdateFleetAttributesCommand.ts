@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateFleetAttributesCommandInput = UpdateFleetAttributesInput;
@@ -70,14 +70,14 @@ export class UpdateFleetAttributesCommand extends $Command<
 
   private serialize(
     input: UpdateFleetAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateFleetAttributesCommandOutput> {
     return deserializeAws_json1_1UpdateFleetAttributesCommand(output, context);
   }

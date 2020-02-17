@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNodegroupCommandInput = DeleteNodegroupRequest;
@@ -67,14 +67,14 @@ export class DeleteNodegroupCommand extends $Command<
 
   private serialize(
     input: DeleteNodegroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteNodegroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteNodegroupCommandOutput> {
     return deserializeAws_restJson1_1DeleteNodegroupCommand(output, context);
   }

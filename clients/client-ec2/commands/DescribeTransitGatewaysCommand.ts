@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTransitGatewaysCommandInput = DescribeTransitGatewaysRequest;
@@ -70,14 +70,14 @@ export class DescribeTransitGatewaysCommand extends $Command<
 
   private serialize(
     input: DescribeTransitGatewaysCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTransitGatewaysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTransitGatewaysCommandOutput> {
     return deserializeAws_ec2DescribeTransitGatewaysCommand(output, context);
   }

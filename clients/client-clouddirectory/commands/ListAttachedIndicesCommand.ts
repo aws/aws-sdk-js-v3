@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAttachedIndicesCommandInput = ListAttachedIndicesRequest;
@@ -70,14 +70,14 @@ export class ListAttachedIndicesCommand extends $Command<
 
   private serialize(
     input: ListAttachedIndicesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAttachedIndicesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAttachedIndicesCommandOutput> {
     return deserializeAws_restJson1_1ListAttachedIndicesCommand(
       output,

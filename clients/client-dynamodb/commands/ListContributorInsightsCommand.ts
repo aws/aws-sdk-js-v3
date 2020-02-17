@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListContributorInsightsCommandInput = ListContributorInsightsInput;
@@ -70,14 +70,14 @@ export class ListContributorInsightsCommand extends $Command<
 
   private serialize(
     input: ListContributorInsightsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0ListContributorInsightsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListContributorInsightsCommandOutput> {
     return deserializeAws_json1_0ListContributorInsightsCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteApiCacheCommandInput = DeleteApiCacheRequest;
@@ -64,14 +64,14 @@ export class DeleteApiCacheCommand extends $Command<
 
   private serialize(
     input: DeleteApiCacheCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteApiCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteApiCacheCommandOutput> {
     return deserializeAws_restJson1_1DeleteApiCacheCommand(output, context);
   }

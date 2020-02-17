@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddFacetToObjectCommandInput = AddFacetToObjectRequest;
@@ -67,14 +67,14 @@ export class AddFacetToObjectCommand extends $Command<
 
   private serialize(
     input: AddFacetToObjectCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AddFacetToObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddFacetToObjectCommandOutput> {
     return deserializeAws_restJson1_1AddFacetToObjectCommand(output, context);
   }

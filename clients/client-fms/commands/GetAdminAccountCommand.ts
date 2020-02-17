@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAdminAccountCommandInput = GetAdminAccountRequest;
@@ -67,14 +67,14 @@ export class GetAdminAccountCommand extends $Command<
 
   private serialize(
     input: GetAdminAccountCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAdminAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAdminAccountCommandOutput> {
     return deserializeAws_json1_1GetAdminAccountCommand(output, context);
   }

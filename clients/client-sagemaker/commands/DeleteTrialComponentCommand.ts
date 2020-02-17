@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrialComponentCommandInput = DeleteTrialComponentRequest;
@@ -70,14 +70,14 @@ export class DeleteTrialComponentCommand extends $Command<
 
   private serialize(
     input: DeleteTrialComponentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTrialComponentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTrialComponentCommandOutput> {
     return deserializeAws_json1_1DeleteTrialComponentCommand(output, context);
   }

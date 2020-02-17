@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetKeyPolicyCommandInput = GetKeyPolicyRequest;
@@ -64,14 +64,14 @@ export class GetKeyPolicyCommand extends $Command<
 
   private serialize(
     input: GetKeyPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetKeyPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetKeyPolicyCommandOutput> {
     return deserializeAws_json1_1GetKeyPolicyCommand(output, context);
   }

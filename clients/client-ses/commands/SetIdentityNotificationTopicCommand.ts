@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityNotificationTopicCommandInput = SetIdentityNotificationTopicRequest;
@@ -70,7 +70,7 @@ export class SetIdentityNotificationTopicCommand extends $Command<
 
   private serialize(
     input: SetIdentityNotificationTopicCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityNotificationTopicCommand(
       input,
@@ -80,7 +80,7 @@ export class SetIdentityNotificationTopicCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetIdentityNotificationTopicCommandOutput> {
     return deserializeAws_querySetIdentityNotificationTopicCommand(
       output,

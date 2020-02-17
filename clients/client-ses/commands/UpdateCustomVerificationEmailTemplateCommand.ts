@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCustomVerificationEmailTemplateCommandInput = UpdateCustomVerificationEmailTemplateRequest;
@@ -70,7 +70,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
 
   private serialize(
     input: UpdateCustomVerificationEmailTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateCustomVerificationEmailTemplateCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> {
     return deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand(
       output,

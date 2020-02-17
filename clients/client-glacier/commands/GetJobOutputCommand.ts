@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetJobOutputCommandInput = GetJobOutputInput;
@@ -64,14 +64,14 @@ export class GetJobOutputCommand extends $Command<
 
   private serialize(
     input: GetJobOutputCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetJobOutputCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetJobOutputCommandOutput> {
     return deserializeAws_restJson1_1GetJobOutputCommand(output, context);
   }
