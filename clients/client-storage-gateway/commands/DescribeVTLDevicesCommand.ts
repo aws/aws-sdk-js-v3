@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVTLDevicesCommandInput = DescribeVTLDevicesInput;
@@ -67,14 +67,14 @@ export class DescribeVTLDevicesCommand extends $Command<
 
   private serialize(
     input: DescribeVTLDevicesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeVTLDevicesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeVTLDevicesCommandOutput> {
     return deserializeAws_json1_1DescribeVTLDevicesCommand(output, context);
   }

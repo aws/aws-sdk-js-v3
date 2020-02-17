@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEnvironmentCommandInput = UpdateEnvironmentMessage;
@@ -67,14 +67,14 @@ export class UpdateEnvironmentCommand extends $Command<
 
   private serialize(
     input: UpdateEnvironmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateEnvironmentCommandOutput> {
     return deserializeAws_queryUpdateEnvironmentCommand(output, context);
   }

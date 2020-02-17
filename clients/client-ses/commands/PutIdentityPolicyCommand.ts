@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutIdentityPolicyCommandInput = PutIdentityPolicyRequest;
@@ -67,14 +67,14 @@ export class PutIdentityPolicyCommand extends $Command<
 
   private serialize(
     input: PutIdentityPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPutIdentityPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutIdentityPolicyCommandOutput> {
     return deserializeAws_queryPutIdentityPolicyCommand(output, context);
   }

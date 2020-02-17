@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSAMLProviderCommandInput = DeleteSAMLProviderRequest;
@@ -65,14 +65,14 @@ export class DeleteSAMLProviderCommand extends $Command<
 
   private serialize(
     input: DeleteSAMLProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSAMLProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSAMLProviderCommandOutput> {
     return deserializeAws_queryDeleteSAMLProviderCommand(output, context);
   }

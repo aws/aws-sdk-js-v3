@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportClientVpnClientCertificateRevocationListCommandInput = ExportClientVpnClientCertificateRevocationListRequest;
@@ -72,7 +72,7 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
 
   private serialize(
     input: ExportClientVpnClientCertificateRevocationListCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand(
       input,
@@ -82,7 +82,7 @@ export class ExportClientVpnClientCertificateRevocationListCommand extends $Comm
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> {
     return deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelKeyDeletionCommandInput = CancelKeyDeletionRequest;
@@ -67,14 +67,14 @@ export class CancelKeyDeletionCommand extends $Command<
 
   private serialize(
     input: CancelKeyDeletionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelKeyDeletionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelKeyDeletionCommandOutput> {
     return deserializeAws_json1_1CancelKeyDeletionCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListComponentBuildVersionsCommandInput = ListComponentBuildVersionsRequest;
@@ -70,7 +70,7 @@ export class ListComponentBuildVersionsCommand extends $Command<
 
   private serialize(
     input: ListComponentBuildVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListComponentBuildVersionsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListComponentBuildVersionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListComponentBuildVersionsCommandOutput> {
     return deserializeAws_restJson1_1ListComponentBuildVersionsCommand(
       output,

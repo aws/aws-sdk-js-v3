@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCertificateCommandInput = DeleteCertificateMessage;
@@ -67,14 +67,14 @@ export class DeleteCertificateCommand extends $Command<
 
   private serialize(
     input: DeleteCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCertificateCommandOutput> {
     return deserializeAws_json1_1DeleteCertificateCommand(output, context);
   }

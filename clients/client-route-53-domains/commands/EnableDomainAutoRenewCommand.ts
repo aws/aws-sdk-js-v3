@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableDomainAutoRenewCommandInput = EnableDomainAutoRenewRequest;
@@ -70,14 +70,14 @@ export class EnableDomainAutoRenewCommand extends $Command<
 
   private serialize(
     input: EnableDomainAutoRenewCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableDomainAutoRenewCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableDomainAutoRenewCommandOutput> {
     return deserializeAws_json1_1EnableDomainAutoRenewCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSentimentDetectionJobCommandInput = DescribeSentimentDetectionJobRequest;
@@ -70,7 +70,7 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
 
   private serialize(
     input: DescribeSentimentDetectionJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSentimentDetectionJobCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeSentimentDetectionJobCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSentimentDetectionJobCommandOutput> {
     return deserializeAws_json1_1DescribeSentimentDetectionJobCommand(
       output,

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableVgwRoutePropagationCommandInput = EnableVgwRoutePropagationRequest;
@@ -68,14 +68,14 @@ export class EnableVgwRoutePropagationCommand extends $Command<
 
   private serialize(
     input: EnableVgwRoutePropagationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2EnableVgwRoutePropagationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableVgwRoutePropagationCommandOutput> {
     return deserializeAws_ec2EnableVgwRoutePropagationCommand(output, context);
   }

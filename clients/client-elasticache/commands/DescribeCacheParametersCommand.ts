@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCacheParametersCommandInput = DescribeCacheParametersMessage;
@@ -70,14 +70,14 @@ export class DescribeCacheParametersCommand extends $Command<
 
   private serialize(
     input: DescribeCacheParametersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCacheParametersCommandOutput> {
     return deserializeAws_queryDescribeCacheParametersCommand(output, context);
   }

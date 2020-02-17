@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendTaskHeartbeatCommandInput = SendTaskHeartbeatInput;
@@ -67,14 +67,14 @@ export class SendTaskHeartbeatCommand extends $Command<
 
   private serialize(
     input: SendTaskHeartbeatCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0SendTaskHeartbeatCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SendTaskHeartbeatCommandOutput> {
     return deserializeAws_json1_0SendTaskHeartbeatCommand(output, context);
   }

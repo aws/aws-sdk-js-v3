@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachVolumeCommandInput = AttachVolumeRequest;
@@ -64,14 +64,14 @@ export class AttachVolumeCommand extends $Command<
 
   private serialize(
     input: AttachVolumeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2AttachVolumeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AttachVolumeCommandOutput> {
     return deserializeAws_ec2AttachVolumeCommand(output, context);
   }

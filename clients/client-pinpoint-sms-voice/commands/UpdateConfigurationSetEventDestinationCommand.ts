@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetEventDestinationCommandInput = UpdateConfigurationSetEventDestinationRequest;
@@ -72,7 +72,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
 
   private serialize(
     input: UpdateConfigurationSetEventDestinationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(
       input,
@@ -82,7 +82,7 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
     return deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(
       output,

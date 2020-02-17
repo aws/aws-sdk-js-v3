@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountLimitCommandInput = GetAccountLimitRequest;
@@ -67,14 +67,14 @@ export class GetAccountLimitCommand extends $Command<
 
   private serialize(
     input: GetAccountLimitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccountLimitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAccountLimitCommandOutput> {
     return deserializeAws_restXmlGetAccountLimitCommand(output, context);
   }

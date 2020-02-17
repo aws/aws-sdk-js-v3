@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteClientVpnRouteCommandInput = DeleteClientVpnRouteRequest;
@@ -70,14 +70,14 @@ export class DeleteClientVpnRouteCommand extends $Command<
 
   private serialize(
     input: DeleteClientVpnRouteCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteClientVpnRouteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteClientVpnRouteCommandOutput> {
     return deserializeAws_ec2DeleteClientVpnRouteCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyImageCommandInput = CopyImageRequest;
@@ -64,14 +64,14 @@ export class CopyImageCommand extends $Command<
 
   private serialize(
     input: CopyImageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CopyImageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CopyImageCommandOutput> {
     return deserializeAws_ec2CopyImageCommand(output, context);
   }

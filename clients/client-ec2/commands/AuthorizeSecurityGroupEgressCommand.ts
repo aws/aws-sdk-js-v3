@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AuthorizeSecurityGroupEgressCommandInput = AuthorizeSecurityGroupEgressRequest;
@@ -68,14 +68,14 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
 
   private serialize(
     input: AuthorizeSecurityGroupEgressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2AuthorizeSecurityGroupEgressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AuthorizeSecurityGroupEgressCommandOutput> {
     return deserializeAws_ec2AuthorizeSecurityGroupEgressCommand(
       output,

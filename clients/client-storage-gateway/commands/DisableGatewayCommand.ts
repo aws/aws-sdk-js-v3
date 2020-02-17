@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableGatewayCommandInput = DisableGatewayInput;
@@ -64,14 +64,14 @@ export class DisableGatewayCommand extends $Command<
 
   private serialize(
     input: DisableGatewayCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisableGatewayCommandOutput> {
     return deserializeAws_json1_1DisableGatewayCommand(output, context);
   }

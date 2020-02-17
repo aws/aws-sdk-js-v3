@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListInvitationsCommandInput = ListInvitationsInput;
@@ -64,14 +64,14 @@ export class ListInvitationsCommand extends $Command<
 
   private serialize(
     input: ListInvitationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListInvitationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListInvitationsCommandOutput> {
     return deserializeAws_restJson1_1ListInvitationsCommand(output, context);
   }

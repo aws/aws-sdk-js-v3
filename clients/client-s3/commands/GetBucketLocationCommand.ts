@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketLocationCommandInput = GetBucketLocationRequest;
@@ -69,14 +69,14 @@ export class GetBucketLocationCommand extends $Command<
 
   private serialize(
     input: GetBucketLocationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketLocationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketLocationCommandOutput> {
     return deserializeAws_restXmlGetBucketLocationCommand(output, context);
   }

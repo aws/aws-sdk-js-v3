@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImportSnapshotTasksCommandInput = DescribeImportSnapshotTasksRequest;
@@ -70,14 +70,14 @@ export class DescribeImportSnapshotTasksCommand extends $Command<
 
   private serialize(
     input: DescribeImportSnapshotTasksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImportSnapshotTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeImportSnapshotTasksCommandOutput> {
     return deserializeAws_ec2DescribeImportSnapshotTasksCommand(
       output,

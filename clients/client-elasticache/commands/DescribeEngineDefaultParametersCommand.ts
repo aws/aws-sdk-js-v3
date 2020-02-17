@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEngineDefaultParametersCommandInput = DescribeEngineDefaultParametersMessage;
@@ -70,7 +70,7 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
 
   private serialize(
     input: DescribeEngineDefaultParametersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEngineDefaultParametersCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEngineDefaultParametersCommandOutput> {
     return deserializeAws_queryDescribeEngineDefaultParametersCommand(
       output,

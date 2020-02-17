@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestFailoverCommandInput = TestFailoverMessage;
@@ -64,14 +64,14 @@ export class TestFailoverCommand extends $Command<
 
   private serialize(
     input: TestFailoverCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryTestFailoverCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TestFailoverCommandOutput> {
     return deserializeAws_queryTestFailoverCommand(output, context);
   }

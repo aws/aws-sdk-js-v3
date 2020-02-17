@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateInsightCommandInput = CreateInsightRequest;
@@ -64,14 +64,14 @@ export class CreateInsightCommand extends $Command<
 
   private serialize(
     input: CreateInsightCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateInsightCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateInsightCommandOutput> {
     return deserializeAws_restJson1_1CreateInsightCommand(output, context);
   }

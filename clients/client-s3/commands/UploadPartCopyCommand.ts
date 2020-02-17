@@ -21,8 +21,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadPartCopyCommandInput = UploadPartCopyRequest;
@@ -68,14 +68,14 @@ export class UploadPartCopyCommand extends $Command<
 
   private serialize(
     input: UploadPartCopyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlUploadPartCopyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UploadPartCopyCommandOutput> {
     return deserializeAws_restXmlUploadPartCopyCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateChangeSetCommandInput = GenerateChangeSetRequest;
@@ -67,14 +67,14 @@ export class GenerateChangeSetCommand extends $Command<
 
   private serialize(
     input: GenerateChangeSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateChangeSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GenerateChangeSetCommandOutput> {
     return deserializeAws_json1_1GenerateChangeSetCommand(output, context);
   }

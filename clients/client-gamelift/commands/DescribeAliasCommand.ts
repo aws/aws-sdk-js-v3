@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAliasCommandInput = DescribeAliasInput;
@@ -64,14 +64,14 @@ export class DescribeAliasCommand extends $Command<
 
   private serialize(
     input: DescribeAliasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAliasCommandOutput> {
     return deserializeAws_json1_1DescribeAliasCommand(output, context);
   }

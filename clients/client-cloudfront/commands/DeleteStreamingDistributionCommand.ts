@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteStreamingDistributionCommandInput = DeleteStreamingDistributionRequest;
@@ -68,7 +68,7 @@ export class DeleteStreamingDistributionCommand extends $Command<
 
   private serialize(
     input: DeleteStreamingDistributionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteStreamingDistributionCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteStreamingDistributionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteStreamingDistributionCommandOutput> {
     return deserializeAws_restXmlDeleteStreamingDistributionCommand(
       output,

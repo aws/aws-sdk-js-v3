@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptHandshakeCommandInput = AcceptHandshakeRequest;
@@ -67,14 +67,14 @@ export class AcceptHandshakeCommand extends $Command<
 
   private serialize(
     input: AcceptHandshakeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptHandshakeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AcceptHandshakeCommandOutput> {
     return deserializeAws_json1_1AcceptHandshakeCommand(output, context);
   }

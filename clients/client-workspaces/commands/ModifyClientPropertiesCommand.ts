@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyClientPropertiesCommandInput = ModifyClientPropertiesRequest;
@@ -70,14 +70,14 @@ export class ModifyClientPropertiesCommand extends $Command<
 
   private serialize(
     input: ModifyClientPropertiesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyClientPropertiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyClientPropertiesCommandOutput> {
     return deserializeAws_json1_1ModifyClientPropertiesCommand(output, context);
   }

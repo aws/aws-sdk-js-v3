@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRateBasedRuleCommandInput = DeleteRateBasedRuleRequest;
@@ -70,14 +70,14 @@ export class DeleteRateBasedRuleCommand extends $Command<
 
   private serialize(
     input: DeleteRateBasedRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRateBasedRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteRateBasedRuleCommandOutput> {
     return deserializeAws_json1_1DeleteRateBasedRuleCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationAggregatorsCommandInput = DescribeConfigurationAggregatorsRequest;
@@ -70,7 +70,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
 
   private serialize(
     input: DescribeConfigurationAggregatorsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConfigurationAggregatorsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeConfigurationAggregatorsCommandOutput> {
     return deserializeAws_json1_1DescribeConfigurationAggregatorsCommand(
       output,

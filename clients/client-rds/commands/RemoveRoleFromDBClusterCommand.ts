@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveRoleFromDBClusterCommandInput = RemoveRoleFromDBClusterMessage;
@@ -68,14 +68,14 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
 
   private serialize(
     input: RemoveRoleFromDBClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRemoveRoleFromDBClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RemoveRoleFromDBClusterCommandOutput> {
     return deserializeAws_queryRemoveRoleFromDBClusterCommand(output, context);
   }

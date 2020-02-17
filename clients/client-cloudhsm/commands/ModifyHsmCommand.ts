@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyHsmCommandInput = ModifyHsmRequest;
@@ -64,14 +64,14 @@ export class ModifyHsmCommand extends $Command<
 
   private serialize(
     input: ModifyHsmCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyHsmCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyHsmCommandOutput> {
     return deserializeAws_json1_1ModifyHsmCommand(output, context);
   }

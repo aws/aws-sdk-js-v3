@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreTableFromClusterSnapshotCommandInput = RestoreTableFromClusterSnapshotMessage;
@@ -70,7 +70,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
 
   private serialize(
     input: RestoreTableFromClusterSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRestoreTableFromClusterSnapshotCommand(
       input,
@@ -80,7 +80,7 @@ export class RestoreTableFromClusterSnapshotCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreTableFromClusterSnapshotCommandOutput> {
     return deserializeAws_queryRestoreTableFromClusterSnapshotCommand(
       output,

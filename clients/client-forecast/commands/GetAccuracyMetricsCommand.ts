@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccuracyMetricsCommandInput = GetAccuracyMetricsRequest;
@@ -67,14 +67,14 @@ export class GetAccuracyMetricsCommand extends $Command<
 
   private serialize(
     input: GetAccuracyMetricsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAccuracyMetricsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAccuracyMetricsCommandOutput> {
     return deserializeAws_json1_1GetAccuracyMetricsCommand(output, context);
   }

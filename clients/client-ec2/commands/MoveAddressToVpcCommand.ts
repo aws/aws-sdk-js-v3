@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MoveAddressToVpcCommandInput = MoveAddressToVpcRequest;
@@ -67,14 +67,14 @@ export class MoveAddressToVpcCommand extends $Command<
 
   private serialize(
     input: MoveAddressToVpcCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2MoveAddressToVpcCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<MoveAddressToVpcCommandOutput> {
     return deserializeAws_ec2MoveAddressToVpcCommand(output, context);
   }

@@ -9424,7 +9424,7 @@ export interface SelectObjectContentOutput extends $MetadataBearer {
   /**
    * <p>The array of results.</p>
    */
-  Payload?: SelectObjectContentEventStream;
+  Payload?: AsyncIterable<SelectObjectContentEventStream>;
 }
 
 export namespace SelectObjectContentOutput {

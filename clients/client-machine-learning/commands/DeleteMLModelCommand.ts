@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMLModelCommandInput = DeleteMLModelInput;
@@ -64,14 +64,14 @@ export class DeleteMLModelCommand extends $Command<
 
   private serialize(
     input: DeleteMLModelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMLModelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteMLModelCommandOutput> {
     return deserializeAws_json1_1DeleteMLModelCommand(output, context);
   }

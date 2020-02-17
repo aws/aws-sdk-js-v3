@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePublishingDestinationCommandInput = CreatePublishingDestinationRequest;
@@ -70,7 +70,7 @@ export class CreatePublishingDestinationCommand extends $Command<
 
   private serialize(
     input: CreatePublishingDestinationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreatePublishingDestinationCommand(
       input,
@@ -80,7 +80,7 @@ export class CreatePublishingDestinationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePublishingDestinationCommandOutput> {
     return deserializeAws_restJson1_1CreatePublishingDestinationCommand(
       output,

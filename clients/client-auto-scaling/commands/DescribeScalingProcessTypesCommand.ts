@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeScalingProcessTypesCommandInput = {};
@@ -67,14 +67,14 @@ export class DescribeScalingProcessTypesCommand extends $Command<
 
   private serialize(
     input: DescribeScalingProcessTypesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeScalingProcessTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeScalingProcessTypesCommandOutput> {
     return deserializeAws_queryDescribeScalingProcessTypesCommand(
       output,

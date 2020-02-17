@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAssociationsCommandInput = ListAssociationsRequest;
@@ -67,14 +67,14 @@ export class ListAssociationsCommand extends $Command<
 
   private serialize(
     input: ListAssociationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAssociationsCommandOutput> {
     return deserializeAws_json1_1ListAssociationsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTransitGatewayRouteTableCommandInput = DeleteTransitGatewayRouteTableRequest;
@@ -70,7 +70,7 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
 
   private serialize(
     input: DeleteTransitGatewayRouteTableCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTransitGatewayRouteTableCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteTransitGatewayRouteTableCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTransitGatewayRouteTableCommandOutput> {
     return deserializeAws_ec2DeleteTransitGatewayRouteTableCommand(
       output,

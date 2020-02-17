@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TagDeliveryStreamCommandInput = TagDeliveryStreamInput;
@@ -67,14 +67,14 @@ export class TagDeliveryStreamCommand extends $Command<
 
   private serialize(
     input: TagDeliveryStreamCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1TagDeliveryStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TagDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1TagDeliveryStreamCommand(output, context);
   }

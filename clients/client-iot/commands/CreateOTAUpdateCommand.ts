@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateOTAUpdateCommandInput = CreateOTAUpdateRequest;
@@ -67,14 +67,14 @@ export class CreateOTAUpdateCommand extends $Command<
 
   private serialize(
     input: CreateOTAUpdateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateOTAUpdateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateOTAUpdateCommandOutput> {
     return deserializeAws_restJson1_1CreateOTAUpdateCommand(output, context);
   }

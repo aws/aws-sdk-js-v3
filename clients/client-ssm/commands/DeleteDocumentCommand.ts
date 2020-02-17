@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDocumentCommandInput = DeleteDocumentRequest;
@@ -64,14 +64,14 @@ export class DeleteDocumentCommand extends $Command<
 
   private serialize(
     input: DeleteDocumentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDocumentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDocumentCommandOutput> {
     return deserializeAws_json1_1DeleteDocumentCommand(output, context);
   }

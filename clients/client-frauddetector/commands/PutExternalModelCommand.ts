@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutExternalModelCommandInput = PutExternalModelRequest;
@@ -67,14 +67,14 @@ export class PutExternalModelCommand extends $Command<
 
   private serialize(
     input: PutExternalModelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutExternalModelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutExternalModelCommandOutput> {
     return deserializeAws_json1_1PutExternalModelCommand(output, context);
   }

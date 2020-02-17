@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUserSecurityProfilesCommandInput = UpdateUserSecurityProfilesRequest;
@@ -68,7 +68,7 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
 
   private serialize(
     input: UpdateUserSecurityProfilesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
       input,
@@ -78,7 +78,7 @@ export class UpdateUserSecurityProfilesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateUserSecurityProfilesCommandOutput> {
     return deserializeAws_restJson1_1UpdateUserSecurityProfilesCommand(
       output,

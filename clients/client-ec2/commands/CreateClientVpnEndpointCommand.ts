@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateClientVpnEndpointCommandInput = CreateClientVpnEndpointRequest;
@@ -70,14 +70,14 @@ export class CreateClientVpnEndpointCommand extends $Command<
 
   private serialize(
     input: CreateClientVpnEndpointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateClientVpnEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateClientVpnEndpointCommandOutput> {
     return deserializeAws_ec2CreateClientVpnEndpointCommand(output, context);
   }

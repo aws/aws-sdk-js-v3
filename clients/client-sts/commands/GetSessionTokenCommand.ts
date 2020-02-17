@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSessionTokenCommandInput = GetSessionTokenRequest;
@@ -67,14 +67,14 @@ export class GetSessionTokenCommand extends $Command<
 
   private serialize(
     input: GetSessionTokenCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetSessionTokenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSessionTokenCommandOutput> {
     return deserializeAws_queryGetSessionTokenCommand(output, context);
   }

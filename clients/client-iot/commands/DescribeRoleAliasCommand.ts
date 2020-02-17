@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRoleAliasCommandInput = DescribeRoleAliasRequest;
@@ -67,14 +67,14 @@ export class DescribeRoleAliasCommand extends $Command<
 
   private serialize(
     input: DescribeRoleAliasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeRoleAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeRoleAliasCommandOutput> {
     return deserializeAws_restJson1_1DescribeRoleAliasCommand(output, context);
   }

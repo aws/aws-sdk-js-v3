@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListXssMatchSetsCommandInput = ListXssMatchSetsRequest;
@@ -67,14 +67,14 @@ export class ListXssMatchSetsCommand extends $Command<
 
   private serialize(
     input: ListXssMatchSetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListXssMatchSetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListXssMatchSetsCommandOutput> {
     return deserializeAws_json1_1ListXssMatchSetsCommand(output, context);
   }

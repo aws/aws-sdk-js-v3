@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConferenceProviderCommandInput = UpdateConferenceProviderRequest;
@@ -70,14 +70,14 @@ export class UpdateConferenceProviderCommand extends $Command<
 
   private serialize(
     input: UpdateConferenceProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateConferenceProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateConferenceProviderCommandOutput> {
     return deserializeAws_json1_1UpdateConferenceProviderCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CloseTunnelCommandInput = CloseTunnelRequest;
@@ -64,14 +64,14 @@ export class CloseTunnelCommand extends $Command<
 
   private serialize(
     input: CloseTunnelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CloseTunnelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CloseTunnelCommandOutput> {
     return deserializeAws_json1_1CloseTunnelCommand(output, context);
   }

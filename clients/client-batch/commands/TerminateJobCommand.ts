@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateJobCommandInput = TerminateJobRequest;
@@ -64,14 +64,14 @@ export class TerminateJobCommand extends $Command<
 
   private serialize(
     input: TerminateJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1TerminateJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TerminateJobCommandOutput> {
     return deserializeAws_restJson1_1TerminateJobCommand(output, context);
   }

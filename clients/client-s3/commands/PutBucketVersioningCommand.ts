@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBucketVersioningCommandInput = PutBucketVersioningRequest;
@@ -70,14 +70,14 @@ export class PutBucketVersioningCommand extends $Command<
 
   private serialize(
     input: PutBucketVersioningCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketVersioningCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutBucketVersioningCommandOutput> {
     return deserializeAws_restXmlPutBucketVersioningCommand(output, context);
   }

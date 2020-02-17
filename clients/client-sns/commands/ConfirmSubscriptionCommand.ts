@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmSubscriptionCommandInput = ConfirmSubscriptionInput;
@@ -70,14 +70,14 @@ export class ConfirmSubscriptionCommand extends $Command<
 
   private serialize(
     input: ConfirmSubscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryConfirmSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ConfirmSubscriptionCommandOutput> {
     return deserializeAws_queryConfirmSubscriptionCommand(output, context);
   }

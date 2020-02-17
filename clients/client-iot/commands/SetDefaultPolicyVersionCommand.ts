@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetDefaultPolicyVersionCommandInput = SetDefaultPolicyVersionRequest;
@@ -68,7 +68,7 @@ export class SetDefaultPolicyVersionCommand extends $Command<
 
   private serialize(
     input: SetDefaultPolicyVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SetDefaultPolicyVersionCommand(
       input,
@@ -78,7 +78,7 @@ export class SetDefaultPolicyVersionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetDefaultPolicyVersionCommandOutput> {
     return deserializeAws_restJson1_1SetDefaultPolicyVersionCommand(
       output,

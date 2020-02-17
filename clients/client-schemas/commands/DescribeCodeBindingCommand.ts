@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCodeBindingCommandInput = DescribeCodeBindingRequest;
@@ -70,14 +70,14 @@ export class DescribeCodeBindingCommand extends $Command<
 
   private serialize(
     input: DescribeCodeBindingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeCodeBindingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCodeBindingCommandOutput> {
     return deserializeAws_restJson1_1DescribeCodeBindingCommand(
       output,

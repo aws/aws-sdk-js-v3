@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ContinueUpdateRollbackCommandInput = ContinueUpdateRollbackInput;
@@ -70,14 +70,14 @@ export class ContinueUpdateRollbackCommand extends $Command<
 
   private serialize(
     input: ContinueUpdateRollbackCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryContinueUpdateRollbackCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ContinueUpdateRollbackCommandOutput> {
     return deserializeAws_queryContinueUpdateRollbackCommand(output, context);
   }

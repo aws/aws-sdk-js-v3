@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDataCollectionByAgentIdsCommandInput = StopDataCollectionByAgentIdsRequest;
@@ -70,7 +70,7 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
 
   private serialize(
     input: StopDataCollectionByAgentIdsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopDataCollectionByAgentIdsCommand(
       input,
@@ -80,7 +80,7 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopDataCollectionByAgentIdsCommandOutput> {
     return deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(
       output,

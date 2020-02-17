@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDirectoryConfigsCommandInput = DescribeDirectoryConfigsRequest;
@@ -70,14 +70,14 @@ export class DescribeDirectoryConfigsCommand extends $Command<
 
   private serialize(
     input: DescribeDirectoryConfigsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDirectoryConfigsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDirectoryConfigsCommandOutput> {
     return deserializeAws_json1_1DescribeDirectoryConfigsCommand(
       output,

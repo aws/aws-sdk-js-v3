@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateClusterParameterGroupCommandInput = CreateClusterParameterGroupMessage;
@@ -70,14 +70,14 @@ export class CreateClusterParameterGroupCommand extends $Command<
 
   private serialize(
     input: CreateClusterParameterGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateClusterParameterGroupCommandOutput> {
     return deserializeAws_queryCreateClusterParameterGroupCommand(
       output,

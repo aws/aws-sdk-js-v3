@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBParameterGroupsCommandInput = DescribeDBParameterGroupsMessage;
@@ -70,14 +70,14 @@ export class DescribeDBParameterGroupsCommand extends $Command<
 
   private serialize(
     input: DescribeDBParameterGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBParameterGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDBParameterGroupsCommandOutput> {
     return deserializeAws_queryDescribeDBParameterGroupsCommand(
       output,

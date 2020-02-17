@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservedElasticsearchInstanceOfferingsCommandInput = DescribeReservedElasticsearchInstanceOfferingsRequest;
@@ -72,7 +72,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
 
   private serialize(
     input: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> {
     return deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOfferingsCommand(
       output,

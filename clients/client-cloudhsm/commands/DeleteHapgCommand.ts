@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteHapgCommandInput = DeleteHapgRequest;
@@ -64,14 +64,14 @@ export class DeleteHapgCommand extends $Command<
 
   private serialize(
     input: DeleteHapgCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteHapgCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteHapgCommandOutput> {
     return deserializeAws_json1_1DeleteHapgCommand(output, context);
   }

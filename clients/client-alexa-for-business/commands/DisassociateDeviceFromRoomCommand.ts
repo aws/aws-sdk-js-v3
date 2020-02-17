@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateDeviceFromRoomCommandInput = DisassociateDeviceFromRoomRequest;
@@ -70,7 +70,7 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
 
   private serialize(
     input: DisassociateDeviceFromRoomCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDeviceFromRoomCommand(
       input,
@@ -80,7 +80,7 @@ export class DisassociateDeviceFromRoomCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateDeviceFromRoomCommandOutput> {
     return deserializeAws_json1_1DisassociateDeviceFromRoomCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMeshCommandInput = DescribeMeshInput;
@@ -64,14 +64,14 @@ export class DescribeMeshCommand extends $Command<
 
   private serialize(
     input: DescribeMeshCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeMeshCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeMeshCommandOutput> {
     return deserializeAws_restJson1_1DescribeMeshCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCostForecastCommandInput = GetCostForecastRequest;
@@ -67,14 +67,14 @@ export class GetCostForecastCommand extends $Command<
 
   private serialize(
     input: GetCostForecastCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCostForecastCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCostForecastCommandOutput> {
     return deserializeAws_json1_1GetCostForecastCommand(output, context);
   }

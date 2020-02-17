@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTrafficPolicyCommentCommandInput = UpdateTrafficPolicyCommentRequest;
@@ -72,7 +72,7 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
 
   private serialize(
     input: UpdateTrafficPolicyCommentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateTrafficPolicyCommentCommand(
       input,
@@ -82,7 +82,7 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateTrafficPolicyCommentCommandOutput> {
     return deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBackupJobCommandInput = DescribeBackupJobInput;
@@ -67,14 +67,14 @@ export class DescribeBackupJobCommand extends $Command<
 
   private serialize(
     input: DescribeBackupJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeBackupJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeBackupJobCommandOutput> {
     return deserializeAws_restJson1_1DescribeBackupJobCommand(output, context);
   }

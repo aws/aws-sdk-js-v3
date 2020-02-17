@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteV2LoggingLevelCommandInput = DeleteV2LoggingLevelRequest;
@@ -68,14 +68,14 @@ export class DeleteV2LoggingLevelCommand extends $Command<
 
   private serialize(
     input: DeleteV2LoggingLevelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteV2LoggingLevelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteV2LoggingLevelCommandOutput> {
     return deserializeAws_restJson1_1DeleteV2LoggingLevelCommand(
       output,

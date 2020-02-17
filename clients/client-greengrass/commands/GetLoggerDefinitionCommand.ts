@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLoggerDefinitionCommandInput = GetLoggerDefinitionRequest;
@@ -70,14 +70,14 @@ export class GetLoggerDefinitionCommand extends $Command<
 
   private serialize(
     input: GetLoggerDefinitionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetLoggerDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetLoggerDefinitionCommandOutput> {
     return deserializeAws_restJson1_1GetLoggerDefinitionCommand(
       output,

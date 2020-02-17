@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstancePlacementCommandInput = ModifyInstancePlacementRequest;
@@ -70,14 +70,14 @@ export class ModifyInstancePlacementCommand extends $Command<
 
   private serialize(
     input: ModifyInstancePlacementCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstancePlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyInstancePlacementCommandOutput> {
     return deserializeAws_ec2ModifyInstancePlacementCommand(output, context);
   }

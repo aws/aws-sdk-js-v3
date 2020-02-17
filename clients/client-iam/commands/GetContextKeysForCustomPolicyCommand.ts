@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetContextKeysForCustomPolicyCommandInput = GetContextKeysForCustomPolicyRequest;
@@ -70,7 +70,7 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
 
   private serialize(
     input: GetContextKeysForCustomPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetContextKeysForCustomPolicyCommand(
       input,
@@ -80,7 +80,7 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetContextKeysForCustomPolicyCommandOutput> {
     return deserializeAws_queryGetContextKeysForCustomPolicyCommand(
       output,

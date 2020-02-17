@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLDAPSSettingsCommandInput = DescribeLDAPSSettingsRequest;
@@ -70,14 +70,14 @@ export class DescribeLDAPSSettingsCommand extends $Command<
 
   private serialize(
     input: DescribeLDAPSSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLDAPSSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLDAPSSettingsCommandOutput> {
     return deserializeAws_json1_1DescribeLDAPSSettingsCommand(output, context);
   }

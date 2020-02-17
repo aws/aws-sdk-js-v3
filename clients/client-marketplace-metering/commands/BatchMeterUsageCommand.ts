@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchMeterUsageCommandInput = BatchMeterUsageRequest;
@@ -64,14 +64,14 @@ export class BatchMeterUsageCommand extends $Command<
 
   private serialize(
     input: BatchMeterUsageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchMeterUsageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchMeterUsageCommandOutput> {
     return deserializeAws_json1_1BatchMeterUsageCommand(output, context);
   }

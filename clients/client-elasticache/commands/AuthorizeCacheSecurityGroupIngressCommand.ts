@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AuthorizeCacheSecurityGroupIngressCommandInput = AuthorizeCacheSecurityGroupIngressMessage;
@@ -70,7 +70,7 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
 
   private serialize(
     input: AuthorizeCacheSecurityGroupIngressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
       input,
@@ -80,7 +80,7 @@ export class AuthorizeCacheSecurityGroupIngressCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> {
     return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand(
       output,

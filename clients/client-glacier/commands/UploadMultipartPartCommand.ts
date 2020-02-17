@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadMultipartPartCommandInput = UploadMultipartPartInput;
@@ -70,14 +70,14 @@ export class UploadMultipartPartCommand extends $Command<
 
   private serialize(
     input: UploadMultipartPartCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UploadMultipartPartCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UploadMultipartPartCommandOutput> {
     return deserializeAws_restJson1_1UploadMultipartPartCommand(
       output,

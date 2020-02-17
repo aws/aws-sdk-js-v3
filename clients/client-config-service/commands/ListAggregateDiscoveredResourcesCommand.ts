@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAggregateDiscoveredResourcesCommandInput = ListAggregateDiscoveredResourcesRequest;
@@ -70,7 +70,7 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
 
   private serialize(
     input: ListAggregateDiscoveredResourcesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
       input,
@@ -80,7 +80,7 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> {
     return deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
       output,

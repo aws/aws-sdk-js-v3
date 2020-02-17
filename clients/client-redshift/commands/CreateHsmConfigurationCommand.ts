@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
@@ -70,14 +70,14 @@ export class CreateHsmConfigurationCommand extends $Command<
 
   private serialize(
     input: CreateHsmConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateHsmConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateHsmConfigurationCommandOutput> {
     return deserializeAws_queryCreateHsmConfigurationCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAccountSettingsCommandInput = ListAccountSettingsRequest;
@@ -70,14 +70,14 @@ export class ListAccountSettingsCommand extends $Command<
 
   private serialize(
     input: ListAccountSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAccountSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAccountSettingsCommandOutput> {
     return deserializeAws_json1_1ListAccountSettingsCommand(output, context);
   }

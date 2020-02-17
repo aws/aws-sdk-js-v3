@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutEventStreamCommandInput = PutEventStreamRequest;
@@ -64,14 +64,14 @@ export class PutEventStreamCommand extends $Command<
 
   private serialize(
     input: PutEventStreamCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutEventStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutEventStreamCommandOutput> {
     return deserializeAws_restJson1_1PutEventStreamCommand(output, context);
   }

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFieldLevelEncryptionConfigCommandInput = DeleteFieldLevelEncryptionConfigRequest;
@@ -68,7 +68,7 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
 
   private serialize(
     input: DeleteFieldLevelEncryptionConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteFieldLevelEncryptionConfigCommandOutput> {
     return deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand(
       output,

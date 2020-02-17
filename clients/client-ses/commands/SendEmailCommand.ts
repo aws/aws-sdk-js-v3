@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendEmailCommandInput = SendEmailRequest;
@@ -64,14 +64,14 @@ export class SendEmailCommand extends $Command<
 
   private serialize(
     input: SendEmailCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySendEmailCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SendEmailCommandOutput> {
     return deserializeAws_querySendEmailCommand(output, context);
   }

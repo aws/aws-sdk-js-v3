@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportInstallationMediaCommandInput = ImportInstallationMediaMessage;
@@ -70,14 +70,14 @@ export class ImportInstallationMediaCommand extends $Command<
 
   private serialize(
     input: ImportInstallationMediaCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryImportInstallationMediaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ImportInstallationMediaCommandOutput> {
     return deserializeAws_queryImportInstallationMediaCommand(output, context);
   }

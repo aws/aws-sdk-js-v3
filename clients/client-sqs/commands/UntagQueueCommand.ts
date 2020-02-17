@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UntagQueueCommandInput = UntagQueueRequest;
@@ -65,14 +65,14 @@ export class UntagQueueCommand extends $Command<
 
   private serialize(
     input: UntagQueueCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUntagQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UntagQueueCommandOutput> {
     return deserializeAws_queryUntagQueueCommand(output, context);
   }

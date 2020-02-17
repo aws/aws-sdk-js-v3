@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteListenerCommandInput = DeleteListenerInput;
@@ -64,14 +64,14 @@ export class DeleteListenerCommand extends $Command<
 
   private serialize(
     input: DeleteListenerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteListenerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteListenerCommandOutput> {
     return deserializeAws_queryDeleteListenerCommand(output, context);
   }

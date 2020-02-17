@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchProvisionedProductsCommandInput = SearchProvisionedProductsInput;
@@ -70,14 +70,14 @@ export class SearchProvisionedProductsCommand extends $Command<
 
   private serialize(
     input: SearchProvisionedProductsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchProvisionedProductsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchProvisionedProductsCommandOutput> {
     return deserializeAws_json1_1SearchProvisionedProductsCommand(
       output,

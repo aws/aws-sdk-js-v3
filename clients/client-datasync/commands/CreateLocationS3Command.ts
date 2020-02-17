@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLocationS3CommandInput = CreateLocationS3Request;
@@ -67,14 +67,14 @@ export class CreateLocationS3Command extends $Command<
 
   private serialize(
     input: CreateLocationS3CommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLocationS3Command(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateLocationS3CommandOutput> {
     return deserializeAws_json1_1CreateLocationS3Command(output, context);
   }

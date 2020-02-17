@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptReservedInstancesExchangeQuoteCommandInput = AcceptReservedInstancesExchangeQuoteRequest;
@@ -72,7 +72,7 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
 
   private serialize(
     input: AcceptReservedInstancesExchangeQuoteCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(
       input,
@@ -82,7 +82,7 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> {
     return deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(
       output,

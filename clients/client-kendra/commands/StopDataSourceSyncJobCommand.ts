@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDataSourceSyncJobCommandInput = StopDataSourceSyncJobRequest;
@@ -68,14 +68,14 @@ export class StopDataSourceSyncJobCommand extends $Command<
 
   private serialize(
     input: StopDataSourceSyncJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopDataSourceSyncJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopDataSourceSyncJobCommandOutput> {
     return deserializeAws_json1_1StopDataSourceSyncJobCommand(output, context);
   }

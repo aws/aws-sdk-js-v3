@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRobotApplicationVersionCommandInput = CreateRobotApplicationVersionRequest;
@@ -70,7 +70,7 @@ export class CreateRobotApplicationVersionCommand extends $Command<
 
   private serialize(
     input: CreateRobotApplicationVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateRobotApplicationVersionCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateRobotApplicationVersionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateRobotApplicationVersionCommandOutput> {
     return deserializeAws_restJson1_1CreateRobotApplicationVersionCommand(
       output,

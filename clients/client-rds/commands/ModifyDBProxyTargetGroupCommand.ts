@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBProxyTargetGroupCommandInput = ModifyDBProxyTargetGroupRequest;
@@ -70,14 +70,14 @@ export class ModifyDBProxyTargetGroupCommand extends $Command<
 
   private serialize(
     input: ModifyDBProxyTargetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBProxyTargetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyDBProxyTargetGroupCommandOutput> {
     return deserializeAws_queryModifyDBProxyTargetGroupCommand(output, context);
   }

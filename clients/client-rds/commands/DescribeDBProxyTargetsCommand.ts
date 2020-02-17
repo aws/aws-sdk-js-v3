@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBProxyTargetsCommandInput = DescribeDBProxyTargetsRequest;
@@ -70,14 +70,14 @@ export class DescribeDBProxyTargetsCommand extends $Command<
 
   private serialize(
     input: DescribeDBProxyTargetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBProxyTargetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDBProxyTargetsCommandOutput> {
     return deserializeAws_queryDescribeDBProxyTargetsCommand(output, context);
   }

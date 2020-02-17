@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RetryStageExecutionCommandInput = RetryStageExecutionInput;
@@ -70,14 +70,14 @@ export class RetryStageExecutionCommand extends $Command<
 
   private serialize(
     input: RetryStageExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RetryStageExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RetryStageExecutionCommandOutput> {
     return deserializeAws_json1_1RetryStageExecutionCommand(output, context);
   }

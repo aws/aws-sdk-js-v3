@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAuthEventFeedbackCommandInput = UpdateAuthEventFeedbackRequest;
@@ -70,14 +70,14 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
 
   private serialize(
     input: UpdateAuthEventFeedbackCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAuthEventFeedbackCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateAuthEventFeedbackCommandOutput> {
     return deserializeAws_json1_1UpdateAuthEventFeedbackCommand(
       output,

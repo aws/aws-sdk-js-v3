@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTagsForDomainCommandInput = UpdateTagsForDomainRequest;
@@ -70,14 +70,14 @@ export class UpdateTagsForDomainCommand extends $Command<
 
   private serialize(
     input: UpdateTagsForDomainCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTagsForDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateTagsForDomainCommandOutput> {
     return deserializeAws_json1_1UpdateTagsForDomainCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBSnapshotCommandInput = ModifyDBSnapshotMessage;
@@ -67,14 +67,14 @@ export class ModifyDBSnapshotCommand extends $Command<
 
   private serialize(
     input: ModifyDBSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyDBSnapshotCommandOutput> {
     return deserializeAws_queryModifyDBSnapshotCommand(output, context);
   }

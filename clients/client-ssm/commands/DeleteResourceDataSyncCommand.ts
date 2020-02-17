@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteResourceDataSyncCommandInput = DeleteResourceDataSyncRequest;
@@ -70,14 +70,14 @@ export class DeleteResourceDataSyncCommand extends $Command<
 
   private serialize(
     input: DeleteResourceDataSyncCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourceDataSyncCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteResourceDataSyncCommandOutput> {
     return deserializeAws_json1_1DeleteResourceDataSyncCommand(output, context);
   }

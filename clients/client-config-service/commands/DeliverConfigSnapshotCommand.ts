@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeliverConfigSnapshotCommandInput = DeliverConfigSnapshotRequest;
@@ -70,14 +70,14 @@ export class DeliverConfigSnapshotCommand extends $Command<
 
   private serialize(
     input: DeliverConfigSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeliverConfigSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeliverConfigSnapshotCommandOutput> {
     return deserializeAws_json1_1DeliverConfigSnapshotCommand(output, context);
   }

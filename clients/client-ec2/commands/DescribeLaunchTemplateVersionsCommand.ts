@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLaunchTemplateVersionsCommandInput = DescribeLaunchTemplateVersionsRequest;
@@ -70,7 +70,7 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
 
   private serialize(
     input: DescribeLaunchTemplateVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeLaunchTemplateVersionsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLaunchTemplateVersionsCommandOutput> {
     return deserializeAws_ec2DescribeLaunchTemplateVersionsCommand(
       output,

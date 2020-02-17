@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SimulatePrincipalPolicyCommandInput = SimulatePrincipalPolicyRequest;
@@ -70,14 +70,14 @@ export class SimulatePrincipalPolicyCommand extends $Command<
 
   private serialize(
     input: SimulatePrincipalPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySimulatePrincipalPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SimulatePrincipalPolicyCommandOutput> {
     return deserializeAws_querySimulatePrincipalPolicyCommand(output, context);
   }

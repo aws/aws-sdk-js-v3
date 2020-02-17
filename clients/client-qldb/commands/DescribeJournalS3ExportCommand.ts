@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeJournalS3ExportCommandInput = DescribeJournalS3ExportRequest;
@@ -70,7 +70,7 @@ export class DescribeJournalS3ExportCommand extends $Command<
 
   private serialize(
     input: DescribeJournalS3ExportCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeJournalS3ExportCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeJournalS3ExportCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeJournalS3ExportCommandOutput> {
     return deserializeAws_restJson1_1DescribeJournalS3ExportCommand(
       output,

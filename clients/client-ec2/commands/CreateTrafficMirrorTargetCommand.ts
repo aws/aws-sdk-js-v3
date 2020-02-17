@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTrafficMirrorTargetCommandInput = CreateTrafficMirrorTargetRequest;
@@ -70,14 +70,14 @@ export class CreateTrafficMirrorTargetCommand extends $Command<
 
   private serialize(
     input: CreateTrafficMirrorTargetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateTrafficMirrorTargetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateTrafficMirrorTargetCommandOutput> {
     return deserializeAws_ec2CreateTrafficMirrorTargetCommand(output, context);
   }

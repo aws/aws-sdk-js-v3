@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConnectionCommandInput = CreateConnectionRequest;
@@ -67,14 +67,14 @@ export class CreateConnectionCommand extends $Command<
 
   private serialize(
     input: CreateConnectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateConnectionCommandOutput> {
     return deserializeAws_json1_1CreateConnectionCommand(output, context);
   }

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSnapshotScheduleCommandInput = DeleteSnapshotScheduleMessage;
@@ -68,14 +68,14 @@ export class DeleteSnapshotScheduleCommand extends $Command<
 
   private serialize(
     input: DeleteSnapshotScheduleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteSnapshotScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSnapshotScheduleCommandOutput> {
     return deserializeAws_queryDeleteSnapshotScheduleCommand(output, context);
   }

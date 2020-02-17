@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteJobTemplateCommandInput = DeleteJobTemplateRequest;
@@ -67,14 +67,14 @@ export class DeleteJobTemplateCommand extends $Command<
 
   private serialize(
     input: DeleteJobTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteJobTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteJobTemplateCommandOutput> {
     return deserializeAws_restJson1_1DeleteJobTemplateCommand(output, context);
   }

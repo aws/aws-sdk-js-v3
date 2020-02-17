@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateVocabularyCommandInput = UpdateVocabularyRequest;
@@ -67,14 +67,14 @@ export class UpdateVocabularyCommand extends $Command<
 
   private serialize(
     input: UpdateVocabularyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVocabularyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateVocabularyCommandOutput> {
     return deserializeAws_json1_1UpdateVocabularyCommand(output, context);
   }

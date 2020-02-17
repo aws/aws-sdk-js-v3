@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRegexMatchSetCommandInput = UpdateRegexMatchSetRequest;
@@ -70,14 +70,14 @@ export class UpdateRegexMatchSetCommand extends $Command<
 
   private serialize(
     input: UpdateRegexMatchSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateRegexMatchSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateRegexMatchSetCommandOutput> {
     return deserializeAws_json1_1UpdateRegexMatchSetCommand(output, context);
   }

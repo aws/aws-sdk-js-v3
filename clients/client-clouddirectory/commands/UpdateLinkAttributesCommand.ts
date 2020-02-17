@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateLinkAttributesCommandInput = UpdateLinkAttributesRequest;
@@ -70,14 +70,14 @@ export class UpdateLinkAttributesCommand extends $Command<
 
   private serialize(
     input: UpdateLinkAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateLinkAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateLinkAttributesCommandOutput> {
     return deserializeAws_restJson1_1UpdateLinkAttributesCommand(
       output,

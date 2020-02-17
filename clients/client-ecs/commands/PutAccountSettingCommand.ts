@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutAccountSettingCommandInput = PutAccountSettingRequest;
@@ -67,14 +67,14 @@ export class PutAccountSettingCommand extends $Command<
 
   private serialize(
     input: PutAccountSettingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAccountSettingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutAccountSettingCommandOutput> {
     return deserializeAws_json1_1PutAccountSettingCommand(output, context);
   }

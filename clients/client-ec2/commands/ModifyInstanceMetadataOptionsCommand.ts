@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstanceMetadataOptionsCommandInput = ModifyInstanceMetadataOptionsRequest;
@@ -70,14 +70,14 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
 
   private serialize(
     input: ModifyInstanceMetadataOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceMetadataOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyInstanceMetadataOptionsCommandOutput> {
     return deserializeAws_ec2ModifyInstanceMetadataOptionsCommand(
       output,

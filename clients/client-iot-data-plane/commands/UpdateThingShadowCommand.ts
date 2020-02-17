@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateThingShadowCommandInput = UpdateThingShadowRequest;
@@ -67,14 +67,14 @@ export class UpdateThingShadowCommand extends $Command<
 
   private serialize(
     input: UpdateThingShadowCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateThingShadowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateThingShadowCommandOutput> {
     return deserializeAws_restJson1_1UpdateThingShadowCommand(output, context);
   }

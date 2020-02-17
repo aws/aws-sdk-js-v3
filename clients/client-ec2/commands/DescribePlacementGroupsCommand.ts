@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePlacementGroupsCommandInput = DescribePlacementGroupsRequest;
@@ -70,14 +70,14 @@ export class DescribePlacementGroupsCommand extends $Command<
 
   private serialize(
     input: DescribePlacementGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePlacementGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribePlacementGroupsCommandOutput> {
     return deserializeAws_ec2DescribePlacementGroupsCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutGatewayResponseCommandInput = PutGatewayResponseRequest;
@@ -64,14 +64,14 @@ export class PutGatewayResponseCommand extends $Command<
 
   private serialize(
     input: PutGatewayResponseCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutGatewayResponseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutGatewayResponseCommandOutput> {
     return deserializeAws_restJson1_1PutGatewayResponseCommand(output, context);
   }

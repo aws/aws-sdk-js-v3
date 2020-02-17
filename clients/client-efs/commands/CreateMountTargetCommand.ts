@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateMountTargetCommandInput = CreateMountTargetRequest;
@@ -67,14 +67,14 @@ export class CreateMountTargetCommand extends $Command<
 
   private serialize(
     input: CreateMountTargetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateMountTargetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateMountTargetCommandOutput> {
     return deserializeAws_restJson1_1CreateMountTargetCommand(output, context);
   }

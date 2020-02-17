@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyRuleCommandInput = ModifyRuleInput;
@@ -64,14 +64,14 @@ export class ModifyRuleCommand extends $Command<
 
   private serialize(
     input: ModifyRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyRuleCommandOutput> {
     return deserializeAws_queryModifyRuleCommand(output, context);
   }

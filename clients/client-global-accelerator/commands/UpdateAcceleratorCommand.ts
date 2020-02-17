@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAcceleratorCommandInput = UpdateAcceleratorRequest;
@@ -67,14 +67,14 @@ export class UpdateAcceleratorCommand extends $Command<
 
   private serialize(
     input: UpdateAcceleratorCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateAcceleratorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateAcceleratorCommandOutput> {
     return deserializeAws_json1_1UpdateAcceleratorCommand(output, context);
   }

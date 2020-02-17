@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLogGroupFieldsCommandInput = GetLogGroupFieldsRequest;
@@ -67,14 +67,14 @@ export class GetLogGroupFieldsCommand extends $Command<
 
   private serialize(
     input: GetLogGroupFieldsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLogGroupFieldsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetLogGroupFieldsCommandOutput> {
     return deserializeAws_json1_1GetLogGroupFieldsCommand(output, context);
   }

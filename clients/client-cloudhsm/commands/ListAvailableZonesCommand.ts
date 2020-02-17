@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
@@ -67,14 +67,14 @@ export class ListAvailableZonesCommand extends $Command<
 
   private serialize(
     input: ListAvailableZonesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAvailableZonesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAvailableZonesCommandOutput> {
     return deserializeAws_json1_1ListAvailableZonesCommand(output, context);
   }

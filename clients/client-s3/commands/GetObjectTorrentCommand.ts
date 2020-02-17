@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetObjectTorrentCommandInput = GetObjectTorrentRequest;
@@ -69,14 +69,14 @@ export class GetObjectTorrentCommand extends $Command<
 
   private serialize(
     input: GetObjectTorrentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectTorrentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetObjectTorrentCommandOutput> {
     return deserializeAws_restXmlGetObjectTorrentCommand(output, context);
   }

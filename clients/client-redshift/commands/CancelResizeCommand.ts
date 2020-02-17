@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelResizeCommandInput = CancelResizeMessage;
@@ -64,14 +64,14 @@ export class CancelResizeCommand extends $Command<
 
   private serialize(
     input: CancelResizeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCancelResizeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelResizeCommandOutput> {
     return deserializeAws_queryCancelResizeCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteClusterSnapshotsCommandInput = BatchDeleteClusterSnapshotsRequest;
@@ -70,14 +70,14 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
 
   private serialize(
     input: BatchDeleteClusterSnapshotsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryBatchDeleteClusterSnapshotsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchDeleteClusterSnapshotsCommandOutput> {
     return deserializeAws_queryBatchDeleteClusterSnapshotsCommand(
       output,

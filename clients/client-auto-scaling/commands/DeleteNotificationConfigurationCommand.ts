@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNotificationConfigurationCommandInput = DeleteNotificationConfigurationType;
@@ -68,7 +68,7 @@ export class DeleteNotificationConfigurationCommand extends $Command<
 
   private serialize(
     input: DeleteNotificationConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteNotificationConfigurationCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteNotificationConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteNotificationConfigurationCommandOutput> {
     return deserializeAws_queryDeleteNotificationConfigurationCommand(
       output,

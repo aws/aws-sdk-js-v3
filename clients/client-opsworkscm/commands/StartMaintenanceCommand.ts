@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartMaintenanceCommandInput = StartMaintenanceRequest;
@@ -67,14 +67,14 @@ export class StartMaintenanceCommand extends $Command<
 
   private serialize(
     input: StartMaintenanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartMaintenanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartMaintenanceCommandOutput> {
     return deserializeAws_json1_1StartMaintenanceCommand(output, context);
   }

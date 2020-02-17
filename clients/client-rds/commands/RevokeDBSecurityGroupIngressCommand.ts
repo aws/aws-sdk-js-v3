@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeDBSecurityGroupIngressCommandInput = RevokeDBSecurityGroupIngressMessage;
@@ -70,7 +70,7 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
 
   private serialize(
     input: RevokeDBSecurityGroupIngressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRevokeDBSecurityGroupIngressCommand(
       input,
@@ -80,7 +80,7 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokeDBSecurityGroupIngressCommandOutput> {
     return deserializeAws_queryRevokeDBSecurityGroupIngressCommand(
       output,

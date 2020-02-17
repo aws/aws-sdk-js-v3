@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeHsmClientCertificatesCommandInput = DescribeHsmClientCertificatesMessage;
@@ -70,7 +70,7 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
 
   private serialize(
     input: DescribeHsmClientCertificatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeHsmClientCertificatesCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeHsmClientCertificatesCommandOutput> {
     return deserializeAws_queryDescribeHsmClientCertificatesCommand(
       output,

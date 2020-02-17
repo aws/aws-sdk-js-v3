@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfigureHealthCheckCommandInput = ConfigureHealthCheckInput;
@@ -70,14 +70,14 @@ export class ConfigureHealthCheckCommand extends $Command<
 
   private serialize(
     input: ConfigureHealthCheckCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryConfigureHealthCheckCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ConfigureHealthCheckCommandOutput> {
     return deserializeAws_queryConfigureHealthCheckCommand(output, context);
   }

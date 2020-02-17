@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeSecurityGroupEgressCommandInput = RevokeSecurityGroupEgressRequest;
@@ -68,14 +68,14 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
 
   private serialize(
     input: RevokeSecurityGroupEgressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2RevokeSecurityGroupEgressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokeSecurityGroupEgressCommandOutput> {
     return deserializeAws_ec2RevokeSecurityGroupEgressCommand(output, context);
   }

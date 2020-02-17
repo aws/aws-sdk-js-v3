@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRobotCommandInput = DescribeRobotRequest;
@@ -64,14 +64,14 @@ export class DescribeRobotCommand extends $Command<
 
   private serialize(
     input: DescribeRobotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeRobotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeRobotCommandOutput> {
     return deserializeAws_restJson1_1DescribeRobotCommand(output, context);
   }

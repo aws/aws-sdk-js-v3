@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityHeadersInNotificationsEnabledCommandInput = SetIdentityHeadersInNotificationsEnabledRequest;
@@ -72,7 +72,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
 
   private serialize(
     input: SetIdentityHeadersInNotificationsEnabledCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(
       input,
@@ -82,7 +82,7 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> {
     return deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand(
       output,

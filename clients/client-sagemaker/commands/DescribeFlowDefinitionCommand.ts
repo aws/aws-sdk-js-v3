@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeFlowDefinitionCommandInput = DescribeFlowDefinitionRequest;
@@ -70,14 +70,14 @@ export class DescribeFlowDefinitionCommand extends $Command<
 
   private serialize(
     input: DescribeFlowDefinitionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeFlowDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeFlowDefinitionCommandOutput> {
     return deserializeAws_json1_1DescribeFlowDefinitionCommand(output, context);
   }

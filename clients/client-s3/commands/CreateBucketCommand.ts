@@ -20,8 +20,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBucketCommandInput = CreateBucketRequest;
@@ -66,14 +66,14 @@ export class CreateBucketCommand extends $Command<
 
   private serialize(
     input: CreateBucketCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateBucketCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateBucketCommandOutput> {
     return deserializeAws_restXmlCreateBucketCommand(output, context);
   }

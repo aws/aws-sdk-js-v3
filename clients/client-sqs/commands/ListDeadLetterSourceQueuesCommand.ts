@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDeadLetterSourceQueuesCommandInput = ListDeadLetterSourceQueuesRequest;
@@ -70,14 +70,14 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
 
   private serialize(
     input: ListDeadLetterSourceQueuesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListDeadLetterSourceQueuesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListDeadLetterSourceQueuesCommandOutput> {
     return deserializeAws_queryListDeadLetterSourceQueuesCommand(
       output,

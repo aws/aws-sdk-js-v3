@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDefaultVpcCommandInput = CreateDefaultVpcRequest;
@@ -67,14 +67,14 @@ export class CreateDefaultVpcCommand extends $Command<
 
   private serialize(
     input: CreateDefaultVpcCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateDefaultVpcCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDefaultVpcCommandOutput> {
     return deserializeAws_ec2CreateDefaultVpcCommand(output, context);
   }

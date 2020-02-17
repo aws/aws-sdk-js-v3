@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateServiceRoleFromAccountCommandInput = DisassociateServiceRoleFromAccountRequest;
@@ -70,7 +70,7 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
 
   private serialize(
     input: DisassociateServiceRoleFromAccountCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(
       input,
@@ -80,7 +80,7 @@ export class DisassociateServiceRoleFromAccountCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateServiceRoleFromAccountCommandOutput> {
     return deserializeAws_restJson1_1DisassociateServiceRoleFromAccountCommand(
       output,

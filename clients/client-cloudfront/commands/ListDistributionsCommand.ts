@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDistributionsCommandInput = ListDistributionsRequest;
@@ -67,14 +67,14 @@ export class ListDistributionsCommand extends $Command<
 
   private serialize(
     input: ListDistributionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlListDistributionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListDistributionsCommandOutput> {
     return deserializeAws_restXmlListDistributionsCommand(output, context);
   }

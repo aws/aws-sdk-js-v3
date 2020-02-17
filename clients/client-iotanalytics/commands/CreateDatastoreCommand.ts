@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDatastoreCommandInput = CreateDatastoreRequest;
@@ -67,14 +67,14 @@ export class CreateDatastoreCommand extends $Command<
 
   private serialize(
     input: CreateDatastoreCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateDatastoreCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDatastoreCommandOutput> {
     return deserializeAws_restJson1_1CreateDatastoreCommand(output, context);
   }

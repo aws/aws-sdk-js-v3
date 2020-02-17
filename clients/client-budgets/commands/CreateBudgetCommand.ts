@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBudgetCommandInput = CreateBudgetRequest;
@@ -64,14 +64,14 @@ export class CreateBudgetCommand extends $Command<
 
   private serialize(
     input: CreateBudgetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateBudgetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateBudgetCommandOutput> {
     return deserializeAws_json1_1CreateBudgetCommand(output, context);
   }

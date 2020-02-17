@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmTopicRuleDestinationCommandInput = ConfirmTopicRuleDestinationRequest;
@@ -70,7 +70,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
 
   private serialize(
     input: ConfirmTopicRuleDestinationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(
       input,
@@ -80,7 +80,7 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ConfirmTopicRuleDestinationCommandOutput> {
     return deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommand(
       output,

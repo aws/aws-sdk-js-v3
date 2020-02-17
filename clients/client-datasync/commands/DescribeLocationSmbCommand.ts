@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLocationSmbCommandInput = DescribeLocationSmbRequest;
@@ -70,14 +70,14 @@ export class DescribeLocationSmbCommand extends $Command<
 
   private serialize(
     input: DescribeLocationSmbCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLocationSmbCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLocationSmbCommandOutput> {
     return deserializeAws_json1_1DescribeLocationSmbCommand(output, context);
   }

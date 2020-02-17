@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSizeConstraintSetCommandInput = UpdateSizeConstraintSetRequest;
@@ -70,14 +70,14 @@ export class UpdateSizeConstraintSetCommand extends $Command<
 
   private serialize(
     input: UpdateSizeConstraintSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSizeConstraintSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSizeConstraintSetCommandOutput> {
     return deserializeAws_json1_1UpdateSizeConstraintSetCommand(
       output,

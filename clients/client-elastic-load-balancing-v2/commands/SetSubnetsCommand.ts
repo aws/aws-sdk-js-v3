@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetSubnetsCommandInput = SetSubnetsInput;
@@ -64,14 +64,14 @@ export class SetSubnetsCommand extends $Command<
 
   private serialize(
     input: SetSubnetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetSubnetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetSubnetsCommandOutput> {
     return deserializeAws_querySetSubnetsCommand(output, context);
   }

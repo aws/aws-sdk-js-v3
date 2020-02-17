@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetResourceConfigCommandInput = BatchGetResourceConfigRequest;
@@ -70,14 +70,14 @@ export class BatchGetResourceConfigCommand extends $Command<
 
   private serialize(
     input: BatchGetResourceConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetResourceConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchGetResourceConfigCommandOutput> {
     return deserializeAws_json1_1BatchGetResourceConfigCommand(output, context);
   }

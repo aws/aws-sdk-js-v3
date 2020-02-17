@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAssociatedIpv6PoolCidrsCommandInput = GetAssociatedIpv6PoolCidrsRequest;
@@ -70,14 +70,14 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
 
   private serialize(
     input: GetAssociatedIpv6PoolCidrsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> {
     return deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand(output, context);
   }

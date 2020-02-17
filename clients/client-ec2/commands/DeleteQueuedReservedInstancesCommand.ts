@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteQueuedReservedInstancesCommandInput = DeleteQueuedReservedInstancesRequest;
@@ -70,14 +70,14 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
 
   private serialize(
     input: DeleteQueuedReservedInstancesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteQueuedReservedInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteQueuedReservedInstancesCommandOutput> {
     return deserializeAws_ec2DeleteQueuedReservedInstancesCommand(
       output,

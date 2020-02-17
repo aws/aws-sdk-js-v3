@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBucketLoggingCommandInput = PutBucketLoggingRequest;
@@ -67,14 +67,14 @@ export class PutBucketLoggingCommand extends $Command<
 
   private serialize(
     input: PutBucketLoggingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketLoggingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutBucketLoggingCommandOutput> {
     return deserializeAws_restXmlPutBucketLoggingCommand(output, context);
   }

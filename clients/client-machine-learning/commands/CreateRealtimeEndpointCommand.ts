@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRealtimeEndpointCommandInput = CreateRealtimeEndpointInput;
@@ -70,14 +70,14 @@ export class CreateRealtimeEndpointCommand extends $Command<
 
   private serialize(
     input: CreateRealtimeEndpointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRealtimeEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateRealtimeEndpointCommandOutput> {
     return deserializeAws_json1_1CreateRealtimeEndpointCommand(output, context);
   }

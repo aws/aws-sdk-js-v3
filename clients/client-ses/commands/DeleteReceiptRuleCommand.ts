@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReceiptRuleCommandInput = DeleteReceiptRuleRequest;
@@ -67,14 +67,14 @@ export class DeleteReceiptRuleCommand extends $Command<
 
   private serialize(
     input: DeleteReceiptRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReceiptRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteReceiptRuleCommandOutput> {
     return deserializeAws_queryDeleteReceiptRuleCommand(output, context);
   }

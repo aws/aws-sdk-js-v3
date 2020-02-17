@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SignalWorkflowExecutionCommandInput = SignalWorkflowExecutionInput;
@@ -68,14 +68,14 @@ export class SignalWorkflowExecutionCommand extends $Command<
 
   private serialize(
     input: SignalWorkflowExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0SignalWorkflowExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SignalWorkflowExecutionCommandOutput> {
     return deserializeAws_json1_0SignalWorkflowExecutionCommand(
       output,

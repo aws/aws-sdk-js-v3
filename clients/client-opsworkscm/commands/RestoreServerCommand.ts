@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreServerCommandInput = RestoreServerRequest;
@@ -64,14 +64,14 @@ export class RestoreServerCommand extends $Command<
 
   private serialize(
     input: RestoreServerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreServerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreServerCommandOutput> {
     return deserializeAws_json1_1RestoreServerCommand(output, context);
   }

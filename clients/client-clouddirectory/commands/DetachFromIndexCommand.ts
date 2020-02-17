@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachFromIndexCommandInput = DetachFromIndexRequest;
@@ -67,14 +67,14 @@ export class DetachFromIndexCommand extends $Command<
 
   private serialize(
     input: DetachFromIndexCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DetachFromIndexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetachFromIndexCommandOutput> {
     return deserializeAws_restJson1_1DetachFromIndexCommand(output, context);
   }

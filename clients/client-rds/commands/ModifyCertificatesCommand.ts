@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyCertificatesCommandInput = ModifyCertificatesMessage;
@@ -67,14 +67,14 @@ export class ModifyCertificatesCommand extends $Command<
 
   private serialize(
     input: ModifyCertificatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyCertificatesCommandOutput> {
     return deserializeAws_queryModifyCertificatesCommand(output, context);
   }

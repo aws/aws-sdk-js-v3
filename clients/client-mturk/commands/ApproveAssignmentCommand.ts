@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ApproveAssignmentCommandInput = ApproveAssignmentRequest;
@@ -67,14 +67,14 @@ export class ApproveAssignmentCommand extends $Command<
 
   private serialize(
     input: ApproveAssignmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ApproveAssignmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ApproveAssignmentCommandOutput> {
     return deserializeAws_json1_1ApproveAssignmentCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAdditionalAssignmentsForHITCommandInput = CreateAdditionalAssignmentsForHITRequest;
@@ -70,7 +70,7 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
 
   private serialize(
     input: CreateAdditionalAssignmentsForHITCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> {
     return deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCachediSCSIVolumeCommandInput = CreateCachediSCSIVolumeInput;
@@ -70,14 +70,14 @@ export class CreateCachediSCSIVolumeCommand extends $Command<
 
   private serialize(
     input: CreateCachediSCSIVolumeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCachediSCSIVolumeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCachediSCSIVolumeCommandOutput> {
     return deserializeAws_json1_1CreateCachediSCSIVolumeCommand(
       output,

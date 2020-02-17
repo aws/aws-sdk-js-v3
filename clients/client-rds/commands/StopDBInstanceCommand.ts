@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDBInstanceCommandInput = StopDBInstanceMessage;
@@ -64,14 +64,14 @@ export class StopDBInstanceCommand extends $Command<
 
   private serialize(
     input: StopDBInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryStopDBInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopDBInstanceCommandOutput> {
     return deserializeAws_queryStopDBInstanceCommand(output, context);
   }

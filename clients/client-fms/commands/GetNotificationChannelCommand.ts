@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetNotificationChannelCommandInput = GetNotificationChannelRequest;
@@ -70,14 +70,14 @@ export class GetNotificationChannelCommand extends $Command<
 
   private serialize(
     input: GetNotificationChannelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNotificationChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetNotificationChannelCommandOutput> {
     return deserializeAws_json1_1GetNotificationChannelCommand(output, context);
   }

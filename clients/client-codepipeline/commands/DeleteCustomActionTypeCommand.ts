@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCustomActionTypeCommandInput = DeleteCustomActionTypeInput;
@@ -68,14 +68,14 @@ export class DeleteCustomActionTypeCommand extends $Command<
 
   private serialize(
     input: DeleteCustomActionTypeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCustomActionTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCustomActionTypeCommandOutput> {
     return deserializeAws_json1_1DeleteCustomActionTypeCommand(output, context);
   }

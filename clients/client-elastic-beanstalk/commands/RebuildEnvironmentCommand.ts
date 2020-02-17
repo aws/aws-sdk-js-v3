@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebuildEnvironmentCommandInput = RebuildEnvironmentMessage;
@@ -65,14 +65,14 @@ export class RebuildEnvironmentCommand extends $Command<
 
   private serialize(
     input: RebuildEnvironmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRebuildEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RebuildEnvironmentCommandOutput> {
     return deserializeAws_queryRebuildEnvironmentCommand(output, context);
   }

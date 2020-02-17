@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCrossAccountAccessRoleCommandInput = {};
@@ -67,7 +67,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
 
   private serialize(
     input: DescribeCrossAccountAccessRoleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
       input,
@@ -77,7 +77,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCrossAccountAccessRoleCommandOutput> {
     return deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand(
       output,

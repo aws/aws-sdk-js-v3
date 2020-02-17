@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInstanceSnapshotCommandInput = DeleteInstanceSnapshotRequest;
@@ -70,14 +70,14 @@ export class DeleteInstanceSnapshotCommand extends $Command<
 
   private serialize(
     input: DeleteInstanceSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInstanceSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteInstanceSnapshotCommandOutput> {
     return deserializeAws_json1_1DeleteInstanceSnapshotCommand(output, context);
   }

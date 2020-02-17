@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PurchaseReservedDBInstancesOfferingCommandInput = PurchaseReservedDBInstancesOfferingMessage;
@@ -70,7 +70,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
 
   private serialize(
     input: PurchaseReservedDBInstancesOfferingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPurchaseReservedDBInstancesOfferingCommand(
       input,
@@ -80,7 +80,7 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> {
     return deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand(
       output,

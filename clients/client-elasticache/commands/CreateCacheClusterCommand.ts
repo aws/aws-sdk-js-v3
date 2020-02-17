@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCacheClusterCommandInput = CreateCacheClusterMessage;
@@ -67,14 +67,14 @@ export class CreateCacheClusterCommand extends $Command<
 
   private serialize(
     input: CreateCacheClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCacheClusterCommandOutput> {
     return deserializeAws_queryCreateCacheClusterCommand(output, context);
   }

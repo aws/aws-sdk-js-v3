@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetStackPolicyCommandInput = SetStackPolicyInput;
@@ -65,14 +65,14 @@ export class SetStackPolicyCommand extends $Command<
 
   private serialize(
     input: SetStackPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetStackPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetStackPolicyCommandOutput> {
     return deserializeAws_querySetStackPolicyCommand(output, context);
   }

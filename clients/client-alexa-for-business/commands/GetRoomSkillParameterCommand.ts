@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRoomSkillParameterCommandInput = GetRoomSkillParameterRequest;
@@ -70,14 +70,14 @@ export class GetRoomSkillParameterCommand extends $Command<
 
   private serialize(
     input: GetRoomSkillParameterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRoomSkillParameterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRoomSkillParameterCommandOutput> {
     return deserializeAws_json1_1GetRoomSkillParameterCommand(output, context);
   }

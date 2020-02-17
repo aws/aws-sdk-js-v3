@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTypedLinkFacetNamesCommandInput = ListTypedLinkFacetNamesRequest;
@@ -70,7 +70,7 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
 
   private serialize(
     input: ListTypedLinkFacetNamesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
       input,
@@ -80,7 +80,7 @@ export class ListTypedLinkFacetNamesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTypedLinkFacetNamesCommandOutput> {
     return deserializeAws_restJson1_1ListTypedLinkFacetNamesCommand(
       output,

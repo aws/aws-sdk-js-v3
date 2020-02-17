@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ShutdownGatewayCommandInput = ShutdownGatewayInput;
@@ -64,14 +64,14 @@ export class ShutdownGatewayCommand extends $Command<
 
   private serialize(
     input: ShutdownGatewayCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ShutdownGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ShutdownGatewayCommandOutput> {
     return deserializeAws_json1_1ShutdownGatewayCommand(output, context);
   }

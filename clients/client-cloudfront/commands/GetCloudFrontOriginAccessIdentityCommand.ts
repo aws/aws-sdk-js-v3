@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCloudFrontOriginAccessIdentityCommandInput = GetCloudFrontOriginAccessIdentityRequest;
@@ -70,7 +70,7 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
 
   private serialize(
     input: GetCloudFrontOriginAccessIdentityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
       input,
@@ -80,7 +80,7 @@ export class GetCloudFrontOriginAccessIdentityCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCloudFrontOriginAccessIdentityCommandOutput> {
     return deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand(
       output,

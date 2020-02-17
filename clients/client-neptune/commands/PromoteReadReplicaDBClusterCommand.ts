@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaDBClusterCommandInput = PromoteReadReplicaDBClusterMessage;
@@ -70,14 +70,14 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
 
   private serialize(
     input: PromoteReadReplicaDBClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaDBClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PromoteReadReplicaDBClusterCommandOutput> {
     return deserializeAws_queryPromoteReadReplicaDBClusterCommand(
       output,

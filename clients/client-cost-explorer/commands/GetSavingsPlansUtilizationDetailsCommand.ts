@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSavingsPlansUtilizationDetailsCommandInput = GetSavingsPlansUtilizationDetailsRequest;
@@ -70,7 +70,7 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
 
   private serialize(
     input: GetSavingsPlansUtilizationDetailsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> {
     return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(
       output,

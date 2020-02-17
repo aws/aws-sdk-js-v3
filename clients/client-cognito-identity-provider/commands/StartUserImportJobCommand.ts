@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartUserImportJobCommandInput = StartUserImportJobRequest;
@@ -67,14 +67,14 @@ export class StartUserImportJobCommand extends $Command<
 
   private serialize(
     input: StartUserImportJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartUserImportJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartUserImportJobCommandOutput> {
     return deserializeAws_json1_1StartUserImportJobCommand(output, context);
   }

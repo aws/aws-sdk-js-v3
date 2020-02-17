@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateJourneyCommandInput = UpdateJourneyRequest;
@@ -64,14 +64,14 @@ export class UpdateJourneyCommand extends $Command<
 
   private serialize(
     input: UpdateJourneyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateJourneyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateJourneyCommandOutput> {
     return deserializeAws_restJson1_1UpdateJourneyCommand(output, context);
   }

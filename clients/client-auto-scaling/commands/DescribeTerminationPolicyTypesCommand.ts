@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTerminationPolicyTypesCommandInput = {};
@@ -67,7 +67,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
 
   private serialize(
     input: DescribeTerminationPolicyTypesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTerminationPolicyTypesCommand(
       input,
@@ -77,7 +77,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> {
     return deserializeAws_queryDescribeTerminationPolicyTypesCommand(
       output,

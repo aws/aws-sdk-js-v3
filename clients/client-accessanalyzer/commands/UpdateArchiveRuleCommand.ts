@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateArchiveRuleCommandInput = UpdateArchiveRuleRequest;
@@ -65,14 +65,14 @@ export class UpdateArchiveRuleCommand extends $Command<
 
   private serialize(
     input: UpdateArchiveRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateArchiveRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateArchiveRuleCommandOutput> {
     return deserializeAws_restJson1_1UpdateArchiveRuleCommand(output, context);
   }

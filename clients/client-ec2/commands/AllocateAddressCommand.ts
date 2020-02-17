@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllocateAddressCommandInput = AllocateAddressRequest;
@@ -64,14 +64,14 @@ export class AllocateAddressCommand extends $Command<
 
   private serialize(
     input: AllocateAddressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2AllocateAddressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AllocateAddressCommandOutput> {
     return deserializeAws_ec2AllocateAddressCommand(output, context);
   }

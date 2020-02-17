@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDataRetentionCommandInput = UpdateDataRetentionInput;
@@ -70,14 +70,14 @@ export class UpdateDataRetentionCommand extends $Command<
 
   private serialize(
     input: UpdateDataRetentionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateDataRetentionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDataRetentionCommandOutput> {
     return deserializeAws_restJson1_1UpdateDataRetentionCommand(
       output,

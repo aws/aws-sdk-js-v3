@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type NotifyWorkersCommandInput = NotifyWorkersRequest;
@@ -64,14 +64,14 @@ export class NotifyWorkersCommand extends $Command<
 
   private serialize(
     input: NotifyWorkersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyWorkersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<NotifyWorkersCommandOutput> {
     return deserializeAws_json1_1NotifyWorkersCommand(output, context);
   }

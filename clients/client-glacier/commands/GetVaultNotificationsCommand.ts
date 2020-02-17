@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVaultNotificationsCommandInput = GetVaultNotificationsInput;
@@ -70,14 +70,14 @@ export class GetVaultNotificationsCommand extends $Command<
 
   private serialize(
     input: GetVaultNotificationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetVaultNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetVaultNotificationsCommandOutput> {
     return deserializeAws_restJson1_1GetVaultNotificationsCommand(
       output,

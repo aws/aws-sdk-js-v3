@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSpotDatafeedSubscriptionCommandInput = CreateSpotDatafeedSubscriptionRequest;
@@ -70,7 +70,7 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
 
   private serialize(
     input: CreateSpotDatafeedSubscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> {
     return deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand(
       output,

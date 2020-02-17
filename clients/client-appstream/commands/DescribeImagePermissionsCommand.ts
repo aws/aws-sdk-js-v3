@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImagePermissionsCommandInput = DescribeImagePermissionsRequest;
@@ -70,14 +70,14 @@ export class DescribeImagePermissionsCommand extends $Command<
 
   private serialize(
     input: DescribeImagePermissionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImagePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeImagePermissionsCommandOutput> {
     return deserializeAws_json1_1DescribeImagePermissionsCommand(
       output,

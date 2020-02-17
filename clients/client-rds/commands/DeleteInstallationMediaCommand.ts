@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInstallationMediaCommandInput = DeleteInstallationMediaMessage;
@@ -70,14 +70,14 @@ export class DeleteInstallationMediaCommand extends $Command<
 
   private serialize(
     input: DeleteInstallationMediaCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteInstallationMediaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteInstallationMediaCommandOutput> {
     return deserializeAws_queryDeleteInstallationMediaCommand(output, context);
   }

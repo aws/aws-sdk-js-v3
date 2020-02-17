@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportApiCommandInput = ImportApiRequest;
@@ -64,14 +64,14 @@ export class ImportApiCommand extends $Command<
 
   private serialize(
     input: ImportApiCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ImportApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ImportApiCommandOutput> {
     return deserializeAws_restJson1_1ImportApiCommand(output, context);
   }

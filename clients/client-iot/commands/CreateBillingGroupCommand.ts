@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBillingGroupCommandInput = CreateBillingGroupRequest;
@@ -67,14 +67,14 @@ export class CreateBillingGroupCommand extends $Command<
 
   private serialize(
     input: CreateBillingGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateBillingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateBillingGroupCommandOutput> {
     return deserializeAws_restJson1_1CreateBillingGroupCommand(output, context);
   }

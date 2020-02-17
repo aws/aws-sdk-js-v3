@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTestGridProjectCommandInput = GetTestGridProjectRequest;
@@ -67,14 +67,14 @@ export class GetTestGridProjectCommand extends $Command<
 
   private serialize(
     input: GetTestGridProjectCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTestGridProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetTestGridProjectCommandOutput> {
     return deserializeAws_json1_1GetTestGridProjectCommand(output, context);
   }

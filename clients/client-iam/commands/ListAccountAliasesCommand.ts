@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAccountAliasesCommandInput = ListAccountAliasesRequest;
@@ -67,14 +67,14 @@ export class ListAccountAliasesCommand extends $Command<
 
   private serialize(
     input: ListAccountAliasesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListAccountAliasesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAccountAliasesCommandOutput> {
     return deserializeAws_queryListAccountAliasesCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePrefixListsCommandInput = DescribePrefixListsRequest;
@@ -70,14 +70,14 @@ export class DescribePrefixListsCommand extends $Command<
 
   private serialize(
     input: DescribePrefixListsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePrefixListsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribePrefixListsCommandOutput> {
     return deserializeAws_ec2DescribePrefixListsCommand(output, context);
   }

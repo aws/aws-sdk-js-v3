@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEmailIdentityCommandInput = GetEmailIdentityRequest;
@@ -67,14 +67,14 @@ export class GetEmailIdentityCommand extends $Command<
 
   private serialize(
     input: GetEmailIdentityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetEmailIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetEmailIdentityCommandOutput> {
     return deserializeAws_restJson1_1GetEmailIdentityCommand(output, context);
   }

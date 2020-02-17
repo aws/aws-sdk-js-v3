@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptDirectConnectGatewayAssociationProposalCommandInput = AcceptDirectConnectGatewayAssociationProposalRequest;
@@ -72,7 +72,7 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
 
   private serialize(
     input: AcceptDirectConnectGatewayAssociationProposalCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(
       input,
@@ -82,7 +82,7 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> {
     return deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(
       output,

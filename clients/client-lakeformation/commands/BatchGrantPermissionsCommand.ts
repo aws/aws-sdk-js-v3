@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGrantPermissionsCommandInput = BatchGrantPermissionsRequest;
@@ -70,14 +70,14 @@ export class BatchGrantPermissionsCommand extends $Command<
 
   private serialize(
     input: BatchGrantPermissionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGrantPermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchGrantPermissionsCommandOutput> {
     return deserializeAws_json1_1BatchGrantPermissionsCommand(output, context);
   }
