@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PromoteResourceShareCreatedFromPolicyCommandInput = PromoteResourceShareCreatedFromPolicyRequest;
@@ -72,7 +72,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
 
   private serialize(
     input: PromoteResourceShareCreatedFromPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
       input,
@@ -82,7 +82,7 @@ export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
     return deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchCreateAttendeeCommandInput = BatchCreateAttendeeRequest;
@@ -70,14 +70,14 @@ export class BatchCreateAttendeeCommand extends $Command<
 
   private serialize(
     input: BatchCreateAttendeeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchCreateAttendeeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchCreateAttendeeCommandOutput> {
     return deserializeAws_restJson1_1BatchCreateAttendeeCommand(
       output,

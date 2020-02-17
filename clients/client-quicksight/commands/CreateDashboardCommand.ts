@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDashboardCommandInput = CreateDashboardRequest;
@@ -67,14 +67,14 @@ export class CreateDashboardCommand extends $Command<
 
   private serialize(
     input: CreateDashboardCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateDashboardCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDashboardCommandOutput> {
     return deserializeAws_restJson1_1CreateDashboardCommand(output, context);
   }

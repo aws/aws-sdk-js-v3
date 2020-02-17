@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InferRxNormCommandInput = InferRxNormRequest;
@@ -64,14 +64,14 @@ export class InferRxNormCommand extends $Command<
 
   private serialize(
     input: InferRxNormCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1InferRxNormCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<InferRxNormCommandOutput> {
     return deserializeAws_json1_1InferRxNormCommand(output, context);
   }

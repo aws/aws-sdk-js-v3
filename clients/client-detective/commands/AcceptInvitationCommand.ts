@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptInvitationCommandInput = AcceptInvitationRequest;
@@ -65,14 +65,14 @@ export class AcceptInvitationCommand extends $Command<
 
   private serialize(
     input: AcceptInvitationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AcceptInvitationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AcceptInvitationCommandOutput> {
     return deserializeAws_restJson1_1AcceptInvitationCommand(output, context);
   }

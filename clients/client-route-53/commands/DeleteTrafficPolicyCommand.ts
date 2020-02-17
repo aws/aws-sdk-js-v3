@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrafficPolicyCommandInput = DeleteTrafficPolicyRequest;
@@ -72,14 +72,14 @@ export class DeleteTrafficPolicyCommand extends $Command<
 
   private serialize(
     input: DeleteTrafficPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteTrafficPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTrafficPolicyCommandOutput> {
     return deserializeAws_restXmlDeleteTrafficPolicyCommand(output, context);
   }

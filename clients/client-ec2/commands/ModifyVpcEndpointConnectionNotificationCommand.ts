@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpcEndpointConnectionNotificationCommandInput = ModifyVpcEndpointConnectionNotificationRequest;
@@ -72,7 +72,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
 
   private serialize(
     input: ModifyVpcEndpointConnectionNotificationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
       input,
@@ -82,7 +82,7 @@ export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> {
     return deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand(
       output,

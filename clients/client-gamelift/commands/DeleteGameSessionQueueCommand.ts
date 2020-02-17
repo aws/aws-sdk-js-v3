@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGameSessionQueueCommandInput = DeleteGameSessionQueueInput;
@@ -70,14 +70,14 @@ export class DeleteGameSessionQueueCommand extends $Command<
 
   private serialize(
     input: DeleteGameSessionQueueCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGameSessionQueueCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteGameSessionQueueCommandOutput> {
     return deserializeAws_json1_1DeleteGameSessionQueueCommand(output, context);
   }

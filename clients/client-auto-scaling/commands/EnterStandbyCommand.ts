@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnterStandbyCommandInput = EnterStandbyQuery;
@@ -64,14 +64,14 @@ export class EnterStandbyCommand extends $Command<
 
   private serialize(
     input: EnterStandbyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryEnterStandbyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnterStandbyCommandOutput> {
     return deserializeAws_queryEnterStandbyCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePublicDnsNamespaceCommandInput = CreatePublicDnsNamespaceRequest;
@@ -70,14 +70,14 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
 
   private serialize(
     input: CreatePublicDnsNamespaceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePublicDnsNamespaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePublicDnsNamespaceCommandOutput> {
     return deserializeAws_json1_1CreatePublicDnsNamespaceCommand(
       output,

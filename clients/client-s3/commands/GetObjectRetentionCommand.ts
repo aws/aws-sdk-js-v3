@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetObjectRetentionCommandInput = GetObjectRetentionRequest;
@@ -69,14 +69,14 @@ export class GetObjectRetentionCommand extends $Command<
 
   private serialize(
     input: GetObjectRetentionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectRetentionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetObjectRetentionCommandOutput> {
     return deserializeAws_restXmlGetObjectRetentionCommand(output, context);
   }

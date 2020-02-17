@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRegistriesCommandInput = ListRegistriesRequest;
@@ -64,14 +64,14 @@ export class ListRegistriesCommand extends $Command<
 
   private serialize(
     input: ListRegistriesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListRegistriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRegistriesCommandOutput> {
     return deserializeAws_restJson1_1ListRegistriesCommand(output, context);
   }

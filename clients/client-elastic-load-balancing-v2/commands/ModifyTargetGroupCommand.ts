@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyTargetGroupCommandInput = ModifyTargetGroupInput;
@@ -67,14 +67,14 @@ export class ModifyTargetGroupCommand extends $Command<
 
   private serialize(
     input: ModifyTargetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyTargetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyTargetGroupCommandOutput> {
     return deserializeAws_queryModifyTargetGroupCommand(output, context);
   }

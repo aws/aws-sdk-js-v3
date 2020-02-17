@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRoleAliasCommandInput = DeleteRoleAliasRequest;
@@ -67,14 +67,14 @@ export class DeleteRoleAliasCommand extends $Command<
 
   private serialize(
     input: DeleteRoleAliasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteRoleAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteRoleAliasCommandOutput> {
     return deserializeAws_restJson1_1DeleteRoleAliasCommand(output, context);
   }

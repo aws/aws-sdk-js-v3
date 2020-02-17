@@ -1,3 +1,4 @@
+import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
@@ -25,5 +26,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "browser",
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  regionDefaultProvider: invalidFunction("Region is missing") as any
+  regionDefaultProvider: invalidFunction("Region is missing") as any,
+  eventStreamSerdeProvider
 };

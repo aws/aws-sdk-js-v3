@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeploymentInstanceCommandInput = GetDeploymentInstanceInput;
@@ -70,14 +70,14 @@ export class GetDeploymentInstanceCommand extends $Command<
 
   private serialize(
     input: GetDeploymentInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDeploymentInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDeploymentInstanceCommandOutput> {
     return deserializeAws_json1_1GetDeploymentInstanceCommand(output, context);
   }

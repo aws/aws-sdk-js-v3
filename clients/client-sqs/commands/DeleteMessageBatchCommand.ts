@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMessageBatchCommandInput = DeleteMessageBatchRequest;
@@ -67,14 +67,14 @@ export class DeleteMessageBatchCommand extends $Command<
 
   private serialize(
     input: DeleteMessageBatchCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteMessageBatchCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteMessageBatchCommandOutput> {
     return deserializeAws_queryDeleteMessageBatchCommand(output, context);
   }

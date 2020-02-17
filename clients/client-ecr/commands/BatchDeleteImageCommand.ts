@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteImageCommandInput = BatchDeleteImageRequest;
@@ -67,14 +67,14 @@ export class BatchDeleteImageCommand extends $Command<
 
   private serialize(
     input: BatchDeleteImageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteImageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchDeleteImageCommandOutput> {
     return deserializeAws_json1_1BatchDeleteImageCommand(output, context);
   }

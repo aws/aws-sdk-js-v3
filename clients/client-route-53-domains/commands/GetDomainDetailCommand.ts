@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDomainDetailCommandInput = GetDomainDetailRequest;
@@ -67,14 +67,14 @@ export class GetDomainDetailCommand extends $Command<
 
   private serialize(
     input: GetDomainDetailCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDomainDetailCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDomainDetailCommandOutput> {
     return deserializeAws_json1_1GetDomainDetailCommand(output, context);
   }

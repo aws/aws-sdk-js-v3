@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminSetUserSettingsCommandInput = AdminSetUserSettingsRequest;
@@ -70,14 +70,14 @@ export class AdminSetUserSettingsCommand extends $Command<
 
   private serialize(
     input: AdminSetUserSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminSetUserSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AdminSetUserSettingsCommandOutput> {
     return deserializeAws_json1_1AdminSetUserSettingsCommand(output, context);
   }

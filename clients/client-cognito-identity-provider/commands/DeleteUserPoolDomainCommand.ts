@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteUserPoolDomainCommandInput = DeleteUserPoolDomainRequest;
@@ -70,14 +70,14 @@ export class DeleteUserPoolDomainCommand extends $Command<
 
   private serialize(
     input: DeleteUserPoolDomainCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteUserPoolDomainCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteUserPoolDomainCommandOutput> {
     return deserializeAws_json1_1DeleteUserPoolDomainCommand(output, context);
   }

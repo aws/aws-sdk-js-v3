@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PurchaseReservedCacheNodesOfferingCommandInput = PurchaseReservedCacheNodesOfferingMessage;
@@ -70,7 +70,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
 
   private serialize(
     input: PurchaseReservedCacheNodesOfferingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPurchaseReservedCacheNodesOfferingCommand(
       input,
@@ -80,7 +80,7 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> {
     return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand(
       output,

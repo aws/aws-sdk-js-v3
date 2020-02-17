@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateStreamingURLCommandInput = CreateStreamingURLRequest;
@@ -67,14 +67,14 @@ export class CreateStreamingURLCommand extends $Command<
 
   private serialize(
     input: CreateStreamingURLCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateStreamingURLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateStreamingURLCommandOutput> {
     return deserializeAws_json1_1CreateStreamingURLCommand(output, context);
   }

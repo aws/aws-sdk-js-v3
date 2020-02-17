@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSmartHomeAppliancesCommandInput = ListSmartHomeAppliancesRequest;
@@ -70,14 +70,14 @@ export class ListSmartHomeAppliancesCommand extends $Command<
 
   private serialize(
     input: ListSmartHomeAppliancesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSmartHomeAppliancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListSmartHomeAppliancesCommandOutput> {
     return deserializeAws_json1_1ListSmartHomeAppliancesCommand(
       output,

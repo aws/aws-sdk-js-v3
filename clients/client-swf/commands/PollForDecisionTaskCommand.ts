@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PollForDecisionTaskCommandInput = PollForDecisionTaskInput;
@@ -67,14 +67,14 @@ export class PollForDecisionTaskCommand extends $Command<
 
   private serialize(
     input: PollForDecisionTaskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0PollForDecisionTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PollForDecisionTaskCommandOutput> {
     return deserializeAws_json1_0PollForDecisionTaskCommand(output, context);
   }

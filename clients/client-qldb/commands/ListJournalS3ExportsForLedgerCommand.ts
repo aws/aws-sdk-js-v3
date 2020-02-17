@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListJournalS3ExportsForLedgerCommandInput = ListJournalS3ExportsForLedgerRequest;
@@ -70,7 +70,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
 
   private serialize(
     input: ListJournalS3ExportsForLedgerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
       input,
@@ -80,7 +80,7 @@ export class ListJournalS3ExportsForLedgerCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
     return deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommand(
       output,

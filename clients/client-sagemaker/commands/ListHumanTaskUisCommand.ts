@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListHumanTaskUisCommandInput = ListHumanTaskUisRequest;
@@ -67,14 +67,14 @@ export class ListHumanTaskUisCommand extends $Command<
 
   private serialize(
     input: ListHumanTaskUisCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHumanTaskUisCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListHumanTaskUisCommandOutput> {
     return deserializeAws_json1_1ListHumanTaskUisCommand(output, context);
   }

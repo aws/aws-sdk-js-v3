@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartSchemaExtensionCommandInput = StartSchemaExtensionRequest;
@@ -70,14 +70,14 @@ export class StartSchemaExtensionCommand extends $Command<
 
   private serialize(
     input: StartSchemaExtensionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartSchemaExtensionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartSchemaExtensionCommandOutput> {
     return deserializeAws_json1_1StartSchemaExtensionCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBackendEnvironmentCommandInput = CreateBackendEnvironmentRequest;
@@ -70,7 +70,7 @@ export class CreateBackendEnvironmentCommand extends $Command<
 
   private serialize(
     input: CreateBackendEnvironmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateBackendEnvironmentCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateBackendEnvironmentCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateBackendEnvironmentCommandOutput> {
     return deserializeAws_restJson1_1CreateBackendEnvironmentCommand(
       output,

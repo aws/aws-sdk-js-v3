@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopGameSessionPlacementCommandInput = StopGameSessionPlacementInput;
@@ -70,14 +70,14 @@ export class StopGameSessionPlacementCommand extends $Command<
 
   private serialize(
     input: StopGameSessionPlacementCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopGameSessionPlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopGameSessionPlacementCommandOutput> {
     return deserializeAws_json1_1StopGameSessionPlacementCommand(
       output,

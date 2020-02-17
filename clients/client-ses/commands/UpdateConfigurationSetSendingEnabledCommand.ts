@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetSendingEnabledCommandInput = UpdateConfigurationSetSendingEnabledRequest;
@@ -70,7 +70,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
 
   private serialize(
     input: UpdateConfigurationSetSendingEnabledCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateConfigurationSetSendingEnabledCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> {
     return deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand(
       output,

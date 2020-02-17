@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUsagePlanKeysCommandInput = GetUsagePlanKeysRequest;
@@ -64,14 +64,14 @@ export class GetUsagePlanKeysCommand extends $Command<
 
   private serialize(
     input: GetUsagePlanKeysCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetUsagePlanKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetUsagePlanKeysCommandOutput> {
     return deserializeAws_restJson1_1GetUsagePlanKeysCommand(output, context);
   }

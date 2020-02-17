@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RequestSpotFleetCommandInput = RequestSpotFleetRequest;
@@ -67,14 +67,14 @@ export class RequestSpotFleetCommand extends $Command<
 
   private serialize(
     input: RequestSpotFleetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2RequestSpotFleetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RequestSpotFleetCommandOutput> {
     return deserializeAws_ec2RequestSpotFleetCommand(output, context);
   }

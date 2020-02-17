@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNotificationConfigurationsCommandInput = DescribeNotificationConfigurationsType;
@@ -70,7 +70,7 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
 
   private serialize(
     input: DescribeNotificationConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeNotificationConfigurationsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeNotificationConfigurationsCommandOutput> {
     return deserializeAws_queryDescribeNotificationConfigurationsCommand(
       output,

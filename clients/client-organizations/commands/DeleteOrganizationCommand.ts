@@ -18,9 +18,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteOrganizationCommandInput = {};
@@ -64,14 +64,14 @@ export class DeleteOrganizationCommand extends $Command<
 
   private serialize(
     input: DeleteOrganizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteOrganizationCommandOutput> {
     return deserializeAws_json1_1DeleteOrganizationCommand(output, context);
   }

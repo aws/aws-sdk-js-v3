@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSignalingChannelCommandInput = DescribeSignalingChannelInput;
@@ -70,7 +70,7 @@ export class DescribeSignalingChannelCommand extends $Command<
 
   private serialize(
     input: DescribeSignalingChannelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeSignalingChannelCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeSignalingChannelCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSignalingChannelCommandOutput> {
     return deserializeAws_restJson1_1DescribeSignalingChannelCommand(
       output,

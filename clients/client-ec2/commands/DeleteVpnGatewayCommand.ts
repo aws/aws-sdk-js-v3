@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVpnGatewayCommandInput = DeleteVpnGatewayRequest;
@@ -65,14 +65,14 @@ export class DeleteVpnGatewayCommand extends $Command<
 
   private serialize(
     input: DeleteVpnGatewayCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteVpnGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteVpnGatewayCommandOutput> {
     return deserializeAws_ec2DeleteVpnGatewayCommand(output, context);
   }

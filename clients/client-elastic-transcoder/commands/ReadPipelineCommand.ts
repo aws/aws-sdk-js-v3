@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReadPipelineCommandInput = ReadPipelineRequest;
@@ -64,14 +64,14 @@ export class ReadPipelineCommand extends $Command<
 
   private serialize(
     input: ReadPipelineCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ReadPipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ReadPipelineCommandOutput> {
     return deserializeAws_restJson1_1ReadPipelineCommand(output, context);
   }

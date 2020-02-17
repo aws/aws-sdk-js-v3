@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGraphqlApiCommandInput = GetGraphqlApiRequest;
@@ -64,14 +64,14 @@ export class GetGraphqlApiCommand extends $Command<
 
   private serialize(
     input: GetGraphqlApiCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetGraphqlApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetGraphqlApiCommandOutput> {
     return deserializeAws_restJson1_1GetGraphqlApiCommand(output, context);
   }

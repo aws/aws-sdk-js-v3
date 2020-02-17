@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNetworkInterfacePermissionCommandInput = DeleteNetworkInterfacePermissionRequest;
@@ -70,7 +70,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
 
   private serialize(
     input: DeleteNetworkInterfacePermissionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNetworkInterfacePermissionCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteNetworkInterfacePermissionCommandOutput> {
     return deserializeAws_ec2DeleteNetworkInterfacePermissionCommand(
       output,

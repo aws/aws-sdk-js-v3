@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmSignUpCommandInput = ConfirmSignUpRequest;
@@ -64,14 +64,14 @@ export class ConfirmSignUpCommand extends $Command<
 
   private serialize(
     input: ConfirmSignUpCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmSignUpCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ConfirmSignUpCommandOutput> {
     return deserializeAws_json1_1ConfirmSignUpCommand(output, context);
   }

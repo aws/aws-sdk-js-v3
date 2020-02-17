@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DecreaseReplicationFactorCommandInput = DecreaseReplicationFactorRequest;
@@ -70,14 +70,14 @@ export class DecreaseReplicationFactorCommand extends $Command<
 
   private serialize(
     input: DecreaseReplicationFactorCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DecreaseReplicationFactorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DecreaseReplicationFactorCommandOutput> {
     return deserializeAws_json1_1DecreaseReplicationFactorCommand(
       output,

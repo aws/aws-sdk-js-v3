@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBucketInventoryConfigurationCommandInput = DeleteBucketInventoryConfigurationRequest;
@@ -70,7 +70,7 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
 
   private serialize(
     input: DeleteBucketInventoryConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketInventoryConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteBucketInventoryConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteBucketInventoryConfigurationCommandOutput> {
     return deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand(
       output,

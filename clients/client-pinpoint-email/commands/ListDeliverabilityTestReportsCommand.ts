@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDeliverabilityTestReportsCommandInput = ListDeliverabilityTestReportsRequest;
@@ -70,7 +70,7 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
 
   private serialize(
     input: ListDeliverabilityTestReportsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListDeliverabilityTestReportsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListDeliverabilityTestReportsCommandOutput> {
     return deserializeAws_restJson1_1ListDeliverabilityTestReportsCommand(
       output,

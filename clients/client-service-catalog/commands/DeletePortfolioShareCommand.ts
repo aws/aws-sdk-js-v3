@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePortfolioShareCommandInput = DeletePortfolioShareInput;
@@ -70,14 +70,14 @@ export class DeletePortfolioShareCommand extends $Command<
 
   private serialize(
     input: DeletePortfolioShareCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePortfolioShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePortfolioShareCommandOutput> {
     return deserializeAws_json1_1DeletePortfolioShareCommand(output, context);
   }

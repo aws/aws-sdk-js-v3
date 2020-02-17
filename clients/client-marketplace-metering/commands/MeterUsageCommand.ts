@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MeterUsageCommandInput = MeterUsageRequest;
@@ -64,14 +64,14 @@ export class MeterUsageCommand extends $Command<
 
   private serialize(
     input: MeterUsageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1MeterUsageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<MeterUsageCommandOutput> {
     return deserializeAws_json1_1MeterUsageCommand(output, context);
   }

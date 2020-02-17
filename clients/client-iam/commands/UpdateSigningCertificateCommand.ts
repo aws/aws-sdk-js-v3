@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSigningCertificateCommandInput = UpdateSigningCertificateRequest;
@@ -68,14 +68,14 @@ export class UpdateSigningCertificateCommand extends $Command<
 
   private serialize(
     input: UpdateSigningCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateSigningCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSigningCertificateCommandOutput> {
     return deserializeAws_queryUpdateSigningCertificateCommand(output, context);
   }

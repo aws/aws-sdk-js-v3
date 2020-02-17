@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyDBClusterParameterGroupCommandInput = CopyDBClusterParameterGroupMessage;
@@ -70,14 +70,14 @@ export class CopyDBClusterParameterGroupCommand extends $Command<
 
   private serialize(
     input: CopyDBClusterParameterGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBClusterParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CopyDBClusterParameterGroupCommandOutput> {
     return deserializeAws_queryCopyDBClusterParameterGroupCommand(
       output,

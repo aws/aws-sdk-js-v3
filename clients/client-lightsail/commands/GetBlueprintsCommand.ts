@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBlueprintsCommandInput = GetBlueprintsRequest;
@@ -64,14 +64,14 @@ export class GetBlueprintsCommand extends $Command<
 
   private serialize(
     input: GetBlueprintsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetBlueprintsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBlueprintsCommandOutput> {
     return deserializeAws_json1_1GetBlueprintsCommand(output, context);
   }

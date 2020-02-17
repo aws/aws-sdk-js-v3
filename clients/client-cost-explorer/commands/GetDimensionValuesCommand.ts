@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDimensionValuesCommandInput = GetDimensionValuesRequest;
@@ -67,14 +67,14 @@ export class GetDimensionValuesCommand extends $Command<
 
   private serialize(
     input: GetDimensionValuesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDimensionValuesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDimensionValuesCommandOutput> {
     return deserializeAws_json1_1GetDimensionValuesCommand(output, context);
   }

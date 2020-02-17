@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDistributionCommandInput = CreateDistributionRequest;
@@ -67,14 +67,14 @@ export class CreateDistributionCommand extends $Command<
 
   private serialize(
     input: CreateDistributionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateDistributionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDistributionCommandOutput> {
     return deserializeAws_restXmlCreateDistributionCommand(output, context);
   }

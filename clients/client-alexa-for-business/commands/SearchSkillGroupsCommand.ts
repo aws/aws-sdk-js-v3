@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchSkillGroupsCommandInput = SearchSkillGroupsRequest;
@@ -67,14 +67,14 @@ export class SearchSkillGroupsCommand extends $Command<
 
   private serialize(
     input: SearchSkillGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchSkillGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchSkillGroupsCommandOutput> {
     return deserializeAws_json1_1SearchSkillGroupsCommand(output, context);
   }

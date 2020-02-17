@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAutoScalingNotificationTypesCommandInput = {};
@@ -69,7 +69,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
 
   private serialize(
     input: DescribeAutoScalingNotificationTypesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAutoScalingNotificationTypesCommand(
       input,
@@ -79,7 +79,7 @@ export class DescribeAutoScalingNotificationTypesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> {
     return deserializeAws_queryDescribeAutoScalingNotificationTypesCommand(
       output,

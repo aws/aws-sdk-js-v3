@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateStackSetCommandInput = CreateStackSetInput;
@@ -64,14 +64,14 @@ export class CreateStackSetCommand extends $Command<
 
   private serialize(
     input: CreateStackSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateStackSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateStackSetCommandOutput> {
     return deserializeAws_queryCreateStackSetCommand(output, context);
   }

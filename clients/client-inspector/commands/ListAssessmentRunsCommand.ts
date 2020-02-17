@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAssessmentRunsCommandInput = ListAssessmentRunsRequest;
@@ -67,14 +67,14 @@ export class ListAssessmentRunsCommand extends $Command<
 
   private serialize(
     input: ListAssessmentRunsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAssessmentRunsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAssessmentRunsCommandOutput> {
     return deserializeAws_json1_1ListAssessmentRunsCommand(output, context);
   }

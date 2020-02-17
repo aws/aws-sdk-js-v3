@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartAccessLoggingCommandInput = StartAccessLoggingInput;
@@ -67,14 +67,14 @@ export class StartAccessLoggingCommand extends $Command<
 
   private serialize(
     input: StartAccessLoggingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAccessLoggingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartAccessLoggingCommandOutput> {
     return deserializeAws_json1_1StartAccessLoggingCommand(output, context);
   }

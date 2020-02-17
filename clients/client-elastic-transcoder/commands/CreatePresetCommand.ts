@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePresetCommandInput = CreatePresetRequest;
@@ -64,14 +64,14 @@ export class CreatePresetCommand extends $Command<
 
   private serialize(
     input: CreatePresetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreatePresetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePresetCommandOutput> {
     return deserializeAws_restJson1_1CreatePresetCommand(output, context);
   }

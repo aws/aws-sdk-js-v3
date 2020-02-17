@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopFleetActionsCommandInput = StopFleetActionsInput;
@@ -64,14 +64,14 @@ export class StopFleetActionsCommand extends $Command<
 
   private serialize(
     input: StopFleetActionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopFleetActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopFleetActionsCommandOutput> {
     return deserializeAws_json1_1StopFleetActionsCommand(output, context);
   }

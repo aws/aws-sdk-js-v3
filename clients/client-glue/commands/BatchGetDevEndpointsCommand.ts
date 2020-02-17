@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetDevEndpointsCommandInput = BatchGetDevEndpointsRequest;
@@ -70,14 +70,14 @@ export class BatchGetDevEndpointsCommand extends $Command<
 
   private serialize(
     input: BatchGetDevEndpointsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDevEndpointsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchGetDevEndpointsCommandOutput> {
     return deserializeAws_json1_1BatchGetDevEndpointsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateInstanceExportTaskCommandInput = CreateInstanceExportTaskRequest;
@@ -70,14 +70,14 @@ export class CreateInstanceExportTaskCommand extends $Command<
 
   private serialize(
     input: CreateInstanceExportTaskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateInstanceExportTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateInstanceExportTaskCommandOutput> {
     return deserializeAws_ec2CreateInstanceExportTaskCommand(output, context);
   }

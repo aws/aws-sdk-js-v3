@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSecurityGroupReferencesCommandInput = DescribeSecurityGroupReferencesRequest;
@@ -70,7 +70,7 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
 
   private serialize(
     input: DescribeSecurityGroupReferencesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSecurityGroupReferencesCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSecurityGroupReferencesCommandOutput> {
     return deserializeAws_ec2DescribeSecurityGroupReferencesCommand(
       output,

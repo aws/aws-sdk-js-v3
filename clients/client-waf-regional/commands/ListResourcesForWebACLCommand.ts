@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListResourcesForWebACLCommandInput = ListResourcesForWebACLRequest;
@@ -70,14 +70,14 @@ export class ListResourcesForWebACLCommand extends $Command<
 
   private serialize(
     input: ListResourcesForWebACLCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResourcesForWebACLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListResourcesForWebACLCommandOutput> {
     return deserializeAws_json1_1ListResourcesForWebACLCommand(output, context);
   }

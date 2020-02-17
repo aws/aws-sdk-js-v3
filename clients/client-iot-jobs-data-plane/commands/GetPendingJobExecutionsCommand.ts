@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPendingJobExecutionsCommandInput = GetPendingJobExecutionsRequest;
@@ -70,7 +70,7 @@ export class GetPendingJobExecutionsCommand extends $Command<
 
   private serialize(
     input: GetPendingJobExecutionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetPendingJobExecutionsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetPendingJobExecutionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPendingJobExecutionsCommandOutput> {
     return deserializeAws_restJson1_1GetPendingJobExecutionsCommand(
       output,

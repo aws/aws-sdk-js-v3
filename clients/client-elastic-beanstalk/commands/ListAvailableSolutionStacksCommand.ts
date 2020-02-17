@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAvailableSolutionStacksCommandInput = {};
@@ -67,14 +67,14 @@ export class ListAvailableSolutionStacksCommand extends $Command<
 
   private serialize(
     input: ListAvailableSolutionStacksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListAvailableSolutionStacksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAvailableSolutionStacksCommandOutput> {
     return deserializeAws_queryListAvailableSolutionStacksCommand(
       output,

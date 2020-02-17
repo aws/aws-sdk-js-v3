@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLifecycleHooksCommandInput = DescribeLifecycleHooksType;
@@ -70,14 +70,14 @@ export class DescribeLifecycleHooksCommand extends $Command<
 
   private serialize(
     input: DescribeLifecycleHooksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLifecycleHooksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLifecycleHooksCommandOutput> {
     return deserializeAws_queryDescribeLifecycleHooksCommand(output, context);
   }

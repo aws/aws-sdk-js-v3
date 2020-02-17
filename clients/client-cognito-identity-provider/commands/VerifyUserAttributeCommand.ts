@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifyUserAttributeCommandInput = VerifyUserAttributeRequest;
@@ -70,14 +70,14 @@ export class VerifyUserAttributeCommand extends $Command<
 
   private serialize(
     input: VerifyUserAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1VerifyUserAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<VerifyUserAttributeCommandOutput> {
     return deserializeAws_json1_1VerifyUserAttributeCommand(output, context);
   }

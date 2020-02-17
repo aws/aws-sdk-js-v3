@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAccountCommandInput = UpdateAccountRequest;
@@ -64,14 +64,14 @@ export class UpdateAccountCommand extends $Command<
 
   private serialize(
     input: UpdateAccountCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateAccountCommandOutput> {
     return deserializeAws_restJson1_1UpdateAccountCommand(output, context);
   }

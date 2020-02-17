@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListQualificationRequestsCommandInput = ListQualificationRequestsRequest;
@@ -70,14 +70,14 @@ export class ListQualificationRequestsCommand extends $Command<
 
   private serialize(
     input: ListQualificationRequestsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListQualificationRequestsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListQualificationRequestsCommandOutput> {
     return deserializeAws_json1_1ListQualificationRequestsCommand(
       output,

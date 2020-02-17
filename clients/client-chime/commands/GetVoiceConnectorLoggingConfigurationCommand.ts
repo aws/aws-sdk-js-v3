@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorLoggingConfigurationCommandInput = GetVoiceConnectorLoggingConfigurationRequest;
@@ -72,7 +72,7 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
 
   private serialize(
     input: GetVoiceConnectorLoggingConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetVoiceConnectorLoggingConfigurationCommandOutput> {
     return deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCommand(
       output,

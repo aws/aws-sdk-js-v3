@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutThirdPartyJobSuccessResultCommandInput = PutThirdPartyJobSuccessResultInput;
@@ -68,7 +68,7 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
 
   private serialize(
     input: PutThirdPartyJobSuccessResultCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
       input,
@@ -78,7 +78,7 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutThirdPartyJobSuccessResultCommandOutput> {
     return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
       output,

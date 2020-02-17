@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketInventoryConfigurationCommandInput = GetBucketInventoryConfigurationRequest;
@@ -72,7 +72,7 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
 
   private serialize(
     input: GetBucketInventoryConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketInventoryConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketInventoryConfigurationCommandOutput> {
     return deserializeAws_restXmlGetBucketInventoryConfigurationCommand(
       output,

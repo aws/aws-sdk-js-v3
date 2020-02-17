@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPublicAccessBlockCommandInput = GetPublicAccessBlockRequest;
@@ -72,14 +72,14 @@ export class GetPublicAccessBlockCommand extends $Command<
 
   private serialize(
     input: GetPublicAccessBlockCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetPublicAccessBlockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPublicAccessBlockCommandOutput> {
     return deserializeAws_restXmlGetPublicAccessBlockCommand(output, context);
   }

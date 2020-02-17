@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOptionGroupOptionsCommandInput = DescribeOptionGroupOptionsMessage;
@@ -70,14 +70,14 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
 
   private serialize(
     input: DescribeOptionGroupOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeOptionGroupOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeOptionGroupOptionsCommandOutput> {
     return deserializeAws_queryDescribeOptionGroupOptionsCommand(
       output,

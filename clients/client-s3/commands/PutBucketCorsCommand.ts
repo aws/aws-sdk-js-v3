@@ -21,9 +21,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBucketCorsCommandInput = PutBucketCorsRequest;
@@ -69,14 +69,14 @@ export class PutBucketCorsCommand extends $Command<
 
   private serialize(
     input: PutBucketCorsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketCorsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutBucketCorsCommandOutput> {
     return deserializeAws_restXmlPutBucketCorsCommand(output, context);
   }

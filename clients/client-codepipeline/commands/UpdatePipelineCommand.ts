@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePipelineCommandInput = UpdatePipelineInput;
@@ -64,14 +64,14 @@ export class UpdatePipelineCommand extends $Command<
 
   private serialize(
     input: UpdatePipelineCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdatePipelineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdatePipelineCommandOutput> {
     return deserializeAws_json1_1UpdatePipelineCommand(output, context);
   }

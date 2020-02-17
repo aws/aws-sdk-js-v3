@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCelebrityInfoCommandInput = GetCelebrityInfoRequest;
@@ -67,14 +67,14 @@ export class GetCelebrityInfoCommand extends $Command<
 
   private serialize(
     input: GetCelebrityInfoCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCelebrityInfoCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCelebrityInfoCommandOutput> {
     return deserializeAws_json1_1GetCelebrityInfoCommand(output, context);
   }

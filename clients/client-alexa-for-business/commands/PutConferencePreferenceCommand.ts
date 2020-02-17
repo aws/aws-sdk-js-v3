@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutConferencePreferenceCommandInput = PutConferencePreferenceRequest;
@@ -70,14 +70,14 @@ export class PutConferencePreferenceCommand extends $Command<
 
   private serialize(
     input: PutConferencePreferenceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConferencePreferenceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutConferencePreferenceCommandOutput> {
     return deserializeAws_json1_1PutConferencePreferenceCommand(
       output,

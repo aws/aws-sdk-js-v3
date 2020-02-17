@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type IncreaseReplicaCountCommandInput = IncreaseReplicaCountMessage;
@@ -70,14 +70,14 @@ export class IncreaseReplicaCountCommand extends $Command<
 
   private serialize(
     input: IncreaseReplicaCountCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryIncreaseReplicaCountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<IncreaseReplicaCountCommandOutput> {
     return deserializeAws_queryIncreaseReplicaCountCommand(output, context);
   }

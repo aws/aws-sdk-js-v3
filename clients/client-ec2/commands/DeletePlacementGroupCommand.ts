@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePlacementGroupCommandInput = DeletePlacementGroupRequest;
@@ -68,14 +68,14 @@ export class DeletePlacementGroupCommand extends $Command<
 
   private serialize(
     input: DeletePlacementGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeletePlacementGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePlacementGroupCommandOutput> {
     return deserializeAws_ec2DeletePlacementGroupCommand(output, context);
   }

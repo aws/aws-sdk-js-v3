@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAutoMLJobCommandInput = CreateAutoMLJobRequest;
@@ -67,14 +67,14 @@ export class CreateAutoMLJobCommand extends $Command<
 
   private serialize(
     input: CreateAutoMLJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAutoMLJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateAutoMLJobCommandOutput> {
     return deserializeAws_json1_1CreateAutoMLJobCommand(output, context);
   }

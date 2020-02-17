@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSecurityProfileCommandInput = DeleteSecurityProfileRequest;
@@ -70,14 +70,14 @@ export class DeleteSecurityProfileCommand extends $Command<
 
   private serialize(
     input: DeleteSecurityProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteSecurityProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSecurityProfileCommandOutput> {
     return deserializeAws_restJson1_1DeleteSecurityProfileCommand(
       output,

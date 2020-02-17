@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateModelPackageCommandInput = CreateModelPackageInput;
@@ -67,14 +67,14 @@ export class CreateModelPackageCommand extends $Command<
 
   private serialize(
     input: CreateModelPackageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateModelPackageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateModelPackageCommandOutput> {
     return deserializeAws_json1_1CreateModelPackageCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTemplateSummaryCommandInput = GetTemplateSummaryInput;
@@ -67,14 +67,14 @@ export class GetTemplateSummaryCommand extends $Command<
 
   private serialize(
     input: GetTemplateSummaryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetTemplateSummaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetTemplateSummaryCommandOutput> {
     return deserializeAws_queryGetTemplateSummaryCommand(output, context);
   }

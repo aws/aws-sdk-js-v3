@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableVpcClassicLinkDnsSupportCommandInput = EnableVpcClassicLinkDnsSupportRequest;
@@ -70,7 +70,7 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
 
   private serialize(
     input: EnableVpcClassicLinkDnsSupportCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(
       input,
@@ -80,7 +80,7 @@ export class EnableVpcClassicLinkDnsSupportCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> {
     return deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRelationalDatabaseLogStreamsCommandInput = GetRelationalDatabaseLogStreamsRequest;
@@ -70,7 +70,7 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
 
   private serialize(
     input: GetRelationalDatabaseLogStreamsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> {
     return deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(
       output,

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartNotebookInstanceCommandInput = StartNotebookInstanceInput;
@@ -68,14 +68,14 @@ export class StartNotebookInstanceCommand extends $Command<
 
   private serialize(
     input: StartNotebookInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartNotebookInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartNotebookInstanceCommandOutput> {
     return deserializeAws_json1_1StartNotebookInstanceCommand(output, context);
   }

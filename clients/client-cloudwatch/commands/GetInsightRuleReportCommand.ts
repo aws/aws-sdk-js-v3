@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInsightRuleReportCommandInput = GetInsightRuleReportInput;
@@ -70,14 +70,14 @@ export class GetInsightRuleReportCommand extends $Command<
 
   private serialize(
     input: GetInsightRuleReportCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetInsightRuleReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetInsightRuleReportCommandOutput> {
     return deserializeAws_queryGetInsightRuleReportCommand(output, context);
   }

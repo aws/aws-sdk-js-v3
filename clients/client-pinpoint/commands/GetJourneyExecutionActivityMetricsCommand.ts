@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetJourneyExecutionActivityMetricsCommandInput = GetJourneyExecutionActivityMetricsRequest;
@@ -70,7 +70,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
 
   private serialize(
     input: GetJourneyExecutionActivityMetricsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetJourneyExecutionActivityMetricsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> {
     return deserializeAws_restJson1_1GetJourneyExecutionActivityMetricsCommand(
       output,

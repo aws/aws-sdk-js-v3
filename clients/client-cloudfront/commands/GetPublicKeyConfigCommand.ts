@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPublicKeyConfigCommandInput = GetPublicKeyConfigRequest;
@@ -67,14 +67,14 @@ export class GetPublicKeyConfigCommand extends $Command<
 
   private serialize(
     input: GetPublicKeyConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetPublicKeyConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPublicKeyConfigCommandOutput> {
     return deserializeAws_restXmlGetPublicKeyConfigCommand(output, context);
   }

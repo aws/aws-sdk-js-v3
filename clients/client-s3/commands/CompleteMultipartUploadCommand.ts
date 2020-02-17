@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadRequest;
@@ -72,14 +72,14 @@ export class CompleteMultipartUploadCommand extends $Command<
 
   private serialize(
     input: CompleteMultipartUploadCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlCompleteMultipartUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CompleteMultipartUploadCommandOutput> {
     return deserializeAws_restXmlCompleteMultipartUploadCommand(
       output,

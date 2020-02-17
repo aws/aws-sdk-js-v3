@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartSigningJobCommandInput = StartSigningJobRequest;
@@ -67,14 +67,14 @@ export class StartSigningJobCommand extends $Command<
 
   private serialize(
     input: StartSigningJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StartSigningJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartSigningJobCommandOutput> {
     return deserializeAws_restJson1_1StartSigningJobCommand(output, context);
   }

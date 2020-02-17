@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePartitionCommandInput = CreatePartitionRequest;
@@ -67,14 +67,14 @@ export class CreatePartitionCommand extends $Command<
 
   private serialize(
     input: CreatePartitionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePartitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePartitionCommandOutput> {
     return deserializeAws_json1_1CreatePartitionCommand(output, context);
   }

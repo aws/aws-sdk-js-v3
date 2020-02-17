@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateWebACLCommandInput = AssociateWebACLRequest;
@@ -67,14 +67,14 @@ export class AssociateWebACLCommand extends $Command<
 
   private serialize(
     input: AssociateWebACLCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateWebACLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateWebACLCommandOutput> {
     return deserializeAws_json1_1AssociateWebACLCommand(output, context);
   }

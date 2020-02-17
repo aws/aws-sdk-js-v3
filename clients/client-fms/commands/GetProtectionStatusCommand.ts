@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetProtectionStatusCommandInput = GetProtectionStatusRequest;
@@ -70,14 +70,14 @@ export class GetProtectionStatusCommand extends $Command<
 
   private serialize(
     input: GetProtectionStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetProtectionStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetProtectionStatusCommandOutput> {
     return deserializeAws_json1_1GetProtectionStatusCommand(output, context);
   }

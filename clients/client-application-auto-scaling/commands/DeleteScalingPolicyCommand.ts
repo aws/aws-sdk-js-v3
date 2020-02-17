@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteScalingPolicyCommandInput = DeleteScalingPolicyRequest;
@@ -70,14 +70,14 @@ export class DeleteScalingPolicyCommand extends $Command<
 
   private serialize(
     input: DeleteScalingPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteScalingPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteScalingPolicyCommandOutput> {
     return deserializeAws_json1_1DeleteScalingPolicyCommand(output, context);
   }

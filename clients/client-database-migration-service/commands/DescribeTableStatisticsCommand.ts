@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTableStatisticsCommandInput = DescribeTableStatisticsMessage;
@@ -70,14 +70,14 @@ export class DescribeTableStatisticsCommand extends $Command<
 
   private serialize(
     input: DescribeTableStatisticsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTableStatisticsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTableStatisticsCommandOutput> {
     return deserializeAws_json1_1DescribeTableStatisticsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateProfilingGroupCommandInput = UpdateProfilingGroupRequest;
@@ -70,14 +70,14 @@ export class UpdateProfilingGroupCommand extends $Command<
 
   private serialize(
     input: UpdateProfilingGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateProfilingGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateProfilingGroupCommandOutput> {
     return deserializeAws_restJson1_1UpdateProfilingGroupCommand(
       output,

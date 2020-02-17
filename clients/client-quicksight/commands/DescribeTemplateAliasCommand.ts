@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTemplateAliasCommandInput = DescribeTemplateAliasRequest;
@@ -70,14 +70,14 @@ export class DescribeTemplateAliasCommand extends $Command<
 
   private serialize(
     input: DescribeTemplateAliasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeTemplateAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTemplateAliasCommandOutput> {
     return deserializeAws_restJson1_1DescribeTemplateAliasCommand(
       output,

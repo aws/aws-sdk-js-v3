@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeHsmConfigurationsCommandInput = DescribeHsmConfigurationsMessage;
@@ -70,14 +70,14 @@ export class DescribeHsmConfigurationsCommand extends $Command<
 
   private serialize(
     input: DescribeHsmConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeHsmConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeHsmConfigurationsCommandOutput> {
     return deserializeAws_queryDescribeHsmConfigurationsCommand(
       output,

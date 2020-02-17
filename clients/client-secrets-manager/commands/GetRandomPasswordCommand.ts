@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRandomPasswordCommandInput = GetRandomPasswordRequest;
@@ -67,14 +67,14 @@ export class GetRandomPasswordCommand extends $Command<
 
   private serialize(
     input: GetRandomPasswordCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRandomPasswordCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRandomPasswordCommandOutput> {
     return deserializeAws_json1_1GetRandomPasswordCommand(output, context);
   }

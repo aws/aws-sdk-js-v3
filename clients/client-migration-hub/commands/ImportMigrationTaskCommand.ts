@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportMigrationTaskCommandInput = ImportMigrationTaskRequest;
@@ -70,14 +70,14 @@ export class ImportMigrationTaskCommand extends $Command<
 
   private serialize(
     input: ImportMigrationTaskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportMigrationTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ImportMigrationTaskCommandOutput> {
     return deserializeAws_json1_1ImportMigrationTaskCommand(output, context);
   }

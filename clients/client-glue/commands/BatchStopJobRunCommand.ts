@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchStopJobRunCommandInput = BatchStopJobRunRequest;
@@ -67,14 +67,14 @@ export class BatchStopJobRunCommand extends $Command<
 
   private serialize(
     input: BatchStopJobRunCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchStopJobRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchStopJobRunCommandOutput> {
     return deserializeAws_json1_1BatchStopJobRunCommand(output, context);
   }

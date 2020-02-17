@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpnConnectionCommandInput = ModifyVpnConnectionRequest;
@@ -70,14 +70,14 @@ export class ModifyVpnConnectionCommand extends $Command<
 
   private serialize(
     input: ModifyVpnConnectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpnConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyVpnConnectionCommandOutput> {
     return deserializeAws_ec2ModifyVpnConnectionCommand(output, context);
   }

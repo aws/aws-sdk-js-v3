@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopyDBParameterGroupCommandInput = CopyDBParameterGroupMessage;
@@ -70,14 +70,14 @@ export class CopyDBParameterGroupCommand extends $Command<
 
   private serialize(
     input: CopyDBParameterGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBParameterGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CopyDBParameterGroupCommandOutput> {
     return deserializeAws_queryCopyDBParameterGroupCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConditionalForwarderCommandInput = CreateConditionalForwarderRequest;
@@ -70,7 +70,7 @@ export class CreateConditionalForwarderCommand extends $Command<
 
   private serialize(
     input: CreateConditionalForwarderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateConditionalForwarderCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateConditionalForwarderCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateConditionalForwarderCommandOutput> {
     return deserializeAws_json1_1CreateConditionalForwarderCommand(
       output,

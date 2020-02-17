@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpCommandInput = GetDedicatedIpRequest;
@@ -64,14 +64,14 @@ export class GetDedicatedIpCommand extends $Command<
 
   private serialize(
     input: GetDedicatedIpCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDedicatedIpCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDedicatedIpCommandOutput> {
     return deserializeAws_restJson1_1GetDedicatedIpCommand(output, context);
   }

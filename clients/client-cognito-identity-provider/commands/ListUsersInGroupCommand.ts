@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListUsersInGroupCommandInput = ListUsersInGroupRequest;
@@ -67,14 +67,14 @@ export class ListUsersInGroupCommand extends $Command<
 
   private serialize(
     input: ListUsersInGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUsersInGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListUsersInGroupCommandOutput> {
     return deserializeAws_json1_1ListUsersInGroupCommand(output, context);
   }

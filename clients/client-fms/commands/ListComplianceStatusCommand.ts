@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListComplianceStatusCommandInput = ListComplianceStatusRequest;
@@ -70,14 +70,14 @@ export class ListComplianceStatusCommand extends $Command<
 
   private serialize(
     input: ListComplianceStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListComplianceStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListComplianceStatusCommandOutput> {
     return deserializeAws_json1_1ListComplianceStatusCommand(output, context);
   }

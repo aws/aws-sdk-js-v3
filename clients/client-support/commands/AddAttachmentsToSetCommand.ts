@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddAttachmentsToSetCommandInput = AddAttachmentsToSetRequest;
@@ -70,14 +70,14 @@ export class AddAttachmentsToSetCommand extends $Command<
 
   private serialize(
     input: AddAttachmentsToSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddAttachmentsToSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddAttachmentsToSetCommandOutput> {
     return deserializeAws_json1_1AddAttachmentsToSetCommand(output, context);
   }

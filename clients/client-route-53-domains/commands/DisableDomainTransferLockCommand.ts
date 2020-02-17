@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableDomainTransferLockCommandInput = DisableDomainTransferLockRequest;
@@ -70,14 +70,14 @@ export class DisableDomainTransferLockCommand extends $Command<
 
   private serialize(
     input: DisableDomainTransferLockCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableDomainTransferLockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisableDomainTransferLockCommandOutput> {
     return deserializeAws_json1_1DisableDomainTransferLockCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestRenderTemplateCommandInput = TestRenderTemplateRequest;
@@ -67,14 +67,14 @@ export class TestRenderTemplateCommand extends $Command<
 
   private serialize(
     input: TestRenderTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryTestRenderTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TestRenderTemplateCommandOutput> {
     return deserializeAws_queryTestRenderTemplateCommand(output, context);
   }

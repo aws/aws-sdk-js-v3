@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccessPointPolicyStatusCommandInput = GetAccessPointPolicyStatusRequest;
@@ -70,7 +70,7 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
 
   private serialize(
     input: GetAccessPointPolicyStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccessPointPolicyStatusCommand(
       input,
@@ -80,7 +80,7 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAccessPointPolicyStatusCommandOutput> {
     return deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
       output,

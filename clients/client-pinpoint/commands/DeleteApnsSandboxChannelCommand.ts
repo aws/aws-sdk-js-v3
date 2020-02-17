@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteApnsSandboxChannelCommandInput = DeleteApnsSandboxChannelRequest;
@@ -70,7 +70,7 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
 
   private serialize(
     input: DeleteApnsSandboxChannelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteApnsSandboxChannelCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteApnsSandboxChannelCommandOutput> {
     return deserializeAws_restJson1_1DeleteApnsSandboxChannelCommand(
       output,

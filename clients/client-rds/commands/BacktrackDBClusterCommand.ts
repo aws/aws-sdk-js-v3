@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BacktrackDBClusterCommandInput = BacktrackDBClusterMessage;
@@ -64,14 +64,14 @@ export class BacktrackDBClusterCommand extends $Command<
 
   private serialize(
     input: BacktrackDBClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryBacktrackDBClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BacktrackDBClusterCommandOutput> {
     return deserializeAws_queryBacktrackDBClusterCommand(output, context);
   }

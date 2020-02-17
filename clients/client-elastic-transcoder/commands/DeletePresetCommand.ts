@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePresetCommandInput = DeletePresetRequest;
@@ -64,14 +64,14 @@ export class DeletePresetCommand extends $Command<
 
   private serialize(
     input: DeletePresetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeletePresetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePresetCommandOutput> {
     return deserializeAws_restJson1_1DeletePresetCommand(output, context);
   }

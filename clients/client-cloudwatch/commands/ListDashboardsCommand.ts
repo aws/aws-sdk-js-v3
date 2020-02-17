@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDashboardsCommandInput = ListDashboardsInput;
@@ -64,14 +64,14 @@ export class ListDashboardsCommand extends $Command<
 
   private serialize(
     input: ListDashboardsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListDashboardsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListDashboardsCommandOutput> {
     return deserializeAws_queryListDashboardsCommand(output, context);
   }

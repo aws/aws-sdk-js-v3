@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRecommendationsCommandInput = GetRecommendationsRequest;
@@ -67,14 +67,14 @@ export class GetRecommendationsCommand extends $Command<
 
   private serialize(
     input: GetRecommendationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetRecommendationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRecommendationsCommandOutput> {
     return deserializeAws_restJson1_1GetRecommendationsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInstanceAssociationsStatusCommandInput = DescribeInstanceAssociationsStatusRequest;
@@ -70,7 +70,7 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
 
   private serialize(
     input: DescribeInstanceAssociationsStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInstanceAssociationsStatusCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeInstanceAssociationsStatusCommandOutput> {
     return deserializeAws_json1_1DescribeInstanceAssociationsStatusCommand(
       output,

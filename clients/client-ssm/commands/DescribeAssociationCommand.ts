@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAssociationCommandInput = DescribeAssociationRequest;
@@ -70,14 +70,14 @@ export class DescribeAssociationCommand extends $Command<
 
   private serialize(
     input: DescribeAssociationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAssociationCommandOutput> {
     return deserializeAws_json1_1DescribeAssociationCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDBInstanceCommandInput = DeleteDBInstanceMessage;
@@ -67,14 +67,14 @@ export class DeleteDBInstanceCommand extends $Command<
 
   private serialize(
     input: DeleteDBInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDBInstanceCommandOutput> {
     return deserializeAws_queryDeleteDBInstanceCommand(output, context);
   }

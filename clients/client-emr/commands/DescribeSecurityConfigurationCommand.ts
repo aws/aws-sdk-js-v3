@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSecurityConfigurationCommandInput = DescribeSecurityConfigurationInput;
@@ -70,7 +70,7 @@ export class DescribeSecurityConfigurationCommand extends $Command<
 
   private serialize(
     input: DescribeSecurityConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSecurityConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeSecurityConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSecurityConfigurationCommandOutput> {
     return deserializeAws_json1_1DescribeSecurityConfigurationCommand(
       output,

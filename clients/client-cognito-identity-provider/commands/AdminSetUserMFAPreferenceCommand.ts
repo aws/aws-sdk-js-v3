@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminSetUserMFAPreferenceCommandInput = AdminSetUserMFAPreferenceRequest;
@@ -70,14 +70,14 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
 
   private serialize(
     input: AdminSetUserMFAPreferenceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminSetUserMFAPreferenceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AdminSetUserMFAPreferenceCommandOutput> {
     return deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(
       output,

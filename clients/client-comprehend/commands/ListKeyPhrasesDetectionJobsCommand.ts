@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListKeyPhrasesDetectionJobsCommandInput = ListKeyPhrasesDetectionJobsRequest;
@@ -70,7 +70,7 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
 
   private serialize(
     input: ListKeyPhrasesDetectionJobsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListKeyPhrasesDetectionJobsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListKeyPhrasesDetectionJobsCommandOutput> {
     return deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
       output,

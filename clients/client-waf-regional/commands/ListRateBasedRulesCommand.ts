@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRateBasedRulesCommandInput = ListRateBasedRulesRequest;
@@ -67,14 +67,14 @@ export class ListRateBasedRulesCommand extends $Command<
 
   private serialize(
     input: ListRateBasedRulesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRateBasedRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRateBasedRulesCommandOutput> {
     return deserializeAws_json1_1ListRateBasedRulesCommand(output, context);
   }

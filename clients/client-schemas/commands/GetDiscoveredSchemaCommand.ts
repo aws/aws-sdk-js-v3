@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDiscoveredSchemaCommandInput = GetDiscoveredSchemaRequest;
@@ -70,14 +70,14 @@ export class GetDiscoveredSchemaCommand extends $Command<
 
   private serialize(
     input: GetDiscoveredSchemaCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDiscoveredSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDiscoveredSchemaCommandOutput> {
     return deserializeAws_restJson1_1GetDiscoveredSchemaCommand(
       output,

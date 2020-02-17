@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHostnameSuggestionCommandInput = GetHostnameSuggestionRequest;
@@ -70,14 +70,14 @@ export class GetHostnameSuggestionCommand extends $Command<
 
   private serialize(
     input: GetHostnameSuggestionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetHostnameSuggestionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetHostnameSuggestionCommandOutput> {
     return deserializeAws_json1_1GetHostnameSuggestionCommand(output, context);
   }

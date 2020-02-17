@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelSimulationJobCommandInput = CancelSimulationJobRequest;
@@ -70,14 +70,14 @@ export class CancelSimulationJobCommand extends $Command<
 
   private serialize(
     input: CancelSimulationJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CancelSimulationJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelSimulationJobCommandOutput> {
     return deserializeAws_restJson1_1CancelSimulationJobCommand(
       output,

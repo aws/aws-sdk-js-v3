@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateSkillWithUsersCommandInput = AssociateSkillWithUsersRequest;
@@ -70,14 +70,14 @@ export class AssociateSkillWithUsersCommand extends $Command<
 
   private serialize(
     input: AssociateSkillWithUsersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateSkillWithUsersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateSkillWithUsersCommandOutput> {
     return deserializeAws_json1_1AssociateSkillWithUsersCommand(
       output,

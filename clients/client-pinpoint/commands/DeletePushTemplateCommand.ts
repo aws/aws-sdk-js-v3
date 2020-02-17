@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePushTemplateCommandInput = DeletePushTemplateRequest;
@@ -67,14 +67,14 @@ export class DeletePushTemplateCommand extends $Command<
 
   private serialize(
     input: DeletePushTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeletePushTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePushTemplateCommandOutput> {
     return deserializeAws_restJson1_1DeletePushTemplateCommand(output, context);
   }

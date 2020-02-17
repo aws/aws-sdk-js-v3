@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVolumeStatusCommandInput = DescribeVolumeStatusRequest;
@@ -70,14 +70,14 @@ export class DescribeVolumeStatusCommand extends $Command<
 
   private serialize(
     input: DescribeVolumeStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumeStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeVolumeStatusCommandOutput> {
     return deserializeAws_ec2DescribeVolumeStatusCommand(output, context);
   }

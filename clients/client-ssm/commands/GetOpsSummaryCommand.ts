@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetOpsSummaryCommandInput = GetOpsSummaryRequest;
@@ -64,14 +64,14 @@ export class GetOpsSummaryCommand extends $Command<
 
   private serialize(
     input: GetOpsSummaryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetOpsSummaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetOpsSummaryCommandOutput> {
     return deserializeAws_json1_1GetOpsSummaryCommand(output, context);
   }

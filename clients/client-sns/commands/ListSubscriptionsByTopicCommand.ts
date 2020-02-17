@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSubscriptionsByTopicCommandInput = ListSubscriptionsByTopicInput;
@@ -70,14 +70,14 @@ export class ListSubscriptionsByTopicCommand extends $Command<
 
   private serialize(
     input: ListSubscriptionsByTopicCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListSubscriptionsByTopicCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListSubscriptionsByTopicCommandOutput> {
     return deserializeAws_queryListSubscriptionsByTopicCommand(output, context);
   }

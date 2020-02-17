@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAccountAliasCommandInput = DeleteAccountAliasRequest;
@@ -65,14 +65,14 @@ export class DeleteAccountAliasCommand extends $Command<
 
   private serialize(
     input: DeleteAccountAliasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAccountAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteAccountAliasCommandOutput> {
     return deserializeAws_queryDeleteAccountAliasCommand(output, context);
   }

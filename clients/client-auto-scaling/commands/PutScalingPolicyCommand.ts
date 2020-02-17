@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutScalingPolicyCommandInput = PutScalingPolicyType;
@@ -64,14 +64,14 @@ export class PutScalingPolicyCommand extends $Command<
 
   private serialize(
     input: PutScalingPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPutScalingPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutScalingPolicyCommandOutput> {
     return deserializeAws_queryPutScalingPolicyCommand(output, context);
   }

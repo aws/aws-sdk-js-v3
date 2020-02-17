@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateKeyPairCommandInput = CreateKeyPairRequest;
@@ -64,14 +64,14 @@ export class CreateKeyPairCommand extends $Command<
 
   private serialize(
     input: CreateKeyPairCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateKeyPairCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateKeyPairCommandOutput> {
     return deserializeAws_ec2CreateKeyPairCommand(output, context);
   }

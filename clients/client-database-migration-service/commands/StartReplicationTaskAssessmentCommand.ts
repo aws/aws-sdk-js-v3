@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartReplicationTaskAssessmentCommandInput = StartReplicationTaskAssessmentMessage;
@@ -70,7 +70,7 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
 
   private serialize(
     input: StartReplicationTaskAssessmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartReplicationTaskAssessmentCommand(
       input,
@@ -80,7 +80,7 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartReplicationTaskAssessmentCommandOutput> {
     return deserializeAws_json1_1StartReplicationTaskAssessmentCommand(
       output,

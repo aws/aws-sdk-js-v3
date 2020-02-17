@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmPrivateVirtualInterfaceCommandInput = ConfirmPrivateVirtualInterfaceRequest;
@@ -70,7 +70,7 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
 
   private serialize(
     input: ConfirmPrivateVirtualInterfaceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
       input,
@@ -80,7 +80,7 @@ export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> {
     return deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand(
       output,

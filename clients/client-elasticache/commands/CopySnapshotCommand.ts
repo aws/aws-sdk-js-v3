@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CopySnapshotCommandInput = CopySnapshotMessage;
@@ -64,14 +64,14 @@ export class CopySnapshotCommand extends $Command<
 
   private serialize(
     input: CopySnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCopySnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CopySnapshotCommandOutput> {
     return deserializeAws_queryCopySnapshotCommand(output, context);
   }

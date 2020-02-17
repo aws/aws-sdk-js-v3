@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PublishSchemaCommandInput = PublishSchemaRequest;
@@ -64,14 +64,14 @@ export class PublishSchemaCommand extends $Command<
 
   private serialize(
     input: PublishSchemaCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PublishSchemaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PublishSchemaCommandOutput> {
     return deserializeAws_restJson1_1PublishSchemaCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateWebsiteAuthorizationProviderCommandInput = AssociateWebsiteAuthorizationProviderRequest;
@@ -72,7 +72,7 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
 
   private serialize(
     input: AssociateWebsiteAuthorizationProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommand(
       input,
@@ -82,7 +82,7 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
     return deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommand(
       output,

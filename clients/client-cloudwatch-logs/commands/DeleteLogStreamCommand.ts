@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLogStreamCommandInput = DeleteLogStreamRequest;
@@ -65,14 +65,14 @@ export class DeleteLogStreamCommand extends $Command<
 
   private serialize(
     input: DeleteLogStreamCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLogStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteLogStreamCommandOutput> {
     return deserializeAws_json1_1DeleteLogStreamCommand(output, context);
   }

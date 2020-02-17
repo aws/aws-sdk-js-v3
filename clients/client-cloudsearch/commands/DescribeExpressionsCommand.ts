@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeExpressionsCommandInput = DescribeExpressionsRequest;
@@ -70,14 +70,14 @@ export class DescribeExpressionsCommand extends $Command<
 
   private serialize(
     input: DescribeExpressionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeExpressionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeExpressionsCommandOutput> {
     return deserializeAws_queryDescribeExpressionsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CompleteLayerUploadCommandInput = CompleteLayerUploadRequest;
@@ -70,14 +70,14 @@ export class CompleteLayerUploadCommand extends $Command<
 
   private serialize(
     input: CompleteLayerUploadCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CompleteLayerUploadCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CompleteLayerUploadCommandOutput> {
     return deserializeAws_json1_1CompleteLayerUploadCommand(output, context);
   }

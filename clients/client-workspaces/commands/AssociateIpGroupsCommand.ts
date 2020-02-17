@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateIpGroupsCommandInput = AssociateIpGroupsRequest;
@@ -67,14 +67,14 @@ export class AssociateIpGroupsCommand extends $Command<
 
   private serialize(
     input: AssociateIpGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateIpGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateIpGroupsCommandOutput> {
     return deserializeAws_json1_1AssociateIpGroupsCommand(output, context);
   }

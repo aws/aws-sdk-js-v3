@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCallerIdentityCommandInput = GetCallerIdentityRequest;
@@ -67,14 +67,14 @@ export class GetCallerIdentityCommand extends $Command<
 
   private serialize(
     input: GetCallerIdentityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetCallerIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCallerIdentityCommandOutput> {
     return deserializeAws_queryGetCallerIdentityCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDevicePoolCommandInput = GetDevicePoolRequest;
@@ -64,14 +64,14 @@ export class GetDevicePoolCommand extends $Command<
 
   private serialize(
     input: GetDevicePoolCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDevicePoolCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDevicePoolCommandOutput> {
     return deserializeAws_json1_1GetDevicePoolCommand(output, context);
   }

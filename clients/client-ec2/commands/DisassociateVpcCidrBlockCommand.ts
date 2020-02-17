@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateVpcCidrBlockCommandInput = DisassociateVpcCidrBlockRequest;
@@ -70,14 +70,14 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
 
   private serialize(
     input: DisassociateVpcCidrBlockCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DisassociateVpcCidrBlockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateVpcCidrBlockCommandOutput> {
     return deserializeAws_ec2DisassociateVpcCidrBlockCommand(output, context);
   }

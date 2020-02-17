@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRemediationConfigurationsCommandInput = DescribeRemediationConfigurationsRequest;
@@ -70,7 +70,7 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
 
   private serialize(
     input: DescribeRemediationConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRemediationConfigurationsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeRemediationConfigurationsCommandOutput> {
     return deserializeAws_json1_1DescribeRemediationConfigurationsCommand(
       output,

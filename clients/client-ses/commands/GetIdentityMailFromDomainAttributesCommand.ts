@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIdentityMailFromDomainAttributesCommandInput = GetIdentityMailFromDomainAttributesRequest;
@@ -70,7 +70,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
 
   private serialize(
     input: GetIdentityMailFromDomainAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(
       input,
@@ -80,7 +80,7 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> {
     return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(
       output,

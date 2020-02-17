@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateNodeCommandInput = AssociateNodeRequest;
@@ -64,14 +64,14 @@ export class AssociateNodeCommand extends $Command<
 
   private serialize(
     input: AssociateNodeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateNodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateNodeCommandOutput> {
     return deserializeAws_json1_1AssociateNodeCommand(output, context);
   }

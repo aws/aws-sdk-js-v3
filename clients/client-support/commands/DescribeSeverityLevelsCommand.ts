@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSeverityLevelsCommandInput = DescribeSeverityLevelsRequest;
@@ -70,14 +70,14 @@ export class DescribeSeverityLevelsCommand extends $Command<
 
   private serialize(
     input: DescribeSeverityLevelsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSeverityLevelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSeverityLevelsCommandOutput> {
     return deserializeAws_json1_1DescribeSeverityLevelsCommand(output, context);
   }

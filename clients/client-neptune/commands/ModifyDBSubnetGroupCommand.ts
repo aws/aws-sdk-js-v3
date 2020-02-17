@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBSubnetGroupCommandInput = ModifyDBSubnetGroupMessage;
@@ -70,14 +70,14 @@ export class ModifyDBSubnetGroupCommand extends $Command<
 
   private serialize(
     input: ModifyDBSubnetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyDBSubnetGroupCommandOutput> {
     return deserializeAws_queryModifyDBSubnetGroupCommand(output, context);
   }

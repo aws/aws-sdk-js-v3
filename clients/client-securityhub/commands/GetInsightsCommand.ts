@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInsightsCommandInput = GetInsightsRequest;
@@ -64,14 +64,14 @@ export class GetInsightsCommand extends $Command<
 
   private serialize(
     input: GetInsightsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetInsightsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetInsightsCommandOutput> {
     return deserializeAws_restJson1_1GetInsightsCommand(output, context);
   }

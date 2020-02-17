@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInstancePortStatesCommandInput = GetInstancePortStatesRequest;
@@ -70,14 +70,14 @@ export class GetInstancePortStatesCommand extends $Command<
 
   private serialize(
     input: GetInstancePortStatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstancePortStatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetInstancePortStatesCommandOutput> {
     return deserializeAws_json1_1GetInstancePortStatesCommand(output, context);
   }

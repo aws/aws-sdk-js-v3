@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListMitigationActionsCommandInput = ListMitigationActionsRequest;
@@ -70,14 +70,14 @@ export class ListMitigationActionsCommand extends $Command<
 
   private serialize(
     input: ListMitigationActionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListMitigationActionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListMitigationActionsCommandOutput> {
     return deserializeAws_restJson1_1ListMitigationActionsCommand(
       output,

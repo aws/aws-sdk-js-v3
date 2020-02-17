@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountSendingEnabledCommandInput = {};
@@ -67,14 +67,14 @@ export class GetAccountSendingEnabledCommand extends $Command<
 
   private serialize(
     input: GetAccountSendingEnabledCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountSendingEnabledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAccountSendingEnabledCommandOutput> {
     return deserializeAws_queryGetAccountSendingEnabledCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDashboardPublishedVersionCommandInput = UpdateDashboardPublishedVersionRequest;
@@ -70,7 +70,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
 
   private serialize(
     input: UpdateDashboardPublishedVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDashboardPublishedVersionCommandOutput> {
     return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommand(
       output,

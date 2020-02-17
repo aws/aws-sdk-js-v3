@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConfigurationSetTrackingOptionsCommandInput = CreateConfigurationSetTrackingOptionsRequest;
@@ -72,7 +72,7 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
 
   private serialize(
     input: CreateConfigurationSetTrackingOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateConfigurationSetTrackingOptionsCommand(
       input,
@@ -82,7 +82,7 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> {
     return deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand(
       output,

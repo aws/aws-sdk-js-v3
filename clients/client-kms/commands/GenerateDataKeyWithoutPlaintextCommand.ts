@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateDataKeyWithoutPlaintextCommandInput = GenerateDataKeyWithoutPlaintextRequest;
@@ -70,7 +70,7 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
 
   private serialize(
     input: GenerateDataKeyWithoutPlaintextCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(
       input,
@@ -80,7 +80,7 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> {
     return deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand(
       output,

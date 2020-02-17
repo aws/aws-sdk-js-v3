@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSpotDatafeedSubscriptionCommandInput = DeleteSpotDatafeedSubscriptionRequest;
@@ -68,7 +68,7 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
 
   private serialize(
     input: DeleteSpotDatafeedSubscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> {
     return deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterVolumeCommandInput = RegisterVolumeRequest;
@@ -64,14 +64,14 @@ export class RegisterVolumeCommand extends $Command<
 
   private serialize(
     input: RegisterVolumeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RegisterVolumeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RegisterVolumeCommandOutput> {
     return deserializeAws_json1_1RegisterVolumeCommand(output, context);
   }

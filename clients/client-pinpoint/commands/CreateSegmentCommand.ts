@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSegmentCommandInput = CreateSegmentRequest;
@@ -64,14 +64,14 @@ export class CreateSegmentCommand extends $Command<
 
   private serialize(
     input: CreateSegmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateSegmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSegmentCommandOutput> {
     return deserializeAws_restJson1_1CreateSegmentCommand(output, context);
   }

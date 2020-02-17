@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateResolverEndpointIpAddressCommandInput = AssociateResolverEndpointIpAddressRequest;
@@ -70,7 +70,7 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
 
   private serialize(
     input: AssociateResolverEndpointIpAddressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateResolverEndpointIpAddressCommand(
       input,
@@ -80,7 +80,7 @@ export class AssociateResolverEndpointIpAddressCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateResolverEndpointIpAddressCommandOutput> {
     return deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand(
       output,

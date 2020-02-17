@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSecurityGroupRuleDescriptionsIngressCommandInput = UpdateSecurityGroupRuleDescriptionsIngressRequest;
@@ -72,7 +72,7 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
 
   private serialize(
     input: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(
       input,
@@ -82,7 +82,7 @@ export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> {
     return deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand(
       output,

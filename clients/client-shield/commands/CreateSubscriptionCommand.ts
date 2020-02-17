@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSubscriptionCommandInput = CreateSubscriptionRequest;
@@ -67,14 +67,14 @@ export class CreateSubscriptionCommand extends $Command<
 
   private serialize(
     input: CreateSubscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSubscriptionCommandOutput> {
     return deserializeAws_json1_1CreateSubscriptionCommand(output, context);
   }

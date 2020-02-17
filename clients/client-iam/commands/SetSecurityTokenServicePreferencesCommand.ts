@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetSecurityTokenServicePreferencesCommandInput = SetSecurityTokenServicePreferencesRequest;
@@ -68,7 +68,7 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
 
   private serialize(
     input: SetSecurityTokenServicePreferencesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetSecurityTokenServicePreferencesCommand(
       input,
@@ -78,7 +78,7 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetSecurityTokenServicePreferencesCommandOutput> {
     return deserializeAws_querySetSecurityTokenServicePreferencesCommand(
       output,

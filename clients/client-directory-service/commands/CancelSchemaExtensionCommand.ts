@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelSchemaExtensionCommandInput = CancelSchemaExtensionRequest;
@@ -70,14 +70,14 @@ export class CancelSchemaExtensionCommand extends $Command<
 
   private serialize(
     input: CancelSchemaExtensionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelSchemaExtensionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelSchemaExtensionCommandOutput> {
     return deserializeAws_json1_1CancelSchemaExtensionCommand(output, context);
   }

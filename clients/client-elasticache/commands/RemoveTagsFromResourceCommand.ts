@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceMessage;
@@ -67,14 +67,14 @@ export class RemoveTagsFromResourceCommand extends $Command<
 
   private serialize(
     input: RemoveTagsFromResourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRemoveTagsFromResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RemoveTagsFromResourceCommandOutput> {
     return deserializeAws_queryRemoveTagsFromResourceCommand(output, context);
   }

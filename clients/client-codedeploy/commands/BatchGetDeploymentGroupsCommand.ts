@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetDeploymentGroupsCommandInput = BatchGetDeploymentGroupsInput;
@@ -70,14 +70,14 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
 
   private serialize(
     input: BatchGetDeploymentGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetDeploymentGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchGetDeploymentGroupsCommandOutput> {
     return deserializeAws_json1_1BatchGetDeploymentGroupsCommand(
       output,

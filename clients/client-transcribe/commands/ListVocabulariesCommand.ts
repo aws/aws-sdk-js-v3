@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListVocabulariesCommandInput = ListVocabulariesRequest;
@@ -67,14 +67,14 @@ export class ListVocabulariesCommand extends $Command<
 
   private serialize(
     input: ListVocabulariesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListVocabulariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListVocabulariesCommandOutput> {
     return deserializeAws_json1_1ListVocabulariesCommand(output, context);
   }

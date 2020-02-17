@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AcceptSharedDirectoryCommandInput = AcceptSharedDirectoryRequest;
@@ -70,14 +70,14 @@ export class AcceptSharedDirectoryCommand extends $Command<
 
   private serialize(
     input: AcceptSharedDirectoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AcceptSharedDirectoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AcceptSharedDirectoryCommandOutput> {
     return deserializeAws_json1_1AcceptSharedDirectoryCommand(output, context);
   }

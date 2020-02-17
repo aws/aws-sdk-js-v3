@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportProjectCommandInput = ExportProjectRequest;
@@ -64,14 +64,14 @@ export class ExportProjectCommand extends $Command<
 
   private serialize(
     input: ExportProjectCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ExportProjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ExportProjectCommandOutput> {
     return deserializeAws_restJson1_1ExportProjectCommand(output, context);
   }

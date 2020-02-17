@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutPermissionPolicyCommandInput = PutPermissionPolicyRequest;
@@ -70,14 +70,14 @@ export class PutPermissionPolicyCommand extends $Command<
 
   private serialize(
     input: PutPermissionPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPermissionPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutPermissionPolicyCommandOutput> {
     return deserializeAws_json1_1PutPermissionPolicyCommand(output, context);
   }

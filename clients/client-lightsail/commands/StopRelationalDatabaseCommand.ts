@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopRelationalDatabaseCommandInput = StopRelationalDatabaseRequest;
@@ -70,14 +70,14 @@ export class StopRelationalDatabaseCommand extends $Command<
 
   private serialize(
     input: StopRelationalDatabaseCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopRelationalDatabaseCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopRelationalDatabaseCommandOutput> {
     return deserializeAws_json1_1StopRelationalDatabaseCommand(output, context);
   }

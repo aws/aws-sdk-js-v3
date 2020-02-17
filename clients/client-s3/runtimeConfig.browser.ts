@@ -1,3 +1,4 @@
+import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
@@ -29,5 +30,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
   regionDefaultProvider: invalidFunction("Region is missing") as any,
   md5: Md5,
-  streamHasher
+  streamHasher,
+  eventStreamSerdeProvider
 };

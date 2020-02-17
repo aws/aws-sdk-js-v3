@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePublicAccessBlockCommandInput = DeletePublicAccessBlockRequest;
@@ -70,14 +70,14 @@ export class DeletePublicAccessBlockCommand extends $Command<
 
   private serialize(
     input: DeletePublicAccessBlockCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeletePublicAccessBlockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePublicAccessBlockCommandOutput> {
     return deserializeAws_restXmlDeletePublicAccessBlockCommand(
       output,

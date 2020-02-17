@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDeviceSyncCommandInput = StartDeviceSyncRequest;
@@ -67,14 +67,14 @@ export class StartDeviceSyncCommand extends $Command<
 
   private serialize(
     input: StartDeviceSyncCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDeviceSyncCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartDeviceSyncCommandOutput> {
     return deserializeAws_json1_1StartDeviceSyncCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInsightRulesCommandInput = DeleteInsightRulesInput;
@@ -67,14 +67,14 @@ export class DeleteInsightRulesCommand extends $Command<
 
   private serialize(
     input: DeleteInsightRulesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteInsightRulesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteInsightRulesCommandOutput> {
     return deserializeAws_queryDeleteInsightRulesCommand(output, context);
   }

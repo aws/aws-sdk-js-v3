@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePublicIpv4PoolsCommandInput = DescribePublicIpv4PoolsRequest;
@@ -70,14 +70,14 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
 
   private serialize(
     input: DescribePublicIpv4PoolsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribePublicIpv4PoolsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribePublicIpv4PoolsCommandOutput> {
     return deserializeAws_ec2DescribePublicIpv4PoolsCommand(output, context);
   }

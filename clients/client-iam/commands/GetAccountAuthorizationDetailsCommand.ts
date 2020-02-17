@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccountAuthorizationDetailsCommandInput = GetAccountAuthorizationDetailsRequest;
@@ -70,7 +70,7 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
 
   private serialize(
     input: GetAccountAuthorizationDetailsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountAuthorizationDetailsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAccountAuthorizationDetailsCommandOutput> {
     return deserializeAws_queryGetAccountAuthorizationDetailsCommand(
       output,

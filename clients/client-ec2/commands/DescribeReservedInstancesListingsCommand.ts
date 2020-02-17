@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReservedInstancesListingsCommandInput = DescribeReservedInstancesListingsRequest;
@@ -70,7 +70,7 @@ export class DescribeReservedInstancesListingsCommand extends $Command<
 
   private serialize(
     input: DescribeReservedInstancesListingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeReservedInstancesListingsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeReservedInstancesListingsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeReservedInstancesListingsCommandOutput> {
     return deserializeAws_ec2DescribeReservedInstancesListingsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSystemTemplateCommandInput = DeleteSystemTemplateRequest;
@@ -70,14 +70,14 @@ export class DeleteSystemTemplateCommand extends $Command<
 
   private serialize(
     input: DeleteSystemTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSystemTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSystemTemplateCommandOutput> {
     return deserializeAws_json1_1DeleteSystemTemplateCommand(output, context);
   }

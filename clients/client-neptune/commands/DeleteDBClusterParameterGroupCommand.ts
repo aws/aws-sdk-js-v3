@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterParameterGroupCommandInput = DeleteDBClusterParameterGroupMessage;
@@ -68,7 +68,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
 
   private serialize(
     input: DeleteDBClusterParameterGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterParameterGroupCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDBClusterParameterGroupCommandOutput> {
     return deserializeAws_queryDeleteDBClusterParameterGroupCommand(
       output,

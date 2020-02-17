@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetReservedNodeExchangeOfferingsCommandInput = GetReservedNodeExchangeOfferingsInputMessage;
@@ -70,7 +70,7 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
 
   private serialize(
     input: GetReservedNodeExchangeOfferingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetReservedNodeExchangeOfferingsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetReservedNodeExchangeOfferingsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetReservedNodeExchangeOfferingsCommandOutput> {
     return deserializeAws_queryGetReservedNodeExchangeOfferingsCommand(
       output,

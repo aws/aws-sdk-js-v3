@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeApplicationVersionsCommandInput = DescribeApplicationVersionsMessage;
@@ -70,14 +70,14 @@ export class DescribeApplicationVersionsCommand extends $Command<
 
   private serialize(
     input: DescribeApplicationVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeApplicationVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeApplicationVersionsCommandOutput> {
     return deserializeAws_queryDescribeApplicationVersionsCommand(
       output,

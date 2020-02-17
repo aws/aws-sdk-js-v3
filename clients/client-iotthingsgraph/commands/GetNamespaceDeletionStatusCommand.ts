@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetNamespaceDeletionStatusCommandInput = GetNamespaceDeletionStatusRequest;
@@ -70,7 +70,7 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
 
   private serialize(
     input: GetNamespaceDeletionStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNamespaceDeletionStatusCommand(
       input,
@@ -80,7 +80,7 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetNamespaceDeletionStatusCommandOutput> {
     return deserializeAws_json1_1GetNamespaceDeletionStatusCommand(
       output,

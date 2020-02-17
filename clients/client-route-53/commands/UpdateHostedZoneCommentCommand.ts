@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateHostedZoneCommentCommandInput = UpdateHostedZoneCommentRequest;
@@ -72,14 +72,14 @@ export class UpdateHostedZoneCommentCommand extends $Command<
 
   private serialize(
     input: UpdateHostedZoneCommentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlUpdateHostedZoneCommentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateHostedZoneCommentCommandOutput> {
     return deserializeAws_restXmlUpdateHostedZoneCommentCommand(
       output,

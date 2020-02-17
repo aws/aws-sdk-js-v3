@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTargetGroupCommandInput = DeleteTargetGroupInput;
@@ -67,14 +67,14 @@ export class DeleteTargetGroupCommand extends $Command<
 
   private serialize(
     input: DeleteTargetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteTargetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTargetGroupCommandOutput> {
     return deserializeAws_queryDeleteTargetGroupCommand(output, context);
   }

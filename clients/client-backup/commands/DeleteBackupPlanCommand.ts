@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBackupPlanCommandInput = DeleteBackupPlanInput;
@@ -64,14 +64,14 @@ export class DeleteBackupPlanCommand extends $Command<
 
   private serialize(
     input: DeleteBackupPlanCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteBackupPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteBackupPlanCommandOutput> {
     return deserializeAws_restJson1_1DeleteBackupPlanCommand(output, context);
   }

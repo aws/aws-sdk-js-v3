@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateServiceActionFromProvisioningArtifactCommandInput = DisassociateServiceActionFromProvisioningArtifactInput;
@@ -72,7 +72,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
 
   private serialize(
     input: DisassociateServiceActionFromProvisioningArtifactCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(
       input,
@@ -82,7 +82,7 @@ export class DisassociateServiceActionFromProvisioningArtifactCommand extends $C
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> {
     return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand(
       output,

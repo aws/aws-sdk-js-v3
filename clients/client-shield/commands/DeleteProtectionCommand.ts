@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteProtectionCommandInput = DeleteProtectionRequest;
@@ -67,14 +67,14 @@ export class DeleteProtectionCommand extends $Command<
 
   private serialize(
     input: DeleteProtectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteProtectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteProtectionCommandOutput> {
     return deserializeAws_json1_1DeleteProtectionCommand(output, context);
   }

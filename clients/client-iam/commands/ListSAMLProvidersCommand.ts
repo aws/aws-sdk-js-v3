@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSAMLProvidersCommandInput = ListSAMLProvidersRequest;
@@ -67,14 +67,14 @@ export class ListSAMLProvidersCommand extends $Command<
 
   private serialize(
     input: ListSAMLProvidersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListSAMLProvidersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListSAMLProvidersCommandOutput> {
     return deserializeAws_queryListSAMLProvidersCommand(output, context);
   }

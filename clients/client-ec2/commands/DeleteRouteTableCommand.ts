@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRouteTableCommandInput = DeleteRouteTableRequest;
@@ -65,14 +65,14 @@ export class DeleteRouteTableCommand extends $Command<
 
   private serialize(
     input: DeleteRouteTableCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteRouteTableCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteRouteTableCommandOutput> {
     return deserializeAws_ec2DeleteRouteTableCommand(output, context);
   }

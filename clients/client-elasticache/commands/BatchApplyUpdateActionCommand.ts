@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchApplyUpdateActionCommandInput = BatchApplyUpdateActionMessage;
@@ -70,14 +70,14 @@ export class BatchApplyUpdateActionCommand extends $Command<
 
   private serialize(
     input: BatchApplyUpdateActionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryBatchApplyUpdateActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchApplyUpdateActionCommandOutput> {
     return deserializeAws_queryBatchApplyUpdateActionCommand(output, context);
   }

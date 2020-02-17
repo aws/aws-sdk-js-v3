@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMissionProfileCommandInput = UpdateMissionProfileRequest;
@@ -70,14 +70,14 @@ export class UpdateMissionProfileCommand extends $Command<
 
   private serialize(
     input: UpdateMissionProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateMissionProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateMissionProfileCommandOutput> {
     return deserializeAws_restJson1_1UpdateMissionProfileCommand(
       output,

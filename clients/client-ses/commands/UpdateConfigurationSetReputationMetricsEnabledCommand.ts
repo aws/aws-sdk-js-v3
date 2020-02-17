@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetReputationMetricsEnabledCommandInput = UpdateConfigurationSetReputationMetricsEnabledRequest;
@@ -70,7 +70,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
 
   private serialize(
     input: UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> {
     return deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand(
       output,

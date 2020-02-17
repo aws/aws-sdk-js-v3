@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type OptInPhoneNumberCommandInput = OptInPhoneNumberInput;
@@ -67,14 +67,14 @@ export class OptInPhoneNumberCommand extends $Command<
 
   private serialize(
     input: OptInPhoneNumberCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryOptInPhoneNumberCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<OptInPhoneNumberCommandOutput> {
     return deserializeAws_queryOptInPhoneNumberCommand(output, context);
   }

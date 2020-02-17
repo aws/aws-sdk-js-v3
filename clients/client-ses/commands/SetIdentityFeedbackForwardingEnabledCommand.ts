@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetIdentityFeedbackForwardingEnabledCommandInput = SetIdentityFeedbackForwardingEnabledRequest;
@@ -72,7 +72,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
 
   private serialize(
     input: SetIdentityFeedbackForwardingEnabledCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetIdentityFeedbackForwardingEnabledCommand(
       input,
@@ -82,7 +82,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> {
     return deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand(
       output,

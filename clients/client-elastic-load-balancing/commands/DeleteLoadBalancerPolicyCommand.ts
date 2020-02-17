@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLoadBalancerPolicyCommandInput = DeleteLoadBalancerPolicyInput;
@@ -70,14 +70,14 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
 
   private serialize(
     input: DeleteLoadBalancerPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLoadBalancerPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteLoadBalancerPolicyCommandOutput> {
     return deserializeAws_queryDeleteLoadBalancerPolicyCommand(output, context);
   }

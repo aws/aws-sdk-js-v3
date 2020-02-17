@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTransitGatewayPeeringAttachmentCommandInput = DeleteTransitGatewayPeeringAttachmentRequest;
@@ -72,7 +72,7 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
 
   private serialize(
     input: DeleteTransitGatewayPeeringAttachmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(
       input,
@@ -82,7 +82,7 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> {
     return deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand(
       output,

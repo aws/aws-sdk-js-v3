@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateDRTLogBucketCommandInput = DisassociateDRTLogBucketRequest;
@@ -70,14 +70,14 @@ export class DisassociateDRTLogBucketCommand extends $Command<
 
   private serialize(
     input: DisassociateDRTLogBucketCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDRTLogBucketCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateDRTLogBucketCommandOutput> {
     return deserializeAws_json1_1DisassociateDRTLogBucketCommand(
       output,

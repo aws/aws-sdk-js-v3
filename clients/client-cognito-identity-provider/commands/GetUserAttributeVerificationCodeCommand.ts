@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUserAttributeVerificationCodeCommandInput = GetUserAttributeVerificationCodeRequest;
@@ -70,7 +70,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
 
   private serialize(
     input: GetUserAttributeVerificationCodeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUserAttributeVerificationCodeCommand(
       input,
@@ -80,7 +80,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetUserAttributeVerificationCodeCommandOutput> {
     return deserializeAws_json1_1GetUserAttributeVerificationCodeCommand(
       output,

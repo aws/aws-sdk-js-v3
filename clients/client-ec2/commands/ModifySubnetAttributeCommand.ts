@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifySubnetAttributeCommandInput = ModifySubnetAttributeRequest;
@@ -68,14 +68,14 @@ export class ModifySubnetAttributeCommand extends $Command<
 
   private serialize(
     input: ModifySubnetAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifySubnetAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifySubnetAttributeCommandOutput> {
     return deserializeAws_ec2ModifySubnetAttributeCommand(output, context);
   }

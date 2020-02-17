@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type FailoverDBClusterCommandInput = FailoverDBClusterMessage;
@@ -67,14 +67,14 @@ export class FailoverDBClusterCommand extends $Command<
 
   private serialize(
     input: FailoverDBClusterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryFailoverDBClusterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<FailoverDBClusterCommandOutput> {
     return deserializeAws_queryFailoverDBClusterCommand(output, context);
   }

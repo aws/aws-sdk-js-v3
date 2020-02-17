@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePartnerEventSourceCommandInput = CreatePartnerEventSourceRequest;
@@ -70,14 +70,14 @@ export class CreatePartnerEventSourceCommand extends $Command<
 
   private serialize(
     input: CreatePartnerEventSourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePartnerEventSourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePartnerEventSourceCommandOutput> {
     return deserializeAws_json1_1CreatePartnerEventSourceCommand(
       output,

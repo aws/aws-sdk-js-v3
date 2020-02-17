@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetTerminationProtectionCommandInput = SetTerminationProtectionInput;
@@ -68,14 +68,14 @@ export class SetTerminationProtectionCommand extends $Command<
 
   private serialize(
     input: SetTerminationProtectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTerminationProtectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetTerminationProtectionCommandOutput> {
     return deserializeAws_json1_1SetTerminationProtectionCommand(
       output,

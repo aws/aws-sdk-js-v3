@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UntagStreamCommandInput = UntagStreamInput;
@@ -64,14 +64,14 @@ export class UntagStreamCommand extends $Command<
 
   private serialize(
     input: UntagStreamCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UntagStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UntagStreamCommandOutput> {
     return deserializeAws_restJson1_1UntagStreamCommand(output, context);
   }

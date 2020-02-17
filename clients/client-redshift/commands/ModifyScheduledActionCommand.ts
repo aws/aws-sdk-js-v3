@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyScheduledActionCommandInput = ModifyScheduledActionMessage;
@@ -67,14 +67,14 @@ export class ModifyScheduledActionCommand extends $Command<
 
   private serialize(
     input: ModifyScheduledActionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyScheduledActionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyScheduledActionCommandOutput> {
     return deserializeAws_queryModifyScheduledActionCommand(output, context);
   }

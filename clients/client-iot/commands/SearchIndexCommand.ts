@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchIndexCommandInput = SearchIndexRequest;
@@ -64,14 +64,14 @@ export class SearchIndexCommand extends $Command<
 
   private serialize(
     input: SearchIndexCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SearchIndexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchIndexCommandOutput> {
     return deserializeAws_restJson1_1SearchIndexCommand(output, context);
   }

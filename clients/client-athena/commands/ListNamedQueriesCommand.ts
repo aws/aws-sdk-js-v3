@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListNamedQueriesCommandInput = ListNamedQueriesInput;
@@ -64,14 +64,14 @@ export class ListNamedQueriesCommand extends $Command<
 
   private serialize(
     input: ListNamedQueriesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListNamedQueriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListNamedQueriesCommandOutput> {
     return deserializeAws_json1_1ListNamedQueriesCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetServiceLastAccessedDetailsCommandInput = GetServiceLastAccessedDetailsRequest;
@@ -70,7 +70,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
 
   private serialize(
     input: GetServiceLastAccessedDetailsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetServiceLastAccessedDetailsCommand(
       input,
@@ -80,7 +80,7 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetServiceLastAccessedDetailsCommandOutput> {
     return deserializeAws_queryGetServiceLastAccessedDetailsCommand(
       output,

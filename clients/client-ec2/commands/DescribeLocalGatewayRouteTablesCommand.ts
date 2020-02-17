@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLocalGatewayRouteTablesCommandInput = DescribeLocalGatewayRouteTablesRequest;
@@ -70,7 +70,7 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
 
   private serialize(
     input: DescribeLocalGatewayRouteTablesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeLocalGatewayRouteTablesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> {
     return deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand(
       output,

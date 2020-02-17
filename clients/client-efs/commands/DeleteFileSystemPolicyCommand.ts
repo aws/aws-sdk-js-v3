@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFileSystemPolicyCommandInput = DeleteFileSystemPolicyRequest;
@@ -68,7 +68,7 @@ export class DeleteFileSystemPolicyCommand extends $Command<
 
   private serialize(
     input: DeleteFileSystemPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteFileSystemPolicyCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteFileSystemPolicyCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteFileSystemPolicyCommandOutput> {
     return deserializeAws_restJson1_1DeleteFileSystemPolicyCommand(
       output,

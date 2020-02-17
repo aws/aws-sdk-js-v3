@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DefineSuggesterCommandInput = DefineSuggesterRequest;
@@ -67,14 +67,14 @@ export class DefineSuggesterCommand extends $Command<
 
   private serialize(
     input: DefineSuggesterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDefineSuggesterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DefineSuggesterCommandOutput> {
     return deserializeAws_queryDefineSuggesterCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeValidDBInstanceModificationsCommandInput = DescribeValidDBInstanceModificationsMessage;
@@ -72,7 +72,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
 
   private serialize(
     input: DescribeValidDBInstanceModificationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeValidDBInstanceModificationsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeValidDBInstanceModificationsCommandOutput> {
     return deserializeAws_queryDescribeValidDBInstanceModificationsCommand(
       output,

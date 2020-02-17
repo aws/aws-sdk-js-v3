@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RefreshSchemasCommandInput = RefreshSchemasMessage;
@@ -64,14 +64,14 @@ export class RefreshSchemasCommand extends $Command<
 
   private serialize(
     input: RefreshSchemasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RefreshSchemasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RefreshSchemasCommandOutput> {
     return deserializeAws_json1_1RefreshSchemasCommand(output, context);
   }

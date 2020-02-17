@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVoiceTemplateCommandInput = DeleteVoiceTemplateRequest;
@@ -70,14 +70,14 @@ export class DeleteVoiceTemplateCommand extends $Command<
 
   private serialize(
     input: DeleteVoiceTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteVoiceTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteVoiceTemplateCommandOutput> {
     return deserializeAws_restJson1_1DeleteVoiceTemplateCommand(
       output,

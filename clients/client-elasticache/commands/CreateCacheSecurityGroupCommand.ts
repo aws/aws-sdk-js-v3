@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCacheSecurityGroupCommandInput = CreateCacheSecurityGroupMessage;
@@ -70,14 +70,14 @@ export class CreateCacheSecurityGroupCommand extends $Command<
 
   private serialize(
     input: CreateCacheSecurityGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheSecurityGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCacheSecurityGroupCommandOutput> {
     return deserializeAws_queryCreateCacheSecurityGroupCommand(output, context);
   }

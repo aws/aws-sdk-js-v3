@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPolicyVersionCommandInput = GetPolicyVersionRequest;
@@ -67,14 +67,14 @@ export class GetPolicyVersionCommand extends $Command<
 
   private serialize(
     input: GetPolicyVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetPolicyVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPolicyVersionCommandOutput> {
     return deserializeAws_restJson1_1GetPolicyVersionCommand(output, context);
   }

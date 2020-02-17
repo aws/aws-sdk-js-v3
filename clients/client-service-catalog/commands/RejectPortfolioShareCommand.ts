@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RejectPortfolioShareCommandInput = RejectPortfolioShareInput;
@@ -70,14 +70,14 @@ export class RejectPortfolioShareCommand extends $Command<
 
   private serialize(
     input: RejectPortfolioShareCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RejectPortfolioShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RejectPortfolioShareCommandOutput> {
     return deserializeAws_json1_1RejectPortfolioShareCommand(output, context);
   }

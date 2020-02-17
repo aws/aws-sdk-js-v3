@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSubscribedRuleGroupsCommandInput = ListSubscribedRuleGroupsRequest;
@@ -70,14 +70,14 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
 
   private serialize(
     input: ListSubscribedRuleGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListSubscribedRuleGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListSubscribedRuleGroupsCommandOutput> {
     return deserializeAws_json1_1ListSubscribedRuleGroupsCommand(
       output,

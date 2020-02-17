@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
@@ -67,14 +67,14 @@ export class PromoteReadReplicaCommand extends $Command<
 
   private serialize(
     input: PromoteReadReplicaCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PromoteReadReplicaCommandOutput> {
     return deserializeAws_queryPromoteReadReplicaCommand(output, context);
   }

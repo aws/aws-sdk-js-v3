@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetExportJobsCommandInput = GetExportJobsRequest;
@@ -64,14 +64,14 @@ export class GetExportJobsCommand extends $Command<
 
   private serialize(
     input: GetExportJobsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetExportJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetExportJobsCommandOutput> {
     return deserializeAws_restJson1_1GetExportJobsCommand(output, context);
   }

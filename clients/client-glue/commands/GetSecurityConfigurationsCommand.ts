@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSecurityConfigurationsCommandInput = GetSecurityConfigurationsRequest;
@@ -70,14 +70,14 @@ export class GetSecurityConfigurationsCommand extends $Command<
 
   private serialize(
     input: GetSecurityConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSecurityConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSecurityConfigurationsCommandOutput> {
     return deserializeAws_json1_1GetSecurityConfigurationsCommand(
       output,

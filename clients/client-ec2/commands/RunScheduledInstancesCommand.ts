@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RunScheduledInstancesCommandInput = RunScheduledInstancesRequest;
@@ -70,14 +70,14 @@ export class RunScheduledInstancesCommand extends $Command<
 
   private serialize(
     input: RunScheduledInstancesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2RunScheduledInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RunScheduledInstancesCommandOutput> {
     return deserializeAws_ec2RunScheduledInstancesCommand(output, context);
   }

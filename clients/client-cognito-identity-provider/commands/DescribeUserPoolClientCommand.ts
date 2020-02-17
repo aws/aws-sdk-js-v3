@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeUserPoolClientCommandInput = DescribeUserPoolClientRequest;
@@ -70,14 +70,14 @@ export class DescribeUserPoolClientCommand extends $Command<
 
   private serialize(
     input: DescribeUserPoolClientCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUserPoolClientCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeUserPoolClientCommandOutput> {
     return deserializeAws_json1_1DescribeUserPoolClientCommand(output, context);
   }

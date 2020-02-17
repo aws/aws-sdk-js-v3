@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRevisionAssetsCommandInput = ListRevisionAssetsRequest;
@@ -67,14 +67,14 @@ export class ListRevisionAssetsCommand extends $Command<
 
   private serialize(
     input: ListRevisionAssetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListRevisionAssetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRevisionAssetsCommandOutput> {
     return deserializeAws_restJson1_1ListRevisionAssetsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchImportFindingsCommandInput = BatchImportFindingsRequest;
@@ -70,14 +70,14 @@ export class BatchImportFindingsCommand extends $Command<
 
   private serialize(
     input: BatchImportFindingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchImportFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchImportFindingsCommandOutput> {
     return deserializeAws_restJson1_1BatchImportFindingsCommand(
       output,

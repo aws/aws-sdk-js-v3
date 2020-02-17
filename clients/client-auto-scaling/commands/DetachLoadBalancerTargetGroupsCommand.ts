@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachLoadBalancerTargetGroupsCommandInput = DetachLoadBalancerTargetGroupsType;
@@ -70,7 +70,7 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
 
   private serialize(
     input: DetachLoadBalancerTargetGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDetachLoadBalancerTargetGroupsCommand(
       input,
@@ -80,7 +80,7 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> {
     return deserializeAws_queryDetachLoadBalancerTargetGroupsCommand(
       output,

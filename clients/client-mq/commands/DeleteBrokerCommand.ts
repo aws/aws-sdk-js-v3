@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBrokerCommandInput = DeleteBrokerRequest;
@@ -64,14 +64,14 @@ export class DeleteBrokerCommand extends $Command<
 
   private serialize(
     input: DeleteBrokerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteBrokerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteBrokerCommandOutput> {
     return deserializeAws_restJson1_1DeleteBrokerCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebootNodeCommandInput = RebootNodeRequest;
@@ -64,14 +64,14 @@ export class RebootNodeCommand extends $Command<
 
   private serialize(
     input: RebootNodeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RebootNodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RebootNodeCommandOutput> {
     return deserializeAws_json1_1RebootNodeCommand(output, context);
   }

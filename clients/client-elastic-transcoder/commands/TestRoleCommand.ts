@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestRoleCommandInput = TestRoleRequest;
@@ -64,14 +64,14 @@ export class TestRoleCommand extends $Command<
 
   private serialize(
     input: TestRoleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1TestRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TestRoleCommandOutput> {
     return deserializeAws_restJson1_1TestRoleCommand(output, context);
   }

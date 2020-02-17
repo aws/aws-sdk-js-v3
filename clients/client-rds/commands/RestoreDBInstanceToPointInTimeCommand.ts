@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceToPointInTimeCommandInput = RestoreDBInstanceToPointInTimeMessage;
@@ -70,7 +70,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
 
   private serialize(
     input: RestoreDBInstanceToPointInTimeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBInstanceToPointInTimeCommand(
       input,
@@ -80,7 +80,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> {
     return deserializeAws_queryRestoreDBInstanceToPointInTimeCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateInvalidationCommandInput = CreateInvalidationRequest;
@@ -67,14 +67,14 @@ export class CreateInvalidationCommand extends $Command<
 
   private serialize(
     input: CreateInvalidationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateInvalidationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateInvalidationCommandOutput> {
     return deserializeAws_restXmlCreateInvalidationCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSnowballUsageCommandInput = GetSnowballUsageRequest;
@@ -67,14 +67,14 @@ export class GetSnowballUsageCommand extends $Command<
 
   private serialize(
     input: GetSnowballUsageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSnowballUsageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSnowballUsageCommandOutput> {
     return deserializeAws_json1_1GetSnowballUsageCommand(output, context);
   }

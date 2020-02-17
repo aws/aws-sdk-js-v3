@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRuleGroupCommandInput = GetRuleGroupRequest;
@@ -64,14 +64,14 @@ export class GetRuleGroupCommand extends $Command<
 
   private serialize(
     input: GetRuleGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRuleGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRuleGroupCommandOutput> {
     return deserializeAws_json1_1GetRuleGroupCommand(output, context);
   }

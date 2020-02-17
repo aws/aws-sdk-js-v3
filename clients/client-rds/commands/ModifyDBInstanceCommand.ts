@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
@@ -67,14 +67,14 @@ export class ModifyDBInstanceCommand extends $Command<
 
   private serialize(
     input: ModifyDBInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyDBInstanceCommandOutput> {
     return deserializeAws_queryModifyDBInstanceCommand(output, context);
   }

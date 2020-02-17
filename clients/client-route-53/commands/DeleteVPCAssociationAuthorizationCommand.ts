@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVPCAssociationAuthorizationCommandInput = DeleteVPCAssociationAuthorizationRequest;
@@ -72,7 +72,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
 
   private serialize(
     input: DeleteVPCAssociationAuthorizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
       input,
@@ -82,7 +82,7 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> {
     return deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand(
       output,

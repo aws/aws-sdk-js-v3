@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLifecycleConfigurationCommandInput = DescribeLifecycleConfigurationRequest;
@@ -70,7 +70,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
 
   private serialize(
     input: DescribeLifecycleConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeLifecycleConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLifecycleConfigurationCommandOutput> {
     return deserializeAws_restJson1_1DescribeLifecycleConfigurationCommand(
       output,

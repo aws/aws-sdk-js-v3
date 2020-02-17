@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLogPatternSetsCommandInput = ListLogPatternSetsRequest;
@@ -67,14 +67,14 @@ export class ListLogPatternSetsCommand extends $Command<
 
   private serialize(
     input: ListLogPatternSetsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLogPatternSetsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListLogPatternSetsCommandOutput> {
     return deserializeAws_json1_1ListLogPatternSetsCommand(output, context);
   }

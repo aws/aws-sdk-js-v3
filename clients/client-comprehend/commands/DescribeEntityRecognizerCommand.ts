@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEntityRecognizerCommandInput = DescribeEntityRecognizerRequest;
@@ -70,14 +70,14 @@ export class DescribeEntityRecognizerCommand extends $Command<
 
   private serialize(
     input: DescribeEntityRecognizerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntityRecognizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEntityRecognizerCommandOutput> {
     return deserializeAws_json1_1DescribeEntityRecognizerCommand(
       output,

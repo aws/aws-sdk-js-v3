@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInstanceProfileCommandInput = DeleteInstanceProfileRequest;
@@ -70,14 +70,14 @@ export class DeleteInstanceProfileCommand extends $Command<
 
   private serialize(
     input: DeleteInstanceProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteInstanceProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteInstanceProfileCommandOutput> {
     return deserializeAws_json1_1DeleteInstanceProfileCommand(output, context);
   }

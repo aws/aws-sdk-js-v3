@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetComplianceSummaryCommandInput = GetComplianceSummaryInput;
@@ -70,14 +70,14 @@ export class GetComplianceSummaryCommand extends $Command<
 
   private serialize(
     input: GetComplianceSummaryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetComplianceSummaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetComplianceSummaryCommandOutput> {
     return deserializeAws_json1_1GetComplianceSummaryCommand(output, context);
   }

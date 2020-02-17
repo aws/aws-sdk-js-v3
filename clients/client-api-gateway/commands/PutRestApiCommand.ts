@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRestApiCommandInput = PutRestApiRequest;
@@ -64,14 +64,14 @@ export class PutRestApiCommand extends $Command<
 
   private serialize(
     input: PutRestApiCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutRestApiCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutRestApiCommandOutput> {
     return deserializeAws_restJson1_1PutRestApiCommand(output, context);
   }

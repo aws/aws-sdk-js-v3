@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLocalGatewayRouteTableVpcAssociationCommandInput = DeleteLocalGatewayRouteTableVpcAssociationRequest;
@@ -72,7 +72,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
 
   private serialize(
     input: DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(
       input,
@@ -82,7 +82,7 @@ export class DeleteLocalGatewayRouteTableVpcAssociationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> {
     return deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand(
       output,

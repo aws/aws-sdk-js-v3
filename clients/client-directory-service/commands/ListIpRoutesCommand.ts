@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListIpRoutesCommandInput = ListIpRoutesRequest;
@@ -64,14 +64,14 @@ export class ListIpRoutesCommand extends $Command<
 
   private serialize(
     input: ListIpRoutesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListIpRoutesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListIpRoutesCommandOutput> {
     return deserializeAws_json1_1ListIpRoutesCommand(output, context);
   }

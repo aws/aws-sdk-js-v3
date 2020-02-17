@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutSchemaFromJsonCommandInput = PutSchemaFromJsonRequest;
@@ -67,14 +67,14 @@ export class PutSchemaFromJsonCommand extends $Command<
 
   private serialize(
     input: PutSchemaFromJsonCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutSchemaFromJsonCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutSchemaFromJsonCommandOutput> {
     return deserializeAws_restJson1_1PutSchemaFromJsonCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePlacementCommandInput = CreatePlacementRequest;
@@ -67,14 +67,14 @@ export class CreatePlacementCommand extends $Command<
 
   private serialize(
     input: CreatePlacementCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreatePlacementCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePlacementCommandOutput> {
     return deserializeAws_restJson1_1CreatePlacementCommand(output, context);
   }

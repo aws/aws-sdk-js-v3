@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopCrawlerScheduleCommandInput = StopCrawlerScheduleRequest;
@@ -70,14 +70,14 @@ export class StopCrawlerScheduleCommand extends $Command<
 
   private serialize(
     input: StopCrawlerScheduleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopCrawlerScheduleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1StopCrawlerScheduleCommand(output, context);
   }

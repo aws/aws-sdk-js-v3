@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOperatingSystemsCommandInput = {};
@@ -67,14 +67,14 @@ export class DescribeOperatingSystemsCommand extends $Command<
 
   private serialize(
     input: DescribeOperatingSystemsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOperatingSystemsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeOperatingSystemsCommandOutput> {
     return deserializeAws_json1_1DescribeOperatingSystemsCommand(
       output,

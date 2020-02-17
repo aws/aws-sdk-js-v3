@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListClusterJobsCommandInput = ListClusterJobsRequest;
@@ -64,14 +64,14 @@ export class ListClusterJobsCommand extends $Command<
 
   private serialize(
     input: ListClusterJobsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListClusterJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListClusterJobsCommandOutput> {
     return deserializeAws_json1_1ListClusterJobsCommand(output, context);
   }

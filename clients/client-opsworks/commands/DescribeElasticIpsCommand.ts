@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeElasticIpsCommandInput = DescribeElasticIpsRequest;
@@ -67,14 +67,14 @@ export class DescribeElasticIpsCommand extends $Command<
 
   private serialize(
     input: DescribeElasticIpsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeElasticIpsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeElasticIpsCommandOutput> {
     return deserializeAws_json1_1DescribeElasticIpsCommand(output, context);
   }

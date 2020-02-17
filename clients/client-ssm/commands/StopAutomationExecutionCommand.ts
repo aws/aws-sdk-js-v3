@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopAutomationExecutionCommandInput = StopAutomationExecutionRequest;
@@ -70,14 +70,14 @@ export class StopAutomationExecutionCommand extends $Command<
 
   private serialize(
     input: StopAutomationExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopAutomationExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopAutomationExecutionCommandOutput> {
     return deserializeAws_json1_1StopAutomationExecutionCommand(
       output,

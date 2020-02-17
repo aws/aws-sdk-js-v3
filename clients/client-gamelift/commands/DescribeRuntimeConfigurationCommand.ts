@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRuntimeConfigurationCommandInput = DescribeRuntimeConfigurationInput;
@@ -70,7 +70,7 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
 
   private serialize(
     input: DescribeRuntimeConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRuntimeConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeRuntimeConfigurationCommandOutput> {
     return deserializeAws_json1_1DescribeRuntimeConfigurationCommand(
       output,

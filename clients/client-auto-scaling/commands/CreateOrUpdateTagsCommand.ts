@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateOrUpdateTagsCommandInput = CreateOrUpdateTagsType;
@@ -65,14 +65,14 @@ export class CreateOrUpdateTagsCommand extends $Command<
 
   private serialize(
     input: CreateOrUpdateTagsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateOrUpdateTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateOrUpdateTagsCommandOutput> {
     return deserializeAws_queryCreateOrUpdateTagsCommand(output, context);
   }

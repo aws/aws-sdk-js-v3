@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOrderableReplicationInstancesCommandInput = DescribeOrderableReplicationInstancesMessage;
@@ -72,7 +72,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
 
   private serialize(
     input: DescribeOrderableReplicationInstancesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOrderableReplicationInstancesCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeOrderableReplicationInstancesCommandOutput> {
     return deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand(
       output,

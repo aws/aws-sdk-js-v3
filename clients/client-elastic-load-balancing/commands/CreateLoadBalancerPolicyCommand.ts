@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLoadBalancerPolicyCommandInput = CreateLoadBalancerPolicyInput;
@@ -70,14 +70,14 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
 
   private serialize(
     input: CreateLoadBalancerPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoadBalancerPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateLoadBalancerPolicyCommandOutput> {
     return deserializeAws_queryCreateLoadBalancerPolicyCommand(output, context);
   }

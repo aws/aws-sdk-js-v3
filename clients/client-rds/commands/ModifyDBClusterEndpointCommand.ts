@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBClusterEndpointCommandInput = ModifyDBClusterEndpointMessage;
@@ -70,14 +70,14 @@ export class ModifyDBClusterEndpointCommand extends $Command<
 
   private serialize(
     input: ModifyDBClusterEndpointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBClusterEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyDBClusterEndpointCommandOutput> {
     return deserializeAws_queryModifyDBClusterEndpointCommand(output, context);
   }

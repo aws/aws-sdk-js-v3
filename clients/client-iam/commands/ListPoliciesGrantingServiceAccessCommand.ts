@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPoliciesGrantingServiceAccessCommandInput = ListPoliciesGrantingServiceAccessRequest;
@@ -70,7 +70,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
 
   private serialize(
     input: ListPoliciesGrantingServiceAccessCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListPoliciesGrantingServiceAccessCommand(
       input,
@@ -80,7 +80,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> {
     return deserializeAws_queryListPoliciesGrantingServiceAccessCommand(
       output,

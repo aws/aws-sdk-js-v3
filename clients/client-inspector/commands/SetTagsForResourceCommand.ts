@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetTagsForResourceCommandInput = SetTagsForResourceRequest;
@@ -65,14 +65,14 @@ export class SetTagsForResourceCommand extends $Command<
 
   private serialize(
     input: SetTagsForResourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTagsForResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetTagsForResourceCommandOutput> {
     return deserializeAws_json1_1SetTagsForResourceCommand(output, context);
   }

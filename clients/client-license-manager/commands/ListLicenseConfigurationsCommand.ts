@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLicenseConfigurationsCommandInput = ListLicenseConfigurationsRequest;
@@ -70,14 +70,14 @@ export class ListLicenseConfigurationsCommand extends $Command<
 
   private serialize(
     input: ListLicenseConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLicenseConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListLicenseConfigurationsCommandOutput> {
     return deserializeAws_json1_1ListLicenseConfigurationsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetResourceSharesCommandInput = GetResourceSharesRequest;
@@ -67,14 +67,14 @@ export class GetResourceSharesCommand extends $Command<
 
   private serialize(
     input: GetResourceSharesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetResourceSharesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetResourceSharesCommandOutput> {
     return deserializeAws_restJson1_1GetResourceSharesCommand(output, context);
   }

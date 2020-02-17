@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConsoleScreenshotCommandInput = GetConsoleScreenshotRequest;
@@ -70,14 +70,14 @@ export class GetConsoleScreenshotCommand extends $Command<
 
   private serialize(
     input: GetConsoleScreenshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2GetConsoleScreenshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetConsoleScreenshotCommandOutput> {
     return deserializeAws_ec2GetConsoleScreenshotCommand(output, context);
   }

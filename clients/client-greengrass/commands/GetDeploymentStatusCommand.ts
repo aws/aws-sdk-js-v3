@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeploymentStatusCommandInput = GetDeploymentStatusRequest;
@@ -70,14 +70,14 @@ export class GetDeploymentStatusCommand extends $Command<
 
   private serialize(
     input: GetDeploymentStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDeploymentStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDeploymentStatusCommandOutput> {
     return deserializeAws_restJson1_1GetDeploymentStatusCommand(
       output,

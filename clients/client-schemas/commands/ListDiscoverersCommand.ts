@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDiscoverersCommandInput = ListDiscoverersRequest;
@@ -67,14 +67,14 @@ export class ListDiscoverersCommand extends $Command<
 
   private serialize(
     input: ListDiscoverersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListDiscoverersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListDiscoverersCommandOutput> {
     return deserializeAws_restJson1_1ListDiscoverersCommand(output, context);
   }

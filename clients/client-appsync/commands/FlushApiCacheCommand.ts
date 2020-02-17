@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type FlushApiCacheCommandInput = FlushApiCacheRequest;
@@ -64,14 +64,14 @@ export class FlushApiCacheCommand extends $Command<
 
   private serialize(
     input: FlushApiCacheCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1FlushApiCacheCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<FlushApiCacheCommandOutput> {
     return deserializeAws_restJson1_1FlushApiCacheCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetWorkflowExecutionHistoryCommandInput = GetWorkflowExecutionHistoryInput;
@@ -67,7 +67,7 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
 
   private serialize(
     input: GetWorkflowExecutionHistoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0GetWorkflowExecutionHistoryCommand(
       input,
@@ -77,7 +77,7 @@ export class GetWorkflowExecutionHistoryCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetWorkflowExecutionHistoryCommandOutput> {
     return deserializeAws_json1_0GetWorkflowExecutionHistoryCommand(
       output,

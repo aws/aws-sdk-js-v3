@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokePermissionsCommandInput = RevokePermissionsRequest;
@@ -67,14 +67,14 @@ export class RevokePermissionsCommand extends $Command<
 
   private serialize(
     input: RevokePermissionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokePermissionsCommandOutput> {
     return deserializeAws_json1_1RevokePermissionsCommand(output, context);
   }

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePermissionCommandInput = CreatePermissionRequest;
@@ -65,14 +65,14 @@ export class CreatePermissionCommand extends $Command<
 
   private serialize(
     input: CreatePermissionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePermissionCommandOutput> {
     return deserializeAws_json1_1CreatePermissionCommand(output, context);
   }

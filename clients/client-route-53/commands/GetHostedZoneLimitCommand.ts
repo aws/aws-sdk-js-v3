@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHostedZoneLimitCommandInput = GetHostedZoneLimitRequest;
@@ -69,14 +69,14 @@ export class GetHostedZoneLimitCommand extends $Command<
 
   private serialize(
     input: GetHostedZoneLimitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHostedZoneLimitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetHostedZoneLimitCommandOutput> {
     return deserializeAws_restXmlGetHostedZoneLimitCommand(output, context);
   }

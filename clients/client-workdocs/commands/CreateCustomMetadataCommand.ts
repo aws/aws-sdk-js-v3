@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCustomMetadataCommandInput = CreateCustomMetadataRequest;
@@ -70,14 +70,14 @@ export class CreateCustomMetadataCommand extends $Command<
 
   private serialize(
     input: CreateCustomMetadataCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateCustomMetadataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCustomMetadataCommandOutput> {
     return deserializeAws_restJson1_1CreateCustomMetadataCommand(
       output,

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAccountPasswordPolicyCommandInput = UpdateAccountPasswordPolicyRequest;
@@ -68,14 +68,14 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
 
   private serialize(
     input: UpdateAccountPasswordPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccountPasswordPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateAccountPasswordPolicyCommandOutput> {
     return deserializeAws_queryUpdateAccountPasswordPolicyCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateConnectionWithLagCommandInput = AssociateConnectionWithLagRequest;
@@ -67,7 +67,7 @@ export class AssociateConnectionWithLagCommand extends $Command<
 
   private serialize(
     input: AssociateConnectionWithLagCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateConnectionWithLagCommand(
       input,
@@ -77,7 +77,7 @@ export class AssociateConnectionWithLagCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateConnectionWithLagCommandOutput> {
     return deserializeAws_json1_1AssociateConnectionWithLagCommand(
       output,

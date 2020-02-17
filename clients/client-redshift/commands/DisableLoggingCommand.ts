@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableLoggingCommandInput = DisableLoggingMessage;
@@ -64,14 +64,14 @@ export class DisableLoggingCommand extends $Command<
 
   private serialize(
     input: DisableLoggingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDisableLoggingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisableLoggingCommandOutput> {
     return deserializeAws_queryDisableLoggingCommand(output, context);
   }

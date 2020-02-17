@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateImageBuilderCommandInput = CreateImageBuilderRequest;
@@ -67,14 +67,14 @@ export class CreateImageBuilderCommand extends $Command<
 
   private serialize(
     input: CreateImageBuilderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateImageBuilderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateImageBuilderCommandOutput> {
     return deserializeAws_json1_1CreateImageBuilderCommand(output, context);
   }

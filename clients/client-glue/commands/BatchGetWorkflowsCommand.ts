@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetWorkflowsCommandInput = BatchGetWorkflowsRequest;
@@ -67,14 +67,14 @@ export class BatchGetWorkflowsCommand extends $Command<
 
   private serialize(
     input: BatchGetWorkflowsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetWorkflowsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchGetWorkflowsCommandOutput> {
     return deserializeAws_json1_1BatchGetWorkflowsCommand(output, context);
   }

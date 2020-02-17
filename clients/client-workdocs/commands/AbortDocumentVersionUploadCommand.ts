@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AbortDocumentVersionUploadCommandInput = AbortDocumentVersionUploadRequest;
@@ -68,7 +68,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
 
   private serialize(
     input: AbortDocumentVersionUploadCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
       input,
@@ -78,7 +78,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AbortDocumentVersionUploadCommandOutput> {
     return deserializeAws_restJson1_1AbortDocumentVersionUploadCommand(
       output,

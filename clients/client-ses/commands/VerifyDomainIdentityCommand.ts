@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifyDomainIdentityCommandInput = VerifyDomainIdentityRequest;
@@ -70,14 +70,14 @@ export class VerifyDomainIdentityCommand extends $Command<
 
   private serialize(
     input: VerifyDomainIdentityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryVerifyDomainIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<VerifyDomainIdentityCommandOutput> {
     return deserializeAws_queryVerifyDomainIdentityCommand(output, context);
   }

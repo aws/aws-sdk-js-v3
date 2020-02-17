@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAvailableManagementCidrRangesCommandInput = ListAvailableManagementCidrRangesRequest;
@@ -70,7 +70,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
 
   private serialize(
     input: ListAvailableManagementCidrRangesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(
       input,
@@ -80,7 +80,7 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> {
     return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(
       output,

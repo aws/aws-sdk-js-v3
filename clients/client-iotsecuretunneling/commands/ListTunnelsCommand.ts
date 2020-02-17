@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTunnelsCommandInput = ListTunnelsRequest;
@@ -64,14 +64,14 @@ export class ListTunnelsCommand extends $Command<
 
   private serialize(
     input: ListTunnelsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTunnelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTunnelsCommandOutput> {
     return deserializeAws_json1_1ListTunnelsCommand(output, context);
   }

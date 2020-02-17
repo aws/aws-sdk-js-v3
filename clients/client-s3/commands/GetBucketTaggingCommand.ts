@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketTaggingCommandInput = GetBucketTaggingRequest;
@@ -69,14 +69,14 @@ export class GetBucketTaggingCommand extends $Command<
 
   private serialize(
     input: GetBucketTaggingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketTaggingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketTaggingCommandOutput> {
     return deserializeAws_restXmlGetBucketTaggingCommand(output, context);
   }

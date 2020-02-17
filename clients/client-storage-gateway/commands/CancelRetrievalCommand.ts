@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelRetrievalCommandInput = CancelRetrievalInput;
@@ -64,14 +64,14 @@ export class CancelRetrievalCommand extends $Command<
 
   private serialize(
     input: CancelRetrievalCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelRetrievalCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelRetrievalCommandOutput> {
     return deserializeAws_json1_1CancelRetrievalCommand(output, context);
   }

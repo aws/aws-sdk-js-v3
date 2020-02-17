@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAggregateResourceConfigCommandInput = GetAggregateResourceConfigRequest;
@@ -70,7 +70,7 @@ export class GetAggregateResourceConfigCommand extends $Command<
 
   private serialize(
     input: GetAggregateResourceConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAggregateResourceConfigCommand(
       input,
@@ -80,7 +80,7 @@ export class GetAggregateResourceConfigCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAggregateResourceConfigCommandOutput> {
     return deserializeAws_json1_1GetAggregateResourceConfigCommand(
       output,

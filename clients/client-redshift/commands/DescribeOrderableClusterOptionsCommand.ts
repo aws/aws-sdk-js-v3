@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOrderableClusterOptionsCommandInput = DescribeOrderableClusterOptionsMessage;
@@ -70,7 +70,7 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
 
   private serialize(
     input: DescribeOrderableClusterOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeOrderableClusterOptionsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> {
     return deserializeAws_queryDescribeOrderableClusterOptionsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClientVpnAuthorizationRulesCommandInput = DescribeClientVpnAuthorizationRulesRequest;
@@ -70,7 +70,7 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
 
   private serialize(
     input: DescribeClientVpnAuthorizationRulesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> {
     return deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand(
       output,

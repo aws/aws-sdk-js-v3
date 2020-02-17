@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateVoiceConnectorCommandInput = CreateVoiceConnectorRequest;
@@ -70,14 +70,14 @@ export class CreateVoiceConnectorCommand extends $Command<
 
   private serialize(
     input: CreateVoiceConnectorCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateVoiceConnectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateVoiceConnectorCommandOutput> {
     return deserializeAws_restJson1_1CreateVoiceConnectorCommand(
       output,

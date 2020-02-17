@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelChangeSetCommandInput = CancelChangeSetRequest;
@@ -67,14 +67,14 @@ export class CancelChangeSetCommand extends $Command<
 
   private serialize(
     input: CancelChangeSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CancelChangeSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelChangeSetCommandOutput> {
     return deserializeAws_restJson1_1CancelChangeSetCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAppCookieStickinessPolicyCommandInput = CreateAppCookieStickinessPolicyInput;
@@ -70,7 +70,7 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
 
   private serialize(
     input: CreateAppCookieStickinessPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateAppCookieStickinessPolicyCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateAppCookieStickinessPolicyCommandOutput> {
     return deserializeAws_queryCreateAppCookieStickinessPolicyCommand(
       output,

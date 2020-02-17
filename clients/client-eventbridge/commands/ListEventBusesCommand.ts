@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListEventBusesCommandInput = ListEventBusesRequest;
@@ -64,14 +64,14 @@ export class ListEventBusesCommand extends $Command<
 
   private serialize(
     input: ListEventBusesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEventBusesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListEventBusesCommandOutput> {
     return deserializeAws_json1_1ListEventBusesCommand(output, context);
   }

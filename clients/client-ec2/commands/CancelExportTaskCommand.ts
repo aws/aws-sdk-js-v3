@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelExportTaskCommandInput = CancelExportTaskRequest;
@@ -65,14 +65,14 @@ export class CancelExportTaskCommand extends $Command<
 
   private serialize(
     input: CancelExportTaskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CancelExportTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelExportTaskCommandOutput> {
     return deserializeAws_ec2CancelExportTaskCommand(output, context);
   }

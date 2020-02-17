@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVpcEndpointServiceConfigurationsCommandInput = DescribeVpcEndpointServiceConfigurationsRequest;
@@ -72,7 +72,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
 
   private serialize(
     input: DescribeVpcEndpointServiceConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> {
     return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
       output,

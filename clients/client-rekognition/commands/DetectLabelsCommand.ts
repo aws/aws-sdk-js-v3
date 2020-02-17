@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectLabelsCommandInput = DetectLabelsRequest;
@@ -64,14 +64,14 @@ export class DetectLabelsCommand extends $Command<
 
   private serialize(
     input: DetectLabelsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectLabelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetectLabelsCommandOutput> {
     return deserializeAws_json1_1DetectLabelsCommand(output, context);
   }

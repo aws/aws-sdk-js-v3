@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateSkillFromUsersCommandInput = DisassociateSkillFromUsersRequest;
@@ -70,7 +70,7 @@ export class DisassociateSkillFromUsersCommand extends $Command<
 
   private serialize(
     input: DisassociateSkillFromUsersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateSkillFromUsersCommand(
       input,
@@ -80,7 +80,7 @@ export class DisassociateSkillFromUsersCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateSkillFromUsersCommandOutput> {
     return deserializeAws_json1_1DisassociateSkillFromUsersCommand(
       output,

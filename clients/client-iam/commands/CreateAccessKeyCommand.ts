@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAccessKeyCommandInput = CreateAccessKeyRequest;
@@ -67,14 +67,14 @@ export class CreateAccessKeyCommand extends $Command<
 
   private serialize(
     input: CreateAccessKeyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateAccessKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateAccessKeyCommandOutput> {
     return deserializeAws_queryCreateAccessKeyCommand(output, context);
   }

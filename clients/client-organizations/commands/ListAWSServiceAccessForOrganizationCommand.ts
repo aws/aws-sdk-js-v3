@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAWSServiceAccessForOrganizationCommandInput = ListAWSServiceAccessForOrganizationRequest;
@@ -70,7 +70,7 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
 
   private serialize(
     input: ListAWSServiceAccessForOrganizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
       input,
@@ -80,7 +80,7 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
     return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
       output,

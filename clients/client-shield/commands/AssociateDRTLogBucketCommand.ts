@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateDRTLogBucketCommandInput = AssociateDRTLogBucketRequest;
@@ -70,14 +70,14 @@ export class AssociateDRTLogBucketCommand extends $Command<
 
   private serialize(
     input: AssociateDRTLogBucketCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateDRTLogBucketCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateDRTLogBucketCommandOutput> {
     return deserializeAws_json1_1AssociateDRTLogBucketCommand(output, context);
   }

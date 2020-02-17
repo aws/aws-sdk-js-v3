@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTrainingJobsForHyperParameterTuningJobCommandInput = ListTrainingJobsForHyperParameterTuningJobRequest;
@@ -72,7 +72,7 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
 
   private serialize(
     input: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand(
       input,
@@ -82,7 +82,7 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> {
     return deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand(
       output,

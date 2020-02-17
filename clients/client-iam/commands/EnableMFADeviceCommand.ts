@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableMFADeviceCommandInput = EnableMFADeviceRequest;
@@ -65,14 +65,14 @@ export class EnableMFADeviceCommand extends $Command<
 
   private serialize(
     input: EnableMFADeviceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryEnableMFADeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableMFADeviceCommandOutput> {
     return deserializeAws_queryEnableMFADeviceCommand(output, context);
   }
