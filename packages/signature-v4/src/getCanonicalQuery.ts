@@ -15,18 +15,14 @@ export function getCanonicalQuery({ query = {} }: HttpRequest): string {
     keys.push(key);
     const value = query[key];
     if (typeof value === "string") {
-      serialized[key] = `${encodeURIComponent(key)}=${encodeURIComponent(
-        value
-      )}`;
+      serialized[key] = `${key}=${value}`;
     } else if (Array.isArray(value)) {
       serialized[key] = value
         .slice(0)
         .sort()
         .reduce(
           (encoded: Array<string>, value: string) =>
-            encoded.concat([
-              `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-            ]),
+            encoded.concat([`${key}=${value}`]),
           []
         )
         .join("&");
