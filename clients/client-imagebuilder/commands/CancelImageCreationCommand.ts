@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelImageCreationCommandInput = CancelImageCreationRequest;
@@ -70,14 +70,14 @@ export class CancelImageCreationCommand extends $Command<
 
   private serialize(
     input: CancelImageCreationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CancelImageCreationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelImageCreationCommandOutput> {
     return deserializeAws_restJson1_1CancelImageCreationCommand(
       output,

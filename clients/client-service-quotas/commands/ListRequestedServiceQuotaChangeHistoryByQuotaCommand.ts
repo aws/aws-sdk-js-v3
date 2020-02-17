@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput = ListRequestedServiceQuotaChangeHistoryByQuotaRequest;
@@ -72,7 +72,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
 
   private serialize(
     input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
       input,
@@ -82,7 +82,7 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
     return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
       output,

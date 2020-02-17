@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopMultiplexCommandInput = StopMultiplexRequest;
@@ -64,14 +64,14 @@ export class StopMultiplexCommand extends $Command<
 
   private serialize(
     input: StopMultiplexCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StopMultiplexCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopMultiplexCommandOutput> {
     return deserializeAws_restJson1_1StopMultiplexCommand(output, context);
   }

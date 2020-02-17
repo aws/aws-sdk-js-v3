@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifyTrustCommandInput = VerifyTrustRequest;
@@ -64,14 +64,14 @@ export class VerifyTrustCommand extends $Command<
 
   private serialize(
     input: VerifyTrustCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1VerifyTrustCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<VerifyTrustCommandOutput> {
     return deserializeAws_json1_1VerifyTrustCommand(output, context);
   }

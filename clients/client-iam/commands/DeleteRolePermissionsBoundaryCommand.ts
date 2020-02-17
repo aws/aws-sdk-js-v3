@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRolePermissionsBoundaryCommandInput = DeleteRolePermissionsBoundaryRequest;
@@ -68,7 +68,7 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
 
   private serialize(
     input: DeleteRolePermissionsBoundaryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteRolePermissionsBoundaryCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteRolePermissionsBoundaryCommandOutput> {
     return deserializeAws_queryDeleteRolePermissionsBoundaryCommand(
       output,

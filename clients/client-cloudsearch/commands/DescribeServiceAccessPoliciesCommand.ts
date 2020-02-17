@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeServiceAccessPoliciesCommandInput = DescribeServiceAccessPoliciesRequest;
@@ -70,7 +70,7 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
 
   private serialize(
     input: DescribeServiceAccessPoliciesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeServiceAccessPoliciesCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeServiceAccessPoliciesCommandOutput> {
     return deserializeAws_queryDescribeServiceAccessPoliciesCommand(
       output,

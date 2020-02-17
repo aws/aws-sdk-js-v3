@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutRetentionConfigurationCommandInput = PutRetentionConfigurationRequest;
@@ -70,14 +70,14 @@ export class PutRetentionConfigurationCommand extends $Command<
 
   private serialize(
     input: PutRetentionConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutRetentionConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutRetentionConfigurationCommandOutput> {
     return deserializeAws_json1_1PutRetentionConfigurationCommand(
       output,

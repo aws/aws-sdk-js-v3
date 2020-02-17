@@ -21,9 +21,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBucketTaggingCommandInput = PutBucketTaggingRequest;
@@ -69,14 +69,14 @@ export class PutBucketTaggingCommand extends $Command<
 
   private serialize(
     input: PutBucketTaggingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutBucketTaggingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutBucketTaggingCommandOutput> {
     return deserializeAws_restXmlPutBucketTaggingCommand(output, context);
   }

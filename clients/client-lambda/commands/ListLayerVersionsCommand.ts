@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLayerVersionsCommandInput = ListLayerVersionsRequest;
@@ -67,14 +67,14 @@ export class ListLayerVersionsCommand extends $Command<
 
   private serialize(
     input: ListLayerVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListLayerVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListLayerVersionsCommandOutput> {
     return deserializeAws_restJson1_1ListLayerVersionsCommand(output, context);
   }

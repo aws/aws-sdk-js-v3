@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProvisionedProductPlansCommandInput = ListProvisionedProductPlansInput;
@@ -70,7 +70,7 @@ export class ListProvisionedProductPlansCommand extends $Command<
 
   private serialize(
     input: ListProvisionedProductPlansCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListProvisionedProductPlansCommand(
       input,
@@ -80,7 +80,7 @@ export class ListProvisionedProductPlansCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListProvisionedProductPlansCommandOutput> {
     return deserializeAws_json1_1ListProvisionedProductPlansCommand(
       output,

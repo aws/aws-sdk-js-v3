@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type VerifySoftwareTokenCommandInput = VerifySoftwareTokenRequest;
@@ -70,14 +70,14 @@ export class VerifySoftwareTokenCommand extends $Command<
 
   private serialize(
     input: VerifySoftwareTokenCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1VerifySoftwareTokenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<VerifySoftwareTokenCommandOutput> {
     return deserializeAws_json1_1VerifySoftwareTokenCommand(output, context);
   }

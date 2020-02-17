@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDataRetrievalPolicyCommandInput = GetDataRetrievalPolicyInput;
@@ -70,7 +70,7 @@ export class GetDataRetrievalPolicyCommand extends $Command<
 
   private serialize(
     input: GetDataRetrievalPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDataRetrievalPolicyCommand(
       input,
@@ -80,7 +80,7 @@ export class GetDataRetrievalPolicyCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDataRetrievalPolicyCommandOutput> {
     return deserializeAws_restJson1_1GetDataRetrievalPolicyCommand(
       output,

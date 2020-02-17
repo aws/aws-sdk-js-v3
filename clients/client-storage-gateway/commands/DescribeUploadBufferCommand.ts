@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeUploadBufferCommandInput = DescribeUploadBufferInput;
@@ -70,14 +70,14 @@ export class DescribeUploadBufferCommand extends $Command<
 
   private serialize(
     input: DescribeUploadBufferCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeUploadBufferCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeUploadBufferCommandOutput> {
     return deserializeAws_json1_1DescribeUploadBufferCommand(output, context);
   }

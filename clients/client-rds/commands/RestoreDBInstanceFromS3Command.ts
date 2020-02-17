@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceFromS3CommandInput = RestoreDBInstanceFromS3Message;
@@ -70,14 +70,14 @@ export class RestoreDBInstanceFromS3Command extends $Command<
 
   private serialize(
     input: RestoreDBInstanceFromS3CommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRestoreDBInstanceFromS3Command(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreDBInstanceFromS3CommandOutput> {
     return deserializeAws_queryRestoreDBInstanceFromS3Command(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetActivityTaskCommandInput = GetActivityTaskInput;
@@ -64,14 +64,14 @@ export class GetActivityTaskCommand extends $Command<
 
   private serialize(
     input: GetActivityTaskCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0GetActivityTaskCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetActivityTaskCommandOutput> {
     return deserializeAws_json1_0GetActivityTaskCommand(output, context);
   }

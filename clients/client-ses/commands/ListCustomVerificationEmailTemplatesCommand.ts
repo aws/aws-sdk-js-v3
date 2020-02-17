@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCustomVerificationEmailTemplatesCommandInput = ListCustomVerificationEmailTemplatesRequest;
@@ -72,7 +72,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
 
   private serialize(
     input: ListCustomVerificationEmailTemplatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListCustomVerificationEmailTemplatesCommand(
       input,
@@ -82,7 +82,7 @@ export class ListCustomVerificationEmailTemplatesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> {
     return deserializeAws_queryListCustomVerificationEmailTemplatesCommand(
       output,

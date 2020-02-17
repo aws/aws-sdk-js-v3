@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRoleTagsCommandInput = ListRoleTagsRequest;
@@ -64,14 +64,14 @@ export class ListRoleTagsCommand extends $Command<
 
   private serialize(
     input: ListRoleTagsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListRoleTagsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRoleTagsCommandOutput> {
     return deserializeAws_queryListRoleTagsCommand(output, context);
   }

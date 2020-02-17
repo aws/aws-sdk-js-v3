@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTypeRegistrationCommandInput = DescribeTypeRegistrationInput;
@@ -70,14 +70,14 @@ export class DescribeTypeRegistrationCommand extends $Command<
 
   private serialize(
     input: DescribeTypeRegistrationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTypeRegistrationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTypeRegistrationCommandOutput> {
     return deserializeAws_queryDescribeTypeRegistrationCommand(output, context);
   }

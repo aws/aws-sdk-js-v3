@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFailuresForLicenseConfigurationOperationsCommandInput = ListFailuresForLicenseConfigurationOperationsRequest;
@@ -72,7 +72,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
 
   private serialize(
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
       input,
@@ -82,7 +82,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
     return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
       output,

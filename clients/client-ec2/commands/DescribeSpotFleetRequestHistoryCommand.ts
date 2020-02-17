@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSpotFleetRequestHistoryCommandInput = DescribeSpotFleetRequestHistoryRequest;
@@ -70,7 +70,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
 
   private serialize(
     input: DescribeSpotFleetRequestHistoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeSpotFleetRequestHistoryCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> {
     return deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand(
       output,

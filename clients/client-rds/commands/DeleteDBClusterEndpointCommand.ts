@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDBClusterEndpointCommandInput = DeleteDBClusterEndpointMessage;
@@ -70,14 +70,14 @@ export class DeleteDBClusterEndpointCommand extends $Command<
 
   private serialize(
     input: DeleteDBClusterEndpointCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDBClusterEndpointCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDBClusterEndpointCommandOutput> {
     return deserializeAws_queryDeleteDBClusterEndpointCommand(output, context);
   }

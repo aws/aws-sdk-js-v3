@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateScalingPlanCommandInput = CreateScalingPlanRequest;
@@ -67,14 +67,14 @@ export class CreateScalingPlanCommand extends $Command<
 
   private serialize(
     input: CreateScalingPlanCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateScalingPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateScalingPlanCommandOutput> {
     return deserializeAws_json1_1CreateScalingPlanCommand(output, context);
   }

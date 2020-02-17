@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBaiduChannelCommandInput = GetBaiduChannelRequest;
@@ -67,14 +67,14 @@ export class GetBaiduChannelCommand extends $Command<
 
   private serialize(
     input: GetBaiduChannelCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetBaiduChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBaiduChannelCommandOutput> {
     return deserializeAws_restJson1_1GetBaiduChannelCommand(output, context);
   }

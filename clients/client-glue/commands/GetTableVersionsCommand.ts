@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTableVersionsCommandInput = GetTableVersionsRequest;
@@ -67,14 +67,14 @@ export class GetTableVersionsCommand extends $Command<
 
   private serialize(
     input: GetTableVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetTableVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetTableVersionsCommandOutput> {
     return deserializeAws_json1_1GetTableVersionsCommand(output, context);
   }

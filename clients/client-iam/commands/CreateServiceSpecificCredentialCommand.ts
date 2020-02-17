@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateServiceSpecificCredentialCommandInput = CreateServiceSpecificCredentialRequest;
@@ -70,7 +70,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command<
 
   private serialize(
     input: CreateServiceSpecificCredentialCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateServiceSpecificCredentialCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateServiceSpecificCredentialCommandOutput> {
     return deserializeAws_queryCreateServiceSpecificCredentialCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInstancePatchStatesForPatchGroupCommandInput = DescribeInstancePatchStatesForPatchGroupRequest;
@@ -72,7 +72,7 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
 
   private serialize(
     input: DescribeInstancePatchStatesForPatchGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> {
     return deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveSourceIdentifierFromSubscriptionCommandInput = RemoveSourceIdentifierFromSubscriptionMessage;
@@ -72,7 +72,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
 
   private serialize(
     input: RemoveSourceIdentifierFromSubscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(
       input,
@@ -82,7 +82,7 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> {
     return deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand(
       output,

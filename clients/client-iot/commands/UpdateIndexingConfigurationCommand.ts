@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateIndexingConfigurationCommandInput = UpdateIndexingConfigurationRequest;
@@ -70,7 +70,7 @@ export class UpdateIndexingConfigurationCommand extends $Command<
 
   private serialize(
     input: UpdateIndexingConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateIndexingConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateIndexingConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateIndexingConfigurationCommandOutput> {
     return deserializeAws_restJson1_1UpdateIndexingConfigurationCommand(
       output,

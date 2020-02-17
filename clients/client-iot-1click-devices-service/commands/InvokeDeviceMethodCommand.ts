@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InvokeDeviceMethodCommandInput = InvokeDeviceMethodRequest;
@@ -67,14 +67,14 @@ export class InvokeDeviceMethodCommand extends $Command<
 
   private serialize(
     input: InvokeDeviceMethodCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1InvokeDeviceMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<InvokeDeviceMethodCommandOutput> {
     return deserializeAws_restJson1_1InvokeDeviceMethodCommand(output, context);
   }

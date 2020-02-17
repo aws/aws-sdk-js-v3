@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateBasePathMappingCommandInput = CreateBasePathMappingRequest;
@@ -67,14 +67,14 @@ export class CreateBasePathMappingCommand extends $Command<
 
   private serialize(
     input: CreateBasePathMappingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateBasePathMappingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateBasePathMappingCommandOutput> {
     return deserializeAws_restJson1_1CreateBasePathMappingCommand(
       output,

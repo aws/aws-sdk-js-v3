@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteRetentionConfigurationCommandInput = DeleteRetentionConfigurationRequest;
@@ -68,7 +68,7 @@ export class DeleteRetentionConfigurationCommand extends $Command<
 
   private serialize(
     input: DeleteRetentionConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteRetentionConfigurationCommand(
       input,
@@ -78,7 +78,7 @@ export class DeleteRetentionConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteRetentionConfigurationCommandOutput> {
     return deserializeAws_json1_1DeleteRetentionConfigurationCommand(
       output,

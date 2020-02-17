@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSegmentCommandInput = DeleteSegmentRequest;
@@ -64,14 +64,14 @@ export class DeleteSegmentCommand extends $Command<
 
   private serialize(
     input: DeleteSegmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteSegmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSegmentCommandOutput> {
     return deserializeAws_restJson1_1DeleteSegmentCommand(output, context);
   }

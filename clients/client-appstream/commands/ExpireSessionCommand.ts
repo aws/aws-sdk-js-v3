@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExpireSessionCommandInput = ExpireSessionRequest;
@@ -64,14 +64,14 @@ export class ExpireSessionCommand extends $Command<
 
   private serialize(
     input: ExpireSessionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ExpireSessionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ExpireSessionCommandOutput> {
     return deserializeAws_json1_1ExpireSessionCommand(output, context);
   }

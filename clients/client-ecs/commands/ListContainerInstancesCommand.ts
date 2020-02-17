@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListContainerInstancesCommandInput = ListContainerInstancesRequest;
@@ -70,14 +70,14 @@ export class ListContainerInstancesCommand extends $Command<
 
   private serialize(
     input: ListContainerInstancesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListContainerInstancesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListContainerInstancesCommandOutput> {
     return deserializeAws_json1_1ListContainerInstancesCommand(output, context);
   }

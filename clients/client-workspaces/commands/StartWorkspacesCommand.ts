@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartWorkspacesCommandInput = StartWorkspacesRequest;
@@ -64,14 +64,14 @@ export class StartWorkspacesCommand extends $Command<
 
   private serialize(
     input: StartWorkspacesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartWorkspacesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartWorkspacesCommandOutput> {
     return deserializeAws_json1_1StartWorkspacesCommand(output, context);
   }

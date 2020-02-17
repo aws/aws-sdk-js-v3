@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAuditStreamConfigurationCommandInput = DescribeAuditStreamConfigurationRequest;
@@ -70,7 +70,7 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
 
   private serialize(
     input: DescribeAuditStreamConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
     return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand(
       output,

@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutObjectLockConfigurationCommandInput = PutObjectLockConfigurationRequest;
@@ -72,7 +72,7 @@ export class PutObjectLockConfigurationCommand extends $Command<
 
   private serialize(
     input: PutObjectLockConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectLockConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class PutObjectLockConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutObjectLockConfigurationCommandOutput> {
     return deserializeAws_restXmlPutObjectLockConfigurationCommand(
       output,

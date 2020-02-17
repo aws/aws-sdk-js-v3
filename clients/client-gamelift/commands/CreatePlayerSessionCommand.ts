@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePlayerSessionCommandInput = CreatePlayerSessionInput;
@@ -70,14 +70,14 @@ export class CreatePlayerSessionCommand extends $Command<
 
   private serialize(
     input: CreatePlayerSessionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePlayerSessionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePlayerSessionCommandOutput> {
     return deserializeAws_json1_1CreatePlayerSessionCommand(output, context);
   }

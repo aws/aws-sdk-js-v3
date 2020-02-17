@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnclaimDeviceCommandInput = UnclaimDeviceRequest;
@@ -64,14 +64,14 @@ export class UnclaimDeviceCommand extends $Command<
 
   private serialize(
     input: UnclaimDeviceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UnclaimDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UnclaimDeviceCommandOutput> {
     return deserializeAws_restJson1_1UnclaimDeviceCommand(output, context);
   }

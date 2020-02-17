@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateDRTRoleCommandInput = DisassociateDRTRoleRequest;
@@ -70,14 +70,14 @@ export class DisassociateDRTRoleCommand extends $Command<
 
   private serialize(
     input: DisassociateDRTRoleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateDRTRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateDRTRoleCommandOutput> {
     return deserializeAws_json1_1DisassociateDRTRoleCommand(output, context);
   }

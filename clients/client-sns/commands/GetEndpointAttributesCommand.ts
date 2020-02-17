@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEndpointAttributesCommandInput = GetEndpointAttributesInput;
@@ -70,14 +70,14 @@ export class GetEndpointAttributesCommand extends $Command<
 
   private serialize(
     input: GetEndpointAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetEndpointAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetEndpointAttributesCommandOutput> {
     return deserializeAws_queryGetEndpointAttributesCommand(output, context);
   }

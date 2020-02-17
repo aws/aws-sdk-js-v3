@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateApiMappingCommandInput = UpdateApiMappingRequest;
@@ -67,14 +67,14 @@ export class UpdateApiMappingCommand extends $Command<
 
   private serialize(
     input: UpdateApiMappingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateApiMappingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateApiMappingCommandOutput> {
     return deserializeAws_restJson1_1UpdateApiMappingCommand(output, context);
   }

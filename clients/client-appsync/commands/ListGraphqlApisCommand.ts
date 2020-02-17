@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListGraphqlApisCommandInput = ListGraphqlApisRequest;
@@ -67,14 +67,14 @@ export class ListGraphqlApisCommand extends $Command<
 
   private serialize(
     input: ListGraphqlApisCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListGraphqlApisCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListGraphqlApisCommandOutput> {
     return deserializeAws_restJson1_1ListGraphqlApisCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateClientVpnTargetNetworkCommandInput = AssociateClientVpnTargetNetworkRequest;
@@ -70,7 +70,7 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
 
   private serialize(
     input: AssociateClientVpnTargetNetworkCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2AssociateClientVpnTargetNetworkCommand(
       input,
@@ -80,7 +80,7 @@ export class AssociateClientVpnTargetNetworkCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateClientVpnTargetNetworkCommandOutput> {
     return deserializeAws_ec2AssociateClientVpnTargetNetworkCommand(
       output,

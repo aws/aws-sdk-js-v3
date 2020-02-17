@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePortfolioShareCommandInput = CreatePortfolioShareInput;
@@ -70,14 +70,14 @@ export class CreatePortfolioShareCommand extends $Command<
 
   private serialize(
     input: CreatePortfolioShareCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePortfolioShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePortfolioShareCommandOutput> {
     return deserializeAws_json1_1CreatePortfolioShareCommand(output, context);
   }

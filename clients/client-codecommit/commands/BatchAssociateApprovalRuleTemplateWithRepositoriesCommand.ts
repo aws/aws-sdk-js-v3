@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput = BatchAssociateApprovalRuleTemplateWithRepositoriesInput;
@@ -72,7 +72,7 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
 
   private serialize(
     input: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
       input,
@@ -82,7 +82,7 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput> {
     return deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(
       output,

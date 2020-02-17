@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetLoadBasedAutoScalingCommandInput = SetLoadBasedAutoScalingRequest;
@@ -68,14 +68,14 @@ export class SetLoadBasedAutoScalingCommand extends $Command<
 
   private serialize(
     input: SetLoadBasedAutoScalingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SetLoadBasedAutoScalingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetLoadBasedAutoScalingCommandOutput> {
     return deserializeAws_json1_1SetLoadBasedAutoScalingCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUserDefinedFunctionCommandInput = UpdateUserDefinedFunctionRequest;
@@ -70,14 +70,14 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
 
   private serialize(
     input: UpdateUserDefinedFunctionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserDefinedFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateUserDefinedFunctionCommandOutput> {
     return deserializeAws_json1_1UpdateUserDefinedFunctionCommand(
       output,

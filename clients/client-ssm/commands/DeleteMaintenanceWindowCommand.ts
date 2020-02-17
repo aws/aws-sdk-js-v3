@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMaintenanceWindowCommandInput = DeleteMaintenanceWindowRequest;
@@ -70,14 +70,14 @@ export class DeleteMaintenanceWindowCommand extends $Command<
 
   private serialize(
     input: DeleteMaintenanceWindowCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMaintenanceWindowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteMaintenanceWindowCommandOutput> {
     return deserializeAws_json1_1DeleteMaintenanceWindowCommand(
       output,

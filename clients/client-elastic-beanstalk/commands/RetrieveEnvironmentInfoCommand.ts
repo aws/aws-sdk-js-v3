@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RetrieveEnvironmentInfoCommandInput = RetrieveEnvironmentInfoMessage;
@@ -70,14 +70,14 @@ export class RetrieveEnvironmentInfoCommand extends $Command<
 
   private serialize(
     input: RetrieveEnvironmentInfoCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRetrieveEnvironmentInfoCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RetrieveEnvironmentInfoCommandOutput> {
     return deserializeAws_queryRetrieveEnvironmentInfoCommand(output, context);
   }

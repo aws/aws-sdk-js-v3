@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSlotTypeVersionCommandInput = DeleteSlotTypeVersionRequest;
@@ -68,14 +68,14 @@ export class DeleteSlotTypeVersionCommand extends $Command<
 
   private serialize(
     input: DeleteSlotTypeVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteSlotTypeVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSlotTypeVersionCommandOutput> {
     return deserializeAws_restJson1_1DeleteSlotTypeVersionCommand(
       output,

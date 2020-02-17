@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIntegrationCommandInput = GetIntegrationRequest;
@@ -64,14 +64,14 @@ export class GetIntegrationCommand extends $Command<
 
   private serialize(
     input: GetIntegrationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetIntegrationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetIntegrationCommandOutput> {
     return deserializeAws_restJson1_1GetIntegrationCommand(output, context);
   }

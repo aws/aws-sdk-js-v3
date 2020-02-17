@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateByteMatchSetCommandInput = CreateByteMatchSetRequest;
@@ -67,14 +67,14 @@ export class CreateByteMatchSetCommand extends $Command<
 
   private serialize(
     input: CreateByteMatchSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateByteMatchSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateByteMatchSetCommandOutput> {
     return deserializeAws_json1_1CreateByteMatchSetCommand(output, context);
   }

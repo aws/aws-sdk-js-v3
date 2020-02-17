@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEventSourceMappingCommandInput = GetEventSourceMappingRequest;
@@ -70,14 +70,14 @@ export class GetEventSourceMappingCommand extends $Command<
 
   private serialize(
     input: GetEventSourceMappingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetEventSourceMappingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetEventSourceMappingCommandOutput> {
     return deserializeAws_restJson1_1GetEventSourceMappingCommand(
       output,

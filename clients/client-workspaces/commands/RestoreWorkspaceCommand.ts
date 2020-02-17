@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreWorkspaceCommandInput = RestoreWorkspaceRequest;
@@ -67,14 +67,14 @@ export class RestoreWorkspaceCommand extends $Command<
 
   private serialize(
     input: RestoreWorkspaceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreWorkspaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreWorkspaceCommandOutput> {
     return deserializeAws_json1_1RestoreWorkspaceCommand(output, context);
   }

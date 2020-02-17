@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeForecastExportJobCommandInput = DescribeForecastExportJobRequest;
@@ -70,14 +70,14 @@ export class DescribeForecastExportJobCommand extends $Command<
 
   private serialize(
     input: DescribeForecastExportJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeForecastExportJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeForecastExportJobCommandOutput> {
     return deserializeAws_json1_1DescribeForecastExportJobCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetSMBGuestPasswordCommandInput = SetSMBGuestPasswordInput;
@@ -70,14 +70,14 @@ export class SetSMBGuestPasswordCommand extends $Command<
 
   private serialize(
     input: SetSMBGuestPasswordCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SetSMBGuestPasswordCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetSMBGuestPasswordCommandOutput> {
     return deserializeAws_json1_1SetSMBGuestPasswordCommand(output, context);
   }

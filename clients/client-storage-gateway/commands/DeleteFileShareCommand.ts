@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFileShareCommandInput = DeleteFileShareInput;
@@ -64,14 +64,14 @@ export class DeleteFileShareCommand extends $Command<
 
   private serialize(
     input: DeleteFileShareCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteFileShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteFileShareCommandOutput> {
     return deserializeAws_json1_1DeleteFileShareCommand(output, context);
   }

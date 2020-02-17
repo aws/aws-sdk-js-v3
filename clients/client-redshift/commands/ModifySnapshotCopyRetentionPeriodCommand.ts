@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifySnapshotCopyRetentionPeriodCommandInput = ModifySnapshotCopyRetentionPeriodMessage;
@@ -70,7 +70,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
 
   private serialize(
     input: ModifySnapshotCopyRetentionPeriodCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryModifySnapshotCopyRetentionPeriodCommand(
       input,
@@ -80,7 +80,7 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> {
     return deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand(
       output,

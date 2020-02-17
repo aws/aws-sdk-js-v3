@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSkillAuthorizationCommandInput = DeleteSkillAuthorizationRequest;
@@ -70,14 +70,14 @@ export class DeleteSkillAuthorizationCommand extends $Command<
 
   private serialize(
     input: DeleteSkillAuthorizationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSkillAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteSkillAuthorizationCommandOutput> {
     return deserializeAws_json1_1DeleteSkillAuthorizationCommand(
       output,

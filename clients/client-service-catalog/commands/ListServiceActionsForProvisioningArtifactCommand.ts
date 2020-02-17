@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListServiceActionsForProvisioningArtifactCommandInput = ListServiceActionsForProvisioningArtifactInput;
@@ -72,7 +72,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
 
   private serialize(
     input: ListServiceActionsForProvisioningArtifactCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(
       input,
@@ -82,7 +82,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> {
     return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(
       output,

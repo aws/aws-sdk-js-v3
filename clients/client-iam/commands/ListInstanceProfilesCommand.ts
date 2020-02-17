@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListInstanceProfilesCommandInput = ListInstanceProfilesRequest;
@@ -70,14 +70,14 @@ export class ListInstanceProfilesCommand extends $Command<
 
   private serialize(
     input: ListInstanceProfilesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListInstanceProfilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListInstanceProfilesCommandOutput> {
     return deserializeAws_queryListInstanceProfilesCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopHumanLoopCommandInput = StopHumanLoopRequest;
@@ -64,14 +64,14 @@ export class StopHumanLoopCommand extends $Command<
 
   private serialize(
     input: StopHumanLoopCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StopHumanLoopCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopHumanLoopCommandOutput> {
     return deserializeAws_restJson1_1StopHumanLoopCommand(output, context);
   }

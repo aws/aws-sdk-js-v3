@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCrawlerCommandInput = DeleteCrawlerRequest;
@@ -64,14 +64,14 @@ export class DeleteCrawlerCommand extends $Command<
 
   private serialize(
     input: DeleteCrawlerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCrawlerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCrawlerCommandOutput> {
     return deserializeAws_json1_1DeleteCrawlerCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartAppReplicationCommandInput = StartAppReplicationRequest;
@@ -70,14 +70,14 @@ export class StartAppReplicationCommand extends $Command<
 
   private serialize(
     input: StartAppReplicationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartAppReplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartAppReplicationCommandOutput> {
     return deserializeAws_json1_1StartAppReplicationCommand(output, context);
   }

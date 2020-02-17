@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPredictorsCommandInput = ListPredictorsRequest;
@@ -64,14 +64,14 @@ export class ListPredictorsCommand extends $Command<
 
   private serialize(
     input: ListPredictorsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListPredictorsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListPredictorsCommandOutput> {
     return deserializeAws_json1_1ListPredictorsCommand(output, context);
   }

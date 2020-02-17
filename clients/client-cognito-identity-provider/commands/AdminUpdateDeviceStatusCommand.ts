@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminUpdateDeviceStatusCommandInput = AdminUpdateDeviceStatusRequest;
@@ -70,14 +70,14 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
 
   private serialize(
     input: AdminUpdateDeviceStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminUpdateDeviceStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AdminUpdateDeviceStatusCommandOutput> {
     return deserializeAws_json1_1AdminUpdateDeviceStatusCommand(
       output,

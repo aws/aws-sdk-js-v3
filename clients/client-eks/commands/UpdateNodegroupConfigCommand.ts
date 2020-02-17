@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateNodegroupConfigCommandInput = UpdateNodegroupConfigRequest;
@@ -70,14 +70,14 @@ export class UpdateNodegroupConfigCommand extends $Command<
 
   private serialize(
     input: UpdateNodegroupConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateNodegroupConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateNodegroupConfigCommandOutput> {
     return deserializeAws_restJson1_1UpdateNodegroupConfigCommand(
       output,

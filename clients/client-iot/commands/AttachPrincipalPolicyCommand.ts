@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachPrincipalPolicyCommandInput = AttachPrincipalPolicyRequest;
@@ -68,14 +68,14 @@ export class AttachPrincipalPolicyCommand extends $Command<
 
   private serialize(
     input: AttachPrincipalPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AttachPrincipalPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AttachPrincipalPolicyCommandOutput> {
     return deserializeAws_restJson1_1AttachPrincipalPolicyCommand(
       output,

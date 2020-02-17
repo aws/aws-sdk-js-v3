@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyNetworkInterfaceAttributeCommandInput = ModifyNetworkInterfaceAttributeRequest;
@@ -68,7 +68,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
 
   private serialize(
     input: ModifyNetworkInterfaceAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
       input,
@@ -78,7 +78,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> {
     return deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand(
       output,

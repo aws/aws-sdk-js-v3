@@ -21,8 +21,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteObjectsCommandInput = DeleteObjectsRequest;
@@ -68,14 +68,14 @@ export class DeleteObjectsCommand extends $Command<
 
   private serialize(
     input: DeleteObjectsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteObjectsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteObjectsCommandOutput> {
     return deserializeAws_restXmlDeleteObjectsCommand(output, context);
   }

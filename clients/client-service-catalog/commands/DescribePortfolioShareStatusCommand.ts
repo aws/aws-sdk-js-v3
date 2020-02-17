@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePortfolioShareStatusCommandInput = DescribePortfolioShareStatusInput;
@@ -70,7 +70,7 @@ export class DescribePortfolioShareStatusCommand extends $Command<
 
   private serialize(
     input: DescribePortfolioShareStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePortfolioShareStatusCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribePortfolioShareStatusCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribePortfolioShareStatusCommandOutput> {
     return deserializeAws_json1_1DescribePortfolioShareStatusCommand(
       output,

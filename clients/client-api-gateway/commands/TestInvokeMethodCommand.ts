@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestInvokeMethodCommandInput = TestInvokeMethodRequest;
@@ -67,14 +67,14 @@ export class TestInvokeMethodCommand extends $Command<
 
   private serialize(
     input: TestInvokeMethodCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1TestInvokeMethodCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TestInvokeMethodCommandOutput> {
     return deserializeAws_restJson1_1TestInvokeMethodCommand(output, context);
   }

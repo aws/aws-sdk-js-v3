@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateDataKeyCommandInput = GenerateDataKeyRequest;
@@ -67,14 +67,14 @@ export class GenerateDataKeyCommand extends $Command<
 
   private serialize(
     input: GenerateDataKeyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateDataKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GenerateDataKeyCommandOutput> {
     return deserializeAws_json1_1GenerateDataKeyCommand(output, context);
   }

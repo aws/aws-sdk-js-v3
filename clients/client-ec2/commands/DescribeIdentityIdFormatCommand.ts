@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIdentityIdFormatCommandInput = DescribeIdentityIdFormatRequest;
@@ -70,14 +70,14 @@ export class DescribeIdentityIdFormatCommand extends $Command<
 
   private serialize(
     input: DescribeIdentityIdFormatCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIdentityIdFormatCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeIdentityIdFormatCommandOutput> {
     return deserializeAws_ec2DescribeIdentityIdFormatCommand(output, context);
   }

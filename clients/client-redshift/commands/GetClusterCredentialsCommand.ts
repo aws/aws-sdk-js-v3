@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetClusterCredentialsCommandInput = GetClusterCredentialsMessage;
@@ -70,14 +70,14 @@ export class GetClusterCredentialsCommand extends $Command<
 
   private serialize(
     input: GetClusterCredentialsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetClusterCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetClusterCredentialsCommandOutput> {
     return deserializeAws_queryGetClusterCredentialsCommand(output, context);
   }

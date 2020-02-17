@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
@@ -67,14 +67,14 @@ export class SubscribeToDatasetCommand extends $Command<
 
   private serialize(
     input: SubscribeToDatasetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SubscribeToDatasetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SubscribeToDatasetCommandOutput> {
     return deserializeAws_restJson1_1SubscribeToDatasetCommand(output, context);
   }

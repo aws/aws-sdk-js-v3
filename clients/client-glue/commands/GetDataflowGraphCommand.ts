@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDataflowGraphCommandInput = GetDataflowGraphRequest;
@@ -67,14 +67,14 @@ export class GetDataflowGraphCommand extends $Command<
 
   private serialize(
     input: GetDataflowGraphCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataflowGraphCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDataflowGraphCommandOutput> {
     return deserializeAws_json1_1GetDataflowGraphCommand(output, context);
   }

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnassignPrivateIpAddressesCommandInput = UnassignPrivateIpAddressesRequest;
@@ -68,14 +68,14 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
 
   private serialize(
     input: UnassignPrivateIpAddressesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2UnassignPrivateIpAddressesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UnassignPrivateIpAddressesCommandOutput> {
     return deserializeAws_ec2UnassignPrivateIpAddressesCommand(output, context);
   }

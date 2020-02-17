@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeComplianceByResourceCommandInput = DescribeComplianceByResourceRequest;
@@ -70,7 +70,7 @@ export class DescribeComplianceByResourceCommand extends $Command<
 
   private serialize(
     input: DescribeComplianceByResourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeComplianceByResourceCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeComplianceByResourceCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeComplianceByResourceCommandOutput> {
     return deserializeAws_json1_1DescribeComplianceByResourceCommand(
       output,

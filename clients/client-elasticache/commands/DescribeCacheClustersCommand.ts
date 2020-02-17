@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCacheClustersCommandInput = DescribeCacheClustersMessage;
@@ -70,14 +70,14 @@ export class DescribeCacheClustersCommand extends $Command<
 
   private serialize(
     input: DescribeCacheClustersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeCacheClustersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeCacheClustersCommandOutput> {
     return deserializeAws_queryDescribeCacheClustersCommand(output, context);
   }

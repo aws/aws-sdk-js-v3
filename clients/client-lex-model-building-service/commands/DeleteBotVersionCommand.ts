@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBotVersionCommandInput = DeleteBotVersionRequest;
@@ -65,14 +65,14 @@ export class DeleteBotVersionCommand extends $Command<
 
   private serialize(
     input: DeleteBotVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteBotVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteBotVersionCommandOutput> {
     return deserializeAws_restJson1_1DeleteBotVersionCommand(output, context);
   }

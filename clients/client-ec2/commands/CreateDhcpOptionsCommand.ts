@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDhcpOptionsCommandInput = CreateDhcpOptionsRequest;
@@ -67,14 +67,14 @@ export class CreateDhcpOptionsCommand extends $Command<
 
   private serialize(
     input: CreateDhcpOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateDhcpOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDhcpOptionsCommandOutput> {
     return deserializeAws_ec2CreateDhcpOptionsCommand(output, context);
   }

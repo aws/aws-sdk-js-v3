@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateReplicationGroupCommandInput = CreateReplicationGroupMessage;
@@ -70,14 +70,14 @@ export class CreateReplicationGroupCommand extends $Command<
 
   private serialize(
     input: CreateReplicationGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateReplicationGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateReplicationGroupCommandOutput> {
     return deserializeAws_queryCreateReplicationGroupCommand(output, context);
   }

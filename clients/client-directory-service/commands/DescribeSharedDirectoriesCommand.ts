@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSharedDirectoriesCommandInput = DescribeSharedDirectoriesRequest;
@@ -70,14 +70,14 @@ export class DescribeSharedDirectoriesCommand extends $Command<
 
   private serialize(
     input: DescribeSharedDirectoriesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeSharedDirectoriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeSharedDirectoriesCommandOutput> {
     return deserializeAws_json1_1DescribeSharedDirectoriesCommand(
       output,

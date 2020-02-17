@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeSnapshotAccessCommandInput = RevokeSnapshotAccessMessage;
@@ -70,14 +70,14 @@ export class RevokeSnapshotAccessCommand extends $Command<
 
   private serialize(
     input: RevokeSnapshotAccessCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRevokeSnapshotAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokeSnapshotAccessCommandOutput> {
     return deserializeAws_queryRevokeSnapshotAccessCommand(output, context);
   }

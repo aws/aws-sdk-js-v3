@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAccessKeyCommandInput = UpdateAccessKeyRequest;
@@ -65,14 +65,14 @@ export class UpdateAccessKeyCommand extends $Command<
 
   private serialize(
     input: UpdateAccessKeyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAccessKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateAccessKeyCommandOutput> {
     return deserializeAws_queryUpdateAccessKeyCommand(output, context);
   }

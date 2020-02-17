@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterTransitGatewayMulticastGroupSourcesCommandInput = DeregisterTransitGatewayMulticastGroupSourcesRequest;
@@ -72,7 +72,7 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
 
   private serialize(
     input: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(
       input,
@@ -82,7 +82,7 @@ export class DeregisterTransitGatewayMulticastGroupSourcesCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> {
     return deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSecurityProfilesCommandInput = ListSecurityProfilesRequest;
@@ -70,14 +70,14 @@ export class ListSecurityProfilesCommand extends $Command<
 
   private serialize(
     input: ListSecurityProfilesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListSecurityProfilesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListSecurityProfilesCommandOutput> {
     return deserializeAws_restJson1_1ListSecurityProfilesCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSlotTypeVersionsCommandInput = GetSlotTypeVersionsRequest;
@@ -70,14 +70,14 @@ export class GetSlotTypeVersionsCommand extends $Command<
 
   private serialize(
     input: GetSlotTypeVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSlotTypeVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSlotTypeVersionsCommandOutput> {
     return deserializeAws_restJson1_1GetSlotTypeVersionsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConfigurationRevisionCommandInput = DescribeConfigurationRevisionRequest;
@@ -70,7 +70,7 @@ export class DescribeConfigurationRevisionCommand extends $Command<
 
   private serialize(
     input: DescribeConfigurationRevisionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeConfigurationRevisionCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeConfigurationRevisionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeConfigurationRevisionCommandOutput> {
     return deserializeAws_restJson1_1DescribeConfigurationRevisionCommand(
       output,

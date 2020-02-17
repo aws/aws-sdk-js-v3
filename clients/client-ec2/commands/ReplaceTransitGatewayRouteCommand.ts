@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReplaceTransitGatewayRouteCommandInput = ReplaceTransitGatewayRouteRequest;
@@ -70,14 +70,14 @@ export class ReplaceTransitGatewayRouteCommand extends $Command<
 
   private serialize(
     input: ReplaceTransitGatewayRouteCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceTransitGatewayRouteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ReplaceTransitGatewayRouteCommandOutput> {
     return deserializeAws_ec2ReplaceTransitGatewayRouteCommand(output, context);
   }

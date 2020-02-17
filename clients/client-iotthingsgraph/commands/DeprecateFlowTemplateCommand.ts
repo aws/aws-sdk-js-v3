@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeprecateFlowTemplateCommandInput = DeprecateFlowTemplateRequest;
@@ -70,14 +70,14 @@ export class DeprecateFlowTemplateCommand extends $Command<
 
   private serialize(
     input: DeprecateFlowTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeprecateFlowTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeprecateFlowTemplateCommandOutput> {
     return deserializeAws_json1_1DeprecateFlowTemplateCommand(output, context);
   }

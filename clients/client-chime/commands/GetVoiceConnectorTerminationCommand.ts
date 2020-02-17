@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorTerminationCommandInput = GetVoiceConnectorTerminationRequest;
@@ -70,7 +70,7 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
 
   private serialize(
     input: GetVoiceConnectorTerminationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetVoiceConnectorTerminationCommand(
       input,
@@ -80,7 +80,7 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetVoiceConnectorTerminationCommandOutput> {
     return deserializeAws_restJson1_1GetVoiceConnectorTerminationCommand(
       output,

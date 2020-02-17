@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVpcClassicLinkCommandInput = DescribeVpcClassicLinkRequest;
@@ -70,14 +70,14 @@ export class DescribeVpcClassicLinkCommand extends $Command<
 
   private serialize(
     input: DescribeVpcClassicLinkCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcClassicLinkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeVpcClassicLinkCommandOutput> {
     return deserializeAws_ec2DescribeVpcClassicLinkCommand(output, context);
   }

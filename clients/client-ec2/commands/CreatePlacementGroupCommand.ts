@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePlacementGroupCommandInput = CreatePlacementGroupRequest;
@@ -68,14 +68,14 @@ export class CreatePlacementGroupCommand extends $Command<
 
   private serialize(
     input: CreatePlacementGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreatePlacementGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePlacementGroupCommandOutput> {
     return deserializeAws_ec2CreatePlacementGroupCommand(output, context);
   }

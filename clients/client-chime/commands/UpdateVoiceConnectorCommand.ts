@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateVoiceConnectorCommandInput = UpdateVoiceConnectorRequest;
@@ -70,14 +70,14 @@ export class UpdateVoiceConnectorCommand extends $Command<
 
   private serialize(
     input: UpdateVoiceConnectorCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateVoiceConnectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateVoiceConnectorCommandOutput> {
     return deserializeAws_restJson1_1UpdateVoiceConnectorCommand(
       output,

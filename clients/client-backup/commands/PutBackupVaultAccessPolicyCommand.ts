@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBackupVaultAccessPolicyCommandInput = PutBackupVaultAccessPolicyInput;
@@ -68,7 +68,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
 
   private serialize(
     input: PutBackupVaultAccessPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
       input,
@@ -78,7 +78,7 @@ export class PutBackupVaultAccessPolicyCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> {
     return deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommand(
       output,

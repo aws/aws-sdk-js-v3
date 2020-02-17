@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateVirtualRouterCommandInput = CreateVirtualRouterInput;
@@ -70,14 +70,14 @@ export class CreateVirtualRouterCommand extends $Command<
 
   private serialize(
     input: CreateVirtualRouterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateVirtualRouterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateVirtualRouterCommandOutput> {
     return deserializeAws_restJson1_1CreateVirtualRouterCommand(
       output,

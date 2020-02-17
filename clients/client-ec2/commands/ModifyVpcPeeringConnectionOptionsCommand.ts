@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyVpcPeeringConnectionOptionsCommandInput = ModifyVpcPeeringConnectionOptionsRequest;
@@ -70,7 +70,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
 
   private serialize(
     input: ModifyVpcPeeringConnectionOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
       input,
@@ -80,7 +80,7 @@ export class ModifyVpcPeeringConnectionOptionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> {
     return deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand(
       output,

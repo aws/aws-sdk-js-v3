@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DownloadDBLogFilePortionCommandInput = DownloadDBLogFilePortionMessage;
@@ -70,14 +70,14 @@ export class DownloadDBLogFilePortionCommand extends $Command<
 
   private serialize(
     input: DownloadDBLogFilePortionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDownloadDBLogFilePortionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DownloadDBLogFilePortionCommandOutput> {
     return deserializeAws_queryDownloadDBLogFilePortionCommand(output, context);
   }

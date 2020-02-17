@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateBandwidthRateLimitCommandInput = UpdateBandwidthRateLimitInput;
@@ -70,14 +70,14 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
 
   private serialize(
     input: UpdateBandwidthRateLimitCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateBandwidthRateLimitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateBandwidthRateLimitCommandOutput> {
     return deserializeAws_json1_1UpdateBandwidthRateLimitCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GenerateCredentialReportCommandInput = {};
@@ -67,14 +67,14 @@ export class GenerateCredentialReportCommand extends $Command<
 
   private serialize(
     input: GenerateCredentialReportCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGenerateCredentialReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GenerateCredentialReportCommandOutput> {
     return deserializeAws_queryGenerateCredentialReportCommand(output, context);
   }

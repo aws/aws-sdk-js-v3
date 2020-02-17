@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProvisioningTemplateVersionsCommandInput = ListProvisioningTemplateVersionsRequest;
@@ -70,7 +70,7 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
 
   private serialize(
     input: ListProvisioningTemplateVersionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListProvisioningTemplateVersionsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListProvisioningTemplateVersionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListProvisioningTemplateVersionsCommandOutput> {
     return deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand(
       output,

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteUsagePlanKeyCommandInput = DeleteUsagePlanKeyRequest;
@@ -65,14 +65,14 @@ export class DeleteUsagePlanKeyCommand extends $Command<
 
   private serialize(
     input: DeleteUsagePlanKeyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteUsagePlanKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteUsagePlanKeyCommandOutput> {
     return deserializeAws_restJson1_1DeleteUsagePlanKeyCommand(output, context);
   }

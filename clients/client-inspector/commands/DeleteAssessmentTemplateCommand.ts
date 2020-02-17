@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAssessmentTemplateCommandInput = DeleteAssessmentTemplateRequest;
@@ -68,14 +68,14 @@ export class DeleteAssessmentTemplateCommand extends $Command<
 
   private serialize(
     input: DeleteAssessmentTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteAssessmentTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteAssessmentTemplateCommandOutput> {
     return deserializeAws_json1_1DeleteAssessmentTemplateCommand(
       output,

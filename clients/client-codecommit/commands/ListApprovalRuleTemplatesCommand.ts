@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListApprovalRuleTemplatesCommandInput = ListApprovalRuleTemplatesInput;
@@ -70,14 +70,14 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
 
   private serialize(
     input: ListApprovalRuleTemplatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApprovalRuleTemplatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListApprovalRuleTemplatesCommandOutput> {
     return deserializeAws_json1_1ListApprovalRuleTemplatesCommand(
       output,

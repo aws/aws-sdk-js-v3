@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddInstanceGroupsCommandInput = AddInstanceGroupsInput;
@@ -67,14 +67,14 @@ export class AddInstanceGroupsCommand extends $Command<
 
   private serialize(
     input: AddInstanceGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddInstanceGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddInstanceGroupsCommandOutput> {
     return deserializeAws_json1_1AddInstanceGroupsCommand(output, context);
   }

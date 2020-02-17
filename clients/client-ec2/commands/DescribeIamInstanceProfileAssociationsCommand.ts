@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIamInstanceProfileAssociationsCommandInput = DescribeIamInstanceProfileAssociationsRequest;
@@ -72,7 +72,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
 
   private serialize(
     input: DescribeIamInstanceProfileAssociationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> {
     return deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand(
       output,

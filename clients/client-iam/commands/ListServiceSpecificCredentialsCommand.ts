@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListServiceSpecificCredentialsCommandInput = ListServiceSpecificCredentialsRequest;
@@ -70,7 +70,7 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
 
   private serialize(
     input: ListServiceSpecificCredentialsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListServiceSpecificCredentialsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListServiceSpecificCredentialsCommandOutput> {
     return deserializeAws_queryListServiceSpecificCredentialsCommand(
       output,

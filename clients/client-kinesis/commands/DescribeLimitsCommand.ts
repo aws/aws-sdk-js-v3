@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLimitsCommandInput = DescribeLimitsInput;
@@ -64,14 +64,14 @@ export class DescribeLimitsCommand extends $Command<
 
   private serialize(
     input: DescribeLimitsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeLimitsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLimitsCommandOutput> {
     return deserializeAws_json1_1DescribeLimitsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUserSettingsCommandInput = GetUserSettingsRequest;
@@ -67,14 +67,14 @@ export class GetUserSettingsCommand extends $Command<
 
   private serialize(
     input: GetUserSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetUserSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetUserSettingsCommandOutput> {
     return deserializeAws_restJson1_1GetUserSettingsCommand(output, context);
   }

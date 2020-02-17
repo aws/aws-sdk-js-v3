@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePlatformVersionCommandInput = CreatePlatformVersionRequest;
@@ -70,14 +70,14 @@ export class CreatePlatformVersionCommand extends $Command<
 
   private serialize(
     input: CreatePlatformVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreatePlatformVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePlatformVersionCommandOutput> {
     return deserializeAws_queryCreatePlatformVersionCommand(output, context);
   }

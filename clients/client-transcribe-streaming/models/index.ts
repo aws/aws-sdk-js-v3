@@ -251,7 +251,7 @@ export interface StartStreamTranscriptionRequest {
    * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
    *       frame.</p>
    */
-  AudioStream?: AudioStream;
+  AudioStream?: AsyncIterable<AudioStream>;
 
   /**
    * <p>Indicates the source language used in the input audio stream.</p>
@@ -319,7 +319,7 @@ export interface StartStreamTranscriptionResponse extends $MetadataBearer {
   /**
    * <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
    */
-  TranscriptResultStream?: TranscriptResultStream;
+  TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
 
   /**
    * <p>The name of the vocabulary used when processing the job.</p>

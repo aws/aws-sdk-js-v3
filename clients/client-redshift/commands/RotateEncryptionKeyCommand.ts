@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
@@ -70,14 +70,14 @@ export class RotateEncryptionKeyCommand extends $Command<
 
   private serialize(
     input: RotateEncryptionKeyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRotateEncryptionKeyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RotateEncryptionKeyCommandOutput> {
     return deserializeAws_queryRotateEncryptionKeyCommand(output, context);
   }

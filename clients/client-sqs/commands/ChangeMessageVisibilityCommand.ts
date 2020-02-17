@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ChangeMessageVisibilityCommandInput = ChangeMessageVisibilityRequest;
@@ -68,14 +68,14 @@ export class ChangeMessageVisibilityCommand extends $Command<
 
   private serialize(
     input: ChangeMessageVisibilityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryChangeMessageVisibilityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ChangeMessageVisibilityCommandOutput> {
     return deserializeAws_queryChangeMessageVisibilityCommand(output, context);
   }

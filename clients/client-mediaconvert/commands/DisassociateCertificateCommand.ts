@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateCertificateCommandInput = DisassociateCertificateRequest;
@@ -70,7 +70,7 @@ export class DisassociateCertificateCommand extends $Command<
 
   private serialize(
     input: DisassociateCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DisassociateCertificateCommand(
       input,
@@ -80,7 +80,7 @@ export class DisassociateCertificateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateCertificateCommandOutput> {
     return deserializeAws_restJson1_1DisassociateCertificateCommand(
       output,

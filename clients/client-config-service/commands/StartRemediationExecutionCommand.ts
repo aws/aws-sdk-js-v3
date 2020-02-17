@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartRemediationExecutionCommandInput = StartRemediationExecutionRequest;
@@ -70,14 +70,14 @@ export class StartRemediationExecutionCommand extends $Command<
 
   private serialize(
     input: StartRemediationExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartRemediationExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartRemediationExecutionCommandOutput> {
     return deserializeAws_json1_1StartRemediationExecutionCommand(
       output,

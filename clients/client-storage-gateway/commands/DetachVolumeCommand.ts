@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachVolumeCommandInput = DetachVolumeInput;
@@ -64,14 +64,14 @@ export class DetachVolumeCommand extends $Command<
 
   private serialize(
     input: DetachVolumeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DetachVolumeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetachVolumeCommandOutput> {
     return deserializeAws_json1_1DetachVolumeCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartDataSourceSyncJobCommandInput = StartDataSourceSyncJobRequest;
@@ -70,14 +70,14 @@ export class StartDataSourceSyncJobCommand extends $Command<
 
   private serialize(
     input: StartDataSourceSyncJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDataSourceSyncJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartDataSourceSyncJobCommandOutput> {
     return deserializeAws_json1_1StartDataSourceSyncJobCommand(output, context);
   }

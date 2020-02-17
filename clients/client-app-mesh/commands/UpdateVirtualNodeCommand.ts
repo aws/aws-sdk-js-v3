@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateVirtualNodeCommandInput = UpdateVirtualNodeInput;
@@ -67,14 +67,14 @@ export class UpdateVirtualNodeCommand extends $Command<
 
   private serialize(
     input: UpdateVirtualNodeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateVirtualNodeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateVirtualNodeCommandOutput> {
     return deserializeAws_restJson1_1UpdateVirtualNodeCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateWebACLCommandInput = DisassociateWebACLRequest;
@@ -67,14 +67,14 @@ export class DisassociateWebACLCommand extends $Command<
 
   private serialize(
     input: DisassociateWebACLCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateWebACLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateWebACLCommandOutput> {
     return deserializeAws_json1_1DisassociateWebACLCommand(output, context);
   }

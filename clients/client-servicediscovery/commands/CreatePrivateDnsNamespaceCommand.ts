@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePrivateDnsNamespaceCommandInput = CreatePrivateDnsNamespaceRequest;
@@ -70,14 +70,14 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
 
   private serialize(
     input: CreatePrivateDnsNamespaceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePrivateDnsNamespaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
     return deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(
       output,

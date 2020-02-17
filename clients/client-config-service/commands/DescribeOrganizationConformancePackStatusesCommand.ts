@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeOrganizationConformancePackStatusesCommandInput = DescribeOrganizationConformancePackStatusesRequest;
@@ -72,7 +72,7 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
 
   private serialize(
     input: DescribeOrganizationConformancePackStatusesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeOrganizationConformancePackStatusesCommand extends $Command
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> {
     return deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand(
       output,

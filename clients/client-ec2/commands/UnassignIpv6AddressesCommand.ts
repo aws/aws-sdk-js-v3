@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnassignIpv6AddressesCommandInput = UnassignIpv6AddressesRequest;
@@ -70,14 +70,14 @@ export class UnassignIpv6AddressesCommand extends $Command<
 
   private serialize(
     input: UnassignIpv6AddressesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2UnassignIpv6AddressesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UnassignIpv6AddressesCommandOutput> {
     return deserializeAws_ec2UnassignIpv6AddressesCommand(output, context);
   }

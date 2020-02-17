@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGitHubAccountTokenCommandInput = DeleteGitHubAccountTokenInput;
@@ -70,14 +70,14 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
 
   private serialize(
     input: DeleteGitHubAccountTokenCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteGitHubAccountTokenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteGitHubAccountTokenCommandOutput> {
     return deserializeAws_json1_1DeleteGitHubAccountTokenCommand(
       output,

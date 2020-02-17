@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDeploymentConfigCommandInput = CreateDeploymentConfigInput;
@@ -70,14 +70,14 @@ export class CreateDeploymentConfigCommand extends $Command<
 
   private serialize(
     input: CreateDeploymentConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDeploymentConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDeploymentConfigCommandOutput> {
     return deserializeAws_json1_1CreateDeploymentConfigCommand(output, context);
   }

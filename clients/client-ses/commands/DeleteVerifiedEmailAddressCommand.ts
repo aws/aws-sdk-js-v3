@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVerifiedEmailAddressCommandInput = DeleteVerifiedEmailAddressRequest;
@@ -68,14 +68,14 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
 
   private serialize(
     input: DeleteVerifiedEmailAddressCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteVerifiedEmailAddressCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteVerifiedEmailAddressCommandOutput> {
     return deserializeAws_queryDeleteVerifiedEmailAddressCommand(
       output,

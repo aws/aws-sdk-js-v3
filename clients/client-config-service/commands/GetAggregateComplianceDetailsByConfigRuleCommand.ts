@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAggregateComplianceDetailsByConfigRuleCommandInput = GetAggregateComplianceDetailsByConfigRuleRequest;
@@ -72,7 +72,7 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
 
   private serialize(
     input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
       input,
@@ -82,7 +82,7 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
     return deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
       output,

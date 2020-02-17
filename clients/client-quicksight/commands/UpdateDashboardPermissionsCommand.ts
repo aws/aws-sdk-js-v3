@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDashboardPermissionsCommandInput = UpdateDashboardPermissionsRequest;
@@ -70,7 +70,7 @@ export class UpdateDashboardPermissionsCommand extends $Command<
 
   private serialize(
     input: UpdateDashboardPermissionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateDashboardPermissionsCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateDashboardPermissionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDashboardPermissionsCommandOutput> {
     return deserializeAws_restJson1_1UpdateDashboardPermissionsCommand(
       output,

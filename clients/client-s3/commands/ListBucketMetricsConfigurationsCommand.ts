@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListBucketMetricsConfigurationsCommandInput = ListBucketMetricsConfigurationsRequest;
@@ -72,7 +72,7 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
 
   private serialize(
     input: ListBucketMetricsConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlListBucketMetricsConfigurationsCommand(
       input,
@@ -82,7 +82,7 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListBucketMetricsConfigurationsCommandOutput> {
     return deserializeAws_restXmlListBucketMetricsConfigurationsCommand(
       output,

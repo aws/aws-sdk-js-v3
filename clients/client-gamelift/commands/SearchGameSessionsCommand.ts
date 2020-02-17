@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchGameSessionsCommandInput = SearchGameSessionsInput;
@@ -67,14 +67,14 @@ export class SearchGameSessionsCommand extends $Command<
 
   private serialize(
     input: SearchGameSessionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchGameSessionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchGameSessionsCommandOutput> {
     return deserializeAws_json1_1SearchGameSessionsCommand(output, context);
   }

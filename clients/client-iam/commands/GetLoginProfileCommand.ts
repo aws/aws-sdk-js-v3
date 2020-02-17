@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLoginProfileCommandInput = GetLoginProfileRequest;
@@ -67,14 +67,14 @@ export class GetLoginProfileCommand extends $Command<
 
   private serialize(
     input: GetLoginProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetLoginProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetLoginProfileCommandOutput> {
     return deserializeAws_queryGetLoginProfileCommand(output, context);
   }

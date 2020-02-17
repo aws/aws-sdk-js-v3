@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateIngestionCommandInput = CreateIngestionRequest;
@@ -67,14 +67,14 @@ export class CreateIngestionCommand extends $Command<
 
   private serialize(
     input: CreateIngestionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateIngestionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateIngestionCommandOutput> {
     return deserializeAws_restJson1_1CreateIngestionCommand(output, context);
   }

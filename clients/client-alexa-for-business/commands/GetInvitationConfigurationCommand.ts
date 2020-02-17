@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInvitationConfigurationCommandInput = GetInvitationConfigurationRequest;
@@ -70,7 +70,7 @@ export class GetInvitationConfigurationCommand extends $Command<
 
   private serialize(
     input: GetInvitationConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInvitationConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class GetInvitationConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetInvitationConfigurationCommandOutput> {
     return deserializeAws_json1_1GetInvitationConfigurationCommand(
       output,

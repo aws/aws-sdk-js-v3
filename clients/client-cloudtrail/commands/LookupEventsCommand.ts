@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LookupEventsCommandInput = LookupEventsRequest;
@@ -64,14 +64,14 @@ export class LookupEventsCommand extends $Command<
 
   private serialize(
     input: LookupEventsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1LookupEventsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<LookupEventsCommandOutput> {
     return deserializeAws_json1_1LookupEventsCommand(output, context);
   }

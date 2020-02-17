@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListEntitiesDetectionV2JobsCommandInput = ListEntitiesDetectionV2JobsRequest;
@@ -70,7 +70,7 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
 
   private serialize(
     input: ListEntitiesDetectionV2JobsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListEntitiesDetectionV2JobsCommandOutput> {
     return deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
       output,

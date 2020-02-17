@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLaunchConfigurationsCommandInput = LaunchConfigurationNamesType;
@@ -70,7 +70,7 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
 
   private serialize(
     input: DescribeLaunchConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLaunchConfigurationsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeLaunchConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeLaunchConfigurationsCommandOutput> {
     return deserializeAws_queryDescribeLaunchConfigurationsCommand(
       output,

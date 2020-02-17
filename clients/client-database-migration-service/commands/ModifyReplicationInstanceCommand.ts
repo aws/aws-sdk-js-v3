@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyReplicationInstanceCommandInput = ModifyReplicationInstanceMessage;
@@ -70,14 +70,14 @@ export class ModifyReplicationInstanceCommand extends $Command<
 
   private serialize(
     input: ModifyReplicationInstanceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyReplicationInstanceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyReplicationInstanceCommandOutput> {
     return deserializeAws_json1_1ModifyReplicationInstanceCommand(
       output,

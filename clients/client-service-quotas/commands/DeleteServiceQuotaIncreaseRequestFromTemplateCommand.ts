@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput = DeleteServiceQuotaIncreaseRequestFromTemplateRequest;
@@ -72,7 +72,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
 
   private serialize(
     input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
       input,
@@ -82,7 +82,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
     return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClusterTracksCommandInput = DescribeClusterTracksMessage;
@@ -70,14 +70,14 @@ export class DescribeClusterTracksCommand extends $Command<
 
   private serialize(
     input: DescribeClusterTracksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterTracksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeClusterTracksCommandOutput> {
     return deserializeAws_queryDescribeClusterTracksCommand(output, context);
   }

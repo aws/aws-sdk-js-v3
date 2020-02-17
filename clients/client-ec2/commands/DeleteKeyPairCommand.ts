@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteKeyPairCommandInput = DeleteKeyPairRequest;
@@ -65,14 +65,14 @@ export class DeleteKeyPairCommand extends $Command<
 
   private serialize(
     input: DeleteKeyPairCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteKeyPairCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteKeyPairCommandOutput> {
     return deserializeAws_ec2DeleteKeyPairCommand(output, context);
   }

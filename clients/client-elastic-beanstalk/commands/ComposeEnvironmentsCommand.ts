@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ComposeEnvironmentsCommandInput = ComposeEnvironmentsMessage;
@@ -70,14 +70,14 @@ export class ComposeEnvironmentsCommand extends $Command<
 
   private serialize(
     input: ComposeEnvironmentsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryComposeEnvironmentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ComposeEnvironmentsCommandOutput> {
     return deserializeAws_queryComposeEnvironmentsCommand(output, context);
   }

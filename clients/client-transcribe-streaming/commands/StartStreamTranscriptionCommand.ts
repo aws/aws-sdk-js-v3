@@ -22,8 +22,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartStreamTranscriptionCommandInput = StartStreamTranscriptionRequest;
@@ -70,7 +71,7 @@ export class StartStreamTranscriptionCommand extends $Command<
 
   private serialize(
     input: StartStreamTranscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StartStreamTranscriptionCommand(
       input,
@@ -80,7 +81,7 @@ export class StartStreamTranscriptionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartStreamTranscriptionCommandOutput> {
     return deserializeAws_restJson1_1StartStreamTranscriptionCommand(
       output,

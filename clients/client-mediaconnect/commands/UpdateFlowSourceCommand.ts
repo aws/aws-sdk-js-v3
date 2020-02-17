@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateFlowSourceCommandInput = UpdateFlowSourceRequest;
@@ -67,14 +67,14 @@ export class UpdateFlowSourceCommand extends $Command<
 
   private serialize(
     input: UpdateFlowSourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateFlowSourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateFlowSourceCommandOutput> {
     return deserializeAws_restJson1_1UpdateFlowSourceCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
@@ -70,14 +70,14 @@ export class ModifyEventSubscriptionCommand extends $Command<
 
   private serialize(
     input: ModifyEventSubscriptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyEventSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyEventSubscriptionCommandOutput> {
     return deserializeAws_json1_1ModifyEventSubscriptionCommand(
       output,

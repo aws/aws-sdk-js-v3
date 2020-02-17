@@ -1,3 +1,4 @@
+import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
 import { streamCollector } from "@aws-sdk/stream-collector-rn";
 import { parseUrl } from "@aws-sdk/url-parser-node";
@@ -11,5 +12,8 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   streamCollector,
   urlParser: parseUrl,
   defaultUserAgent: `aws-sdk-js-v3-react-native-${name}/${version}`,
-  runtime: "react-native"
+  runtime: "react-native",
+  eventStreamSerdeProvider: invalidFunction(
+    "event stream is not supported in ReactNative"
+  ) as any
 };

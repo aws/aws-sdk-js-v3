@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSnapshotLimitsCommandInput = GetSnapshotLimitsRequest;
@@ -67,14 +67,14 @@ export class GetSnapshotLimitsCommand extends $Command<
 
   private serialize(
     input: GetSnapshotLimitsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSnapshotLimitsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSnapshotLimitsCommandOutput> {
     return deserializeAws_json1_1GetSnapshotLimitsCommand(output, context);
   }

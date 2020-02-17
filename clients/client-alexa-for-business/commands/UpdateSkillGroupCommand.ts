@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSkillGroupCommandInput = UpdateSkillGroupRequest;
@@ -67,14 +67,14 @@ export class UpdateSkillGroupCommand extends $Command<
 
   private serialize(
     input: UpdateSkillGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSkillGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSkillGroupCommandOutput> {
     return deserializeAws_json1_1UpdateSkillGroupCommand(output, context);
   }

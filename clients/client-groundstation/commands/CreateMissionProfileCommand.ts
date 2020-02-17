@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateMissionProfileCommandInput = CreateMissionProfileRequest;
@@ -70,14 +70,14 @@ export class CreateMissionProfileCommand extends $Command<
 
   private serialize(
     input: CreateMissionProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateMissionProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateMissionProfileCommandOutput> {
     return deserializeAws_restJson1_1CreateMissionProfileCommand(
       output,

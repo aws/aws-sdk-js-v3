@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
@@ -67,14 +67,14 @@ export class DeclineInvitationsCommand extends $Command<
 
   private serialize(
     input: DeclineInvitationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeclineInvitationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeclineInvitationsCommandOutput> {
     return deserializeAws_restJson1_1DeclineInvitationsCommand(output, context);
   }

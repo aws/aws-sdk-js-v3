@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectDominantLanguageCommandInput = DetectDominantLanguageRequest;
@@ -70,14 +70,14 @@ export class DetectDominantLanguageCommand extends $Command<
 
   private serialize(
     input: DetectDominantLanguageCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectDominantLanguageCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DetectDominantLanguageCommandOutput> {
     return deserializeAws_json1_1DetectDominantLanguageCommand(output, context);
   }

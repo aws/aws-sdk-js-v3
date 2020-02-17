@@ -2481,7 +2481,7 @@ export interface SubscribeToShardOutput extends $MetadataBearer {
   /**
    * <p>The event stream that your consumer can use to read records from the shard.</p>
    */
-  EventStream?: SubscribeToShardEventStream;
+  EventStream?: AsyncIterable<SubscribeToShardEventStream>;
 }
 
 export namespace SubscribeToShardOutput {

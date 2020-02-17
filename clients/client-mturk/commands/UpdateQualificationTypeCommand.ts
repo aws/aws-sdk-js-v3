@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateQualificationTypeCommandInput = UpdateQualificationTypeRequest;
@@ -70,14 +70,14 @@ export class UpdateQualificationTypeCommand extends $Command<
 
   private serialize(
     input: UpdateQualificationTypeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateQualificationTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateQualificationTypeCommandOutput> {
     return deserializeAws_json1_1UpdateQualificationTypeCommand(
       output,

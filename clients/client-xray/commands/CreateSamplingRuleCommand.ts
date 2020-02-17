@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSamplingRuleCommandInput = CreateSamplingRuleRequest;
@@ -67,14 +67,14 @@ export class CreateSamplingRuleCommand extends $Command<
 
   private serialize(
     input: CreateSamplingRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateSamplingRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSamplingRuleCommandOutput> {
     return deserializeAws_restJson1_1CreateSamplingRuleCommand(output, context);
   }

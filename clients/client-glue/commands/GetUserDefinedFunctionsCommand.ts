@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUserDefinedFunctionsCommandInput = GetUserDefinedFunctionsRequest;
@@ -70,14 +70,14 @@ export class GetUserDefinedFunctionsCommand extends $Command<
 
   private serialize(
     input: GetUserDefinedFunctionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUserDefinedFunctionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetUserDefinedFunctionsCommandOutput> {
     return deserializeAws_json1_1GetUserDefinedFunctionsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConnectivityInfoCommandInput = UpdateConnectivityInfoRequest;
@@ -70,7 +70,7 @@ export class UpdateConnectivityInfoCommand extends $Command<
 
   private serialize(
     input: UpdateConnectivityInfoCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateConnectivityInfoCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateConnectivityInfoCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateConnectivityInfoCommandOutput> {
     return deserializeAws_restJson1_1UpdateConnectivityInfoCommand(
       output,

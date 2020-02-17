@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutScheduledUpdateGroupActionCommandInput = PutScheduledUpdateGroupActionType;
@@ -68,7 +68,7 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
 
   private serialize(
     input: PutScheduledUpdateGroupActionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPutScheduledUpdateGroupActionCommand(
       input,
@@ -78,7 +78,7 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutScheduledUpdateGroupActionCommandOutput> {
     return deserializeAws_queryPutScheduledUpdateGroupActionCommand(
       output,

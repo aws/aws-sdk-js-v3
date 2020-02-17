@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeInvitationCommandInput = RevokeInvitationRequest;
@@ -67,14 +67,14 @@ export class RevokeInvitationCommand extends $Command<
 
   private serialize(
     input: RevokeInvitationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeInvitationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RevokeInvitationCommandOutput> {
     return deserializeAws_json1_1RevokeInvitationCommand(output, context);
   }

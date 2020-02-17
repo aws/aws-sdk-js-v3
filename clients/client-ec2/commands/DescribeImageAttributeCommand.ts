@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImageAttributeCommandInput = DescribeImageAttributeRequest;
@@ -67,14 +67,14 @@ export class DescribeImageAttributeCommand extends $Command<
 
   private serialize(
     input: DescribeImageAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImageAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeImageAttributeCommandOutput> {
     return deserializeAws_ec2DescribeImageAttributeCommand(output, context);
   }

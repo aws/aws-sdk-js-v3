@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCardinalityCommandInput = GetCardinalityRequest;
@@ -64,14 +64,14 @@ export class GetCardinalityCommand extends $Command<
 
   private serialize(
     input: GetCardinalityCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetCardinalityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCardinalityCommandOutput> {
     return deserializeAws_restJson1_1GetCardinalityCommand(output, context);
   }

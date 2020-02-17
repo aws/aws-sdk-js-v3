@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetServiceSpecificCredentialCommandInput = ResetServiceSpecificCredentialRequest;
@@ -70,7 +70,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
 
   private serialize(
     input: ResetServiceSpecificCredentialCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryResetServiceSpecificCredentialCommand(
       input,
@@ -80,7 +80,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ResetServiceSpecificCredentialCommandOutput> {
     return deserializeAws_queryResetServiceSpecificCredentialCommand(
       output,

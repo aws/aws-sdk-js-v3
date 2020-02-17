@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateApplicationResourceLifecycleCommandInput = UpdateApplicationResourceLifecycleMessage;
@@ -70,7 +70,7 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
 
   private serialize(
     input: UpdateApplicationResourceLifecycleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateApplicationResourceLifecycleCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateApplicationResourceLifecycleCommandOutput> {
     return deserializeAws_queryUpdateApplicationResourceLifecycleCommand(
       output,

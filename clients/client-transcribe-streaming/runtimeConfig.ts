@@ -1,4 +1,5 @@
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
+import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { defaultProvider as regionDefaultProvider } from "@aws-sdk/region-provider";
 import { Hash } from "@aws-sdk/hash-node";
 import { NodeHttpHandler } from "@aws-sdk/node-http-handler";
@@ -26,5 +27,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   defaultUserAgent: defaultUserAgent(name, version),
   runtime: "node",
   credentialDefaultProvider,
-  regionDefaultProvider
+  regionDefaultProvider,
+  eventStreamSerdeProvider
 };

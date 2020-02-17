@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
@@ -70,14 +70,14 @@ export class GetAccessKeyLastUsedCommand extends $Command<
 
   private serialize(
     input: GetAccessKeyLastUsedCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetAccessKeyLastUsedCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAccessKeyLastUsedCommandOutput> {
     return deserializeAws_queryGetAccessKeyLastUsedCommand(output, context);
   }

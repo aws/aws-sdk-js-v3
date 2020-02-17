@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveListenerCertificatesCommandInput = RemoveListenerCertificatesInput;
@@ -70,14 +70,14 @@ export class RemoveListenerCertificatesCommand extends $Command<
 
   private serialize(
     input: RemoveListenerCertificatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRemoveListenerCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RemoveListenerCertificatesCommandOutput> {
     return deserializeAws_queryRemoveListenerCertificatesCommand(
       output,

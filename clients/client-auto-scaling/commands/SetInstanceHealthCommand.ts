@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetInstanceHealthCommandInput = SetInstanceHealthQuery;
@@ -65,14 +65,14 @@ export class SetInstanceHealthCommand extends $Command<
 
   private serialize(
     input: SetInstanceHealthCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetInstanceHealthCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetInstanceHealthCommandOutput> {
     return deserializeAws_querySetInstanceHealthCommand(output, context);
   }

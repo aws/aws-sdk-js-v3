@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCACertificatesCommandInput = ListCACertificatesRequest;
@@ -67,14 +67,14 @@ export class ListCACertificatesCommand extends $Command<
 
   private serialize(
     input: ListCACertificatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListCACertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListCACertificatesCommandOutput> {
     return deserializeAws_restJson1_1ListCACertificatesCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListReviewableHITsCommandInput = ListReviewableHITsRequest;
@@ -67,14 +67,14 @@ export class ListReviewableHITsCommand extends $Command<
 
   private serialize(
     input: ListReviewableHITsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListReviewableHITsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListReviewableHITsCommandOutput> {
     return deserializeAws_json1_1ListReviewableHITsCommand(output, context);
   }

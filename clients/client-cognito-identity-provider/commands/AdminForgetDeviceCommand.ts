@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminForgetDeviceCommandInput = AdminForgetDeviceRequest;
@@ -65,14 +65,14 @@ export class AdminForgetDeviceCommand extends $Command<
 
   private serialize(
     input: AdminForgetDeviceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminForgetDeviceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AdminForgetDeviceCommandOutput> {
     return deserializeAws_json1_1AdminForgetDeviceCommand(output, context);
   }

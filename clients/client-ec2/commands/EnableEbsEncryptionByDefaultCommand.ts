@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableEbsEncryptionByDefaultCommandInput = EnableEbsEncryptionByDefaultRequest;
@@ -70,14 +70,14 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
 
   private serialize(
     input: EnableEbsEncryptionByDefaultCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2EnableEbsEncryptionByDefaultCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableEbsEncryptionByDefaultCommandOutput> {
     return deserializeAws_ec2EnableEbsEncryptionByDefaultCommand(
       output,

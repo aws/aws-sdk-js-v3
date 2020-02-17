@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCustomMetadataCommandInput = DeleteCustomMetadataRequest;
@@ -70,14 +70,14 @@ export class DeleteCustomMetadataCommand extends $Command<
 
   private serialize(
     input: DeleteCustomMetadataCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteCustomMetadataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCustomMetadataCommandOutput> {
     return deserializeAws_restJson1_1DeleteCustomMetadataCommand(
       output,

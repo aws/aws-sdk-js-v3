@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPullRequestCommandInput = GetPullRequestInput;
@@ -64,14 +64,14 @@ export class GetPullRequestCommand extends $Command<
 
   private serialize(
     input: GetPullRequestCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPullRequestCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPullRequestCommandOutput> {
     return deserializeAws_json1_1GetPullRequestCommand(output, context);
   }
