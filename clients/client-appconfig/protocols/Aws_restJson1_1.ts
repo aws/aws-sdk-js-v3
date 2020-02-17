@@ -557,14 +557,10 @@ export async function serializeAws_restJson1_1GetConfigurationCommand(
   }
   const query: any = {};
   if (input.ClientConfigurationVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("client_configuration_version")
-    ] = __extendedEncodeURIComponent(input.ClientConfigurationVersion);
+    query["client_configuration_version"] = input.ClientConfigurationVersion;
   }
   if (input.ClientId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("client_id")
-    ] = __extendedEncodeURIComponent(input.ClientId);
+    query["client_id"] = input.ClientId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -770,14 +766,10 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
   let resolvedPath = "/applications";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -812,14 +804,10 @@ export async function serializeAws_restJson1_1ListConfigurationProfilesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -840,14 +828,10 @@ export async function serializeAws_restJson1_1ListDeploymentStrategiesCommand(
   let resolvedPath = "/deploymentstrategies";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -897,14 +881,10 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -939,14 +919,10 @@ export async function serializeAws_restJson1_1ListEnvironmentsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1173,9 +1149,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1446,9 +1420,7 @@ export async function serializeAws_restJson1_1ValidateConfigurationCommand(
   }
   const query: any = {};
   if (input.ConfigurationVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("configuration_version")
-    ] = __extendedEncodeURIComponent(input.ConfigurationVersion);
+    query["configuration_version"] = input.ConfigurationVersion;
   }
   return new __HttpRequest({
     ...context.endpoint,

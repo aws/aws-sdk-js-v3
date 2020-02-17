@@ -494,19 +494,13 @@ export async function serializeAws_restXmlListAccessPointsCommand(
   let resolvedPath = "/v20180820/accesspoint";
   const query: any = {};
   if (input.Bucket !== undefined) {
-    query[
-      __extendedEncodeURIComponent("bucket")
-    ] = __extendedEncodeURIComponent(input.Bucket);
+    query["bucket"] = input.Bucket;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -530,19 +524,13 @@ export async function serializeAws_restXmlListJobsCommand(
   let resolvedPath = "/v20180820/jobs";
   const query: any = {};
   if (input.JobStatuses !== undefined) {
-    query[
-      __extendedEncodeURIComponent("jobStatuses")
-    ] = input.JobStatuses.map(entry => __extendedEncodeURIComponent(entry));
+    query["jobStatuses"] = input.JobStatuses;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -658,9 +646,7 @@ export async function serializeAws_restXmlUpdateJobPriorityCommand(
   }
   const query: any = {};
   if (input.Priority !== undefined) {
-    query[
-      __extendedEncodeURIComponent("priority")
-    ] = __extendedEncodeURIComponent(input.Priority.toString());
+    query["priority"] = input.Priority.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -696,14 +682,10 @@ export async function serializeAws_restXmlUpdateJobStatusCommand(
   }
   const query: any = {};
   if (input.RequestedJobStatus !== undefined) {
-    query[
-      __extendedEncodeURIComponent("requestedJobStatus")
-    ] = __extendedEncodeURIComponent(input.RequestedJobStatus);
+    query["requestedJobStatus"] = input.RequestedJobStatus;
   }
   if (input.StatusUpdateReason !== undefined) {
-    query[
-      __extendedEncodeURIComponent("statusUpdateReason")
-    ] = __extendedEncodeURIComponent(input.StatusUpdateReason);
+    query["statusUpdateReason"] = input.StatusUpdateReason;
   }
   return new __HttpRequest({
     ...context.endpoint,

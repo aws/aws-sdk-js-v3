@@ -117,26 +117,18 @@ export async function serializeAws_restJson1_1DescribeVoicesCommand(
   let resolvedPath = "/v1/voices";
   const query: any = {};
   if (input.Engine !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Engine")
-    ] = __extendedEncodeURIComponent(input.Engine);
+    query["Engine"] = input.Engine;
   }
   if (input.IncludeAdditionalLanguageCodes !== undefined) {
     query[
-      __extendedEncodeURIComponent("IncludeAdditionalLanguageCodes")
-    ] = __extendedEncodeURIComponent(
-      input.IncludeAdditionalLanguageCodes.toString()
-    );
+      "IncludeAdditionalLanguageCodes"
+    ] = input.IncludeAdditionalLanguageCodes.toString();
   }
   if (input.LanguageCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("LanguageCode")
-    ] = __extendedEncodeURIComponent(input.LanguageCode);
+    query["LanguageCode"] = input.LanguageCode;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -213,9 +205,7 @@ export async function serializeAws_restJson1_1ListLexiconsCommand(
   let resolvedPath = "/v1/lexicons";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -236,19 +226,13 @@ export async function serializeAws_restJson1_1ListSpeechSynthesisTasksCommand(
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.Status !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Status")
-    ] = __extendedEncodeURIComponent(input.Status);
+    query["Status"] = input.Status;
   }
   return new __HttpRequest({
     ...context.endpoint,

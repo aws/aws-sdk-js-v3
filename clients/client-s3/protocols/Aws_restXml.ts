@@ -525,9 +525,7 @@ export async function serializeAws_restXmlAbortMultipartUploadCommand(
     "x-id": "AbortMultipartUpload"
   };
   if (input.UploadId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("uploadId")
-    ] = __extendedEncodeURIComponent(input.UploadId);
+    query["uploadId"] = input.UploadId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -578,9 +576,7 @@ export async function serializeAws_restXmlCompleteMultipartUploadCommand(
   }
   const query: any = {};
   if (input.UploadId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("uploadId")
-    ] = __extendedEncodeURIComponent(input.UploadId);
+    query["uploadId"] = input.UploadId;
   }
   let body: any;
   let contents: any;
@@ -1013,9 +1009,7 @@ export async function serializeAws_restXmlDeleteBucketAnalyticsConfigurationComm
     analytics: ""
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1114,9 +1108,7 @@ export async function serializeAws_restXmlDeleteBucketInventoryConfigurationComm
     inventory: ""
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1183,9 +1175,7 @@ export async function serializeAws_restXmlDeleteBucketMetricsConfigurationComman
     metrics: ""
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1374,9 +1364,7 @@ export async function serializeAws_restXmlDeleteObjectCommand(
     "x-id": "DeleteObject"
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1426,9 +1414,7 @@ export async function serializeAws_restXmlDeleteObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1612,9 +1598,7 @@ export async function serializeAws_restXmlGetBucketAnalyticsConfigurationCommand
     "x-id": "GetBucketAnalyticsConfiguration"
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1714,9 +1698,7 @@ export async function serializeAws_restXmlGetBucketInventoryConfigurationCommand
     "x-id": "GetBucketInventoryConfiguration"
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1848,9 +1830,7 @@ export async function serializeAws_restXmlGetBucketMetricsConfigurationCommand(
     "x-id": "GetBucketMetricsConfiguration"
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2185,44 +2165,28 @@ export async function serializeAws_restXmlGetObjectCommand(
     "x-id": "GetObject"
   };
   if (input.PartNumber !== undefined) {
-    query[
-      __extendedEncodeURIComponent("partNumber")
-    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
+    query["partNumber"] = input.PartNumber.toString();
   }
   if (input.ResponseCacheControl !== undefined) {
-    query[
-      __extendedEncodeURIComponent("response-cache-control")
-    ] = __extendedEncodeURIComponent(input.ResponseCacheControl);
+    query["response-cache-control"] = input.ResponseCacheControl;
   }
   if (input.ResponseContentDisposition !== undefined) {
-    query[
-      __extendedEncodeURIComponent("response-content-disposition")
-    ] = __extendedEncodeURIComponent(input.ResponseContentDisposition);
+    query["response-content-disposition"] = input.ResponseContentDisposition;
   }
   if (input.ResponseContentEncoding !== undefined) {
-    query[
-      __extendedEncodeURIComponent("response-content-encoding")
-    ] = __extendedEncodeURIComponent(input.ResponseContentEncoding);
+    query["response-content-encoding"] = input.ResponseContentEncoding;
   }
   if (input.ResponseContentLanguage !== undefined) {
-    query[
-      __extendedEncodeURIComponent("response-content-language")
-    ] = __extendedEncodeURIComponent(input.ResponseContentLanguage);
+    query["response-content-language"] = input.ResponseContentLanguage;
   }
   if (input.ResponseContentType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("response-content-type")
-    ] = __extendedEncodeURIComponent(input.ResponseContentType);
+    query["response-content-type"] = input.ResponseContentType;
   }
   if (input.ResponseExpires !== undefined) {
-    query[
-      __extendedEncodeURIComponent("response-expires")
-    ] = __extendedEncodeURIComponent(input.ResponseExpires.toISOString());
+    query["response-expires"] = input.ResponseExpires.toISOString();
   }
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2275,9 +2239,7 @@ export async function serializeAws_restXmlGetObjectAclCommand(
     acl: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2330,9 +2292,7 @@ export async function serializeAws_restXmlGetObjectLegalHoldCommand(
     "legal-hold": ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2417,9 +2377,7 @@ export async function serializeAws_restXmlGetObjectRetentionCommand(
     retention: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2469,9 +2427,7 @@ export async function serializeAws_restXmlGetObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2658,14 +2614,10 @@ export async function serializeAws_restXmlHeadObjectCommand(
   }
   const query: any = {};
   if (input.PartNumber !== undefined) {
-    query[
-      __extendedEncodeURIComponent("partNumber")
-    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
+    query["partNumber"] = input.PartNumber.toString();
   }
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2701,9 +2653,7 @@ export async function serializeAws_restXmlListBucketAnalyticsConfigurationsComma
     "x-id": "ListBucketAnalyticsConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("continuation-token")
-    ] = __extendedEncodeURIComponent(input.ContinuationToken);
+    query["continuation-token"] = input.ContinuationToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2739,9 +2689,7 @@ export async function serializeAws_restXmlListBucketInventoryConfigurationsComma
     "x-id": "ListBucketInventoryConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("continuation-token")
-    ] = __extendedEncodeURIComponent(input.ContinuationToken);
+    query["continuation-token"] = input.ContinuationToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2777,9 +2725,7 @@ export async function serializeAws_restXmlListBucketMetricsConfigurationsCommand
     "x-id": "ListBucketMetricsConfigurations"
   };
   if (input.ContinuationToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("continuation-token")
-    ] = __extendedEncodeURIComponent(input.ContinuationToken);
+    query["continuation-token"] = input.ContinuationToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2830,34 +2776,22 @@ export async function serializeAws_restXmlListMultipartUploadsCommand(
     uploads: ""
   };
   if (input.Delimiter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("delimiter")
-    ] = __extendedEncodeURIComponent(input.Delimiter);
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("encoding-type")
-    ] = __extendedEncodeURIComponent(input.EncodingType);
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.KeyMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("key-marker")
-    ] = __extendedEncodeURIComponent(input.KeyMarker);
+    query["key-marker"] = input.KeyMarker;
   }
   if (input.MaxUploads !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max-uploads")
-    ] = __extendedEncodeURIComponent(input.MaxUploads.toString());
+    query["max-uploads"] = input.MaxUploads.toString();
   }
   if (input.Prefix !== undefined) {
-    query[
-      __extendedEncodeURIComponent("prefix")
-    ] = __extendedEncodeURIComponent(input.Prefix);
+    query["prefix"] = input.Prefix;
   }
   if (input.UploadIdMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("upload-id-marker")
-    ] = __extendedEncodeURIComponent(input.UploadIdMarker);
+    query["upload-id-marker"] = input.UploadIdMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2892,34 +2826,22 @@ export async function serializeAws_restXmlListObjectVersionsCommand(
     versions: ""
   };
   if (input.Delimiter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("delimiter")
-    ] = __extendedEncodeURIComponent(input.Delimiter);
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("encoding-type")
-    ] = __extendedEncodeURIComponent(input.EncodingType);
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.KeyMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("key-marker")
-    ] = __extendedEncodeURIComponent(input.KeyMarker);
+    query["key-marker"] = input.KeyMarker;
   }
   if (input.MaxKeys !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max-keys")
-    ] = __extendedEncodeURIComponent(input.MaxKeys.toString());
+    query["max-keys"] = input.MaxKeys.toString();
   }
   if (input.Prefix !== undefined) {
-    query[
-      __extendedEncodeURIComponent("prefix")
-    ] = __extendedEncodeURIComponent(input.Prefix);
+    query["prefix"] = input.Prefix;
   }
   if (input.VersionIdMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version-id-marker")
-    ] = __extendedEncodeURIComponent(input.VersionIdMarker);
+    query["version-id-marker"] = input.VersionIdMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2955,29 +2877,19 @@ export async function serializeAws_restXmlListObjectsCommand(
   }
   const query: any = {};
   if (input.Delimiter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("delimiter")
-    ] = __extendedEncodeURIComponent(input.Delimiter);
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("encoding-type")
-    ] = __extendedEncodeURIComponent(input.EncodingType);
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.MaxKeys !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max-keys")
-    ] = __extendedEncodeURIComponent(input.MaxKeys.toString());
+    query["max-keys"] = input.MaxKeys.toString();
   }
   if (input.Prefix !== undefined) {
-    query[
-      __extendedEncodeURIComponent("prefix")
-    ] = __extendedEncodeURIComponent(input.Prefix);
+    query["prefix"] = input.Prefix;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3015,39 +2927,25 @@ export async function serializeAws_restXmlListObjectsV2Command(
     "list-type": "2"
   };
   if (input.ContinuationToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("continuation-token")
-    ] = __extendedEncodeURIComponent(input.ContinuationToken);
+    query["continuation-token"] = input.ContinuationToken;
   }
   if (input.Delimiter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("delimiter")
-    ] = __extendedEncodeURIComponent(input.Delimiter);
+    query["delimiter"] = input.Delimiter;
   }
   if (input.EncodingType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("encoding-type")
-    ] = __extendedEncodeURIComponent(input.EncodingType);
+    query["encoding-type"] = input.EncodingType;
   }
   if (input.FetchOwner !== undefined) {
-    query[
-      __extendedEncodeURIComponent("fetch-owner")
-    ] = __extendedEncodeURIComponent(input.FetchOwner.toString());
+    query["fetch-owner"] = input.FetchOwner.toString();
   }
   if (input.MaxKeys !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max-keys")
-    ] = __extendedEncodeURIComponent(input.MaxKeys.toString());
+    query["max-keys"] = input.MaxKeys.toString();
   }
   if (input.Prefix !== undefined) {
-    query[
-      __extendedEncodeURIComponent("prefix")
-    ] = __extendedEncodeURIComponent(input.Prefix);
+    query["prefix"] = input.Prefix;
   }
   if (input.StartAfter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("start-after")
-    ] = __extendedEncodeURIComponent(input.StartAfter);
+    query["start-after"] = input.StartAfter;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3100,19 +2998,13 @@ export async function serializeAws_restXmlListPartsCommand(
     "x-id": "ListParts"
   };
   if (input.MaxParts !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max-parts")
-    ] = __extendedEncodeURIComponent(input.MaxParts.toString());
+    query["max-parts"] = input.MaxParts.toString();
   }
   if (input.PartNumberMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("part-number-marker")
-    ] = __extendedEncodeURIComponent(input.PartNumberMarker.toString());
+    query["part-number-marker"] = input.PartNumberMarker.toString();
   }
   if (input.UploadId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("uploadId")
-    ] = __extendedEncodeURIComponent(input.UploadId);
+    query["uploadId"] = input.UploadId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3256,9 +3148,7 @@ export async function serializeAws_restXmlPutBucketAnalyticsConfigurationCommand
     analytics: ""
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   let body: any;
   let contents: any;
@@ -3399,9 +3289,7 @@ export async function serializeAws_restXmlPutBucketInventoryConfigurationCommand
     inventory: ""
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   let body: any;
   let contents: any;
@@ -3539,9 +3427,7 @@ export async function serializeAws_restXmlPutBucketMetricsConfigurationCommand(
     metrics: ""
   };
   if (input.Id !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.Id
-    );
+    query["id"] = input.Id;
   }
   let body: any;
   let contents: any;
@@ -4103,9 +3989,7 @@ export async function serializeAws_restXmlPutObjectAclCommand(
     acl: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4173,9 +4057,7 @@ export async function serializeAws_restXmlPutObjectLegalHoldCommand(
     "legal-hold": ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4301,9 +4183,7 @@ export async function serializeAws_restXmlPutObjectRetentionCommand(
     retention: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4368,9 +4248,7 @@ export async function serializeAws_restXmlPutObjectTaggingCommand(
     tagging: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4479,9 +4357,7 @@ export async function serializeAws_restXmlRestoreObjectCommand(
     restore: ""
   };
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   let body: any;
   let contents: any;
@@ -4665,14 +4541,10 @@ export async function serializeAws_restXmlUploadPartCommand(
     "x-id": "UploadPart"
   };
   if (input.PartNumber !== undefined) {
-    query[
-      __extendedEncodeURIComponent("partNumber")
-    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
+    query["partNumber"] = input.PartNumber.toString();
   }
   if (input.UploadId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("uploadId")
-    ] = __extendedEncodeURIComponent(input.UploadId);
+    query["uploadId"] = input.UploadId;
   }
   let body: any;
   let contents: any;
@@ -4777,14 +4649,10 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
     "x-id": "UploadPartCopy"
   };
   if (input.PartNumber !== undefined) {
-    query[
-      __extendedEncodeURIComponent("partNumber")
-    ] = __extendedEncodeURIComponent(input.PartNumber.toString());
+    query["partNumber"] = input.PartNumber.toString();
   }
   if (input.UploadId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("uploadId")
-    ] = __extendedEncodeURIComponent(input.UploadId);
+    query["uploadId"] = input.UploadId;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -1119,24 +1119,16 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   }
   const query: any = {};
   if (input.completed !== undefined) {
-    query[
-      __extendedEncodeURIComponent("completed")
-    ] = __extendedEncodeURIComponent(input.completed);
+    query["completed"] = input.completed;
   }
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit
-    );
+    query["limit"] = input.limit;
   }
   if (input.marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.marker);
+    query["marker"] = input.marker;
   }
   if (input.statuscode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("statuscode")
-    ] = __extendedEncodeURIComponent(input.statuscode);
+    query["statuscode"] = input.statuscode;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1181,14 +1173,10 @@ export async function serializeAws_restJson1_1ListMultipartUploadsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit
-    );
+    query["limit"] = input.limit;
   }
   if (input.marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.marker);
+    query["marker"] = input.marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1246,14 +1234,10 @@ export async function serializeAws_restJson1_1ListPartsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit
-    );
+    query["limit"] = input.limit;
   }
   if (input.marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.marker);
+    query["marker"] = input.marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1354,14 +1338,10 @@ export async function serializeAws_restJson1_1ListVaultsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit
-    );
+    query["limit"] = input.limit;
   }
   if (input.marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.marker);
+    query["marker"] = input.marker;
   }
   return new __HttpRequest({
     ...context.endpoint,

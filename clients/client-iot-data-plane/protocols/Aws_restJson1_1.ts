@@ -118,9 +118,7 @@ export async function serializeAws_restJson1_1PublishCommand(
   }
   const query: any = {};
   if (input.qos !== undefined) {
-    query[__extendedEncodeURIComponent("qos")] = __extendedEncodeURIComponent(
-      input.qos.toString()
-    );
+    query["qos"] = input.qos.toString();
   }
   let body: any;
   if (input.payload !== undefined) {

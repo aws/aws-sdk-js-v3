@@ -600,14 +600,10 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   let resolvedPath = "/invitations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -640,29 +636,19 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   }
   const query: any = {};
   if (input.IsOwned !== undefined) {
-    query[
-      __extendedEncodeURIComponent("isOwned")
-    ] = __extendedEncodeURIComponent(input.IsOwned.toString());
+    query["isOwned"] = input.IsOwned.toString();
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.Name !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.Name
-    );
+    query["name"] = input.Name;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Status !== undefined) {
-    query[
-      __extendedEncodeURIComponent("status")
-    ] = __extendedEncodeURIComponent(input.Status);
+    query["status"] = input.Status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -683,29 +669,19 @@ export async function serializeAws_restJson1_1ListNetworksCommand(
   let resolvedPath = "/networks";
   const query: any = {};
   if (input.Framework !== undefined) {
-    query[
-      __extendedEncodeURIComponent("framework")
-    ] = __extendedEncodeURIComponent(input.Framework);
+    query["framework"] = input.Framework;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.Name !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.Name
-    );
+    query["name"] = input.Name;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Status !== undefined) {
-    query[
-      __extendedEncodeURIComponent("status")
-    ] = __extendedEncodeURIComponent(input.Status);
+    query["status"] = input.Status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -750,19 +726,13 @@ export async function serializeAws_restJson1_1ListNodesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Status !== undefined) {
-    query[
-      __extendedEncodeURIComponent("status")
-    ] = __extendedEncodeURIComponent(input.Status);
+    query["status"] = input.Status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -807,14 +777,10 @@ export async function serializeAws_restJson1_1ListProposalVotesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -847,14 +813,10 @@ export async function serializeAws_restJson1_1ListProposalsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
