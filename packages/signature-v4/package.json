@@ -21,6 +21,7 @@
     "@aws-sdk/is-array-buffer": "^1.0.0-alpha.2",
     "@aws-sdk/types": "^1.0.0-alpha.4",
     "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.2",
+    "@aws-sdk/util-uri-escape": "^1.0.0-alpha.2",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
