@@ -1,5 +1,5 @@
 import { QueryParameterBag } from "@aws-sdk/types";
-import { escapeUri, escapeUriPath } from "@aws-sdk/util-uri-escape";
+import { escapeUri } from "@aws-sdk/util-uri-escape";
 
 export function buildQueryString(query: QueryParameterBag): string {
   const parts: string[] = [];
