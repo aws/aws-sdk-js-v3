@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestRepositoryTriggersCommandInput = TestRepositoryTriggersInput;
@@ -70,14 +70,14 @@ export class TestRepositoryTriggersCommand extends $Command<
 
   private serialize(
     input: TestRepositoryTriggersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1TestRepositoryTriggersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TestRepositoryTriggersCommandOutput> {
     return deserializeAws_json1_1TestRepositoryTriggersCommand(output, context);
   }

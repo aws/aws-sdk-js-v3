@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTaskExecutionCommandInput = DescribeTaskExecutionRequest;
@@ -70,14 +70,14 @@ export class DescribeTaskExecutionCommand extends $Command<
 
   private serialize(
     input: DescribeTaskExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTaskExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTaskExecutionCommandOutput> {
     return deserializeAws_json1_1DescribeTaskExecutionCommand(output, context);
   }

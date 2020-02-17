@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateApprovalRuleTemplateFromRepositoryCommandInput = DisassociateApprovalRuleTemplateFromRepositoryInput;
@@ -70,7 +70,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
 
   private serialize(
     input: DisassociateApprovalRuleTemplateFromRepositoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(
       input,
@@ -80,7 +80,7 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateApprovalRuleTemplateFromRepositoryCommandOutput> {
     return deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand(
       output,

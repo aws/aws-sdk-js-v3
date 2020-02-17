@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeReplicationGroupsCommandInput = DescribeReplicationGroupsMessage;
@@ -70,14 +70,14 @@ export class DescribeReplicationGroupsCommand extends $Command<
 
   private serialize(
     input: DescribeReplicationGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReplicationGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeReplicationGroupsCommandOutput> {
     return deserializeAws_queryDescribeReplicationGroupsCommand(
       output,

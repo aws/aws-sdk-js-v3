@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDistributionConfigurationCommandInput = UpdateDistributionConfigurationRequest;
@@ -70,7 +70,7 @@ export class UpdateDistributionConfigurationCommand extends $Command<
 
   private serialize(
     input: UpdateDistributionConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateDistributionConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateDistributionConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDistributionConfigurationCommandOutput> {
     return deserializeAws_restJson1_1UpdateDistributionConfigurationCommand(
       output,

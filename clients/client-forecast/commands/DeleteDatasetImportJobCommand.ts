@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDatasetImportJobCommandInput = DeleteDatasetImportJobRequest;
@@ -68,14 +68,14 @@ export class DeleteDatasetImportJobCommand extends $Command<
 
   private serialize(
     input: DeleteDatasetImportJobCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDatasetImportJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDatasetImportJobCommandOutput> {
     return deserializeAws_json1_1DeleteDatasetImportJobCommand(output, context);
   }

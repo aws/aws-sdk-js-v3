@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCertificateFromCsrCommandInput = CreateCertificateFromCsrRequest;
@@ -70,7 +70,7 @@ export class CreateCertificateFromCsrCommand extends $Command<
 
   private serialize(
     input: CreateCertificateFromCsrCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateCertificateFromCsrCommand(
       input,
@@ -80,7 +80,7 @@ export class CreateCertificateFromCsrCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCertificateFromCsrCommandOutput> {
     return deserializeAws_restJson1_1CreateCertificateFromCsrCommand(
       output,

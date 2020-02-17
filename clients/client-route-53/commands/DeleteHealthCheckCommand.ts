@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteHealthCheckCommandInput = DeleteHealthCheckRequest;
@@ -67,14 +67,14 @@ export class DeleteHealthCheckCommand extends $Command<
 
   private serialize(
     input: DeleteHealthCheckCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteHealthCheckCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteHealthCheckCommandOutput> {
     return deserializeAws_restXmlDeleteHealthCheckCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchProductsAsAdminCommandInput = SearchProductsAsAdminInput;
@@ -70,14 +70,14 @@ export class SearchProductsAsAdminCommand extends $Command<
 
   private serialize(
     input: SearchProductsAsAdminCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SearchProductsAsAdminCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SearchProductsAsAdminCommandOutput> {
     return deserializeAws_json1_1SearchProductsAsAdminCommand(output, context);
   }

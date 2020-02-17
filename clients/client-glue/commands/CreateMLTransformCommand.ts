@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateMLTransformCommandInput = CreateMLTransformRequest;
@@ -67,14 +67,14 @@ export class CreateMLTransformCommand extends $Command<
 
   private serialize(
     input: CreateMLTransformCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMLTransformCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateMLTransformCommandOutput> {
     return deserializeAws_json1_1CreateMLTransformCommand(output, context);
   }

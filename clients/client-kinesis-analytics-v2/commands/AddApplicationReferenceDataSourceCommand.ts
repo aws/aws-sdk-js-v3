@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddApplicationReferenceDataSourceCommandInput = AddApplicationReferenceDataSourceRequest;
@@ -70,7 +70,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
 
   private serialize(
     input: AddApplicationReferenceDataSourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddApplicationReferenceDataSourceCommand(
       input,
@@ -80,7 +80,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddApplicationReferenceDataSourceCommandOutput> {
     return deserializeAws_json1_1AddApplicationReferenceDataSourceCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAggregateDiscoveredResourceCountsCommandInput = GetAggregateDiscoveredResourceCountsRequest;
@@ -72,7 +72,7 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
 
   private serialize(
     input: GetAggregateDiscoveredResourceCountsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(
       input,
@@ -82,7 +82,7 @@ export class GetAggregateDiscoveredResourceCountsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> {
     return deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand(
       output,

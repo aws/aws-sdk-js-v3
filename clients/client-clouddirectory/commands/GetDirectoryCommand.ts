@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDirectoryCommandInput = GetDirectoryRequest;
@@ -64,14 +64,14 @@ export class GetDirectoryCommand extends $Command<
 
   private serialize(
     input: GetDirectoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDirectoryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDirectoryCommandOutput> {
     return deserializeAws_restJson1_1GetDirectoryCommand(output, context);
   }

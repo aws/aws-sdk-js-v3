@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTrialComponentCommandInput = UpdateTrialComponentRequest;
@@ -70,14 +70,14 @@ export class UpdateTrialComponentCommand extends $Command<
 
   private serialize(
     input: UpdateTrialComponentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateTrialComponentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateTrialComponentCommandOutput> {
     return deserializeAws_json1_1UpdateTrialComponentCommand(output, context);
   }

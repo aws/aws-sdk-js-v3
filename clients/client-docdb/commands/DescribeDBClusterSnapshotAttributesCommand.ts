@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBClusterSnapshotAttributesCommandInput = DescribeDBClusterSnapshotAttributesMessage;
@@ -70,7 +70,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
 
   private serialize(
     input: DescribeDBClusterSnapshotAttributesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClusterSnapshotAttributesCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> {
     return deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand(
       output,

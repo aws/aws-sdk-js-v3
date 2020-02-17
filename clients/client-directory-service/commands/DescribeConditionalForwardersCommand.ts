@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConditionalForwardersCommandInput = DescribeConditionalForwardersRequest;
@@ -70,7 +70,7 @@ export class DescribeConditionalForwardersCommand extends $Command<
 
   private serialize(
     input: DescribeConditionalForwardersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConditionalForwardersCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeConditionalForwardersCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeConditionalForwardersCommandOutput> {
     return deserializeAws_json1_1DescribeConditionalForwardersCommand(
       output,

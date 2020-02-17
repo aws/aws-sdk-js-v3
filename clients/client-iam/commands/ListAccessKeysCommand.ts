@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAccessKeysCommandInput = ListAccessKeysRequest;
@@ -64,14 +64,14 @@ export class ListAccessKeysCommand extends $Command<
 
   private serialize(
     input: ListAccessKeysCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListAccessKeysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListAccessKeysCommandOutput> {
     return deserializeAws_queryListAccessKeysCommand(output, context);
   }

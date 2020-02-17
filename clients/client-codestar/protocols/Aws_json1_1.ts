@@ -3232,6 +3232,9 @@ const collectBody = (
   streamBody: any,
   context: __SerdeContext
 ): Promise<Uint8Array> => {
+  if (streamBody instanceof Uint8Array) {
+    return Promise.resolve(streamBody);
+  }
   return (
     context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
   );

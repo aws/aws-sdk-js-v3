@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNotebookInstanceLifecycleConfigCommandInput = DescribeNotebookInstanceLifecycleConfigInput;
@@ -72,7 +72,7 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
 
   private serialize(
     input: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> {
     return deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand(
       output,

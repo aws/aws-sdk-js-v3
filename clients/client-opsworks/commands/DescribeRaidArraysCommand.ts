@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeRaidArraysCommandInput = DescribeRaidArraysRequest;
@@ -67,14 +67,14 @@ export class DescribeRaidArraysCommand extends $Command<
 
   private serialize(
     input: DescribeRaidArraysCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRaidArraysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeRaidArraysCommandOutput> {
     return deserializeAws_json1_1DescribeRaidArraysCommand(output, context);
   }

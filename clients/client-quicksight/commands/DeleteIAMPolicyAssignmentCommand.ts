@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteIAMPolicyAssignmentCommandInput = DeleteIAMPolicyAssignmentRequest;
@@ -70,7 +70,7 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
 
   private serialize(
     input: DeleteIAMPolicyAssignmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteIAMPolicyAssignmentCommandOutput> {
     return deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand(
       output,

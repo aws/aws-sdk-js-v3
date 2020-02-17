@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeStateMachineForExecutionCommandInput = DescribeStateMachineForExecutionInput;
@@ -70,7 +70,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
 
   private serialize(
     input: DescribeStateMachineForExecutionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeStateMachineForExecutionCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeStateMachineForExecutionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeStateMachineForExecutionCommandOutput> {
     return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(
       output,

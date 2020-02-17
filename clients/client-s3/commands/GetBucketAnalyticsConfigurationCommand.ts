@@ -23,8 +23,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketAnalyticsConfigurationCommandInput = GetBucketAnalyticsConfigurationRequest;
@@ -72,7 +72,7 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
 
   private serialize(
     input: GetBucketAnalyticsConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketAnalyticsConfigurationCommand(
       input,
@@ -82,7 +82,7 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetBucketAnalyticsConfigurationCommandOutput> {
     return deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand(
       output,

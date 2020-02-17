@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImportImageTasksCommandInput = DescribeImportImageTasksRequest;
@@ -70,14 +70,14 @@ export class DescribeImportImageTasksCommand extends $Command<
 
   private serialize(
     input: DescribeImportImageTasksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeImportImageTasksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeImportImageTasksCommandOutput> {
     return deserializeAws_ec2DescribeImportImageTasksCommand(output, context);
   }

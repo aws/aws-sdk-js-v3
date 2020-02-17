@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentManagedActionHistoryCommandInput = DescribeEnvironmentManagedActionHistoryRequest;
@@ -72,7 +72,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
 
   private serialize(
     input: DescribeEnvironmentManagedActionHistoryCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> {
     return deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand(
       output,

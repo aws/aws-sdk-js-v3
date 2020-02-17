@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopMonitoringMembersCommandInput = StopMonitoringMembersRequest;
@@ -70,14 +70,14 @@ export class StopMonitoringMembersCommand extends $Command<
 
   private serialize(
     input: StopMonitoringMembersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StopMonitoringMembersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopMonitoringMembersCommandOutput> {
     return deserializeAws_restJson1_1StopMonitoringMembersCommand(
       output,

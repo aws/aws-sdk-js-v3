@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListWebhooksCommandInput = ListWebhooksInput;
@@ -64,14 +64,14 @@ export class ListWebhooksCommand extends $Command<
 
   private serialize(
     input: ListWebhooksCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWebhooksCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListWebhooksCommandOutput> {
     return deserializeAws_json1_1ListWebhooksCommand(output, context);
   }

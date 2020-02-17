@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMasterAccountCommandInput = GetMasterAccountRequest;
@@ -67,14 +67,14 @@ export class GetMasterAccountCommand extends $Command<
 
   private serialize(
     input: GetMasterAccountCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetMasterAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetMasterAccountCommandOutput> {
     return deserializeAws_restJson1_1GetMasterAccountCommand(output, context);
   }

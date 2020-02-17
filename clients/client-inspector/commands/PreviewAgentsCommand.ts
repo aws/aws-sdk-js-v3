@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PreviewAgentsCommandInput = PreviewAgentsRequest;
@@ -64,14 +64,14 @@ export class PreviewAgentsCommand extends $Command<
 
   private serialize(
     input: PreviewAgentsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PreviewAgentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PreviewAgentsCommandOutput> {
     return deserializeAws_json1_1PreviewAgentsCommand(output, context);
   }

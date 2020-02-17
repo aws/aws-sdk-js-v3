@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTerminologiesCommandInput = ListTerminologiesRequest;
@@ -67,14 +67,14 @@ export class ListTerminologiesCommand extends $Command<
 
   private serialize(
     input: ListTerminologiesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTerminologiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTerminologiesCommandOutput> {
     return deserializeAws_json1_1ListTerminologiesCommand(output, context);
   }

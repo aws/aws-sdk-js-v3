@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSigningProfileCommandInput = GetSigningProfileRequest;
@@ -67,14 +67,14 @@ export class GetSigningProfileCommand extends $Command<
 
   private serialize(
     input: GetSigningProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSigningProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSigningProfileCommandOutput> {
     return deserializeAws_restJson1_1GetSigningProfileCommand(output, context);
   }

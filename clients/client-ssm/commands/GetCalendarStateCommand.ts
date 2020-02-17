@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCalendarStateCommandInput = GetCalendarStateRequest;
@@ -67,14 +67,14 @@ export class GetCalendarStateCommand extends $Command<
 
   private serialize(
     input: GetCalendarStateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCalendarStateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCalendarStateCommandOutput> {
     return deserializeAws_json1_1GetCalendarStateCommand(output, context);
   }

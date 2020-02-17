@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetReplicationRunsCommandInput = GetReplicationRunsRequest;
@@ -67,14 +67,14 @@ export class GetReplicationRunsCommand extends $Command<
 
   private serialize(
     input: GetReplicationRunsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReplicationRunsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetReplicationRunsCommandOutput> {
     return deserializeAws_json1_1GetReplicationRunsCommand(output, context);
   }

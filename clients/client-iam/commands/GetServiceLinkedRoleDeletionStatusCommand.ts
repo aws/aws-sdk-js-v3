@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetServiceLinkedRoleDeletionStatusCommandInput = GetServiceLinkedRoleDeletionStatusRequest;
@@ -70,7 +70,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
 
   private serialize(
     input: GetServiceLinkedRoleDeletionStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(
       input,
@@ -80,7 +80,7 @@ export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> {
     return deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand(
       output,

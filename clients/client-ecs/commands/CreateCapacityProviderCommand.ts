@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCapacityProviderCommandInput = CreateCapacityProviderRequest;
@@ -70,14 +70,14 @@ export class CreateCapacityProviderCommand extends $Command<
 
   private serialize(
     input: CreateCapacityProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateCapacityProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateCapacityProviderCommandOutput> {
     return deserializeAws_json1_1CreateCapacityProviderCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListServiceQuotaIncreaseRequestsInTemplateCommandInput = ListServiceQuotaIncreaseRequestsInTemplateRequest;
@@ -72,7 +72,7 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
 
   private serialize(
     input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand(
       input,
@@ -82,7 +82,7 @@ export class ListServiceQuotaIncreaseRequestsInTemplateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> {
     return deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand(
       output,

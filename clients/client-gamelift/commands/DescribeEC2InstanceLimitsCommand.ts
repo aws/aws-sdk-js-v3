@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEC2InstanceLimitsCommandInput = DescribeEC2InstanceLimitsInput;
@@ -70,14 +70,14 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
 
   private serialize(
     input: DescribeEC2InstanceLimitsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEC2InstanceLimitsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEC2InstanceLimitsCommandOutput> {
     return deserializeAws_json1_1DescribeEC2InstanceLimitsCommand(
       output,

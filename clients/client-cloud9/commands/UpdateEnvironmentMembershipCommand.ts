@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateEnvironmentMembershipCommandInput = UpdateEnvironmentMembershipRequest;
@@ -70,7 +70,7 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
 
   private serialize(
     input: UpdateEnvironmentMembershipCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateEnvironmentMembershipCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateEnvironmentMembershipCommandOutput> {
     return deserializeAws_json1_1UpdateEnvironmentMembershipCommand(
       output,

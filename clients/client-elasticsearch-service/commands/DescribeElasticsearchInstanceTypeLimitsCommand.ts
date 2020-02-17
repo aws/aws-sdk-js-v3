@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeElasticsearchInstanceTypeLimitsCommandInput = DescribeElasticsearchInstanceTypeLimitsRequest;
@@ -72,7 +72,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
 
   private serialize(
     input: DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> {
     return deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimitsCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMaintenanceWindowCommandInput = UpdateMaintenanceWindowRequest;
@@ -70,14 +70,14 @@ export class UpdateMaintenanceWindowCommand extends $Command<
 
   private serialize(
     input: UpdateMaintenanceWindowCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateMaintenanceWindowCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateMaintenanceWindowCommandOutput> {
     return deserializeAws_json1_1UpdateMaintenanceWindowCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResolveAliasCommandInput = ResolveAliasInput;
@@ -64,14 +64,14 @@ export class ResolveAliasCommand extends $Command<
 
   private serialize(
     input: ResolveAliasCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveAliasCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ResolveAliasCommandOutput> {
     return deserializeAws_json1_1ResolveAliasCommand(output, context);
   }

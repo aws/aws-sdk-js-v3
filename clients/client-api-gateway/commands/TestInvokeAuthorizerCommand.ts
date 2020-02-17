@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestInvokeAuthorizerCommandInput = TestInvokeAuthorizerRequest;
@@ -70,14 +70,14 @@ export class TestInvokeAuthorizerCommand extends $Command<
 
   private serialize(
     input: TestInvokeAuthorizerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1TestInvokeAuthorizerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<TestInvokeAuthorizerCommandOutput> {
     return deserializeAws_restJson1_1TestInvokeAuthorizerCommand(
       output,

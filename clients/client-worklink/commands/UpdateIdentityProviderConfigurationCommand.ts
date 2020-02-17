@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateIdentityProviderConfigurationCommandInput = UpdateIdentityProviderConfigurationRequest;
@@ -70,7 +70,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
 
   private serialize(
     input: UpdateIdentityProviderConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class UpdateIdentityProviderConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
     return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand(
       output,

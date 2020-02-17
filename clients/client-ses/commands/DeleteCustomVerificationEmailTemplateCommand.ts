@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCustomVerificationEmailTemplateCommandInput = DeleteCustomVerificationEmailTemplateRequest;
@@ -70,7 +70,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
 
   private serialize(
     input: DeleteCustomVerificationEmailTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCustomVerificationEmailTemplateCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> {
     return deserializeAws_queryDeleteCustomVerificationEmailTemplateCommand(
       output,

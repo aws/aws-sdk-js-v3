@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBrokerCommandInput = DescribeBrokerRequest;
@@ -64,14 +64,14 @@ export class DescribeBrokerCommand extends $Command<
 
   private serialize(
     input: DescribeBrokerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeBrokerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeBrokerCommandOutput> {
     return deserializeAws_restJson1_1DescribeBrokerCommand(output, context);
   }

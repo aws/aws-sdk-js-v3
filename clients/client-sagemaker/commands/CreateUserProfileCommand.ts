@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateUserProfileCommandInput = CreateUserProfileRequest;
@@ -67,14 +67,14 @@ export class CreateUserProfileCommand extends $Command<
 
   private serialize(
     input: CreateUserProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateUserProfileCommandOutput> {
     return deserializeAws_json1_1CreateUserProfileCommand(output, context);
   }

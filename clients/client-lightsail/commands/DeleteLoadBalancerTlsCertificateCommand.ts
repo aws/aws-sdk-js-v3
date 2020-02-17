@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLoadBalancerTlsCertificateCommandInput = DeleteLoadBalancerTlsCertificateRequest;
@@ -70,7 +70,7 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
 
   private serialize(
     input: DeleteLoadBalancerTlsCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> {
     return deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(
       output,

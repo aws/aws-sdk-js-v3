@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPhoneNumberOrdersCommandInput = ListPhoneNumberOrdersRequest;
@@ -70,14 +70,14 @@ export class ListPhoneNumberOrdersCommand extends $Command<
 
   private serialize(
     input: ListPhoneNumberOrdersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListPhoneNumberOrdersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListPhoneNumberOrdersCommandOutput> {
     return deserializeAws_restJson1_1ListPhoneNumberOrdersCommand(
       output,

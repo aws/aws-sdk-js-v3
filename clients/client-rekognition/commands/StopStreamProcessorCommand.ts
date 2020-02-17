@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopStreamProcessorCommandInput = StopStreamProcessorRequest;
@@ -70,14 +70,14 @@ export class StopStreamProcessorCommand extends $Command<
 
   private serialize(
     input: StopStreamProcessorCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1StopStreamProcessorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StopStreamProcessorCommandOutput> {
     return deserializeAws_json1_1StopStreamProcessorCommand(output, context);
   }

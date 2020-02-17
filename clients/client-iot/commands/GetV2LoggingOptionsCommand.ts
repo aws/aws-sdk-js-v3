@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetV2LoggingOptionsCommandInput = GetV2LoggingOptionsRequest;
@@ -70,14 +70,14 @@ export class GetV2LoggingOptionsCommand extends $Command<
 
   private serialize(
     input: GetV2LoggingOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetV2LoggingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetV2LoggingOptionsCommandOutput> {
     return deserializeAws_restJson1_1GetV2LoggingOptionsCommand(
       output,

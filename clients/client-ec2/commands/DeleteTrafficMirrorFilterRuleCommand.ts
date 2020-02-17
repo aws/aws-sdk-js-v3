@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrafficMirrorFilterRuleCommandInput = DeleteTrafficMirrorFilterRuleRequest;
@@ -70,14 +70,14 @@ export class DeleteTrafficMirrorFilterRuleCommand extends $Command<
 
   private serialize(
     input: DeleteTrafficMirrorFilterRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> {
     return deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand(
       output,

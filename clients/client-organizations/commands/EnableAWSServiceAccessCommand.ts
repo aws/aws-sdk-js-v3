@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableAWSServiceAccessCommandInput = EnableAWSServiceAccessRequest;
@@ -68,14 +68,14 @@ export class EnableAWSServiceAccessCommand extends $Command<
 
   private serialize(
     input: EnableAWSServiceAccessCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1EnableAWSServiceAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableAWSServiceAccessCommandOutput> {
     return deserializeAws_json1_1EnableAWSServiceAccessCommand(output, context);
   }

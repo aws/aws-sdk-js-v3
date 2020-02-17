@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLoadBalancerMetricDataCommandInput = GetLoadBalancerMetricDataRequest;
@@ -70,14 +70,14 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
 
   private serialize(
     input: GetLoadBalancerMetricDataCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoadBalancerMetricDataCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetLoadBalancerMetricDataCommandOutput> {
     return deserializeAws_json1_1GetLoadBalancerMetricDataCommand(
       output,

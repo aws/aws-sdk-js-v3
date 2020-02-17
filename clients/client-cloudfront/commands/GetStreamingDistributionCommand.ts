@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetStreamingDistributionCommandInput = GetStreamingDistributionRequest;
@@ -70,14 +70,14 @@ export class GetStreamingDistributionCommand extends $Command<
 
   private serialize(
     input: GetStreamingDistributionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetStreamingDistributionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetStreamingDistributionCommandOutput> {
     return deserializeAws_restXmlGetStreamingDistributionCommand(
       output,

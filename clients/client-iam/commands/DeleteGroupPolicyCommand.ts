@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGroupPolicyCommandInput = DeleteGroupPolicyRequest;
@@ -65,14 +65,14 @@ export class DeleteGroupPolicyCommand extends $Command<
 
   private serialize(
     input: DeleteGroupPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteGroupPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteGroupPolicyCommandOutput> {
     return deserializeAws_queryDeleteGroupPolicyCommand(output, context);
   }

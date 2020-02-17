@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePresignedDomainUrlCommandInput = CreatePresignedDomainUrlRequest;
@@ -70,14 +70,14 @@ export class CreatePresignedDomainUrlCommand extends $Command<
 
   private serialize(
     input: CreatePresignedDomainUrlCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreatePresignedDomainUrlCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreatePresignedDomainUrlCommandOutput> {
     return deserializeAws_json1_1CreatePresignedDomainUrlCommand(
       output,

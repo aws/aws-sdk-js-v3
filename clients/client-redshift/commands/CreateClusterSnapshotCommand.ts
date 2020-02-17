@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateClusterSnapshotCommandInput = CreateClusterSnapshotMessage;
@@ -70,14 +70,14 @@ export class CreateClusterSnapshotCommand extends $Command<
 
   private serialize(
     input: CreateClusterSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateClusterSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateClusterSnapshotCommandOutput> {
     return deserializeAws_queryCreateClusterSnapshotCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateIdentityProviderCommandInput = CreateIdentityProviderRequest;
@@ -70,14 +70,14 @@ export class CreateIdentityProviderCommand extends $Command<
 
   private serialize(
     input: CreateIdentityProviderCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateIdentityProviderCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateIdentityProviderCommandOutput> {
     return deserializeAws_json1_1CreateIdentityProviderCommand(output, context);
   }

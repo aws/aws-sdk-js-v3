@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReplaceRouteTableAssociationCommandInput = ReplaceRouteTableAssociationRequest;
@@ -70,14 +70,14 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
 
   private serialize(
     input: ReplaceRouteTableAssociationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ReplaceRouteTableAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ReplaceRouteTableAssociationCommandOutput> {
     return deserializeAws_ec2ReplaceRouteTableAssociationCommand(
       output,

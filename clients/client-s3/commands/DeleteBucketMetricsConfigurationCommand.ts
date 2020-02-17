@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBucketMetricsConfigurationCommandInput = DeleteBucketMetricsConfigurationRequest;
@@ -70,7 +70,7 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
 
   private serialize(
     input: DeleteBucketMetricsConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketMetricsConfigurationCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteBucketMetricsConfigurationCommandOutput> {
     return deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand(
       output,

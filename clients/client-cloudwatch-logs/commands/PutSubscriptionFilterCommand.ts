@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutSubscriptionFilterCommandInput = PutSubscriptionFilterRequest;
@@ -68,14 +68,14 @@ export class PutSubscriptionFilterCommand extends $Command<
 
   private serialize(
     input: PutSubscriptionFilterCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutSubscriptionFilterCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutSubscriptionFilterCommandOutput> {
     return deserializeAws_json1_1PutSubscriptionFilterCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetLoadBalancerPoliciesOfListenerCommandInput = SetLoadBalancerPoliciesOfListenerInput;
@@ -70,7 +70,7 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
 
   private serialize(
     input: SetLoadBalancerPoliciesOfListenerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_querySetLoadBalancerPoliciesOfListenerCommand(
       input,
@@ -80,7 +80,7 @@ export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> {
     return deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTypeRegistrationsCommandInput = ListTypeRegistrationsInput;
@@ -70,14 +70,14 @@ export class ListTypeRegistrationsCommand extends $Command<
 
   private serialize(
     input: ListTypeRegistrationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListTypeRegistrationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTypeRegistrationsCommandOutput> {
     return deserializeAws_queryListTypeRegistrationsCommand(output, context);
   }

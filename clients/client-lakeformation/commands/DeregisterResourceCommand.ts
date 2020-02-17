@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterResourceCommandInput = DeregisterResourceRequest;
@@ -67,14 +67,14 @@ export class DeregisterResourceCommand extends $Command<
 
   private serialize(
     input: DeregisterResourceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterResourceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeregisterResourceCommandOutput> {
     return deserializeAws_json1_1DeregisterResourceCommand(output, context);
   }

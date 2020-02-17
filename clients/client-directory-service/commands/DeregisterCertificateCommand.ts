@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterCertificateCommandInput = DeregisterCertificateRequest;
@@ -70,14 +70,14 @@ export class DeregisterCertificateCommand extends $Command<
 
   private serialize(
     input: DeregisterCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeregisterCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeregisterCertificateCommandOutput> {
     return deserializeAws_json1_1DeregisterCertificateCommand(output, context);
   }

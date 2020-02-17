@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ScheduleRunCommandInput = ScheduleRunRequest;
@@ -64,14 +64,14 @@ export class ScheduleRunCommand extends $Command<
 
   private serialize(
     input: ScheduleRunCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ScheduleRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ScheduleRunCommandOutput> {
     return deserializeAws_json1_1ScheduleRunCommand(output, context);
   }

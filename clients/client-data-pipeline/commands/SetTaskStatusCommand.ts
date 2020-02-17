@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetTaskStatusCommandInput = SetTaskStatusInput;
@@ -64,14 +64,14 @@ export class SetTaskStatusCommand extends $Command<
 
   private serialize(
     input: SetTaskStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTaskStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetTaskStatusCommandOutput> {
     return deserializeAws_json1_1SetTaskStatusCommand(output, context);
   }

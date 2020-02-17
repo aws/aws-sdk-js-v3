@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResolveRoomCommandInput = ResolveRoomRequest;
@@ -64,14 +64,14 @@ export class ResolveRoomCommand extends $Command<
 
   private serialize(
     input: ResolveRoomCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveRoomCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ResolveRoomCommandOutput> {
     return deserializeAws_json1_1ResolveRoomCommand(output, context);
   }

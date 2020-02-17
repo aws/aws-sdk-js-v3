@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFederationTokenCommandInput = GetFederationTokenRequest;
@@ -67,14 +67,14 @@ export class GetFederationTokenCommand extends $Command<
 
   private serialize(
     input: GetFederationTokenCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetFederationTokenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetFederationTokenCommandOutput> {
     return deserializeAws_restJson1_1GetFederationTokenCommand(output, context);
   }

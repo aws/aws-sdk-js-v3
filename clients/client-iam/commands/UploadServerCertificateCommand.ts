@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadServerCertificateCommandInput = UploadServerCertificateRequest;
@@ -70,14 +70,14 @@ export class UploadServerCertificateCommand extends $Command<
 
   private serialize(
     input: UploadServerCertificateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUploadServerCertificateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UploadServerCertificateCommandOutput> {
     return deserializeAws_queryUploadServerCertificateCommand(output, context);
   }

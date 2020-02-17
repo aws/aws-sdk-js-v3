@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDomainContactCommandInput = UpdateDomainContactRequest;
@@ -70,14 +70,14 @@ export class UpdateDomainContactCommand extends $Command<
 
   private serialize(
     input: UpdateDomainContactCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDomainContactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDomainContactCommandOutput> {
     return deserializeAws_json1_1UpdateDomainContactCommand(output, context);
   }

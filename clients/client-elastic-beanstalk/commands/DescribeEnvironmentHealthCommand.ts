@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEnvironmentHealthCommandInput = DescribeEnvironmentHealthRequest;
@@ -70,14 +70,14 @@ export class DescribeEnvironmentHealthCommand extends $Command<
 
   private serialize(
     input: DescribeEnvironmentHealthCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeEnvironmentHealthCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEnvironmentHealthCommandOutput> {
     return deserializeAws_queryDescribeEnvironmentHealthCommand(
       output,

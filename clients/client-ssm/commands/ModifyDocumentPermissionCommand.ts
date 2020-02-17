@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDocumentPermissionCommandInput = ModifyDocumentPermissionRequest;
@@ -70,14 +70,14 @@ export class ModifyDocumentPermissionCommand extends $Command<
 
   private serialize(
     input: ModifyDocumentPermissionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyDocumentPermissionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyDocumentPermissionCommandOutput> {
     return deserializeAws_json1_1ModifyDocumentPermissionCommand(
       output,

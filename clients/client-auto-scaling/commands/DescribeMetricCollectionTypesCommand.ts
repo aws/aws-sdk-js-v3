@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMetricCollectionTypesCommandInput = {};
@@ -67,7 +67,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
 
   private serialize(
     input: DescribeMetricCollectionTypesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeMetricCollectionTypesCommand(
       input,
@@ -77,7 +77,7 @@ export class DescribeMetricCollectionTypesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeMetricCollectionTypesCommandOutput> {
     return deserializeAws_queryDescribeMetricCollectionTypesCommand(
       output,

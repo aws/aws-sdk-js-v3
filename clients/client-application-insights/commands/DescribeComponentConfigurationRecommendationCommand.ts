@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeComponentConfigurationRecommendationCommandInput = DescribeComponentConfigurationRecommendationRequest;
@@ -72,7 +72,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
 
   private serialize(
     input: DescribeComponentConfigurationRecommendationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> {
     return deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand(
       output,

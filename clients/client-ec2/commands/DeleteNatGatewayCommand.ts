@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteNatGatewayCommandInput = DeleteNatGatewayRequest;
@@ -67,14 +67,14 @@ export class DeleteNatGatewayCommand extends $Command<
 
   private serialize(
     input: DeleteNatGatewayCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteNatGatewayCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteNatGatewayCommandOutput> {
     return deserializeAws_ec2DeleteNatGatewayCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBClusterParameterGroupsCommandInput = DescribeDBClusterParameterGroupsMessage;
@@ -70,7 +70,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
 
   private serialize(
     input: DescribeDBClusterParameterGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBClusterParameterGroupsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDBClusterParameterGroupsCommandOutput> {
     return deserializeAws_queryDescribeDBClusterParameterGroupsCommand(
       output,

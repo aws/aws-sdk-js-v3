@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeInstanceAttributeCommandInput = DescribeInstanceAttributeRequest;
@@ -70,14 +70,14 @@ export class DescribeInstanceAttributeCommand extends $Command<
 
   private serialize(
     input: DescribeInstanceAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeInstanceAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeInstanceAttributeCommandOutput> {
     return deserializeAws_ec2DescribeInstanceAttributeCommand(output, context);
   }

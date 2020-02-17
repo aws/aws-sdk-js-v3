@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSMBFileShareCommandInput = UpdateSMBFileShareInput;
@@ -67,14 +67,14 @@ export class UpdateSMBFileShareCommand extends $Command<
 
   private serialize(
     input: UpdateSMBFileShareCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSMBFileShareCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSMBFileShareCommandOutput> {
     return deserializeAws_json1_1UpdateSMBFileShareCommand(output, context);
   }

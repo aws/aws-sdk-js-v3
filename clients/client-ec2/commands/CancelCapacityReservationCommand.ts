@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelCapacityReservationCommandInput = CancelCapacityReservationRequest;
@@ -70,14 +70,14 @@ export class CancelCapacityReservationCommand extends $Command<
 
   private serialize(
     input: CancelCapacityReservationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CancelCapacityReservationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CancelCapacityReservationCommandOutput> {
     return deserializeAws_ec2CancelCapacityReservationCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeKeyPairsCommandInput = DescribeKeyPairsRequest;
@@ -67,14 +67,14 @@ export class DescribeKeyPairsCommand extends $Command<
 
   private serialize(
     input: DescribeKeyPairsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeKeyPairsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeKeyPairsCommandOutput> {
     return deserializeAws_ec2DescribeKeyPairsCommand(output, context);
   }

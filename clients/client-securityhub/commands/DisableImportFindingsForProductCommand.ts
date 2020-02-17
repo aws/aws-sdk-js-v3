@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableImportFindingsForProductCommandInput = DisableImportFindingsForProductRequest;
@@ -70,7 +70,7 @@ export class DisableImportFindingsForProductCommand extends $Command<
 
   private serialize(
     input: DisableImportFindingsForProductCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DisableImportFindingsForProductCommand(
       input,
@@ -80,7 +80,7 @@ export class DisableImportFindingsForProductCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisableImportFindingsForProductCommandOutput> {
     return deserializeAws_restJson1_1DisableImportFindingsForProductCommand(
       output,

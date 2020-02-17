@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteConnectionCommandInput = BatchDeleteConnectionRequest;
@@ -70,14 +70,14 @@ export class BatchDeleteConnectionCommand extends $Command<
 
   private serialize(
     input: BatchDeleteConnectionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<BatchDeleteConnectionCommandOutput> {
     return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
   }

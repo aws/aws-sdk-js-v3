@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTaskDefinitionFamiliesCommandInput = ListTaskDefinitionFamiliesRequest;
@@ -70,7 +70,7 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
 
   private serialize(
     input: ListTaskDefinitionFamiliesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTaskDefinitionFamiliesCommand(
       input,
@@ -80,7 +80,7 @@ export class ListTaskDefinitionFamiliesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListTaskDefinitionFamiliesCommandOutput> {
     return deserializeAws_json1_1ListTaskDefinitionFamiliesCommand(
       output,

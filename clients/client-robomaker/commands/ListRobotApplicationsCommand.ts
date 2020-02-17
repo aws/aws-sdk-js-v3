@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRobotApplicationsCommandInput = ListRobotApplicationsRequest;
@@ -70,14 +70,14 @@ export class ListRobotApplicationsCommand extends $Command<
 
   private serialize(
     input: ListRobotApplicationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListRobotApplicationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRobotApplicationsCommandOutput> {
     return deserializeAws_restJson1_1ListRobotApplicationsCommand(
       output,

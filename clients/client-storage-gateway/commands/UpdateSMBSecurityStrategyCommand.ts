@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateSMBSecurityStrategyCommandInput = UpdateSMBSecurityStrategyInput;
@@ -70,14 +70,14 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
 
   private serialize(
     input: UpdateSMBSecurityStrategyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateSMBSecurityStrategyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateSMBSecurityStrategyCommandOutput> {
     return deserializeAws_json1_1UpdateSMBSecurityStrategyCommand(
       output,

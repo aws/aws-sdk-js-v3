@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReplaceTopicRuleCommandInput = ReplaceTopicRuleRequest;
@@ -65,14 +65,14 @@ export class ReplaceTopicRuleCommand extends $Command<
 
   private serialize(
     input: ReplaceTopicRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ReplaceTopicRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ReplaceTopicRuleCommandOutput> {
     return deserializeAws_restJson1_1ReplaceTopicRuleCommand(output, context);
   }

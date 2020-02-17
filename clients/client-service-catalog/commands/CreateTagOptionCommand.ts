@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTagOptionCommandInput = CreateTagOptionInput;
@@ -64,14 +64,14 @@ export class CreateTagOptionCommand extends $Command<
 
   private serialize(
     input: CreateTagOptionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTagOptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateTagOptionCommandOutput> {
     return deserializeAws_json1_1CreateTagOptionCommand(output, context);
   }

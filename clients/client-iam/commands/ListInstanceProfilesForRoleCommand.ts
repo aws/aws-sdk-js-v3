@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListInstanceProfilesForRoleCommandInput = ListInstanceProfilesForRoleRequest;
@@ -70,14 +70,14 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
 
   private serialize(
     input: ListInstanceProfilesForRoleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListInstanceProfilesForRoleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListInstanceProfilesForRoleCommandOutput> {
     return deserializeAws_queryListInstanceProfilesForRoleCommand(
       output,

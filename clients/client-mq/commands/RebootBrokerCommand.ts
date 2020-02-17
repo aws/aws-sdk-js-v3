@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebootBrokerCommandInput = RebootBrokerRequest;
@@ -64,14 +64,14 @@ export class RebootBrokerCommand extends $Command<
 
   private serialize(
     input: RebootBrokerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RebootBrokerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RebootBrokerCommandOutput> {
     return deserializeAws_restJson1_1RebootBrokerCommand(output, context);
   }

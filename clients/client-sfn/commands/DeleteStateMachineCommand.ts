@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
@@ -67,14 +67,14 @@ export class DeleteStateMachineCommand extends $Command<
 
   private serialize(
     input: DeleteStateMachineCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteStateMachineCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteStateMachineCommandOutput> {
     return deserializeAws_json1_0DeleteStateMachineCommand(output, context);
   }

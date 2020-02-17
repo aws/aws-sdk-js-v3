@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDiskSnapshotCommandInput = DeleteDiskSnapshotRequest;
@@ -67,14 +67,14 @@ export class DeleteDiskSnapshotCommand extends $Command<
 
   private serialize(
     input: DeleteDiskSnapshotCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDiskSnapshotCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDiskSnapshotCommandOutput> {
     return deserializeAws_json1_1DeleteDiskSnapshotCommand(output, context);
   }

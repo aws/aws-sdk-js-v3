@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutNotificationConfigurationCommandInput = PutNotificationConfigurationType;
@@ -68,7 +68,7 @@ export class PutNotificationConfigurationCommand extends $Command<
 
   private serialize(
     input: PutNotificationConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryPutNotificationConfigurationCommand(
       input,
@@ -78,7 +78,7 @@ export class PutNotificationConfigurationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutNotificationConfigurationCommandOutput> {
     return deserializeAws_queryPutNotificationConfigurationCommand(
       output,

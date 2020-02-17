@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDatasetGroupCommandInput = UpdateDatasetGroupRequest;
@@ -67,14 +67,14 @@ export class UpdateDatasetGroupCommand extends $Command<
 
   private serialize(
     input: UpdateDatasetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDatasetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateDatasetGroupCommandOutput> {
     return deserializeAws_json1_1UpdateDatasetGroupCommand(output, context);
   }

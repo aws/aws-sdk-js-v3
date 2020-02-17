@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyHapgCommandInput = ModifyHapgRequest;
@@ -64,14 +64,14 @@ export class ModifyHapgCommand extends $Command<
 
   private serialize(
     input: ModifyHapgCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyHapgCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyHapgCommandOutput> {
     return deserializeAws_json1_1ModifyHapgCommand(output, context);
   }

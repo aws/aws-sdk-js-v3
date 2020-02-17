@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartVpcEndpointServicePrivateDnsVerificationCommandInput = StartVpcEndpointServicePrivateDnsVerificationRequest;
@@ -72,7 +72,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
 
   private serialize(
     input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(
       input,
@@ -82,7 +82,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> {
     return deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(
       output,

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDashboardsCommandInput = DeleteDashboardsInput;
@@ -64,14 +64,14 @@ export class DeleteDashboardsCommand extends $Command<
 
   private serialize(
     input: DeleteDashboardsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteDashboardsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteDashboardsCommandOutput> {
     return deserializeAws_queryDeleteDashboardsCommand(output, context);
   }

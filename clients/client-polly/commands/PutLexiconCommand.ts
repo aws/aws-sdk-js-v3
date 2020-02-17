@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutLexiconCommandInput = PutLexiconInput;
@@ -64,14 +64,14 @@ export class PutLexiconCommand extends $Command<
 
   private serialize(
     input: PutLexiconCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutLexiconCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutLexiconCommandOutput> {
     return deserializeAws_restJson1_1PutLexiconCommand(output, context);
   }

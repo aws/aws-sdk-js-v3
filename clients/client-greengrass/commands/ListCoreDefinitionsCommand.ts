@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCoreDefinitionsCommandInput = ListCoreDefinitionsRequest;
@@ -70,14 +70,14 @@ export class ListCoreDefinitionsCommand extends $Command<
 
   private serialize(
     input: ListCoreDefinitionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListCoreDefinitionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListCoreDefinitionsCommandOutput> {
     return deserializeAws_restJson1_1ListCoreDefinitionsCommand(
       output,

@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePolicyVersionCommandInput = DeletePolicyVersionRequest;
@@ -68,14 +68,14 @@ export class DeletePolicyVersionCommand extends $Command<
 
   private serialize(
     input: DeletePolicyVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeletePolicyVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeletePolicyVersionCommandOutput> {
     return deserializeAws_queryDeletePolicyVersionCommand(output, context);
   }

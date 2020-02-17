@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListOTAUpdatesCommandInput = ListOTAUpdatesRequest;
@@ -64,14 +64,14 @@ export class ListOTAUpdatesCommand extends $Command<
 
   private serialize(
     input: ListOTAUpdatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListOTAUpdatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListOTAUpdatesCommandOutput> {
     return deserializeAws_restJson1_1ListOTAUpdatesCommand(output, context);
   }

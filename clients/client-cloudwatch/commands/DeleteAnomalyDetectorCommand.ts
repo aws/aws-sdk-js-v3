@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteAnomalyDetectorCommandInput = DeleteAnomalyDetectorInput;
@@ -70,14 +70,14 @@ export class DeleteAnomalyDetectorCommand extends $Command<
 
   private serialize(
     input: DeleteAnomalyDetectorCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAnomalyDetectorCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteAnomalyDetectorCommandOutput> {
     return deserializeAws_queryDeleteAnomalyDetectorCommand(output, context);
   }

@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBSnapshotsCommandInput = DescribeDBSnapshotsMessage;
@@ -67,14 +67,14 @@ export class DescribeDBSnapshotsCommand extends $Command<
 
   private serialize(
     input: DescribeDBSnapshotsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDBSnapshotsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeDBSnapshotsCommandOutput> {
     return deserializeAws_queryDescribeDBSnapshotsCommand(output, context);
   }

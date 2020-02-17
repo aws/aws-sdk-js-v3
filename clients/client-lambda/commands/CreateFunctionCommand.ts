@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateFunctionCommandInput = CreateFunctionRequest;
@@ -64,14 +64,14 @@ export class CreateFunctionCommand extends $Command<
 
   private serialize(
     input: CreateFunctionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateFunctionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateFunctionCommandOutput> {
     return deserializeAws_restJson1_1CreateFunctionCommand(output, context);
   }

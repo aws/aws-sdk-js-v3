@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSavingsPlanCommandInput = CreateSavingsPlanRequest;
@@ -67,14 +67,14 @@ export class CreateSavingsPlanCommand extends $Command<
 
   private serialize(
     input: CreateSavingsPlanCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateSavingsPlanCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateSavingsPlanCommandOutput> {
     return deserializeAws_restJson1_1CreateSavingsPlanCommand(output, context);
   }

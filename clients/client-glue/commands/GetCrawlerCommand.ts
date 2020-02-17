@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCrawlerCommandInput = GetCrawlerRequest;
@@ -64,14 +64,14 @@ export class GetCrawlerCommand extends $Command<
 
   private serialize(
     input: GetCrawlerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCrawlerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetCrawlerCommandOutput> {
     return deserializeAws_json1_1GetCrawlerCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListInfrastructureConfigurationsCommandInput = ListInfrastructureConfigurationsRequest;
@@ -70,7 +70,7 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
 
   private serialize(
     input: ListInfrastructureConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListInfrastructureConfigurationsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListInfrastructureConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListInfrastructureConfigurationsCommandOutput> {
     return deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand(
       output,

@@ -21,8 +21,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type HeadObjectCommandInput = HeadObjectRequest;
@@ -68,14 +68,14 @@ export class HeadObjectCommand extends $Command<
 
   private serialize(
     input: HeadObjectCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlHeadObjectCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<HeadObjectCommandOutput> {
     return deserializeAws_restXmlHeadObjectCommand(output, context);
   }

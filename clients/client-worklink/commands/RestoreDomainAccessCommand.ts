@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreDomainAccessCommandInput = RestoreDomainAccessRequest;
@@ -70,14 +70,14 @@ export class RestoreDomainAccessCommand extends $Command<
 
   private serialize(
     input: RestoreDomainAccessCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RestoreDomainAccessCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreDomainAccessCommandOutput> {
     return deserializeAws_restJson1_1RestoreDomainAccessCommand(
       output,

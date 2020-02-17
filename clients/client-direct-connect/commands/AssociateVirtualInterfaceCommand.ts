@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateVirtualInterfaceCommandInput = AssociateVirtualInterfaceRequest;
@@ -70,14 +70,14 @@ export class AssociateVirtualInterfaceCommand extends $Command<
 
   private serialize(
     input: AssociateVirtualInterfaceCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AssociateVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AssociateVirtualInterfaceCommandOutput> {
     return deserializeAws_json1_1AssociateVirtualInterfaceCommand(
       output,

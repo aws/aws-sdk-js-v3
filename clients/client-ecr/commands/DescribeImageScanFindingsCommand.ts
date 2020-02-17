@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImageScanFindingsCommandInput = DescribeImageScanFindingsRequest;
@@ -70,14 +70,14 @@ export class DescribeImageScanFindingsCommand extends $Command<
 
   private serialize(
     input: DescribeImageScanFindingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeImageScanFindingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeImageScanFindingsCommandOutput> {
     return deserializeAws_json1_1DescribeImageScanFindingsCommand(
       output,

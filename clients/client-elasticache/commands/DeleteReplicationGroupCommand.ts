@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReplicationGroupCommandInput = DeleteReplicationGroupMessage;
@@ -70,14 +70,14 @@ export class DeleteReplicationGroupCommand extends $Command<
 
   private serialize(
     input: DeleteReplicationGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteReplicationGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteReplicationGroupCommandOutput> {
     return deserializeAws_queryDeleteReplicationGroupCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PurchaseOfferingCommandInput = PurchaseOfferingRequest;
@@ -67,14 +67,14 @@ export class PurchaseOfferingCommand extends $Command<
 
   private serialize(
     input: PurchaseOfferingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PurchaseOfferingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PurchaseOfferingCommandOutput> {
     return deserializeAws_restJson1_1PurchaseOfferingCommand(output, context);
   }

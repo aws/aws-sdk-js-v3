@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateLinkCommandInput = DisassociateLinkRequest;
@@ -67,14 +67,14 @@ export class DisassociateLinkCommand extends $Command<
 
   private serialize(
     input: DisassociateLinkCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DisassociateLinkCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DisassociateLinkCommandOutput> {
     return deserializeAws_restJson1_1DisassociateLinkCommand(output, context);
   }

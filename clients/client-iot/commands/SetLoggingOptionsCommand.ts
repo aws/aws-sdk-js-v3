@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetLoggingOptionsCommandInput = SetLoggingOptionsRequest;
@@ -65,14 +65,14 @@ export class SetLoggingOptionsCommand extends $Command<
 
   private serialize(
     input: SetLoggingOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SetLoggingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SetLoggingOptionsCommandOutput> {
     return deserializeAws_restJson1_1SetLoggingOptionsCommand(output, context);
   }

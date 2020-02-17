@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClusterDbRevisionsCommandInput = DescribeClusterDbRevisionsMessage;
@@ -70,14 +70,14 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
 
   private serialize(
     input: DescribeClusterDbRevisionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeClusterDbRevisionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeClusterDbRevisionsCommandOutput> {
     return deserializeAws_queryDescribeClusterDbRevisionsCommand(
       output,

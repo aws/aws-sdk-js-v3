@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConfigurationTemplateCommandInput = CreateConfigurationTemplateMessage;
@@ -70,14 +70,14 @@ export class CreateConfigurationTemplateCommand extends $Command<
 
   private serialize(
     input: CreateConfigurationTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryCreateConfigurationTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateConfigurationTemplateCommandOutput> {
     return deserializeAws_queryCreateConfigurationTemplateCommand(
       output,

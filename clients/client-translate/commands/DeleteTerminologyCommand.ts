@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTerminologyCommandInput = DeleteTerminologyRequest;
@@ -65,14 +65,14 @@ export class DeleteTerminologyCommand extends $Command<
 
   private serialize(
     input: DeleteTerminologyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteTerminologyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTerminologyCommandOutput> {
     return deserializeAws_json1_1DeleteTerminologyCommand(output, context);
   }

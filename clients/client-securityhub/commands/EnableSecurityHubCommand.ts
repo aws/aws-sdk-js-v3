@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableSecurityHubCommandInput = EnableSecurityHubRequest;
@@ -67,14 +67,14 @@ export class EnableSecurityHubCommand extends $Command<
 
   private serialize(
     input: EnableSecurityHubCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1EnableSecurityHubCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableSecurityHubCommandOutput> {
     return deserializeAws_restJson1_1EnableSecurityHubCommand(output, context);
   }

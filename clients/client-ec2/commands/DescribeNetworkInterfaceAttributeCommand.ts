@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNetworkInterfaceAttributeCommandInput = DescribeNetworkInterfaceAttributeRequest;
@@ -70,7 +70,7 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
 
   private serialize(
     input: DescribeNetworkInterfaceAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeNetworkInterfaceAttributeCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeNetworkInterfaceAttributeCommandOutput> {
     return deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand(
       output,

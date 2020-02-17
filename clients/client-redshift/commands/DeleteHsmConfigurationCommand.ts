@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteHsmConfigurationCommandInput = DeleteHsmConfigurationMessage;
@@ -68,14 +68,14 @@ export class DeleteHsmConfigurationCommand extends $Command<
 
   private serialize(
     input: DeleteHsmConfigurationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteHsmConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteHsmConfigurationCommandOutput> {
     return deserializeAws_queryDeleteHsmConfigurationCommand(output, context);
   }

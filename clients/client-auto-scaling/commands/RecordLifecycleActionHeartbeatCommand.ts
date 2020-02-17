@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RecordLifecycleActionHeartbeatCommandInput = RecordLifecycleActionHeartbeatType;
@@ -70,7 +70,7 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
 
   private serialize(
     input: RecordLifecycleActionHeartbeatCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryRecordLifecycleActionHeartbeatCommand(
       input,
@@ -80,7 +80,7 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RecordLifecycleActionHeartbeatCommandOutput> {
     return deserializeAws_queryRecordLifecycleActionHeartbeatCommand(
       output,

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProposalVotesCommandInput = ListProposalVotesInput;
@@ -67,14 +67,14 @@ export class ListProposalVotesCommand extends $Command<
 
   private serialize(
     input: ListProposalVotesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListProposalVotesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListProposalVotesCommandOutput> {
     return deserializeAws_restJson1_1ListProposalVotesCommand(output, context);
   }

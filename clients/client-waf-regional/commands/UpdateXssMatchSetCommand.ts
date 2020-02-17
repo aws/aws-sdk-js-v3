@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateXssMatchSetCommandInput = UpdateXssMatchSetRequest;
@@ -67,14 +67,14 @@ export class UpdateXssMatchSetCommand extends $Command<
 
   private serialize(
     input: UpdateXssMatchSetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateXssMatchSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateXssMatchSetCommandOutput> {
     return deserializeAws_json1_1UpdateXssMatchSetCommand(output, context);
   }

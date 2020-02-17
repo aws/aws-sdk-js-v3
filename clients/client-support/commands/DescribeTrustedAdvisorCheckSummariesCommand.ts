@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTrustedAdvisorCheckSummariesCommandInput = DescribeTrustedAdvisorCheckSummariesRequest;
@@ -72,7 +72,7 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
 
   private serialize(
     input: DescribeTrustedAdvisorCheckSummariesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> {
     return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
       output,

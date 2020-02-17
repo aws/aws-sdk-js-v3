@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEntityAggregatesCommandInput = DescribeEntityAggregatesRequest;
@@ -70,14 +70,14 @@ export class DescribeEntityAggregatesCommand extends $Command<
 
   private serialize(
     input: DescribeEntityAggregatesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEntityAggregatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeEntityAggregatesCommandOutput> {
     return deserializeAws_json1_1DescribeEntityAggregatesCommand(
       output,

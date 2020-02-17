@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAssociationForServiceQuotaTemplateCommandInput = GetAssociationForServiceQuotaTemplateRequest;
@@ -72,7 +72,7 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
 
   private serialize(
     input: GetAssociationForServiceQuotaTemplateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(
       input,
@@ -82,7 +82,7 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> {
     return deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand(
       output,

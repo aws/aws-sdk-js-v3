@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
@@ -67,14 +67,14 @@ export class UpdateUserProfileCommand extends $Command<
 
   private serialize(
     input: UpdateUserProfileCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateUserProfileCommandOutput> {
     return deserializeAws_json1_1UpdateUserProfileCommand(output, context);
   }

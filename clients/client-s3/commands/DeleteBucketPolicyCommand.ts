@@ -20,9 +20,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBucketPolicyCommandInput = DeleteBucketPolicyRequest;
@@ -67,14 +67,14 @@ export class DeleteBucketPolicyCommand extends $Command<
 
   private serialize(
     input: DeleteBucketPolicyCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlDeleteBucketPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteBucketPolicyCommandOutput> {
     return deserializeAws_restXmlDeleteBucketPolicyCommand(output, context);
   }

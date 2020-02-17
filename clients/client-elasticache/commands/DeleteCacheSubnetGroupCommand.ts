@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteCacheSubnetGroupCommandInput = DeleteCacheSubnetGroupMessage;
@@ -68,14 +68,14 @@ export class DeleteCacheSubnetGroupCommand extends $Command<
 
   private serialize(
     input: DeleteCacheSubnetGroupCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheSubnetGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteCacheSubnetGroupCommandOutput> {
     return deserializeAws_queryDeleteCacheSubnetGroupCommand(output, context);
   }

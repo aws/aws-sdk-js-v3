@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutOrganizationConformancePackCommandInput = PutOrganizationConformancePackRequest;
@@ -70,7 +70,7 @@ export class PutOrganizationConformancePackCommand extends $Command<
 
   private serialize(
     input: PutOrganizationConformancePackCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutOrganizationConformancePackCommand(
       input,
@@ -80,7 +80,7 @@ export class PutOrganizationConformancePackCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutOrganizationConformancePackCommandOutput> {
     return deserializeAws_json1_1PutOrganizationConformancePackCommand(
       output,

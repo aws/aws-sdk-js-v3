@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyTransitGatewayVpcAttachmentCommandInput = ModifyTransitGatewayVpcAttachmentRequest;
@@ -70,7 +70,7 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
 
   private serialize(
     input: ModifyTransitGatewayVpcAttachmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(
       input,
@@ -80,7 +80,7 @@ export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> {
     return deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand(
       output,

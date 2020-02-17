@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyInstanceAttributeCommandInput = ModifyInstanceAttributeRequest;
@@ -68,14 +68,14 @@ export class ModifyInstanceAttributeCommand extends $Command<
 
   private serialize(
     input: ModifyInstanceAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyInstanceAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ModifyInstanceAttributeCommandOutput> {
     return deserializeAws_ec2ModifyInstanceAttributeCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnsubscribeFromDatasetCommandInput = UnsubscribeFromDatasetRequest;
@@ -70,7 +70,7 @@ export class UnsubscribeFromDatasetCommand extends $Command<
 
   private serialize(
     input: UnsubscribeFromDatasetCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
       input,
@@ -80,7 +80,7 @@ export class UnsubscribeFromDatasetCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UnsubscribeFromDatasetCommandOutput> {
     return deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(
       output,

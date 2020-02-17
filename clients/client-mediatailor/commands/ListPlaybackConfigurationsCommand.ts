@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListPlaybackConfigurationsCommandInput = ListPlaybackConfigurationsRequest;
@@ -70,7 +70,7 @@ export class ListPlaybackConfigurationsCommand extends $Command<
 
   private serialize(
     input: ListPlaybackConfigurationsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListPlaybackConfigurationsCommand(
       input,
@@ -80,7 +80,7 @@ export class ListPlaybackConfigurationsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListPlaybackConfigurationsCommandOutput> {
     return deserializeAws_restJson1_1ListPlaybackConfigurationsCommand(
       output,

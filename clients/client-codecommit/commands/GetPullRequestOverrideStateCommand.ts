@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPullRequestOverrideStateCommandInput = GetPullRequestOverrideStateInput;
@@ -70,7 +70,7 @@ export class GetPullRequestOverrideStateCommand extends $Command<
 
   private serialize(
     input: GetPullRequestOverrideStateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPullRequestOverrideStateCommand(
       input,
@@ -80,7 +80,7 @@ export class GetPullRequestOverrideStateCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPullRequestOverrideStateCommandOutput> {
     return deserializeAws_json1_1GetPullRequestOverrideStateCommand(
       output,

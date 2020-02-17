@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableAvailabilityZonesForLoadBalancerCommandInput = AddAvailabilityZonesInput;
@@ -72,7 +72,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
 
   private serialize(
     input: EnableAvailabilityZonesForLoadBalancerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(
       input,
@@ -82,7 +82,7 @@ export class EnableAvailabilityZonesForLoadBalancerCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> {
     return deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand(
       output,

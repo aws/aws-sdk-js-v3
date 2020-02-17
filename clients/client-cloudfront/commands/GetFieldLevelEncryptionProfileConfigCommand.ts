@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFieldLevelEncryptionProfileConfigCommandInput = GetFieldLevelEncryptionProfileConfigRequest;
@@ -72,7 +72,7 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
 
   private serialize(
     input: GetFieldLevelEncryptionProfileConfigCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
       input,
@@ -82,7 +82,7 @@ export class GetFieldLevelEncryptionProfileConfigCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetFieldLevelEncryptionProfileConfigCommandOutput> {
     return deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand(
       output,

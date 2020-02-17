@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateScalingParametersCommandInput = UpdateScalingParametersRequest;
@@ -70,14 +70,14 @@ export class UpdateScalingParametersCommand extends $Command<
 
   private serialize(
     input: UpdateScalingParametersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateScalingParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateScalingParametersCommandOutput> {
     return deserializeAws_queryUpdateScalingParametersCommand(output, context);
   }

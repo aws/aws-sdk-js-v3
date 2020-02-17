@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateEnvironmentCommandInput = CreateEnvironmentRequest;
@@ -64,14 +64,14 @@ export class CreateEnvironmentCommand extends $Command<
 
   private serialize(
     input: CreateEnvironmentCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateEnvironmentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateEnvironmentCommandOutput> {
     return deserializeAws_restJson1_1CreateEnvironmentCommand(output, context);
   }

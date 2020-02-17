@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDataSourceFromS3CommandInput = CreateDataSourceFromS3Input;
@@ -70,14 +70,14 @@ export class CreateDataSourceFromS3Command extends $Command<
 
   private serialize(
     input: CreateDataSourceFromS3CommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataSourceFromS3Command(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateDataSourceFromS3CommandOutput> {
     return deserializeAws_json1_1CreateDataSourceFromS3Command(output, context);
   }

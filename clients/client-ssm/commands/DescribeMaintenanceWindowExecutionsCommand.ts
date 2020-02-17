@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMaintenanceWindowExecutionsCommandInput = DescribeMaintenanceWindowExecutionsRequest;
@@ -70,7 +70,7 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
 
   private serialize(
     input: DescribeMaintenanceWindowExecutionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(
       input,
@@ -80,7 +80,7 @@ export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> {
     return deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand(
       output,

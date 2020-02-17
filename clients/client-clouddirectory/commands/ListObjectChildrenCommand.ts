@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListObjectChildrenCommandInput = ListObjectChildrenRequest;
@@ -67,14 +67,14 @@ export class ListObjectChildrenCommand extends $Command<
 
   private serialize(
     input: ListObjectChildrenCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListObjectChildrenCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListObjectChildrenCommandOutput> {
     return deserializeAws_restJson1_1ListObjectChildrenCommand(output, context);
   }

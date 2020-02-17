@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RestoreTableToPointInTimeCommandInput = RestoreTableToPointInTimeInput;
@@ -70,14 +70,14 @@ export class RestoreTableToPointInTimeCommand extends $Command<
 
   private serialize(
     input: RestoreTableToPointInTimeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_0RestoreTableToPointInTimeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RestoreTableToPointInTimeCommandOutput> {
     return deserializeAws_json1_0RestoreTableToPointInTimeCommand(
       output,

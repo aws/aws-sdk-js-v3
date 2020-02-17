@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPersonTrackingCommandInput = GetPersonTrackingRequest;
@@ -67,14 +67,14 @@ export class GetPersonTrackingCommand extends $Command<
 
   private serialize(
     input: GetPersonTrackingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPersonTrackingCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetPersonTrackingCommandOutput> {
     return deserializeAws_json1_1GetPersonTrackingCommand(output, context);
   }

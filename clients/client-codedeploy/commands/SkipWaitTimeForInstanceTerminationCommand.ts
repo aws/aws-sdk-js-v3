@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SkipWaitTimeForInstanceTerminationCommandInput = SkipWaitTimeForInstanceTerminationInput;
@@ -68,7 +68,7 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
 
   private serialize(
     input: SkipWaitTimeForInstanceTerminationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(
       input,
@@ -78,7 +78,7 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> {
     return deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand(
       output,

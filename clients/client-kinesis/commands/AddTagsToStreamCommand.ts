@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddTagsToStreamCommandInput = AddTagsToStreamInput;
@@ -65,14 +65,14 @@ export class AddTagsToStreamCommand extends $Command<
 
   private serialize(
     input: AddTagsToStreamCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1AddTagsToStreamCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<AddTagsToStreamCommandOutput> {
     return deserializeAws_json1_1AddTagsToStreamCommand(output, context);
   }

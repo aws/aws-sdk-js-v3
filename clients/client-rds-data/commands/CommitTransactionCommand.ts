@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CommitTransactionCommandInput = CommitTransactionRequest;
@@ -67,14 +67,14 @@ export class CommitTransactionCommand extends $Command<
 
   private serialize(
     input: CommitTransactionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CommitTransactionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CommitTransactionCommandOutput> {
     return deserializeAws_restJson1_1CommitTransactionCommand(output, context);
   }

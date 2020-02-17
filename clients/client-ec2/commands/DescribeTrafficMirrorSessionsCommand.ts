@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTrafficMirrorSessionsCommandInput = DescribeTrafficMirrorSessionsRequest;
@@ -70,14 +70,14 @@ export class DescribeTrafficMirrorSessionsCommand extends $Command<
 
   private serialize(
     input: DescribeTrafficMirrorSessionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTrafficMirrorSessionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTrafficMirrorSessionsCommandOutput> {
     return deserializeAws_ec2DescribeTrafficMirrorSessionsCommand(
       output,

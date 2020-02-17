@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateClientVpnRouteCommandInput = CreateClientVpnRouteRequest;
@@ -70,14 +70,14 @@ export class CreateClientVpnRouteCommand extends $Command<
 
   private serialize(
     input: CreateClientVpnRouteCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2CreateClientVpnRouteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<CreateClientVpnRouteCommandOutput> {
     return deserializeAws_ec2CreateClientVpnRouteCommand(output, context);
   }

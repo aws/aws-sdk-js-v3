@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetRemoteAccessSessionCommandInput = GetRemoteAccessSessionRequest;
@@ -70,14 +70,14 @@ export class GetRemoteAccessSessionCommand extends $Command<
 
   private serialize(
     input: GetRemoteAccessSessionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetRemoteAccessSessionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetRemoteAccessSessionCommandOutput> {
     return deserializeAws_json1_1GetRemoteAccessSessionCommand(output, context);
   }

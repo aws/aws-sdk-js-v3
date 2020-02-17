@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterTransitGatewayMulticastGroupMembersCommandInput = RegisterTransitGatewayMulticastGroupMembersRequest;
@@ -72,7 +72,7 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
 
   private serialize(
     input: RegisterTransitGatewayMulticastGroupMembersCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(
       input,
@@ -82,7 +82,7 @@ export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> {
     return deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand(
       output,

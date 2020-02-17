@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDiskSnapshotsCommandInput = GetDiskSnapshotsRequest;
@@ -67,14 +67,14 @@ export class GetDiskSnapshotsCommand extends $Command<
 
   private serialize(
     input: GetDiskSnapshotsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiskSnapshotsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDiskSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetDiskSnapshotsCommand(output, context);
   }

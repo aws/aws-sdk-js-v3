@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetVaultLockCommandInput = GetVaultLockInput;
@@ -64,14 +64,14 @@ export class GetVaultLockCommand extends $Command<
 
   private serialize(
     input: GetVaultLockCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetVaultLockCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetVaultLockCommandOutput> {
     return deserializeAws_restJson1_1GetVaultLockCommand(output, context);
   }

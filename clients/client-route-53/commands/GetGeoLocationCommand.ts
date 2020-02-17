@@ -19,8 +19,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGeoLocationCommandInput = GetGeoLocationRequest;
@@ -64,14 +64,14 @@ export class GetGeoLocationCommand extends $Command<
 
   private serialize(
     input: GetGeoLocationCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restXmlGetGeoLocationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetGeoLocationCommandOutput> {
     return deserializeAws_restXmlGetGeoLocationCommand(output, context);
   }

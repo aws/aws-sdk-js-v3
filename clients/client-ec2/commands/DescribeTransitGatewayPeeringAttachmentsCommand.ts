@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTransitGatewayPeeringAttachmentsCommandInput = DescribeTransitGatewayPeeringAttachmentsRequest;
@@ -72,7 +72,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
 
   private serialize(
     input: DescribeTransitGatewayPeeringAttachmentsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
       input,
@@ -82,7 +82,7 @@ export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> {
     return deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand(
       output,

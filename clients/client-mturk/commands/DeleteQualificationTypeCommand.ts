@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteQualificationTypeCommandInput = DeleteQualificationTypeRequest;
@@ -70,14 +70,14 @@ export class DeleteQualificationTypeCommand extends $Command<
 
   private serialize(
     input: DeleteQualificationTypeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteQualificationTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteQualificationTypeCommandOutput> {
     return deserializeAws_json1_1DeleteQualificationTypeCommand(
       output,

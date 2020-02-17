@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIndexFieldsCommandInput = DescribeIndexFieldsRequest;
@@ -70,14 +70,14 @@ export class DescribeIndexFieldsCommand extends $Command<
 
   private serialize(
     input: DescribeIndexFieldsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryDescribeIndexFieldsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeIndexFieldsCommandOutput> {
     return deserializeAws_queryDescribeIndexFieldsCommand(output, context);
   }

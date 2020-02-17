@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUpgradeStatusCommandInput = GetUpgradeStatusRequest;
@@ -67,14 +67,14 @@ export class GetUpgradeStatusCommand extends $Command<
 
   private serialize(
     input: GetUpgradeStatusCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetUpgradeStatusCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetUpgradeStatusCommandOutput> {
     return deserializeAws_restJson1_1GetUpgradeStatusCommand(output, context);
   }

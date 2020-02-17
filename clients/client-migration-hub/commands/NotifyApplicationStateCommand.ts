@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type NotifyApplicationStateCommandInput = NotifyApplicationStateRequest;
@@ -70,14 +70,14 @@ export class NotifyApplicationStateCommand extends $Command<
 
   private serialize(
     input: NotifyApplicationStateCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1NotifyApplicationStateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<NotifyApplicationStateCommandOutput> {
     return deserializeAws_json1_1NotifyApplicationStateCommand(output, context);
   }

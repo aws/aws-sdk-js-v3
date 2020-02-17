@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDataLakeSettingsCommandInput = GetDataLakeSettingsRequest;
@@ -70,14 +70,14 @@ export class GetDataLakeSettingsCommand extends $Command<
 
   private serialize(
     input: GetDataLakeSettingsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDataLakeSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDataLakeSettingsCommandOutput> {
     return deserializeAws_json1_1GetDataLakeSettingsCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSubscriptionDefinitionVersionCommandInput = GetSubscriptionDefinitionVersionRequest;
@@ -70,7 +70,7 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
 
   private serialize(
     input: GetSubscriptionDefinitionVersionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand(
       input,
@@ -80,7 +80,7 @@ export class GetSubscriptionDefinitionVersionCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetSubscriptionDefinitionVersionCommandOutput> {
     return deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand(
       output,

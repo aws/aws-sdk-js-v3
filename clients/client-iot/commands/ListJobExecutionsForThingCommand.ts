@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListJobExecutionsForThingCommandInput = ListJobExecutionsForThingRequest;
@@ -70,7 +70,7 @@ export class ListJobExecutionsForThingCommand extends $Command<
 
   private serialize(
     input: ListJobExecutionsForThingCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListJobExecutionsForThingCommand(
       input,
@@ -80,7 +80,7 @@ export class ListJobExecutionsForThingCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListJobExecutionsForThingCommandOutput> {
     return deserializeAws_restJson1_1ListJobExecutionsForThingCommand(
       output,

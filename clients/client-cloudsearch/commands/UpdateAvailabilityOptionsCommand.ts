@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAvailabilityOptionsCommandInput = UpdateAvailabilityOptionsRequest;
@@ -70,14 +70,14 @@ export class UpdateAvailabilityOptionsCommand extends $Command<
 
   private serialize(
     input: UpdateAvailabilityOptionsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryUpdateAvailabilityOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<UpdateAvailabilityOptionsCommandOutput> {
     return deserializeAws_queryUpdateAvailabilityOptionsCommand(
       output,

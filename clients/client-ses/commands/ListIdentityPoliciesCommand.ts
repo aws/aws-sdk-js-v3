@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListIdentityPoliciesCommandInput = ListIdentityPoliciesRequest;
@@ -70,14 +70,14 @@ export class ListIdentityPoliciesCommand extends $Command<
 
   private serialize(
     input: ListIdentityPoliciesCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_queryListIdentityPoliciesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListIdentityPoliciesCommandOutput> {
     return deserializeAws_queryListIdentityPoliciesCommand(output, context);
   }

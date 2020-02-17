@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVpcAttributeCommandInput = DescribeVpcAttributeRequest;
@@ -70,14 +70,14 @@ export class DescribeVpcAttributeCommand extends $Command<
 
   private serialize(
     input: DescribeVpcAttributeCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVpcAttributeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DescribeVpcAttributeCommandOutput> {
     return deserializeAws_ec2DescribeVpcAttributeCommand(output, context);
   }

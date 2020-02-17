@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDownloadUrlForLayerCommandInput = GetDownloadUrlForLayerRequest;
@@ -70,14 +70,14 @@ export class GetDownloadUrlForLayerCommand extends $Command<
 
   private serialize(
     input: GetDownloadUrlForLayerCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDownloadUrlForLayerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<GetDownloadUrlForLayerCommandOutput> {
     return deserializeAws_json1_1GetDownloadUrlForLayerCommand(output, context);
   }

@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMultiplexProgramCommandInput = DeleteMultiplexProgramRequest;
@@ -70,7 +70,7 @@ export class DeleteMultiplexProgramCommand extends $Command<
 
   private serialize(
     input: DeleteMultiplexProgramCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteMultiplexProgramCommand(
       input,
@@ -80,7 +80,7 @@ export class DeleteMultiplexProgramCommand extends $Command<
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteMultiplexProgramCommandOutput> {
     return deserializeAws_restJson1_1DeleteMultiplexProgramCommand(
       output,

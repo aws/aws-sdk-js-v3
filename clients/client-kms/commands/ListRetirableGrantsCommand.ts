@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRetirableGrantsCommandInput = ListRetirableGrantsRequest;
@@ -70,14 +70,14 @@ export class ListRetirableGrantsCommand extends $Command<
 
   private serialize(
     input: ListRetirableGrantsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListRetirableGrantsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListRetirableGrantsCommandOutput> {
     return deserializeAws_json1_1ListRetirableGrantsCommand(output, context);
   }

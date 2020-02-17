@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutPipelineDefinitionCommandInput = PutPipelineDefinitionInput;
@@ -70,14 +70,14 @@ export class PutPipelineDefinitionCommand extends $Command<
 
   private serialize(
     input: PutPipelineDefinitionCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1PutPipelineDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<PutPipelineDefinitionCommandOutput> {
     return deserializeAws_json1_1PutPipelineDefinitionCommand(output, context);
   }

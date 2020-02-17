@@ -19,9 +19,9 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTopicRuleCommandInput = DeleteTopicRuleRequest;
@@ -65,14 +65,14 @@ export class DeleteTopicRuleCommand extends $Command<
 
   private serialize(
     input: DeleteTopicRuleCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteTopicRuleCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<DeleteTopicRuleCommandOutput> {
     return deserializeAws_restJson1_1DeleteTopicRuleCommand(output, context);
   }

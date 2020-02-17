@@ -22,8 +22,8 @@ import {
   Handler,
   HandlerExecutionContext,
   MiddlewareStack,
-  SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions
+  HttpHandlerOptions as __HttpHandlerOptions,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDatasetGroupsCommandInput = ListDatasetGroupsRequest;
@@ -67,14 +67,14 @@ export class ListDatasetGroupsCommand extends $Command<
 
   private serialize(
     input: ListDatasetGroupsCommandInput,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<__HttpRequest> {
     return serializeAws_json1_1ListDatasetGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
-    context: SerdeContext
+    context: __SerdeContext
   ): Promise<ListDatasetGroupsCommandOutput> {
     return deserializeAws_json1_1ListDatasetGroupsCommand(output, context);
   }
