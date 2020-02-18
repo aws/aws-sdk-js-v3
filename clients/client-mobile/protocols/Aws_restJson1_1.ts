@@ -73,19 +73,13 @@ export async function serializeAws_restJson1_1CreateProjectCommand(
   let resolvedPath = "/projects";
   const query: any = {};
   if (input.name !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.name
-    );
+    query["name"] = input.name;
   }
   if (input.region !== undefined) {
-    query[
-      __extendedEncodeURIComponent("region")
-    ] = __extendedEncodeURIComponent(input.region);
+    query["region"] = input.region;
   }
   if (input.snapshotId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("snapshotId")
-    ] = __extendedEncodeURIComponent(input.snapshotId);
+    query["snapshotId"] = input.snapshotId;
   }
   let body: any;
   if (input.contents !== undefined) {
@@ -167,14 +161,10 @@ export async function serializeAws_restJson1_1DescribeProjectCommand(
   let resolvedPath = "/project";
   const query: any = {};
   if (input.projectId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("projectId")
-    ] = __extendedEncodeURIComponent(input.projectId);
+    query["projectId"] = input.projectId;
   }
   if (input.syncFromResources !== undefined) {
-    query[
-      __extendedEncodeURIComponent("syncFromResources")
-    ] = __extendedEncodeURIComponent(input.syncFromResources.toString());
+    query["syncFromResources"] = input.syncFromResources.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -207,14 +197,10 @@ export async function serializeAws_restJson1_1ExportBundleCommand(
   }
   const query: any = {};
   if (input.platform !== undefined) {
-    query[
-      __extendedEncodeURIComponent("platform")
-    ] = __extendedEncodeURIComponent(input.platform);
+    query["platform"] = input.platform;
   }
   if (input.projectId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("projectId")
-    ] = __extendedEncodeURIComponent(input.projectId);
+    query["projectId"] = input.projectId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -263,14 +249,10 @@ export async function serializeAws_restJson1_1ListBundlesCommand(
   let resolvedPath = "/bundles";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -291,14 +273,10 @@ export async function serializeAws_restJson1_1ListProjectsCommand(
   let resolvedPath = "/projects";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -319,9 +297,7 @@ export async function serializeAws_restJson1_1UpdateProjectCommand(
   let resolvedPath = "/update";
   const query: any = {};
   if (input.projectId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("projectId")
-    ] = __extendedEncodeURIComponent(input.projectId);
+    query["projectId"] = input.projectId;
   }
   let body: any;
   if (input.contents !== undefined) {

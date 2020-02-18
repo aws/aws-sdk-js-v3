@@ -783,29 +783,19 @@ export async function serializeAws_restJson1_1ListJobTemplatesCommand(
   let resolvedPath = "/2017-08-29/jobTemplates";
   const query: any = {};
   if (input.Category !== undefined) {
-    query[
-      __extendedEncodeURIComponent("category")
-    ] = __extendedEncodeURIComponent(input.Category);
+    query["category"] = input.Category;
   }
   if (input.ListBy !== undefined) {
-    query[
-      __extendedEncodeURIComponent("listBy")
-    ] = __extendedEncodeURIComponent(input.ListBy);
+    query["listBy"] = input.ListBy;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query[__extendedEncodeURIComponent("order")] = __extendedEncodeURIComponent(
-      input.Order
-    );
+    query["order"] = input.Order;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -826,29 +816,19 @@ export async function serializeAws_restJson1_1ListJobsCommand(
   let resolvedPath = "/2017-08-29/jobs";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query[__extendedEncodeURIComponent("order")] = __extendedEncodeURIComponent(
-      input.Order
-    );
+    query["order"] = input.Order;
   }
   if (input.Queue !== undefined) {
-    query[__extendedEncodeURIComponent("queue")] = __extendedEncodeURIComponent(
-      input.Queue
-    );
+    query["queue"] = input.Queue;
   }
   if (input.Status !== undefined) {
-    query[
-      __extendedEncodeURIComponent("status")
-    ] = __extendedEncodeURIComponent(input.Status);
+    query["status"] = input.Status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -869,29 +849,19 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
   let resolvedPath = "/2017-08-29/presets";
   const query: any = {};
   if (input.Category !== undefined) {
-    query[
-      __extendedEncodeURIComponent("category")
-    ] = __extendedEncodeURIComponent(input.Category);
+    query["category"] = input.Category;
   }
   if (input.ListBy !== undefined) {
-    query[
-      __extendedEncodeURIComponent("listBy")
-    ] = __extendedEncodeURIComponent(input.ListBy);
+    query["listBy"] = input.ListBy;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query[__extendedEncodeURIComponent("order")] = __extendedEncodeURIComponent(
-      input.Order
-    );
+    query["order"] = input.Order;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -912,24 +882,16 @@ export async function serializeAws_restJson1_1ListQueuesCommand(
   let resolvedPath = "/2017-08-29/queues";
   const query: any = {};
   if (input.ListBy !== undefined) {
-    query[
-      __extendedEncodeURIComponent("listBy")
-    ] = __extendedEncodeURIComponent(input.ListBy);
+    query["listBy"] = input.ListBy;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Order !== undefined) {
-    query[__extendedEncodeURIComponent("order")] = __extendedEncodeURIComponent(
-      input.Order
-    );
+    query["order"] = input.Order;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -243,14 +243,10 @@ export async function serializeAws_restJson1_1ListGroupResourcesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   let body: any;
   const bodyParams: any = {};
@@ -281,14 +277,10 @@ export async function serializeAws_restJson1_1ListGroupsCommand(
   let resolvedPath = "/groups-list";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   let body: any;
   const bodyParams: any = {};

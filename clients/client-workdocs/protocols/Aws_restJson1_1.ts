@@ -436,9 +436,7 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
   }
   const query: any = {};
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionid")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionid"] = input.VersionId;
   }
   let body: any;
   const bodyParams: any = {};
@@ -734,19 +732,13 @@ export async function serializeAws_restJson1_1DeleteCustomMetadataCommand(
   }
   const query: any = {};
   if (input.DeleteAll !== undefined) {
-    query[
-      __extendedEncodeURIComponent("deleteAll")
-    ] = __extendedEncodeURIComponent(input.DeleteAll.toString());
+    query["deleteAll"] = input.DeleteAll.toString();
   }
   if (input.Keys !== undefined) {
-    query[__extendedEncodeURIComponent("keys")] = input.Keys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["keys"] = input.Keys;
   }
   if (input.VersionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("versionId")
-    ] = __extendedEncodeURIComponent(input.VersionId);
+    query["versionId"] = input.VersionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -875,14 +867,10 @@ export async function serializeAws_restJson1_1DeleteLabelsCommand(
   }
   const query: any = {};
   if (input.DeleteAll !== undefined) {
-    query[
-      __extendedEncodeURIComponent("deleteAll")
-    ] = __extendedEncodeURIComponent(input.DeleteAll.toString());
+    query["deleteAll"] = input.DeleteAll.toString();
   }
   if (input.Labels !== undefined) {
-    query[__extendedEncodeURIComponent("labels")] = input.Labels.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["labels"] = input.Labels;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -982,51 +970,33 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
   let resolvedPath = "/api/v1/activities";
   const query: any = {};
   if (input.ActivityTypes !== undefined) {
-    query[
-      __extendedEncodeURIComponent("activityTypes")
-    ] = __extendedEncodeURIComponent(input.ActivityTypes);
+    query["activityTypes"] = input.ActivityTypes;
   }
   if (input.EndTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("endTime")
-    ] = __extendedEncodeURIComponent(input.EndTime.toISOString());
+    query["endTime"] = input.EndTime.toISOString();
   }
   if (input.IncludeIndirectActivities !== undefined) {
     query[
-      __extendedEncodeURIComponent("includeIndirectActivities")
-    ] = __extendedEncodeURIComponent(
-      input.IncludeIndirectActivities.toString()
-    );
+      "includeIndirectActivities"
+    ] = input.IncludeIndirectActivities.toString();
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.OrganizationId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("organizationId")
-    ] = __extendedEncodeURIComponent(input.OrganizationId);
+    query["organizationId"] = input.OrganizationId;
   }
   if (input.ResourceId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceId")
-    ] = __extendedEncodeURIComponent(input.ResourceId);
+    query["resourceId"] = input.ResourceId;
   }
   if (input.StartTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startTime")
-    ] = __extendedEncodeURIComponent(input.StartTime.toISOString());
+    query["startTime"] = input.StartTime.toISOString();
   }
   if (input.UserId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("userId")
-    ] = __extendedEncodeURIComponent(input.UserId);
+    query["userId"] = input.UserId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1075,14 +1045,10 @@ export async function serializeAws_restJson1_1DescribeCommentsCommand(
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1118,24 +1084,16 @@ export async function serializeAws_restJson1_1DescribeDocumentVersionsCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query[
-      __extendedEncodeURIComponent("fields")
-    ] = __extendedEncodeURIComponent(input.Fields);
+    query["fields"] = input.Fields;
   }
   if (input.Include !== undefined) {
-    query[
-      __extendedEncodeURIComponent("include")
-    ] = __extendedEncodeURIComponent(input.Include);
+    query["include"] = input.Include;
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1171,34 +1129,22 @@ export async function serializeAws_restJson1_1DescribeFolderContentsCommand(
   }
   const query: any = {};
   if (input.Include !== undefined) {
-    query[
-      __extendedEncodeURIComponent("include")
-    ] = __extendedEncodeURIComponent(input.Include);
+    query["include"] = input.Include;
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.Order !== undefined) {
-    query[__extendedEncodeURIComponent("order")] = __extendedEncodeURIComponent(
-      input.Order
-    );
+    query["order"] = input.Order;
   }
   if (input.Sort !== undefined) {
-    query[__extendedEncodeURIComponent("sort")] = __extendedEncodeURIComponent(
-      input.Sort
-    );
+    query["sort"] = input.Sort;
   }
   if (input.Type !== undefined) {
-    query[__extendedEncodeURIComponent("type")] = __extendedEncodeURIComponent(
-      input.Type
-    );
+    query["type"] = input.Type;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1222,24 +1168,16 @@ export async function serializeAws_restJson1_1DescribeGroupsCommand(
   let resolvedPath = "/api/v1/groups";
   const query: any = {};
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.OrganizationId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("organizationId")
-    ] = __extendedEncodeURIComponent(input.OrganizationId);
+    query["organizationId"] = input.OrganizationId;
   }
   if (input.SearchQuery !== undefined) {
-    query[
-      __extendedEncodeURIComponent("searchQuery")
-    ] = __extendedEncodeURIComponent(input.SearchQuery);
+    query["searchQuery"] = input.SearchQuery;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1274,14 +1212,10 @@ export async function serializeAws_restJson1_1DescribeNotificationSubscriptionsC
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1317,19 +1251,13 @@ export async function serializeAws_restJson1_1DescribeResourcePermissionsCommand
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.PrincipalId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("principalId")
-    ] = __extendedEncodeURIComponent(input.PrincipalId);
+    query["principalId"] = input.PrincipalId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1353,14 +1281,10 @@ export async function serializeAws_restJson1_1DescribeRootFoldersCommand(
   let resolvedPath = "/api/v1/me/root";
   const query: any = {};
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1384,49 +1308,31 @@ export async function serializeAws_restJson1_1DescribeUsersCommand(
   let resolvedPath = "/api/v1/users";
   const query: any = {};
   if (input.Fields !== undefined) {
-    query[
-      __extendedEncodeURIComponent("fields")
-    ] = __extendedEncodeURIComponent(input.Fields);
+    query["fields"] = input.Fields;
   }
   if (input.Include !== undefined) {
-    query[
-      __extendedEncodeURIComponent("include")
-    ] = __extendedEncodeURIComponent(input.Include);
+    query["include"] = input.Include;
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.Order !== undefined) {
-    query[__extendedEncodeURIComponent("order")] = __extendedEncodeURIComponent(
-      input.Order
-    );
+    query["order"] = input.Order;
   }
   if (input.OrganizationId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("organizationId")
-    ] = __extendedEncodeURIComponent(input.OrganizationId);
+    query["organizationId"] = input.OrganizationId;
   }
   if (input.Query !== undefined) {
-    query[__extendedEncodeURIComponent("query")] = __extendedEncodeURIComponent(
-      input.Query
-    );
+    query["query"] = input.Query;
   }
   if (input.Sort !== undefined) {
-    query[__extendedEncodeURIComponent("sort")] = __extendedEncodeURIComponent(
-      input.Sort
-    );
+    query["sort"] = input.Sort;
   }
   if (input.UserIds !== undefined) {
-    query[
-      __extendedEncodeURIComponent("userIds")
-    ] = __extendedEncodeURIComponent(input.UserIds);
+    query["userIds"] = input.UserIds;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1481,9 +1387,7 @@ export async function serializeAws_restJson1_1GetDocumentCommand(
   }
   const query: any = {};
   if (input.IncludeCustomMetadata !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeCustomMetadata")
-    ] = __extendedEncodeURIComponent(input.IncludeCustomMetadata.toString());
+    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1519,19 +1423,13 @@ export async function serializeAws_restJson1_1GetDocumentPathCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query[
-      __extendedEncodeURIComponent("fields")
-    ] = __extendedEncodeURIComponent(input.Fields);
+    query["fields"] = input.Fields;
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1579,14 +1477,10 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query[
-      __extendedEncodeURIComponent("fields")
-    ] = __extendedEncodeURIComponent(input.Fields);
+    query["fields"] = input.Fields;
   }
   if (input.IncludeCustomMetadata !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeCustomMetadata")
-    ] = __extendedEncodeURIComponent(input.IncludeCustomMetadata.toString());
+    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1622,9 +1516,7 @@ export async function serializeAws_restJson1_1GetFolderCommand(
   }
   const query: any = {};
   if (input.IncludeCustomMetadata !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeCustomMetadata")
-    ] = __extendedEncodeURIComponent(input.IncludeCustomMetadata.toString());
+    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1660,19 +1552,13 @@ export async function serializeAws_restJson1_1GetFolderPathCommand(
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query[
-      __extendedEncodeURIComponent("fields")
-    ] = __extendedEncodeURIComponent(input.Fields);
+    query["fields"] = input.Fields;
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1696,24 +1582,16 @@ export async function serializeAws_restJson1_1GetResourcesCommand(
   let resolvedPath = "/api/v1/resources";
   const query: any = {};
   if (input.CollectionType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("collectionType")
-    ] = __extendedEncodeURIComponent(input.CollectionType);
+    query["collectionType"] = input.CollectionType;
   }
   if (input.Limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.Limit.toString()
-    );
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.UserId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("userId")
-    ] = __extendedEncodeURIComponent(input.UserId);
+    query["userId"] = input.UserId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1842,9 +1720,7 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
   }
   const query: any = {};
   if (input.PrincipalType !== undefined) {
-    query[__extendedEncodeURIComponent("type")] = __extendedEncodeURIComponent(
-      input.PrincipalType
-    );
+    query["type"] = input.PrincipalType;
   }
   return new __HttpRequest({
     ...context.endpoint,

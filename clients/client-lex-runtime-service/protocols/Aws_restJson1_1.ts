@@ -150,9 +150,7 @@ export async function serializeAws_restJson1_1GetSessionCommand(
   }
   const query: any = {};
   if (input.checkpointLabelFilter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("checkpointLabelFilter")
-    ] = __extendedEncodeURIComponent(input.checkpointLabelFilter);
+    query["checkpointLabelFilter"] = input.checkpointLabelFilter;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -115,14 +115,10 @@ export async function serializeAws_restJson1_1ListPlaybackConfigurationsCommand(
   let resolvedPath = "/playbackConfigurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -290,9 +286,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

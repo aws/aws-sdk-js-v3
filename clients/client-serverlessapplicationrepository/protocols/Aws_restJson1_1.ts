@@ -394,9 +394,7 @@ export async function serializeAws_restJson1_1GetApplicationCommand(
   }
   const query: any = {};
   if (input.SemanticVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("semanticVersion")
-    ] = __extendedEncodeURIComponent(input.SemanticVersion);
+    query["semanticVersion"] = input.SemanticVersion;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -503,19 +501,13 @@ export async function serializeAws_restJson1_1ListApplicationDependenciesCommand
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["maxItems"] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.SemanticVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("semanticVersion")
-    ] = __extendedEncodeURIComponent(input.SemanticVersion);
+    query["semanticVersion"] = input.SemanticVersion;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -550,14 +542,10 @@ export async function serializeAws_restJson1_1ListApplicationVersionsCommand(
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["maxItems"] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -578,14 +566,10 @@ export async function serializeAws_restJson1_1ListApplicationsCommand(
   let resolvedPath = "/applications";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["maxItems"] = input.MaxItems.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

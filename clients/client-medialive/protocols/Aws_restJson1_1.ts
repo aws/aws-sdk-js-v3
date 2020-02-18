@@ -974,9 +974,7 @@ export async function serializeAws_restJson1_1DeleteTagsCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1229,14 +1227,10 @@ export async function serializeAws_restJson1_1DescribeScheduleCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1257,14 +1251,10 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
   let resolvedPath = "/prod/channels";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1285,14 +1275,10 @@ export async function serializeAws_restJson1_1ListInputSecurityGroupsCommand(
   let resolvedPath = "/prod/inputSecurityGroups";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1313,14 +1299,10 @@ export async function serializeAws_restJson1_1ListInputsCommand(
   let resolvedPath = "/prod/inputs";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1355,14 +1337,10 @@ export async function serializeAws_restJson1_1ListMultiplexProgramsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1383,14 +1361,10 @@ export async function serializeAws_restJson1_1ListMultiplexesCommand(
   let resolvedPath = "/prod/multiplexes";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1411,64 +1385,40 @@ export async function serializeAws_restJson1_1ListOfferingsCommand(
   let resolvedPath = "/prod/offerings";
   const query: any = {};
   if (input.ChannelClass !== undefined) {
-    query[
-      __extendedEncodeURIComponent("channelClass")
-    ] = __extendedEncodeURIComponent(input.ChannelClass);
+    query["channelClass"] = input.ChannelClass;
   }
   if (input.ChannelConfiguration !== undefined) {
-    query[
-      __extendedEncodeURIComponent("channelConfiguration")
-    ] = __extendedEncodeURIComponent(input.ChannelConfiguration);
+    query["channelConfiguration"] = input.ChannelConfiguration;
   }
   if (input.Codec !== undefined) {
-    query[__extendedEncodeURIComponent("codec")] = __extendedEncodeURIComponent(
-      input.Codec
-    );
+    query["codec"] = input.Codec;
   }
   if (input.Duration !== undefined) {
-    query[
-      __extendedEncodeURIComponent("duration")
-    ] = __extendedEncodeURIComponent(input.Duration);
+    query["duration"] = input.Duration;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.MaximumBitrate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maximumBitrate")
-    ] = __extendedEncodeURIComponent(input.MaximumBitrate);
+    query["maximumBitrate"] = input.MaximumBitrate;
   }
   if (input.MaximumFramerate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maximumFramerate")
-    ] = __extendedEncodeURIComponent(input.MaximumFramerate);
+    query["maximumFramerate"] = input.MaximumFramerate;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Resolution !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resolution")
-    ] = __extendedEncodeURIComponent(input.Resolution);
+    query["resolution"] = input.Resolution;
   }
   if (input.ResourceType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceType")
-    ] = __extendedEncodeURIComponent(input.ResourceType);
+    query["resourceType"] = input.ResourceType;
   }
   if (input.SpecialFeature !== undefined) {
-    query[
-      __extendedEncodeURIComponent("specialFeature")
-    ] = __extendedEncodeURIComponent(input.SpecialFeature);
+    query["specialFeature"] = input.SpecialFeature;
   }
   if (input.VideoQuality !== undefined) {
-    query[
-      __extendedEncodeURIComponent("videoQuality")
-    ] = __extendedEncodeURIComponent(input.VideoQuality);
+    query["videoQuality"] = input.VideoQuality;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1489,54 +1439,34 @@ export async function serializeAws_restJson1_1ListReservationsCommand(
   let resolvedPath = "/prod/reservations";
   const query: any = {};
   if (input.ChannelClass !== undefined) {
-    query[
-      __extendedEncodeURIComponent("channelClass")
-    ] = __extendedEncodeURIComponent(input.ChannelClass);
+    query["channelClass"] = input.ChannelClass;
   }
   if (input.Codec !== undefined) {
-    query[__extendedEncodeURIComponent("codec")] = __extendedEncodeURIComponent(
-      input.Codec
-    );
+    query["codec"] = input.Codec;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.MaximumBitrate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maximumBitrate")
-    ] = __extendedEncodeURIComponent(input.MaximumBitrate);
+    query["maximumBitrate"] = input.MaximumBitrate;
   }
   if (input.MaximumFramerate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maximumFramerate")
-    ] = __extendedEncodeURIComponent(input.MaximumFramerate);
+    query["maximumFramerate"] = input.MaximumFramerate;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.Resolution !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resolution")
-    ] = __extendedEncodeURIComponent(input.Resolution);
+    query["resolution"] = input.Resolution;
   }
   if (input.ResourceType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceType")
-    ] = __extendedEncodeURIComponent(input.ResourceType);
+    query["resourceType"] = input.ResourceType;
   }
   if (input.SpecialFeature !== undefined) {
-    query[
-      __extendedEncodeURIComponent("specialFeature")
-    ] = __extendedEncodeURIComponent(input.SpecialFeature);
+    query["specialFeature"] = input.SpecialFeature;
   }
   if (input.VideoQuality !== undefined) {
-    query[
-      __extendedEncodeURIComponent("videoQuality")
-    ] = __extendedEncodeURIComponent(input.VideoQuality);
+    query["videoQuality"] = input.VideoQuality;
   }
   return new __HttpRequest({
     ...context.endpoint,
