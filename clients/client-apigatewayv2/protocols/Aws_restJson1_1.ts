@@ -1566,14 +1566,10 @@ export async function serializeAws_restJson1_1GetApiMappingsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1594,14 +1590,10 @@ export async function serializeAws_restJson1_1GetApisCommand(
   let resolvedPath = "/v2/apis";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1676,14 +1668,10 @@ export async function serializeAws_restJson1_1GetAuthorizersCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1758,14 +1746,10 @@ export async function serializeAws_restJson1_1GetDeploymentsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1814,14 +1798,10 @@ export async function serializeAws_restJson1_1GetDomainNamesCommand(
   let resolvedPath = "/v2/domainnames";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1970,14 +1950,10 @@ export async function serializeAws_restJson1_1GetIntegrationResponsesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2010,14 +1986,10 @@ export async function serializeAws_restJson1_1GetIntegrationsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2130,14 +2102,10 @@ export async function serializeAws_restJson1_1GetModelsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2277,14 +2245,10 @@ export async function serializeAws_restJson1_1GetRouteResponsesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2317,14 +2281,10 @@ export async function serializeAws_restJson1_1GetRoutesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2397,14 +2357,10 @@ export async function serializeAws_restJson1_1GetStagesCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2455,14 +2411,10 @@ export async function serializeAws_restJson1_1ImportApiCommand(
   let resolvedPath = "/v2/apis";
   const query: any = {};
   if (input.Basepath !== undefined) {
-    query[
-      __extendedEncodeURIComponent("basepath")
-    ] = __extendedEncodeURIComponent(input.Basepath);
+    query["basepath"] = input.Basepath;
   }
   if (input.FailOnWarnings !== undefined) {
-    query[
-      __extendedEncodeURIComponent("failOnWarnings")
-    ] = __extendedEncodeURIComponent(input.FailOnWarnings.toString());
+    query["failOnWarnings"] = input.FailOnWarnings.toString();
   }
   let body: any;
   const bodyParams: any = {};
@@ -2502,14 +2454,10 @@ export async function serializeAws_restJson1_1ReimportApiCommand(
   }
   const query: any = {};
   if (input.Basepath !== undefined) {
-    query[
-      __extendedEncodeURIComponent("basepath")
-    ] = __extendedEncodeURIComponent(input.Basepath);
+    query["basepath"] = input.Basepath;
   }
   if (input.FailOnWarnings !== undefined) {
-    query[
-      __extendedEncodeURIComponent("failOnWarnings")
-    ] = __extendedEncodeURIComponent(input.FailOnWarnings.toString());
+    query["failOnWarnings"] = input.FailOnWarnings.toString();
   }
   let body: any;
   const bodyParams: any = {};
@@ -2588,9 +2536,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

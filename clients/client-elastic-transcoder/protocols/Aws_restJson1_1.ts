@@ -390,14 +390,10 @@ export async function serializeAws_restJson1_1ListJobsByPipelineCommand(
   }
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Ascending")
-    ] = __extendedEncodeURIComponent(input.Ascending);
+    query["Ascending"] = input.Ascending;
   }
   if (input.PageToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageToken")
-    ] = __extendedEncodeURIComponent(input.PageToken);
+    query["PageToken"] = input.PageToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -430,14 +426,10 @@ export async function serializeAws_restJson1_1ListJobsByStatusCommand(
   }
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Ascending")
-    ] = __extendedEncodeURIComponent(input.Ascending);
+    query["Ascending"] = input.Ascending;
   }
   if (input.PageToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageToken")
-    ] = __extendedEncodeURIComponent(input.PageToken);
+    query["PageToken"] = input.PageToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -458,14 +450,10 @@ export async function serializeAws_restJson1_1ListPipelinesCommand(
   let resolvedPath = "/2012-09-25/pipelines";
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Ascending")
-    ] = __extendedEncodeURIComponent(input.Ascending);
+    query["Ascending"] = input.Ascending;
   }
   if (input.PageToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageToken")
-    ] = __extendedEncodeURIComponent(input.PageToken);
+    query["PageToken"] = input.PageToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -486,14 +474,10 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
   let resolvedPath = "/2012-09-25/presets";
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Ascending")
-    ] = __extendedEncodeURIComponent(input.Ascending);
+    query["Ascending"] = input.Ascending;
   }
   if (input.PageToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageToken")
-    ] = __extendedEncodeURIComponent(input.PageToken);
+    query["PageToken"] = input.PageToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

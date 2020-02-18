@@ -302,9 +302,7 @@ export async function serializeAws_restJson1_1AddLayerVersionPermissionCommand(
   }
   const query: any = {};
   if (input.RevisionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("RevisionId")
-    ] = __extendedEncodeURIComponent(input.RevisionId);
+    query["RevisionId"] = input.RevisionId;
   }
   let body: any;
   const bodyParams: any = {};
@@ -355,9 +353,7 @@ export async function serializeAws_restJson1_1AddPermissionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};
@@ -686,9 +682,7 @@ export async function serializeAws_restJson1_1DeleteFunctionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -753,9 +747,7 @@ export async function serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -833,9 +825,7 @@ export async function serializeAws_restJson1_1DeleteProvisionedConcurrencyConfig
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -956,9 +946,7 @@ export async function serializeAws_restJson1_1GetFunctionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1023,9 +1011,7 @@ export async function serializeAws_restJson1_1GetFunctionConfigurationCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1060,9 +1046,7 @@ export async function serializeAws_restJson1_1GetFunctionEventInvokeConfigComman
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1127,9 +1111,7 @@ export async function serializeAws_restJson1_1GetLayerVersionByArnCommand(
     find: "LayerVersion"
   };
   if (input.Arn !== undefined) {
-    query[__extendedEncodeURIComponent("Arn")] = __extendedEncodeURIComponent(
-      input.Arn
-    );
+    query["Arn"] = input.Arn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1207,9 +1189,7 @@ export async function serializeAws_restJson1_1GetPolicyCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1245,9 +1225,7 @@ export async function serializeAws_restJson1_1GetProvisionedConcurrencyConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1291,9 +1269,7 @@ export async function serializeAws_restJson1_1InvokeCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   if (input.Payload !== undefined) {
@@ -1368,19 +1344,13 @@ export async function serializeAws_restJson1_1ListAliasesCommand(
   }
   const query: any = {};
   if (input.FunctionVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("FunctionVersion")
-    ] = __extendedEncodeURIComponent(input.FunctionVersion);
+    query["FunctionVersion"] = input.FunctionVersion;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1401,24 +1371,16 @@ export async function serializeAws_restJson1_1ListEventSourceMappingsCommand(
   let resolvedPath = "/2015-03-31/event-source-mappings";
   const query: any = {};
   if (input.EventSourceArn !== undefined) {
-    query[
-      __extendedEncodeURIComponent("EventSourceArn")
-    ] = __extendedEncodeURIComponent(input.EventSourceArn);
+    query["EventSourceArn"] = input.EventSourceArn;
   }
   if (input.FunctionName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("FunctionName")
-    ] = __extendedEncodeURIComponent(input.FunctionName);
+    query["FunctionName"] = input.FunctionName;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1454,14 +1416,10 @@ export async function serializeAws_restJson1_1ListFunctionEventInvokeConfigsComm
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1482,24 +1440,16 @@ export async function serializeAws_restJson1_1ListFunctionsCommand(
   let resolvedPath = "/2015-03-31/functions";
   const query: any = {};
   if (input.FunctionVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("FunctionVersion")
-    ] = __extendedEncodeURIComponent(input.FunctionVersion);
+    query["FunctionVersion"] = input.FunctionVersion;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MasterRegion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MasterRegion")
-    ] = __extendedEncodeURIComponent(input.MasterRegion);
+    query["MasterRegion"] = input.MasterRegion;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1532,19 +1482,13 @@ export async function serializeAws_restJson1_1ListLayerVersionsCommand(
   }
   const query: any = {};
   if (input.CompatibleRuntime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("CompatibleRuntime")
-    ] = __extendedEncodeURIComponent(input.CompatibleRuntime);
+    query["CompatibleRuntime"] = input.CompatibleRuntime;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1565,19 +1509,13 @@ export async function serializeAws_restJson1_1ListLayersCommand(
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {};
   if (input.CompatibleRuntime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("CompatibleRuntime")
-    ] = __extendedEncodeURIComponent(input.CompatibleRuntime);
+    query["CompatibleRuntime"] = input.CompatibleRuntime;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1615,14 +1553,10 @@ export async function serializeAws_restJson1_1ListProvisionedConcurrencyConfigsC
     List: "ALL"
   };
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1685,14 +1619,10 @@ export async function serializeAws_restJson1_1ListVersionsByFunctionCommand(
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1860,9 +1790,7 @@ export async function serializeAws_restJson1_1PutFunctionEventInvokeConfigComman
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1914,9 +1842,7 @@ export async function serializeAws_restJson1_1PutProvisionedConcurrencyConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1986,9 +1912,7 @@ export async function serializeAws_restJson1_1RemoveLayerVersionPermissionComman
   }
   const query: any = {};
   if (input.RevisionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("RevisionId")
-    ] = __extendedEncodeURIComponent(input.RevisionId);
+    query["RevisionId"] = input.RevisionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2038,14 +1962,10 @@ export async function serializeAws_restJson1_1RemovePermissionCommand(
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   if (input.RevisionId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("RevisionId")
-    ] = __extendedEncodeURIComponent(input.RevisionId);
+    query["RevisionId"] = input.RevisionId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2113,9 +2033,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2419,9 +2337,7 @@ export async function serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCom
   }
   const query: any = {};
   if (input.Qualifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Qualifier")
-    ] = __extendedEncodeURIComponent(input.Qualifier);
+    query["Qualifier"] = input.Qualifier;
   }
   let body: any;
   const bodyParams: any = {};

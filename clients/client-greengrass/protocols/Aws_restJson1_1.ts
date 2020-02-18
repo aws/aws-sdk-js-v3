@@ -1737,9 +1737,7 @@ export async function serializeAws_restJson1_1GetConnectorDefinitionVersionComma
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1949,9 +1947,7 @@ export async function serializeAws_restJson1_1GetDeviceDefinitionVersionCommand(
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2037,9 +2033,7 @@ export async function serializeAws_restJson1_1GetFunctionDefinitionVersionComman
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2269,9 +2263,7 @@ export async function serializeAws_restJson1_1GetLoggerDefinitionVersionCommand(
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2455,9 +2447,7 @@ export async function serializeAws_restJson1_1GetSubscriptionDefinitionVersionCo
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2495,14 +2485,10 @@ export async function serializeAws_restJson1_1ListBulkDeploymentDetailedReportsC
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2523,14 +2509,10 @@ export async function serializeAws_restJson1_1ListBulkDeploymentsCommand(
   let resolvedPath = "/greengrass/bulk/deployments";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2568,14 +2550,10 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionVersionsCom
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2596,14 +2574,10 @@ export async function serializeAws_restJson1_1ListConnectorDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/connectors";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2640,14 +2614,10 @@ export async function serializeAws_restJson1_1ListCoreDefinitionVersionsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2668,14 +2638,10 @@ export async function serializeAws_restJson1_1ListCoreDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/cores";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2708,14 +2674,10 @@ export async function serializeAws_restJson1_1ListDeploymentsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2753,14 +2715,10 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionVersionsComman
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2781,14 +2739,10 @@ export async function serializeAws_restJson1_1ListDeviceDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/devices";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2826,14 +2780,10 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionVersionsComm
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2854,14 +2804,10 @@ export async function serializeAws_restJson1_1ListFunctionDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/functions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2922,14 +2868,10 @@ export async function serializeAws_restJson1_1ListGroupVersionsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2950,14 +2892,10 @@ export async function serializeAws_restJson1_1ListGroupsCommand(
   let resolvedPath = "/greengrass/groups";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2995,14 +2933,10 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionVersionsComman
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3023,14 +2957,10 @@ export async function serializeAws_restJson1_1ListLoggerDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/loggers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3068,14 +2998,10 @@ export async function serializeAws_restJson1_1ListResourceDefinitionVersionsComm
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3096,14 +3022,10 @@ export async function serializeAws_restJson1_1ListResourceDefinitionsCommand(
   let resolvedPath = "/greengrass/definition/resources";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3141,14 +3063,10 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionVersions
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3169,14 +3087,10 @@ export async function serializeAws_restJson1_1ListSubscriptionDefinitionsCommand
   let resolvedPath = "/greengrass/definition/subscriptions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3380,9 +3294,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

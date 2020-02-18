@@ -64,9 +64,7 @@ export async function serializeAws_restJson1_1GetSnapshotBlockCommand(
   }
   const query: any = {};
   if (input.BlockToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("blockToken")
-    ] = __extendedEncodeURIComponent(input.BlockToken);
+    query["blockToken"] = input.BlockToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -103,24 +101,16 @@ export async function serializeAws_restJson1_1ListChangedBlocksCommand(
   }
   const query: any = {};
   if (input.FirstSnapshotId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("firstSnapshotId")
-    ] = __extendedEncodeURIComponent(input.FirstSnapshotId);
+    query["firstSnapshotId"] = input.FirstSnapshotId;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("pageToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["pageToken"] = input.NextToken;
   }
   if (input.StartingBlockIndex !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startingBlockIndex")
-    ] = __extendedEncodeURIComponent(input.StartingBlockIndex.toString());
+    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -153,19 +143,13 @@ export async function serializeAws_restJson1_1ListSnapshotBlocksCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("pageToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["pageToken"] = input.NextToken;
   }
   if (input.StartingBlockIndex !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startingBlockIndex")
-    ] = __extendedEncodeURIComponent(input.StartingBlockIndex.toString());
+    query["startingBlockIndex"] = input.StartingBlockIndex.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,

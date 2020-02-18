@@ -74,14 +74,10 @@ export async function serializeAws_restJson1_1DescribeJobExecutionCommand(
   }
   const query: any = {};
   if (input.executionNumber !== undefined) {
-    query[
-      __extendedEncodeURIComponent("executionNumber")
-    ] = __extendedEncodeURIComponent(input.executionNumber.toString());
+    query["executionNumber"] = input.executionNumber.toString();
   }
   if (input.includeJobDocument !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeJobDocument")
-    ] = __extendedEncodeURIComponent(input.includeJobDocument.toString());
+    query["includeJobDocument"] = input.includeJobDocument.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,

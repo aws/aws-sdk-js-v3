@@ -145,19 +145,13 @@ export async function serializeAws_restJson1_1ListItemsCommand(
   let resolvedPath = "/";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.Path !== undefined) {
-    query[__extendedEncodeURIComponent("Path")] = __extendedEncodeURIComponent(
-      input.Path
-    );
+    query["Path"] = input.Path;
   }
   return new __HttpRequest({
     ...context.endpoint,

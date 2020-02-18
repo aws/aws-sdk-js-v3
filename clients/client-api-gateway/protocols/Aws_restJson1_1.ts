@@ -2987,9 +2987,7 @@ export async function serializeAws_restJson1_1GetApiKeyCommand(
   }
   const query: any = {};
   if (input.includeValue !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeValue")
-    ] = __extendedEncodeURIComponent(input.includeValue.toString());
+    query["includeValue"] = input.includeValue.toString();
   }
   let body: any;
   const bodyParams: any = {};
@@ -3029,29 +3027,19 @@ export async function serializeAws_restJson1_1GetApiKeysCommand(
   let resolvedPath = "/apikeys";
   const query: any = {};
   if (input.customerId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("customerId")
-    ] = __extendedEncodeURIComponent(input.customerId);
+    query["customerId"] = input.customerId;
   }
   if (input.includeValues !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeValues")
-    ] = __extendedEncodeURIComponent(input.includeValues.toString());
+    query["includeValues"] = input.includeValues.toString();
   }
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nameQuery !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.nameQuery
-    );
+    query["name"] = input.nameQuery;
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3164,14 +3152,10 @@ export async function serializeAws_restJson1_1GetAuthorizersCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3282,14 +3266,10 @@ export async function serializeAws_restJson1_1GetBasePathMappingsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3380,14 +3360,10 @@ export async function serializeAws_restJson1_1GetClientCertificatesCommand(
   let resolvedPath = "/clientcertificates";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3453,9 +3429,7 @@ export async function serializeAws_restJson1_1GetDeploymentCommand(
   }
   const query: any = {};
   if (input.embed !== undefined) {
-    query[__extendedEncodeURIComponent("embed")] = input.embed.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["embed"] = input.embed;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3507,14 +3481,10 @@ export async function serializeAws_restJson1_1GetDeploymentsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3630,34 +3600,22 @@ export async function serializeAws_restJson1_1GetDocumentationPartsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.locationStatus !== undefined) {
-    query[
-      __extendedEncodeURIComponent("locationStatus")
-    ] = __extendedEncodeURIComponent(input.locationStatus);
+    query["locationStatus"] = input.locationStatus;
   }
   if (input.nameQuery !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.nameQuery
-    );
+    query["name"] = input.nameQuery;
   }
   if (input.path !== undefined) {
-    query[__extendedEncodeURIComponent("path")] = __extendedEncodeURIComponent(
-      input.path
-    );
+    query["path"] = input.path;
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   if (input.type !== undefined) {
-    query[__extendedEncodeURIComponent("type")] = __extendedEncodeURIComponent(
-      input.type
-    );
+    query["type"] = input.type;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3773,14 +3731,10 @@ export async function serializeAws_restJson1_1GetDocumentationVersionsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -3867,14 +3821,10 @@ export async function serializeAws_restJson1_1GetDomainNamesCommand(
   let resolvedPath = "/domainnames";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -4053,14 +4003,10 @@ export async function serializeAws_restJson1_1GetGatewayResponsesCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -4436,9 +4382,7 @@ export async function serializeAws_restJson1_1GetModelCommand(
   }
   const query: any = {};
   if (input.flatten !== undefined) {
-    query[
-      __extendedEncodeURIComponent("flatten")
-    ] = __extendedEncodeURIComponent(input.flatten.toString());
+    query["flatten"] = input.flatten.toString();
   }
   let body: any;
   const bodyParams: any = {};
@@ -4550,14 +4494,10 @@ export async function serializeAws_restJson1_1GetModelsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -4673,14 +4613,10 @@ export async function serializeAws_restJson1_1GetRequestValidatorsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -4744,9 +4680,7 @@ export async function serializeAws_restJson1_1GetResourceCommand(
   }
   const query: any = {};
   if (input.embed !== undefined) {
-    query[__extendedEncodeURIComponent("embed")] = input.embed.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["embed"] = input.embed;
   }
   let body: any;
   const bodyParams: any = {};
@@ -4798,19 +4732,13 @@ export async function serializeAws_restJson1_1GetResourcesCommand(
   }
   const query: any = {};
   if (input.embed !== undefined) {
-    query[__extendedEncodeURIComponent("embed")] = input.embed.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["embed"] = input.embed;
   }
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -4897,14 +4825,10 @@ export async function serializeAws_restJson1_1GetRestApisCommand(
   let resolvedPath = "/restapis";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5053,14 +4977,10 @@ export async function serializeAws_restJson1_1GetSdkTypesCommand(
   let resolvedPath = "/sdktypes";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5171,9 +5091,7 @@ export async function serializeAws_restJson1_1GetStagesCommand(
   }
   const query: any = {};
   if (input.deploymentId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("deploymentId")
-    ] = __extendedEncodeURIComponent(input.deploymentId);
+    query["deploymentId"] = input.deploymentId;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5227,14 +5145,10 @@ export async function serializeAws_restJson1_1GetTagsCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5288,29 +5202,19 @@ export async function serializeAws_restJson1_1GetUsageCommand(
   }
   const query: any = {};
   if (input.endDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("endDate")
-    ] = __extendedEncodeURIComponent(input.endDate);
+    query["endDate"] = input.endDate;
   }
   if (input.keyId !== undefined) {
-    query[__extendedEncodeURIComponent("keyId")] = __extendedEncodeURIComponent(
-      input.keyId
-    );
+    query["keyId"] = input.keyId;
   }
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   if (input.startDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startDate")
-    ] = __extendedEncodeURIComponent(input.startDate);
+    query["startDate"] = input.startDate;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5474,19 +5378,13 @@ export async function serializeAws_restJson1_1GetUsagePlanKeysCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nameQuery !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.nameQuery
-    );
+    query["name"] = input.nameQuery;
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5526,19 +5424,13 @@ export async function serializeAws_restJson1_1GetUsagePlansCommand(
   let resolvedPath = "/usageplans";
   const query: any = {};
   if (input.keyId !== undefined) {
-    query[__extendedEncodeURIComponent("keyId")] = __extendedEncodeURIComponent(
-      input.keyId
-    );
+    query["keyId"] = input.keyId;
   }
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5625,14 +5517,10 @@ export async function serializeAws_restJson1_1GetVpcLinksCommand(
   let resolvedPath = "/vpclinks";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.position !== undefined) {
-    query[
-      __extendedEncodeURIComponent("position")
-    ] = __extendedEncodeURIComponent(input.position);
+    query["position"] = input.position;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5674,14 +5562,10 @@ export async function serializeAws_restJson1_1ImportApiKeysCommand(
     mode: "import"
   };
   if (input.failOnWarnings !== undefined) {
-    query[
-      __extendedEncodeURIComponent("failonwarnings")
-    ] = __extendedEncodeURIComponent(input.failOnWarnings.toString());
+    query["failonwarnings"] = input.failOnWarnings.toString();
   }
   if (input.format !== undefined) {
-    query[
-      __extendedEncodeURIComponent("format")
-    ] = __extendedEncodeURIComponent(input.format);
+    query["format"] = input.format;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5733,14 +5617,10 @@ export async function serializeAws_restJson1_1ImportDocumentationPartsCommand(
   }
   const query: any = {};
   if (input.failOnWarnings !== undefined) {
-    query[
-      __extendedEncodeURIComponent("failonwarnings")
-    ] = __extendedEncodeURIComponent(input.failOnWarnings.toString());
+    query["failonwarnings"] = input.failOnWarnings.toString();
   }
   if (input.mode !== undefined) {
-    query[__extendedEncodeURIComponent("mode")] = __extendedEncodeURIComponent(
-      input.mode
-    );
+    query["mode"] = input.mode;
   }
   let body: any;
   const bodyParams: any = {};
@@ -5782,9 +5662,7 @@ export async function serializeAws_restJson1_1ImportRestApiCommand(
     mode: "import"
   };
   if (input.failOnWarnings !== undefined) {
-    query[
-      __extendedEncodeURIComponent("failonwarnings")
-    ] = __extendedEncodeURIComponent(input.failOnWarnings.toString());
+    query["failonwarnings"] = input.failOnWarnings.toString();
   }
   let body: any;
   const bodyParams: any = {};
@@ -6357,14 +6235,10 @@ export async function serializeAws_restJson1_1PutRestApiCommand(
   }
   const query: any = {};
   if (input.failOnWarnings !== undefined) {
-    query[
-      __extendedEncodeURIComponent("failonwarnings")
-    ] = __extendedEncodeURIComponent(input.failOnWarnings.toString());
+    query["failonwarnings"] = input.failOnWarnings.toString();
   }
   if (input.mode !== undefined) {
-    query[__extendedEncodeURIComponent("mode")] = __extendedEncodeURIComponent(
-      input.mode
-    );
+    query["mode"] = input.mode;
   }
   let body: any;
   const bodyParams: any = {};
@@ -6641,9 +6515,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.tagKeys;
   }
   let body: any;
   const bodyParams: any = {};
