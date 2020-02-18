@@ -138,29 +138,19 @@ export async function serializeAws_restJson1_1GetLifecyclePoliciesCommand(
   let resolvedPath = "/policies";
   const query: any = {};
   if (input.PolicyIds !== undefined) {
-    query[
-      __extendedEncodeURIComponent("policyIds")
-    ] = input.PolicyIds.map(entry => __extendedEncodeURIComponent(entry));
+    query["policyIds"] = input.PolicyIds;
   }
   if (input.ResourceTypes !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceTypes")
-    ] = input.ResourceTypes.map(entry => __extendedEncodeURIComponent(entry));
+    query["resourceTypes"] = input.ResourceTypes;
   }
   if (input.State !== undefined) {
-    query[__extendedEncodeURIComponent("state")] = __extendedEncodeURIComponent(
-      input.State
-    );
+    query["state"] = input.State;
   }
   if (input.TagsToAdd !== undefined) {
-    query[
-      __extendedEncodeURIComponent("tagsToAdd")
-    ] = input.TagsToAdd.map(entry => __extendedEncodeURIComponent(entry));
+    query["tagsToAdd"] = input.TagsToAdd;
   }
   if (input.TargetTags !== undefined) {
-    query[
-      __extendedEncodeURIComponent("targetTags")
-    ] = input.TargetTags.map(entry => __extendedEncodeURIComponent(entry));
+    query["targetTags"] = input.TargetTags;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -290,9 +280,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

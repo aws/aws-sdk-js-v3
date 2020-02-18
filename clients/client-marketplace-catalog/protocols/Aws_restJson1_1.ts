@@ -64,14 +64,10 @@ export async function serializeAws_restJson1_1CancelChangeSetCommand(
   let resolvedPath = "/CancelChangeSet";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query[
-      __extendedEncodeURIComponent("catalog")
-    ] = __extendedEncodeURIComponent(input.Catalog);
+    query["catalog"] = input.Catalog;
   }
   if (input.ChangeSetId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("changeSetId")
-    ] = __extendedEncodeURIComponent(input.ChangeSetId);
+    query["changeSetId"] = input.ChangeSetId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -92,14 +88,10 @@ export async function serializeAws_restJson1_1DescribeChangeSetCommand(
   let resolvedPath = "/DescribeChangeSet";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query[
-      __extendedEncodeURIComponent("catalog")
-    ] = __extendedEncodeURIComponent(input.Catalog);
+    query["catalog"] = input.Catalog;
   }
   if (input.ChangeSetId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("changeSetId")
-    ] = __extendedEncodeURIComponent(input.ChangeSetId);
+    query["changeSetId"] = input.ChangeSetId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -120,14 +112,10 @@ export async function serializeAws_restJson1_1DescribeEntityCommand(
   let resolvedPath = "/DescribeEntity";
   const query: any = {};
   if (input.Catalog !== undefined) {
-    query[
-      __extendedEncodeURIComponent("catalog")
-    ] = __extendedEncodeURIComponent(input.Catalog);
+    query["catalog"] = input.Catalog;
   }
   if (input.EntityId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("entityId")
-    ] = __extendedEncodeURIComponent(input.EntityId);
+    query["entityId"] = input.EntityId;
   }
   return new __HttpRequest({
     ...context.endpoint,

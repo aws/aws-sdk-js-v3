@@ -661,11 +661,7 @@ export async function serializeAws_restJson1_1GetBlacklistReportsCommand(
   let resolvedPath = "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = {};
   if (input.BlacklistItemNames !== undefined) {
-    query[
-      __extendedEncodeURIComponent("BlacklistItemNames")
-    ] = input.BlacklistItemNames.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["BlacklistItemNames"] = input.BlacklistItemNames;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -779,19 +775,13 @@ export async function serializeAws_restJson1_1GetDedicatedIpsCommand(
   let resolvedPath = "/v2/email/dedicated-ips";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   if (input.PoolName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PoolName")
-    ] = __extendedEncodeURIComponent(input.PoolName);
+    query["PoolName"] = input.PoolName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -899,14 +889,10 @@ export async function serializeAws_restJson1_1GetDomainStatisticsReportCommand(
   }
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("EndDate")
-    ] = __extendedEncodeURIComponent(input.EndDate.toISOString());
+    query["EndDate"] = input.EndDate.toISOString();
   }
   if (input.StartDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("StartDate")
-    ] = __extendedEncodeURIComponent(input.StartDate.toISOString());
+    query["StartDate"] = input.StartDate.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -987,14 +973,10 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   let resolvedPath = "/v2/email/configuration-sets";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1015,14 +997,10 @@ export async function serializeAws_restJson1_1ListDedicatedIpPoolsCommand(
   let resolvedPath = "/v2/email/dedicated-ip-pools";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1043,14 +1021,10 @@ export async function serializeAws_restJson1_1ListDeliverabilityTestReportsComma
   let resolvedPath = "/v2/email/deliverability-dashboard/test-reports";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1088,24 +1062,16 @@ export async function serializeAws_restJson1_1ListDomainDeliverabilityCampaignsC
   }
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("EndDate")
-    ] = __extendedEncodeURIComponent(input.EndDate.toISOString());
+    query["EndDate"] = input.EndDate.toISOString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   if (input.StartDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("StartDate")
-    ] = __extendedEncodeURIComponent(input.StartDate.toISOString());
+    query["StartDate"] = input.StartDate.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1126,14 +1092,10 @@ export async function serializeAws_restJson1_1ListEmailIdentitiesCommand(
   let resolvedPath = "/v2/email/identities";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1154,29 +1116,19 @@ export async function serializeAws_restJson1_1ListSuppressedDestinationsCommand(
   let resolvedPath = "/v2/email/suppression/addresses";
   const query: any = {};
   if (input.EndDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("EndDate")
-    ] = __extendedEncodeURIComponent(input.EndDate.toISOString());
+    query["EndDate"] = input.EndDate.toISOString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize.toString());
+    query["PageSize"] = input.PageSize.toString();
   }
   if (input.Reasons !== undefined) {
-    query[__extendedEncodeURIComponent("Reason")] = input.Reasons.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["Reason"] = input.Reasons;
   }
   if (input.StartDate !== undefined) {
-    query[
-      __extendedEncodeURIComponent("StartDate")
-    ] = __extendedEncodeURIComponent(input.StartDate.toISOString());
+    query["StartDate"] = input.StartDate.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1197,9 +1149,7 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/v2/email/tags";
   const query: any = {};
   if (input.ResourceArn !== undefined) {
-    query[
-      __extendedEncodeURIComponent("ResourceArn")
-    ] = __extendedEncodeURIComponent(input.ResourceArn);
+    query["ResourceArn"] = input.ResourceArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1868,14 +1818,10 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   let resolvedPath = "/v2/email/tags";
   const query: any = {};
   if (input.ResourceArn !== undefined) {
-    query[
-      __extendedEncodeURIComponent("ResourceArn")
-    ] = __extendedEncodeURIComponent(input.ResourceArn);
+    query["ResourceArn"] = input.ResourceArn;
   }
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("TagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["TagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

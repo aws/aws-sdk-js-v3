@@ -371,19 +371,13 @@ export async function serializeAws_restJson1_1ListAssetsCommand(
   let resolvedPath = "/assets";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.PackagingGroupId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("packagingGroupId")
-    ] = __extendedEncodeURIComponent(input.PackagingGroupId);
+    query["packagingGroupId"] = input.PackagingGroupId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -404,19 +398,13 @@ export async function serializeAws_restJson1_1ListPackagingConfigurationsCommand
   let resolvedPath = "/packaging_configurations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.PackagingGroupId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("packagingGroupId")
-    ] = __extendedEncodeURIComponent(input.PackagingGroupId);
+    query["packagingGroupId"] = input.PackagingGroupId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -437,14 +425,10 @@ export async function serializeAws_restJson1_1ListPackagingGroupsCommand(
   let resolvedPath = "/packaging_groups";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

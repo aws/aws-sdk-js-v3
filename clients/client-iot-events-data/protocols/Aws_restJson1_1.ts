@@ -126,9 +126,7 @@ export async function serializeAws_restJson1_1DescribeDetectorCommand(
   }
   const query: any = {};
   if (input.keyValue !== undefined) {
-    query[
-      __extendedEncodeURIComponent("keyValue")
-    ] = __extendedEncodeURIComponent(input.keyValue);
+    query["keyValue"] = input.keyValue;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -165,19 +163,13 @@ export async function serializeAws_restJson1_1ListDetectorsCommand(
   }
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   if (input.stateName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("stateName")
-    ] = __extendedEncodeURIComponent(input.stateName);
+    query["stateName"] = input.stateName;
   }
   return new __HttpRequest({
     ...context.endpoint,

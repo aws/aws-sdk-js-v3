@@ -143,34 +143,22 @@ export async function serializeAws_restJson1_1ListRepositoryAssociationsCommand(
   let resolvedPath = "/associations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.Names !== undefined) {
-    query[__extendedEncodeURIComponent("Name")] = input.Names.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["Name"] = input.Names;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.Owners !== undefined) {
-    query[__extendedEncodeURIComponent("Owner")] = input.Owners.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["Owner"] = input.Owners;
   }
   if (input.ProviderTypes !== undefined) {
-    query[
-      __extendedEncodeURIComponent("ProviderType")
-    ] = input.ProviderTypes.map(entry => __extendedEncodeURIComponent(entry));
+    query["ProviderType"] = input.ProviderTypes;
   }
   if (input.States !== undefined) {
-    query[__extendedEncodeURIComponent("State")] = input.States.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["State"] = input.States;
   }
   return new __HttpRequest({
     ...context.endpoint,

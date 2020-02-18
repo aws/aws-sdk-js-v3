@@ -215,29 +215,19 @@ export async function serializeAws_restJson1_1ListSigningJobsCommand(
   let resolvedPath = "/signing-jobs";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   if (input.platformId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("platformId")
-    ] = __extendedEncodeURIComponent(input.platformId);
+    query["platformId"] = input.platformId;
   }
   if (input.requestedBy !== undefined) {
-    query[
-      __extendedEncodeURIComponent("requestedBy")
-    ] = __extendedEncodeURIComponent(input.requestedBy);
+    query["requestedBy"] = input.requestedBy;
   }
   if (input.status !== undefined) {
-    query[
-      __extendedEncodeURIComponent("status")
-    ] = __extendedEncodeURIComponent(input.status);
+    query["status"] = input.status;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -258,29 +248,19 @@ export async function serializeAws_restJson1_1ListSigningPlatformsCommand(
   let resolvedPath = "/signing-platforms";
   const query: any = {};
   if (input.category !== undefined) {
-    query[
-      __extendedEncodeURIComponent("category")
-    ] = __extendedEncodeURIComponent(input.category);
+    query["category"] = input.category;
   }
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   if (input.partner !== undefined) {
-    query[
-      __extendedEncodeURIComponent("partner")
-    ] = __extendedEncodeURIComponent(input.partner);
+    query["partner"] = input.partner;
   }
   if (input.target !== undefined) {
-    query[
-      __extendedEncodeURIComponent("target")
-    ] = __extendedEncodeURIComponent(input.target);
+    query["target"] = input.target;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -301,19 +281,13 @@ export async function serializeAws_restJson1_1ListSigningProfilesCommand(
   let resolvedPath = "/signing-profiles";
   const query: any = {};
   if (input.includeCanceled !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeCanceled")
-    ] = __extendedEncodeURIComponent(input.includeCanceled.toString());
+    query["includeCanceled"] = input.includeCanceled.toString();
   }
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -514,9 +488,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.tagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

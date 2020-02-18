@@ -413,14 +413,10 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
   let resolvedPath = "/channels";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -441,24 +437,16 @@ export async function serializeAws_restJson1_1ListHarvestJobsCommand(
   let resolvedPath = "/harvest_jobs";
   const query: any = {};
   if (input.IncludeChannelId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeChannelId")
-    ] = __extendedEncodeURIComponent(input.IncludeChannelId);
+    query["includeChannelId"] = input.IncludeChannelId;
   }
   if (input.IncludeStatus !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeStatus")
-    ] = __extendedEncodeURIComponent(input.IncludeStatus);
+    query["includeStatus"] = input.IncludeStatus;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -479,19 +467,13 @@ export async function serializeAws_restJson1_1ListOriginEndpointsCommand(
   let resolvedPath = "/origin_endpoints";
   const query: any = {};
   if (input.ChannelId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("channelId")
-    ] = __extendedEncodeURIComponent(input.ChannelId);
+    query["channelId"] = input.ChannelId;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -669,9 +651,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
