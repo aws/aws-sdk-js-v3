@@ -257,14 +257,10 @@ export async function serializeAws_restJson1_1ListConfigurationSetsCommand(
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("PageSize")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["PageSize"] = input.PageSize;
   }
   return new __HttpRequest({
     ...context.endpoint,

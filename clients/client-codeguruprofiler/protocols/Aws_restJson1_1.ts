@@ -112,9 +112,7 @@ export async function serializeAws_restJson1_1CreateProfilingGroupCommand(
   let resolvedPath = "/profilingGroups";
   const query: any = {};
   if (input.clientToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("clientToken")
-    ] = __extendedEncodeURIComponent(input.clientToken);
+    query["clientToken"] = input.clientToken;
   }
   let body: any;
   const bodyParams: any = {};
@@ -214,19 +212,13 @@ export async function serializeAws_restJson1_1ListProfilingGroupsCommand(
   let resolvedPath = "/profilingGroups";
   const query: any = {};
   if (input.includeDescription !== undefined) {
-    query[
-      __extendedEncodeURIComponent("includeDescription")
-    ] = __extendedEncodeURIComponent(input.includeDescription.toString());
+    query["includeDescription"] = input.includeDescription.toString();
   }
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -310,24 +302,16 @@ export async function serializeAws_restJson1_1GetProfileCommand(
   }
   const query: any = {};
   if (input.endTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("endTime")
-    ] = __extendedEncodeURIComponent(input.endTime.toISOString());
+    query["endTime"] = input.endTime.toISOString();
   }
   if (input.maxDepth !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxDepth")
-    ] = __extendedEncodeURIComponent(input.maxDepth.toString());
+    query["maxDepth"] = input.maxDepth.toString();
   }
   if (input.period !== undefined) {
-    query[
-      __extendedEncodeURIComponent("period")
-    ] = __extendedEncodeURIComponent(input.period);
+    query["period"] = input.period;
   }
   if (input.startTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startTime")
-    ] = __extendedEncodeURIComponent(input.startTime.toISOString());
+    query["startTime"] = input.startTime.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -364,34 +348,22 @@ export async function serializeAws_restJson1_1ListProfileTimesCommand(
   }
   const query: any = {};
   if (input.endTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("endTime")
-    ] = __extendedEncodeURIComponent(input.endTime.toISOString());
+    query["endTime"] = input.endTime.toISOString();
   }
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   if (input.orderBy !== undefined) {
-    query[
-      __extendedEncodeURIComponent("orderBy")
-    ] = __extendedEncodeURIComponent(input.orderBy);
+    query["orderBy"] = input.orderBy;
   }
   if (input.period !== undefined) {
-    query[
-      __extendedEncodeURIComponent("period")
-    ] = __extendedEncodeURIComponent(input.period);
+    query["period"] = input.period;
   }
   if (input.startTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startTime")
-    ] = __extendedEncodeURIComponent(input.startTime.toISOString());
+    query["startTime"] = input.startTime.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -431,9 +403,7 @@ export async function serializeAws_restJson1_1PostAgentProfileCommand(
   }
   const query: any = {};
   if (input.profileToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("profileToken")
-    ] = __extendedEncodeURIComponent(input.profileToken);
+    query["profileToken"] = input.profileToken;
   }
   let body: any;
   if (input.agentProfile !== undefined) {

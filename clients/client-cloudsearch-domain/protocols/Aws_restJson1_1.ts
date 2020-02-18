@@ -51,74 +51,46 @@ export async function serializeAws_restJson1_1SearchCommand(
     pretty: "true"
   };
   if (input.cursor !== undefined) {
-    query[
-      __extendedEncodeURIComponent("cursor")
-    ] = __extendedEncodeURIComponent(input.cursor);
+    query["cursor"] = input.cursor;
   }
   if (input.expr !== undefined) {
-    query[__extendedEncodeURIComponent("expr")] = __extendedEncodeURIComponent(
-      input.expr
-    );
+    query["expr"] = input.expr;
   }
   if (input.facet !== undefined) {
-    query[__extendedEncodeURIComponent("facet")] = __extendedEncodeURIComponent(
-      input.facet
-    );
+    query["facet"] = input.facet;
   }
   if (input.filterQuery !== undefined) {
-    query[__extendedEncodeURIComponent("fq")] = __extendedEncodeURIComponent(
-      input.filterQuery
-    );
+    query["fq"] = input.filterQuery;
   }
   if (input.highlight !== undefined) {
-    query[
-      __extendedEncodeURIComponent("highlight")
-    ] = __extendedEncodeURIComponent(input.highlight);
+    query["highlight"] = input.highlight;
   }
   if (input.partial !== undefined) {
-    query[
-      __extendedEncodeURIComponent("partial")
-    ] = __extendedEncodeURIComponent(input.partial.toString());
+    query["partial"] = input.partial.toString();
   }
   if (input.query !== undefined) {
-    query[__extendedEncodeURIComponent("q")] = __extendedEncodeURIComponent(
-      input.query
-    );
+    query["q"] = input.query;
   }
   if (input.queryOptions !== undefined) {
-    query[
-      __extendedEncodeURIComponent("q.options")
-    ] = __extendedEncodeURIComponent(input.queryOptions);
+    query["q.options"] = input.queryOptions;
   }
   if (input.queryParser !== undefined) {
-    query[
-      __extendedEncodeURIComponent("q.parser")
-    ] = __extendedEncodeURIComponent(input.queryParser);
+    query["q.parser"] = input.queryParser;
   }
   if (input.return !== undefined) {
-    query[
-      __extendedEncodeURIComponent("return")
-    ] = __extendedEncodeURIComponent(input.return);
+    query["return"] = input.return;
   }
   if (input.size !== undefined) {
-    query[__extendedEncodeURIComponent("size")] = __extendedEncodeURIComponent(
-      input.size.toString()
-    );
+    query["size"] = input.size.toString();
   }
   if (input.sort !== undefined) {
-    query[__extendedEncodeURIComponent("sort")] = __extendedEncodeURIComponent(
-      input.sort
-    );
+    query["sort"] = input.sort;
   }
   if (input.start !== undefined) {
-    query[__extendedEncodeURIComponent("start")] = __extendedEncodeURIComponent(
-      input.start.toString()
-    );
+    query["start"] = input.start.toString();
   }
   if (input.stats !== undefined) {
-    query[__extendedEncodeURIComponent("stats")] = __extendedEncodeURIComponent(
-      input.stats
-    );
+    query["stats"] = input.stats;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -142,19 +114,13 @@ export async function serializeAws_restJson1_1SuggestCommand(
     pretty: "true"
   };
   if (input.query !== undefined) {
-    query[__extendedEncodeURIComponent("q")] = __extendedEncodeURIComponent(
-      input.query
-    );
+    query["q"] = input.query;
   }
   if (input.size !== undefined) {
-    query[__extendedEncodeURIComponent("size")] = __extendedEncodeURIComponent(
-      input.size.toString()
-    );
+    query["size"] = input.size.toString();
   }
   if (input.suggester !== undefined) {
-    query[
-      __extendedEncodeURIComponent("suggester")
-    ] = __extendedEncodeURIComponent(input.suggester);
+    query["suggester"] = input.suggester;
   }
   return new __HttpRequest({
     ...context.endpoint,

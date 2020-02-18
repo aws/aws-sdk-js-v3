@@ -473,24 +473,16 @@ export async function serializeAws_restJson1_1DescribeAccessPointsCommand(
   let resolvedPath = "/2015-02-01/access-points";
   const query: any = {};
   if (input.AccessPointId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("AccessPointId")
-    ] = __extendedEncodeURIComponent(input.AccessPointId);
+    query["AccessPointId"] = input.AccessPointId;
   }
   if (input.FileSystemId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("FileSystemId")
-    ] = __extendedEncodeURIComponent(input.FileSystemId);
+    query["FileSystemId"] = input.FileSystemId;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -541,24 +533,16 @@ export async function serializeAws_restJson1_1DescribeFileSystemsCommand(
   let resolvedPath = "/2015-02-01/file-systems";
   const query: any = {};
   if (input.CreationToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("CreationToken")
-    ] = __extendedEncodeURIComponent(input.CreationToken);
+    query["CreationToken"] = input.CreationToken;
   }
   if (input.FileSystemId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("FileSystemId")
-    ] = __extendedEncodeURIComponent(input.FileSystemId);
+    query["FileSystemId"] = input.FileSystemId;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -641,29 +625,19 @@ export async function serializeAws_restJson1_1DescribeMountTargetsCommand(
   let resolvedPath = "/2015-02-01/mount-targets";
   const query: any = {};
   if (input.AccessPointId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("AccessPointId")
-    ] = __extendedEncodeURIComponent(input.AccessPointId);
+    query["AccessPointId"] = input.AccessPointId;
   }
   if (input.FileSystemId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("FileSystemId")
-    ] = __extendedEncodeURIComponent(input.FileSystemId);
+    query["FileSystemId"] = input.FileSystemId;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   if (input.MountTargetId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MountTargetId")
-    ] = __extendedEncodeURIComponent(input.MountTargetId);
+    query["MountTargetId"] = input.MountTargetId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -698,14 +672,10 @@ export async function serializeAws_restJson1_1DescribeTagsCommand(
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems.toString());
+    query["MaxItems"] = input.MaxItems.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -738,14 +708,10 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -474,9 +474,7 @@ export async function serializeAws_restJson1_1DescribeElasticsearchInstanceTypeL
   }
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("domainName")
-    ] = __extendedEncodeURIComponent(input.DomainName);
+    query["domainName"] = input.DomainName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -497,21 +495,13 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("offeringId")
-    ] = __extendedEncodeURIComponent(
-      input.ReservedElasticsearchInstanceOfferingId
-    );
+    query["offeringId"] = input.ReservedElasticsearchInstanceOfferingId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -532,19 +522,13 @@ export async function serializeAws_restJson1_1DescribeReservedElasticsearchInsta
   let resolvedPath = "/2015-01-01/es/reservedInstances";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.ReservedElasticsearchInstanceId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("reservationId")
-    ] = __extendedEncodeURIComponent(input.ReservedElasticsearchInstanceId);
+    query["reservationId"] = input.ReservedElasticsearchInstanceId;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -565,9 +549,7 @@ export async function serializeAws_restJson1_1GetCompatibleElasticsearchVersions
   let resolvedPath = "/2015-01-01/es/compatibleVersions";
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("domainName")
-    ] = __extendedEncodeURIComponent(input.DomainName);
+    query["domainName"] = input.DomainName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -600,14 +582,10 @@ export async function serializeAws_restJson1_1GetUpgradeHistoryCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -688,19 +666,13 @@ export async function serializeAws_restJson1_1ListElasticsearchInstanceTypesComm
   }
   const query: any = {};
   if (input.DomainName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("domainName")
-    ] = __extendedEncodeURIComponent(input.DomainName);
+    query["domainName"] = input.DomainName;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -721,14 +693,10 @@ export async function serializeAws_restJson1_1ListElasticsearchVersionsCommand(
   let resolvedPath = "/2015-01-01/es/versions";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -749,9 +717,7 @@ export async function serializeAws_restJson1_1ListTagsCommand(
   let resolvedPath = "/2015-01-01/tags";
   const query: any = {};
   if (input.ARN !== undefined) {
-    query[__extendedEncodeURIComponent("arn")] = __extendedEncodeURIComponent(
-      input.ARN
-    );
+    query["arn"] = input.ARN;
   }
   return new __HttpRequest({
     ...context.endpoint,

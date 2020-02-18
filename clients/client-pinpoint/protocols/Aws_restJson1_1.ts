@@ -1325,9 +1325,7 @@ export async function serializeAws_restJson1_1DeleteEmailTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1506,9 +1504,7 @@ export async function serializeAws_restJson1_1DeletePushTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1615,9 +1611,7 @@ export async function serializeAws_restJson1_1DeleteSmsTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1724,9 +1718,7 @@ export async function serializeAws_restJson1_1DeleteVoiceTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1953,24 +1945,16 @@ export async function serializeAws_restJson1_1GetApplicationDateRangeKpiCommand(
   }
   const query: any = {};
   if (input.EndTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("end-time")
-    ] = __extendedEncodeURIComponent(input.EndTime.toISOString());
+    query["end-time"] = input.EndTime.toISOString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.StartTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("start-time")
-    ] = __extendedEncodeURIComponent(input.StartTime.toISOString());
+    query["start-time"] = input.StartTime.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2021,14 +2005,10 @@ export async function serializeAws_restJson1_1GetAppsCommand(
   let resolvedPath = "/v1/apps";
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2148,14 +2128,10 @@ export async function serializeAws_restJson1_1GetCampaignActivitiesCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2215,24 +2191,16 @@ export async function serializeAws_restJson1_1GetCampaignDateRangeKpiCommand(
   }
   const query: any = {};
   if (input.EndTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("end-time")
-    ] = __extendedEncodeURIComponent(input.EndTime.toISOString());
+    query["end-time"] = input.EndTime.toISOString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.StartTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("start-time")
-    ] = __extendedEncodeURIComponent(input.StartTime.toISOString());
+    query["start-time"] = input.StartTime.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2334,14 +2302,10 @@ export async function serializeAws_restJson1_1GetCampaignVersionsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2376,14 +2340,10 @@ export async function serializeAws_restJson1_1GetCampaignsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2478,9 +2438,7 @@ export async function serializeAws_restJson1_1GetEmailTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2629,14 +2587,10 @@ export async function serializeAws_restJson1_1GetExportJobsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2743,14 +2697,10 @@ export async function serializeAws_restJson1_1GetImportJobsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2852,24 +2802,16 @@ export async function serializeAws_restJson1_1GetJourneyDateRangeKpiCommand(
   }
   const query: any = {};
   if (input.EndTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("end-time")
-    ] = __extendedEncodeURIComponent(input.EndTime.toISOString());
+    query["end-time"] = input.EndTime.toISOString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.StartTime !== undefined) {
-    query[
-      __extendedEncodeURIComponent("start-time")
-    ] = __extendedEncodeURIComponent(input.StartTime.toISOString());
+    query["start-time"] = input.StartTime.toISOString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2933,14 +2875,10 @@ export async function serializeAws_restJson1_1GetJourneyExecutionActivityMetrics
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2988,14 +2926,10 @@ export async function serializeAws_restJson1_1GetJourneyExecutionMetricsCommand(
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3030,9 +2964,7 @@ export async function serializeAws_restJson1_1GetPushTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3122,14 +3054,10 @@ export async function serializeAws_restJson1_1GetSegmentExportJobsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3177,14 +3105,10 @@ export async function serializeAws_restJson1_1GetSegmentImportJobsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3286,14 +3210,10 @@ export async function serializeAws_restJson1_1GetSegmentVersionsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3328,14 +3248,10 @@ export async function serializeAws_restJson1_1GetSegmentsCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3400,9 +3316,7 @@ export async function serializeAws_restJson1_1GetSmsTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3509,9 +3423,7 @@ export async function serializeAws_restJson1_1GetVoiceTemplateCommand(
   }
   const query: any = {};
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3546,14 +3458,10 @@ export async function serializeAws_restJson1_1ListJourneysCommand(
   }
   const query: any = {};
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Token !== undefined) {
-    query[__extendedEncodeURIComponent("token")] = __extendedEncodeURIComponent(
-      input.Token
-    );
+    query["token"] = input.Token;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3632,14 +3540,10 @@ export async function serializeAws_restJson1_1ListTemplateVersionsCommand(
   }
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -3660,24 +3564,16 @@ export async function serializeAws_restJson1_1ListTemplatesCommand(
   let resolvedPath = "/v1/templates";
   const query: any = {};
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next-token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next-token"] = input.NextToken;
   }
   if (input.PageSize !== undefined) {
-    query[
-      __extendedEncodeURIComponent("page-size")
-    ] = __extendedEncodeURIComponent(input.PageSize);
+    query["page-size"] = input.PageSize;
   }
   if (input.Prefix !== undefined) {
-    query[
-      __extendedEncodeURIComponent("prefix")
-    ] = __extendedEncodeURIComponent(input.Prefix);
+    query["prefix"] = input.Prefix;
   }
   if (input.TemplateType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("template-type")
-    ] = __extendedEncodeURIComponent(input.TemplateType);
+    query["template-type"] = input.TemplateType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4000,9 +3896,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -4427,14 +4321,10 @@ export async function serializeAws_restJson1_1UpdateEmailTemplateCommand(
   }
   const query: any = {};
   if (input.CreateNewVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("create-new-version")
-    ] = __extendedEncodeURIComponent(input.CreateNewVersion.toString());
+    query["create-new-version"] = input.CreateNewVersion.toString();
   }
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   let body: any;
   if (input.EmailTemplateRequest !== undefined) {
@@ -4727,14 +4617,10 @@ export async function serializeAws_restJson1_1UpdatePushTemplateCommand(
   }
   const query: any = {};
   if (input.CreateNewVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("create-new-version")
-    ] = __extendedEncodeURIComponent(input.CreateNewVersion.toString());
+    query["create-new-version"] = input.CreateNewVersion.toString();
   }
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   let body: any;
   if (input.PushNotificationTemplateRequest !== undefined) {
@@ -4877,14 +4763,10 @@ export async function serializeAws_restJson1_1UpdateSmsTemplateCommand(
   }
   const query: any = {};
   if (input.CreateNewVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("create-new-version")
-    ] = __extendedEncodeURIComponent(input.CreateNewVersion.toString());
+    query["create-new-version"] = input.CreateNewVersion.toString();
   }
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   let body: any;
   if (input.SMSTemplateRequest !== undefined) {
@@ -5030,14 +4912,10 @@ export async function serializeAws_restJson1_1UpdateVoiceTemplateCommand(
   }
   const query: any = {};
   if (input.CreateNewVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("create-new-version")
-    ] = __extendedEncodeURIComponent(input.CreateNewVersion.toString());
+    query["create-new-version"] = input.CreateNewVersion.toString();
   }
   if (input.Version !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.Version);
+    query["version"] = input.Version;
   }
   let body: any;
   if (input.VoiceTemplateRequest !== undefined) {

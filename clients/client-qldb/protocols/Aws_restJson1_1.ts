@@ -395,14 +395,10 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsCommand(
   let resolvedPath = "/journal-s3-exports";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -435,14 +431,10 @@ export async function serializeAws_restJson1_1ListJournalS3ExportsForLedgerComma
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -463,14 +455,10 @@ export async function serializeAws_restJson1_1ListLedgersCommand(
   let resolvedPath = "/ledgers";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_results")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["max_results"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["next_token"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -572,9 +560,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.TagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

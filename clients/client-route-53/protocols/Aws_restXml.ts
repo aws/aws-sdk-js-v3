@@ -1201,19 +1201,13 @@ export async function serializeAws_restXmlGetGeoLocationCommand(
   let resolvedPath = "/2013-04-01/geolocation";
   const query: any = {};
   if (input.ContinentCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("continentcode")
-    ] = __extendedEncodeURIComponent(input.ContinentCode);
+    query["continentcode"] = input.ContinentCode;
   }
   if (input.CountryCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("countrycode")
-    ] = __extendedEncodeURIComponent(input.CountryCode);
+    query["countrycode"] = input.CountryCode;
   }
   if (input.SubdivisionCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("subdivisioncode")
-    ] = __extendedEncodeURIComponent(input.SubdivisionCode);
+    query["subdivisioncode"] = input.SubdivisionCode;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1610,24 +1604,16 @@ export async function serializeAws_restXmlListGeoLocationsCommand(
   let resolvedPath = "/2013-04-01/geolocations";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.StartContinentCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startcontinentcode")
-    ] = __extendedEncodeURIComponent(input.StartContinentCode);
+    query["startcontinentcode"] = input.StartContinentCode;
   }
   if (input.StartCountryCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startcountrycode")
-    ] = __extendedEncodeURIComponent(input.StartCountryCode);
+    query["startcountrycode"] = input.StartCountryCode;
   }
   if (input.StartSubdivisionCode !== undefined) {
-    query[
-      __extendedEncodeURIComponent("startsubdivisioncode")
-    ] = __extendedEncodeURIComponent(input.StartSubdivisionCode);
+    query["startsubdivisioncode"] = input.StartSubdivisionCode;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1648,14 +1634,10 @@ export async function serializeAws_restXmlListHealthChecksCommand(
   let resolvedPath = "/2013-04-01/healthcheck";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1676,19 +1658,13 @@ export async function serializeAws_restXmlListHostedZonesCommand(
   let resolvedPath = "/2013-04-01/hostedzone";
   const query: any = {};
   if (input.DelegationSetId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("delegationsetid")
-    ] = __extendedEncodeURIComponent(input.DelegationSetId);
+    query["delegationsetid"] = input.DelegationSetId;
   }
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1709,19 +1685,13 @@ export async function serializeAws_restXmlListHostedZonesByNameCommand(
   let resolvedPath = "/2013-04-01/hostedzonesbyname";
   const query: any = {};
   if (input.DNSName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("dnsname")
-    ] = __extendedEncodeURIComponent(input.DNSName);
+    query["dnsname"] = input.DNSName;
   }
   if (input.HostedZoneId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("hostedzoneid")
-    ] = __extendedEncodeURIComponent(input.HostedZoneId);
+    query["hostedzoneid"] = input.HostedZoneId;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1742,19 +1712,13 @@ export async function serializeAws_restXmlListQueryLoggingConfigsCommand(
   let resolvedPath = "/2013-04-01/queryloggingconfig";
   const query: any = {};
   if (input.HostedZoneId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("hostedzoneid")
-    ] = __extendedEncodeURIComponent(input.HostedZoneId);
+    query["hostedzoneid"] = input.HostedZoneId;
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxresults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxresults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nexttoken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nexttoken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1789,24 +1753,16 @@ export async function serializeAws_restXmlListResourceRecordSetsCommand(
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.StartRecordIdentifier !== undefined) {
-    query[
-      __extendedEncodeURIComponent("identifier")
-    ] = __extendedEncodeURIComponent(input.StartRecordIdentifier);
+    query["identifier"] = input.StartRecordIdentifier;
   }
   if (input.StartRecordName !== undefined) {
-    query[__extendedEncodeURIComponent("name")] = __extendedEncodeURIComponent(
-      input.StartRecordName
-    );
+    query["name"] = input.StartRecordName;
   }
   if (input.StartRecordType !== undefined) {
-    query[__extendedEncodeURIComponent("type")] = __extendedEncodeURIComponent(
-      input.StartRecordType
-    );
+    query["type"] = input.StartRecordType;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1827,14 +1783,10 @@ export async function serializeAws_restXmlListReusableDelegationSetsCommand(
   let resolvedPath = "/2013-04-01/delegationset";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1947,14 +1899,10 @@ export async function serializeAws_restXmlListTrafficPoliciesCommand(
   let resolvedPath = "/2013-04-01/trafficpolicies";
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyIdMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyid")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyIdMarker);
+    query["trafficpolicyid"] = input.TrafficPolicyIdMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1975,24 +1923,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesCommand(
   let resolvedPath = "/2013-04-01/trafficpolicyinstances";
   const query: any = {};
   if (input.HostedZoneIdMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("hostedzoneid")
-    ] = __extendedEncodeURIComponent(input.HostedZoneIdMarker);
+    query["hostedzoneid"] = input.HostedZoneIdMarker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyinstancename")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyInstanceNameMarker);
+    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
   }
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyinstancetype")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyInstanceTypeMarker);
+    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2013,24 +1953,16 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByHostedZone
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/hostedzone";
   const query: any = {};
   if (input.HostedZoneId !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.HostedZoneId
-    );
+    query["id"] = input.HostedZoneId;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyinstancename")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyInstanceNameMarker);
+    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
   }
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyinstancetype")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyInstanceTypeMarker);
+    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2051,34 +1983,22 @@ export async function serializeAws_restXmlListTrafficPolicyInstancesByPolicyComm
   let resolvedPath = "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = {};
   if (input.HostedZoneIdMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("hostedzoneid")
-    ] = __extendedEncodeURIComponent(input.HostedZoneIdMarker);
+    query["hostedzoneid"] = input.HostedZoneIdMarker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyId !== undefined) {
-    query[__extendedEncodeURIComponent("id")] = __extendedEncodeURIComponent(
-      input.TrafficPolicyId
-    );
+    query["id"] = input.TrafficPolicyId;
   }
   if (input.TrafficPolicyInstanceNameMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyinstancename")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyInstanceNameMarker);
+    query["trafficpolicyinstancename"] = input.TrafficPolicyInstanceNameMarker;
   }
   if (input.TrafficPolicyInstanceTypeMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyinstancetype")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyInstanceTypeMarker);
+    query["trafficpolicyinstancetype"] = input.TrafficPolicyInstanceTypeMarker;
   }
   if (input.TrafficPolicyVersion !== undefined) {
-    query[
-      __extendedEncodeURIComponent("version")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyVersion.toString());
+    query["version"] = input.TrafficPolicyVersion.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2111,14 +2031,10 @@ export async function serializeAws_restXmlListTrafficPolicyVersionsCommand(
   }
   const query: any = {};
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxitems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["maxitems"] = input.MaxItems;
   }
   if (input.TrafficPolicyVersionMarker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("trafficpolicyversion")
-    ] = __extendedEncodeURIComponent(input.TrafficPolicyVersionMarker);
+    query["trafficpolicyversion"] = input.TrafficPolicyVersionMarker;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2154,14 +2070,10 @@ export async function serializeAws_restXmlListVPCAssociationAuthorizationsComman
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxresults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxresults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nexttoken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nexttoken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -2182,34 +2094,22 @@ export async function serializeAws_restXmlTestDNSAnswerCommand(
   let resolvedPath = "/2013-04-01/testdnsanswer";
   const query: any = {};
   if (input.EDNS0ClientSubnetIP !== undefined) {
-    query[
-      __extendedEncodeURIComponent("edns0clientsubnetip")
-    ] = __extendedEncodeURIComponent(input.EDNS0ClientSubnetIP);
+    query["edns0clientsubnetip"] = input.EDNS0ClientSubnetIP;
   }
   if (input.EDNS0ClientSubnetMask !== undefined) {
-    query[
-      __extendedEncodeURIComponent("edns0clientsubnetmask")
-    ] = __extendedEncodeURIComponent(input.EDNS0ClientSubnetMask);
+    query["edns0clientsubnetmask"] = input.EDNS0ClientSubnetMask;
   }
   if (input.HostedZoneId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("hostedzoneid")
-    ] = __extendedEncodeURIComponent(input.HostedZoneId);
+    query["hostedzoneid"] = input.HostedZoneId;
   }
   if (input.RecordName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("recordname")
-    ] = __extendedEncodeURIComponent(input.RecordName);
+    query["recordname"] = input.RecordName;
   }
   if (input.RecordType !== undefined) {
-    query[
-      __extendedEncodeURIComponent("recordtype")
-    ] = __extendedEncodeURIComponent(input.RecordType);
+    query["recordtype"] = input.RecordType;
   }
   if (input.ResolverIP !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resolverip")
-    ] = __extendedEncodeURIComponent(input.ResolverIP);
+    query["resolverip"] = input.ResolverIP;
   }
   return new __HttpRequest({
     ...context.endpoint,

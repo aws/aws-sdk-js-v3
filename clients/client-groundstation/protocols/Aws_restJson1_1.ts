@@ -525,14 +525,10 @@ export async function serializeAws_restJson1_1ListConfigsCommand(
   let resolvedPath = "/config";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -600,14 +596,10 @@ export async function serializeAws_restJson1_1ListDataflowEndpointGroupsCommand(
   let resolvedPath = "/dataflowEndpointGroup";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -628,14 +620,10 @@ export async function serializeAws_restJson1_1ListMissionProfilesCommand(
   let resolvedPath = "/missionprofile";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -863,14 +851,10 @@ export async function serializeAws_restJson1_1ListGroundStationsCommand(
   let resolvedPath = "/groundstation";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -891,14 +875,10 @@ export async function serializeAws_restJson1_1ListSatellitesCommand(
   let resolvedPath = "/satellite";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["maxResults"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1000,9 +980,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query[__extendedEncodeURIComponent("tagKeys")] = input.tagKeys.map(entry =>
-      __extendedEncodeURIComponent(entry)
-    );
+    query["tagKeys"] = input.tagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,

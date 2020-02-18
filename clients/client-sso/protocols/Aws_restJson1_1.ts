@@ -50,14 +50,10 @@ export async function serializeAws_restJson1_1GetRoleCredentialsCommand(
   let resolvedPath = "/federation/credentials";
   const query: any = {};
   if (input.accountId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("account_id")
-    ] = __extendedEncodeURIComponent(input.accountId);
+    query["account_id"] = input.accountId;
   }
   if (input.roleName !== undefined) {
-    query[
-      __extendedEncodeURIComponent("role_name")
-    ] = __extendedEncodeURIComponent(input.roleName);
+    query["role_name"] = input.roleName;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -81,19 +77,13 @@ export async function serializeAws_restJson1_1ListAccountRolesCommand(
   let resolvedPath = "/assignment/roles";
   const query: any = {};
   if (input.accountId !== undefined) {
-    query[
-      __extendedEncodeURIComponent("account_id")
-    ] = __extendedEncodeURIComponent(input.accountId);
+    query["account_id"] = input.accountId;
   }
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_result")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["max_result"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["next_token"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -117,14 +107,10 @@ export async function serializeAws_restJson1_1ListAccountsCommand(
   let resolvedPath = "/assignment/accounts";
   const query: any = {};
   if (input.maxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("max_result")
-    ] = __extendedEncodeURIComponent(input.maxResults.toString());
+    query["max_result"] = input.maxResults.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("next_token")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["next_token"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

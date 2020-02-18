@@ -446,14 +446,10 @@ export async function serializeAws_restJson1_1ListDatasetsCommand(
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults);
+    query["maxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -474,14 +470,10 @@ export async function serializeAws_restJson1_1ListIdentityPoolUsageCommand(
   let resolvedPath = "/identitypools";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -543,24 +535,16 @@ export async function serializeAws_restJson1_1ListRecordsCommand(
   }
   const query: any = {};
   if (input.LastSyncCount !== undefined) {
-    query[
-      __extendedEncodeURIComponent("lastSyncCount")
-    ] = __extendedEncodeURIComponent(input.LastSyncCount.toString());
+    query["lastSyncCount"] = input.LastSyncCount.toString();
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("maxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["nextToken"] = input.NextToken;
   }
   if (input.SyncSessionToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("syncSessionToken")
-    ] = __extendedEncodeURIComponent(input.SyncSessionToken);
+    query["syncSessionToken"] = input.SyncSessionToken;
   }
   return new __HttpRequest({
     ...context.endpoint,

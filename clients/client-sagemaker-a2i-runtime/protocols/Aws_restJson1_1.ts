@@ -116,29 +116,19 @@ export async function serializeAws_restJson1_1ListHumanLoopsCommand(
   let resolvedPath = "/human-loops";
   const query: any = {};
   if (input.CreationTimeAfter !== undefined) {
-    query[
-      __extendedEncodeURIComponent("CreationTimeAfter")
-    ] = __extendedEncodeURIComponent(input.CreationTimeAfter.toISOString());
+    query["CreationTimeAfter"] = input.CreationTimeAfter.toISOString();
   }
   if (input.CreationTimeBefore !== undefined) {
-    query[
-      __extendedEncodeURIComponent("CreationTimeBefore")
-    ] = __extendedEncodeURIComponent(input.CreationTimeBefore.toISOString());
+    query["CreationTimeBefore"] = input.CreationTimeBefore.toISOString();
   }
   if (input.MaxResults !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxResults")
-    ] = __extendedEncodeURIComponent(input.MaxResults.toString());
+    query["MaxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("NextToken")
-    ] = __extendedEncodeURIComponent(input.NextToken);
+    query["NextToken"] = input.NextToken;
   }
   if (input.SortOrder !== undefined) {
-    query[
-      __extendedEncodeURIComponent("SortOrder")
-    ] = __extendedEncodeURIComponent(input.SortOrder);
+    query["SortOrder"] = input.SortOrder;
   }
   return new __HttpRequest({
     ...context.endpoint,

@@ -890,14 +890,10 @@ export async function serializeAws_restJson1_1ListMeshesCommand(
   let resolvedPath = "/v20190125/meshes";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -947,14 +943,10 @@ export async function serializeAws_restJson1_1ListRoutesCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -975,19 +967,13 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   let resolvedPath = "/v20190125/tags";
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   if (input.resourceArn !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceArn")
-    ] = __extendedEncodeURIComponent(input.resourceArn);
+    query["resourceArn"] = input.resourceArn;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1020,14 +1006,10 @@ export async function serializeAws_restJson1_1ListVirtualNodesCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1060,14 +1042,10 @@ export async function serializeAws_restJson1_1ListVirtualRoutersCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1100,14 +1078,10 @@ export async function serializeAws_restJson1_1ListVirtualServicesCommand(
   }
   const query: any = {};
   if (input.limit !== undefined) {
-    query[__extendedEncodeURIComponent("limit")] = __extendedEncodeURIComponent(
-      input.limit.toString()
-    );
+    query["limit"] = input.limit.toString();
   }
   if (input.nextToken !== undefined) {
-    query[
-      __extendedEncodeURIComponent("nextToken")
-    ] = __extendedEncodeURIComponent(input.nextToken);
+    query["nextToken"] = input.nextToken;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1128,9 +1102,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   let resolvedPath = "/v20190125/tag";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceArn")
-    ] = __extendedEncodeURIComponent(input.resourceArn);
+    query["resourceArn"] = input.resourceArn;
   }
   let body: any;
   const bodyParams: any = {};
@@ -1158,9 +1130,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   let resolvedPath = "/v20190125/untag";
   const query: any = {};
   if (input.resourceArn !== undefined) {
-    query[
-      __extendedEncodeURIComponent("resourceArn")
-    ] = __extendedEncodeURIComponent(input.resourceArn);
+    query["resourceArn"] = input.resourceArn;
   }
   let body: any;
   const bodyParams: any = {};

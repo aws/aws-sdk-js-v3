@@ -1241,14 +1241,10 @@ export async function serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCo
   let resolvedPath = "/2019-03-26/origin-access-identity/cloudfront";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1269,14 +1265,10 @@ export async function serializeAws_restXmlListDistributionsCommand(
   let resolvedPath = "/2019-03-26/distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1309,14 +1301,10 @@ export async function serializeAws_restXmlListDistributionsByWebACLIdCommand(
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1337,14 +1325,10 @@ export async function serializeAws_restXmlListFieldLevelEncryptionConfigsCommand
   let resolvedPath = "/2019-03-26/field-level-encryption";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1365,14 +1349,10 @@ export async function serializeAws_restXmlListFieldLevelEncryptionProfilesComman
   let resolvedPath = "/2019-03-26/field-level-encryption-profile";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1407,14 +1387,10 @@ export async function serializeAws_restXmlListInvalidationsCommand(
   }
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1435,14 +1411,10 @@ export async function serializeAws_restXmlListPublicKeysCommand(
   let resolvedPath = "/2019-03-26/public-key";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1463,14 +1435,10 @@ export async function serializeAws_restXmlListStreamingDistributionsCommand(
   let resolvedPath = "/2019-03-26/streaming-distribution";
   const query: any = {};
   if (input.Marker !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Marker")
-    ] = __extendedEncodeURIComponent(input.Marker);
+    query["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
-    query[
-      __extendedEncodeURIComponent("MaxItems")
-    ] = __extendedEncodeURIComponent(input.MaxItems);
+    query["MaxItems"] = input.MaxItems;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1491,9 +1459,7 @@ export async function serializeAws_restXmlListTagsForResourceCommand(
   let resolvedPath = "/2019-03-26/tagging";
   const query: any = {};
   if (input.Resource !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Resource")
-    ] = __extendedEncodeURIComponent(input.Resource);
+    query["Resource"] = input.Resource;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1516,9 +1482,7 @@ export async function serializeAws_restXmlTagResourceCommand(
     Operation: "Tag"
   };
   if (input.Resource !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Resource")
-    ] = __extendedEncodeURIComponent(input.Resource);
+    query["Resource"] = input.Resource;
   }
   let body: any;
   let contents: any;
@@ -1553,9 +1517,7 @@ export async function serializeAws_restXmlUntagResourceCommand(
     Operation: "Untag"
   };
   if (input.Resource !== undefined) {
-    query[
-      __extendedEncodeURIComponent("Resource")
-    ] = __extendedEncodeURIComponent(input.Resource);
+    query["Resource"] = input.Resource;
   }
   let body: any;
   let contents: any;
