@@ -1,4 +1,3 @@
-import { escapeUri } from "@aws-sdk/util-uri-escape";
 import {
   HttpMessage,
   Endpoint,
@@ -55,18 +54,6 @@ export class HttpRequest implements HttpMessage, Endpoint {
     );
   }
 
-  getFormatedUrl(): string {
-    let hostname = this.hostname;
-    if (this.port) {
-      hostname += `:${this.port}`;
-    }
-    let queryString = this.query ? buildQueryString(this.query) : "";
-    if (queryString && queryString[0] !== "?") {
-      queryString = `?${queryString}`;
-    }
-    return `${this.protocol}//${hostname}${this.path}${queryString}`;
-  }
-
   clone(): HttpRequest {
     const cloned = new HttpRequest({
       ...this,
@@ -88,29 +75,4 @@ function cloneQuery(query: QueryParameterBag): QueryParameterBag {
     },
     {}
   );
-}
-
-function buildQueryString(query: QueryParameterBag): string {
-  const queryEntries = Object.entries(query || ({} as QueryParameterBag))
-    .map(([key, value]): [string, string | Array<string> | null] => [
-      escapeUri(key),
-      value
-    ])
-    .map(([key, value]) => {
-      if (Array.isArray(value)) {
-        return value.map(val => `${key}=${escapeUri(val)}`);
-      } else {
-        let qsEntry = key;
-        if (value || typeof value === "string") {
-          qsEntry += `=${escapeUri(value)}`;
-        }
-        return [qsEntry];
-      }
-    })
-    .reduce((accummulator, entry) => {
-      accummulator.push(...entry);
-      return accummulator;
-    }, [] as Array<String>);
-
-  return queryEntries.join("&");
 }
