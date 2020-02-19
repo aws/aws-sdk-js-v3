@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.13 (2020-02-19)
+
+
+
+# 1.0.0-alpha.21 (2020-02-11)
+
+
+
+# 1.0.0-alpha.20 (2020-02-09)
+
+
+
+# 1.0.0-alpha.19 (2020-02-07)
+
+
+
+# 1.0.0-alpha.18 (2020-02-06)
+
+
+
+# 1.0.0-alpha.13 (2020-01-24)
+
+
+
+# 1.0.0-alpha.12 (2020-01-22)
+
+
+
+# 1.0.0-alpha.9 (2020-01-17)
+
+
+
+# 1.0.0-alpha.8 (2020-01-16)
+
+
+
+# 1.0.0-alpha.4 (2020-01-14)
+
+
+
+# 1.0.0-alpha.1 (2020-01-10)
+
+
+
+# 0.9.0 (2020-01-09)
+
+
+### Bug Fixes
+
+* update input and resolved naming ([#444](https://github.com/aws/aws-sdk-js-v3/issues/444)) ([4235b6c](https://github.com/aws/aws-sdk-js-v3/commit/4235b6c))
+
+
+### Features
+
+* enable clockSkew correction by default ([#459](https://github.com/aws/aws-sdk-js-v3/issues/459)) ([16eabff](https://github.com/aws/aws-sdk-js-v3/commit/16eabff))
+* remove absolute priority numbers from middleware stack ([#434](https://github.com/aws/aws-sdk-js-v3/issues/434)) ([2ad5796](https://github.com/aws/aws-sdk-js-v3/commit/2ad5796))
+* standardize plugins ([#422](https://github.com/aws/aws-sdk-js-v3/issues/422)) ([09112e5](https://github.com/aws/aws-sdk-js-v3/commit/09112e5))
+* start endpoint resolver generation ([#472](https://github.com/aws/aws-sdk-js-v3/issues/472)) ([d0f9250](https://github.com/aws/aws-sdk-js-v3/commit/d0f9250))
+
+
+
+
+
 # 1.0.0-alpha.12 (2020-02-11)
 
 
