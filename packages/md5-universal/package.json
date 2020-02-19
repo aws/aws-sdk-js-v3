@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/md5-universal",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -18,9 +18,9 @@
     "crypto": false
   },
   "dependencies": {
-    "@aws-sdk/hash-node": "^1.0.0-alpha.4",
-    "@aws-sdk/md5-js": "^1.0.0-alpha.4",
-    "@aws-sdk/types": "^1.0.0-alpha.4",
+    "@aws-sdk/hash-node": "^1.0.0-alpha.5",
+    "@aws-sdk/md5-js": "^1.0.0-alpha.5",
+    "@aws-sdk/types": "^1.0.0-alpha.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

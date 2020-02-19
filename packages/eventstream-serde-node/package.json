@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-serde-node",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -14,15 +14,15 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-marshaller": "^1.0.0-alpha.2",
-    "@aws-sdk/types": "^1.0.0-alpha.2",
+    "@aws-sdk/eventstream-marshaller": "^1.0.0-alpha.7",
+    "@aws-sdk/types": "^1.0.0-alpha.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@aws-sdk/util-utf8-node": "^1.0.0-alpha.2",
     "@types/jest": "^24.0.12",
-    "typescript": "~3.4.0",
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "typescript": "~3.4.0"
   },
   "engines": {
     "node": ">= 10.0.0"
