@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-node",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
@@ -16,9 +16,9 @@
   "dependencies": {
     "@aws-sdk/chunked-stream-reader-node": "^1.0.0-alpha.2",
     "@aws-sdk/is-array-buffer": "^1.0.0-alpha.2",
-    "@aws-sdk/protocol-http": "^1.0.0-alpha.6",
-    "@aws-sdk/sha256-tree-hash": "^1.0.0-alpha.2",
-    "@aws-sdk/types": "^1.0.0-alpha.4",
+    "@aws-sdk/protocol-http": "^1.0.0-alpha.7",
+    "@aws-sdk/sha256-tree-hash": "^1.0.0-alpha.3",
+    "@aws-sdk/types": "^1.0.0-alpha.5",
     "@aws-sdk/util-hex-encoding": "^1.0.0-alpha.2",
     "tslib": "^1.8.0"
   },
