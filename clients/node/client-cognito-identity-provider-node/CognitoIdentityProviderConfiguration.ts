@@ -387,6 +387,9 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
   signingName: {
     defaultValue: "cognito-idp"
   },
+  sha256: {
+    defaultValue: __aws_sdk_hash_node.Hash.bind(null, "sha256")
+  },
   signer: {
     defaultProvider: (configuration: {
       credentials: __aws_sdk_types.Provider<__aws_sdk_types.Credentials>;
@@ -401,8 +404,5 @@ export const configurationProperties: __aws_sdk_types.ConfigurationDefinition<
         sha256: configuration.sha256,
         uriEscapePath: true
       })
-  },
-  sha256: {
-    defaultValue: __aws_sdk_hash_node.Hash.bind(null, "sha256")
   }
 };
