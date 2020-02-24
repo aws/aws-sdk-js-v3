@@ -21,9 +21,9 @@
         ],
         "aws.api#service": {
           "sdkId": "Accessanalyzer",
-          "arnNamespace": "replace-for-service-name",
+          "arnNamespace": "access-analyzer",
           "cloudFormationName": "AccessAnalyzer",
-          "cloudTrailEventSource": "replace-for-cloudtrail-event-source"
+          "cloudTrailEventSource": "access-analyzer"
         },
         "smithy.api#auth": [
           "aws.v4"
