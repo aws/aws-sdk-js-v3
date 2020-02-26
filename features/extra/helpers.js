@@ -36,7 +36,8 @@ module.exports = {
     if (!options.maxTime) options.maxTime = 5;
 
     var delay = options.delay;
-    var started = this.AWS.util.date.getDate();
+    //TODO: apply clock offset
+    var started = new Date();
 
     var self = this;
     var retry = function() {
