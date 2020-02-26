@@ -196,7 +196,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
 
         // Handle flattening for collections and maps.
-        boolean isFlattened = isFlattenedMember(memberShape);
+        boolean isFlattened = isFlattenedMember(context, memberShape);
 
         // Set up a location to store all of the entry pairs.
         writer.write("const memberEntries = $L;", target.accept(inputVisitor));
@@ -218,10 +218,11 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
      * Tells whether the contents of the member should be flattened
      * when serialized.
      *
+     * @param context The generation context.
      * @param memberShape The member being serialized.
      * @return If the member's contents should be flattened when serialized.
      */
-    protected boolean isFlattenedMember(MemberShape memberShape) {
+    protected boolean isFlattenedMember(GenerationContext context, MemberShape memberShape) {
         // The @xmlFlattened trait determines the flattening of members in aws.query.
         return memberShape.hasTrait(XmlFlattenedTrait.class);
     }
