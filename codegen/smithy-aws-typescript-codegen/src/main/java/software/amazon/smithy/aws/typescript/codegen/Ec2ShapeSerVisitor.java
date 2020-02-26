@@ -20,6 +20,7 @@ import software.amazon.smithy.aws.traits.Ec2QueryNameTrait;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.ShapeType;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
@@ -73,8 +74,9 @@ final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
     }
 
     @Override
-    protected boolean isFlattenedMember(MemberShape memberShape) {
+    protected boolean isFlattenedMember(GenerationContext context, MemberShape memberShape) {
         // All lists, sets, and maps are flattened in aws.ec2.
-        return true;
+        ShapeType targetType = context.getModel().expectShape(memberShape.getTarget()).getType();
+        return targetType == ShapeType.LIST || targetType == ShapeType.SET || targetType == ShapeType.MAP;
     }
 }
