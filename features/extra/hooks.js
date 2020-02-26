@@ -165,7 +165,7 @@ module.exports = function() {
     region,
     callback
   ) {
-    this.service = new this.AWS[svc]({ region: region });
+    this.service = new this.service.constructor({ region: region });
     callback();
   });
 
