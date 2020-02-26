@@ -20,7 +20,7 @@
           "Analyzer"
         ],
         "aws.api#service": {
-          "sdkId": "Accessanalyzer",
+          "sdkId": "AccessAnalyzer",
           "arnNamespace": "access-analyzer",
           "cloudFormationName": "AccessAnalyzer",
           "cloudTrailEventSource": "access-analyzer"
