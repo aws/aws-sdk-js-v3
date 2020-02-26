@@ -171,7 +171,6 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 if (target instanceof CollectionShape) {
                     writer.write("contents.$L = [];", memberName);
                 }
-                writer.write("return contents");
             });
         }
 
