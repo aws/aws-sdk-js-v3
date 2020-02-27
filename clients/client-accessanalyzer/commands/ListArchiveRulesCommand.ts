@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import {
   ListArchiveRulesRequest,
   ListArchiveRulesResponse
@@ -32,7 +32,7 @@ export type ListArchiveRulesCommandOutput = ListArchiveRulesResponse;
 export class ListArchiveRulesCommand extends $Command<
   ListArchiveRulesCommandInput,
   ListArchiveRulesCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -45,7 +45,7 @@ export class ListArchiveRulesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput> {
     this.middlewareStack.use(

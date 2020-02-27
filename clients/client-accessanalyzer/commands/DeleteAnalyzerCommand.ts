@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { DeleteAnalyzerRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteAnalyzerCommand,
@@ -30,7 +30,7 @@ export type DeleteAnalyzerCommandOutput = __MetadataBearer;
 export class DeleteAnalyzerCommand extends $Command<
   DeleteAnalyzerCommandInput,
   DeleteAnalyzerCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,7 +43,7 @@ export class DeleteAnalyzerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput> {
     this.middlewareStack.use(

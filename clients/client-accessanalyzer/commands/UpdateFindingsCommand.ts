@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { UpdateFindingsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFindingsCommand,
@@ -30,7 +30,7 @@ export type UpdateFindingsCommandOutput = __MetadataBearer;
 export class UpdateFindingsCommand extends $Command<
   UpdateFindingsCommandInput,
   UpdateFindingsCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,7 +43,7 @@ export class UpdateFindingsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFindingsCommandInput, UpdateFindingsCommandOutput> {
     this.middlewareStack.use(

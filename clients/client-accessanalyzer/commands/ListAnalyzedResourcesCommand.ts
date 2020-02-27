@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import {
   ListAnalyzedResourcesRequest,
   ListAnalyzedResourcesResponse
@@ -32,7 +32,7 @@ export type ListAnalyzedResourcesCommandOutput = ListAnalyzedResourcesResponse;
 export class ListAnalyzedResourcesCommand extends $Command<
   ListAnalyzedResourcesCommandInput,
   ListAnalyzedResourcesCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -45,7 +45,7 @@ export class ListAnalyzedResourcesCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<
     ListAnalyzedResourcesCommandInput,
