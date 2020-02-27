@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { GetAnalyzerRequest, GetAnalyzerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetAnalyzerCommand,
@@ -29,7 +29,7 @@ export type GetAnalyzerCommandOutput = GetAnalyzerResponse;
 export class GetAnalyzerCommand extends $Command<
   GetAnalyzerCommandInput,
   GetAnalyzerCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class GetAnalyzerCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAnalyzerCommandInput, GetAnalyzerCommandOutput> {
     this.middlewareStack.use(

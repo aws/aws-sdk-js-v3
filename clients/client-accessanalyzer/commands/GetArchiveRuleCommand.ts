@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetArchiveRuleCommand,
@@ -29,7 +29,7 @@ export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse;
 export class GetArchiveRuleCommand extends $Command<
   GetArchiveRuleCommandInput,
   GetArchiveRuleCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class GetArchiveRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput> {
     this.middlewareStack.use(
