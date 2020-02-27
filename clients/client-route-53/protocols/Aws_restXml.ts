@@ -2440,7 +2440,7 @@ export async function deserializeAws_restXmlAssociateVPCWithHostedZoneCommand(
     __type: "AssociateVPCWithHostedZoneResponse",
     ChangeInfo: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -2544,7 +2544,7 @@ export async function deserializeAws_restXmlChangeResourceRecordSetsCommand(
     __type: "ChangeResourceRecordSetsResponse",
     ChangeInfo: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -2718,7 +2718,7 @@ export async function deserializeAws_restXmlCreateHealthCheckCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HealthCheck"] !== undefined) {
     contents.HealthCheck = deserializeAws_restXmlHealthCheck(
       data["HealthCheck"],
@@ -2798,7 +2798,7 @@ export async function deserializeAws_restXmlCreateHostedZoneCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -2935,7 +2935,7 @@ export async function deserializeAws_restXmlCreateQueryLoggingConfigCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["QueryLoggingConfig"] !== undefined) {
     contents.QueryLoggingConfig = deserializeAws_restXmlQueryLoggingConfig(
       data["QueryLoggingConfig"],
@@ -3036,7 +3036,7 @@ export async function deserializeAws_restXmlCreateReusableDelegationSetCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["DelegationSet"] !== undefined) {
     contents.DelegationSet = deserializeAws_restXmlDelegationSet(
       data["DelegationSet"],
@@ -3144,7 +3144,7 @@ export async function deserializeAws_restXmlCreateTrafficPolicyCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -3231,7 +3231,7 @@ export async function deserializeAws_restXmlCreateTrafficPolicyInstanceCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicyInstance"] !== undefined) {
     contents.TrafficPolicyInstance = deserializeAws_restXmlTrafficPolicyInstance(
       data["TrafficPolicyInstance"],
@@ -3325,7 +3325,7 @@ export async function deserializeAws_restXmlCreateTrafficPolicyVersionCommand(
   if (output.headers["location"] !== undefined) {
     contents.Location = output.headers["location"];
   }
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -3416,7 +3416,7 @@ export async function deserializeAws_restXmlCreateVPCAssociationAuthorizationCom
     HostedZoneId: undefined,
     VPC: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = data["HostedZoneId"];
   }
@@ -3569,7 +3569,7 @@ export async function deserializeAws_restXmlDeleteHostedZoneCommand(
     __type: "DeleteHostedZoneResponse",
     ChangeInfo: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -4032,7 +4032,7 @@ export async function deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand
     __type: "DisassociateVPCFromHostedZoneResponse",
     ChangeInfo: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -4120,7 +4120,7 @@ export async function deserializeAws_restXmlGetAccountLimitCommand(
     Count: undefined,
     Limit: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Count"] !== undefined) {
     contents.Count = parseInt(data["Count"]);
   }
@@ -4179,7 +4179,7 @@ export async function deserializeAws_restXmlGetChangeCommand(
     __type: "GetChangeResponse",
     ChangeInfo: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ChangeInfo"] !== undefined) {
     contents.ChangeInfo = deserializeAws_restXmlChangeInfo(
       data["ChangeInfo"],
@@ -4248,7 +4248,7 @@ export async function deserializeAws_restXmlGetCheckerIpRangesCommand(
     __type: "GetCheckerIpRangesResponse",
     CheckerIpRanges: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.CheckerIpRanges === "") {
     contents.CheckerIpRanges = [];
   }
@@ -4310,7 +4310,7 @@ export async function deserializeAws_restXmlGetGeoLocationCommand(
     __type: "GetGeoLocationResponse",
     GeoLocationDetails: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["GeoLocationDetails"] !== undefined) {
     contents.GeoLocationDetails = deserializeAws_restXmlGeoLocationDetails(
       data["GeoLocationDetails"],
@@ -4376,7 +4376,7 @@ export async function deserializeAws_restXmlGetHealthCheckCommand(
     __type: "GetHealthCheckResponse",
     HealthCheck: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HealthCheck"] !== undefined) {
     contents.HealthCheck = deserializeAws_restXmlHealthCheck(
       data["HealthCheck"],
@@ -4452,7 +4452,7 @@ export async function deserializeAws_restXmlGetHealthCheckCountCommand(
     __type: "GetHealthCheckCountResponse",
     HealthCheckCount: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HealthCheckCount"] !== undefined) {
     contents.HealthCheckCount = parseInt(data["HealthCheckCount"]);
   }
@@ -4504,7 +4504,7 @@ export async function deserializeAws_restXmlGetHealthCheckLastFailureReasonComma
     __type: "GetHealthCheckLastFailureReasonResponse",
     HealthCheckObservations: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.HealthCheckObservations === "") {
     contents.HealthCheckObservations = [];
   }
@@ -4583,7 +4583,7 @@ export async function deserializeAws_restXmlGetHealthCheckStatusCommand(
     __type: "GetHealthCheckStatusResponse",
     HealthCheckObservations: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.HealthCheckObservations === "") {
     contents.HealthCheckObservations = [];
   }
@@ -4661,7 +4661,7 @@ export async function deserializeAws_restXmlGetHostedZoneCommand(
     HostedZone: undefined,
     VPCs: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["DelegationSet"] !== undefined) {
     contents.DelegationSet = deserializeAws_restXmlDelegationSet(
       data["DelegationSet"],
@@ -4746,7 +4746,7 @@ export async function deserializeAws_restXmlGetHostedZoneCountCommand(
     __type: "GetHostedZoneCountResponse",
     HostedZoneCount: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HostedZoneCount"] !== undefined) {
     contents.HostedZoneCount = parseInt(data["HostedZoneCount"]);
   }
@@ -4806,7 +4806,7 @@ export async function deserializeAws_restXmlGetHostedZoneLimitCommand(
     Count: undefined,
     Limit: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Count"] !== undefined) {
     contents.Count = parseInt(data["Count"]);
   }
@@ -4885,7 +4885,7 @@ export async function deserializeAws_restXmlGetQueryLoggingConfigCommand(
     __type: "GetQueryLoggingConfigResponse",
     QueryLoggingConfig: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["QueryLoggingConfig"] !== undefined) {
     contents.QueryLoggingConfig = deserializeAws_restXmlQueryLoggingConfig(
       data["QueryLoggingConfig"],
@@ -4954,7 +4954,7 @@ export async function deserializeAws_restXmlGetReusableDelegationSetCommand(
     __type: "GetReusableDelegationSetResponse",
     DelegationSet: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["DelegationSet"] !== undefined) {
     contents.DelegationSet = deserializeAws_restXmlDelegationSet(
       data["DelegationSet"],
@@ -5031,7 +5031,7 @@ export async function deserializeAws_restXmlGetReusableDelegationSetLimitCommand
     Count: undefined,
     Limit: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Count"] !== undefined) {
     contents.Count = parseInt(data["Count"]);
   }
@@ -5100,7 +5100,7 @@ export async function deserializeAws_restXmlGetTrafficPolicyCommand(
     __type: "GetTrafficPolicyResponse",
     TrafficPolicy: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -5169,7 +5169,7 @@ export async function deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
     __type: "GetTrafficPolicyInstanceResponse",
     TrafficPolicyInstance: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicyInstance"] !== undefined) {
     contents.TrafficPolicyInstance = deserializeAws_restXmlTrafficPolicyInstance(
       data["TrafficPolicyInstance"],
@@ -5238,7 +5238,7 @@ export async function deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand
     __type: "GetTrafficPolicyInstanceCountResponse",
     TrafficPolicyInstanceCount: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicyInstanceCount"] !== undefined) {
     contents.TrafficPolicyInstanceCount = parseInt(
       data["TrafficPolicyInstanceCount"]
@@ -5294,7 +5294,7 @@ export async function deserializeAws_restXmlListGeoLocationsCommand(
     NextCountryCode: undefined,
     NextSubdivisionCode: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.GeoLocationDetailsList === "") {
     contents.GeoLocationDetailsList = [];
   }
@@ -5382,7 +5382,7 @@ export async function deserializeAws_restXmlListHealthChecksCommand(
     MaxItems: undefined,
     NextMarker: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.HealthChecks === "") {
     contents.HealthChecks = [];
   }
@@ -5474,7 +5474,7 @@ export async function deserializeAws_restXmlListHostedZonesCommand(
     MaxItems: undefined,
     NextMarker: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.HostedZones === "") {
     contents.HostedZones = [];
   }
@@ -5578,7 +5578,7 @@ export async function deserializeAws_restXmlListHostedZonesByNameCommand(
     NextDNSName: undefined,
     NextHostedZoneId: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["DNSName"] !== undefined) {
     contents.DNSName = data["DNSName"];
   }
@@ -5676,7 +5676,7 @@ export async function deserializeAws_restXmlListQueryLoggingConfigsCommand(
     NextToken: undefined,
     QueryLoggingConfigs: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["NextToken"] !== undefined) {
     contents.NextToken = data["NextToken"];
   }
@@ -5770,7 +5770,7 @@ export async function deserializeAws_restXmlListResourceRecordSetsCommand(
     NextRecordType: undefined,
     ResourceRecordSets: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -5868,7 +5868,7 @@ export async function deserializeAws_restXmlListReusableDelegationSetsCommand(
     MaxItems: undefined,
     NextMarker: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.DelegationSets === "") {
     contents.DelegationSets = [];
   }
@@ -5952,7 +5952,7 @@ export async function deserializeAws_restXmlListTagsForResourceCommand(
     __type: "ListTagsForResourceResponse",
     ResourceTagSet: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["ResourceTagSet"] !== undefined) {
     contents.ResourceTagSet = deserializeAws_restXmlResourceTagSet(
       data["ResourceTagSet"],
@@ -6042,7 +6042,7 @@ export async function deserializeAws_restXmlListTagsForResourcesCommand(
     __type: "ListTagsForResourcesResponse",
     ResourceTagSets: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.ResourceTagSets === "") {
     contents.ResourceTagSets = [];
   }
@@ -6145,7 +6145,7 @@ export async function deserializeAws_restXmlListTrafficPoliciesCommand(
     TrafficPolicyIdMarker: undefined,
     TrafficPolicySummaries: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -6231,7 +6231,7 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesCommand(
     TrafficPolicyInstanceTypeMarker: undefined,
     TrafficPolicyInstances: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HostedZoneIdMarker"] !== undefined) {
     contents.HostedZoneIdMarker = data["HostedZoneIdMarker"];
   }
@@ -6331,7 +6331,7 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZo
     TrafficPolicyInstanceTypeMarker: undefined,
     TrafficPolicyInstances: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -6436,7 +6436,7 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCo
     TrafficPolicyInstanceTypeMarker: undefined,
     TrafficPolicyInstances: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HostedZoneIdMarker"] !== undefined) {
     contents.HostedZoneIdMarker = data["HostedZoneIdMarker"];
   }
@@ -6542,7 +6542,7 @@ export async function deserializeAws_restXmlListTrafficPolicyVersionsCommand(
     TrafficPolicies: undefined,
     TrafficPolicyVersionMarker: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["IsTruncated"] !== undefined) {
     contents.IsTruncated = data["IsTruncated"] == "true";
   }
@@ -6632,7 +6632,7 @@ export async function deserializeAws_restXmlListVPCAssociationAuthorizationsComm
     NextToken: undefined,
     VPCs: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HostedZoneId"] !== undefined) {
     contents.HostedZoneId = data["HostedZoneId"];
   }
@@ -6720,7 +6720,7 @@ export async function deserializeAws_restXmlTestDNSAnswerCommand(
     RecordType: undefined,
     ResponseCode: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Nameserver"] !== undefined) {
     contents.Nameserver = data["Nameserver"];
   }
@@ -6811,7 +6811,7 @@ export async function deserializeAws_restXmlUpdateHealthCheckCommand(
     __type: "UpdateHealthCheckResponse",
     HealthCheck: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HealthCheck"] !== undefined) {
     contents.HealthCheck = deserializeAws_restXmlHealthCheck(
       data["HealthCheck"],
@@ -6887,7 +6887,7 @@ export async function deserializeAws_restXmlUpdateHostedZoneCommentCommand(
     __type: "UpdateHostedZoneCommentResponse",
     HostedZone: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["HostedZone"] !== undefined) {
     contents.HostedZone = deserializeAws_restXmlHostedZone(
       data["HostedZone"],
@@ -6956,7 +6956,7 @@ export async function deserializeAws_restXmlUpdateTrafficPolicyCommentCommand(
     __type: "UpdateTrafficPolicyCommentResponse",
     TrafficPolicy: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicy"] !== undefined) {
     contents.TrafficPolicy = deserializeAws_restXmlTrafficPolicy(
       data["TrafficPolicy"],
@@ -7032,7 +7032,7 @@ export async function deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand(
     __type: "UpdateTrafficPolicyInstanceResponse",
     TrafficPolicyInstance: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["TrafficPolicyInstance"] !== undefined) {
     contents.TrafficPolicyInstance = deserializeAws_restXmlTrafficPolicyInstance(
       data["TrafficPolicyInstance"],
