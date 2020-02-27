@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { UntagResourceRequest, UntagResourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UntagResourceCommand,
@@ -29,7 +29,7 @@ export type UntagResourceCommandOutput = UntagResourceResponse;
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class UntagResourceCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(

@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { ListFindingsRequest, ListFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFindingsCommand,
@@ -29,7 +29,7 @@ export type ListFindingsCommandOutput = ListFindingsResponse;
 export class ListFindingsCommand extends $Command<
   ListFindingsCommandInput,
   ListFindingsCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class ListFindingsCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFindingsCommandInput, ListFindingsCommandOutput> {
     this.middlewareStack.use(

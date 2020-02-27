@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { UpdateArchiveRuleRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateArchiveRuleCommand,
@@ -30,7 +30,7 @@ export type UpdateArchiveRuleCommandOutput = __MetadataBearer;
 export class UpdateArchiveRuleCommand extends $Command<
   UpdateArchiveRuleCommandInput,
   UpdateArchiveRuleCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,7 +43,7 @@ export class UpdateArchiveRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput> {
     this.middlewareStack.use(

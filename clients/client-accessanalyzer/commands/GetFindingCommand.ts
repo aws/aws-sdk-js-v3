@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { GetFindingRequest, GetFindingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetFindingCommand,
@@ -29,7 +29,7 @@ export type GetFindingCommandOutput = GetFindingResponse;
 export class GetFindingCommand extends $Command<
   GetFindingCommandInput,
   GetFindingCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -42,7 +42,7 @@ export class GetFindingCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFindingCommandInput, GetFindingCommandOutput> {
     this.middlewareStack.use(

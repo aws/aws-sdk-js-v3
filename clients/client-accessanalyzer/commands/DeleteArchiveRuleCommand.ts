@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { DeleteArchiveRuleRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteArchiveRuleCommand,
@@ -30,7 +30,7 @@ export type DeleteArchiveRuleCommandOutput = __MetadataBearer;
 export class DeleteArchiveRuleCommand extends $Command<
   DeleteArchiveRuleCommandInput,
   DeleteArchiveRuleCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,7 +43,7 @@ export class DeleteArchiveRuleCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteArchiveRuleCommandInput, DeleteArchiveRuleCommandOutput> {
     this.middlewareStack.use(
