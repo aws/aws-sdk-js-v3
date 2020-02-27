@@ -32220,7 +32220,7 @@ const serializeAws_ec2AssociateIamInstanceProfileRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -32639,7 +32639,7 @@ const serializeAws_ec2BlockDeviceMapping = (
   if (input.Ebs !== undefined) {
     const memberEntries = serializeAws_ec2EbsBlockDevice(input.Ebs, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Ebs.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Ebs.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -32711,7 +32711,7 @@ const serializeAws_ec2BundleInstanceRequest = (
   if (input.Storage !== undefined) {
     const memberEntries = serializeAws_ec2Storage(input.Storage, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Storage.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Storage.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -32888,9 +32888,7 @@ const serializeAws_ec2CapacityReservationSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CapacityReservationTarget.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CapacityReservationTarget.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33010,7 +33008,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ActiveDirectory.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `ActiveDirectory.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33020,7 +33018,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `MutualAuthentication.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `MutualAuthentication.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33323,7 +33321,7 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ConnectionLogOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `ConnectionLogOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33519,7 +33517,7 @@ const serializeAws_ec2CreateFleetRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `OnDemandOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `OnDemandOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33532,7 +33530,7 @@ const serializeAws_ec2CreateFleetRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SpotOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SpotOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33552,9 +33550,7 @@ const serializeAws_ec2CreateFleetRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `TargetCapacitySpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `TargetCapacitySpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33639,7 +33635,7 @@ const serializeAws_ec2CreateFpgaImageRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `InputStorageLocation.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `InputStorageLocation.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33649,7 +33645,7 @@ const serializeAws_ec2CreateFpgaImageRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LogsStorageLocation.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LogsStorageLocation.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33716,7 +33712,7 @@ const serializeAws_ec2CreateInstanceExportTaskRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ExportToS3.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `ExportToS3.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33771,7 +33767,7 @@ const serializeAws_ec2CreateLaunchTemplateRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchTemplateData.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchTemplateData.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33811,7 +33807,7 @@ const serializeAws_ec2CreateLaunchTemplateVersionRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchTemplateData.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchTemplateData.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33905,7 +33901,7 @@ const serializeAws_ec2CreateNetworkAclEntryRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Icmp.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Icmp.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -33918,7 +33914,7 @@ const serializeAws_ec2CreateNetworkAclEntryRequest = (
   if (input.PortRange !== undefined) {
     const memberEntries = serializeAws_ec2PortRange(input.PortRange, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `PortRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `PortRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -34203,9 +34199,7 @@ const serializeAws_ec2CreateSnapshotsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `InstanceSpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `InstanceSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -34349,7 +34343,7 @@ const serializeAws_ec2CreateTrafficMirrorFilterRuleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `DestinationPortRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `DestinationPortRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -34374,7 +34368,7 @@ const serializeAws_ec2CreateTrafficMirrorFilterRuleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SourcePortRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SourcePortRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -34545,7 +34539,7 @@ const serializeAws_ec2CreateTransitGatewayRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Options.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Options.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -34623,7 +34617,7 @@ const serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Options.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Options.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -34970,7 +34964,7 @@ const serializeAws_ec2CreateVpnConnectionRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Options.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Options.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -38148,9 +38142,7 @@ const serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `FirstSlotStartTimeRange.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `FirstSlotStartTimeRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -38172,7 +38164,7 @@ const serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Recurrence.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Recurrence.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -38216,7 +38208,7 @@ const serializeAws_ec2DescribeScheduledInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SlotStartTimeRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SlotStartTimeRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -39773,14 +39765,14 @@ const serializeAws_ec2DiskImage = (
   if (input.Image !== undefined) {
     const memberEntries = serializeAws_ec2DiskImageDetail(input.Image, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Image.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Image.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
   if (input.Volume !== undefined) {
     const memberEntries = serializeAws_ec2VolumeDetail(input.Volume, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Volume.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Volume.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -40177,7 +40169,7 @@ const serializeAws_ec2ExportImageRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `S3ExportLocation.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `S3ExportLocation.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -40348,9 +40340,7 @@ const serializeAws_ec2FleetLaunchTemplateConfigRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchTemplateSpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `LaunchTemplateSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -40403,7 +40393,7 @@ const serializeAws_ec2FleetLaunchTemplateOverridesRequest = (
   if (input.Placement !== undefined) {
     const memberEntries = serializeAws_ec2Placement(input.Placement, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -40966,7 +40956,7 @@ const serializeAws_ec2ImageDiskContainer = (
   if (input.UserBucket !== undefined) {
     const memberEntries = serializeAws_ec2UserBucket(input.UserBucket, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `UserBucket.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `UserBucket.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41060,7 +41050,7 @@ const serializeAws_ec2ImportImageRequest = (
   if (input.ClientData !== undefined) {
     const memberEntries = serializeAws_ec2ClientData(input.ClientData, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ClientData.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `ClientData.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41160,7 +41150,7 @@ const serializeAws_ec2ImportInstanceLaunchSpecification = (
   if (input.Placement !== undefined) {
     const memberEntries = serializeAws_ec2Placement(input.Placement, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41173,7 +41163,7 @@ const serializeAws_ec2ImportInstanceLaunchSpecification = (
   if (input.UserData !== undefined) {
     const memberEntries = serializeAws_ec2UserData(input.UserData, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `UserData.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `UserData.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41207,7 +41197,7 @@ const serializeAws_ec2ImportInstanceRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41244,7 +41234,7 @@ const serializeAws_ec2ImportSnapshotRequest = (
   if (input.ClientData !== undefined) {
     const memberEntries = serializeAws_ec2ClientData(input.ClientData, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ClientData.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `ClientData.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41260,7 +41250,7 @@ const serializeAws_ec2ImportSnapshotRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `DiskContainer.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `DiskContainer.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41309,14 +41299,14 @@ const serializeAws_ec2ImportVolumeRequest = (
   if (input.Image !== undefined) {
     const memberEntries = serializeAws_ec2DiskImageDetail(input.Image, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Image.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Image.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
   if (input.Volume !== undefined) {
     const memberEntries = serializeAws_ec2VolumeDetail(input.Volume, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Volume.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Volume.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41337,7 +41327,7 @@ const serializeAws_ec2InstanceBlockDeviceMappingSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Ebs.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Ebs.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41486,7 +41476,7 @@ const serializeAws_ec2InstanceMarketOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SpotOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SpotOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41885,7 +41875,7 @@ const serializeAws_ec2LaunchTemplateBlockDeviceMappingRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Ebs.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Ebs.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41932,9 +41922,7 @@ const serializeAws_ec2LaunchTemplateCapacityReservationSpecificationRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CapacityReservationTarget.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CapacityReservationTarget.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -41952,9 +41940,7 @@ const serializeAws_ec2LaunchTemplateConfig = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchTemplateSpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `LaunchTemplateSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42102,7 +42088,7 @@ const serializeAws_ec2LaunchTemplateInstanceMarketOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SpotOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SpotOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42466,9 +42452,7 @@ const serializeAws_ec2LoadBalancersConfig = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ClassicLoadBalancersConfig.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `ClassicLoadBalancersConfig.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42478,7 +42462,7 @@ const serializeAws_ec2LoadBalancersConfig = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `TargetGroupsConfig.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `TargetGroupsConfig.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42658,7 +42642,7 @@ const serializeAws_ec2ModifyClientVpnEndpointRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `ConnectionLogOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `ConnectionLogOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42671,7 +42655,7 @@ const serializeAws_ec2ModifyClientVpnEndpointRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `DnsServers.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `DnsServers.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42742,9 +42726,7 @@ const serializeAws_ec2ModifyFleetRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `TargetCapacitySpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `TargetCapacitySpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42774,7 +42756,7 @@ const serializeAws_ec2ModifyFpgaImageAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LoadPermission.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LoadPermission.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42892,7 +42874,7 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Description.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Description.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42908,7 +42890,7 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchPermission.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchPermission.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42975,9 +42957,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `DisableApiTermination.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `DisableApiTermination.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -42990,7 +42970,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `EbsOptimized.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `EbsOptimized.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43000,7 +42980,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `EnaSupport.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `EnaSupport.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43023,9 +43003,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `InstanceInitiatedShutdownBehavior.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `InstanceInitiatedShutdownBehavior.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43035,14 +43013,14 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `InstanceType.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
   if (input.Kernel !== undefined) {
     const memberEntries = serializeAws_ec2AttributeValue(input.Kernel, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Kernel.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Kernel.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43052,7 +43030,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Ramdisk.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Ramdisk.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43062,7 +43040,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SourceDestCheck.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SourceDestCheck.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43072,7 +43050,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SriovNetSupport.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SriovNetSupport.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43082,7 +43060,7 @@ const serializeAws_ec2ModifyInstanceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `UserData.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `UserData.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43103,9 +43081,7 @@ const serializeAws_ec2ModifyInstanceCapacityReservationAttributesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CapacityReservationSpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43250,7 +43226,7 @@ const serializeAws_ec2ModifyNetworkInterfaceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Attachment.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Attachment.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43260,7 +43236,7 @@ const serializeAws_ec2ModifyNetworkInterfaceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Description.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Description.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43286,7 +43262,7 @@ const serializeAws_ec2ModifyNetworkInterfaceAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SourceDestCheck.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SourceDestCheck.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43340,9 +43316,7 @@ const serializeAws_ec2ModifySnapshotAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CreateVolumePermission.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CreateVolumePermission.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43410,9 +43384,7 @@ const serializeAws_ec2ModifySubnetAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `AssignIpv6AddressOnCreation.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `AssignIpv6AddressOnCreation.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43422,7 +43394,7 @@ const serializeAws_ec2ModifySubnetAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `MapPublicIpOnLaunch.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `MapPublicIpOnLaunch.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43483,7 +43455,7 @@ const serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `DestinationPortRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `DestinationPortRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43518,7 +43490,7 @@ const serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SourcePortRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `SourcePortRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43597,7 +43569,7 @@ const serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Options.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Options.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43642,7 +43614,7 @@ const serializeAws_ec2ModifyVolumeAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `AutoEnableIO.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `AutoEnableIO.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43689,7 +43661,7 @@ const serializeAws_ec2ModifyVpcAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `EnableDnsHostnames.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `EnableDnsHostnames.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43699,7 +43671,7 @@ const serializeAws_ec2ModifyVpcAttributeRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `EnableDnsSupport.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `EnableDnsSupport.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43915,9 +43887,7 @@ const serializeAws_ec2ModifyVpcPeeringConnectionOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `AccepterPeeringConnectionOptions.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `AccepterPeeringConnectionOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -43930,9 +43900,7 @@ const serializeAws_ec2ModifyVpcPeeringConnectionOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `RequesterPeeringConnectionOptions.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `RequesterPeeringConnectionOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -44013,7 +43981,7 @@ const serializeAws_ec2ModifyVpnTunnelOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `TunnelOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `TunnelOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -44275,9 +44243,7 @@ const serializeAws_ec2OnDemandOptionsRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CapacityReservationOptions.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CapacityReservationOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -44753,9 +44719,7 @@ const serializeAws_ec2ProvisionByoipCidrRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CidrAuthorizationContext.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CidrAuthorizationContext.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -44861,7 +44825,7 @@ const serializeAws_ec2PurchaseReservedInstancesOfferingRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LimitPrice.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LimitPrice.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45183,7 +45147,7 @@ const serializeAws_ec2ReplaceIamInstanceProfileAssociationRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45227,7 +45191,7 @@ const serializeAws_ec2ReplaceNetworkAclEntryRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Icmp.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Icmp.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45240,7 +45204,7 @@ const serializeAws_ec2ReplaceNetworkAclEntryRequest = (
   if (input.PortRange !== undefined) {
     const memberEntries = serializeAws_ec2PortRange(input.PortRange, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `PortRange.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `PortRange.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45446,9 +45410,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CapacityReservationSpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45458,7 +45420,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CpuOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `CpuOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45468,7 +45430,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CreditSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `CreditSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45508,7 +45470,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `HibernationOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `HibernationOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45518,7 +45480,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45535,9 +45497,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `InstanceMarketOptions.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `InstanceMarketOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45566,7 +45526,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `MetadataOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `MetadataOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45576,7 +45536,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Monitoring.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Monitoring.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45596,7 +45556,7 @@ const serializeAws_ec2RequestLaunchTemplateData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45653,9 +45613,7 @@ const serializeAws_ec2RequestSpotFleetRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `SpotFleetRequestConfig.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `SpotFleetRequestConfig.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45695,7 +45653,7 @@ const serializeAws_ec2RequestSpotInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45741,7 +45699,7 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45763,7 +45721,7 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Monitoring.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Monitoring.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -45783,7 +45741,7 @@ const serializeAws_ec2RequestSpotLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46221,9 +46179,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CapacityReservationSpecification.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `CapacityReservationSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46236,7 +46192,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CpuOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `CpuOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46246,7 +46202,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `CreditSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `CreditSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46289,7 +46245,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `HibernationOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `HibernationOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46299,7 +46255,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46316,9 +46272,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `InstanceMarketOptions.${key.substring(
-        key.indexOf(".") + 1
-      )}`;
+      const loc = `InstanceMarketOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46350,7 +46304,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchTemplate.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchTemplate.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46373,7 +46327,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `MetadataOptions.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `MetadataOptions.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46386,7 +46340,7 @@ const serializeAws_ec2RunInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Monitoring.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Monitoring.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46403,7 +46357,7 @@ const serializeAws_ec2RunInstancesRequest = (
   if (input.Placement !== undefined) {
     const memberEntries = serializeAws_ec2Placement(input.Placement, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46475,7 +46429,7 @@ const serializeAws_ec2RunScheduledInstancesRequest = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LaunchSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LaunchSpecification.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46565,7 +46519,7 @@ const serializeAws_ec2ScheduledInstancesBlockDeviceMapping = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Ebs.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Ebs.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46691,7 +46645,7 @@ const serializeAws_ec2ScheduledInstancesLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46713,7 +46667,7 @@ const serializeAws_ec2ScheduledInstancesLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Monitoring.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Monitoring.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -46733,7 +46687,7 @@ const serializeAws_ec2ScheduledInstancesLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -47062,7 +47016,7 @@ const serializeAws_ec2SnapshotDiskContainer = (
   if (input.UserBucket !== undefined) {
     const memberEntries = serializeAws_ec2UserBucket(input.UserBucket, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `UserBucket.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `UserBucket.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -47109,7 +47063,7 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `IamInstanceProfile.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `IamInstanceProfile.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -47131,7 +47085,7 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Monitoring.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Monitoring.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -47151,7 +47105,7 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `Placement.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `Placement.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -47260,7 +47214,7 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
       context
     );
     Object.keys(memberEntries).forEach(key => {
-      const loc = `LoadBalancersConfig.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `LoadBalancersConfig.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -47498,7 +47452,7 @@ const serializeAws_ec2Storage = (
   if (input.S3 !== undefined) {
     const memberEntries = serializeAws_ec2S3Storage(input.S3, context);
     Object.keys(memberEntries).forEach(key => {
-      const loc = `S3.${key.substring(key.indexOf(".") + 1)}`;
+      const loc = `S3.${key}`;
       entries[loc] = memberEntries[key];
     });
   }
@@ -48435,7 +48389,6 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsResult = (
   };
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -48484,7 +48437,6 @@ const deserializeAws_ec2AccountAttribute = (
   }
   if (output.attributeValueSet === "") {
     contents.AttributeValues = [];
-    return contents;
   }
   if (
     output["attributeValueSet"] !== undefined &&
@@ -48627,7 +48579,6 @@ const deserializeAws_ec2Address = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -48716,7 +48667,6 @@ const deserializeAws_ec2AllocateHostsResult = (
   };
   if (output.hostIdSet === "") {
     contents.HostIds = [];
-    return contents;
   }
   if (
     output["hostIdSet"] !== undefined &&
@@ -48771,7 +48721,6 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
   };
   if (output.securityGroupIds === "") {
     contents.SecurityGroupIds = [];
-    return contents;
   }
   if (
     output["securityGroupIds"] !== undefined &&
@@ -48807,7 +48756,6 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
   };
   if (output.assignedIpv6Addresses === "") {
     contents.AssignedIpv6Addresses = [];
-    return contents;
   }
   if (
     output["assignedIpv6Addresses"] !== undefined &&
@@ -48839,7 +48787,6 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   };
   if (output.assignedPrivateIpAddressesSet === "") {
     contents.AssignedPrivateIpAddresses = [];
-    return contents;
   }
   if (
     output["assignedPrivateIpAddressesSet"] !== undefined &&
@@ -49240,7 +49187,6 @@ const deserializeAws_ec2AvailabilityZone = (
   }
   if (output.messageSet === "") {
     contents.Messages = [];
-    return contents;
   }
   if (
     output["messageSet"] !== undefined &&
@@ -49319,7 +49265,6 @@ const deserializeAws_ec2AvailableCapacity = (
   };
   if (output.availableInstanceCapacity === "") {
     contents.AvailableInstanceCapacity = [];
-    return contents;
   }
   if (
     output["availableInstanceCapacity"] !== undefined &&
@@ -49571,7 +49516,6 @@ const deserializeAws_ec2CancelReservedInstancesListingResult = (
   };
   if (output.reservedInstancesListingsSet === "") {
     contents.ReservedInstancesListings = [];
-    return contents;
   }
   if (
     output["reservedInstancesListingsSet"] !== undefined &&
@@ -49648,7 +49592,6 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
   };
   if (output.successfulFleetRequestSet === "") {
     contents.SuccessfulFleetRequests = [];
-    return contents;
   }
   if (
     output["successfulFleetRequestSet"] !== undefined &&
@@ -49665,7 +49608,6 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
   }
   if (output.unsuccessfulFleetRequestSet === "") {
     contents.UnsuccessfulFleetRequests = [];
-    return contents;
   }
   if (
     output["unsuccessfulFleetRequestSet"] !== undefined &&
@@ -49726,7 +49668,6 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
   };
   if (output.spotInstanceRequestSet === "") {
     contents.CancelledSpotInstanceRequests = [];
-    return contents;
   }
   if (
     output["spotInstanceRequestSet"] !== undefined &&
@@ -49845,7 +49786,6 @@ const deserializeAws_ec2CapacityReservation = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -50003,7 +49943,6 @@ const deserializeAws_ec2ClassicLinkInstance = (
   };
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -50023,7 +49962,6 @@ const deserializeAws_ec2ClassicLinkInstance = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -50083,7 +50021,6 @@ const deserializeAws_ec2ClassicLoadBalancersConfig = (
   };
   if (output.classicLoadBalancers === "") {
     contents.ClassicLoadBalancers = [];
-    return contents;
   }
   if (
     output["classicLoadBalancers"] !== undefined &&
@@ -50292,7 +50229,6 @@ const deserializeAws_ec2ClientVpnEndpoint = (
   };
   if (output.associatedTargetNetwork === "") {
     contents.AssociatedTargetNetworks = [];
-    return contents;
   }
   if (
     output["associatedTargetNetwork"] !== undefined &&
@@ -50309,7 +50245,6 @@ const deserializeAws_ec2ClientVpnEndpoint = (
   }
   if (output.authenticationOptions === "") {
     contents.AuthenticationOptions = [];
-    return contents;
   }
   if (
     output["authenticationOptions"] !== undefined &&
@@ -50350,7 +50285,6 @@ const deserializeAws_ec2ClientVpnEndpoint = (
   }
   if (output.dnsServer === "") {
     contents.DnsServers = [];
-    return contents;
   }
   if (
     output["dnsServer"] !== undefined &&
@@ -50379,7 +50313,6 @@ const deserializeAws_ec2ClientVpnEndpoint = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -50547,7 +50480,6 @@ const deserializeAws_ec2CoipPool = (
   }
   if (output.poolCidrSet === "") {
     contents.PoolCidrs = [];
-    return contents;
   }
   if (
     output["poolCidrSet"] !== undefined &&
@@ -50567,7 +50499,6 @@ const deserializeAws_ec2CoipPool = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -50647,7 +50578,6 @@ const deserializeAws_ec2ConnectionNotification = (
   };
   if (output.connectionEvents === "") {
     contents.ConnectionEvents = [];
-    return contents;
   }
   if (
     output["connectionEvents"] !== undefined &&
@@ -50733,7 +50663,6 @@ const deserializeAws_ec2ConversionTask = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -50790,7 +50719,6 @@ const deserializeAws_ec2CopySnapshotResult = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -51024,7 +50952,6 @@ const deserializeAws_ec2CreateFleetInstance = (
   };
   if (output.instanceIds === "") {
     contents.InstanceIds = [];
-    return contents;
   }
   if (
     output["instanceIds"] !== undefined &&
@@ -51078,7 +51005,6 @@ const deserializeAws_ec2CreateFleetResult = (
   };
   if (output.errorSet === "") {
     contents.Errors = [];
-    return contents;
   }
   if (
     output["errorSet"] !== undefined &&
@@ -51098,7 +51024,6 @@ const deserializeAws_ec2CreateFleetResult = (
   }
   if (output.fleetInstanceSet === "") {
     contents.Instances = [];
-    return contents;
   }
   if (
     output["fleetInstanceSet"] !== undefined &&
@@ -51131,7 +51056,6 @@ const deserializeAws_ec2CreateFlowLogsResult = (
   }
   if (output.flowLogIdSet === "") {
     contents.FlowLogIds = [];
-    return contents;
   }
   if (
     output["flowLogIdSet"] !== undefined &&
@@ -51148,7 +51072,6 @@ const deserializeAws_ec2CreateFlowLogsResult = (
   }
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -51382,7 +51305,6 @@ const deserializeAws_ec2CreateReservedInstancesListingResult = (
   };
   if (output.reservedInstancesListingsSet === "") {
     contents.ReservedInstancesListings = [];
-    return contents;
   }
   if (
     output["reservedInstancesListingsSet"] !== undefined &&
@@ -51455,7 +51377,6 @@ const deserializeAws_ec2CreateSnapshotsResult = (
   };
   if (output.snapshotSet === "") {
     contents.Snapshots = [];
-    return contents;
   }
   if (
     output["snapshotSet"] !== undefined &&
@@ -51891,7 +51812,6 @@ const deserializeAws_ec2CustomerGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -52056,7 +51976,6 @@ const deserializeAws_ec2DeleteFleetsResult = (
   };
   if (output.successfulFleetDeletionSet === "") {
     contents.SuccessfulFleetDeletions = [];
-    return contents;
   }
   if (
     output["successfulFleetDeletionSet"] !== undefined &&
@@ -52073,7 +51992,6 @@ const deserializeAws_ec2DeleteFleetsResult = (
   }
   if (output.unsuccessfulFleetDeletionSet === "") {
     contents.UnsuccessfulFleetDeletions = [];
-    return contents;
   }
   if (
     output["unsuccessfulFleetDeletionSet"] !== undefined &&
@@ -52101,7 +52019,6 @@ const deserializeAws_ec2DeleteFlowLogsResult = (
   };
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -52236,7 +52153,6 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
   };
   if (output.successfullyDeletedLaunchTemplateVersionSet === "") {
     contents.SuccessfullyDeletedLaunchTemplateVersions = [];
-    return contents;
   }
   if (
     output["successfullyDeletedLaunchTemplateVersionSet"] !== undefined &&
@@ -52254,7 +52170,6 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
   }
   if (output.unsuccessfullyDeletedLaunchTemplateVersionSet === "") {
     contents.UnsuccessfullyDeletedLaunchTemplateVersions = [];
-    return contents;
   }
   if (
     output["unsuccessfullyDeletedLaunchTemplateVersionSet"] !== undefined &&
@@ -52365,7 +52280,6 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
   };
   if (output.failedQueuedPurchaseDeletionSet === "") {
     contents.FailedQueuedPurchaseDeletions = [];
-    return contents;
   }
   if (
     output["failedQueuedPurchaseDeletionSet"] !== undefined &&
@@ -52382,7 +52296,6 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
   }
   if (output.successfulQueuedPurchaseDeletionSet === "") {
     contents.SuccessfulQueuedPurchaseDeletions = [];
-    return contents;
   }
   if (
     output["successfulQueuedPurchaseDeletionSet"] !== undefined &&
@@ -52568,7 +52481,6 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsResult = (
   };
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -52596,7 +52508,6 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
   };
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -52624,7 +52535,6 @@ const deserializeAws_ec2DeleteVpcEndpointsResult = (
   };
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -52717,7 +52627,6 @@ const deserializeAws_ec2DescribeAccountAttributesResult = (
   };
   if (output.accountAttributeSet === "") {
     contents.AccountAttributes = [];
-    return contents;
   }
   if (
     output["accountAttributeSet"] !== undefined &&
@@ -52745,7 +52654,6 @@ const deserializeAws_ec2DescribeAddressesResult = (
   };
   if (output.addressesSet === "") {
     contents.Addresses = [];
-    return contents;
   }
   if (
     output["addressesSet"] !== undefined &&
@@ -52771,7 +52679,6 @@ const deserializeAws_ec2DescribeAggregateIdFormatResult = (
   };
   if (output.statusSet === "") {
     contents.Statuses = [];
-    return contents;
   }
   if (
     output["statusSet"] !== undefined &&
@@ -52799,7 +52706,6 @@ const deserializeAws_ec2DescribeAvailabilityZonesResult = (
   };
   if (output.availabilityZoneInfo === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["availabilityZoneInfo"] !== undefined &&
@@ -52827,7 +52733,6 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
   };
   if (output.bundleInstanceTasksSet === "") {
     contents.BundleTasks = [];
-    return contents;
   }
   if (
     output["bundleInstanceTasksSet"] !== undefined &&
@@ -52856,7 +52761,6 @@ const deserializeAws_ec2DescribeByoipCidrsResult = (
   };
   if (output.byoipCidrSet === "") {
     contents.ByoipCidrs = [];
-    return contents;
   }
   if (
     output["byoipCidrSet"] !== undefined &&
@@ -52885,7 +52789,6 @@ const deserializeAws_ec2DescribeCapacityReservationsResult = (
   };
   if (output.capacityReservationSet === "") {
     contents.CapacityReservations = [];
-    return contents;
   }
   if (
     output["capacityReservationSet"] !== undefined &&
@@ -52917,7 +52820,6 @@ const deserializeAws_ec2DescribeClassicLinkInstancesResult = (
   };
   if (output.instancesSet === "") {
     contents.Instances = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -52949,7 +52851,6 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesResult = (
   };
   if (output.authorizationRule === "") {
     contents.AuthorizationRules = [];
-    return contents;
   }
   if (
     output["authorizationRule"] !== undefined &&
@@ -52981,7 +52882,6 @@ const deserializeAws_ec2DescribeClientVpnConnectionsResult = (
   };
   if (output.connections === "") {
     contents.Connections = [];
-    return contents;
   }
   if (
     output["connections"] !== undefined &&
@@ -53013,7 +52913,6 @@ const deserializeAws_ec2DescribeClientVpnEndpointsResult = (
   };
   if (output.clientVpnEndpoint === "") {
     contents.ClientVpnEndpoints = [];
-    return contents;
   }
   if (
     output["clientVpnEndpoint"] !== undefined &&
@@ -53048,7 +52947,6 @@ const deserializeAws_ec2DescribeClientVpnRoutesResult = (
   }
   if (output.routes === "") {
     contents.Routes = [];
-    return contents;
   }
   if (
     output["routes"] !== undefined &&
@@ -53074,7 +52972,6 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
   };
   if (output.clientVpnTargetNetworks === "") {
     contents.ClientVpnTargetNetworks = [];
-    return contents;
   }
   if (
     output["clientVpnTargetNetworks"] !== undefined &&
@@ -53106,7 +53003,6 @@ const deserializeAws_ec2DescribeCoipPoolsResult = (
   };
   if (output.coipPoolSet === "") {
     contents.CoipPools = [];
-    return contents;
   }
   if (
     output["coipPoolSet"] !== undefined &&
@@ -53143,7 +53039,6 @@ const deserializeAws_ec2DescribeConversionTasksResult = (
   };
   if (output.conversionTasks === "") {
     contents.ConversionTasks = [];
-    return contents;
   }
   if (
     output["conversionTasks"] !== undefined &&
@@ -53171,7 +53066,6 @@ const deserializeAws_ec2DescribeCustomerGatewaysResult = (
   };
   if (output.customerGatewaySet === "") {
     contents.CustomerGateways = [];
-    return contents;
   }
   if (
     output["customerGatewaySet"] !== undefined &&
@@ -53200,7 +53094,6 @@ const deserializeAws_ec2DescribeDhcpOptionsResult = (
   };
   if (output.dhcpOptionsSet === "") {
     contents.DhcpOptions = [];
-    return contents;
   }
   if (
     output["dhcpOptionsSet"] !== undefined &&
@@ -53232,7 +53125,6 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysResult = (
   };
   if (output.egressOnlyInternetGatewaySet === "") {
     contents.EgressOnlyInternetGateways = [];
-    return contents;
   }
   if (
     output["egressOnlyInternetGatewaySet"] !== undefined &&
@@ -53265,7 +53157,6 @@ const deserializeAws_ec2DescribeElasticGpusResult = (
   };
   if (output.elasticGpuSet === "") {
     contents.ElasticGpuSet = [];
-    return contents;
   }
   if (
     output["elasticGpuSet"] !== undefined &&
@@ -53300,7 +53191,6 @@ const deserializeAws_ec2DescribeExportImageTasksResult = (
   };
   if (output.exportImageTaskSet === "") {
     contents.ExportImageTasks = [];
-    return contents;
   }
   if (
     output["exportImageTaskSet"] !== undefined &&
@@ -53331,7 +53221,6 @@ const deserializeAws_ec2DescribeExportTasksResult = (
   };
   if (output.exportTaskSet === "") {
     contents.ExportTasks = [];
-    return contents;
   }
   if (
     output["exportTaskSet"] !== undefined &&
@@ -53423,7 +53312,6 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
   };
   if (output.fastSnapshotRestoreSet === "") {
     contents.FastSnapshotRestores = [];
-    return contents;
   }
   if (
     output["fastSnapshotRestoreSet"] !== undefined &&
@@ -53490,7 +53378,6 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
   }
   if (output.historyRecordSet === "") {
     contents.HistoryRecords = [];
-    return contents;
   }
   if (
     output["historyRecordSet"] !== undefined &&
@@ -53529,7 +53416,6 @@ const deserializeAws_ec2DescribeFleetInstancesResult = (
   };
   if (output.activeInstanceSet === "") {
     contents.ActiveInstances = [];
-    return contents;
   }
   if (
     output["activeInstanceSet"] !== undefined &&
@@ -53576,7 +53462,6 @@ const deserializeAws_ec2DescribeFleetsInstances = (
   };
   if (output.instanceIds === "") {
     contents.InstanceIds = [];
-    return contents;
   }
   if (
     output["instanceIds"] !== undefined &&
@@ -53629,7 +53514,6 @@ const deserializeAws_ec2DescribeFleetsResult = (
   };
   if (output.fleetSet === "") {
     contents.Fleets = [];
-    return contents;
   }
   if (
     output["fleetSet"] !== undefined &&
@@ -53658,7 +53542,6 @@ const deserializeAws_ec2DescribeFlowLogsResult = (
   };
   if (output.flowLogSet === "") {
     contents.FlowLogs = [];
-    return contents;
   }
   if (
     output["flowLogSet"] !== undefined &&
@@ -53704,7 +53587,6 @@ const deserializeAws_ec2DescribeFpgaImagesResult = (
   };
   if (output.fpgaImageSet === "") {
     contents.FpgaImages = [];
-    return contents;
   }
   if (
     output["fpgaImageSet"] !== undefined &&
@@ -53736,7 +53618,6 @@ const deserializeAws_ec2DescribeHostReservationOfferingsResult = (
   }
   if (output.offeringSet === "") {
     contents.OfferingSet = [];
-    return contents;
   }
   if (
     output["offeringSet"] !== undefined &&
@@ -53765,7 +53646,6 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
   };
   if (output.hostReservationSet === "") {
     contents.HostReservationSet = [];
-    return contents;
   }
   if (
     output["hostReservationSet"] !== undefined &&
@@ -53797,7 +53677,6 @@ const deserializeAws_ec2DescribeHostsResult = (
   };
   if (output.hostSet === "") {
     contents.Hosts = [];
-    return contents;
   }
   if (
     output["hostSet"] !== undefined &&
@@ -53826,7 +53705,6 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsResult = (
   };
   if (output.iamInstanceProfileAssociationSet === "") {
     contents.IamInstanceProfileAssociations = [];
-    return contents;
   }
   if (
     output["iamInstanceProfileAssociationSet"] !== undefined &&
@@ -53857,7 +53735,6 @@ const deserializeAws_ec2DescribeIdFormatResult = (
   };
   if (output.statusSet === "") {
     contents.Statuses = [];
-    return contents;
   }
   if (
     output["statusSet"] !== undefined &&
@@ -53882,7 +53759,6 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
   };
   if (output.statusSet === "") {
     contents.Statuses = [];
-    return contents;
   }
   if (
     output["statusSet"] !== undefined &&
@@ -53907,7 +53783,6 @@ const deserializeAws_ec2DescribeImagesResult = (
   };
   if (output.imagesSet === "") {
     contents.Images = [];
-    return contents;
   }
   if (
     output["imagesSet"] !== undefined &&
@@ -53933,7 +53808,6 @@ const deserializeAws_ec2DescribeImportImageTasksResult = (
   };
   if (output.importImageTaskSet === "") {
     contents.ImportImageTasks = [];
-    return contents;
   }
   if (
     output["importImageTaskSet"] !== undefined &&
@@ -53965,7 +53839,6 @@ const deserializeAws_ec2DescribeImportSnapshotTasksResult = (
   };
   if (output.importSnapshotTaskSet === "") {
     contents.ImportSnapshotTasks = [];
-    return contents;
   }
   if (
     output["importSnapshotTaskSet"] !== undefined &&
@@ -53997,7 +53870,6 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsResult = (
   };
   if (output.instanceCreditSpecificationSet === "") {
     contents.InstanceCreditSpecifications = [];
-    return contents;
   }
   if (
     output["instanceCreditSpecificationSet"] !== undefined &&
@@ -54029,7 +53901,6 @@ const deserializeAws_ec2DescribeInstanceStatusResult = (
   };
   if (output.instanceStatusSet === "") {
     contents.InstanceStatuses = [];
-    return contents;
   }
   if (
     output["instanceStatusSet"] !== undefined &&
@@ -54061,7 +53932,6 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsResult = (
   };
   if (output.instanceTypeOfferingSet === "") {
     contents.InstanceTypeOfferings = [];
-    return contents;
   }
   if (
     output["instanceTypeOfferingSet"] !== undefined &&
@@ -54093,7 +53963,6 @@ const deserializeAws_ec2DescribeInstanceTypesResult = (
   };
   if (output.instanceTypeSet === "") {
     contents.InstanceTypes = [];
-    return contents;
   }
   if (
     output["instanceTypeSet"] !== undefined &&
@@ -54128,7 +53997,6 @@ const deserializeAws_ec2DescribeInstancesResult = (
   }
   if (output.reservationSet === "") {
     contents.Reservations = [];
-    return contents;
   }
   if (
     output["reservationSet"] !== undefined &&
@@ -54157,7 +54025,6 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
   };
   if (output.internetGatewaySet === "") {
     contents.InternetGateways = [];
-    return contents;
   }
   if (
     output["internetGatewaySet"] !== undefined &&
@@ -54189,7 +54056,6 @@ const deserializeAws_ec2DescribeIpv6PoolsResult = (
   };
   if (output.ipv6PoolSet === "") {
     contents.Ipv6Pools = [];
-    return contents;
   }
   if (
     output["ipv6PoolSet"] !== undefined &&
@@ -54217,7 +54083,6 @@ const deserializeAws_ec2DescribeKeyPairsResult = (
   };
   if (output.keySet === "") {
     contents.KeyPairs = [];
-    return contents;
   }
   if (
     output["keySet"] !== undefined &&
@@ -54243,7 +54108,6 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsResult = (
   };
   if (output.launchTemplateVersionSet === "") {
     contents.LaunchTemplateVersions = [];
-    return contents;
   }
   if (
     output["launchTemplateVersionSet"] !== undefined &&
@@ -54275,7 +54139,6 @@ const deserializeAws_ec2DescribeLaunchTemplatesResult = (
   };
   if (output.launchTemplates === "") {
     contents.LaunchTemplates = [];
-    return contents;
   }
   if (
     output["launchTemplates"] !== undefined &&
@@ -54308,7 +54171,6 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
   };
   if (output.localGatewayRouteTableVirtualInterfaceGroupAssociationSet === "") {
     contents.LocalGatewayRouteTableVirtualInterfaceGroupAssociations = [];
-    return contents;
   }
   if (
     output["localGatewayRouteTableVirtualInterfaceGroupAssociationSet"] !==
@@ -54351,7 +54213,6 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsResult = (
   };
   if (output.localGatewayRouteTableVpcAssociationSet === "") {
     contents.LocalGatewayRouteTableVpcAssociations = [];
-    return contents;
   }
   if (
     output["localGatewayRouteTableVpcAssociationSet"] !== undefined &&
@@ -54383,7 +54244,6 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesResult = (
   };
   if (output.localGatewayRouteTableSet === "") {
     contents.LocalGatewayRouteTables = [];
-    return contents;
   }
   if (
     output["localGatewayRouteTableSet"] !== undefined &&
@@ -54415,7 +54275,6 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsResult = (
   };
   if (output.localGatewayVirtualInterfaceGroupSet === "") {
     contents.LocalGatewayVirtualInterfaceGroups = [];
-    return contents;
   }
   if (
     output["localGatewayVirtualInterfaceGroupSet"] !== undefined &&
@@ -54447,7 +54306,6 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesResult = (
   };
   if (output.localGatewayVirtualInterfaceSet === "") {
     contents.LocalGatewayVirtualInterfaces = [];
-    return contents;
   }
   if (
     output["localGatewayVirtualInterfaceSet"] !== undefined &&
@@ -54479,7 +54337,6 @@ const deserializeAws_ec2DescribeLocalGatewaysResult = (
   };
   if (output.localGatewaySet === "") {
     contents.LocalGateways = [];
-    return contents;
   }
   if (
     output["localGatewaySet"] !== undefined &&
@@ -54511,7 +54368,6 @@ const deserializeAws_ec2DescribeMovingAddressesResult = (
   };
   if (output.movingAddressStatusSet === "") {
     contents.MovingAddressStatuses = [];
-    return contents;
   }
   if (
     output["movingAddressStatusSet"] !== undefined &&
@@ -54543,7 +54399,6 @@ const deserializeAws_ec2DescribeNatGatewaysResult = (
   };
   if (output.natGatewaySet === "") {
     contents.NatGateways = [];
-    return contents;
   }
   if (
     output["natGatewaySet"] !== undefined &&
@@ -54575,7 +54430,6 @@ const deserializeAws_ec2DescribeNetworkAclsResult = (
   };
   if (output.networkAclSet === "") {
     contents.NetworkAcls = [];
-    return contents;
   }
   if (
     output["networkAclSet"] !== undefined &&
@@ -54622,7 +54476,6 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeResult = (
   }
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -54660,7 +54513,6 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsResult = (
   };
   if (output.networkInterfacePermissions === "") {
     contents.NetworkInterfacePermissions = [];
-    return contents;
   }
   if (
     output["networkInterfacePermissions"] !== undefined &&
@@ -54692,7 +54544,6 @@ const deserializeAws_ec2DescribeNetworkInterfacesResult = (
   };
   if (output.networkInterfaceSet === "") {
     contents.NetworkInterfaces = [];
-    return contents;
   }
   if (
     output["networkInterfaceSet"] !== undefined &&
@@ -54723,7 +54574,6 @@ const deserializeAws_ec2DescribePlacementGroupsResult = (
   };
   if (output.placementGroupSet === "") {
     contents.PlacementGroups = [];
-    return contents;
   }
   if (
     output["placementGroupSet"] !== undefined &&
@@ -54755,7 +54605,6 @@ const deserializeAws_ec2DescribePrefixListsResult = (
   }
   if (output.prefixListSet === "") {
     contents.PrefixLists = [];
-    return contents;
   }
   if (
     output["prefixListSet"] !== undefined &&
@@ -54787,7 +54636,6 @@ const deserializeAws_ec2DescribePrincipalIdFormatResult = (
   }
   if (output.principalSet === "") {
     contents.Principals = [];
-    return contents;
   }
   if (
     output["principalSet"] !== undefined &&
@@ -54819,7 +54667,6 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
   }
   if (output.publicIpv4PoolSet === "") {
     contents.PublicIpv4Pools = [];
-    return contents;
   }
   if (
     output["publicIpv4PoolSet"] !== undefined &&
@@ -54847,7 +54694,6 @@ const deserializeAws_ec2DescribeRegionsResult = (
   };
   if (output.regionInfo === "") {
     contents.Regions = [];
-    return contents;
   }
   if (
     output["regionInfo"] !== undefined &&
@@ -54872,7 +54718,6 @@ const deserializeAws_ec2DescribeReservedInstancesListingsResult = (
   };
   if (output.reservedInstancesListingsSet === "") {
     contents.ReservedInstancesListings = [];
-    return contents;
   }
   if (
     output["reservedInstancesListingsSet"] !== undefined &&
@@ -54904,7 +54749,6 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsResult = (
   }
   if (output.reservedInstancesModificationsSet === "") {
     contents.ReservedInstancesModifications = [];
-    return contents;
   }
   if (
     output["reservedInstancesModificationsSet"] !== undefined &&
@@ -54936,7 +54780,6 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsResult = (
   }
   if (output.reservedInstancesOfferingsSet === "") {
     contents.ReservedInstancesOfferings = [];
-    return contents;
   }
   if (
     output["reservedInstancesOfferingsSet"] !== undefined &&
@@ -54964,7 +54807,6 @@ const deserializeAws_ec2DescribeReservedInstancesResult = (
   };
   if (output.reservedInstancesSet === "") {
     contents.ReservedInstances = [];
-    return contents;
   }
   if (
     output["reservedInstancesSet"] !== undefined &&
@@ -54996,7 +54838,6 @@ const deserializeAws_ec2DescribeRouteTablesResult = (
   }
   if (output.routeTableSet === "") {
     contents.RouteTables = [];
-    return contents;
   }
   if (
     output["routeTableSet"] !== undefined &&
@@ -55028,7 +54869,6 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityResult = (
   }
   if (output.scheduledInstanceAvailabilitySet === "") {
     contents.ScheduledInstanceAvailabilitySet = [];
-    return contents;
   }
   if (
     output["scheduledInstanceAvailabilitySet"] !== undefined &&
@@ -55060,7 +54900,6 @@ const deserializeAws_ec2DescribeScheduledInstancesResult = (
   }
   if (output.scheduledInstanceSet === "") {
     contents.ScheduledInstanceSet = [];
-    return contents;
   }
   if (
     output["scheduledInstanceSet"] !== undefined &&
@@ -55088,7 +54927,6 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesResult = (
   };
   if (output.securityGroupReferenceSet === "") {
     contents.SecurityGroupReferenceSet = [];
-    return contents;
   }
   if (
     output["securityGroupReferenceSet"] !== undefined &&
@@ -55120,7 +54958,6 @@ const deserializeAws_ec2DescribeSecurityGroupsResult = (
   }
   if (output.securityGroupInfo === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["securityGroupInfo"] !== undefined &&
@@ -55150,7 +54987,6 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
   };
   if (output.createVolumePermission === "") {
     contents.CreateVolumePermissions = [];
-    return contents;
   }
   if (
     output["createVolumePermission"] !== undefined &&
@@ -55167,7 +55003,6 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -55202,7 +55037,6 @@ const deserializeAws_ec2DescribeSnapshotsResult = (
   }
   if (output.snapshotSet === "") {
     contents.Snapshots = [];
-    return contents;
   }
   if (
     output["snapshotSet"] !== undefined &&
@@ -55246,7 +55080,6 @@ const deserializeAws_ec2DescribeSpotFleetInstancesResponse = (
   };
   if (output.activeInstanceSet === "") {
     contents.ActiveInstances = [];
-    return contents;
   }
   if (
     output["activeInstanceSet"] !== undefined &&
@@ -55284,7 +55117,6 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
   };
   if (output.historyRecordSet === "") {
     contents.HistoryRecords = [];
-    return contents;
   }
   if (
     output["historyRecordSet"] !== undefined &&
@@ -55328,7 +55160,6 @@ const deserializeAws_ec2DescribeSpotFleetRequestsResponse = (
   }
   if (output.spotFleetRequestConfigSet === "") {
     contents.SpotFleetRequestConfigs = [];
-    return contents;
   }
   if (
     output["spotFleetRequestConfigSet"] !== undefined &&
@@ -55360,7 +55191,6 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsResult = (
   }
   if (output.spotInstanceRequestSet === "") {
     contents.SpotInstanceRequests = [];
-    return contents;
   }
   if (
     output["spotInstanceRequestSet"] !== undefined &&
@@ -55392,7 +55222,6 @@ const deserializeAws_ec2DescribeSpotPriceHistoryResult = (
   }
   if (output.spotPriceHistorySet === "") {
     contents.SpotPriceHistory = [];
-    return contents;
   }
   if (
     output["spotPriceHistorySet"] !== undefined &&
@@ -55424,7 +55253,6 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsResult = (
   }
   if (output.staleSecurityGroupSet === "") {
     contents.StaleSecurityGroupSet = [];
-    return contents;
   }
   if (
     output["staleSecurityGroupSet"] !== undefined &&
@@ -55456,7 +55284,6 @@ const deserializeAws_ec2DescribeSubnetsResult = (
   }
   if (output.subnetSet === "") {
     contents.Subnets = [];
-    return contents;
   }
   if (
     output["subnetSet"] !== undefined &&
@@ -55485,7 +55312,6 @@ const deserializeAws_ec2DescribeTagsResult = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -55514,7 +55340,6 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersResult = (
   }
   if (output.trafficMirrorFilterSet === "") {
     contents.TrafficMirrorFilters = [];
-    return contents;
   }
   if (
     output["trafficMirrorFilterSet"] !== undefined &&
@@ -55546,7 +55371,6 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsResult = (
   }
   if (output.trafficMirrorSessionSet === "") {
     contents.TrafficMirrorSessions = [];
-    return contents;
   }
   if (
     output["trafficMirrorSessionSet"] !== undefined &&
@@ -55578,7 +55402,6 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsResult = (
   }
   if (output.trafficMirrorTargetSet === "") {
     contents.TrafficMirrorTargets = [];
-    return contents;
   }
   if (
     output["trafficMirrorTargetSet"] !== undefined &&
@@ -55610,7 +55433,6 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsResult = (
   }
   if (output.transitGatewayAttachments === "") {
     contents.TransitGatewayAttachments = [];
-    return contents;
   }
   if (
     output["transitGatewayAttachments"] !== undefined &&
@@ -55642,7 +55464,6 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsResult = (
   }
   if (output.transitGatewayMulticastDomains === "") {
     contents.TransitGatewayMulticastDomains = [];
-    return contents;
   }
   if (
     output["transitGatewayMulticastDomains"] !== undefined &&
@@ -55674,7 +55495,6 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult = (
   }
   if (output.transitGatewayPeeringAttachments === "") {
     contents.TransitGatewayPeeringAttachments = [];
-    return contents;
   }
   if (
     output["transitGatewayPeeringAttachments"] !== undefined &&
@@ -55706,7 +55526,6 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesResult = (
   }
   if (output.transitGatewayRouteTables === "") {
     contents.TransitGatewayRouteTables = [];
-    return contents;
   }
   if (
     output["transitGatewayRouteTables"] !== undefined &&
@@ -55738,7 +55557,6 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult = (
   }
   if (output.transitGatewayVpcAttachments === "") {
     contents.TransitGatewayVpcAttachments = [];
-    return contents;
   }
   if (
     output["transitGatewayVpcAttachments"] !== undefined &&
@@ -55770,7 +55588,6 @@ const deserializeAws_ec2DescribeTransitGatewaysResult = (
   }
   if (output.transitGatewaySet === "") {
     contents.TransitGateways = [];
-    return contents;
   }
   if (
     output["transitGatewaySet"] !== undefined &&
@@ -55806,7 +55623,6 @@ const deserializeAws_ec2DescribeVolumeAttributeResult = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -55841,7 +55657,6 @@ const deserializeAws_ec2DescribeVolumeStatusResult = (
   }
   if (output.volumeStatusSet === "") {
     contents.VolumeStatuses = [];
-    return contents;
   }
   if (
     output["volumeStatusSet"] !== undefined &&
@@ -55873,7 +55688,6 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
   }
   if (output.volumeModificationSet === "") {
     contents.VolumesModifications = [];
-    return contents;
   }
   if (
     output["volumeModificationSet"] !== undefined &&
@@ -55905,7 +55719,6 @@ const deserializeAws_ec2DescribeVolumesResult = (
   }
   if (output.volumeSet === "") {
     contents.Volumes = [];
-    return contents;
   }
   if (
     output["volumeSet"] !== undefined &&
@@ -55962,7 +55775,6 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportResult = (
   }
   if (output.vpcs === "") {
     contents.Vpcs = [];
-    return contents;
   }
   if (output["vpcs"] !== undefined && output["vpcs"]["item"] !== undefined) {
     const wrappedItem =
@@ -55987,7 +55799,6 @@ const deserializeAws_ec2DescribeVpcClassicLinkResult = (
   };
   if (output.vpcSet === "") {
     contents.Vpcs = [];
-    return contents;
   }
   if (
     output["vpcSet"] !== undefined &&
@@ -56013,7 +55824,6 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsResult = (
   };
   if (output.connectionNotificationSet === "") {
     contents.ConnectionNotificationSet = [];
-    return contents;
   }
   if (
     output["connectionNotificationSet"] !== undefined &&
@@ -56048,7 +55858,6 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsResult = (
   }
   if (output.vpcEndpointConnectionSet === "") {
     contents.VpcEndpointConnections = [];
-    return contents;
   }
   if (
     output["vpcEndpointConnectionSet"] !== undefined &&
@@ -56080,7 +55889,6 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsResult = (
   }
   if (output.serviceConfigurationSet === "") {
     contents.ServiceConfigurations = [];
-    return contents;
   }
   if (
     output["serviceConfigurationSet"] !== undefined &&
@@ -56109,7 +55917,6 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsResult = (
   };
   if (output.allowedPrincipals === "") {
     contents.AllowedPrincipals = [];
-    return contents;
   }
   if (
     output["allowedPrincipals"] !== undefined &&
@@ -56145,7 +55952,6 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
   }
   if (output.serviceDetailSet === "") {
     contents.ServiceDetails = [];
-    return contents;
   }
   if (
     output["serviceDetailSet"] !== undefined &&
@@ -56162,7 +55968,6 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
   }
   if (output.serviceNameSet === "") {
     contents.ServiceNames = [];
-    return contents;
   }
   if (
     output["serviceNameSet"] !== undefined &&
@@ -56194,7 +55999,6 @@ const deserializeAws_ec2DescribeVpcEndpointsResult = (
   }
   if (output.vpcEndpointSet === "") {
     contents.VpcEndpoints = [];
-    return contents;
   }
   if (
     output["vpcEndpointSet"] !== undefined &&
@@ -56226,7 +56030,6 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
   }
   if (output.vpcPeeringConnectionSet === "") {
     contents.VpcPeeringConnections = [];
-    return contents;
   }
   if (
     output["vpcPeeringConnectionSet"] !== undefined &&
@@ -56258,7 +56061,6 @@ const deserializeAws_ec2DescribeVpcsResult = (
   }
   if (output.vpcSet === "") {
     contents.Vpcs = [];
-    return contents;
   }
   if (
     output["vpcSet"] !== undefined &&
@@ -56283,7 +56085,6 @@ const deserializeAws_ec2DescribeVpnConnectionsResult = (
   };
   if (output.vpnConnectionSet === "") {
     contents.VpnConnections = [];
-    return contents;
   }
   if (
     output["vpnConnectionSet"] !== undefined &&
@@ -56311,7 +56112,6 @@ const deserializeAws_ec2DescribeVpnGatewaysResult = (
   };
   if (output.vpnGatewaySet === "") {
     contents.VpnGateways = [];
-    return contents;
   }
   if (
     output["vpnGatewaySet"] !== undefined &&
@@ -56357,7 +56157,6 @@ const deserializeAws_ec2DhcpConfiguration = (
   }
   if (output.valueSet === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["valueSet"] !== undefined &&
@@ -56406,7 +56205,6 @@ const deserializeAws_ec2DhcpOptions = (
   };
   if (output.dhcpConfigurationSet === "") {
     contents.DhcpConfigurations = [];
-    return contents;
   }
   if (
     output["dhcpConfigurationSet"] !== undefined &&
@@ -56429,7 +56227,6 @@ const deserializeAws_ec2DhcpOptions = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -56493,7 +56290,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
   };
   if (output.fastSnapshotRestoreStateErrorSet === "") {
     contents.FastSnapshotRestoreStateErrors = [];
-    return contents;
   }
   if (
     output["fastSnapshotRestoreStateErrorSet"] !== undefined &&
@@ -56645,7 +56441,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
   };
   if (output.successful === "") {
     contents.Successful = [];
-    return contents;
   }
   if (
     output["successful"] !== undefined &&
@@ -56662,7 +56457,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
   }
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -57042,7 +56836,6 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
   };
   if (output.attachmentSet === "") {
     contents.Attachments = [];
-    return contents;
   }
   if (
     output["attachmentSet"] !== undefined &&
@@ -57063,7 +56856,6 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -57205,7 +56997,6 @@ const deserializeAws_ec2ElasticGpus = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -57286,7 +57077,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorItem = (
   };
   if (output.fastSnapshotRestoreStateErrorSet === "") {
     contents.FastSnapshotRestoreStateErrors = [];
-    return contents;
   }
   if (
     output["fastSnapshotRestoreStateErrorSet"] !== undefined &&
@@ -57438,7 +57228,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
   };
   if (output.successful === "") {
     contents.Successful = [];
-    return contents;
   }
   if (
     output["successful"] !== undefined &&
@@ -57455,7 +57244,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
   }
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -57723,7 +57511,6 @@ const deserializeAws_ec2ExportTask = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -57873,7 +57660,6 @@ const deserializeAws_ec2FleetData = (
   }
   if (output.errorSet === "") {
     contents.Errors = [];
-    return contents;
   }
   if (
     output["errorSet"] !== undefined &&
@@ -57908,7 +57694,6 @@ const deserializeAws_ec2FleetData = (
   }
   if (output.fleetInstanceSet === "") {
     contents.Instances = [];
-    return contents;
   }
   if (
     output["fleetInstanceSet"] !== undefined &&
@@ -57925,7 +57710,6 @@ const deserializeAws_ec2FleetData = (
   }
   if (output.launchTemplateConfigs === "") {
     contents.LaunchTemplateConfigs = [];
-    return contents;
   }
   if (
     output["launchTemplateConfigs"] !== undefined &&
@@ -57958,7 +57742,6 @@ const deserializeAws_ec2FleetData = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -58009,7 +57792,6 @@ const deserializeAws_ec2FleetLaunchTemplateConfig = (
   }
   if (output.overrides === "") {
     contents.Overrides = [];
-    return contents;
   }
   if (
     output["overrides"] !== undefined &&
@@ -58287,7 +58069,6 @@ const deserializeAws_ec2FpgaImage = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -58313,7 +58094,6 @@ const deserializeAws_ec2FpgaImage = (
   }
   if (output.tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["tags"] !== undefined && output["tags"]["item"] !== undefined) {
     const wrappedItem =
@@ -58348,7 +58128,6 @@ const deserializeAws_ec2FpgaImageAttribute = (
   }
   if (output.loadPermissions === "") {
     contents.LoadPermissions = [];
-    return contents;
   }
   if (
     output["loadPermissions"] !== undefined &&
@@ -58368,7 +58147,6 @@ const deserializeAws_ec2FpgaImageAttribute = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -58424,7 +58202,6 @@ const deserializeAws_ec2FpgaInfo = (
   };
   if (output.fpgas === "") {
     contents.Fpgas = [];
-    return contents;
   }
   if (output["fpgas"] !== undefined && output["fpgas"]["item"] !== undefined) {
     const wrappedItem =
@@ -58450,7 +58227,6 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsResult = (
   };
   if (output.ipv6CidrAssociationSet === "") {
     contents.Ipv6CidrAssociations = [];
-    return contents;
   }
   if (
     output["ipv6CidrAssociationSet"] !== undefined &&
@@ -58498,7 +58274,6 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
   }
   if (output.instanceUsageSet === "") {
     contents.InstanceUsages = [];
-    return contents;
   }
   if (
     output["instanceUsageSet"] !== undefined &&
@@ -58537,7 +58312,6 @@ const deserializeAws_ec2GetCoipPoolUsageResult = (
   };
   if (output.coipAddressUsageSet === "") {
     contents.CoipAddressUsages = [];
-    return contents;
   }
   if (
     output["coipAddressUsageSet"] !== undefined &&
@@ -58663,7 +58437,6 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewResult = (
   }
   if (output.purchase === "") {
     contents.Purchase = [];
-    return contents;
   }
   if (
     output["purchase"] !== undefined &&
@@ -58761,7 +58534,6 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
   }
   if (output.reservedInstanceValueSet === "") {
     contents.ReservedInstanceValueSet = [];
-    return contents;
   }
   if (
     output["reservedInstanceValueSet"] !== undefined &&
@@ -58784,7 +58556,6 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
   }
   if (output.targetConfigurationValueSet === "") {
     contents.TargetConfigurationValueSet = [];
-    return contents;
   }
   if (
     output["targetConfigurationValueSet"] !== undefined &&
@@ -58819,7 +58590,6 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult = (
   }
   if (output.transitGatewayAttachmentPropagations === "") {
     contents.TransitGatewayAttachmentPropagations = [];
-    return contents;
   }
   if (
     output["transitGatewayAttachmentPropagations"] !== undefined &&
@@ -58848,7 +58618,6 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult = (
   };
   if (output.multicastDomainAssociations === "") {
     contents.MulticastDomainAssociations = [];
-    return contents;
   }
   if (
     output["multicastDomainAssociations"] !== undefined &&
@@ -58880,7 +58649,6 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsResult = (
   };
   if (output.associations === "") {
     contents.Associations = [];
-    return contents;
   }
   if (
     output["associations"] !== undefined &&
@@ -58915,7 +58683,6 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
   }
   if (output.transitGatewayRouteTablePropagations === "") {
     contents.TransitGatewayRouteTablePropagations = [];
-    return contents;
   }
   if (
     output["transitGatewayRouteTablePropagations"] !== undefined &&
@@ -58996,7 +58763,6 @@ const deserializeAws_ec2GpuInfo = (
   };
   if (output.gpus === "") {
     contents.Gpus = [];
-    return contents;
   }
   if (output["gpus"] !== undefined && output["gpus"]["item"] !== undefined) {
     const wrappedItem =
@@ -59199,7 +58965,6 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
   }
   if (output.instances === "") {
     contents.Instances = [];
-    return contents;
   }
   if (
     output["instances"] !== undefined &&
@@ -59229,7 +58994,6 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -59396,7 +59160,6 @@ const deserializeAws_ec2HostReservation = (
   }
   if (output.hostIdSet === "") {
     contents.HostIdSet = [];
-    return contents;
   }
   if (
     output["hostIdSet"] !== undefined &&
@@ -59434,7 +59197,6 @@ const deserializeAws_ec2HostReservation = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -59647,7 +59409,6 @@ const deserializeAws_ec2Image = (
   }
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMapping"] !== undefined &&
@@ -59700,7 +59461,6 @@ const deserializeAws_ec2Image = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -59741,7 +59501,6 @@ const deserializeAws_ec2Image = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -59776,7 +59535,6 @@ const deserializeAws_ec2ImageAttribute = (
   };
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMapping"] !== undefined &&
@@ -59808,7 +59566,6 @@ const deserializeAws_ec2ImageAttribute = (
   }
   if (output.launchPermission === "") {
     contents.LaunchPermissions = [];
-    return contents;
   }
   if (
     output["launchPermission"] !== undefined &&
@@ -59825,7 +59582,6 @@ const deserializeAws_ec2ImageAttribute = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -59945,7 +59701,6 @@ const deserializeAws_ec2ImportImageResult = (
   }
   if (output.licenseSpecifications === "") {
     contents.LicenseSpecifications = [];
-    return contents;
   }
   if (
     output["licenseSpecifications"] !== undefined &&
@@ -59971,7 +59726,6 @@ const deserializeAws_ec2ImportImageResult = (
   }
   if (output.snapshotDetailSet === "") {
     contents.SnapshotDetails = [];
-    return contents;
   }
   if (
     output["snapshotDetailSet"] !== undefined &&
@@ -60040,7 +59794,6 @@ const deserializeAws_ec2ImportImageTask = (
   }
   if (output.licenseSpecifications === "") {
     contents.LicenseSpecifications = [];
-    return contents;
   }
   if (
     output["licenseSpecifications"] !== undefined &&
@@ -60066,7 +59819,6 @@ const deserializeAws_ec2ImportImageTask = (
   }
   if (output.snapshotDetailSet === "") {
     contents.SnapshotDetails = [];
-    return contents;
   }
   if (
     output["snapshotDetailSet"] !== undefined &&
@@ -60089,7 +59841,6 @@ const deserializeAws_ec2ImportImageTask = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -60152,7 +59903,6 @@ const deserializeAws_ec2ImportInstanceTaskDetails = (
   }
   if (output.volumes === "") {
     contents.Volumes = [];
-    return contents;
   }
   if (
     output["volumes"] !== undefined &&
@@ -60291,7 +60041,6 @@ const deserializeAws_ec2ImportSnapshotTask = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -60378,7 +60127,6 @@ const deserializeAws_ec2InferenceAcceleratorInfo = (
   };
   if (output.accelerators === "") {
     contents.Accelerators = [];
-    return contents;
   }
   if (
     output["accelerators"] !== undefined &&
@@ -60489,7 +60237,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMapping"] !== undefined &&
@@ -60527,7 +60274,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.elasticGpuAssociationSet === "") {
     contents.ElasticGpuAssociations = [];
-    return contents;
   }
   if (
     output["elasticGpuAssociationSet"] !== undefined &&
@@ -60544,7 +60290,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.elasticInferenceAcceleratorAssociationSet === "") {
     contents.ElasticInferenceAcceleratorAssociations = [];
-    return contents;
   }
   if (
     output["elasticInferenceAcceleratorAssociationSet"] !== undefined &&
@@ -60601,7 +60346,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.licenseSet === "") {
     contents.Licenses = [];
-    return contents;
   }
   if (
     output["licenseSet"] !== undefined &&
@@ -60627,7 +60371,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.networkInterfaceSet === "") {
     contents.NetworkInterfaces = [];
-    return contents;
   }
   if (
     output["networkInterfaceSet"] !== undefined &&
@@ -60662,7 +60405,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -60694,7 +60436,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.groupSet === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -60738,7 +60479,6 @@ const deserializeAws_ec2Instance = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -60783,7 +60523,6 @@ const deserializeAws_ec2InstanceAttribute = (
   };
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMapping"] !== undefined &&
@@ -60818,7 +60557,6 @@ const deserializeAws_ec2InstanceAttribute = (
   }
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -60856,7 +60594,6 @@ const deserializeAws_ec2InstanceAttribute = (
   }
   if (output.productCodes === "") {
     contents.ProductCodes = [];
-    return contents;
   }
   if (
     output["productCodes"] !== undefined &&
@@ -61190,7 +60927,6 @@ const deserializeAws_ec2InstanceNetworkInterface = (
   }
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -61210,7 +60946,6 @@ const deserializeAws_ec2InstanceNetworkInterface = (
   }
   if (output.ipv6AddressesSet === "") {
     contents.Ipv6Addresses = [];
-    return contents;
   }
   if (
     output["ipv6AddressesSet"] !== undefined &&
@@ -61242,7 +60977,6 @@ const deserializeAws_ec2InstanceNetworkInterface = (
   }
   if (output.privateIpAddressesSet === "") {
     contents.PrivateIpAddresses = [];
-    return contents;
   }
   if (
     output["privateIpAddressesSet"] !== undefined &&
@@ -61368,7 +61102,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (output.SecurityGroupId === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["SecurityGroupId"] !== undefined &&
@@ -61391,7 +61124,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (output.ipv6AddressesSet === "") {
     contents.Ipv6Addresses = [];
-    return contents;
   }
   if (
     output["ipv6AddressesSet"] !== undefined &&
@@ -61414,7 +61146,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   }
   if (output.privateIpAddressesSet === "") {
     contents.PrivateIpAddresses = [];
-    return contents;
   }
   if (
     output["privateIpAddressesSet"] !== undefined &&
@@ -61561,7 +61292,6 @@ const deserializeAws_ec2InstanceStatus = (
   }
   if (output.eventsSet === "") {
     contents.Events = [];
-    return contents;
   }
   if (
     output["eventsSet"] !== undefined &&
@@ -61697,7 +61427,6 @@ const deserializeAws_ec2InstanceStatusSummary = (
   };
   if (output.details === "") {
     contents.Details = [];
-    return contents;
   }
   if (
     output["details"] !== undefined &&
@@ -61729,7 +61458,6 @@ const deserializeAws_ec2InstanceStorageInfo = (
   };
   if (output.disks === "") {
     contents.Disks = [];
-    return contents;
   }
   if (output["disks"] !== undefined && output["disks"]["item"] !== undefined) {
     const wrappedItem =
@@ -61853,7 +61581,6 @@ const deserializeAws_ec2InstanceTypeInfo = (
   }
   if (output.supportedRootDeviceTypes === "") {
     contents.SupportedRootDeviceTypes = [];
-    return contents;
   }
   if (
     output["supportedRootDeviceTypes"] !== undefined &&
@@ -61870,7 +61597,6 @@ const deserializeAws_ec2InstanceTypeInfo = (
   }
   if (output.supportedUsageClasses === "") {
     contents.SupportedUsageClasses = [];
-    return contents;
   }
   if (
     output["supportedUsageClasses"] !== undefined &&
@@ -61971,7 +61697,6 @@ const deserializeAws_ec2InternetGateway = (
   };
   if (output.attachmentSet === "") {
     contents.Attachments = [];
-    return contents;
   }
   if (
     output["attachmentSet"] !== undefined &&
@@ -61994,7 +61719,6 @@ const deserializeAws_ec2InternetGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -62067,7 +61791,6 @@ const deserializeAws_ec2IpPermission = (
   }
   if (output.ipRanges === "") {
     contents.IpRanges = [];
-    return contents;
   }
   if (
     output["ipRanges"] !== undefined &&
@@ -62081,7 +61804,6 @@ const deserializeAws_ec2IpPermission = (
   }
   if (output.ipv6Ranges === "") {
     contents.Ipv6Ranges = [];
-    return contents;
   }
   if (
     output["ipv6Ranges"] !== undefined &&
@@ -62095,7 +61817,6 @@ const deserializeAws_ec2IpPermission = (
   }
   if (output.prefixListIds === "") {
     contents.PrefixListIds = [];
-    return contents;
   }
   if (
     output["prefixListIds"] !== undefined &&
@@ -62115,7 +61836,6 @@ const deserializeAws_ec2IpPermission = (
   }
   if (output.groups === "") {
     contents.UserIdGroupPairs = [];
-    return contents;
   }
   if (
     output["groups"] !== undefined &&
@@ -62249,7 +61969,6 @@ const deserializeAws_ec2Ipv6Pool = (
   }
   if (output.poolCidrBlockSet === "") {
     contents.PoolCidrBlocks = [];
-    return contents;
   }
   if (
     output["poolCidrBlockSet"] !== undefined &&
@@ -62269,7 +61988,6 @@ const deserializeAws_ec2Ipv6Pool = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -62368,7 +62086,6 @@ const deserializeAws_ec2KeyPairInfo = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -62464,7 +62181,6 @@ const deserializeAws_ec2LaunchSpecification = (
   }
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMapping"] !== undefined &&
@@ -62508,7 +62224,6 @@ const deserializeAws_ec2LaunchSpecification = (
   }
   if (output.networkInterfaceSet === "") {
     contents.NetworkInterfaces = [];
-    return contents;
   }
   if (
     output["networkInterfaceSet"] !== undefined &&
@@ -62534,7 +62249,6 @@ const deserializeAws_ec2LaunchSpecification = (
   }
   if (output.groupSet === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -62601,7 +62315,6 @@ const deserializeAws_ec2LaunchTemplate = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -62717,7 +62430,6 @@ const deserializeAws_ec2LaunchTemplateConfig = (
   }
   if (output.overrides === "") {
     contents.Overrides = [];
-    return contents;
   }
   if (
     output["overrides"] !== undefined &&
@@ -62946,7 +62658,6 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -62966,7 +62677,6 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output.ipv6AddressesSet === "") {
     contents.Ipv6Addresses = [];
-    return contents;
   }
   if (
     output["ipv6AddressesSet"] !== undefined &&
@@ -62989,7 +62699,6 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   }
   if (output.privateIpAddressesSet === "") {
     contents.PrivateIpAddresses = [];
-    return contents;
   }
   if (
     output["privateIpAddressesSet"] !== undefined &&
@@ -63189,7 +62898,6 @@ const deserializeAws_ec2LaunchTemplateTagSpecification = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63381,7 +63089,6 @@ const deserializeAws_ec2LocalGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63462,7 +63169,6 @@ const deserializeAws_ec2LocalGatewayRouteTable = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63521,7 +63227,6 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63576,7 +63281,6 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63648,7 +63352,6 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63686,7 +63389,6 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
   }
   if (output.localGatewayVirtualInterfaceIdSet === "") {
     contents.LocalGatewayVirtualInterfaceIds = [];
-    return contents;
   }
   if (
     output["localGatewayVirtualInterfaceIdSet"] !== undefined &&
@@ -63703,7 +63405,6 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -63858,7 +63559,6 @@ const deserializeAws_ec2ModifyHostsResult = (
   };
   if (output.successful === "") {
     contents.Successful = [];
-    return contents;
   }
   if (
     output["successful"] !== undefined &&
@@ -63875,7 +63575,6 @@ const deserializeAws_ec2ModifyHostsResult = (
   }
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -63918,7 +63617,6 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
   };
   if (output.successfulInstanceCreditSpecificationSet === "") {
     contents.SuccessfulInstanceCreditSpecifications = [];
-    return contents;
   }
   if (
     output["successfulInstanceCreditSpecificationSet"] !== undefined &&
@@ -63936,7 +63634,6 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
   }
   if (output.unsuccessfulInstanceCreditSpecificationSet === "") {
     contents.UnsuccessfulInstanceCreditSpecifications = [];
-    return contents;
   }
   if (
     output["unsuccessfulInstanceCreditSpecificationSet"] !== undefined &&
@@ -64293,7 +63990,6 @@ const deserializeAws_ec2MonitorInstancesResult = (
   };
   if (output.instancesSet === "") {
     contents.InstanceMonitorings = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -64402,7 +64098,6 @@ const deserializeAws_ec2NatGateway = (
   }
   if (output.natGatewayAddressSet === "") {
     contents.NatGatewayAddresses = [];
-    return contents;
   }
   if (
     output["natGatewayAddressSet"] !== undefined &&
@@ -64434,7 +64129,6 @@ const deserializeAws_ec2NatGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -64512,7 +64206,6 @@ const deserializeAws_ec2NetworkAcl = (
   };
   if (output.associationSet === "") {
     contents.Associations = [];
-    return contents;
   }
   if (
     output["associationSet"] !== undefined &&
@@ -64529,7 +64222,6 @@ const deserializeAws_ec2NetworkAcl = (
   }
   if (output.entrySet === "") {
     contents.Entries = [];
-    return contents;
   }
   if (
     output["entrySet"] !== undefined &&
@@ -64555,7 +64247,6 @@ const deserializeAws_ec2NetworkAcl = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -64758,7 +64449,6 @@ const deserializeAws_ec2NetworkInterface = (
   }
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -64778,7 +64468,6 @@ const deserializeAws_ec2NetworkInterface = (
   }
   if (output.ipv6AddressesSet === "") {
     contents.Ipv6Addresses = [];
-    return contents;
   }
   if (
     output["ipv6AddressesSet"] !== undefined &&
@@ -64813,7 +64502,6 @@ const deserializeAws_ec2NetworkInterface = (
   }
   if (output.privateIpAddressesSet === "") {
     contents.PrivateIpAddresses = [];
-    return contents;
   }
   if (
     output["privateIpAddressesSet"] !== undefined &&
@@ -64845,7 +64533,6 @@ const deserializeAws_ec2NetworkInterface = (
   }
   if (output.tagSet === "") {
     contents.TagSet = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -65412,7 +65099,6 @@ const deserializeAws_ec2PlacementGroup = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -65437,7 +65123,6 @@ const deserializeAws_ec2PlacementGroupInfo = (
   };
   if (output.supportedStrategies === "") {
     contents.SupportedStrategies = [];
-    return contents;
   }
   if (
     output["supportedStrategies"] !== undefined &&
@@ -65538,7 +65223,6 @@ const deserializeAws_ec2PrefixList = (
   };
   if (output.cidrSet === "") {
     contents.Cidrs = [];
-    return contents;
   }
   if (
     output["cidrSet"] !== undefined &&
@@ -65678,7 +65362,6 @@ const deserializeAws_ec2PrincipalIdFormat = (
   }
   if (output.statusSet === "") {
     contents.Statuses = [];
-    return contents;
   }
   if (
     output["statusSet"] !== undefined &&
@@ -65766,7 +65449,6 @@ const deserializeAws_ec2ProcessorInfo = (
   };
   if (output.supportedArchitectures === "") {
     contents.SupportedArchitectures = [];
-    return contents;
   }
   if (
     output["supportedArchitectures"] !== undefined &&
@@ -65903,7 +65585,6 @@ const deserializeAws_ec2PublicIpv4Pool = (
   }
   if (output.poolAddressRangeSet === "") {
     contents.PoolAddressRanges = [];
-    return contents;
   }
   if (
     output["poolAddressRangeSet"] !== undefined &&
@@ -65999,7 +65680,6 @@ const deserializeAws_ec2Purchase = (
   }
   if (output.hostIdSet === "") {
     contents.HostIdSet = [];
-    return contents;
   }
   if (
     output["hostIdSet"] !== undefined &&
@@ -66052,7 +65732,6 @@ const deserializeAws_ec2PurchaseHostReservationResult = (
   }
   if (output.purchase === "") {
     contents.Purchase = [];
-    return contents;
   }
   if (
     output["purchase"] !== undefined &&
@@ -66097,7 +65776,6 @@ const deserializeAws_ec2PurchaseScheduledInstancesResult = (
   };
   if (output.scheduledInstanceSet === "") {
     contents.ScheduledInstanceSet = [];
-    return contents;
   }
   if (
     output["scheduledInstanceSet"] !== undefined &&
@@ -66283,7 +65961,6 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsResult = (
   };
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -66326,7 +66003,6 @@ const deserializeAws_ec2ReleaseHostsResult = (
   };
   if (output.successful === "") {
     contents.Successful = [];
-    return contents;
   }
   if (
     output["successful"] !== undefined &&
@@ -66343,7 +66019,6 @@ const deserializeAws_ec2ReleaseHostsResult = (
   }
   if (output.unsuccessful === "") {
     contents.Unsuccessful = [];
-    return contents;
   }
   if (
     output["unsuccessful"] !== undefined &&
@@ -66454,7 +66129,6 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
   };
   if (output.spotInstanceRequestSet === "") {
     contents.SpotInstanceRequests = [];
-    return contents;
   }
   if (
     output["spotInstanceRequestSet"] !== undefined &&
@@ -66486,7 +66160,6 @@ const deserializeAws_ec2Reservation = (
   };
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -66503,7 +66176,6 @@ const deserializeAws_ec2Reservation = (
   }
   if (output.instancesSet === "") {
     contents.Instances = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -66648,7 +66320,6 @@ const deserializeAws_ec2ReservedInstances = (
   }
   if (output.recurringCharges === "") {
     contents.RecurringCharges = [];
-    return contents;
   }
   if (
     output["recurringCharges"] !== undefined &&
@@ -66677,7 +66348,6 @@ const deserializeAws_ec2ReservedInstances = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -66773,7 +66443,6 @@ const deserializeAws_ec2ReservedInstancesListing = (
   }
   if (output.instanceCounts === "") {
     contents.InstanceCounts = [];
-    return contents;
   }
   if (
     output["instanceCounts"] !== undefined &&
@@ -66790,7 +66459,6 @@ const deserializeAws_ec2ReservedInstancesListing = (
   }
   if (output.priceSchedules === "") {
     contents.PriceSchedules = [];
-    return contents;
   }
   if (
     output["priceSchedules"] !== undefined &&
@@ -66819,7 +66487,6 @@ const deserializeAws_ec2ReservedInstancesListing = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -66873,7 +66540,6 @@ const deserializeAws_ec2ReservedInstancesModification = (
   }
   if (output.modificationResultSet === "") {
     contents.ModificationResults = [];
-    return contents;
   }
   if (
     output["modificationResultSet"] !== undefined &&
@@ -66890,7 +66556,6 @@ const deserializeAws_ec2ReservedInstancesModification = (
   }
   if (output.reservedInstancesSet === "") {
     contents.ReservedInstancesIds = [];
-    return contents;
   }
   if (
     output["reservedInstancesSet"] !== undefined &&
@@ -67011,7 +66676,6 @@ const deserializeAws_ec2ReservedInstancesOffering = (
   }
   if (output.pricingDetailsSet === "") {
     contents.PricingDetails = [];
-    return contents;
   }
   if (
     output["pricingDetailsSet"] !== undefined &&
@@ -67031,7 +66695,6 @@ const deserializeAws_ec2ReservedInstancesOffering = (
   }
   if (output.recurringCharges === "") {
     contents.RecurringCharges = [];
-    return contents;
   }
   if (
     output["recurringCharges"] !== undefined &&
@@ -67172,7 +66835,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   };
   if (output.blockDeviceMappingSet === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMappingSet"] !== undefined &&
@@ -67213,7 +66875,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.elasticGpuSpecificationSet === "") {
     contents.ElasticGpuSpecifications = [];
-    return contents;
   }
   if (
     output["elasticGpuSpecificationSet"] !== undefined &&
@@ -67230,7 +66891,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.elasticInferenceAcceleratorSet === "") {
     contents.ElasticInferenceAccelerators = [];
-    return contents;
   }
   if (
     output["elasticInferenceAcceleratorSet"] !== undefined &&
@@ -67281,7 +66941,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.licenseSet === "") {
     contents.LicenseSpecifications = [];
-    return contents;
   }
   if (
     output["licenseSet"] !== undefined &&
@@ -67310,7 +66969,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.networkInterfaceSet === "") {
     contents.NetworkInterfaces = [];
-    return contents;
   }
   if (
     output["networkInterfaceSet"] !== undefined &&
@@ -67336,7 +66994,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.securityGroupIdSet === "") {
     contents.SecurityGroupIds = [];
-    return contents;
   }
   if (
     output["securityGroupIdSet"] !== undefined &&
@@ -67353,7 +67010,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.securityGroupSet === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["securityGroupSet"] !== undefined &&
@@ -67370,7 +67026,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output.tagSpecificationSet === "") {
     contents.TagSpecifications = [];
-    return contents;
   }
   if (
     output["tagSpecificationSet"] !== undefined &&
@@ -67525,7 +67180,6 @@ const deserializeAws_ec2RouteTable = (
   };
   if (output.associationSet === "") {
     contents.Associations = [];
-    return contents;
   }
   if (
     output["associationSet"] !== undefined &&
@@ -67545,7 +67199,6 @@ const deserializeAws_ec2RouteTable = (
   }
   if (output.propagatingVgwSet === "") {
     contents.PropagatingVgws = [];
-    return contents;
   }
   if (
     output["propagatingVgwSet"] !== undefined &&
@@ -67565,7 +67218,6 @@ const deserializeAws_ec2RouteTable = (
   }
   if (output.routeSet === "") {
     contents.Routes = [];
-    return contents;
   }
   if (
     output["routeSet"] !== undefined &&
@@ -67579,7 +67231,6 @@ const deserializeAws_ec2RouteTable = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -67694,7 +67345,6 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
   };
   if (output.instanceIdSet === "") {
     contents.InstanceIdSet = [];
-    return contents;
   }
   if (
     output["instanceIdSet"] !== undefined &&
@@ -67915,7 +67565,6 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
   }
   if (output.occurrenceDaySet === "") {
     contents.OccurrenceDaySet = [];
-    return contents;
   }
   if (
     output["occurrenceDaySet"] !== undefined &&
@@ -67963,7 +67612,6 @@ const deserializeAws_ec2SearchLocalGatewayRoutesResult = (
   }
   if (output.routeSet === "") {
     contents.Routes = [];
-    return contents;
   }
   if (
     output["routeSet"] !== undefined &&
@@ -67992,7 +67640,6 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsResult = (
   };
   if (output.multicastGroups === "") {
     contents.MulticastGroups = [];
-    return contents;
   }
   if (
     output["multicastGroups"] !== undefined &&
@@ -68028,7 +67675,6 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
   }
   if (output.routeSet === "") {
     contents.Routes = [];
-    return contents;
   }
   if (
     output["routeSet"] !== undefined &&
@@ -68072,7 +67718,6 @@ const deserializeAws_ec2SecurityGroup = (
   }
   if (output.ipPermissions === "") {
     contents.IpPermissions = [];
-    return contents;
   }
   if (
     output["ipPermissions"] !== undefined &&
@@ -68089,7 +67734,6 @@ const deserializeAws_ec2SecurityGroup = (
   }
   if (output.ipPermissionsEgress === "") {
     contents.IpPermissionsEgress = [];
-    return contents;
   }
   if (
     output["ipPermissionsEgress"] !== undefined &&
@@ -68109,7 +67753,6 @@ const deserializeAws_ec2SecurityGroup = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -68216,7 +67859,6 @@ const deserializeAws_ec2ServiceConfiguration = (
   }
   if (output.availabilityZoneSet === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["availabilityZoneSet"] !== undefined &&
@@ -68233,7 +67875,6 @@ const deserializeAws_ec2ServiceConfiguration = (
   }
   if (output.baseEndpointDnsNameSet === "") {
     contents.BaseEndpointDnsNames = [];
-    return contents;
   }
   if (
     output["baseEndpointDnsNameSet"] !== undefined &&
@@ -68253,7 +67894,6 @@ const deserializeAws_ec2ServiceConfiguration = (
   }
   if (output.networkLoadBalancerArnSet === "") {
     contents.NetworkLoadBalancerArns = [];
-    return contents;
   }
   if (
     output["networkLoadBalancerArnSet"] !== undefined &&
@@ -68288,7 +67928,6 @@ const deserializeAws_ec2ServiceConfiguration = (
   }
   if (output.serviceType === "") {
     contents.ServiceType = [];
-    return contents;
   }
   if (
     output["serviceType"] !== undefined &&
@@ -68305,7 +67944,6 @@ const deserializeAws_ec2ServiceConfiguration = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -68353,7 +67991,6 @@ const deserializeAws_ec2ServiceDetail = (
   }
   if (output.availabilityZoneSet === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["availabilityZoneSet"] !== undefined &&
@@ -68370,7 +68007,6 @@ const deserializeAws_ec2ServiceDetail = (
   }
   if (output.baseEndpointDnsNameSet === "") {
     contents.BaseEndpointDnsNames = [];
-    return contents;
   }
   if (
     output["baseEndpointDnsNameSet"] !== undefined &&
@@ -68406,7 +68042,6 @@ const deserializeAws_ec2ServiceDetail = (
   }
   if (output.serviceType === "") {
     contents.ServiceType = [];
-    return contents;
   }
   if (
     output["serviceType"] !== undefined &&
@@ -68423,7 +68058,6 @@ const deserializeAws_ec2ServiceDetail = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -68530,7 +68164,6 @@ const deserializeAws_ec2Snapshot = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -68653,7 +68286,6 @@ const deserializeAws_ec2SnapshotInfo = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -68812,7 +68444,6 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (output.blockDeviceMapping === "") {
     contents.BlockDeviceMappings = [];
-    return contents;
   }
   if (
     output["blockDeviceMapping"] !== undefined &&
@@ -68856,7 +68487,6 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (output.networkInterfaceSet === "") {
     contents.NetworkInterfaces = [];
-    return contents;
   }
   if (
     output["networkInterfaceSet"] !== undefined &&
@@ -68882,7 +68512,6 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (output.groupSet === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -68905,7 +68534,6 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   }
   if (output.tagSpecificationSet === "") {
     contents.TagSpecifications = [];
-    return contents;
   }
   if (
     output["tagSpecificationSet"] !== undefined &&
@@ -69032,7 +68660,6 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (output.launchSpecifications === "") {
     contents.LaunchSpecifications = [];
-    return contents;
   }
   if (
     output["launchSpecifications"] !== undefined &&
@@ -69049,7 +68676,6 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (output.launchTemplateConfigs === "") {
     contents.LaunchTemplateConfigs = [];
-    return contents;
   }
   if (
     output["launchTemplateConfigs"] !== undefined &&
@@ -69138,7 +68764,6 @@ const deserializeAws_ec2SpotFleetTagSpecification = (
   }
   if (output.tag === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["tag"] !== undefined && output["tag"]["item"] !== undefined) {
     const wrappedItem =
@@ -69242,7 +68867,6 @@ const deserializeAws_ec2SpotInstanceRequest = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -69439,7 +69063,6 @@ const deserializeAws_ec2StaleIpPermission = (
   }
   if (output.ipRanges === "") {
     contents.IpRanges = [];
-    return contents;
   }
   if (
     output["ipRanges"] !== undefined &&
@@ -69453,7 +69076,6 @@ const deserializeAws_ec2StaleIpPermission = (
   }
   if (output.prefixListIds === "") {
     contents.PrefixListIds = [];
-    return contents;
   }
   if (
     output["prefixListIds"] !== undefined &&
@@ -69473,7 +69095,6 @@ const deserializeAws_ec2StaleIpPermission = (
   }
   if (output.groups === "") {
     contents.UserIdGroupPairs = [];
-    return contents;
   }
   if (
     output["groups"] !== undefined &&
@@ -69524,7 +69145,6 @@ const deserializeAws_ec2StaleSecurityGroup = (
   }
   if (output.staleIpPermissions === "") {
     contents.StaleIpPermissions = [];
-    return contents;
   }
   if (
     output["staleIpPermissions"] !== undefined &&
@@ -69541,7 +69161,6 @@ const deserializeAws_ec2StaleSecurityGroup = (
   }
   if (output.staleIpPermissionsEgress === "") {
     contents.StaleIpPermissionsEgress = [];
-    return contents;
   }
   if (
     output["staleIpPermissionsEgress"] !== undefined &&
@@ -69581,7 +69200,6 @@ const deserializeAws_ec2StartInstancesResult = (
   };
   if (output.instancesSet === "") {
     contents.StartingInstances = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -69641,7 +69259,6 @@ const deserializeAws_ec2StopInstancesResult = (
   };
   if (output.instancesSet === "") {
     contents.StoppingInstances = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -69718,7 +69335,6 @@ const deserializeAws_ec2Subnet = (
   }
   if (output.ipv6CidrBlockAssociationSet === "") {
     contents.Ipv6CidrBlockAssociationSet = [];
-    return contents;
   }
   if (
     output["ipv6CidrBlockAssociationSet"] !== undefined &&
@@ -69753,7 +69369,6 @@ const deserializeAws_ec2Subnet = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70043,7 +69658,6 @@ const deserializeAws_ec2TargetGroupsConfig = (
   };
   if (output.targetGroups === "") {
     contents.TargetGroups = [];
-    return contents;
   }
   if (
     output["targetGroups"] !== undefined &&
@@ -70082,7 +69696,6 @@ const deserializeAws_ec2TargetNetwork = (
   }
   if (output.securityGroups === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["securityGroups"] !== undefined &&
@@ -70169,7 +69782,6 @@ const deserializeAws_ec2TerminateClientVpnConnectionsResult = (
   }
   if (output.connectionStatuses === "") {
     contents.ConnectionStatuses = [];
-    return contents;
   }
   if (
     output["connectionStatuses"] !== undefined &&
@@ -70237,7 +69849,6 @@ const deserializeAws_ec2TerminateInstancesResult = (
   };
   if (output.instancesSet === "") {
     contents.TerminatingInstances = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -70280,7 +69891,6 @@ const deserializeAws_ec2TrafficMirrorFilter = (
   }
   if (output.egressFilterRuleSet === "") {
     contents.EgressFilterRules = [];
-    return contents;
   }
   if (
     output["egressFilterRuleSet"] !== undefined &&
@@ -70297,7 +69907,6 @@ const deserializeAws_ec2TrafficMirrorFilter = (
   }
   if (output.ingressFilterRuleSet === "") {
     contents.IngressFilterRules = [];
-    return contents;
   }
   if (
     output["ingressFilterRuleSet"] !== undefined &&
@@ -70314,7 +69923,6 @@ const deserializeAws_ec2TrafficMirrorFilter = (
   }
   if (output.networkServiceSet === "") {
     contents.NetworkServices = [];
-    return contents;
   }
   if (
     output["networkServiceSet"] !== undefined &&
@@ -70331,7 +69939,6 @@ const deserializeAws_ec2TrafficMirrorFilter = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70486,7 +70093,6 @@ const deserializeAws_ec2TrafficMirrorSession = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70550,7 +70156,6 @@ const deserializeAws_ec2TrafficMirrorTarget = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70615,7 +70220,6 @@ const deserializeAws_ec2TransitGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70706,7 +70310,6 @@ const deserializeAws_ec2TransitGatewayAttachment = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70805,7 +70408,6 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers = (
   };
   if (output.deregisteredNetworkInterfaceIds === "") {
     contents.DeregisteredNetworkInterfaceIds = [];
-    return contents;
   }
   if (
     output["deregisteredNetworkInterfaceIds"] !== undefined &&
@@ -70842,7 +70444,6 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupSources = (
   };
   if (output.deregisteredNetworkInterfaceIds === "") {
     contents.DeregisteredNetworkInterfaceIds = [];
-    return contents;
   }
   if (
     output["deregisteredNetworkInterfaceIds"] !== undefined &&
@@ -70887,7 +70488,6 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -70967,7 +70567,6 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
   }
   if (output.subnets === "") {
     contents.Subnets = [];
-    return contents;
   }
   if (
     output["subnets"] !== undefined &&
@@ -71075,7 +70674,6 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers = (
   }
   if (output.registeredNetworkInterfaceIds === "") {
     contents.RegisteredNetworkInterfaceIds = [];
-    return contents;
   }
   if (
     output["registeredNetworkInterfaceIds"] !== undefined &&
@@ -71112,7 +70710,6 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
   }
   if (output.registeredNetworkInterfaceIds === "") {
     contents.RegisteredNetworkInterfaceIds = [];
-    return contents;
   }
   if (
     output["registeredNetworkInterfaceIds"] !== undefined &&
@@ -71225,7 +70822,6 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -71301,7 +70897,6 @@ const deserializeAws_ec2TransitGatewayRoute = (
   }
   if (output.transitGatewayAttachments === "") {
     contents.TransitGatewayAttachments = [];
-    return contents;
   }
   if (
     output["transitGatewayAttachments"] !== undefined &&
@@ -71392,7 +70987,6 @@ const deserializeAws_ec2TransitGatewayRouteTable = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -71522,7 +71116,6 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
   }
   if (output.subnetIds === "") {
     contents.SubnetIds = [];
-    return contents;
   }
   if (
     output["subnetIds"] !== undefined &&
@@ -71539,7 +71132,6 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -71621,7 +71213,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.ikeVersionSet === "") {
     contents.IkeVersions = [];
-    return contents;
   }
   if (
     output["ikeVersionSet"] !== undefined &&
@@ -71641,7 +71232,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.phase1DHGroupNumberSet === "") {
     contents.Phase1DHGroupNumbers = [];
-    return contents;
   }
   if (
     output["phase1DHGroupNumberSet"] !== undefined &&
@@ -71658,7 +71248,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.phase1EncryptionAlgorithmSet === "") {
     contents.Phase1EncryptionAlgorithms = [];
-    return contents;
   }
   if (
     output["phase1EncryptionAlgorithmSet"] !== undefined &&
@@ -71675,7 +71264,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.phase1IntegrityAlgorithmSet === "") {
     contents.Phase1IntegrityAlgorithms = [];
-    return contents;
   }
   if (
     output["phase1IntegrityAlgorithmSet"] !== undefined &&
@@ -71695,7 +71283,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.phase2DHGroupNumberSet === "") {
     contents.Phase2DHGroupNumbers = [];
-    return contents;
   }
   if (
     output["phase2DHGroupNumberSet"] !== undefined &&
@@ -71712,7 +71299,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.phase2EncryptionAlgorithmSet === "") {
     contents.Phase2EncryptionAlgorithms = [];
-    return contents;
   }
   if (
     output["phase2EncryptionAlgorithmSet"] !== undefined &&
@@ -71729,7 +71315,6 @@ const deserializeAws_ec2TunnelOption = (
   }
   if (output.phase2IntegrityAlgorithmSet === "") {
     contents.Phase2IntegrityAlgorithms = [];
-    return contents;
   }
   if (
     output["phase2IntegrityAlgorithmSet"] !== undefined &&
@@ -71790,7 +71375,6 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   }
   if (output.unassignedIpv6Addresses === "") {
     contents.UnassignedIpv6Addresses = [];
-    return contents;
   }
   if (
     output["unassignedIpv6Addresses"] !== undefined &&
@@ -71818,7 +71402,6 @@ const deserializeAws_ec2UnmonitorInstancesResult = (
   };
   if (output.instancesSet === "") {
     contents.InstanceMonitorings = [];
-    return contents;
   }
   if (
     output["instancesSet"] !== undefined &&
@@ -72076,7 +71659,6 @@ const deserializeAws_ec2VCpuInfo = (
   }
   if (output.validCores === "") {
     contents.ValidCores = [];
-    return contents;
   }
   if (
     output["validCores"] !== undefined &&
@@ -72090,7 +71672,6 @@ const deserializeAws_ec2VCpuInfo = (
   }
   if (output.validThreadsPerCore === "") {
     contents.ValidThreadsPerCore = [];
-    return contents;
   }
   if (
     output["validThreadsPerCore"] !== undefined &&
@@ -72181,7 +71762,6 @@ const deserializeAws_ec2Volume = (
   };
   if (output.attachmentSet === "") {
     contents.Attachments = [];
-    return contents;
   }
   if (
     output["attachmentSet"] !== undefined &&
@@ -72228,7 +71808,6 @@ const deserializeAws_ec2Volume = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -72480,7 +72059,6 @@ const deserializeAws_ec2VolumeStatusInfo = (
   };
   if (output.details === "") {
     contents.Details = [];
-    return contents;
   }
   if (
     output["details"] !== undefined &&
@@ -72516,7 +72094,6 @@ const deserializeAws_ec2VolumeStatusItem = (
   };
   if (output.actionsSet === "") {
     contents.Actions = [];
-    return contents;
   }
   if (
     output["actionsSet"] !== undefined &&
@@ -72536,7 +72113,6 @@ const deserializeAws_ec2VolumeStatusItem = (
   }
   if (output.eventsSet === "") {
     contents.Events = [];
-    return contents;
   }
   if (
     output["eventsSet"] !== undefined &&
@@ -72594,7 +72170,6 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
   }
   if (output.cidrBlockAssociationSet === "") {
     contents.CidrBlockAssociationSet = [];
-    return contents;
   }
   if (
     output["cidrBlockAssociationSet"] !== undefined &&
@@ -72617,7 +72192,6 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
   }
   if (output.ipv6CidrBlockAssociationSet === "") {
     contents.Ipv6CidrBlockAssociationSet = [];
-    return contents;
   }
   if (
     output["ipv6CidrBlockAssociationSet"] !== undefined &&
@@ -72643,7 +72217,6 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -72755,7 +72328,6 @@ const deserializeAws_ec2VpcClassicLink = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -72811,7 +72383,6 @@ const deserializeAws_ec2VpcEndpoint = (
   }
   if (output.dnsEntrySet === "") {
     contents.DnsEntries = [];
-    return contents;
   }
   if (
     output["dnsEntrySet"] !== undefined &&
@@ -72825,7 +72396,6 @@ const deserializeAws_ec2VpcEndpoint = (
   }
   if (output.groupSet === "") {
     contents.Groups = [];
-    return contents;
   }
   if (
     output["groupSet"] !== undefined &&
@@ -72848,7 +72418,6 @@ const deserializeAws_ec2VpcEndpoint = (
   }
   if (output.networkInterfaceIdSet === "") {
     contents.NetworkInterfaceIds = [];
-    return contents;
   }
   if (
     output["networkInterfaceIdSet"] !== undefined &&
@@ -72877,7 +72446,6 @@ const deserializeAws_ec2VpcEndpoint = (
   }
   if (output.routeTableIdSet === "") {
     contents.RouteTableIds = [];
-    return contents;
   }
   if (
     output["routeTableIdSet"] !== undefined &&
@@ -72900,7 +72468,6 @@ const deserializeAws_ec2VpcEndpoint = (
   }
   if (output.subnetIdSet === "") {
     contents.SubnetIds = [];
-    return contents;
   }
   if (
     output["subnetIdSet"] !== undefined &&
@@ -72917,7 +72484,6 @@ const deserializeAws_ec2VpcEndpoint = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -72960,7 +72526,6 @@ const deserializeAws_ec2VpcEndpointConnection = (
   }
   if (output.dnsEntrySet === "") {
     contents.DnsEntries = [];
-    return contents;
   }
   if (
     output["dnsEntrySet"] !== undefined &&
@@ -72974,7 +72539,6 @@ const deserializeAws_ec2VpcEndpointConnection = (
   }
   if (output.networkLoadBalancerArnSet === "") {
     contents.NetworkLoadBalancerArns = [];
-    return contents;
   }
   if (
     output["networkLoadBalancerArnSet"] !== undefined &&
@@ -73109,7 +72673,6 @@ const deserializeAws_ec2VpcPeeringConnection = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -73198,7 +72761,6 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
   }
   if (output.cidrBlockSet === "") {
     contents.CidrBlockSet = [];
-    return contents;
   }
   if (
     output["cidrBlockSet"] !== undefined &&
@@ -73215,7 +72777,6 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
   }
   if (output.ipv6CidrBlockSet === "") {
     contents.Ipv6CidrBlockSet = [];
-    return contents;
   }
   if (
     output["ipv6CidrBlockSet"] !== undefined &&
@@ -73285,7 +72846,6 @@ const deserializeAws_ec2VpnConnection = (
   }
   if (output.routes === "") {
     contents.Routes = [];
-    return contents;
   }
   if (
     output["routes"] !== undefined &&
@@ -73305,7 +72865,6 @@ const deserializeAws_ec2VpnConnection = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -73325,7 +72884,6 @@ const deserializeAws_ec2VpnConnection = (
   }
   if (output.vgwTelemetry === "") {
     contents.VgwTelemetry = [];
-    return contents;
   }
   if (
     output["vgwTelemetry"] !== undefined &&
@@ -73376,7 +72934,6 @@ const deserializeAws_ec2VpnConnectionOptions = (
   }
   if (output.tunnelOptionSet === "") {
     contents.TunnelOptions = [];
-    return contents;
   }
   if (
     output["tunnelOptionSet"] !== undefined &&
@@ -73419,7 +72976,6 @@ const deserializeAws_ec2VpnGateway = (
   }
   if (output.tagSet === "") {
     contents.Tags = [];
-    return contents;
   }
   if (
     output["tagSet"] !== undefined &&
@@ -73436,7 +72992,6 @@ const deserializeAws_ec2VpnGateway = (
   }
   if (output.attachments === "") {
     contents.VpcAttachments = [];
-    return contents;
   }
   if (
     output["attachments"] !== undefined &&
