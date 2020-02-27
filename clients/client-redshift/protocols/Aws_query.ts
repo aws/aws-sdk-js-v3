@@ -15023,7 +15023,6 @@ const deserializeAws_queryAccountAttribute = (
   }
   if (output.AttributeValues === "") {
     contents.AttributeValues = [];
-    return contents;
   }
   if (
     output["AttributeValues"] !== undefined &&
@@ -15051,7 +15050,6 @@ const deserializeAws_queryAccountAttributeList = (
   };
   if (output.AccountAttributes === "") {
     contents.AccountAttributes = [];
-    return contents;
   }
   if (
     output["AccountAttributes"] !== undefined &&
@@ -15185,7 +15183,6 @@ const deserializeAws_queryAvailabilityZone = (
   }
   if (output.SupportedPlatforms === "") {
     contents.SupportedPlatforms = [];
-    return contents;
   }
   if (
     output["SupportedPlatforms"] !== undefined &&
@@ -15223,7 +15220,6 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsResult = (
   };
   if (output.Errors === "") {
     contents.Errors = [];
-    return contents;
   }
   if (
     output["Errors"] !== undefined &&
@@ -15240,7 +15236,6 @@ const deserializeAws_queryBatchDeleteClusterSnapshotsResult = (
   }
   if (output.Resources === "") {
     contents.Resources = [];
-    return contents;
   }
   if (
     output["Resources"] !== undefined &&
@@ -15269,7 +15264,6 @@ const deserializeAws_queryBatchModifyClusterSnapshotsOutputMessage = (
   };
   if (output.Errors === "") {
     contents.Errors = [];
-    return contents;
   }
   if (
     output["Errors"] !== undefined &&
@@ -15286,7 +15280,6 @@ const deserializeAws_queryBatchModifyClusterSnapshotsOutputMessage = (
   }
   if (output.Resources === "") {
     contents.Resources = [];
-    return contents;
   }
   if (
     output["Resources"] !== undefined &&
@@ -15397,7 +15390,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.ClusterNodes === "") {
     contents.ClusterNodes = [];
-    return contents;
   }
   if (
     output["ClusterNodes"] !== undefined &&
@@ -15414,7 +15406,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.ClusterParameterGroups === "") {
     contents.ClusterParameterGroups = [];
-    return contents;
   }
   if (
     output["ClusterParameterGroups"] !== undefined &&
@@ -15437,7 +15428,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.ClusterSecurityGroups === "") {
     contents.ClusterSecurityGroups = [];
-    return contents;
   }
   if (
     output["ClusterSecurityGroups"] !== undefined &&
@@ -15478,7 +15468,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.DeferredMaintenanceWindows === "") {
     contents.DeferredMaintenanceWindows = [];
-    return contents;
   }
   if (
     output["DeferredMaintenanceWindows"] !== undefined &&
@@ -15535,7 +15524,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.IamRoles === "") {
     contents.IamRoles = [];
-    return contents;
   }
   if (
     output["IamRoles"] !== undefined &&
@@ -15580,7 +15568,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.PendingActions === "") {
     contents.PendingActions = [];
-    return contents;
   }
   if (
     output["PendingActions"] !== undefined &&
@@ -15627,7 +15614,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -15641,7 +15627,6 @@ const deserializeAws_queryCluster = (
   }
   if (output.VpcSecurityGroups === "") {
     contents.VpcSecurityGroups = [];
-    return contents;
   }
   if (
     output["VpcSecurityGroups"] !== undefined &&
@@ -15723,7 +15708,6 @@ const deserializeAws_queryClusterDbRevision = (
   }
   if (output.RevisionTargets === "") {
     contents.RevisionTargets = [];
-    return contents;
   }
   if (
     output["RevisionTargets"] !== undefined &&
@@ -15761,7 +15745,6 @@ const deserializeAws_queryClusterDbRevisionsMessage = (
   };
   if (output.ClusterDbRevisions === "") {
     contents.ClusterDbRevisions = [];
-    return contents;
   }
   if (
     output["ClusterDbRevisions"] !== undefined &&
@@ -15871,7 +15854,6 @@ const deserializeAws_queryClusterParameterGroup = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -15897,7 +15879,6 @@ const deserializeAws_queryClusterParameterGroupDetails = (
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
-    return contents;
   }
   if (
     output["Parameters"] !== undefined &&
@@ -15945,7 +15926,6 @@ const deserializeAws_queryClusterParameterGroupStatus = (
   };
   if (output.ClusterParameterStatusList === "") {
     contents.ClusterParameterStatusList = [];
-    return contents;
   }
   if (
     output["ClusterParameterStatusList"] !== undefined &&
@@ -15992,7 +15972,6 @@ const deserializeAws_queryClusterParameterGroupsMessage = (
   }
   if (output.ParameterGroups === "") {
     contents.ParameterGroups = [];
-    return contents;
   }
   if (
     output["ParameterGroups"] !== undefined &&
@@ -16062,7 +16041,6 @@ const deserializeAws_queryClusterSecurityGroup = (
   }
   if (output.EC2SecurityGroups === "") {
     contents.EC2SecurityGroups = [];
-    return contents;
   }
   if (
     output["EC2SecurityGroups"] !== undefined &&
@@ -16079,7 +16057,6 @@ const deserializeAws_queryClusterSecurityGroup = (
   }
   if (output.IPRanges === "") {
     contents.IPRanges = [];
-    return contents;
   }
   if (
     output["IPRanges"] !== undefined &&
@@ -16093,7 +16070,6 @@ const deserializeAws_queryClusterSecurityGroup = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -16143,7 +16119,6 @@ const deserializeAws_queryClusterSecurityGroupMessage = (
   };
   if (output.ClusterSecurityGroups === "") {
     contents.ClusterSecurityGroups = [];
-    return contents;
   }
   if (
     output["ClusterSecurityGroups"] !== undefined &&
@@ -16225,7 +16200,6 @@ const deserializeAws_queryClusterSubnetGroup = (
   }
   if (output.Subnets === "") {
     contents.Subnets = [];
-    return contents;
   }
   if (
     output["Subnets"] !== undefined &&
@@ -16239,7 +16213,6 @@ const deserializeAws_queryClusterSubnetGroup = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -16265,7 +16238,6 @@ const deserializeAws_queryClusterSubnetGroupMessage = (
   };
   if (output.ClusterSubnetGroups === "") {
     contents.ClusterSubnetGroups = [];
-    return contents;
   }
   if (
     output["ClusterSubnetGroups"] !== undefined &&
@@ -16338,7 +16310,6 @@ const deserializeAws_queryClusterVersionsMessage = (
   };
   if (output.ClusterVersions === "") {
     contents.ClusterVersions = [];
-    return contents;
   }
   if (
     output["ClusterVersions"] !== undefined &&
@@ -16370,7 +16341,6 @@ const deserializeAws_queryClustersMessage = (
   };
   if (output.Clusters === "") {
     contents.Clusters = [];
-    return contents;
   }
   if (
     output["Clusters"] !== undefined &&
@@ -16635,7 +16605,6 @@ const deserializeAws_queryDefaultClusterParameters = (
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
-    return contents;
   }
   if (
     output["Parameters"] !== undefined &&
@@ -16750,7 +16719,6 @@ const deserializeAws_queryDescribeSnapshotSchedulesOutputMessage = (
   }
   if (output.SnapshotSchedules === "") {
     contents.SnapshotSchedules = [];
-    return contents;
   }
   if (
     output["SnapshotSchedules"] !== undefined &&
@@ -16804,7 +16772,6 @@ const deserializeAws_queryEC2SecurityGroup = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -16903,7 +16870,6 @@ const deserializeAws_queryEvent = (
   }
   if (output.EventCategories === "") {
     contents.EventCategories = [];
-    return contents;
   }
   if (
     output["EventCategories"] !== undefined &&
@@ -16954,7 +16920,6 @@ const deserializeAws_queryEventCategoriesMap = (
   };
   if (output.Events === "") {
     contents.Events = [];
-    return contents;
   }
   if (
     output["Events"] !== undefined &&
@@ -16994,7 +16959,6 @@ const deserializeAws_queryEventCategoriesMessage = (
   };
   if (output.EventCategoriesMapList === "") {
     contents.EventCategoriesMapList = [];
-    return contents;
   }
   if (
     output["EventCategoriesMapList"] !== undefined &&
@@ -17025,7 +16989,6 @@ const deserializeAws_queryEventInfoMap = (
   };
   if (output.EventCategories === "") {
     contents.EventCategories = [];
-    return contents;
   }
   if (
     output["EventCategories"] !== undefined &&
@@ -17099,7 +17062,6 @@ const deserializeAws_queryEventSubscription = (
   }
   if (output.EventCategoriesList === "") {
     contents.EventCategoriesList = [];
-    return contents;
   }
   if (
     output["EventCategoriesList"] !== undefined &&
@@ -17122,7 +17084,6 @@ const deserializeAws_queryEventSubscription = (
   }
   if (output.SourceIdsList === "") {
     contents.SourceIdsList = [];
-    return contents;
   }
   if (
     output["SourceIdsList"] !== undefined &&
@@ -17150,7 +17111,6 @@ const deserializeAws_queryEventSubscription = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -17182,7 +17142,6 @@ const deserializeAws_queryEventSubscriptionsMessage = (
   };
   if (output.EventSubscriptionsList === "") {
     contents.EventSubscriptionsList = [];
-    return contents;
   }
   if (
     output["EventSubscriptionsList"] !== undefined &&
@@ -17214,7 +17173,6 @@ const deserializeAws_queryEventsMessage = (
   };
   if (output.Events === "") {
     contents.Events = [];
-    return contents;
   }
   if (
     output["Events"] !== undefined &&
@@ -17246,7 +17204,6 @@ const deserializeAws_queryGetReservedNodeExchangeOfferingsOutputMessage = (
   }
   if (output.ReservedNodeOfferings === "") {
     contents.ReservedNodeOfferings = [];
-    return contents;
   }
   if (
     output["ReservedNodeOfferings"] !== undefined &&
@@ -17284,7 +17241,6 @@ const deserializeAws_queryHsmClientCertificate = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -17316,7 +17272,6 @@ const deserializeAws_queryHsmClientCertificateMessage = (
   };
   if (output.HsmClientCertificates === "") {
     contents.HsmClientCertificates = [];
-    return contents;
   }
   if (
     output["HsmClientCertificates"] !== undefined &&
@@ -17363,7 +17318,6 @@ const deserializeAws_queryHsmConfiguration = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -17395,7 +17349,6 @@ const deserializeAws_queryHsmConfigurationMessage = (
   };
   if (output.HsmConfigurations === "") {
     contents.HsmConfigurations = [];
-    return contents;
   }
   if (
     output["HsmConfigurations"] !== undefined &&
@@ -17457,7 +17410,6 @@ const deserializeAws_queryIPRange = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -17553,7 +17505,6 @@ const deserializeAws_queryMaintenanceTrack = (
   }
   if (output.UpdateTargets === "") {
     contents.UpdateTargets = [];
-    return contents;
   }
   if (
     output["UpdateTargets"] !== undefined &&
@@ -17743,7 +17694,6 @@ const deserializeAws_queryNodeConfigurationOptionsMessage = (
   }
   if (output.NodeConfigurationOptionList === "") {
     contents.NodeConfigurationOptionList = [];
-    return contents;
   }
   if (
     output["NodeConfigurationOptionList"] !== undefined &&
@@ -17777,7 +17727,6 @@ const deserializeAws_queryOrderableClusterOption = (
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["AvailabilityZones"] !== undefined &&
@@ -17827,7 +17776,6 @@ const deserializeAws_queryOrderableClusterOptionsMessage = (
   }
   if (output.OrderableClusterOptions === "") {
     contents.OrderableClusterOptions = [];
-    return contents;
   }
   if (
     output["OrderableClusterOptions"] !== undefined &&
@@ -18073,7 +18021,6 @@ const deserializeAws_queryReservedNode = (
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
-    return contents;
   }
   if (
     output["RecurringCharges"] !== undefined &&
@@ -18151,7 +18098,6 @@ const deserializeAws_queryReservedNodeOffering = (
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
-    return contents;
   }
   if (
     output["RecurringCharges"] !== undefined &&
@@ -18201,7 +18147,6 @@ const deserializeAws_queryReservedNodeOfferingsMessage = (
   }
   if (output.ReservedNodeOfferings === "") {
     contents.ReservedNodeOfferings = [];
-    return contents;
   }
   if (
     output["ReservedNodeOfferings"] !== undefined &&
@@ -18233,7 +18178,6 @@ const deserializeAws_queryReservedNodesMessage = (
   }
   if (output.ReservedNodes === "") {
     contents.ReservedNodes = [];
-    return contents;
   }
   if (
     output["ReservedNodes"] !== undefined &&
@@ -18356,7 +18300,6 @@ const deserializeAws_queryResizeProgressMessage = (
   }
   if (output.ImportTablesCompleted === "") {
     contents.ImportTablesCompleted = [];
-    return contents;
   }
   if (
     output["ImportTablesCompleted"] !== undefined &&
@@ -18373,7 +18316,6 @@ const deserializeAws_queryResizeProgressMessage = (
   }
   if (output.ImportTablesInProgress === "") {
     contents.ImportTablesInProgress = [];
-    return contents;
   }
   if (
     output["ImportTablesInProgress"] !== undefined &&
@@ -18390,7 +18332,6 @@ const deserializeAws_queryResizeProgressMessage = (
   }
   if (output.ImportTablesNotStarted === "") {
     contents.ImportTablesNotStarted = [];
-    return contents;
   }
   if (
     output["ImportTablesNotStarted"] !== undefined &&
@@ -18627,7 +18568,6 @@ const deserializeAws_queryScheduledAction = (
   }
   if (output.NextInvocations === "") {
     contents.NextInvocations = [];
-    return contents;
   }
   if (
     output["NextInvocations"] !== undefined &&
@@ -18713,7 +18653,6 @@ const deserializeAws_queryScheduledActionsMessage = (
   }
   if (output.ScheduledActions === "") {
     contents.ScheduledActions = [];
-    return contents;
   }
   if (
     output["ScheduledActions"] !== undefined &&
@@ -18780,7 +18719,6 @@ const deserializeAws_querySnapshot = (
   };
   if (output.AccountsWithRestoreAccess === "") {
     contents.AccountsWithRestoreAccess = [];
-    return contents;
   }
   if (
     output["AccountsWithRestoreAccess"] !== undefined &&
@@ -18877,7 +18815,6 @@ const deserializeAws_querySnapshot = (
   }
   if (output.RestorableNodeTypes === "") {
     contents.RestorableNodeTypes = [];
-    return contents;
   }
   if (
     output["RestorableNodeTypes"] !== undefined &&
@@ -18914,7 +18851,6 @@ const deserializeAws_querySnapshot = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -18952,7 +18888,6 @@ const deserializeAws_querySnapshotCopyGrant = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -18987,7 +18922,6 @@ const deserializeAws_querySnapshotCopyGrantMessage = (
   }
   if (output.SnapshotCopyGrants === "") {
     contents.SnapshotCopyGrants = [];
-    return contents;
   }
   if (
     output["SnapshotCopyGrants"] !== undefined &&
@@ -19061,7 +18995,6 @@ const deserializeAws_querySnapshotMessage = (
   }
   if (output.Snapshots === "") {
     contents.Snapshots = [];
-    return contents;
   }
   if (
     output["Snapshots"] !== undefined &&
@@ -19097,7 +19030,6 @@ const deserializeAws_querySnapshotSchedule = (
   }
   if (output.AssociatedClusters === "") {
     contents.AssociatedClusters = [];
-    return contents;
   }
   if (
     output["AssociatedClusters"] !== undefined &&
@@ -19115,7 +19047,6 @@ const deserializeAws_querySnapshotSchedule = (
   }
   if (output.NextInvocations === "") {
     contents.NextInvocations = [];
-    return contents;
   }
   if (
     output["NextInvocations"] !== undefined &&
@@ -19132,7 +19063,6 @@ const deserializeAws_querySnapshotSchedule = (
   }
   if (output.ScheduleDefinitions === "") {
     contents.ScheduleDefinitions = [];
-    return contents;
   }
   if (
     output["ScheduleDefinitions"] !== undefined &&
@@ -19155,7 +19085,6 @@ const deserializeAws_querySnapshotSchedule = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -19352,7 +19281,6 @@ const deserializeAws_queryTableRestoreStatusMessage = (
   }
   if (output.TableRestoreStatusDetails === "") {
     contents.TableRestoreStatusDetails = [];
-    return contents;
   }
   if (
     output["TableRestoreStatusDetails"] !== undefined &&
@@ -19439,7 +19367,6 @@ const deserializeAws_queryTaggedResourceListMessage = (
   }
   if (output.TaggedResources === "") {
     contents.TaggedResources = [];
-    return contents;
   }
   if (
     output["TaggedResources"] !== undefined &&
@@ -19477,7 +19404,6 @@ const deserializeAws_queryTrackListMessage = (
   };
   if (output.MaintenanceTracks === "") {
     contents.MaintenanceTracks = [];
-    return contents;
   }
   if (
     output["MaintenanceTracks"] !== undefined &&
@@ -19516,7 +19442,6 @@ const deserializeAws_queryUpdateTarget = (
   }
   if (output.SupportedOperations === "") {
     contents.SupportedOperations = [];
-    return contents;
   }
   if (
     output["SupportedOperations"] !== undefined &&

@@ -5708,7 +5708,6 @@ export async function deserializeAws_restXmlDeleteObjectsCommand(
   const data: any = await parseBody(output.body, context);
   if (data.Deleted === "") {
     contents.Deleted = [];
-    return contents;
   }
   if (data["Deleted"] !== undefined) {
     const wrappedItem =
@@ -5720,7 +5719,6 @@ export async function deserializeAws_restXmlDeleteObjectsCommand(
   }
   if (data.Error === "") {
     contents.Errors = [];
-    return contents;
   }
   if (data["Error"] !== undefined) {
     const wrappedItem =
@@ -5872,7 +5870,6 @@ export async function deserializeAws_restXmlGetBucketAclCommand(
   const data: any = await parseBody(output.body, context);
   if (data.AccessControlList === "") {
     contents.Grants = [];
-    return contents;
   }
   if (
     data["AccessControlList"] !== undefined &&
@@ -5986,7 +5983,6 @@ export async function deserializeAws_restXmlGetBucketCorsCommand(
   const data: any = await parseBody(output.body, context);
   if (data.CORSRule === "") {
     contents.CORSRules = [];
-    return contents;
   }
   if (data["CORSRule"] !== undefined) {
     const wrappedItem =
@@ -6147,7 +6143,6 @@ export async function deserializeAws_restXmlGetBucketLifecycleConfigurationComma
   const data: any = await parseBody(output.body, context);
   if (data.Rule === "") {
     contents.Rules = [];
-    return contents;
   }
   if (data["Rule"] !== undefined) {
     const wrappedItem =
@@ -6357,7 +6352,6 @@ export async function deserializeAws_restXmlGetBucketNotificationConfigurationCo
   const data: any = await parseBody(output.body, context);
   if (data.CloudFunctionConfiguration === "") {
     contents.LambdaFunctionConfigurations = [];
-    return contents;
   }
   if (data["CloudFunctionConfiguration"] !== undefined) {
     const wrappedItem =
@@ -6371,7 +6365,6 @@ export async function deserializeAws_restXmlGetBucketNotificationConfigurationCo
   }
   if (data.QueueConfiguration === "") {
     contents.QueueConfigurations = [];
-    return contents;
   }
   if (data["QueueConfiguration"] !== undefined) {
     const wrappedItem =
@@ -6385,7 +6378,6 @@ export async function deserializeAws_restXmlGetBucketNotificationConfigurationCo
   }
   if (data.TopicConfiguration === "") {
     contents.TopicConfigurations = [];
-    return contents;
   }
   if (data["TopicConfiguration"] !== undefined) {
     const wrappedItem =
@@ -6644,7 +6636,6 @@ export async function deserializeAws_restXmlGetBucketTaggingCommand(
   const data: any = await parseBody(output.body, context);
   if (data.TagSet === "") {
     contents.TagSet = [];
-    return contents;
   }
   if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -6776,7 +6767,6 @@ export async function deserializeAws_restXmlGetBucketWebsiteCommand(
   }
   if (data.RoutingRules === "") {
     contents.RoutingRules = [];
-    return contents;
   }
   if (
     data["RoutingRules"] !== undefined &&
@@ -7037,7 +7027,6 @@ export async function deserializeAws_restXmlGetObjectAclCommand(
   const data: any = await parseBody(output.body, context);
   if (data.AccessControlList === "") {
     contents.Grants = [];
-    return contents;
   }
   if (
     data["AccessControlList"] !== undefined &&
@@ -7260,7 +7249,6 @@ export async function deserializeAws_restXmlGetObjectTaggingCommand(
   const data: any = await parseBody(output.body, context);
   if (data.TagSet === "") {
     contents.TagSet = [];
-    return contents;
   }
   if (data["TagSet"] !== undefined && data["TagSet"]["Tag"] !== undefined) {
     const wrappedItem =
@@ -7658,7 +7646,6 @@ export async function deserializeAws_restXmlListBucketAnalyticsConfigurationsCom
   const data: any = await parseBody(output.body, context);
   if (data.AnalyticsConfiguration === "") {
     contents.AnalyticsConfigurationList = [];
-    return contents;
   }
   if (data["AnalyticsConfiguration"] !== undefined) {
     const wrappedItem =
@@ -7735,7 +7722,6 @@ export async function deserializeAws_restXmlListBucketInventoryConfigurationsCom
   }
   if (data.InventoryConfiguration === "") {
     contents.InventoryConfigurationList = [];
-    return contents;
   }
   if (data["InventoryConfiguration"] !== undefined) {
     const wrappedItem =
@@ -7812,7 +7798,6 @@ export async function deserializeAws_restXmlListBucketMetricsConfigurationsComma
   }
   if (data.MetricsConfiguration === "") {
     contents.MetricsConfigurationList = [];
-    return contents;
   }
   if (data["MetricsConfiguration"] !== undefined) {
     const wrappedItem =
@@ -7875,7 +7860,6 @@ export async function deserializeAws_restXmlListBucketsCommand(
   const data: any = await parseBody(output.body, context);
   if (data.Buckets === "") {
     contents.Buckets = [];
-    return contents;
   }
   if (
     data["Buckets"] !== undefined &&
@@ -7954,7 +7938,6 @@ export async function deserializeAws_restXmlListMultipartUploadsCommand(
   }
   if (data.CommonPrefixes === "") {
     contents.CommonPrefixes = [];
-    return contents;
   }
   if (data["CommonPrefixes"] !== undefined) {
     const wrappedItem =
@@ -7995,7 +7978,6 @@ export async function deserializeAws_restXmlListMultipartUploadsCommand(
   }
   if (data.Upload === "") {
     contents.Uploads = [];
-    return contents;
   }
   if (data["Upload"] !== undefined) {
     const wrappedItem =
@@ -8067,7 +8049,6 @@ export async function deserializeAws_restXmlListObjectVersionsCommand(
   const data: any = await parseBody(output.body, context);
   if (data.CommonPrefixes === "") {
     contents.CommonPrefixes = [];
-    return contents;
   }
   if (data["CommonPrefixes"] !== undefined) {
     const wrappedItem =
@@ -8081,7 +8062,6 @@ export async function deserializeAws_restXmlListObjectVersionsCommand(
   }
   if (data.DeleteMarker === "") {
     contents.DeleteMarkers = [];
-    return contents;
   }
   if (data["DeleteMarker"] !== undefined) {
     const wrappedItem =
@@ -8125,7 +8105,6 @@ export async function deserializeAws_restXmlListObjectVersionsCommand(
   }
   if (data.Version === "") {
     contents.Versions = [];
-    return contents;
   }
   if (data["Version"] !== undefined) {
     const wrappedItem =
@@ -8191,7 +8170,6 @@ export async function deserializeAws_restXmlListObjectsCommand(
   const data: any = await parseBody(output.body, context);
   if (data.CommonPrefixes === "") {
     contents.CommonPrefixes = [];
-    return contents;
   }
   if (data["CommonPrefixes"] !== undefined) {
     const wrappedItem =
@@ -8205,7 +8183,6 @@ export async function deserializeAws_restXmlListObjectsCommand(
   }
   if (data.Contents === "") {
     contents.Contents = [];
-    return contents;
   }
   if (data["Contents"] !== undefined) {
     const wrappedItem =
@@ -8301,7 +8278,6 @@ export async function deserializeAws_restXmlListObjectsV2Command(
   const data: any = await parseBody(output.body, context);
   if (data.CommonPrefixes === "") {
     contents.CommonPrefixes = [];
-    return contents;
   }
   if (data["CommonPrefixes"] !== undefined) {
     const wrappedItem =
@@ -8315,7 +8291,6 @@ export async function deserializeAws_restXmlListObjectsV2Command(
   }
   if (data.Contents === "") {
     contents.Contents = [];
-    return contents;
   }
   if (data["Contents"] !== undefined) {
     const wrappedItem =
@@ -8455,7 +8430,6 @@ export async function deserializeAws_restXmlListPartsCommand(
   }
   if (data.Part === "") {
     contents.Parts = [];
-    return contents;
   }
   if (data["Part"] !== undefined) {
     const wrappedItem =
@@ -12750,7 +12724,6 @@ const deserializeAws_restXmlAnalyticsAndOperator = (
   }
   if (output.Tag === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tag"] !== undefined) {
     const wrappedItem =
@@ -12906,7 +12879,6 @@ const deserializeAws_restXmlCORSRule = (
   };
   if (output.AllowedHeader === "") {
     contents.AllowedHeaders = [];
-    return contents;
   }
   if (output["AllowedHeader"] !== undefined) {
     const wrappedItem =
@@ -12920,7 +12892,6 @@ const deserializeAws_restXmlCORSRule = (
   }
   if (output.AllowedMethod === "") {
     contents.AllowedMethods = [];
-    return contents;
   }
   if (output["AllowedMethod"] !== undefined) {
     const wrappedItem =
@@ -12934,7 +12905,6 @@ const deserializeAws_restXmlCORSRule = (
   }
   if (output.AllowedOrigin === "") {
     contents.AllowedOrigins = [];
-    return contents;
   }
   if (output["AllowedOrigin"] !== undefined) {
     const wrappedItem =
@@ -12948,7 +12918,6 @@ const deserializeAws_restXmlCORSRule = (
   }
   if (output.ExposeHeader === "") {
     contents.ExposeHeaders = [];
-    return contents;
   }
   if (output["ExposeHeader"] !== undefined) {
     const wrappedItem =
@@ -13460,7 +13429,6 @@ const deserializeAws_restXmlInventoryConfiguration = (
   }
   if (output.OptionalFields === "") {
     contents.OptionalFields = [];
-    return contents;
   }
   if (
     output["OptionalFields"] !== undefined &&
@@ -13609,7 +13577,6 @@ const deserializeAws_restXmlLambdaFunctionConfiguration = (
   };
   if (output.Event === "") {
     contents.Events = [];
-    return contents;
   }
   if (output["Event"] !== undefined) {
     const wrappedItem =
@@ -13708,7 +13675,6 @@ const deserializeAws_restXmlLifecycleRule = (
   }
   if (output.NoncurrentVersionTransition === "") {
     contents.NoncurrentVersionTransitions = [];
-    return contents;
   }
   if (output["NoncurrentVersionTransition"] !== undefined) {
     const wrappedItem =
@@ -13728,7 +13694,6 @@ const deserializeAws_restXmlLifecycleRule = (
   }
   if (output.Transition === "") {
     contents.Transitions = [];
-    return contents;
   }
   if (output["Transition"] !== undefined) {
     const wrappedItem =
@@ -13757,7 +13722,6 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   }
   if (output.Tag === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tag"] !== undefined) {
     const wrappedItem =
@@ -13816,7 +13780,6 @@ const deserializeAws_restXmlLoggingEnabled = (
   }
   if (output.TargetGrants === "") {
     contents.TargetGrants = [];
-    return contents;
   }
   if (
     output["TargetGrants"] !== undefined &&
@@ -13872,7 +13835,6 @@ const deserializeAws_restXmlMetricsAndOperator = (
   }
   if (output.Tag === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tag"] !== undefined) {
     const wrappedItem =
@@ -14308,7 +14270,6 @@ const deserializeAws_restXmlQueueConfiguration = (
   };
   if (output.Event === "") {
     contents.Events = [];
-    return contents;
   }
   if (output["Event"] !== undefined) {
     const wrappedItem =
@@ -14401,7 +14362,6 @@ const deserializeAws_restXmlReplicationConfiguration = (
   }
   if (output.Rule === "") {
     contents.Rules = [];
-    return contents;
   }
   if (output["Rule"] !== undefined) {
     const wrappedItem =
@@ -14489,7 +14449,6 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
   }
   if (output.Tag === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tag"] !== undefined) {
     const wrappedItem =
@@ -14611,7 +14570,6 @@ const deserializeAws_restXmlS3KeyFilter = (
   };
   if (output.FilterRule === "") {
     contents.FilterRules = [];
-    return contents;
   }
   if (output["FilterRule"] !== undefined) {
     const wrappedItem =
@@ -14678,7 +14636,6 @@ const deserializeAws_restXmlServerSideEncryptionConfiguration = (
   };
   if (output.Rule === "") {
     contents.Rules = [];
-    return contents;
   }
   if (output["Rule"] !== undefined) {
     const wrappedItem =
@@ -14856,7 +14813,6 @@ const deserializeAws_restXmlTopicConfiguration = (
   };
   if (output.Event === "") {
     contents.Events = [];
-    return contents;
   }
   if (output["Event"] !== undefined) {
     const wrappedItem =
