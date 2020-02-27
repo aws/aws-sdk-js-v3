@@ -44,8 +44,8 @@
 @kms
 @lambda
 @machinelearning
-# @mobileanalytics
 @opsworks
+@pinpoint
 @rds
 @redshift
 @route53
