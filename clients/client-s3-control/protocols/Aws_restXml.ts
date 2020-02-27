@@ -1291,7 +1291,6 @@ export async function deserializeAws_restXmlListAccessPointsCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.AccessPointList === "") {
     contents.AccessPointList = [];
-    return contents;
   }
   if (
     data["AccessPointList"] !== undefined &&
@@ -1358,7 +1357,6 @@ export async function deserializeAws_restXmlListJobsCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.Jobs === "") {
     contents.Jobs = [];
-    return contents;
   }
   if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
     const wrappedItem =
@@ -2535,7 +2533,6 @@ const deserializeAws_restXmlJobDescriptor = (
   }
   if (output.FailureReasons === "") {
     contents.FailureReasons = [];
-    return contents;
   }
   if (
     output["FailureReasons"] !== undefined &&
@@ -2749,7 +2746,6 @@ const deserializeAws_restXmlJobManifestSpec = (
   };
   if (output.Fields === "") {
     contents.Fields = [];
-    return contents;
   }
   if (
     output["Fields"] !== undefined &&
@@ -2934,7 +2930,6 @@ const deserializeAws_restXmlS3AccessControlList = (
   };
   if (output.Grants === "") {
     contents.Grants = [];
-    return contents;
   }
   if (
     output["Grants"] !== undefined &&
@@ -3001,7 +2996,6 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
   };
   if (output.AccessControlGrants === "") {
     contents.AccessControlGrants = [];
-    return contents;
   }
   if (
     output["AccessControlGrants"] !== undefined &&
@@ -3035,7 +3029,6 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
   }
   if (output.NewObjectTagging === "") {
     contents.NewObjectTagging = [];
-    return contents;
   }
   if (
     output["NewObjectTagging"] !== undefined &&
@@ -3207,7 +3200,6 @@ const deserializeAws_restXmlS3ObjectMetadata = (
   }
   if (output.UserMetadata === "") {
     contents.UserMetadata = {};
-    return contents;
   }
   if (
     output["UserMetadata"] !== undefined &&
@@ -3270,7 +3262,6 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
   };
   if (output.TagSet === "") {
     contents.TagSet = [];
-    return contents;
   }
   if (
     output["TagSet"] !== undefined &&

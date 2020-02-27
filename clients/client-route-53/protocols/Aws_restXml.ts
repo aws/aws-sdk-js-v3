@@ -4251,7 +4251,6 @@ export async function deserializeAws_restXmlGetCheckerIpRangesCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.CheckerIpRanges === "") {
     contents.CheckerIpRanges = [];
-    return contents;
   }
   if (
     data["CheckerIpRanges"] !== undefined &&
@@ -4508,7 +4507,6 @@ export async function deserializeAws_restXmlGetHealthCheckLastFailureReasonComma
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.HealthCheckObservations === "") {
     contents.HealthCheckObservations = [];
-    return contents;
   }
   if (
     data["HealthCheckObservations"] !== undefined &&
@@ -4588,7 +4586,6 @@ export async function deserializeAws_restXmlGetHealthCheckStatusCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.HealthCheckObservations === "") {
     contents.HealthCheckObservations = [];
-    return contents;
   }
   if (
     data["HealthCheckObservations"] !== undefined &&
@@ -4679,7 +4676,6 @@ export async function deserializeAws_restXmlGetHostedZoneCommand(
   }
   if (data.VPCs === "") {
     contents.VPCs = [];
-    return contents;
   }
   if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
     const wrappedItem =
@@ -5301,7 +5297,6 @@ export async function deserializeAws_restXmlListGeoLocationsCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.GeoLocationDetailsList === "") {
     contents.GeoLocationDetailsList = [];
-    return contents;
   }
   if (
     data["GeoLocationDetailsList"] !== undefined &&
@@ -5390,7 +5385,6 @@ export async function deserializeAws_restXmlListHealthChecksCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.HealthChecks === "") {
     contents.HealthChecks = [];
-    return contents;
   }
   if (
     data["HealthChecks"] !== undefined &&
@@ -5483,7 +5477,6 @@ export async function deserializeAws_restXmlListHostedZonesCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.HostedZones === "") {
     contents.HostedZones = [];
-    return contents;
   }
   if (
     data["HostedZones"] !== undefined &&
@@ -5594,7 +5587,6 @@ export async function deserializeAws_restXmlListHostedZonesByNameCommand(
   }
   if (data.HostedZones === "") {
     contents.HostedZones = [];
-    return contents;
   }
   if (
     data["HostedZones"] !== undefined &&
@@ -5690,7 +5682,6 @@ export async function deserializeAws_restXmlListQueryLoggingConfigsCommand(
   }
   if (data.QueryLoggingConfigs === "") {
     contents.QueryLoggingConfigs = [];
-    return contents;
   }
   if (
     data["QueryLoggingConfigs"] !== undefined &&
@@ -5797,7 +5788,6 @@ export async function deserializeAws_restXmlListResourceRecordSetsCommand(
   }
   if (data.ResourceRecordSets === "") {
     contents.ResourceRecordSets = [];
-    return contents;
   }
   if (
     data["ResourceRecordSets"] !== undefined &&
@@ -5881,7 +5871,6 @@ export async function deserializeAws_restXmlListReusableDelegationSetsCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.DelegationSets === "") {
     contents.DelegationSets = [];
-    return contents;
   }
   if (
     data["DelegationSets"] !== undefined &&
@@ -6056,7 +6045,6 @@ export async function deserializeAws_restXmlListTagsForResourcesCommand(
   const data: any = (await parseBody(output.body, context)).Error;
   if (data.ResourceTagSets === "") {
     contents.ResourceTagSets = [];
-    return contents;
   }
   if (
     data["ResourceTagSets"] !== undefined &&
@@ -6169,7 +6157,6 @@ export async function deserializeAws_restXmlListTrafficPoliciesCommand(
   }
   if (data.TrafficPolicySummaries === "") {
     contents.TrafficPolicySummaries = [];
-    return contents;
   }
   if (
     data["TrafficPolicySummaries"] !== undefined &&
@@ -6264,7 +6251,6 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesCommand(
   }
   if (data.TrafficPolicyInstances === "") {
     contents.TrafficPolicyInstances = [];
-    return contents;
   }
   if (
     data["TrafficPolicyInstances"] !== undefined &&
@@ -6362,7 +6348,6 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByHostedZo
   }
   if (data.TrafficPolicyInstances === "") {
     contents.TrafficPolicyInstances = [];
-    return contents;
   }
   if (
     data["TrafficPolicyInstances"] !== undefined &&
@@ -6471,7 +6456,6 @@ export async function deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCo
   }
   if (data.TrafficPolicyInstances === "") {
     contents.TrafficPolicyInstances = [];
-    return contents;
   }
   if (
     data["TrafficPolicyInstances"] !== undefined &&
@@ -6567,7 +6551,6 @@ export async function deserializeAws_restXmlListTrafficPolicyVersionsCommand(
   }
   if (data.TrafficPolicies === "") {
     contents.TrafficPolicies = [];
-    return contents;
   }
   if (
     data["TrafficPolicies"] !== undefined &&
@@ -6658,7 +6641,6 @@ export async function deserializeAws_restXmlListVPCAssociationAuthorizationsComm
   }
   if (data.VPCs === "") {
     contents.VPCs = [];
-    return contents;
   }
   if (data["VPCs"] !== undefined && data["VPCs"]["VPC"] !== undefined) {
     const wrappedItem =
@@ -6747,7 +6729,6 @@ export async function deserializeAws_restXmlTestDNSAnswerCommand(
   }
   if (data.RecordData === "") {
     contents.RecordData = [];
-    return contents;
   }
   if (
     data["RecordData"] !== undefined &&
@@ -8460,7 +8441,6 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   }
   if (output.Dimensions === "") {
     contents.Dimensions = [];
-    return contents;
   }
   if (
     output["Dimensions"] !== undefined &&
@@ -8514,7 +8494,6 @@ const deserializeAws_restXmlDelegationSet = (
   }
   if (output.NameServers === "") {
     contents.NameServers = [];
-    return contents;
   }
   if (
     output["NameServers"] !== undefined &&
@@ -8722,7 +8701,6 @@ const deserializeAws_restXmlHealthCheckConfig = (
   }
   if (output.ChildHealthChecks === "") {
     contents.ChildHealthChecks = [];
-    return contents;
   }
   if (
     output["ChildHealthChecks"] !== undefined &&
@@ -8770,7 +8748,6 @@ const deserializeAws_restXmlHealthCheckConfig = (
   }
   if (output.Regions === "") {
     contents.Regions = [];
-    return contents;
   }
   if (
     output["Regions"] !== undefined &&
@@ -9056,7 +9033,6 @@ const deserializeAws_restXmlResourceRecordSet = (
   }
   if (output.ResourceRecords === "") {
     contents.ResourceRecords = [];
-    return contents;
   }
   if (
     output["ResourceRecords"] !== undefined &&
@@ -9125,7 +9101,6 @@ const deserializeAws_restXmlResourceTagSet = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["Tag"] !== undefined) {
     const wrappedItem =

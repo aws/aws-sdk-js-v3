@@ -7333,7 +7333,6 @@ const deserializeAws_queryCertificateMessage = (
   };
   if (output.Certificates === "") {
     contents.Certificates = [];
-    return contents;
   }
   if (
     output["Certificates"] !== undefined &&
@@ -7511,7 +7510,6 @@ const deserializeAws_queryDBCluster = (
   };
   if (output.AssociatedRoles === "") {
     contents.AssociatedRoles = [];
-    return contents;
   }
   if (
     output["AssociatedRoles"] !== undefined &&
@@ -7528,7 +7526,6 @@ const deserializeAws_queryDBCluster = (
   }
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["AvailabilityZones"] !== undefined &&
@@ -7557,7 +7554,6 @@ const deserializeAws_queryDBCluster = (
   }
   if (output.DBClusterMembers === "") {
     contents.DBClusterMembers = [];
-    return contents;
   }
   if (
     output["DBClusterMembers"] !== undefined &&
@@ -7591,7 +7587,6 @@ const deserializeAws_queryDBCluster = (
   }
   if (output.EnabledCloudwatchLogsExports === "") {
     contents.EnabledCloudwatchLogsExports = [];
-    return contents;
   }
   if (
     output["EnabledCloudwatchLogsExports"] !== undefined &&
@@ -7653,7 +7648,6 @@ const deserializeAws_queryDBCluster = (
   }
   if (output.VpcSecurityGroups === "") {
     contents.VpcSecurityGroups = [];
-    return contents;
   }
   if (
     output["VpcSecurityGroups"] !== undefined &&
@@ -7727,7 +7721,6 @@ const deserializeAws_queryDBClusterMessage = (
   };
   if (output.DBClusters === "") {
     contents.DBClusters = [];
-    return contents;
   }
   if (
     output["DBClusters"] !== undefined &&
@@ -7789,7 +7782,6 @@ const deserializeAws_queryDBClusterParameterGroupDetails = (
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
-    return contents;
   }
   if (
     output["Parameters"] !== undefined &&
@@ -7842,7 +7834,6 @@ const deserializeAws_queryDBClusterParameterGroupsMessage = (
   };
   if (output.DBClusterParameterGroups === "") {
     contents.DBClusterParameterGroups = [];
-    return contents;
   }
   if (
     output["DBClusterParameterGroups"] !== undefined &&
@@ -7917,7 +7908,6 @@ const deserializeAws_queryDBClusterSnapshot = (
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["AvailabilityZones"] !== undefined &&
@@ -7998,7 +7988,6 @@ const deserializeAws_queryDBClusterSnapshotAttribute = (
   }
   if (output.AttributeValues === "") {
     contents.AttributeValues = [];
-    return contents;
   }
   if (
     output["AttributeValues"] !== undefined &&
@@ -8036,7 +8025,6 @@ const deserializeAws_queryDBClusterSnapshotAttributesResult = (
   };
   if (output.DBClusterSnapshotAttributes === "") {
     contents.DBClusterSnapshotAttributes = [];
-    return contents;
   }
   if (
     output["DBClusterSnapshotAttributes"] !== undefined &&
@@ -8081,7 +8069,6 @@ const deserializeAws_queryDBClusterSnapshotMessage = (
   };
   if (output.DBClusterSnapshots === "") {
     contents.DBClusterSnapshots = [];
-    return contents;
   }
   if (
     output["DBClusterSnapshots"] !== undefined &&
@@ -8134,7 +8121,6 @@ const deserializeAws_queryDBEngineVersion = (
   }
   if (output.ExportableLogTypes === "") {
     contents.ExportableLogTypes = [];
-    return contents;
   }
   if (
     output["ExportableLogTypes"] !== undefined &&
@@ -8155,7 +8141,6 @@ const deserializeAws_queryDBEngineVersion = (
   }
   if (output.ValidUpgradeTarget === "") {
     contents.ValidUpgradeTarget = [];
-    return contents;
   }
   if (
     output["ValidUpgradeTarget"] !== undefined &&
@@ -8193,7 +8178,6 @@ const deserializeAws_queryDBEngineVersionMessage = (
   };
   if (output.DBEngineVersions === "") {
     contents.DBEngineVersions = [];
-    return contents;
   }
   if (
     output["DBEngineVersions"] !== undefined &&
@@ -8286,7 +8270,6 @@ const deserializeAws_queryDBInstance = (
   }
   if (output.EnabledCloudwatchLogsExports === "") {
     contents.EnabledCloudwatchLogsExports = [];
-    return contents;
   }
   if (
     output["EnabledCloudwatchLogsExports"] !== undefined &&
@@ -8342,7 +8325,6 @@ const deserializeAws_queryDBInstance = (
   }
   if (output.StatusInfos === "") {
     contents.StatusInfos = [];
-    return contents;
   }
   if (
     output["StatusInfos"] !== undefined &&
@@ -8362,7 +8344,6 @@ const deserializeAws_queryDBInstance = (
   }
   if (output.VpcSecurityGroups === "") {
     contents.VpcSecurityGroups = [];
-    return contents;
   }
   if (
     output["VpcSecurityGroups"] !== undefined &&
@@ -8400,7 +8381,6 @@ const deserializeAws_queryDBInstanceMessage = (
   };
   if (output.DBInstances === "") {
     contents.DBInstances = [];
-    return contents;
   }
   if (
     output["DBInstances"] !== undefined &&
@@ -8483,7 +8463,6 @@ const deserializeAws_queryDBSubnetGroup = (
   }
   if (output.Subnets === "") {
     contents.Subnets = [];
-    return contents;
   }
   if (
     output["Subnets"] !== undefined &&
@@ -8512,7 +8491,6 @@ const deserializeAws_queryDBSubnetGroupMessage = (
   };
   if (output.DBSubnetGroups === "") {
     contents.DBSubnetGroups = [];
-    return contents;
   }
   if (
     output["DBSubnetGroups"] !== undefined &&
@@ -8667,7 +8645,6 @@ const deserializeAws_queryEngineDefaults = (
   }
   if (output.Parameters === "") {
     contents.Parameters = [];
-    return contents;
   }
   if (
     output["Parameters"] !== undefined &&
@@ -8703,7 +8680,6 @@ const deserializeAws_queryEvent = (
   }
   if (output.EventCategories === "") {
     contents.EventCategories = [];
-    return contents;
   }
   if (
     output["EventCategories"] !== undefined &&
@@ -8751,7 +8727,6 @@ const deserializeAws_queryEventCategoriesMap = (
   };
   if (output.EventCategories === "") {
     contents.EventCategories = [];
-    return contents;
   }
   if (
     output["EventCategories"] !== undefined &&
@@ -8791,7 +8766,6 @@ const deserializeAws_queryEventCategoriesMessage = (
   };
   if (output.EventCategoriesMapList === "") {
     contents.EventCategoriesMapList = [];
-    return contents;
   }
   if (
     output["EventCategoriesMapList"] !== undefined &&
@@ -8829,7 +8803,6 @@ const deserializeAws_queryEventsMessage = (
   };
   if (output.Events === "") {
     contents.Events = [];
-    return contents;
   }
   if (
     output["Events"] !== undefined &&
@@ -8954,7 +8927,6 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["AvailabilityZones"] !== undefined &&
@@ -9010,7 +8982,6 @@ const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
   }
   if (output.OrderableDBInstanceOptions === "") {
     contents.OrderableDBInstanceOptions = [];
-    return contents;
   }
   if (
     output["OrderableDBInstanceOptions"] !== undefined &&
@@ -9101,7 +9072,6 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
   };
   if (output.LogTypesToDisable === "") {
     contents.LogTypesToDisable = [];
-    return contents;
   }
   if (
     output["LogTypesToDisable"] !== undefined &&
@@ -9118,7 +9088,6 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
   }
   if (output.LogTypesToEnable === "") {
     contents.LogTypesToEnable = [];
-    return contents;
   }
   if (
     output["LogTypesToEnable"] !== undefined &&
@@ -9202,7 +9171,6 @@ const deserializeAws_queryPendingMaintenanceActionsMessage = (
   }
   if (output.PendingMaintenanceActions === "") {
     contents.PendingMaintenanceActions = [];
-    return contents;
   }
   if (
     output["PendingMaintenanceActions"] !== undefined &&
@@ -9326,7 +9294,6 @@ const deserializeAws_queryResourcePendingMaintenanceActions = (
   };
   if (output.PendingMaintenanceActionDetails === "") {
     contents.PendingMaintenanceActionDetails = [];
-    return contents;
   }
   if (
     output["PendingMaintenanceActionDetails"] !== undefined &&
@@ -9490,7 +9457,6 @@ const deserializeAws_queryTagListMessage = (
   };
   if (output.TagList === "") {
     contents.TagList = [];
-    return contents;
   }
   if (
     output["TagList"] !== undefined &&
