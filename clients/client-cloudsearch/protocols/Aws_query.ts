@@ -3998,7 +3998,6 @@ const deserializeAws_queryBuildSuggestersResponse = (
   };
   if (output.FieldNames === "") {
     contents.FieldNames = [];
-    return contents;
   }
   if (
     output["FieldNames"] !== undefined &&
@@ -4260,7 +4259,6 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
   };
   if (output.AnalysisSchemes === "") {
     contents.AnalysisSchemes = [];
-    return contents;
   }
   if (
     output["AnalysisSchemes"] !== undefined &&
@@ -4322,7 +4320,6 @@ const deserializeAws_queryDescribeDomainsResponse = (
   };
   if (output.DomainStatusList === "") {
     contents.DomainStatusList = [];
-    return contents;
   }
   if (
     output["DomainStatusList"] !== undefined &&
@@ -4350,7 +4347,6 @@ const deserializeAws_queryDescribeExpressionsResponse = (
   };
   if (output.Expressions === "") {
     contents.Expressions = [];
-    return contents;
   }
   if (
     output["Expressions"] !== undefined &&
@@ -4378,7 +4374,6 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
   };
   if (output.IndexFields === "") {
     contents.IndexFields = [];
-    return contents;
   }
   if (
     output["IndexFields"] !== undefined &&
@@ -4440,7 +4435,6 @@ const deserializeAws_queryDescribeSuggestersResponse = (
   };
   if (output.Suggesters === "") {
     contents.Suggesters = [];
-    return contents;
   }
   if (
     output["Suggesters"] !== undefined &&
@@ -4761,7 +4755,6 @@ const deserializeAws_queryIndexDocumentsResponse = (
   };
   if (output.FieldNames === "") {
     contents.FieldNames = [];
-    return contents;
   }
   if (
     output["FieldNames"] !== undefined &&
@@ -5089,7 +5082,6 @@ const deserializeAws_queryListDomainNamesResponse = (
   };
   if (output.DomainNames === "") {
     contents.DomainNames = {};
-    return contents;
   }
   if (
     output["DomainNames"] !== undefined &&

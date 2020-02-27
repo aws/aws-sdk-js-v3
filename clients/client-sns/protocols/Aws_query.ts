@@ -4799,7 +4799,6 @@ const deserializeAws_queryEndpoint = (
   };
   if (output.Attributes === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -4858,7 +4857,6 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
   };
   if (output.Attributes === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -4886,7 +4884,6 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
   };
   if (output.Attributes === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -4914,7 +4911,6 @@ const deserializeAws_queryGetSMSAttributesResponse = (
   };
   if (output.attributes === "") {
     contents.attributes = {};
-    return contents;
   }
   if (
     output["attributes"] !== undefined &&
@@ -4942,7 +4938,6 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
   };
   if (output.Attributes === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -4970,7 +4965,6 @@ const deserializeAws_queryGetTopicAttributesResponse = (
   };
   if (output.Attributes === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -5139,7 +5133,6 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   };
   if (output.Endpoints === "") {
     contents.Endpoints = [];
-    return contents;
   }
   if (
     output["Endpoints"] !== undefined &&
@@ -5192,7 +5185,6 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   }
   if (output.phoneNumbers === "") {
     contents.phoneNumbers = [];
-    return contents;
   }
   if (
     output["phoneNumbers"] !== undefined &&
@@ -5224,7 +5216,6 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   }
   if (output.PlatformApplications === "") {
     contents.PlatformApplications = [];
-    return contents;
   }
   if (
     output["PlatformApplications"] !== undefined &&
@@ -5256,7 +5247,6 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   }
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
-    return contents;
   }
   if (
     output["Subscriptions"] !== undefined &&
@@ -5288,7 +5278,6 @@ const deserializeAws_queryListSubscriptionsResponse = (
   }
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
-    return contents;
   }
   if (
     output["Subscriptions"] !== undefined &&
@@ -5316,7 +5305,6 @@ const deserializeAws_queryListTagsForResourceResponse = (
   };
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
@@ -5342,7 +5330,6 @@ const deserializeAws_queryListTopicsResponse = (
   }
   if (output.Topics === "") {
     contents.Topics = [];
-    return contents;
   }
   if (
     output["Topics"] !== undefined &&
@@ -5410,7 +5397,6 @@ const deserializeAws_queryPlatformApplication = (
   };
   if (output.Attributes === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&

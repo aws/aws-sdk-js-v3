@@ -753,7 +753,7 @@ export async function deserializeAws_restXmlCreateJobCommand(
     __type: "CreateJobResult",
     JobId: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -968,7 +968,7 @@ export async function deserializeAws_restXmlDescribeJobCommand(
     __type: "DescribeJobResult",
     Job: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Job"] !== undefined) {
     contents.Job = deserializeAws_restXmlJobDescriptor(data["Job"], context);
   }
@@ -1050,7 +1050,7 @@ export async function deserializeAws_restXmlGetAccessPointCommand(
     PublicAccessBlockConfiguration: undefined,
     VpcConfiguration: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Bucket"] !== undefined) {
     contents.Bucket = data["Bucket"];
   }
@@ -1123,7 +1123,7 @@ export async function deserializeAws_restXmlGetAccessPointPolicyCommand(
     __type: "GetAccessPointPolicyResult",
     Policy: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["Policy"] !== undefined) {
     contents.Policy = data["Policy"];
   }
@@ -1175,7 +1175,7 @@ export async function deserializeAws_restXmlGetAccessPointPolicyStatusCommand(
     __type: "GetAccessPointPolicyStatusResult",
     PolicyStatus: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["PolicyStatus"] !== undefined) {
     contents.PolicyStatus = deserializeAws_restXmlPolicyStatus(
       data["PolicyStatus"],
@@ -1288,10 +1288,9 @@ export async function deserializeAws_restXmlListAccessPointsCommand(
     AccessPointList: undefined,
     NextToken: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.AccessPointList === "") {
     contents.AccessPointList = [];
-    return contents;
   }
   if (
     data["AccessPointList"] !== undefined &&
@@ -1355,10 +1354,9 @@ export async function deserializeAws_restXmlListJobsCommand(
     Jobs: undefined,
     NextToken: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data.Jobs === "") {
     contents.Jobs = [];
-    return contents;
   }
   if (data["Jobs"] !== undefined && data["Jobs"]["member"] !== undefined) {
     const wrappedItem =
@@ -1534,7 +1532,7 @@ export async function deserializeAws_restXmlUpdateJobPriorityCommand(
     JobId: undefined,
     Priority: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -1616,7 +1614,7 @@ export async function deserializeAws_restXmlUpdateJobStatusCommand(
     Status: undefined,
     StatusUpdateReason: undefined
   };
-  const data: any = (await parseBody(output.body, context)).Error;
+  const data: any = await parseBody(output.body, context);
   if (data["JobId"] !== undefined) {
     contents.JobId = data["JobId"];
   }
@@ -2535,7 +2533,6 @@ const deserializeAws_restXmlJobDescriptor = (
   }
   if (output.FailureReasons === "") {
     contents.FailureReasons = [];
-    return contents;
   }
   if (
     output["FailureReasons"] !== undefined &&
@@ -2749,7 +2746,6 @@ const deserializeAws_restXmlJobManifestSpec = (
   };
   if (output.Fields === "") {
     contents.Fields = [];
-    return contents;
   }
   if (
     output["Fields"] !== undefined &&
@@ -2934,7 +2930,6 @@ const deserializeAws_restXmlS3AccessControlList = (
   };
   if (output.Grants === "") {
     contents.Grants = [];
-    return contents;
   }
   if (
     output["Grants"] !== undefined &&
@@ -3001,7 +2996,6 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
   };
   if (output.AccessControlGrants === "") {
     contents.AccessControlGrants = [];
-    return contents;
   }
   if (
     output["AccessControlGrants"] !== undefined &&
@@ -3035,7 +3029,6 @@ const deserializeAws_restXmlS3CopyObjectOperation = (
   }
   if (output.NewObjectTagging === "") {
     contents.NewObjectTagging = [];
-    return contents;
   }
   if (
     output["NewObjectTagging"] !== undefined &&
@@ -3207,7 +3200,6 @@ const deserializeAws_restXmlS3ObjectMetadata = (
   }
   if (output.UserMetadata === "") {
     contents.UserMetadata = {};
-    return contents;
   }
   if (
     output["UserMetadata"] !== undefined &&
@@ -3270,7 +3262,6 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
   };
   if (output.TagSet === "") {
     contents.TagSet = [];
-    return contents;
   }
   if (
     output["TagSet"] !== undefined &&
