@@ -1,8 +1,8 @@
 import {
-  AccessanalyzerClientResolvedConfig,
+  AccessAnalyzerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes
-} from "../AccessanalyzerClient";
+} from "../AccessAnalyzerClient";
 import { StartResourceScanRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1StartResourceScanCommand,
@@ -30,7 +30,7 @@ export type StartResourceScanCommandOutput = __MetadataBearer;
 export class StartResourceScanCommand extends $Command<
   StartResourceScanCommandInput,
   StartResourceScanCommandOutput,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
@@ -43,7 +43,7 @@ export class StartResourceScanCommand extends $Command<
 
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AccessanalyzerClientResolvedConfig,
+    configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartResourceScanCommandInput, StartResourceScanCommandOutput> {
     this.middlewareStack.use(

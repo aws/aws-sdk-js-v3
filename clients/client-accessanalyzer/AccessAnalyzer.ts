@@ -1,4 +1,4 @@
-import { AccessanalyzerClient } from "./AccessanalyzerClient";
+import { AccessAnalyzerClient } from "./AccessAnalyzerClient";
 import {
   CreateAnalyzerCommand,
   CreateAnalyzerCommandInput,
@@ -101,7 +101,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
  *          <p>To start using Access Analyzer, you first need to create an analyzer.</p>
  */
-export class Accessanalyzer extends AccessanalyzerClient {
+export class AccessAnalyzer extends AccessAnalyzerClient {
   /**
    * <p>Creates an analyzer for your account.</p>
    */

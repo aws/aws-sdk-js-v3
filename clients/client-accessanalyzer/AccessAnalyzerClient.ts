@@ -203,7 +203,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AccessanalyzerClientConfig = Partial<
+export type AccessAnalyzerClientConfig = Partial<
   __SmithyConfiguration<__HttpHandlerOptions>
 > &
   ClientDefaults &
@@ -214,7 +214,7 @@ export type AccessanalyzerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AccessanalyzerClientResolvedConfig = __SmithyResolvedConfiguration<
+export type AccessAnalyzerClientResolvedConfig = __SmithyResolvedConfiguration<
   __HttpHandlerOptions
 > &
   Required<ClientDefaults> &
@@ -235,15 +235,15 @@ export type AccessanalyzerClientResolvedConfig = __SmithyResolvedConfiguration<
  *          see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html">AWS IAM Access Analyzer section of the IAM User Guide</a>.</p>
  *          <p>To start using Access Analyzer, you first need to create an analyzer.</p>
  */
-export class AccessanalyzerClient extends __Client<
+export class AccessAnalyzerClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  AccessanalyzerClientResolvedConfig
+  AccessAnalyzerClientResolvedConfig
 > {
-  readonly config: AccessanalyzerClientResolvedConfig;
+  readonly config: AccessAnalyzerClientResolvedConfig;
 
-  constructor(configuration: AccessanalyzerClientConfig) {
+  constructor(configuration: AccessAnalyzerClientConfig) {
     let _config_0 = {
       ...__ClientDefaultValues,
       ...configuration

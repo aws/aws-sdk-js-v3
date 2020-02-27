@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "replace-for-service-name.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "replace-for-service-name.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "replace-for-service-name.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "replace-for-service-name.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "replace-for-service-name.{region}.amazonaws.com";
+const AWS_TEMPLATE = "access-analyzer.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "access-analyzer.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "access-analyzer.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "access-analyzer.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "access-analyzer.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
