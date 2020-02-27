@@ -6087,7 +6087,6 @@ const deserializeAws_queryAddListenerCertificatesOutput = (
   };
   if (output.Certificates === "") {
     contents.Certificates = [];
-    return contents;
   }
   if (
     output["Certificates"] !== undefined &&
@@ -6157,7 +6156,6 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
   };
   if (output.AuthenticationRequestExtraParams === "") {
     contents.AuthenticationRequestExtraParams = {};
-    return contents;
   }
   if (
     output["AuthenticationRequestExtraParams"] !== undefined &&
@@ -6228,7 +6226,6 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
   };
   if (output.AuthenticationRequestExtraParams === "") {
     contents.AuthenticationRequestExtraParams = {};
-    return contents;
   }
   if (
     output["AuthenticationRequestExtraParams"] !== undefined &&
@@ -6292,7 +6289,6 @@ const deserializeAws_queryAvailabilityZone = (
   };
   if (output.LoadBalancerAddresses === "") {
     contents.LoadBalancerAddresses = [];
-    return contents;
   }
   if (
     output["LoadBalancerAddresses"] !== undefined &&
@@ -6417,7 +6413,6 @@ const deserializeAws_queryCreateListenerOutput = (
   };
   if (output.Listeners === "") {
     contents.Listeners = [];
-    return contents;
   }
   if (
     output["Listeners"] !== undefined &&
@@ -6442,7 +6437,6 @@ const deserializeAws_queryCreateLoadBalancerOutput = (
   };
   if (output.LoadBalancers === "") {
     contents.LoadBalancers = [];
-    return contents;
   }
   if (
     output["LoadBalancers"] !== undefined &&
@@ -6470,7 +6464,6 @@ const deserializeAws_queryCreateRuleOutput = (
   };
   if (output.Rules === "") {
     contents.Rules = [];
-    return contents;
   }
   if (
     output["Rules"] !== undefined &&
@@ -6495,7 +6488,6 @@ const deserializeAws_queryCreateTargetGroupOutput = (
   };
   if (output.TargetGroups === "") {
     contents.TargetGroups = [];
-    return contents;
   }
   if (
     output["TargetGroups"] !== undefined &&
@@ -6574,7 +6566,6 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   };
   if (output.Limits === "") {
     contents.Limits = [];
-    return contents;
   }
   if (
     output["Limits"] !== undefined &&
@@ -6603,7 +6594,6 @@ const deserializeAws_queryDescribeListenerCertificatesOutput = (
   };
   if (output.Certificates === "") {
     contents.Certificates = [];
-    return contents;
   }
   if (
     output["Certificates"] !== undefined &&
@@ -6635,7 +6625,6 @@ const deserializeAws_queryDescribeListenersOutput = (
   };
   if (output.Listeners === "") {
     contents.Listeners = [];
-    return contents;
   }
   if (
     output["Listeners"] !== undefined &&
@@ -6663,7 +6652,6 @@ const deserializeAws_queryDescribeLoadBalancerAttributesOutput = (
   };
   if (output.Attributes === "") {
     contents.Attributes = [];
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -6692,7 +6680,6 @@ const deserializeAws_queryDescribeLoadBalancersOutput = (
   };
   if (output.LoadBalancers === "") {
     contents.LoadBalancers = [];
-    return contents;
   }
   if (
     output["LoadBalancers"] !== undefined &&
@@ -6727,7 +6714,6 @@ const deserializeAws_queryDescribeRulesOutput = (
   }
   if (output.Rules === "") {
     contents.Rules = [];
-    return contents;
   }
   if (
     output["Rules"] !== undefined &&
@@ -6756,7 +6742,6 @@ const deserializeAws_queryDescribeSSLPoliciesOutput = (
   }
   if (output.SslPolicies === "") {
     contents.SslPolicies = [];
-    return contents;
   }
   if (
     output["SslPolicies"] !== undefined &&
@@ -6784,7 +6769,6 @@ const deserializeAws_queryDescribeTagsOutput = (
   };
   if (output.TagDescriptions === "") {
     contents.TagDescriptions = [];
-    return contents;
   }
   if (
     output["TagDescriptions"] !== undefined &&
@@ -6812,7 +6796,6 @@ const deserializeAws_queryDescribeTargetGroupAttributesOutput = (
   };
   if (output.Attributes === "") {
     contents.Attributes = [];
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -6844,7 +6827,6 @@ const deserializeAws_queryDescribeTargetGroupsOutput = (
   }
   if (output.TargetGroups === "") {
     contents.TargetGroups = [];
-    return contents;
   }
   if (
     output["TargetGroups"] !== undefined &&
@@ -6872,7 +6854,6 @@ const deserializeAws_queryDescribeTargetHealthOutput = (
   };
   if (output.TargetHealthDescriptions === "") {
     contents.TargetHealthDescriptions = [];
-    return contents;
   }
   if (
     output["TargetHealthDescriptions"] !== undefined &&
@@ -6985,7 +6966,6 @@ const deserializeAws_queryForwardActionConfig = (
   }
   if (output.TargetGroups === "") {
     contents.TargetGroups = [];
-    return contents;
   }
   if (
     output["TargetGroups"] !== undefined &&
@@ -7027,7 +7007,6 @@ const deserializeAws_queryHostHeaderConditionConfig = (
   };
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -7056,7 +7035,6 @@ const deserializeAws_queryHttpHeaderConditionConfig = (
   }
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -7081,7 +7059,6 @@ const deserializeAws_queryHttpRequestMethodConditionConfig = (
   };
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -7244,7 +7221,6 @@ const deserializeAws_queryListener = (
   };
   if (output.Certificates === "") {
     contents.Certificates = [];
-    return contents;
   }
   if (
     output["Certificates"] !== undefined &&
@@ -7261,7 +7237,6 @@ const deserializeAws_queryListener = (
   }
   if (output.DefaultActions === "") {
     contents.DefaultActions = [];
-    return contents;
   }
   if (
     output["DefaultActions"] !== undefined &&
@@ -7335,7 +7310,6 @@ const deserializeAws_queryLoadBalancer = (
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["AvailabilityZones"] !== undefined &&
@@ -7373,7 +7347,6 @@ const deserializeAws_queryLoadBalancer = (
   }
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
-    return contents;
   }
   if (
     output["SecurityGroups"] !== undefined &&
@@ -7533,7 +7506,6 @@ const deserializeAws_queryModifyListenerOutput = (
   };
   if (output.Listeners === "") {
     contents.Listeners = [];
-    return contents;
   }
   if (
     output["Listeners"] !== undefined &&
@@ -7558,7 +7530,6 @@ const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
   };
   if (output.Attributes === "") {
     contents.Attributes = [];
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -7586,7 +7557,6 @@ const deserializeAws_queryModifyRuleOutput = (
   };
   if (output.Rules === "") {
     contents.Rules = [];
-    return contents;
   }
   if (
     output["Rules"] !== undefined &&
@@ -7611,7 +7581,6 @@ const deserializeAws_queryModifyTargetGroupAttributesOutput = (
   };
   if (output.Attributes === "") {
     contents.Attributes = [];
-    return contents;
   }
   if (
     output["Attributes"] !== undefined &&
@@ -7639,7 +7608,6 @@ const deserializeAws_queryModifyTargetGroupOutput = (
   };
   if (output.TargetGroups === "") {
     contents.TargetGroups = [];
-    return contents;
   }
   if (
     output["TargetGroups"] !== undefined &&
@@ -7681,7 +7649,6 @@ const deserializeAws_queryPathPatternConditionConfig = (
   };
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -7720,7 +7687,6 @@ const deserializeAws_queryQueryStringConditionConfig = (
   };
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -7857,7 +7823,6 @@ const deserializeAws_queryRule = (
   };
   if (output.Actions === "") {
     contents.Actions = [];
-    return contents;
   }
   if (
     output["Actions"] !== undefined &&
@@ -7871,7 +7836,6 @@ const deserializeAws_queryRule = (
   }
   if (output.Conditions === "") {
     contents.Conditions = [];
-    return contents;
   }
   if (
     output["Conditions"] !== undefined &&
@@ -7954,7 +7918,6 @@ const deserializeAws_queryRuleCondition = (
   }
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -8046,7 +8009,6 @@ const deserializeAws_querySetRulePrioritiesOutput = (
   };
   if (output.Rules === "") {
     contents.Rules = [];
-    return contents;
   }
   if (
     output["Rules"] !== undefined &&
@@ -8071,7 +8033,6 @@ const deserializeAws_querySetSecurityGroupsOutput = (
   };
   if (output.SecurityGroupIds === "") {
     contents.SecurityGroupIds = [];
-    return contents;
   }
   if (
     output["SecurityGroupIds"] !== undefined &&
@@ -8099,7 +8060,6 @@ const deserializeAws_querySetSubnetsOutput = (
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
-    return contents;
   }
   if (
     output["AvailabilityZones"] !== undefined &&
@@ -8127,7 +8087,6 @@ const deserializeAws_querySourceIpConditionConfig = (
   };
   if (output.Values === "") {
     contents.Values = [];
-    return contents;
   }
   if (
     output["Values"] !== undefined &&
@@ -8163,7 +8122,6 @@ const deserializeAws_querySslPolicy = (
   };
   if (output.Ciphers === "") {
     contents.Ciphers = [];
-    return contents;
   }
   if (
     output["Ciphers"] !== undefined &&
@@ -8180,7 +8138,6 @@ const deserializeAws_querySslPolicy = (
   }
   if (output.SslProtocols === "") {
     contents.SslProtocols = [];
-    return contents;
   }
   if (
     output["SslProtocols"] !== undefined &&
@@ -8248,7 +8205,6 @@ const deserializeAws_queryTagDescription = (
   }
   if (output.Tags === "") {
     contents.Tags = [];
-    return contents;
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     const wrappedItem =
@@ -8350,7 +8306,6 @@ const deserializeAws_queryTargetGroup = (
   }
   if (output.LoadBalancerArns === "") {
     contents.LoadBalancerArns = [];
-    return contents;
   }
   if (
     output["LoadBalancerArns"] !== undefined &&

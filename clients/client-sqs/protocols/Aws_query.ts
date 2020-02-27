@@ -2795,7 +2795,6 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
   };
   if (output.BatchResultErrorEntry === "") {
     contents.Failed = [];
-    return contents;
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
     const wrappedItem =
@@ -2809,7 +2808,6 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
   }
   if (output.ChangeMessageVisibilityBatchResultEntry === "") {
     contents.Successful = [];
-    return contents;
   }
   if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
     const wrappedItem =
@@ -2872,7 +2870,6 @@ const deserializeAws_queryDeleteMessageBatchResult = (
   };
   if (output.BatchResultErrorEntry === "") {
     contents.Failed = [];
-    return contents;
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
     const wrappedItem =
@@ -2886,7 +2883,6 @@ const deserializeAws_queryDeleteMessageBatchResult = (
   }
   if (output.DeleteMessageBatchResultEntry === "") {
     contents.Successful = [];
-    return contents;
   }
   if (output["DeleteMessageBatchResultEntry"] !== undefined) {
     const wrappedItem =
@@ -2944,7 +2940,6 @@ const deserializeAws_queryGetQueueAttributesResult = (
   };
   if (output.Attribute === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (output["Attribute"] !== undefined) {
     const wrappedItem =
@@ -3023,7 +3018,6 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
   };
   if (output.QueueUrl === "") {
     contents.queueUrls = [];
-    return contents;
   }
   if (output["QueueUrl"] !== undefined) {
     const wrappedItem =
@@ -3045,7 +3039,6 @@ const deserializeAws_queryListQueueTagsResult = (
   };
   if (output.Tag === "") {
     contents.Tags = {};
-    return contents;
   }
   if (output["Tag"] !== undefined) {
     const wrappedItem =
@@ -3065,7 +3058,6 @@ const deserializeAws_queryListQueuesResult = (
   };
   if (output.QueueUrl === "") {
     contents.QueueUrls = [];
-    return contents;
   }
   if (output["QueueUrl"] !== undefined) {
     const wrappedItem =
@@ -3093,7 +3085,6 @@ const deserializeAws_queryMessage = (
   };
   if (output.Attribute === "") {
     contents.Attributes = {};
-    return contents;
   }
   if (output["Attribute"] !== undefined) {
     const wrappedItem =
@@ -3116,7 +3107,6 @@ const deserializeAws_queryMessage = (
   }
   if (output.MessageAttribute === "") {
     contents.MessageAttributes = {};
-    return contents;
   }
   if (output["MessageAttribute"] !== undefined) {
     const wrappedItem =
@@ -3151,7 +3141,6 @@ const deserializeAws_queryMessageAttributeValue = (
   };
   if (output.BinaryListValue === "") {
     contents.BinaryListValues = [];
-    return contents;
   }
   if (output["BinaryListValue"] !== undefined) {
     const wrappedItem =
@@ -3171,7 +3160,6 @@ const deserializeAws_queryMessageAttributeValue = (
   }
   if (output.StringListValue === "") {
     contents.StringListValues = [];
-    return contents;
   }
   if (output["StringListValue"] !== undefined) {
     const wrappedItem =
@@ -3321,7 +3309,6 @@ const deserializeAws_queryReceiveMessageResult = (
   };
   if (output.Message === "") {
     contents.Messages = [];
-    return contents;
   }
   if (output["Message"] !== undefined) {
     const wrappedItem =
@@ -3344,7 +3331,6 @@ const deserializeAws_querySendMessageBatchResult = (
   };
   if (output.BatchResultErrorEntry === "") {
     contents.Failed = [];
-    return contents;
   }
   if (output["BatchResultErrorEntry"] !== undefined) {
     const wrappedItem =
@@ -3358,7 +3344,6 @@ const deserializeAws_querySendMessageBatchResult = (
   }
   if (output.SendMessageBatchResultEntry === "") {
     contents.Successful = [];
-    return contents;
   }
   if (output["SendMessageBatchResultEntry"] !== undefined) {
     const wrappedItem =

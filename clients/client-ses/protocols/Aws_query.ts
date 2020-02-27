@@ -9022,7 +9022,6 @@ const deserializeAws_queryCloudWatchDestination = (
   };
   if (output.DimensionConfigurations === "") {
     contents.DimensionConfigurations = [];
-    return contents;
   }
   if (
     output["DimensionConfigurations"] !== undefined &&
@@ -9430,7 +9429,6 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
   }
   if (output.Rules === "") {
     contents.Rules = [];
-    return contents;
   }
   if (
     output["Rules"] !== undefined &&
@@ -9471,7 +9469,6 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
   }
   if (output.EventDestinations === "") {
     contents.EventDestinations = [];
-    return contents;
   }
   if (
     output["EventDestinations"] !== undefined &&
@@ -9532,7 +9529,6 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
   }
   if (output.Rules === "") {
     contents.Rules = [];
-    return contents;
   }
   if (
     output["Rules"] !== undefined &&
@@ -9591,7 +9587,6 @@ const deserializeAws_queryEventDestination = (
   }
   if (output.MatchingEventTypes === "") {
     contents.MatchingEventTypes = [];
-    return contents;
   }
   if (
     output["MatchingEventTypes"] !== undefined &&
@@ -9754,7 +9749,6 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
   };
   if (output.DkimAttributes === "") {
     contents.DkimAttributes = {};
-    return contents;
   }
   if (
     output["DkimAttributes"] !== undefined &&
@@ -9782,7 +9776,6 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
   };
   if (output.MailFromDomainAttributes === "") {
     contents.MailFromDomainAttributes = {};
-    return contents;
   }
   if (
     output["MailFromDomainAttributes"] !== undefined &&
@@ -9810,7 +9803,6 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
   };
   if (output.NotificationAttributes === "") {
     contents.NotificationAttributes = {};
-    return contents;
   }
   if (
     output["NotificationAttributes"] !== undefined &&
@@ -9838,7 +9830,6 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
   };
   if (output.Policies === "") {
     contents.Policies = {};
-    return contents;
   }
   if (
     output["Policies"] !== undefined &&
@@ -9863,7 +9854,6 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
   };
   if (output.VerificationAttributes === "") {
     contents.VerificationAttributes = {};
-    return contents;
   }
   if (
     output["VerificationAttributes"] !== undefined &&
@@ -9913,7 +9903,6 @@ const deserializeAws_queryGetSendStatisticsResponse = (
   };
   if (output.SendDataPoints === "") {
     contents.SendDataPoints = [];
-    return contents;
   }
   if (
     output["SendDataPoints"] !== undefined &&
@@ -9963,7 +9952,6 @@ const deserializeAws_queryIdentityDkimAttributes = (
   }
   if (output.DkimTokens === "") {
     contents.DkimTokens = [];
-    return contents;
   }
   if (
     output["DkimTokens"] !== undefined &&
@@ -10349,7 +10337,6 @@ const deserializeAws_queryListConfigurationSetsResponse = (
   };
   if (output.ConfigurationSets === "") {
     contents.ConfigurationSets = [];
-    return contents;
   }
   if (
     output["ConfigurationSets"] !== undefined &&
@@ -10381,7 +10368,6 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
   };
   if (output.CustomVerificationEmailTemplates === "") {
     contents.CustomVerificationEmailTemplates = [];
-    return contents;
   }
   if (
     output["CustomVerificationEmailTemplates"] !== undefined &&
@@ -10413,7 +10399,6 @@ const deserializeAws_queryListIdentitiesResponse = (
   };
   if (output.Identities === "") {
     contents.Identities = [];
-    return contents;
   }
   if (
     output["Identities"] !== undefined &&
@@ -10444,7 +10429,6 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
   };
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
-    return contents;
   }
   if (
     output["PolicyNames"] !== undefined &&
@@ -10472,7 +10456,6 @@ const deserializeAws_queryListReceiptFiltersResponse = (
   };
   if (output.Filters === "") {
     contents.Filters = [];
-    return contents;
   }
   if (
     output["Filters"] !== undefined &&
@@ -10504,7 +10487,6 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
   }
   if (output.RuleSets === "") {
     contents.RuleSets = [];
-    return contents;
   }
   if (
     output["RuleSets"] !== undefined &&
@@ -10536,7 +10518,6 @@ const deserializeAws_queryListTemplatesResponse = (
   }
   if (output.TemplatesMetadata === "") {
     contents.TemplatesMetadata = [];
-    return contents;
   }
   if (
     output["TemplatesMetadata"] !== undefined &&
@@ -10564,7 +10545,6 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
   };
   if (output.VerifiedEmailAddresses === "") {
     contents.VerifiedEmailAddresses = [];
-    return contents;
   }
   if (
     output["VerifiedEmailAddresses"] !== undefined &&
@@ -10839,7 +10819,6 @@ const deserializeAws_queryReceiptRule = (
   };
   if (output.Actions === "") {
     contents.Actions = [];
-    return contents;
   }
   if (
     output["Actions"] !== undefined &&
@@ -10862,7 +10841,6 @@ const deserializeAws_queryReceiptRule = (
   }
   if (output.Recipients === "") {
     contents.Recipients = [];
-    return contents;
   }
   if (
     output["Recipients"] !== undefined &&
@@ -11080,7 +11058,6 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
   };
   if (output.Status === "") {
     contents.Status = [];
-    return contents;
   }
   if (
     output["Status"] !== undefined &&
@@ -11487,7 +11464,6 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
   };
   if (output.DkimTokens === "") {
     contents.DkimTokens = [];
-    return contents;
   }
   if (
     output["DkimTokens"] !== undefined &&
