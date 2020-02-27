@@ -124,6 +124,31 @@ module.exports = function() {
     this.request(null, "putItem", params, next);
   });
 
+  this.When(/^I put a recursive item$/, function(next) {
+    var params = {
+      TableName: this.tableName,
+      Item: {
+        id: { S: "fooRecursive" },
+        data: {
+          M: {
+            attr1: {
+              L: [{ S: "value1" }, { L: [{ M: { attr12: { S: "value2" } } }] }]
+            },
+            attr2: {
+              L: [
+                { B: new Uint8Array([0]) },
+                { B: new Uint8Array([1]) },
+                { NULL: true },
+                { BOOL: true }
+              ]
+            }
+          }
+        }
+      }
+    };
+    this.request(null, "putItem", params, next);
+  });
+
   this.Then(/^the item with id "([^"]*)" should exist$/, function(key, next) {
     var params = { TableName: this.tableName, Key: { id: { S: key } } };
     this.request(null, "getItem", params, next);
