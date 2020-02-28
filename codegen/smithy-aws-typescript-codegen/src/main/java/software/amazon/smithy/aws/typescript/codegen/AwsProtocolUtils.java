@@ -29,6 +29,7 @@ import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.IoUtils;
 
 /**
  * Utility methods for generating AWS protocols.
@@ -112,17 +113,19 @@ final class AwsProtocolUtils {
     static void generateXmlParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
+        // Include function that decodes XML escape characters.
+        writer.write(IoUtils.readUtf8Resource(AwsProtocolUtils.class, "decodeEscapedXML.ts"));
+
         // Include an XML body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
         writer.addDependency(AwsDependency.XML_PARSER);
-        writer.addImport("decodeEscapedXML", "__decodeEscapedXML", "@aws-sdk/smithy-client");
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
         writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => {", "};", () -> {
             writer.openBlock("return collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
                 writer.openBlock("if (encoded.length) {", "}", () -> {
                     writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
                             + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
-                            + "=> __decodeEscapedXML(val) });");
+                            + "=> decodeEscapedXML(val) });");
                     writer.write("return parsedObj[Object.keys(parsedObj)[0]];");
                 });
                 writer.write("return {};");

@@ -5,4 +5,3 @@ export * from "./exception";
 export * from "./isa";
 export * from "./lazy-json";
 export * from "./extended-encode-uri-component";
-export * from "./decode-escaped-xml";
