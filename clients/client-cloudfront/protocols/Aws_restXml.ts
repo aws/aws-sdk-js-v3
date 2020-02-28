@@ -6480,6 +6480,9 @@ const deserializeAws_restXmlAccessDeniedResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6494,6 +6497,9 @@ const deserializeAws_restXmlBatchTooLargeResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6508,6 +6514,9 @@ const deserializeAws_restXmlCNAMEAlreadyExistsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6522,6 +6531,9 @@ const deserializeAws_restXmlCannotChangeImmutablePublicKeyFieldsResponse = async
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6536,6 +6548,9 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityAlreadyExistsResponse 
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6550,6 +6565,9 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityInUseResponse = async 
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6564,6 +6582,9 @@ const deserializeAws_restXmlDistributionAlreadyExistsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6578,6 +6599,9 @@ const deserializeAws_restXmlDistributionNotDisabledResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6592,6 +6616,9 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigAlreadyExistsResponse = as
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6606,6 +6633,9 @@ const deserializeAws_restXmlFieldLevelEncryptionConfigInUseResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6620,6 +6650,9 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileAlreadyExistsResponse = a
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6634,6 +6667,9 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileInUseResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6648,6 +6684,9 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSizeExceededResponse = as
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6662,6 +6701,9 @@ const deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCach
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6676,6 +6718,9 @@ const deserializeAws_restXmlIllegalUpdateResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6690,6 +6735,9 @@ const deserializeAws_restXmlInconsistentQuantitiesResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6704,6 +6752,9 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6718,6 +6769,9 @@ const deserializeAws_restXmlInvalidDefaultRootObjectResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6732,6 +6786,9 @@ const deserializeAws_restXmlInvalidErrorCodeResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6746,6 +6803,9 @@ const deserializeAws_restXmlInvalidForwardCookiesResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6760,6 +6820,9 @@ const deserializeAws_restXmlInvalidGeoRestrictionParameterResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6774,6 +6837,9 @@ const deserializeAws_restXmlInvalidHeadersForS3OriginResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6788,6 +6854,9 @@ const deserializeAws_restXmlInvalidIfMatchVersionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6802,6 +6871,9 @@ const deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6816,6 +6888,9 @@ const deserializeAws_restXmlInvalidLocationCodeResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6830,6 +6905,9 @@ const deserializeAws_restXmlInvalidMinimumProtocolVersionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6844,6 +6922,9 @@ const deserializeAws_restXmlInvalidOriginResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6858,6 +6939,9 @@ const deserializeAws_restXmlInvalidOriginAccessIdentityResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6872,6 +6956,9 @@ const deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6886,6 +6973,9 @@ const deserializeAws_restXmlInvalidOriginReadTimeoutResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6900,6 +6990,9 @@ const deserializeAws_restXmlInvalidProtocolSettingsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6914,6 +7007,9 @@ const deserializeAws_restXmlInvalidQueryStringParametersResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6928,6 +7024,9 @@ const deserializeAws_restXmlInvalidRelativePathResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6942,6 +7041,9 @@ const deserializeAws_restXmlInvalidRequiredProtocolResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6956,6 +7058,9 @@ const deserializeAws_restXmlInvalidResponseCodeResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6970,6 +7075,9 @@ const deserializeAws_restXmlInvalidTTLOrderResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6984,6 +7092,9 @@ const deserializeAws_restXmlInvalidTaggingResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -6998,6 +7109,9 @@ const deserializeAws_restXmlInvalidViewerCertificateResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7012,6 +7126,9 @@ const deserializeAws_restXmlInvalidWebACLIdResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7026,6 +7143,9 @@ const deserializeAws_restXmlMissingBodyResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7040,6 +7160,9 @@ const deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse = async
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7054,6 +7177,9 @@ const deserializeAws_restXmlNoSuchDistributionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7068,6 +7194,9 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7082,6 +7211,9 @@ const deserializeAws_restXmlNoSuchFieldLevelEncryptionProfileResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7096,6 +7228,9 @@ const deserializeAws_restXmlNoSuchInvalidationResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7110,6 +7245,9 @@ const deserializeAws_restXmlNoSuchOriginResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7124,6 +7262,9 @@ const deserializeAws_restXmlNoSuchPublicKeyResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7138,6 +7279,9 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7152,6 +7296,9 @@ const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7166,6 +7313,9 @@ const deserializeAws_restXmlPreconditionFailedResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7180,6 +7330,9 @@ const deserializeAws_restXmlPublicKeyAlreadyExistsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7194,6 +7347,9 @@ const deserializeAws_restXmlPublicKeyInUseResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7208,6 +7364,9 @@ const deserializeAws_restXmlQueryArgProfileEmptyResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7222,6 +7381,9 @@ const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7236,6 +7398,9 @@ const deserializeAws_restXmlStreamingDistributionNotDisabledResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7250,6 +7415,9 @@ const deserializeAws_restXmlTooManyCacheBehaviorsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7264,6 +7432,9 @@ const deserializeAws_restXmlTooManyCertificatesResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7278,6 +7449,9 @@ const deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse = as
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7292,6 +7466,9 @@ const deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7306,6 +7483,9 @@ const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7320,6 +7500,9 @@ const deserializeAws_restXmlTooManyDistributionsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7334,6 +7517,9 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryption
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7348,6 +7534,9 @@ const deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse =
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7362,6 +7551,9 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionConfigsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7376,6 +7568,9 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionContentTypeProfilesRespon
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7390,6 +7585,9 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionEncryptionEntitiesRespons
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7404,6 +7602,9 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionFieldPatternsResponse = a
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7418,6 +7619,9 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionProfilesResponse = async 
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7432,6 +7636,9 @@ const deserializeAws_restXmlTooManyFieldLevelEncryptionQueryArgProfilesResponse 
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7446,6 +7653,9 @@ const deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7460,6 +7670,9 @@ const deserializeAws_restXmlTooManyInvalidationsInProgressResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7474,6 +7687,9 @@ const deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7488,6 +7704,9 @@ const deserializeAws_restXmlTooManyOriginCustomHeadersResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7502,6 +7721,9 @@ const deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7516,6 +7738,9 @@ const deserializeAws_restXmlTooManyOriginsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7530,6 +7755,9 @@ const deserializeAws_restXmlTooManyPublicKeysResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7544,6 +7772,9 @@ const deserializeAws_restXmlTooManyQueryStringParametersResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7558,6 +7789,9 @@ const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7572,6 +7806,9 @@ const deserializeAws_restXmlTooManyStreamingDistributionsResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7586,6 +7823,9 @@ const deserializeAws_restXmlTooManyTrustedSignersResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -7600,6 +7840,9 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -12429,13 +12672,23 @@ const collectBodyString = (
   );
 };
 
+const decodeEscapedXML = (str: string) => {
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<");
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
-        parseNodeValue: false
+        parseNodeValue: false,
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
       });
       return parsedObj[Object.keys(parsedObj)[0]];
     }

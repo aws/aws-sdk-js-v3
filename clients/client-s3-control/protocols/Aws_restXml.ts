@@ -1703,6 +1703,9 @@ const deserializeAws_restXmlBadRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1717,6 +1720,9 @@ const deserializeAws_restXmlIdempotencyExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1731,6 +1737,9 @@ const deserializeAws_restXmlInternalServiceExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1745,6 +1754,9 @@ const deserializeAws_restXmlInvalidNextTokenExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1759,6 +1771,9 @@ const deserializeAws_restXmlInvalidRequestExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1773,6 +1788,9 @@ const deserializeAws_restXmlJobStatusExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1787,6 +1805,9 @@ const deserializeAws_restXmlNoSuchPublicAccessBlockConfigurationResponse = async
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1801,6 +1822,9 @@ const deserializeAws_restXmlNotFoundExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -1815,6 +1839,9 @@ const deserializeAws_restXmlTooManyRequestsExceptionResponse = async (
     Message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = data["Message"];
+  }
   return contents;
 };
 
@@ -3357,13 +3384,23 @@ const collectBodyString = (
   );
 };
 
+const decodeEscapedXML = (str: string) => {
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<");
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
-        parseNodeValue: false
+        parseNodeValue: false,
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
       });
       return parsedObj[Object.keys(parsedObj)[0]];
     }

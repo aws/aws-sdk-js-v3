@@ -7118,6 +7118,9 @@ const deserializeAws_restXmlConcurrentModificationResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7132,6 +7135,9 @@ const deserializeAws_restXmlConflictingDomainExistsResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7146,6 +7152,9 @@ const deserializeAws_restXmlConflictingTypesResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7160,6 +7169,9 @@ const deserializeAws_restXmlDelegationSetAlreadyCreatedResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7174,6 +7186,9 @@ const deserializeAws_restXmlDelegationSetAlreadyReusableResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7188,6 +7203,9 @@ const deserializeAws_restXmlDelegationSetInUseResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7202,6 +7220,9 @@ const deserializeAws_restXmlDelegationSetNotAvailableResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7216,6 +7237,9 @@ const deserializeAws_restXmlDelegationSetNotReusableResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7230,6 +7254,9 @@ const deserializeAws_restXmlHealthCheckAlreadyExistsResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7244,6 +7271,9 @@ const deserializeAws_restXmlHealthCheckInUseResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7258,6 +7288,9 @@ const deserializeAws_restXmlHealthCheckVersionMismatchResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7272,6 +7305,9 @@ const deserializeAws_restXmlHostedZoneAlreadyExistsResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7286,6 +7322,9 @@ const deserializeAws_restXmlHostedZoneNotEmptyResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7300,6 +7339,9 @@ const deserializeAws_restXmlHostedZoneNotFoundResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7314,6 +7356,9 @@ const deserializeAws_restXmlHostedZoneNotPrivateResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7328,6 +7373,9 @@ const deserializeAws_restXmlIncompatibleVersionResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7342,6 +7390,9 @@ const deserializeAws_restXmlInsufficientCloudWatchLogsResourcePolicyResponse = a
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7356,6 +7407,9 @@ const deserializeAws_restXmlInvalidArgumentResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7371,6 +7425,25 @@ const deserializeAws_restXmlInvalidChangeBatchResponse = async (
     messages: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
+  if (data.messages === "") {
+    contents.messages = [];
+  }
+  if (
+    data["messages"] !== undefined &&
+    data["messages"]["Message"] !== undefined
+  ) {
+    const wrappedItem =
+      data["messages"]["Message"] instanceof Array
+        ? data["messages"]["Message"]
+        : [data["messages"]["Message"]];
+    contents.messages = deserializeAws_restXmlErrorMessages(
+      wrappedItem,
+      context
+    );
+  }
   return contents;
 };
 
@@ -7385,6 +7458,9 @@ const deserializeAws_restXmlInvalidDomainNameResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7399,6 +7475,9 @@ const deserializeAws_restXmlInvalidInputResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7413,6 +7492,9 @@ const deserializeAws_restXmlInvalidPaginationTokenResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7427,6 +7509,9 @@ const deserializeAws_restXmlInvalidTrafficPolicyDocumentResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7441,6 +7526,9 @@ const deserializeAws_restXmlInvalidVPCIdResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7455,6 +7543,9 @@ const deserializeAws_restXmlLastVPCAssociationResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7469,6 +7560,9 @@ const deserializeAws_restXmlLimitsExceededResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7483,6 +7577,9 @@ const deserializeAws_restXmlNoSuchChangeResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7497,6 +7594,9 @@ const deserializeAws_restXmlNoSuchCloudWatchLogsLogGroupResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7511,6 +7611,9 @@ const deserializeAws_restXmlNoSuchDelegationSetResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7525,6 +7628,9 @@ const deserializeAws_restXmlNoSuchGeoLocationResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7539,6 +7645,9 @@ const deserializeAws_restXmlNoSuchHealthCheckResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7553,6 +7662,9 @@ const deserializeAws_restXmlNoSuchHostedZoneResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7567,6 +7679,9 @@ const deserializeAws_restXmlNoSuchQueryLoggingConfigResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7581,6 +7696,9 @@ const deserializeAws_restXmlNoSuchTrafficPolicyResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7595,6 +7713,9 @@ const deserializeAws_restXmlNoSuchTrafficPolicyInstanceResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7609,6 +7730,9 @@ const deserializeAws_restXmlNotAuthorizedExceptionResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7623,6 +7747,9 @@ const deserializeAws_restXmlPriorRequestNotCompleteResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7637,6 +7764,9 @@ const deserializeAws_restXmlPublicZoneVPCAssociationResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7651,6 +7781,9 @@ const deserializeAws_restXmlQueryLoggingConfigAlreadyExistsResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7665,6 +7798,9 @@ const deserializeAws_restXmlThrottlingExceptionResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7679,6 +7815,9 @@ const deserializeAws_restXmlTooManyHealthChecksResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7693,6 +7832,9 @@ const deserializeAws_restXmlTooManyHostedZonesResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7707,6 +7849,9 @@ const deserializeAws_restXmlTooManyTrafficPoliciesResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7721,6 +7866,9 @@ const deserializeAws_restXmlTooManyTrafficPolicyInstancesResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7735,6 +7883,9 @@ const deserializeAws_restXmlTooManyTrafficPolicyVersionsForCurrentPolicyResponse
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7749,6 +7900,9 @@ const deserializeAws_restXmlTooManyVPCAssociationAuthorizationsResponse = async 
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7763,6 +7917,9 @@ const deserializeAws_restXmlTrafficPolicyAlreadyExistsResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7777,6 +7934,9 @@ const deserializeAws_restXmlTrafficPolicyInUseResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7791,6 +7951,9 @@ const deserializeAws_restXmlTrafficPolicyInstanceAlreadyExistsResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7805,6 +7968,9 @@ const deserializeAws_restXmlVPCAssociationAuthorizationNotFoundResponse = async 
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -7819,6 +7985,9 @@ const deserializeAws_restXmlVPCAssociationNotFoundResponse = async (
     message: undefined
   };
   const data: any = parsedOutput.body.Error;
+  if (data["message"] !== undefined) {
+    contents.message = data["message"];
+  }
   return contents;
 };
 
@@ -9377,13 +9546,23 @@ const collectBodyString = (
   );
 };
 
+const decodeEscapedXML = (str: string) => {
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&gt;/g, ">")
+    .replace(/&lt;/g, "<");
+};
+
 const parseBody = (streamBody: any, context: __SerdeContext): any => {
   return collectBodyString(streamBody, context).then(encoded => {
     if (encoded.length) {
       const parsedObj = xmlParse(encoded, {
         attributeNamePrefix: "",
         ignoreAttributes: false,
-        parseNodeValue: false
+        parseNodeValue: false,
+        tagValueProcessor: (val, tagName) => decodeEscapedXML(val)
       });
       return parsedObj[Object.keys(parsedObj)[0]];
     }
