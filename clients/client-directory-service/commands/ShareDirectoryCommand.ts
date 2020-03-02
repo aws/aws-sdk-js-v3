@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ShareDirectoryCommandInput = ShareDirectoryRequest;
-export type ShareDirectoryCommandOutput = ShareDirectoryResult;
+export type ShareDirectoryCommandOutput = ShareDirectoryResult &
+  __MetadataBearer;
 
 export class ShareDirectoryCommand extends $Command<
   ShareDirectoryCommandInput,

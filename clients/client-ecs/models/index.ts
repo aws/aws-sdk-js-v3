@@ -1835,7 +1835,7 @@ export namespace CreateCapacityProviderRequest {
   }
 }
 
-export interface CreateCapacityProviderResponse extends $MetadataBearer {
+export interface CreateCapacityProviderResponse {
   __type?: "CreateCapacityProviderResponse";
   /**
    * <p>The full description of the new capacity provider.</p>
@@ -1948,7 +1948,7 @@ export namespace CreateClusterRequest {
   }
 }
 
-export interface CreateClusterResponse extends $MetadataBearer {
+export interface CreateClusterResponse {
   __type?: "CreateClusterResponse";
   /**
    * <p>The full description of your new cluster.</p>
@@ -2254,7 +2254,7 @@ export namespace CreateServiceRequest {
   }
 }
 
-export interface CreateServiceResponse extends $MetadataBearer {
+export interface CreateServiceResponse {
   __type?: "CreateServiceResponse";
   /**
    * <p>The full description of your service following the create call.</p>
@@ -2376,7 +2376,7 @@ export namespace CreateTaskSetRequest {
   }
 }
 
-export interface CreateTaskSetResponse extends $MetadataBearer {
+export interface CreateTaskSetResponse {
   __type?: "CreateTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
@@ -2421,7 +2421,7 @@ export namespace DeleteAccountSettingRequest {
   }
 }
 
-export interface DeleteAccountSettingResponse extends $MetadataBearer {
+export interface DeleteAccountSettingResponse {
   __type?: "DeleteAccountSettingResponse";
   /**
    * <p>The account setting for the specified principal ARN.</p>
@@ -2458,7 +2458,7 @@ export namespace DeleteAttributesRequest {
   }
 }
 
-export interface DeleteAttributesResponse extends $MetadataBearer {
+export interface DeleteAttributesResponse {
   __type?: "DeleteAttributesResponse";
   /**
    * <p>A list of attribute objects that were successfully deleted from your resource.</p>
@@ -2486,7 +2486,7 @@ export namespace DeleteClusterRequest {
   }
 }
 
-export interface DeleteClusterResponse extends $MetadataBearer {
+export interface DeleteClusterResponse {
   __type?: "DeleteClusterResponse";
   /**
    * <p>The full description of the deleted cluster.</p>
@@ -2527,7 +2527,7 @@ export namespace DeleteServiceRequest {
   }
 }
 
-export interface DeleteServiceResponse extends $MetadataBearer {
+export interface DeleteServiceResponse {
   __type?: "DeleteServiceResponse";
   /**
    * <p>The full description of the deleted service.</p>
@@ -2573,7 +2573,7 @@ export namespace DeleteTaskSetRequest {
   }
 }
 
-export interface DeleteTaskSetResponse extends $MetadataBearer {
+export interface DeleteTaskSetResponse {
   __type?: "DeleteTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
@@ -2830,7 +2830,7 @@ export namespace DeregisterContainerInstanceRequest {
   }
 }
 
-export interface DeregisterContainerInstanceResponse extends $MetadataBearer {
+export interface DeregisterContainerInstanceResponse {
   __type?: "DeregisterContainerInstanceResponse";
   /**
    * <p>The container instance that was deregistered.</p>
@@ -2860,7 +2860,7 @@ export namespace DeregisterTaskDefinitionRequest {
   }
 }
 
-export interface DeregisterTaskDefinitionResponse extends $MetadataBearer {
+export interface DeregisterTaskDefinitionResponse {
   __type?: "DeregisterTaskDefinitionResponse";
   /**
    * <p>The full description of the deregistered task.</p>
@@ -2923,7 +2923,7 @@ export namespace DescribeCapacityProvidersRequest {
   }
 }
 
-export interface DescribeCapacityProvidersResponse extends $MetadataBearer {
+export interface DescribeCapacityProvidersResponse {
   __type?: "DescribeCapacityProvidersResponse";
   /**
    * <p>The list of capacity providers.</p>
@@ -3006,7 +3006,7 @@ export namespace DescribeClustersRequest {
   }
 }
 
-export interface DescribeClustersResponse extends $MetadataBearer {
+export interface DescribeClustersResponse {
   __type?: "DescribeClustersResponse";
   /**
    * <p>The list of clusters.</p>
@@ -3054,7 +3054,7 @@ export namespace DescribeContainerInstancesRequest {
   }
 }
 
-export interface DescribeContainerInstancesResponse extends $MetadataBearer {
+export interface DescribeContainerInstancesResponse {
   __type?: "DescribeContainerInstancesResponse";
   /**
    * <p>The list of container instances.</p>
@@ -3102,7 +3102,7 @@ export namespace DescribeServicesRequest {
   }
 }
 
-export interface DescribeServicesResponse extends $MetadataBearer {
+export interface DescribeServicesResponse {
   __type?: "DescribeServicesResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -3145,7 +3145,7 @@ export namespace DescribeTaskDefinitionRequest {
   }
 }
 
-export interface DescribeTaskDefinitionResponse extends $MetadataBearer {
+export interface DescribeTaskDefinitionResponse {
   __type?: "DescribeTaskDefinitionResponse";
   /**
    * <p>The metadata that is applied to the task definition to help you categorize and
@@ -3223,7 +3223,7 @@ export namespace DescribeTaskSetsRequest {
   }
 }
 
-export interface DescribeTaskSetsResponse extends $MetadataBearer {
+export interface DescribeTaskSetsResponse {
   __type?: "DescribeTaskSetsResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -3270,7 +3270,7 @@ export namespace DescribeTasksRequest {
   }
 }
 
-export interface DescribeTasksResponse extends $MetadataBearer {
+export interface DescribeTasksResponse {
   __type?: "DescribeTasksResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -3351,7 +3351,7 @@ export namespace DiscoverPollEndpointRequest {
   }
 }
 
-export interface DiscoverPollEndpointResponse extends $MetadataBearer {
+export interface DiscoverPollEndpointResponse {
   __type?: "DiscoverPollEndpointResponse";
   /**
    * <p>The endpoint for the Amazon ECS agent to poll.</p>
@@ -3992,7 +3992,7 @@ export namespace ListAccountSettingsRequest {
   }
 }
 
-export interface ListAccountSettingsResponse extends $MetadataBearer {
+export interface ListAccountSettingsResponse {
   __type?: "ListAccountSettingsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -4070,7 +4070,7 @@ export namespace ListAttributesRequest {
   }
 }
 
-export interface ListAttributesResponse extends $MetadataBearer {
+export interface ListAttributesResponse {
   __type?: "ListAttributesResponse";
   /**
    * <p>A list of attribute objects that meet the criteria of the request.</p>
@@ -4126,7 +4126,7 @@ export namespace ListClustersRequest {
   }
 }
 
-export interface ListClustersResponse extends $MetadataBearer {
+export interface ListClustersResponse {
   __type?: "ListClustersResponse";
   /**
    * <p>The list of full Amazon Resource Name (ARN) entries for each cluster associated with your
@@ -4206,7 +4206,7 @@ export namespace ListContainerInstancesRequest {
   }
 }
 
-export interface ListContainerInstancesResponse extends $MetadataBearer {
+export interface ListContainerInstancesResponse {
   __type?: "ListContainerInstancesResponse";
   /**
    * <p>The list of container instances with full ARN entries for each container instance
@@ -4280,7 +4280,7 @@ export namespace ListServicesRequest {
   }
 }
 
-export interface ListServicesResponse extends $MetadataBearer {
+export interface ListServicesResponse {
   __type?: "ListServicesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListServices</code>
@@ -4320,7 +4320,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
@@ -4391,7 +4391,7 @@ export namespace ListTaskDefinitionFamiliesRequest {
   }
 }
 
-export interface ListTaskDefinitionFamiliesResponse extends $MetadataBearer {
+export interface ListTaskDefinitionFamiliesResponse {
   __type?: "ListTaskDefinitionFamiliesResponse";
   /**
    * <p>The list of task definition family names that match the
@@ -4476,7 +4476,7 @@ export namespace ListTaskDefinitionsRequest {
   }
 }
 
-export interface ListTaskDefinitionsResponse extends $MetadataBearer {
+export interface ListTaskDefinitionsResponse {
   __type?: "ListTaskDefinitionsResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -4588,7 +4588,7 @@ export namespace ListTasksRequest {
   }
 }
 
-export interface ListTasksResponse extends $MetadataBearer {
+export interface ListTasksResponse {
   __type?: "ListTasksResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListTasks</code>
@@ -5326,7 +5326,7 @@ export namespace PutAccountSettingDefaultRequest {
   }
 }
 
-export interface PutAccountSettingDefaultResponse extends $MetadataBearer {
+export interface PutAccountSettingDefaultResponse {
   __type?: "PutAccountSettingDefaultResponse";
   /**
    * <p>The current account setting for a resource.</p>
@@ -5377,7 +5377,7 @@ export namespace PutAccountSettingRequest {
   }
 }
 
-export interface PutAccountSettingResponse extends $MetadataBearer {
+export interface PutAccountSettingResponse {
   __type?: "PutAccountSettingResponse";
   /**
    * <p>The current account setting for a resource.</p>
@@ -5412,7 +5412,7 @@ export namespace PutAttributesRequest {
   }
 }
 
-export interface PutAttributesResponse extends $MetadataBearer {
+export interface PutAttributesResponse {
   __type?: "PutAttributesResponse";
   /**
    * <p>The attributes applied to your resource.</p>
@@ -5474,7 +5474,7 @@ export namespace PutClusterCapacityProvidersRequest {
   }
 }
 
-export interface PutClusterCapacityProvidersResponse extends $MetadataBearer {
+export interface PutClusterCapacityProvidersResponse {
   __type?: "PutClusterCapacityProvidersResponse";
   /**
    * <p>A regional grouping of one or more container instances on which you can run task
@@ -5587,7 +5587,7 @@ export namespace RegisterContainerInstanceRequest {
   }
 }
 
-export interface RegisterContainerInstanceResponse extends $MetadataBearer {
+export interface RegisterContainerInstanceResponse {
   __type?: "RegisterContainerInstanceResponse";
   /**
    * <p>The container instance that was registered.</p>
@@ -5874,7 +5874,7 @@ export namespace RegisterTaskDefinitionRequest {
   }
 }
 
-export interface RegisterTaskDefinitionResponse extends $MetadataBearer {
+export interface RegisterTaskDefinitionResponse {
   __type?: "RegisterTaskDefinitionResponse";
   /**
    * <p>The list of tags associated with the task definition.</p>
@@ -6220,7 +6220,7 @@ export namespace RunTaskRequest {
   }
 }
 
-export interface RunTaskResponse extends $MetadataBearer {
+export interface RunTaskResponse {
   __type?: "RunTaskResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -6858,7 +6858,7 @@ export namespace StartTaskRequest {
   }
 }
 
-export interface StartTaskResponse extends $MetadataBearer {
+export interface StartTaskResponse {
   __type?: "StartTaskResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -6906,7 +6906,7 @@ export namespace StopTaskRequest {
   }
 }
 
-export interface StopTaskResponse extends $MetadataBearer {
+export interface StopTaskResponse {
   __type?: "StopTaskResponse";
   /**
    * <p>The task that was stopped.</p>
@@ -6940,7 +6940,7 @@ export namespace SubmitAttachmentStateChangesRequest {
   }
 }
 
-export interface SubmitAttachmentStateChangesResponse extends $MetadataBearer {
+export interface SubmitAttachmentStateChangesResponse {
   __type?: "SubmitAttachmentStateChangesResponse";
   /**
    * <p>Acknowledgement of the state change.</p>
@@ -7003,7 +7003,7 @@ export namespace SubmitContainerStateChangeRequest {
   }
 }
 
-export interface SubmitContainerStateChangeResponse extends $MetadataBearer {
+export interface SubmitContainerStateChangeResponse {
   __type?: "SubmitContainerStateChangeResponse";
   /**
    * <p>Acknowledgement of the state change.</p>
@@ -7071,7 +7071,7 @@ export namespace SubmitTaskStateChangeRequest {
   }
 }
 
-export interface SubmitTaskStateChangeResponse extends $MetadataBearer {
+export interface SubmitTaskStateChangeResponse {
   __type?: "SubmitTaskStateChangeResponse";
   /**
    * <p>Acknowledgement of the state change.</p>
@@ -7237,7 +7237,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -8256,7 +8256,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -8288,7 +8288,7 @@ export namespace UpdateClusterSettingsRequest {
   }
 }
 
-export interface UpdateClusterSettingsResponse extends $MetadataBearer {
+export interface UpdateClusterSettingsResponse {
   __type?: "UpdateClusterSettingsResponse";
   /**
    * <p>A regional grouping of one or more container instances on which you can run task
@@ -8326,7 +8326,7 @@ export namespace UpdateContainerAgentRequest {
   }
 }
 
-export interface UpdateContainerAgentResponse extends $MetadataBearer {
+export interface UpdateContainerAgentResponse {
   __type?: "UpdateContainerAgentResponse";
   /**
    * <p>The container instance for which the container agent was updated.</p>
@@ -8371,7 +8371,7 @@ export namespace UpdateContainerInstancesStateRequest {
   }
 }
 
-export interface UpdateContainerInstancesStateResponse extends $MetadataBearer {
+export interface UpdateContainerInstancesStateResponse {
   __type?: "UpdateContainerInstancesStateResponse";
   /**
    * <p>The list of container instances.</p>
@@ -8437,7 +8437,7 @@ export namespace UpdateServicePrimaryTaskSetRequest {
   }
 }
 
-export interface UpdateServicePrimaryTaskSetResponse extends $MetadataBearer {
+export interface UpdateServicePrimaryTaskSetResponse {
   __type?: "UpdateServicePrimaryTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
@@ -8539,7 +8539,7 @@ export namespace UpdateServiceRequest {
   }
 }
 
-export interface UpdateServiceResponse extends $MetadataBearer {
+export interface UpdateServiceResponse {
   __type?: "UpdateServiceResponse";
   /**
    * <p>The full description of your service following the update call.</p>
@@ -8584,7 +8584,7 @@ export namespace UpdateTaskSetRequest {
   }
 }
 
-export interface UpdateTaskSetResponse extends $MetadataBearer {
+export interface UpdateTaskSetResponse {
   __type?: "UpdateTaskSetResponse";
   /**
    * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>

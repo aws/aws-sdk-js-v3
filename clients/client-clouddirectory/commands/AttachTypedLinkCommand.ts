@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachTypedLinkCommandInput = AttachTypedLinkRequest;
-export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse;
+export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse &
+  __MetadataBearer;
 
 export class AttachTypedLinkCommand extends $Command<
   AttachTypedLinkCommandInput,

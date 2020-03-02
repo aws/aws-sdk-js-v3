@@ -210,7 +210,7 @@ export namespace CancelJobRequest {
   }
 }
 
-export interface CancelJobResponse extends $MetadataBearer {
+export interface CancelJobResponse {
   __type?: "CancelJobResponse";
 }
 
@@ -879,7 +879,7 @@ export namespace CreateComputeEnvironmentRequest {
   }
 }
 
-export interface CreateComputeEnvironmentResponse extends $MetadataBearer {
+export interface CreateComputeEnvironmentResponse {
   __type?: "CreateComputeEnvironmentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
@@ -933,7 +933,7 @@ export namespace CreateJobQueueRequest {
   }
 }
 
-export interface CreateJobQueueResponse extends $MetadataBearer {
+export interface CreateJobQueueResponse {
   __type?: "CreateJobQueueResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>
@@ -966,7 +966,7 @@ export namespace DeleteComputeEnvironmentRequest {
   }
 }
 
-export interface DeleteComputeEnvironmentResponse extends $MetadataBearer {
+export interface DeleteComputeEnvironmentResponse {
   __type?: "DeleteComputeEnvironmentResponse";
 }
 
@@ -990,7 +990,7 @@ export namespace DeleteJobQueueRequest {
   }
 }
 
-export interface DeleteJobQueueResponse extends $MetadataBearer {
+export interface DeleteJobQueueResponse {
   __type?: "DeleteJobQueueResponse";
 }
 
@@ -1014,7 +1014,7 @@ export namespace DeregisterJobDefinitionRequest {
   }
 }
 
-export interface DeregisterJobDefinitionResponse extends $MetadataBearer {
+export interface DeregisterJobDefinitionResponse {
   __type?: "DeregisterJobDefinitionResponse";
 }
 
@@ -1060,7 +1060,7 @@ export namespace DescribeComputeEnvironmentsRequest {
   }
 }
 
-export interface DescribeComputeEnvironmentsResponse extends $MetadataBearer {
+export interface DescribeComputeEnvironmentsResponse {
   __type?: "DescribeComputeEnvironmentsResponse";
   /**
    * <p>The list of compute environments.</p>
@@ -1128,7 +1128,7 @@ export namespace DescribeJobDefinitionsRequest {
   }
 }
 
-export interface DescribeJobDefinitionsResponse extends $MetadataBearer {
+export interface DescribeJobDefinitionsResponse {
   __type?: "DescribeJobDefinitionsResponse";
   /**
    * <p>The list of job definitions.</p>
@@ -1184,7 +1184,7 @@ export namespace DescribeJobQueuesRequest {
   }
 }
 
-export interface DescribeJobQueuesResponse extends $MetadataBearer {
+export interface DescribeJobQueuesResponse {
   __type?: "DescribeJobQueuesResponse";
   /**
    * <p>The list of job queues.</p>
@@ -1219,7 +1219,7 @@ export namespace DescribeJobsRequest {
   }
 }
 
-export interface DescribeJobsResponse extends $MetadataBearer {
+export interface DescribeJobsResponse {
   __type?: "DescribeJobsResponse";
   /**
    * <p>The list of jobs.</p>
@@ -1775,7 +1775,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResponse extends $MetadataBearer {
+export interface ListJobsResponse {
   __type?: "ListJobsResponse";
   /**
    * <p>A list of job summaries that match the request.</p>
@@ -2081,7 +2081,7 @@ export namespace RegisterJobDefinitionRequest {
   }
 }
 
-export interface RegisterJobDefinitionResponse extends $MetadataBearer {
+export interface RegisterJobDefinitionResponse {
   __type?: "RegisterJobDefinitionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the job definition.</p>
@@ -2250,7 +2250,7 @@ export namespace SubmitJobRequest {
   }
 }
 
-export interface SubmitJobResponse extends $MetadataBearer {
+export interface SubmitJobResponse {
   __type?: "SubmitJobResponse";
   /**
    * <p>The unique identifier for the job.</p>
@@ -2290,7 +2290,7 @@ export namespace TerminateJobRequest {
   }
 }
 
-export interface TerminateJobResponse extends $MetadataBearer {
+export interface TerminateJobResponse {
   __type?: "TerminateJobResponse";
 }
 
@@ -2367,7 +2367,7 @@ export namespace UpdateComputeEnvironmentRequest {
   }
 }
 
-export interface UpdateComputeEnvironmentResponse extends $MetadataBearer {
+export interface UpdateComputeEnvironmentResponse {
   __type?: "UpdateComputeEnvironmentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
@@ -2420,7 +2420,7 @@ export namespace UpdateJobQueueRequest {
   }
 }
 
-export interface UpdateJobQueueResponse extends $MetadataBearer {
+export interface UpdateJobQueueResponse {
   __type?: "UpdateJobQueueResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>

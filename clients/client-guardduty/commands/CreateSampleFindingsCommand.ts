@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSampleFindingsCommandInput = CreateSampleFindingsRequest;
-export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse;
+export type CreateSampleFindingsCommandOutput = CreateSampleFindingsResponse &
+  __MetadataBearer;
 
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,

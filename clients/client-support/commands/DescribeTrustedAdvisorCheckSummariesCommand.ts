@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTrustedAdvisorCheckSummariesCommandInput = DescribeTrustedAdvisorCheckSummariesRequest;
-export type DescribeTrustedAdvisorCheckSummariesCommandOutput = DescribeTrustedAdvisorCheckSummariesResponse;
+export type DescribeTrustedAdvisorCheckSummariesCommandOutput = DescribeTrustedAdvisorCheckSummariesResponse &
+  __MetadataBearer;
 
 export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
   DescribeTrustedAdvisorCheckSummariesCommandInput,

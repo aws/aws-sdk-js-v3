@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateNodegroupVersionCommandInput = UpdateNodegroupVersionRequest;
-export type UpdateNodegroupVersionCommandOutput = UpdateNodegroupVersionResponse;
+export type UpdateNodegroupVersionCommandOutput = UpdateNodegroupVersionResponse &
+  __MetadataBearer;
 
 export class UpdateNodegroupVersionCommand extends $Command<
   UpdateNodegroupVersionCommandInput,

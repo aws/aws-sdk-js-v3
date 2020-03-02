@@ -1,45 +1,83 @@
 import {
-  AddTagsToResourceRequest,
-  AddTagsToResourceResponse,
-  CreateHapgRequest,
-  CreateHapgResponse,
-  CreateHsmRequest,
-  CreateHsmResponse,
-  CreateLunaClientRequest,
-  CreateLunaClientResponse,
-  DeleteHapgRequest,
-  DeleteHapgResponse,
-  DeleteHsmRequest,
-  DeleteHsmResponse,
-  DeleteLunaClientRequest,
-  DeleteLunaClientResponse,
-  DescribeHapgRequest,
-  DescribeHapgResponse,
-  DescribeHsmRequest,
-  DescribeHsmResponse,
-  DescribeLunaClientRequest,
-  DescribeLunaClientResponse,
-  GetConfigRequest,
-  GetConfigResponse,
-  ListAvailableZonesRequest,
-  ListAvailableZonesResponse,
-  ListHapgsRequest,
-  ListHapgsResponse,
-  ListHsmsRequest,
-  ListHsmsResponse,
-  ListLunaClientsRequest,
-  ListLunaClientsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ModifyHapgRequest,
-  ModifyHapgResponse,
-  ModifyHsmRequest,
-  ModifyHsmResponse,
-  ModifyLunaClientRequest,
-  ModifyLunaClientResponse,
-  RemoveTagsFromResourceRequest,
-  RemoveTagsFromResourceResponse
-} from "./models/index";
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  CreateHapgCommandInput,
+  CreateHapgCommandOutput
+} from "./commands/CreateHapgCommand";
+import {
+  CreateHsmCommandInput,
+  CreateHsmCommandOutput
+} from "./commands/CreateHsmCommand";
+import {
+  CreateLunaClientCommandInput,
+  CreateLunaClientCommandOutput
+} from "./commands/CreateLunaClientCommand";
+import {
+  DeleteHapgCommandInput,
+  DeleteHapgCommandOutput
+} from "./commands/DeleteHapgCommand";
+import {
+  DeleteHsmCommandInput,
+  DeleteHsmCommandOutput
+} from "./commands/DeleteHsmCommand";
+import {
+  DeleteLunaClientCommandInput,
+  DeleteLunaClientCommandOutput
+} from "./commands/DeleteLunaClientCommand";
+import {
+  DescribeHapgCommandInput,
+  DescribeHapgCommandOutput
+} from "./commands/DescribeHapgCommand";
+import {
+  DescribeHsmCommandInput,
+  DescribeHsmCommandOutput
+} from "./commands/DescribeHsmCommand";
+import {
+  DescribeLunaClientCommandInput,
+  DescribeLunaClientCommandOutput
+} from "./commands/DescribeLunaClientCommand";
+import {
+  GetConfigCommandInput,
+  GetConfigCommandOutput
+} from "./commands/GetConfigCommand";
+import {
+  ListAvailableZonesCommandInput,
+  ListAvailableZonesCommandOutput
+} from "./commands/ListAvailableZonesCommand";
+import {
+  ListHapgsCommandInput,
+  ListHapgsCommandOutput
+} from "./commands/ListHapgsCommand";
+import {
+  ListHsmsCommandInput,
+  ListHsmsCommandOutput
+} from "./commands/ListHsmsCommand";
+import {
+  ListLunaClientsCommandInput,
+  ListLunaClientsCommandOutput
+} from "./commands/ListLunaClientsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyHapgCommandInput,
+  ModifyHapgCommandOutput
+} from "./commands/ModifyHapgCommand";
+import {
+  ModifyHsmCommandInput,
+  ModifyHsmCommandOutput
+} from "./commands/ModifyHsmCommand";
+import {
+  ModifyLunaClientCommandInput,
+  ModifyLunaClientCommandOutput
+} from "./commands/ModifyLunaClientCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,48 +131,48 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToResourceRequest
-  | CreateHapgRequest
-  | CreateHsmRequest
-  | CreateLunaClientRequest
-  | DeleteHapgRequest
-  | DeleteHsmRequest
-  | DeleteLunaClientRequest
-  | DescribeHapgRequest
-  | DescribeHsmRequest
-  | DescribeLunaClientRequest
-  | GetConfigRequest
-  | ListAvailableZonesRequest
-  | ListHapgsRequest
-  | ListHsmsRequest
-  | ListLunaClientsRequest
-  | ListTagsForResourceRequest
-  | ModifyHapgRequest
-  | ModifyHsmRequest
-  | ModifyLunaClientRequest
-  | RemoveTagsFromResourceRequest;
+  | AddTagsToResourceCommandInput
+  | CreateHapgCommandInput
+  | CreateHsmCommandInput
+  | CreateLunaClientCommandInput
+  | DeleteHapgCommandInput
+  | DeleteHsmCommandInput
+  | DeleteLunaClientCommandInput
+  | DescribeHapgCommandInput
+  | DescribeHsmCommandInput
+  | DescribeLunaClientCommandInput
+  | GetConfigCommandInput
+  | ListAvailableZonesCommandInput
+  | ListHapgsCommandInput
+  | ListHsmsCommandInput
+  | ListLunaClientsCommandInput
+  | ListTagsForResourceCommandInput
+  | ModifyHapgCommandInput
+  | ModifyHsmCommandInput
+  | ModifyLunaClientCommandInput
+  | RemoveTagsFromResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | AddTagsToResourceResponse
-  | CreateHapgResponse
-  | CreateHsmResponse
-  | CreateLunaClientResponse
-  | DeleteHapgResponse
-  | DeleteHsmResponse
-  | DeleteLunaClientResponse
-  | DescribeHapgResponse
-  | DescribeHsmResponse
-  | DescribeLunaClientResponse
-  | GetConfigResponse
-  | ListAvailableZonesResponse
-  | ListHapgsResponse
-  | ListHsmsResponse
-  | ListLunaClientsResponse
-  | ListTagsForResourceResponse
-  | ModifyHapgResponse
-  | ModifyHsmResponse
-  | ModifyLunaClientResponse
-  | RemoveTagsFromResourceResponse;
+  | AddTagsToResourceCommandOutput
+  | CreateHapgCommandOutput
+  | CreateHsmCommandOutput
+  | CreateLunaClientCommandOutput
+  | DeleteHapgCommandOutput
+  | DeleteHsmCommandOutput
+  | DeleteLunaClientCommandOutput
+  | DescribeHapgCommandOutput
+  | DescribeHsmCommandOutput
+  | DescribeLunaClientCommandOutput
+  | GetConfigCommandOutput
+  | ListAvailableZonesCommandOutput
+  | ListHapgsCommandOutput
+  | ListHsmsCommandOutput
+  | ListLunaClientsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ModifyHapgCommandOutput
+  | ModifyHsmCommandOutput
+  | ModifyLunaClientCommandOutput
+  | RemoveTagsFromResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

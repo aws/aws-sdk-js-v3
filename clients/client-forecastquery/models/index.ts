@@ -154,7 +154,7 @@ export namespace QueryForecastRequest {
   }
 }
 
-export interface QueryForecastResponse extends $MetadataBearer {
+export interface QueryForecastResponse {
   __type?: "QueryForecastResponse";
   /**
    * <p>The forecast.</p>

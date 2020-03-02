@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type LookupDeveloperIdentityCommandInput = LookupDeveloperIdentityInput;
-export type LookupDeveloperIdentityCommandOutput = LookupDeveloperIdentityResponse;
+export type LookupDeveloperIdentityCommandOutput = LookupDeveloperIdentityResponse &
+  __MetadataBearer;
 
 export class LookupDeveloperIdentityCommand extends $Command<
   LookupDeveloperIdentityCommandInput,

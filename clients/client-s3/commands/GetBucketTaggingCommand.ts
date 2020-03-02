@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketTaggingCommandInput = GetBucketTaggingRequest;
-export type GetBucketTaggingCommandOutput = GetBucketTaggingOutput;
+export type GetBucketTaggingCommandOutput = GetBucketTaggingOutput &
+  __MetadataBearer;
 
 export class GetBucketTaggingCommand extends $Command<
   GetBucketTaggingCommandInput,

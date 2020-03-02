@@ -52,7 +52,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResult extends $MetadataBearer {
+export interface ListTagsForResourceResult {
   __type?: "ListTagsForResourceResult";
   /**
    * The tags of the Elastic Inference Accelerator.
@@ -102,7 +102,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResult extends $MetadataBearer {
+export interface TagResourceResult {
   __type?: "TagResourceResult";
 }
 
@@ -131,7 +131,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResult extends $MetadataBearer {
+export interface UntagResourceResult {
   __type?: "UntagResourceResult";
 }
 

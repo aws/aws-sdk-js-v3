@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllocateConnectionOnInterconnectCommandInput = AllocateConnectionOnInterconnectRequest;
-export type AllocateConnectionOnInterconnectCommandOutput = Connection;
+export type AllocateConnectionOnInterconnectCommandOutput = Connection &
+  __MetadataBearer;
 
 export class AllocateConnectionOnInterconnectCommand extends $Command<
   AllocateConnectionOnInterconnectCommandInput,

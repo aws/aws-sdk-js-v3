@@ -85,7 +85,7 @@ export namespace BatchCheckLayerAvailabilityRequest {
   }
 }
 
-export interface BatchCheckLayerAvailabilityResponse extends $MetadataBearer {
+export interface BatchCheckLayerAvailabilityResponse {
   __type?: "BatchCheckLayerAvailabilityResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -136,7 +136,7 @@ export namespace BatchDeleteImageRequest {
   }
 }
 
-export interface BatchDeleteImageResponse extends $MetadataBearer {
+export interface BatchDeleteImageResponse {
   __type?: "BatchDeleteImageResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -191,7 +191,7 @@ export namespace BatchGetImageRequest {
   }
 }
 
-export interface BatchGetImageResponse extends $MetadataBearer {
+export interface BatchGetImageResponse {
   __type?: "BatchGetImageResponse";
   /**
    * <p>Any failures associated with the call.</p>
@@ -241,7 +241,7 @@ export namespace CompleteLayerUploadRequest {
   }
 }
 
-export interface CompleteLayerUploadResponse extends $MetadataBearer {
+export interface CompleteLayerUploadResponse {
   __type?: "CompleteLayerUploadResponse";
   /**
    * <p>The <code>sha256</code> digest of the image layer.</p>
@@ -309,7 +309,7 @@ export namespace CreateRepositoryRequest {
   }
 }
 
-export interface CreateRepositoryResponse extends $MetadataBearer {
+export interface CreateRepositoryResponse {
   __type?: "CreateRepositoryResponse";
   /**
    * <p>The repository that was created.</p>
@@ -343,7 +343,7 @@ export namespace DeleteLifecyclePolicyRequest {
   }
 }
 
-export interface DeleteLifecyclePolicyResponse extends $MetadataBearer {
+export interface DeleteLifecyclePolicyResponse {
   __type?: "DeleteLifecyclePolicyResponse";
   /**
    * <p>The time stamp of the last time that the lifecycle policy was run.</p>
@@ -393,7 +393,7 @@ export namespace DeleteRepositoryPolicyRequest {
   }
 }
 
-export interface DeleteRepositoryPolicyResponse extends $MetadataBearer {
+export interface DeleteRepositoryPolicyResponse {
   __type?: "DeleteRepositoryPolicyResponse";
   /**
    * <p>The JSON repository policy that was deleted from the repository.</p>
@@ -442,7 +442,7 @@ export namespace DeleteRepositoryRequest {
   }
 }
 
-export interface DeleteRepositoryResponse extends $MetadataBearer {
+export interface DeleteRepositoryResponse {
   __type?: "DeleteRepositoryResponse";
   /**
    * <p>The repository that was deleted.</p>
@@ -504,7 +504,7 @@ export namespace DescribeImageScanFindingsRequest {
   }
 }
 
-export interface DescribeImageScanFindingsResponse extends $MetadataBearer {
+export interface DescribeImageScanFindingsResponse {
   __type?: "DescribeImageScanFindingsResponse";
   /**
    * <p>An object with identifying information for an Amazon ECR image.</p>
@@ -621,7 +621,7 @@ export namespace DescribeImagesRequest {
   }
 }
 
-export interface DescribeImagesResponse extends $MetadataBearer {
+export interface DescribeImagesResponse {
   __type?: "DescribeImagesResponse";
   /**
    * <p>A list of <a>ImageDetail</a> objects that contain data about the
@@ -694,7 +694,7 @@ export namespace DescribeRepositoriesRequest {
   }
 }
 
-export interface DescribeRepositoriesResponse extends $MetadataBearer {
+export interface DescribeRepositoriesResponse {
   __type?: "DescribeRepositoriesResponse";
   /**
    * <p>The <code>nextToken</code> value to include in a future
@@ -761,7 +761,7 @@ export namespace GetAuthorizationTokenRequest {
   }
 }
 
-export interface GetAuthorizationTokenResponse extends $MetadataBearer {
+export interface GetAuthorizationTokenResponse {
   __type?: "GetAuthorizationTokenResponse";
   /**
    * <p>A list of authorization token data objects that correspond to the
@@ -801,7 +801,7 @@ export namespace GetDownloadUrlForLayerRequest {
   }
 }
 
-export interface GetDownloadUrlForLayerResponse extends $MetadataBearer {
+export interface GetDownloadUrlForLayerResponse {
   __type?: "GetDownloadUrlForLayerResponse";
   /**
    * <p>The pre-signed Amazon S3 download URL for the requested layer.</p>
@@ -876,7 +876,7 @@ export namespace GetLifecyclePolicyPreviewRequest {
   }
 }
 
-export interface GetLifecyclePolicyPreviewResponse extends $MetadataBearer {
+export interface GetLifecyclePolicyPreviewResponse {
   __type?: "GetLifecyclePolicyPreviewResponse";
   /**
    * <p>The JSON lifecycle policy text.</p>
@@ -944,7 +944,7 @@ export namespace GetLifecyclePolicyRequest {
   }
 }
 
-export interface GetLifecyclePolicyResponse extends $MetadataBearer {
+export interface GetLifecyclePolicyResponse {
   __type?: "GetLifecyclePolicyResponse";
   /**
    * <p>The time stamp of the last time that the lifecycle policy was run.</p>
@@ -993,7 +993,7 @@ export namespace GetRepositoryPolicyRequest {
   }
 }
 
-export interface GetRepositoryPolicyResponse extends $MetadataBearer {
+export interface GetRepositoryPolicyResponse {
   __type?: "GetRepositoryPolicyResponse";
   /**
    * <p>The JSON repository policy text associated with the repository.</p>
@@ -1389,7 +1389,7 @@ export namespace InitiateLayerUploadRequest {
   }
 }
 
-export interface InitiateLayerUploadResponse extends $MetadataBearer {
+export interface InitiateLayerUploadResponse {
   __type?: "InitiateLayerUploadResponse";
   /**
    * <p>The size, in bytes, that Amazon ECR expects future layer part uploads to be.</p>
@@ -1905,7 +1905,7 @@ export namespace ListImagesRequest {
   }
 }
 
-export interface ListImagesResponse extends $MetadataBearer {
+export interface ListImagesResponse {
   __type?: "ListImagesResponse";
   /**
    * <p>The list of image IDs for the requested repository.</p>
@@ -1943,7 +1943,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags for the resource.</p>
@@ -1988,7 +1988,7 @@ export namespace PutImageRequest {
   }
 }
 
-export interface PutImageResponse extends $MetadataBearer {
+export interface PutImageResponse {
   __type?: "PutImageResponse";
   /**
    * <p>Details of the image uploaded.</p>
@@ -2031,7 +2031,7 @@ export namespace PutImageScanningConfigurationRequest {
   }
 }
 
-export interface PutImageScanningConfigurationResponse extends $MetadataBearer {
+export interface PutImageScanningConfigurationResponse {
   __type?: "PutImageScanningConfigurationResponse";
   /**
    * <p>The image scanning configuration setting for the repository.</p>
@@ -2084,7 +2084,7 @@ export namespace PutImageTagMutabilityRequest {
   }
 }
 
-export interface PutImageTagMutabilityResponse extends $MetadataBearer {
+export interface PutImageTagMutabilityResponse {
   __type?: "PutImageTagMutabilityResponse";
   /**
    * <p>The image tag mutability setting for the repository.</p>
@@ -2133,7 +2133,7 @@ export namespace PutLifecyclePolicyRequest {
   }
 }
 
-export interface PutLifecyclePolicyResponse extends $MetadataBearer {
+export interface PutLifecyclePolicyResponse {
   __type?: "PutLifecyclePolicyResponse";
   /**
    * <p>The JSON repository policy text.</p>
@@ -2367,7 +2367,7 @@ export namespace SetRepositoryPolicyRequest {
   }
 }
 
-export interface SetRepositoryPolicyResponse extends $MetadataBearer {
+export interface SetRepositoryPolicyResponse {
   __type?: "SetRepositoryPolicyResponse";
   /**
    * <p>The JSON repository policy text applied to the repository.</p>
@@ -2416,7 +2416,7 @@ export namespace StartImageScanRequest {
   }
 }
 
-export interface StartImageScanResponse extends $MetadataBearer {
+export interface StartImageScanResponse {
   __type?: "StartImageScanResponse";
   /**
    * <p>An object with identifying information for an Amazon ECR image.</p>
@@ -2471,7 +2471,7 @@ export namespace StartLifecyclePolicyPreviewRequest {
   }
 }
 
-export interface StartLifecyclePolicyPreviewResponse extends $MetadataBearer {
+export interface StartLifecyclePolicyPreviewResponse {
   __type?: "StartLifecyclePolicyPreviewResponse";
   /**
    * <p>The JSON repository policy text.</p>
@@ -2549,7 +2549,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2603,7 +2603,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -2654,7 +2654,7 @@ export namespace UploadLayerPartRequest {
   }
 }
 
-export interface UploadLayerPartResponse extends $MetadataBearer {
+export interface UploadLayerPartResponse {
   __type?: "UploadLayerPartResponse";
   /**
    * <p>The integer value of the last byte received in the request.</p>

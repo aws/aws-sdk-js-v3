@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateSizeConstraintSetCommandInput = CreateSizeConstraintSetRequest;
-export type CreateSizeConstraintSetCommandOutput = CreateSizeConstraintSetResponse;
+export type CreateSizeConstraintSetCommandOutput = CreateSizeConstraintSetResponse &
+  __MetadataBearer;
 
 export class CreateSizeConstraintSetCommand extends $Command<
   CreateSizeConstraintSetCommandInput,

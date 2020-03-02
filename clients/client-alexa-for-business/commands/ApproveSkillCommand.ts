@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ApproveSkillCommandInput = ApproveSkillRequest;
-export type ApproveSkillCommandOutput = ApproveSkillResponse;
+export type ApproveSkillCommandOutput = ApproveSkillResponse & __MetadataBearer;
 
 export class ApproveSkillCommand extends $Command<
   ApproveSkillCommandInput,

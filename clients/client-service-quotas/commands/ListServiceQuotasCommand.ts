@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListServiceQuotasCommandInput = ListServiceQuotasRequest;
-export type ListServiceQuotasCommandOutput = ListServiceQuotasResponse;
+export type ListServiceQuotasCommandOutput = ListServiceQuotasResponse &
+  __MetadataBearer;
 
 export class ListServiceQuotasCommand extends $Command<
   ListServiceQuotasCommandInput,

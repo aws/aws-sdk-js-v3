@@ -34,7 +34,7 @@ export namespace BatchMeterUsageRequest {
  * <p>Contains the UsageRecords processed by BatchMeterUsage and any records that have
  *             failed due to transient error.</p>
  */
-export interface BatchMeterUsageResult extends $MetadataBearer {
+export interface BatchMeterUsageResult {
   __type?: "BatchMeterUsageResult";
   /**
    * <p>Contains all UsageRecords processed by BatchMeterUsage. These records were either
@@ -317,7 +317,7 @@ export namespace MeterUsageRequest {
   }
 }
 
-export interface MeterUsageResult extends $MetadataBearer {
+export interface MeterUsageResult {
   __type?: "MeterUsageResult";
   /**
    * <p>Metering record id.</p>
@@ -376,7 +376,7 @@ export namespace RegisterUsageRequest {
   }
 }
 
-export interface RegisterUsageResult extends $MetadataBearer {
+export interface RegisterUsageResult {
   __type?: "RegisterUsageResult";
   /**
    * <p>(Optional) Only included when public key version has expired</p>
@@ -418,7 +418,7 @@ export namespace ResolveCustomerRequest {
  * <p>The result of the ResolveCustomer operation. Contains the CustomerIdentifier and
  *             product code.</p>
  */
-export interface ResolveCustomerResult extends $MetadataBearer {
+export interface ResolveCustomerResult {
   __type?: "ResolveCustomerResult";
   /**
    * <p>The CustomerIdentifier is used to identify an individual customer in your

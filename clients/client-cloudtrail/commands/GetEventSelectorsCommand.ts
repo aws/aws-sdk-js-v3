@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEventSelectorsCommandInput = GetEventSelectorsRequest;
-export type GetEventSelectorsCommandOutput = GetEventSelectorsResponse;
+export type GetEventSelectorsCommandOutput = GetEventSelectorsResponse &
+  __MetadataBearer;
 
 export class GetEventSelectorsCommand extends $Command<
   GetEventSelectorsCommandInput,

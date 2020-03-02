@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetComponentCommandInput = GetComponentRequest;
-export type GetComponentCommandOutput = GetComponentResponse;
+export type GetComponentCommandOutput = GetComponentResponse & __MetadataBearer;
 
 export class GetComponentCommand extends $Command<
   GetComponentCommandInput,

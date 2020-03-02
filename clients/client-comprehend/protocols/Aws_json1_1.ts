@@ -1149,31 +1149,43 @@ async function deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1229,38 +1241,53 @@ async function deserializeAws_json1_1BatchDetectEntitiesCommandError(
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1316,38 +1343,53 @@ async function deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1403,38 +1445,53 @@ async function deserializeAws_json1_1BatchDetectSentimentCommandError(
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1487,38 +1544,53 @@ async function deserializeAws_json1_1BatchDetectSyntaxCommandError(
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1571,31 +1643,43 @@ async function deserializeAws_json1_1ClassifyDocumentCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1654,59 +1738,83 @@ async function deserializeAws_json1_1CreateDocumentClassifierCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1759,59 +1867,83 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1870,59 +2002,83 @@ async function deserializeAws_json1_1CreateEntityRecognizerCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1981,45 +2137,63 @@ async function deserializeAws_json1_1DeleteDocumentClassifierCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2072,38 +2246,53 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2162,45 +2351,63 @@ async function deserializeAws_json1_1DeleteEntityRecognizerCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2259,31 +2466,43 @@ async function deserializeAws_json1_1DescribeDocumentClassificationJobCommandErr
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2342,31 +2561,43 @@ async function deserializeAws_json1_1DescribeDocumentClassifierCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2425,31 +2656,43 @@ async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2502,31 +2745,43 @@ async function deserializeAws_json1_1DescribeEndpointCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2585,31 +2840,43 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2668,31 +2935,43 @@ async function deserializeAws_json1_1DescribeEntityRecognizerCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2751,31 +3030,43 @@ async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2834,31 +3125,43 @@ async function deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2917,31 +3220,43 @@ async function deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3000,24 +3315,33 @@ async function deserializeAws_json1_1DetectDominantLanguageCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3070,31 +3394,43 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3147,31 +3483,43 @@ async function deserializeAws_json1_1DetectKeyPhrasesCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3224,31 +3572,43 @@ async function deserializeAws_json1_1DetectSentimentCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3301,31 +3661,43 @@ async function deserializeAws_json1_1DetectSyntaxCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3384,31 +3756,43 @@ async function deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3467,31 +3851,43 @@ async function deserializeAws_json1_1ListDocumentClassifiersCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3550,31 +3946,43 @@ async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandErr
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3627,24 +4035,33 @@ async function deserializeAws_json1_1ListEndpointsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3703,31 +4120,43 @@ async function deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3783,31 +4212,43 @@ async function deserializeAws_json1_1ListEntityRecognizersCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3866,31 +4307,43 @@ async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3949,31 +4402,43 @@ async function deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4029,24 +4494,33 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4105,31 +4579,43 @@ async function deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = await deserializeAws_json1_1InvalidFilterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4188,45 +4674,63 @@ async function deserializeAws_json1_1StartDocumentClassificationJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4285,31 +4789,43 @@ async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommandErr
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4368,45 +4884,63 @@ async function deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4465,31 +4999,43 @@ async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4548,31 +5094,43 @@ async function deserializeAws_json1_1StartSentimentDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4631,31 +5189,43 @@ async function deserializeAws_json1_1StartTopicsDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4714,24 +5284,33 @@ async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommandErro
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4790,24 +5369,33 @@ async function deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4866,24 +5454,33 @@ async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4942,24 +5539,33 @@ async function deserializeAws_json1_1StopSentimentDetectionJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5018,31 +5624,43 @@ async function deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5101,31 +5719,43 @@ async function deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5178,38 +5808,53 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.comprehend#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5262,38 +5907,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.comprehend#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagKeysException":
     case "com.amazonaws.comprehend#TooManyTagKeysException":
-      response = await deserializeAws_json1_1TooManyTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5346,52 +6006,73 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = await deserializeAws_json1_1TooManyRequestsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

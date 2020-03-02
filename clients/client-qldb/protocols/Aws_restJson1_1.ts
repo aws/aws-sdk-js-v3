@@ -659,31 +659,43 @@ async function deserializeAws_restJson1_1CreateLedgerCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.ledger.v20190102#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.ledger.v20190102#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.ledger.v20190102#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -728,31 +740,43 @@ async function deserializeAws_restJson1_1DeleteLedgerCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.ledger.v20190102#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -808,10 +832,13 @@ async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -885,17 +912,23 @@ async function deserializeAws_restJson1_1DescribeLedgerCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -948,17 +981,23 @@ async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1012,24 +1051,33 @@ async function deserializeAws_restJson1_1GetBlockCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1086,24 +1134,33 @@ async function deserializeAws_restJson1_1GetDigestCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1160,24 +1217,33 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourcePreconditionNotMetException":
     case "com.amazonaws.ledger.v20190102#ResourcePreconditionNotMetException":
-      response = await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourcePreconditionNotMetExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1395,17 +1461,23 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1451,17 +1523,23 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1507,17 +1585,23 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1588,17 +1672,23 @@ async function deserializeAws_restJson1_1UpdateLedgerCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

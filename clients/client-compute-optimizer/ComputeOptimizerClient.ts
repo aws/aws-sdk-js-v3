@@ -1,17 +1,27 @@
 import {
-  GetAutoScalingGroupRecommendationsRequest,
-  GetAutoScalingGroupRecommendationsResponse,
-  GetEC2InstanceRecommendationsRequest,
-  GetEC2InstanceRecommendationsResponse,
-  GetEC2RecommendationProjectedMetricsRequest,
-  GetEC2RecommendationProjectedMetricsResponse,
-  GetEnrollmentStatusRequest,
-  GetEnrollmentStatusResponse,
-  GetRecommendationSummariesRequest,
-  GetRecommendationSummariesResponse,
-  UpdateEnrollmentStatusRequest,
-  UpdateEnrollmentStatusResponse
-} from "./models/index";
+  GetAutoScalingGroupRecommendationsCommandInput,
+  GetAutoScalingGroupRecommendationsCommandOutput
+} from "./commands/GetAutoScalingGroupRecommendationsCommand";
+import {
+  GetEC2InstanceRecommendationsCommandInput,
+  GetEC2InstanceRecommendationsCommandOutput
+} from "./commands/GetEC2InstanceRecommendationsCommand";
+import {
+  GetEC2RecommendationProjectedMetricsCommandInput,
+  GetEC2RecommendationProjectedMetricsCommandOutput
+} from "./commands/GetEC2RecommendationProjectedMetricsCommand";
+import {
+  GetEnrollmentStatusCommandInput,
+  GetEnrollmentStatusCommandOutput
+} from "./commands/GetEnrollmentStatusCommand";
+import {
+  GetRecommendationSummariesCommandInput,
+  GetRecommendationSummariesCommandOutput
+} from "./commands/GetRecommendationSummariesCommand";
+import {
+  UpdateEnrollmentStatusCommandInput,
+  UpdateEnrollmentStatusCommandOutput
+} from "./commands/UpdateEnrollmentStatusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -65,20 +75,20 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GetAutoScalingGroupRecommendationsRequest
-  | GetEC2InstanceRecommendationsRequest
-  | GetEC2RecommendationProjectedMetricsRequest
-  | GetEnrollmentStatusRequest
-  | GetRecommendationSummariesRequest
-  | UpdateEnrollmentStatusRequest;
+  | GetAutoScalingGroupRecommendationsCommandInput
+  | GetEC2InstanceRecommendationsCommandInput
+  | GetEC2RecommendationProjectedMetricsCommandInput
+  | GetEnrollmentStatusCommandInput
+  | GetRecommendationSummariesCommandInput
+  | UpdateEnrollmentStatusCommandInput;
 
 export type ServiceOutputTypes =
-  | GetAutoScalingGroupRecommendationsResponse
-  | GetEC2InstanceRecommendationsResponse
-  | GetEC2RecommendationProjectedMetricsResponse
-  | GetEnrollmentStatusResponse
-  | GetRecommendationSummariesResponse
-  | UpdateEnrollmentStatusResponse;
+  | GetAutoScalingGroupRecommendationsCommandOutput
+  | GetEC2InstanceRecommendationsCommandOutput
+  | GetEC2RecommendationProjectedMetricsCommandOutput
+  | GetEnrollmentStatusCommandOutput
+  | GetRecommendationSummariesCommandOutput
+  | UpdateEnrollmentStatusCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

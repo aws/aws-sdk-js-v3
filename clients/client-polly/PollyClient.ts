@@ -1,23 +1,39 @@
 import {
-  DeleteLexiconInput,
-  DeleteLexiconOutput,
-  DescribeVoicesInput,
-  DescribeVoicesOutput,
-  GetLexiconInput,
-  GetLexiconOutput,
-  GetSpeechSynthesisTaskInput,
-  GetSpeechSynthesisTaskOutput,
-  ListLexiconsInput,
-  ListLexiconsOutput,
-  ListSpeechSynthesisTasksInput,
-  ListSpeechSynthesisTasksOutput,
-  PutLexiconInput,
-  PutLexiconOutput,
-  StartSpeechSynthesisTaskInput,
-  StartSpeechSynthesisTaskOutput,
-  SynthesizeSpeechInput,
-  SynthesizeSpeechOutput
-} from "./models/index";
+  DeleteLexiconCommandInput,
+  DeleteLexiconCommandOutput
+} from "./commands/DeleteLexiconCommand";
+import {
+  DescribeVoicesCommandInput,
+  DescribeVoicesCommandOutput
+} from "./commands/DescribeVoicesCommand";
+import {
+  GetLexiconCommandInput,
+  GetLexiconCommandOutput
+} from "./commands/GetLexiconCommand";
+import {
+  GetSpeechSynthesisTaskCommandInput,
+  GetSpeechSynthesisTaskCommandOutput
+} from "./commands/GetSpeechSynthesisTaskCommand";
+import {
+  ListLexiconsCommandInput,
+  ListLexiconsCommandOutput
+} from "./commands/ListLexiconsCommand";
+import {
+  ListSpeechSynthesisTasksCommandInput,
+  ListSpeechSynthesisTasksCommandOutput
+} from "./commands/ListSpeechSynthesisTasksCommand";
+import {
+  PutLexiconCommandInput,
+  PutLexiconCommandOutput
+} from "./commands/PutLexiconCommand";
+import {
+  StartSpeechSynthesisTaskCommandInput,
+  StartSpeechSynthesisTaskCommandOutput
+} from "./commands/StartSpeechSynthesisTaskCommand";
+import {
+  SynthesizeSpeechCommandInput,
+  SynthesizeSpeechCommandOutput
+} from "./commands/SynthesizeSpeechCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -71,26 +87,26 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteLexiconInput
-  | DescribeVoicesInput
-  | GetLexiconInput
-  | GetSpeechSynthesisTaskInput
-  | ListLexiconsInput
-  | ListSpeechSynthesisTasksInput
-  | PutLexiconInput
-  | StartSpeechSynthesisTaskInput
-  | SynthesizeSpeechInput;
+  | DeleteLexiconCommandInput
+  | DescribeVoicesCommandInput
+  | GetLexiconCommandInput
+  | GetSpeechSynthesisTaskCommandInput
+  | ListLexiconsCommandInput
+  | ListSpeechSynthesisTasksCommandInput
+  | PutLexiconCommandInput
+  | StartSpeechSynthesisTaskCommandInput
+  | SynthesizeSpeechCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteLexiconOutput
-  | DescribeVoicesOutput
-  | GetLexiconOutput
-  | GetSpeechSynthesisTaskOutput
-  | ListLexiconsOutput
-  | ListSpeechSynthesisTasksOutput
-  | PutLexiconOutput
-  | StartSpeechSynthesisTaskOutput
-  | SynthesizeSpeechOutput;
+  | DeleteLexiconCommandOutput
+  | DescribeVoicesCommandOutput
+  | GetLexiconCommandOutput
+  | GetSpeechSynthesisTaskCommandOutput
+  | ListLexiconsCommandOutput
+  | ListSpeechSynthesisTasksCommandOutput
+  | PutLexiconCommandOutput
+  | StartSpeechSynthesisTaskCommandOutput
+  | SynthesizeSpeechCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

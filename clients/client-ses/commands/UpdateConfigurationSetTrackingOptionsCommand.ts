@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetTrackingOptionsCommandInput = UpdateConfigurationSetTrackingOptionsRequest;
-export type UpdateConfigurationSetTrackingOptionsCommandOutput = UpdateConfigurationSetTrackingOptionsResponse;
+export type UpdateConfigurationSetTrackingOptionsCommandOutput = UpdateConfigurationSetTrackingOptionsResponse &
+  __MetadataBearer;
 
 export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
   UpdateConfigurationSetTrackingOptionsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDirectConnectGatewayAssociationCommandInput = UpdateDirectConnectGatewayAssociationRequest;
-export type UpdateDirectConnectGatewayAssociationCommandOutput = UpdateDirectConnectGatewayAssociationResult;
+export type UpdateDirectConnectGatewayAssociationCommandOutput = UpdateDirectConnectGatewayAssociationResult &
+  __MetadataBearer;
 
 export class UpdateDirectConnectGatewayAssociationCommand extends $Command<
   UpdateDirectConnectGatewayAssociationCommandInput,

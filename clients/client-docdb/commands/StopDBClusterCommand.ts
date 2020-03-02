@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDBClusterCommandInput = StopDBClusterMessage;
-export type StopDBClusterCommandOutput = StopDBClusterResult;
+export type StopDBClusterCommandOutput = StopDBClusterResult & __MetadataBearer;
 
 export class StopDBClusterCommand extends $Command<
   StopDBClusterCommandInput,

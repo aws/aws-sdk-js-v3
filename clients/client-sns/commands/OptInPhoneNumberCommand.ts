@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type OptInPhoneNumberCommandInput = OptInPhoneNumberInput;
-export type OptInPhoneNumberCommandOutput = OptInPhoneNumberResponse;
+export type OptInPhoneNumberCommandOutput = OptInPhoneNumberResponse &
+  __MetadataBearer;
 
 export class OptInPhoneNumberCommand extends $Command<
   OptInPhoneNumberCommandInput,

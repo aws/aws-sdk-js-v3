@@ -42,7 +42,7 @@ export namespace CancelChangeSetRequest {
   }
 }
 
-export interface CancelChangeSetResponse extends $MetadataBearer {
+export interface CancelChangeSetResponse {
   __type?: "CancelChangeSetResponse";
   /**
    * <p>The ARN associated with the change set referenced in this request.</p>
@@ -202,7 +202,7 @@ export namespace DescribeChangeSetRequest {
   }
 }
 
-export interface DescribeChangeSetResponse extends $MetadataBearer {
+export interface DescribeChangeSetResponse {
   __type?: "DescribeChangeSetResponse";
   /**
    * <p>An array of <code>ChangeSummary</code> objects.</p>
@@ -278,7 +278,7 @@ export namespace DescribeEntityRequest {
   }
 }
 
-export interface DescribeEntityResponse extends $MetadataBearer {
+export interface DescribeEntityResponse {
   __type?: "DescribeEntityResponse";
   /**
    * <p>This stringified JSON object includes the details of the entity.</p>
@@ -533,7 +533,7 @@ export namespace ListChangeSetsRequest {
   }
 }
 
-export interface ListChangeSetsResponse extends $MetadataBearer {
+export interface ListChangeSetsResponse {
   __type?: "ListChangeSetsResponse";
   /**
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
@@ -595,7 +595,7 @@ export namespace ListEntitiesRequest {
   }
 }
 
-export interface ListEntitiesResponse extends $MetadataBearer {
+export interface ListEntitiesResponse {
   __type?: "ListEntitiesResponse";
   /**
    * <p> Array of <code>EntitySummary</code> object.</p>
@@ -747,7 +747,7 @@ export namespace StartChangeSetRequest {
   }
 }
 
-export interface StartChangeSetResponse extends $MetadataBearer {
+export interface StartChangeSetResponse {
   __type?: "StartChangeSetResponse";
   /**
    * <p>The ARN associated to the unique identifier generated for the request.</p>

@@ -1,37 +1,67 @@
 import {
-  AssociateDeviceWithPlacementRequest,
-  AssociateDeviceWithPlacementResponse,
-  CreatePlacementRequest,
-  CreatePlacementResponse,
-  CreateProjectRequest,
-  CreateProjectResponse,
-  DeletePlacementRequest,
-  DeletePlacementResponse,
-  DeleteProjectRequest,
-  DeleteProjectResponse,
-  DescribePlacementRequest,
-  DescribePlacementResponse,
-  DescribeProjectRequest,
-  DescribeProjectResponse,
-  DisassociateDeviceFromPlacementRequest,
-  DisassociateDeviceFromPlacementResponse,
-  GetDevicesInPlacementRequest,
-  GetDevicesInPlacementResponse,
-  ListPlacementsRequest,
-  ListPlacementsResponse,
-  ListProjectsRequest,
-  ListProjectsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdatePlacementRequest,
-  UpdatePlacementResponse,
-  UpdateProjectRequest,
-  UpdateProjectResponse
-} from "./models/index";
+  AssociateDeviceWithPlacementCommandInput,
+  AssociateDeviceWithPlacementCommandOutput
+} from "./commands/AssociateDeviceWithPlacementCommand";
+import {
+  CreatePlacementCommandInput,
+  CreatePlacementCommandOutput
+} from "./commands/CreatePlacementCommand";
+import {
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput
+} from "./commands/CreateProjectCommand";
+import {
+  DeletePlacementCommandInput,
+  DeletePlacementCommandOutput
+} from "./commands/DeletePlacementCommand";
+import {
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput
+} from "./commands/DeleteProjectCommand";
+import {
+  DescribePlacementCommandInput,
+  DescribePlacementCommandOutput
+} from "./commands/DescribePlacementCommand";
+import {
+  DescribeProjectCommandInput,
+  DescribeProjectCommandOutput
+} from "./commands/DescribeProjectCommand";
+import {
+  DisassociateDeviceFromPlacementCommandInput,
+  DisassociateDeviceFromPlacementCommandOutput
+} from "./commands/DisassociateDeviceFromPlacementCommand";
+import {
+  GetDevicesInPlacementCommandInput,
+  GetDevicesInPlacementCommandOutput
+} from "./commands/GetDevicesInPlacementCommand";
+import {
+  ListPlacementsCommandInput,
+  ListPlacementsCommandOutput
+} from "./commands/ListPlacementsCommand";
+import {
+  ListProjectsCommandInput,
+  ListProjectsCommandOutput
+} from "./commands/ListProjectsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdatePlacementCommandInput,
+  UpdatePlacementCommandOutput
+} from "./commands/UpdatePlacementCommand";
+import {
+  UpdateProjectCommandInput,
+  UpdateProjectCommandOutput
+} from "./commands/UpdateProjectCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,40 +115,40 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateDeviceWithPlacementRequest
-  | CreatePlacementRequest
-  | CreateProjectRequest
-  | DeletePlacementRequest
-  | DeleteProjectRequest
-  | DescribePlacementRequest
-  | DescribeProjectRequest
-  | DisassociateDeviceFromPlacementRequest
-  | GetDevicesInPlacementRequest
-  | ListPlacementsRequest
-  | ListProjectsRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdatePlacementRequest
-  | UpdateProjectRequest;
+  | AssociateDeviceWithPlacementCommandInput
+  | CreatePlacementCommandInput
+  | CreateProjectCommandInput
+  | DeletePlacementCommandInput
+  | DeleteProjectCommandInput
+  | DescribePlacementCommandInput
+  | DescribeProjectCommandInput
+  | DisassociateDeviceFromPlacementCommandInput
+  | GetDevicesInPlacementCommandInput
+  | ListPlacementsCommandInput
+  | ListProjectsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdatePlacementCommandInput
+  | UpdateProjectCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateDeviceWithPlacementResponse
-  | CreatePlacementResponse
-  | CreateProjectResponse
-  | DeletePlacementResponse
-  | DeleteProjectResponse
-  | DescribePlacementResponse
-  | DescribeProjectResponse
-  | DisassociateDeviceFromPlacementResponse
-  | GetDevicesInPlacementResponse
-  | ListPlacementsResponse
-  | ListProjectsResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdatePlacementResponse
-  | UpdateProjectResponse;
+  | AssociateDeviceWithPlacementCommandOutput
+  | CreatePlacementCommandOutput
+  | CreateProjectCommandOutput
+  | DeletePlacementCommandOutput
+  | DeleteProjectCommandOutput
+  | DescribePlacementCommandOutput
+  | DescribeProjectCommandOutput
+  | DisassociateDeviceFromPlacementCommandOutput
+  | GetDevicesInPlacementCommandOutput
+  | ListPlacementsCommandOutput
+  | ListProjectsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdatePlacementCommandOutput
+  | UpdateProjectCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

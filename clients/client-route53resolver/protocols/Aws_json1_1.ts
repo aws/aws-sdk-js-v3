@@ -522,52 +522,73 @@ async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandEr
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -623,52 +644,73 @@ async function deserializeAws_json1_1AssociateResolverRuleCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -727,52 +769,73 @@ async function deserializeAws_json1_1CreateResolverEndpointCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -828,59 +891,83 @@ async function deserializeAws_json1_1CreateResolverRuleCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -939,38 +1026,53 @@ async function deserializeAws_json1_1DeleteResolverEndpointCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1026,38 +1128,53 @@ async function deserializeAws_json1_1DeleteResolverRuleCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.route53resolver#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1116,45 +1233,63 @@ async function deserializeAws_json1_1DisassociateResolverEndpointIpAddressComman
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceExistsException":
     case "com.amazonaws.route53resolver#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1213,31 +1348,43 @@ async function deserializeAws_json1_1DisassociateResolverRuleCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1293,31 +1440,43 @@ async function deserializeAws_json1_1GetResolverEndpointCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1370,31 +1529,43 @@ async function deserializeAws_json1_1GetResolverRuleCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1453,31 +1624,43 @@ async function deserializeAws_json1_1GetResolverRuleAssociationCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1533,24 +1716,33 @@ async function deserializeAws_json1_1GetResolverRulePolicyCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceException":
     case "com.amazonaws.route53resolver#UnknownResourceException":
-      response = await deserializeAws_json1_1UnknownResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnknownResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1609,38 +1801,53 @@ async function deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1696,38 +1903,53 @@ async function deserializeAws_json1_1ListResolverEndpointsCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1786,38 +2008,53 @@ async function deserializeAws_json1_1ListResolverRuleAssociationsCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1870,38 +2107,53 @@ async function deserializeAws_json1_1ListResolverRulesCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1957,45 +2209,63 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2051,31 +2321,43 @@ async function deserializeAws_json1_1PutResolverRulePolicyCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPolicyDocument":
     case "com.amazonaws.route53resolver#InvalidPolicyDocument":
-      response = await deserializeAws_json1_1InvalidPolicyDocumentResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPolicyDocumentResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnknownResourceException":
     case "com.amazonaws.route53resolver#UnknownResourceException":
-      response = await deserializeAws_json1_1UnknownResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnknownResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2128,45 +2410,63 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazonaws.route53resolver#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2219,31 +2519,43 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2302,38 +2614,53 @@ async function deserializeAws_json1_1UpdateResolverEndpointCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2389,52 +2716,73 @@ async function deserializeAws_json1_1UpdateResolverRuleCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.route53resolver#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.route53resolver#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.route53resolver#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceUnavailableException":
     case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      response = await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.route53resolver#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

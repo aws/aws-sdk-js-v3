@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBProxyTargetGroupCommandInput = ModifyDBProxyTargetGroupRequest;
-export type ModifyDBProxyTargetGroupCommandOutput = ModifyDBProxyTargetGroupResponse;
+export type ModifyDBProxyTargetGroupCommandOutput = ModifyDBProxyTargetGroupResponse &
+  __MetadataBearer;
 
 export class ModifyDBProxyTargetGroupCommand extends $Command<
   ModifyDBProxyTargetGroupCommandInput,

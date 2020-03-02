@@ -116,38 +116,53 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.awspricelistservice#ExpiredNextTokenException":
-      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.awspricelistservice#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.awspricelistservice#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awspricelistservice#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.awspricelistservice#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -203,38 +218,53 @@ async function deserializeAws_json1_1GetAttributeValuesCommandError(
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.awspricelistservice#ExpiredNextTokenException":
-      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.awspricelistservice#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.awspricelistservice#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awspricelistservice#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.awspricelistservice#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -287,38 +317,53 @@ async function deserializeAws_json1_1GetProductsCommandError(
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.awspricelistservice#ExpiredNextTokenException":
-      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.awspricelistservice#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.awspricelistservice#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.awspricelistservice#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.awspricelistservice#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

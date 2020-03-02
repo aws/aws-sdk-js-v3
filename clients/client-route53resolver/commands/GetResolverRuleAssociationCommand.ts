@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetResolverRuleAssociationCommandInput = GetResolverRuleAssociationRequest;
-export type GetResolverRuleAssociationCommandOutput = GetResolverRuleAssociationResponse;
+export type GetResolverRuleAssociationCommandOutput = GetResolverRuleAssociationResponse &
+  __MetadataBearer;
 
 export class GetResolverRuleAssociationCommand extends $Command<
   GetResolverRuleAssociationCommandInput,

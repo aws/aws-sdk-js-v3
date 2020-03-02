@@ -373,31 +373,43 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -447,17 +459,23 @@ async function deserializeAws_restJson1_1CreateGraphCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -520,31 +538,43 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.detective#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -589,24 +619,33 @@ async function deserializeAws_restJson1_1DeleteGraphCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -669,31 +708,43 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -741,31 +792,43 @@ async function deserializeAws_restJson1_1DisassociateMembershipCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -828,24 +891,33 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -902,17 +974,23 @@ async function deserializeAws_restJson1_1ListGraphsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -972,17 +1050,23 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1039,24 +1123,33 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1104,31 +1197,43 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.detective#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

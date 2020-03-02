@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBGPPeerCommandInput = DeleteBGPPeerRequest;
-export type DeleteBGPPeerCommandOutput = DeleteBGPPeerResponse;
+export type DeleteBGPPeerCommandOutput = DeleteBGPPeerResponse &
+  __MetadataBearer;
 
 export class DeleteBGPPeerCommand extends $Command<
   DeleteBGPPeerCommandInput,

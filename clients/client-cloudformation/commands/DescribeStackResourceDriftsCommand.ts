@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeStackResourceDriftsCommandInput = DescribeStackResourceDriftsInput;
-export type DescribeStackResourceDriftsCommandOutput = DescribeStackResourceDriftsOutput;
+export type DescribeStackResourceDriftsCommandOutput = DescribeStackResourceDriftsOutput &
+  __MetadataBearer;
 
 export class DescribeStackResourceDriftsCommand extends $Command<
   DescribeStackResourceDriftsCommandInput,

@@ -1285,17 +1285,23 @@ async function deserializeAws_queryAttachInstancesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1353,17 +1359,23 @@ async function deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1418,17 +1430,23 @@ async function deserializeAws_queryAttachLoadBalancersCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1486,10 +1504,13 @@ async function deserializeAws_queryBatchDeleteScheduledActionCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1547,24 +1568,33 @@ async function deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandErro
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
-      response = await deserializeAws_queryAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1622,10 +1652,13 @@ async function deserializeAws_queryCompleteLifecycleActionCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1676,31 +1709,43 @@ async function deserializeAws_queryCreateAutoScalingGroupCommandError(
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
-      response = await deserializeAws_queryAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1751,24 +1796,33 @@ async function deserializeAws_queryCreateLaunchConfigurationCommandError(
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
-      response = await deserializeAws_queryAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1816,31 +1870,43 @@ async function deserializeAws_queryCreateOrUpdateTagsCommandError(
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
-      response = await deserializeAws_queryAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
-      response = await deserializeAws_queryResourceInUseFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1891,24 +1957,33 @@ async function deserializeAws_queryDeleteAutoScalingGroupCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
-      response = await deserializeAws_queryResourceInUseFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScalingActivityInProgressFault":
     case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
-      response = await deserializeAws_queryScalingActivityInProgressFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1959,17 +2034,23 @@ async function deserializeAws_queryDeleteLaunchConfigurationCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
-      response = await deserializeAws_queryResourceInUseFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2024,10 +2105,13 @@ async function deserializeAws_queryDeleteLifecycleHookCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2078,10 +2162,13 @@ async function deserializeAws_queryDeleteNotificationConfigurationCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2129,17 +2216,23 @@ async function deserializeAws_queryDeletePolicyCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2190,10 +2283,13 @@ async function deserializeAws_queryDeleteScheduledActionCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2241,17 +2337,23 @@ async function deserializeAws_queryDeleteTagsCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
-      response = await deserializeAws_queryResourceInUseFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2309,10 +2411,13 @@ async function deserializeAws_queryDescribeAccountLimitsCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2370,10 +2475,13 @@ async function deserializeAws_queryDescribeAdjustmentTypesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2431,17 +2539,23 @@ async function deserializeAws_queryDescribeAutoScalingGroupsCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2499,17 +2613,23 @@ async function deserializeAws_queryDescribeAutoScalingInstancesCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2567,10 +2687,13 @@ async function deserializeAws_queryDescribeAutoScalingNotificationTypesCommandEr
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2628,17 +2751,23 @@ async function deserializeAws_queryDescribeLaunchConfigurationsCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2696,10 +2825,13 @@ async function deserializeAws_queryDescribeLifecycleHookTypesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2757,10 +2889,13 @@ async function deserializeAws_queryDescribeLifecycleHooksCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2818,10 +2953,13 @@ async function deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2879,10 +3017,13 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2940,10 +3081,13 @@ async function deserializeAws_queryDescribeMetricCollectionTypesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3001,17 +3145,23 @@ async function deserializeAws_queryDescribeNotificationConfigurationsCommandErro
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3066,24 +3216,33 @@ async function deserializeAws_queryDescribePoliciesCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3141,17 +3300,23 @@ async function deserializeAws_queryDescribeScalingActivitiesCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3209,10 +3374,13 @@ async function deserializeAws_queryDescribeScalingProcessTypesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3270,17 +3438,23 @@ async function deserializeAws_queryDescribeScheduledActionsCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3332,17 +3506,23 @@ async function deserializeAws_queryDescribeTagsCommandError(
   switch (errorCode) {
     case "InvalidNextToken":
     case "com.amazon.fws.csls.version_2011_01_01#InvalidNextToken":
-      response = await deserializeAws_queryInvalidNextTokenResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3400,10 +3580,13 @@ async function deserializeAws_queryDescribeTerminationPolicyTypesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3458,10 +3641,13 @@ async function deserializeAws_queryDetachInstancesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3519,10 +3705,13 @@ async function deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3577,10 +3766,13 @@ async function deserializeAws_queryDetachLoadBalancersCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3631,10 +3823,13 @@ async function deserializeAws_queryDisableMetricsCollectionCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3685,10 +3880,13 @@ async function deserializeAws_queryEnableMetricsCollectionCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3743,10 +3941,13 @@ async function deserializeAws_queryEnterStandbyCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3794,17 +3995,23 @@ async function deserializeAws_queryExecutePolicyCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScalingActivityInProgressFault":
     case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
-      response = await deserializeAws_queryScalingActivityInProgressFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3859,10 +4066,13 @@ async function deserializeAws_queryExitStandbyCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3917,17 +4127,23 @@ async function deserializeAws_queryPutLifecycleHookCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3978,24 +4194,33 @@ async function deserializeAws_queryPutNotificationConfigurationCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4050,24 +4275,33 @@ async function deserializeAws_queryPutScalingPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4118,24 +4352,33 @@ async function deserializeAws_queryPutScheduledUpdateGroupActionCommandError(
   switch (errorCode) {
     case "AlreadyExistsFault":
     case "com.amazon.fws.csls.version_2011_01_01#AlreadyExistsFault":
-      response = await deserializeAws_queryAlreadyExistsFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAlreadyExistsFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4193,10 +4436,13 @@ async function deserializeAws_queryRecordLifecycleActionHeartbeatCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4244,17 +4490,23 @@ async function deserializeAws_queryResumeProcessesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
-      response = await deserializeAws_queryResourceInUseFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4302,17 +4554,23 @@ async function deserializeAws_querySetDesiredCapacityCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScalingActivityInProgressFault":
     case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
-      response = await deserializeAws_queryScalingActivityInProgressFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4360,10 +4618,13 @@ async function deserializeAws_querySetInstanceHealthCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4421,17 +4682,23 @@ async function deserializeAws_querySetInstanceProtectionCommandError(
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazon.fws.csls.version_2011_01_01#LimitExceededFault":
-      response = await deserializeAws_queryLimitExceededFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4479,17 +4746,23 @@ async function deserializeAws_querySuspendProcessesCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceInUseFault":
-      response = await deserializeAws_queryResourceInUseFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4547,17 +4820,23 @@ async function deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandErr
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScalingActivityInProgressFault":
     case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
-      response = await deserializeAws_queryScalingActivityInProgressFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4608,24 +4887,33 @@ async function deserializeAws_queryUpdateAutoScalingGroupCommandError(
   switch (errorCode) {
     case "ResourceContentionFault":
     case "com.amazon.fws.csls.version_2011_01_01#ResourceContentionFault":
-      response = await deserializeAws_queryResourceContentionFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceContentionFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScalingActivityInProgressFault":
     case "com.amazon.fws.csls.version_2011_01_01#ScalingActivityInProgressFault":
-      response = await deserializeAws_queryScalingActivityInProgressFaultResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryScalingActivityInProgressFaultResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLinkedRoleFailure":
     case "com.amazon.fws.csls.version_2011_01_01#ServiceLinkedRoleFailure":
-      response = await deserializeAws_queryServiceLinkedRoleFailureResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceLinkedRoleFailureResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

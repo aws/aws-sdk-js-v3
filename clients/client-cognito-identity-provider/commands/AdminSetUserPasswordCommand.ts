@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminSetUserPasswordCommandInput = AdminSetUserPasswordRequest;
-export type AdminSetUserPasswordCommandOutput = AdminSetUserPasswordResponse;
+export type AdminSetUserPasswordCommandOutput = AdminSetUserPasswordResponse &
+  __MetadataBearer;
 
 export class AdminSetUserPasswordCommand extends $Command<
   AdminSetUserPasswordCommandInput,

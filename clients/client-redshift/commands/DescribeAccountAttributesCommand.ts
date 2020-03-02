@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeAccountAttributesCommandInput = DescribeAccountAttributesMessage;
-export type DescribeAccountAttributesCommandOutput = AccountAttributeList;
+export type DescribeAccountAttributesCommandOutput = AccountAttributeList &
+  __MetadataBearer;
 
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,

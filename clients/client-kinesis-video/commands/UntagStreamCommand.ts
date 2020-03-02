@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UntagStreamCommandInput = UntagStreamInput;
-export type UntagStreamCommandOutput = UntagStreamOutput;
+export type UntagStreamCommandOutput = UntagStreamOutput & __MetadataBearer;
 
 export class UntagStreamCommand extends $Command<
   UntagStreamCommandInput,

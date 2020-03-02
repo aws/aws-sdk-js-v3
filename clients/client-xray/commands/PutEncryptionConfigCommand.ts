@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutEncryptionConfigCommandInput = PutEncryptionConfigRequest;
-export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult;
+export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult &
+  __MetadataBearer;
 
 export class PutEncryptionConfigCommand extends $Command<
   PutEncryptionConfigCommandInput,

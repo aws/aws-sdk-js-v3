@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateRoomMembershipCommandInput = UpdateRoomMembershipRequest;
-export type UpdateRoomMembershipCommandOutput = UpdateRoomMembershipResponse;
+export type UpdateRoomMembershipCommandOutput = UpdateRoomMembershipResponse &
+  __MetadataBearer;
 
 export class UpdateRoomMembershipCommand extends $Command<
   UpdateRoomMembershipCommandInput,

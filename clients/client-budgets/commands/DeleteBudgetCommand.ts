@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBudgetCommandInput = DeleteBudgetRequest;
-export type DeleteBudgetCommandOutput = DeleteBudgetResponse;
+export type DeleteBudgetCommandOutput = DeleteBudgetResponse & __MetadataBearer;
 
 export class DeleteBudgetCommand extends $Command<
   DeleteBudgetCommandInput,

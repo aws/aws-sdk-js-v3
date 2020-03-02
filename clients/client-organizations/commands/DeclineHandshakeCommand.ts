@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeclineHandshakeCommandInput = DeclineHandshakeRequest;
-export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse;
+export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse &
+  __MetadataBearer;
 
 export class DeclineHandshakeCommand extends $Command<
   DeclineHandshakeCommandInput,

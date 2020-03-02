@@ -1,54 +1,103 @@
 import {
-  AssociateConfigurationItemsToApplicationRequest,
-  AssociateConfigurationItemsToApplicationResponse,
-  BatchDeleteImportDataRequest,
-  BatchDeleteImportDataResponse,
-  CreateApplicationRequest,
-  CreateApplicationResponse,
-  CreateTagsRequest,
-  CreateTagsResponse,
-  DeleteApplicationsRequest,
-  DeleteApplicationsResponse,
-  DeleteTagsRequest,
-  DeleteTagsResponse,
-  DescribeAgentsRequest,
-  DescribeAgentsResponse,
-  DescribeConfigurationsRequest,
-  DescribeConfigurationsResponse,
-  DescribeContinuousExportsRequest,
-  DescribeContinuousExportsResponse,
-  DescribeExportConfigurationsRequest,
-  DescribeExportConfigurationsResponse,
-  DescribeExportTasksRequest,
-  DescribeExportTasksResponse,
-  DescribeImportTasksRequest,
-  DescribeImportTasksResponse,
-  DescribeTagsRequest,
-  DescribeTagsResponse,
-  DisassociateConfigurationItemsFromApplicationRequest,
-  DisassociateConfigurationItemsFromApplicationResponse,
-  ExportConfigurationsResponse,
-  GetDiscoverySummaryRequest,
-  GetDiscoverySummaryResponse,
-  ListConfigurationsRequest,
-  ListConfigurationsResponse,
-  ListServerNeighborsRequest,
-  ListServerNeighborsResponse,
-  StartContinuousExportRequest,
-  StartContinuousExportResponse,
-  StartDataCollectionByAgentIdsRequest,
-  StartDataCollectionByAgentIdsResponse,
-  StartExportTaskRequest,
-  StartExportTaskResponse,
-  StartImportTaskRequest,
-  StartImportTaskResponse,
-  StopContinuousExportRequest,
-  StopContinuousExportResponse,
-  StopDataCollectionByAgentIdsRequest,
-  StopDataCollectionByAgentIdsResponse,
-  UpdateApplicationRequest,
-  UpdateApplicationResponse
-} from "./models/index";
+  AssociateConfigurationItemsToApplicationCommandInput,
+  AssociateConfigurationItemsToApplicationCommandOutput
+} from "./commands/AssociateConfigurationItemsToApplicationCommand";
+import {
+  BatchDeleteImportDataCommandInput,
+  BatchDeleteImportDataCommandOutput
+} from "./commands/BatchDeleteImportDataCommand";
+import {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateTagsCommandInput,
+  CreateTagsCommandOutput
+} from "./commands/CreateTagsCommand";
+import {
+  DeleteApplicationsCommandInput,
+  DeleteApplicationsCommandOutput
+} from "./commands/DeleteApplicationsCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DescribeAgentsCommandInput,
+  DescribeAgentsCommandOutput
+} from "./commands/DescribeAgentsCommand";
+import {
+  DescribeConfigurationsCommandInput,
+  DescribeConfigurationsCommandOutput
+} from "./commands/DescribeConfigurationsCommand";
+import {
+  DescribeContinuousExportsCommandInput,
+  DescribeContinuousExportsCommandOutput
+} from "./commands/DescribeContinuousExportsCommand";
+import {
+  DescribeExportConfigurationsCommandInput,
+  DescribeExportConfigurationsCommandOutput
+} from "./commands/DescribeExportConfigurationsCommand";
+import {
+  DescribeExportTasksCommandInput,
+  DescribeExportTasksCommandOutput
+} from "./commands/DescribeExportTasksCommand";
+import {
+  DescribeImportTasksCommandInput,
+  DescribeImportTasksCommandOutput
+} from "./commands/DescribeImportTasksCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DisassociateConfigurationItemsFromApplicationCommandInput,
+  DisassociateConfigurationItemsFromApplicationCommandOutput
+} from "./commands/DisassociateConfigurationItemsFromApplicationCommand";
+import {
+  ExportConfigurationsCommandInput,
+  ExportConfigurationsCommandOutput
+} from "./commands/ExportConfigurationsCommand";
+import {
+  GetDiscoverySummaryCommandInput,
+  GetDiscoverySummaryCommandOutput
+} from "./commands/GetDiscoverySummaryCommand";
+import {
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput
+} from "./commands/ListConfigurationsCommand";
+import {
+  ListServerNeighborsCommandInput,
+  ListServerNeighborsCommandOutput
+} from "./commands/ListServerNeighborsCommand";
+import {
+  StartContinuousExportCommandInput,
+  StartContinuousExportCommandOutput
+} from "./commands/StartContinuousExportCommand";
+import {
+  StartDataCollectionByAgentIdsCommandInput,
+  StartDataCollectionByAgentIdsCommandOutput
+} from "./commands/StartDataCollectionByAgentIdsCommand";
+import {
+  StartExportTaskCommandInput,
+  StartExportTaskCommandOutput
+} from "./commands/StartExportTaskCommand";
+import {
+  StartImportTaskCommandInput,
+  StartImportTaskCommandOutput
+} from "./commands/StartImportTaskCommand";
+import {
+  StopContinuousExportCommandInput,
+  StopContinuousExportCommandOutput
+} from "./commands/StopContinuousExportCommand";
+import {
+  StopDataCollectionByAgentIdsCommandInput,
+  StopDataCollectionByAgentIdsCommandOutput
+} from "./commands/StopDataCollectionByAgentIdsCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -102,58 +151,58 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AssociateConfigurationItemsToApplicationRequest
-  | BatchDeleteImportDataRequest
-  | CreateApplicationRequest
-  | CreateTagsRequest
-  | DeleteApplicationsRequest
-  | DeleteTagsRequest
-  | DescribeAgentsRequest
-  | DescribeConfigurationsRequest
-  | DescribeContinuousExportsRequest
-  | DescribeExportConfigurationsRequest
-  | DescribeExportTasksRequest
-  | DescribeImportTasksRequest
-  | DescribeTagsRequest
-  | DisassociateConfigurationItemsFromApplicationRequest
-  | GetDiscoverySummaryRequest
-  | ListConfigurationsRequest
-  | ListServerNeighborsRequest
-  | StartContinuousExportRequest
-  | StartDataCollectionByAgentIdsRequest
-  | StartExportTaskRequest
-  | StartImportTaskRequest
-  | StopContinuousExportRequest
-  | StopDataCollectionByAgentIdsRequest
-  | UpdateApplicationRequest;
+  | AssociateConfigurationItemsToApplicationCommandInput
+  | BatchDeleteImportDataCommandInput
+  | CreateApplicationCommandInput
+  | CreateTagsCommandInput
+  | DeleteApplicationsCommandInput
+  | DeleteTagsCommandInput
+  | DescribeAgentsCommandInput
+  | DescribeConfigurationsCommandInput
+  | DescribeContinuousExportsCommandInput
+  | DescribeExportConfigurationsCommandInput
+  | DescribeExportTasksCommandInput
+  | DescribeImportTasksCommandInput
+  | DescribeTagsCommandInput
+  | DisassociateConfigurationItemsFromApplicationCommandInput
+  | ExportConfigurationsCommandInput
+  | GetDiscoverySummaryCommandInput
+  | ListConfigurationsCommandInput
+  | ListServerNeighborsCommandInput
+  | StartContinuousExportCommandInput
+  | StartDataCollectionByAgentIdsCommandInput
+  | StartExportTaskCommandInput
+  | StartImportTaskCommandInput
+  | StopContinuousExportCommandInput
+  | StopDataCollectionByAgentIdsCommandInput
+  | UpdateApplicationCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateConfigurationItemsToApplicationResponse
-  | BatchDeleteImportDataResponse
-  | CreateApplicationResponse
-  | CreateTagsResponse
-  | DeleteApplicationsResponse
-  | DeleteTagsResponse
-  | DescribeAgentsResponse
-  | DescribeConfigurationsResponse
-  | DescribeContinuousExportsResponse
-  | DescribeExportConfigurationsResponse
-  | DescribeExportTasksResponse
-  | DescribeImportTasksResponse
-  | DescribeTagsResponse
-  | DisassociateConfigurationItemsFromApplicationResponse
-  | ExportConfigurationsResponse
-  | GetDiscoverySummaryResponse
-  | ListConfigurationsResponse
-  | ListServerNeighborsResponse
-  | StartContinuousExportResponse
-  | StartDataCollectionByAgentIdsResponse
-  | StartExportTaskResponse
-  | StartImportTaskResponse
-  | StopContinuousExportResponse
-  | StopDataCollectionByAgentIdsResponse
-  | UpdateApplicationResponse;
+  | AssociateConfigurationItemsToApplicationCommandOutput
+  | BatchDeleteImportDataCommandOutput
+  | CreateApplicationCommandOutput
+  | CreateTagsCommandOutput
+  | DeleteApplicationsCommandOutput
+  | DeleteTagsCommandOutput
+  | DescribeAgentsCommandOutput
+  | DescribeConfigurationsCommandOutput
+  | DescribeContinuousExportsCommandOutput
+  | DescribeExportConfigurationsCommandOutput
+  | DescribeExportTasksCommandOutput
+  | DescribeImportTasksCommandOutput
+  | DescribeTagsCommandOutput
+  | DisassociateConfigurationItemsFromApplicationCommandOutput
+  | ExportConfigurationsCommandOutput
+  | GetDiscoverySummaryCommandOutput
+  | ListConfigurationsCommandOutput
+  | ListServerNeighborsCommandOutput
+  | StartContinuousExportCommandOutput
+  | StartDataCollectionByAgentIdsCommandOutput
+  | StartExportTaskCommandOutput
+  | StartImportTaskCommandOutput
+  | StopContinuousExportCommandOutput
+  | StopDataCollectionByAgentIdsCommandOutput
+  | UpdateApplicationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

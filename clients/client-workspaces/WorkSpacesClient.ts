@@ -1,87 +1,167 @@
 import {
-  AssociateIpGroupsRequest,
-  AssociateIpGroupsResult,
-  AuthorizeIpRulesRequest,
-  AuthorizeIpRulesResult,
-  CopyWorkspaceImageRequest,
-  CopyWorkspaceImageResult,
-  CreateIpGroupRequest,
-  CreateIpGroupResult,
-  CreateTagsRequest,
-  CreateTagsResult,
-  CreateWorkspacesRequest,
-  CreateWorkspacesResult,
-  DeleteIpGroupRequest,
-  DeleteIpGroupResult,
-  DeleteTagsRequest,
-  DeleteTagsResult,
-  DeleteWorkspaceImageRequest,
-  DeleteWorkspaceImageResult,
-  DeregisterWorkspaceDirectoryRequest,
-  DeregisterWorkspaceDirectoryResult,
-  DescribeAccountModificationsRequest,
-  DescribeAccountModificationsResult,
-  DescribeAccountRequest,
-  DescribeAccountResult,
-  DescribeClientPropertiesRequest,
-  DescribeClientPropertiesResult,
-  DescribeIpGroupsRequest,
-  DescribeIpGroupsResult,
-  DescribeTagsRequest,
-  DescribeTagsResult,
-  DescribeWorkspaceBundlesRequest,
-  DescribeWorkspaceBundlesResult,
-  DescribeWorkspaceDirectoriesRequest,
-  DescribeWorkspaceDirectoriesResult,
-  DescribeWorkspaceImagesRequest,
-  DescribeWorkspaceImagesResult,
-  DescribeWorkspaceSnapshotsRequest,
-  DescribeWorkspaceSnapshotsResult,
-  DescribeWorkspacesConnectionStatusRequest,
-  DescribeWorkspacesConnectionStatusResult,
-  DescribeWorkspacesRequest,
-  DescribeWorkspacesResult,
-  DisassociateIpGroupsRequest,
-  DisassociateIpGroupsResult,
-  ImportWorkspaceImageRequest,
-  ImportWorkspaceImageResult,
-  ListAvailableManagementCidrRangesRequest,
-  ListAvailableManagementCidrRangesResult,
-  MigrateWorkspaceRequest,
-  MigrateWorkspaceResult,
-  ModifyAccountRequest,
-  ModifyAccountResult,
-  ModifyClientPropertiesRequest,
-  ModifyClientPropertiesResult,
-  ModifySelfservicePermissionsRequest,
-  ModifySelfservicePermissionsResult,
-  ModifyWorkspaceAccessPropertiesRequest,
-  ModifyWorkspaceAccessPropertiesResult,
-  ModifyWorkspaceCreationPropertiesRequest,
-  ModifyWorkspaceCreationPropertiesResult,
-  ModifyWorkspacePropertiesRequest,
-  ModifyWorkspacePropertiesResult,
-  ModifyWorkspaceStateRequest,
-  ModifyWorkspaceStateResult,
-  RebootWorkspacesRequest,
-  RebootWorkspacesResult,
-  RebuildWorkspacesRequest,
-  RebuildWorkspacesResult,
-  RegisterWorkspaceDirectoryRequest,
-  RegisterWorkspaceDirectoryResult,
-  RestoreWorkspaceRequest,
-  RestoreWorkspaceResult,
-  RevokeIpRulesRequest,
-  RevokeIpRulesResult,
-  StartWorkspacesRequest,
-  StartWorkspacesResult,
-  StopWorkspacesRequest,
-  StopWorkspacesResult,
-  TerminateWorkspacesRequest,
-  TerminateWorkspacesResult,
-  UpdateRulesOfIpGroupRequest,
-  UpdateRulesOfIpGroupResult
-} from "./models/index";
+  AssociateIpGroupsCommandInput,
+  AssociateIpGroupsCommandOutput
+} from "./commands/AssociateIpGroupsCommand";
+import {
+  AuthorizeIpRulesCommandInput,
+  AuthorizeIpRulesCommandOutput
+} from "./commands/AuthorizeIpRulesCommand";
+import {
+  CopyWorkspaceImageCommandInput,
+  CopyWorkspaceImageCommandOutput
+} from "./commands/CopyWorkspaceImageCommand";
+import {
+  CreateIpGroupCommandInput,
+  CreateIpGroupCommandOutput
+} from "./commands/CreateIpGroupCommand";
+import {
+  CreateTagsCommandInput,
+  CreateTagsCommandOutput
+} from "./commands/CreateTagsCommand";
+import {
+  CreateWorkspacesCommandInput,
+  CreateWorkspacesCommandOutput
+} from "./commands/CreateWorkspacesCommand";
+import {
+  DeleteIpGroupCommandInput,
+  DeleteIpGroupCommandOutput
+} from "./commands/DeleteIpGroupCommand";
+import {
+  DeleteTagsCommandInput,
+  DeleteTagsCommandOutput
+} from "./commands/DeleteTagsCommand";
+import {
+  DeleteWorkspaceImageCommandInput,
+  DeleteWorkspaceImageCommandOutput
+} from "./commands/DeleteWorkspaceImageCommand";
+import {
+  DeregisterWorkspaceDirectoryCommandInput,
+  DeregisterWorkspaceDirectoryCommandOutput
+} from "./commands/DeregisterWorkspaceDirectoryCommand";
+import {
+  DescribeAccountCommandInput,
+  DescribeAccountCommandOutput
+} from "./commands/DescribeAccountCommand";
+import {
+  DescribeAccountModificationsCommandInput,
+  DescribeAccountModificationsCommandOutput
+} from "./commands/DescribeAccountModificationsCommand";
+import {
+  DescribeClientPropertiesCommandInput,
+  DescribeClientPropertiesCommandOutput
+} from "./commands/DescribeClientPropertiesCommand";
+import {
+  DescribeIpGroupsCommandInput,
+  DescribeIpGroupsCommandOutput
+} from "./commands/DescribeIpGroupsCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DescribeWorkspaceBundlesCommandInput,
+  DescribeWorkspaceBundlesCommandOutput
+} from "./commands/DescribeWorkspaceBundlesCommand";
+import {
+  DescribeWorkspaceDirectoriesCommandInput,
+  DescribeWorkspaceDirectoriesCommandOutput
+} from "./commands/DescribeWorkspaceDirectoriesCommand";
+import {
+  DescribeWorkspaceImagesCommandInput,
+  DescribeWorkspaceImagesCommandOutput
+} from "./commands/DescribeWorkspaceImagesCommand";
+import {
+  DescribeWorkspaceSnapshotsCommandInput,
+  DescribeWorkspaceSnapshotsCommandOutput
+} from "./commands/DescribeWorkspaceSnapshotsCommand";
+import {
+  DescribeWorkspacesCommandInput,
+  DescribeWorkspacesCommandOutput
+} from "./commands/DescribeWorkspacesCommand";
+import {
+  DescribeWorkspacesConnectionStatusCommandInput,
+  DescribeWorkspacesConnectionStatusCommandOutput
+} from "./commands/DescribeWorkspacesConnectionStatusCommand";
+import {
+  DisassociateIpGroupsCommandInput,
+  DisassociateIpGroupsCommandOutput
+} from "./commands/DisassociateIpGroupsCommand";
+import {
+  ImportWorkspaceImageCommandInput,
+  ImportWorkspaceImageCommandOutput
+} from "./commands/ImportWorkspaceImageCommand";
+import {
+  ListAvailableManagementCidrRangesCommandInput,
+  ListAvailableManagementCidrRangesCommandOutput
+} from "./commands/ListAvailableManagementCidrRangesCommand";
+import {
+  MigrateWorkspaceCommandInput,
+  MigrateWorkspaceCommandOutput
+} from "./commands/MigrateWorkspaceCommand";
+import {
+  ModifyAccountCommandInput,
+  ModifyAccountCommandOutput
+} from "./commands/ModifyAccountCommand";
+import {
+  ModifyClientPropertiesCommandInput,
+  ModifyClientPropertiesCommandOutput
+} from "./commands/ModifyClientPropertiesCommand";
+import {
+  ModifySelfservicePermissionsCommandInput,
+  ModifySelfservicePermissionsCommandOutput
+} from "./commands/ModifySelfservicePermissionsCommand";
+import {
+  ModifyWorkspaceAccessPropertiesCommandInput,
+  ModifyWorkspaceAccessPropertiesCommandOutput
+} from "./commands/ModifyWorkspaceAccessPropertiesCommand";
+import {
+  ModifyWorkspaceCreationPropertiesCommandInput,
+  ModifyWorkspaceCreationPropertiesCommandOutput
+} from "./commands/ModifyWorkspaceCreationPropertiesCommand";
+import {
+  ModifyWorkspacePropertiesCommandInput,
+  ModifyWorkspacePropertiesCommandOutput
+} from "./commands/ModifyWorkspacePropertiesCommand";
+import {
+  ModifyWorkspaceStateCommandInput,
+  ModifyWorkspaceStateCommandOutput
+} from "./commands/ModifyWorkspaceStateCommand";
+import {
+  RebootWorkspacesCommandInput,
+  RebootWorkspacesCommandOutput
+} from "./commands/RebootWorkspacesCommand";
+import {
+  RebuildWorkspacesCommandInput,
+  RebuildWorkspacesCommandOutput
+} from "./commands/RebuildWorkspacesCommand";
+import {
+  RegisterWorkspaceDirectoryCommandInput,
+  RegisterWorkspaceDirectoryCommandOutput
+} from "./commands/RegisterWorkspaceDirectoryCommand";
+import {
+  RestoreWorkspaceCommandInput,
+  RestoreWorkspaceCommandOutput
+} from "./commands/RestoreWorkspaceCommand";
+import {
+  RevokeIpRulesCommandInput,
+  RevokeIpRulesCommandOutput
+} from "./commands/RevokeIpRulesCommand";
+import {
+  StartWorkspacesCommandInput,
+  StartWorkspacesCommandOutput
+} from "./commands/StartWorkspacesCommand";
+import {
+  StopWorkspacesCommandInput,
+  StopWorkspacesCommandOutput
+} from "./commands/StopWorkspacesCommand";
+import {
+  TerminateWorkspacesCommandInput,
+  TerminateWorkspacesCommandOutput
+} from "./commands/TerminateWorkspacesCommand";
+import {
+  UpdateRulesOfIpGroupCommandInput,
+  UpdateRulesOfIpGroupCommandOutput
+} from "./commands/UpdateRulesOfIpGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -135,90 +215,90 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateIpGroupsRequest
-  | AuthorizeIpRulesRequest
-  | CopyWorkspaceImageRequest
-  | CreateIpGroupRequest
-  | CreateTagsRequest
-  | CreateWorkspacesRequest
-  | DeleteIpGroupRequest
-  | DeleteTagsRequest
-  | DeleteWorkspaceImageRequest
-  | DeregisterWorkspaceDirectoryRequest
-  | DescribeAccountModificationsRequest
-  | DescribeAccountRequest
-  | DescribeClientPropertiesRequest
-  | DescribeIpGroupsRequest
-  | DescribeTagsRequest
-  | DescribeWorkspaceBundlesRequest
-  | DescribeWorkspaceDirectoriesRequest
-  | DescribeWorkspaceImagesRequest
-  | DescribeWorkspaceSnapshotsRequest
-  | DescribeWorkspacesConnectionStatusRequest
-  | DescribeWorkspacesRequest
-  | DisassociateIpGroupsRequest
-  | ImportWorkspaceImageRequest
-  | ListAvailableManagementCidrRangesRequest
-  | MigrateWorkspaceRequest
-  | ModifyAccountRequest
-  | ModifyClientPropertiesRequest
-  | ModifySelfservicePermissionsRequest
-  | ModifyWorkspaceAccessPropertiesRequest
-  | ModifyWorkspaceCreationPropertiesRequest
-  | ModifyWorkspacePropertiesRequest
-  | ModifyWorkspaceStateRequest
-  | RebootWorkspacesRequest
-  | RebuildWorkspacesRequest
-  | RegisterWorkspaceDirectoryRequest
-  | RestoreWorkspaceRequest
-  | RevokeIpRulesRequest
-  | StartWorkspacesRequest
-  | StopWorkspacesRequest
-  | TerminateWorkspacesRequest
-  | UpdateRulesOfIpGroupRequest;
+  | AssociateIpGroupsCommandInput
+  | AuthorizeIpRulesCommandInput
+  | CopyWorkspaceImageCommandInput
+  | CreateIpGroupCommandInput
+  | CreateTagsCommandInput
+  | CreateWorkspacesCommandInput
+  | DeleteIpGroupCommandInput
+  | DeleteTagsCommandInput
+  | DeleteWorkspaceImageCommandInput
+  | DeregisterWorkspaceDirectoryCommandInput
+  | DescribeAccountCommandInput
+  | DescribeAccountModificationsCommandInput
+  | DescribeClientPropertiesCommandInput
+  | DescribeIpGroupsCommandInput
+  | DescribeTagsCommandInput
+  | DescribeWorkspaceBundlesCommandInput
+  | DescribeWorkspaceDirectoriesCommandInput
+  | DescribeWorkspaceImagesCommandInput
+  | DescribeWorkspaceSnapshotsCommandInput
+  | DescribeWorkspacesCommandInput
+  | DescribeWorkspacesConnectionStatusCommandInput
+  | DisassociateIpGroupsCommandInput
+  | ImportWorkspaceImageCommandInput
+  | ListAvailableManagementCidrRangesCommandInput
+  | MigrateWorkspaceCommandInput
+  | ModifyAccountCommandInput
+  | ModifyClientPropertiesCommandInput
+  | ModifySelfservicePermissionsCommandInput
+  | ModifyWorkspaceAccessPropertiesCommandInput
+  | ModifyWorkspaceCreationPropertiesCommandInput
+  | ModifyWorkspacePropertiesCommandInput
+  | ModifyWorkspaceStateCommandInput
+  | RebootWorkspacesCommandInput
+  | RebuildWorkspacesCommandInput
+  | RegisterWorkspaceDirectoryCommandInput
+  | RestoreWorkspaceCommandInput
+  | RevokeIpRulesCommandInput
+  | StartWorkspacesCommandInput
+  | StopWorkspacesCommandInput
+  | TerminateWorkspacesCommandInput
+  | UpdateRulesOfIpGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateIpGroupsResult
-  | AuthorizeIpRulesResult
-  | CopyWorkspaceImageResult
-  | CreateIpGroupResult
-  | CreateTagsResult
-  | CreateWorkspacesResult
-  | DeleteIpGroupResult
-  | DeleteTagsResult
-  | DeleteWorkspaceImageResult
-  | DeregisterWorkspaceDirectoryResult
-  | DescribeAccountModificationsResult
-  | DescribeAccountResult
-  | DescribeClientPropertiesResult
-  | DescribeIpGroupsResult
-  | DescribeTagsResult
-  | DescribeWorkspaceBundlesResult
-  | DescribeWorkspaceDirectoriesResult
-  | DescribeWorkspaceImagesResult
-  | DescribeWorkspaceSnapshotsResult
-  | DescribeWorkspacesConnectionStatusResult
-  | DescribeWorkspacesResult
-  | DisassociateIpGroupsResult
-  | ImportWorkspaceImageResult
-  | ListAvailableManagementCidrRangesResult
-  | MigrateWorkspaceResult
-  | ModifyAccountResult
-  | ModifyClientPropertiesResult
-  | ModifySelfservicePermissionsResult
-  | ModifyWorkspaceAccessPropertiesResult
-  | ModifyWorkspaceCreationPropertiesResult
-  | ModifyWorkspacePropertiesResult
-  | ModifyWorkspaceStateResult
-  | RebootWorkspacesResult
-  | RebuildWorkspacesResult
-  | RegisterWorkspaceDirectoryResult
-  | RestoreWorkspaceResult
-  | RevokeIpRulesResult
-  | StartWorkspacesResult
-  | StopWorkspacesResult
-  | TerminateWorkspacesResult
-  | UpdateRulesOfIpGroupResult;
+  | AssociateIpGroupsCommandOutput
+  | AuthorizeIpRulesCommandOutput
+  | CopyWorkspaceImageCommandOutput
+  | CreateIpGroupCommandOutput
+  | CreateTagsCommandOutput
+  | CreateWorkspacesCommandOutput
+  | DeleteIpGroupCommandOutput
+  | DeleteTagsCommandOutput
+  | DeleteWorkspaceImageCommandOutput
+  | DeregisterWorkspaceDirectoryCommandOutput
+  | DescribeAccountCommandOutput
+  | DescribeAccountModificationsCommandOutput
+  | DescribeClientPropertiesCommandOutput
+  | DescribeIpGroupsCommandOutput
+  | DescribeTagsCommandOutput
+  | DescribeWorkspaceBundlesCommandOutput
+  | DescribeWorkspaceDirectoriesCommandOutput
+  | DescribeWorkspaceImagesCommandOutput
+  | DescribeWorkspaceSnapshotsCommandOutput
+  | DescribeWorkspacesCommandOutput
+  | DescribeWorkspacesConnectionStatusCommandOutput
+  | DisassociateIpGroupsCommandOutput
+  | ImportWorkspaceImageCommandOutput
+  | ListAvailableManagementCidrRangesCommandOutput
+  | MigrateWorkspaceCommandOutput
+  | ModifyAccountCommandOutput
+  | ModifyClientPropertiesCommandOutput
+  | ModifySelfservicePermissionsCommandOutput
+  | ModifyWorkspaceAccessPropertiesCommandOutput
+  | ModifyWorkspaceCreationPropertiesCommandOutput
+  | ModifyWorkspacePropertiesCommandOutput
+  | ModifyWorkspaceStateCommandOutput
+  | RebootWorkspacesCommandOutput
+  | RebuildWorkspacesCommandOutput
+  | RegisterWorkspaceDirectoryCommandOutput
+  | RestoreWorkspaceCommandOutput
+  | RevokeIpRulesCommandOutput
+  | StartWorkspacesCommandOutput
+  | StopWorkspacesCommandOutput
+  | TerminateWorkspacesCommandOutput
+  | UpdateRulesOfIpGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

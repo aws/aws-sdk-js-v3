@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBusinessReportScheduleCommandInput = DeleteBusinessReportScheduleRequest;
-export type DeleteBusinessReportScheduleCommandOutput = DeleteBusinessReportScheduleResponse;
+export type DeleteBusinessReportScheduleCommandOutput = DeleteBusinessReportScheduleResponse &
+  __MetadataBearer;
 
 export class DeleteBusinessReportScheduleCommand extends $Command<
   DeleteBusinessReportScheduleCommandInput,

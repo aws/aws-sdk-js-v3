@@ -311,7 +311,7 @@ export namespace AssociateCertificateRequest {
   }
 }
 
-export interface AssociateCertificateResponse extends $MetadataBearer {
+export interface AssociateCertificateResponse {
   __type?: "AssociateCertificateResponse";
 }
 
@@ -812,7 +812,7 @@ export namespace CancelJobRequest {
   }
 }
 
-export interface CancelJobResponse extends $MetadataBearer {
+export interface CancelJobResponse {
   __type?: "CancelJobResponse";
 }
 
@@ -1555,7 +1555,7 @@ export namespace CreateJobRequest {
   }
 }
 
-export interface CreateJobResponse extends $MetadataBearer {
+export interface CreateJobResponse {
   __type?: "CreateJobResponse";
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -1623,7 +1623,7 @@ export namespace CreateJobTemplateRequest {
   }
 }
 
-export interface CreateJobTemplateResponse extends $MetadataBearer {
+export interface CreateJobTemplateResponse {
   __type?: "CreateJobTemplateResponse";
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -1671,7 +1671,7 @@ export namespace CreatePresetRequest {
   }
 }
 
-export interface CreatePresetResponse extends $MetadataBearer {
+export interface CreatePresetResponse {
   __type?: "CreatePresetResponse";
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -1724,7 +1724,7 @@ export namespace CreateQueueRequest {
   }
 }
 
-export interface CreateQueueResponse extends $MetadataBearer {
+export interface CreateQueueResponse {
   __type?: "CreateQueueResponse";
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -1946,7 +1946,7 @@ export namespace DeleteJobTemplateRequest {
   }
 }
 
-export interface DeleteJobTemplateResponse extends $MetadataBearer {
+export interface DeleteJobTemplateResponse {
   __type?: "DeleteJobTemplateResponse";
 }
 
@@ -1970,7 +1970,7 @@ export namespace DeletePresetRequest {
   }
 }
 
-export interface DeletePresetResponse extends $MetadataBearer {
+export interface DeletePresetResponse {
   __type?: "DeletePresetResponse";
 }
 
@@ -1994,7 +1994,7 @@ export namespace DeleteQueueRequest {
   }
 }
 
-export interface DeleteQueueResponse extends $MetadataBearer {
+export interface DeleteQueueResponse {
   __type?: "DeleteQueueResponse";
 }
 
@@ -2036,7 +2036,7 @@ export namespace DescribeEndpointsRequest {
   }
 }
 
-export interface DescribeEndpointsResponse extends $MetadataBearer {
+export interface DescribeEndpointsResponse {
   __type?: "DescribeEndpointsResponse";
   /**
    * List of endpoints
@@ -2086,7 +2086,7 @@ export namespace DisassociateCertificateRequest {
   }
 }
 
-export interface DisassociateCertificateResponse extends $MetadataBearer {
+export interface DisassociateCertificateResponse {
   __type?: "DisassociateCertificateResponse";
 }
 
@@ -3035,7 +3035,7 @@ export namespace GetJobRequest {
   }
 }
 
-export interface GetJobResponse extends $MetadataBearer {
+export interface GetJobResponse {
   __type?: "GetJobResponse";
   /**
    * Each job converts an input file into an output file or files. For more information, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
@@ -3063,7 +3063,7 @@ export namespace GetJobTemplateRequest {
   }
 }
 
-export interface GetJobTemplateResponse extends $MetadataBearer {
+export interface GetJobTemplateResponse {
   __type?: "GetJobTemplateResponse";
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -3091,7 +3091,7 @@ export namespace GetPresetRequest {
   }
 }
 
-export interface GetPresetResponse extends $MetadataBearer {
+export interface GetPresetResponse {
   __type?: "GetPresetResponse";
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -3119,7 +3119,7 @@ export namespace GetQueueRequest {
   }
 }
 
-export interface GetQueueResponse extends $MetadataBearer {
+export interface GetQueueResponse {
   __type?: "GetQueueResponse";
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -5355,7 +5355,7 @@ export namespace ListJobTemplatesRequest {
   }
 }
 
-export interface ListJobTemplatesResponse extends $MetadataBearer {
+export interface ListJobTemplatesResponse {
   __type?: "ListJobTemplatesResponse";
   /**
    * List of Job templates.
@@ -5408,7 +5408,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResponse extends $MetadataBearer {
+export interface ListJobsResponse {
   __type?: "ListJobsResponse";
   /**
    * List of jobs
@@ -5461,7 +5461,7 @@ export namespace ListPresetsRequest {
   }
 }
 
-export interface ListPresetsResponse extends $MetadataBearer {
+export interface ListPresetsResponse {
   __type?: "ListPresetsResponse";
   /**
    * Use this string to request the next batch of presets.
@@ -5509,7 +5509,7 @@ export namespace ListQueuesRequest {
   }
 }
 
-export interface ListQueuesResponse extends $MetadataBearer {
+export interface ListQueuesResponse {
   __type?: "ListQueuesResponse";
   /**
    * Use this string to request the next batch of queues.
@@ -5542,7 +5542,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
@@ -7688,7 +7688,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -7951,7 +7951,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -8010,7 +8010,7 @@ export namespace UpdateJobTemplateRequest {
   }
 }
 
-export interface UpdateJobTemplateResponse extends $MetadataBearer {
+export interface UpdateJobTemplateResponse {
   __type?: "UpdateJobTemplateResponse";
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
@@ -8053,7 +8053,7 @@ export namespace UpdatePresetRequest {
   }
 }
 
-export interface UpdatePresetResponse extends $MetadataBearer {
+export interface UpdatePresetResponse {
   __type?: "UpdatePresetResponse";
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
@@ -8096,7 +8096,7 @@ export namespace UpdateQueueRequest {
   }
 }
 
-export interface UpdateQueueResponse extends $MetadataBearer {
+export interface UpdateQueueResponse {
   __type?: "UpdateQueueResponse";
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.

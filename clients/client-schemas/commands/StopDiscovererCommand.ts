@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDiscovererCommandInput = StopDiscovererRequest;
-export type StopDiscovererCommandOutput = StopDiscovererResponse;
+export type StopDiscovererCommandOutput = StopDiscovererResponse &
+  __MetadataBearer;
 
 export class StopDiscovererCommand extends $Command<
   StopDiscovererCommandInput,

@@ -858,24 +858,33 @@ async function deserializeAws_json1_1AcknowledgeJobCommandError(
   switch (errorCode) {
     case "InvalidNonceException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidNonceException":
-      response = await deserializeAws_json1_1InvalidNonceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNonceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -934,31 +943,43 @@ async function deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError(
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNonceException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidNonceException":
-      response = await deserializeAws_json1_1InvalidNonceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNonceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1014,38 +1035,53 @@ async function deserializeAws_json1_1CreateCustomActionTypeCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1098,73 +1134,103 @@ async function deserializeAws_json1_1CreatePipelineCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidActionDeclarationException":
     case "com.amazonaws.codepipeline#InvalidActionDeclarationException":
-      response = await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBlockerDeclarationException":
     case "com.amazonaws.codepipeline#InvalidBlockerDeclarationException":
-      response = await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStageDeclarationException":
     case "com.amazonaws.codepipeline#InvalidStageDeclarationException":
-      response = await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStructureException":
     case "com.amazonaws.codepipeline#InvalidStructureException":
-      response = await deserializeAws_json1_1InvalidStructureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStructureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNameInUseException":
     case "com.amazonaws.codepipeline#PipelineNameInUseException":
-      response = await deserializeAws_json1_1PipelineNameInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNameInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1216,17 +1282,23 @@ async function deserializeAws_json1_1DeleteCustomActionTypeCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1275,17 +1347,23 @@ async function deserializeAws_json1_1DeletePipelineCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1338,17 +1416,23 @@ async function deserializeAws_json1_1DeleteWebhookCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1407,17 +1491,23 @@ async function deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError
   switch (errorCode) {
     case "WebhookNotFoundException":
     case "com.amazonaws.codepipeline#WebhookNotFoundException":
-      response = await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1469,24 +1559,33 @@ async function deserializeAws_json1_1DisableStageTransitionCommandError(
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1538,24 +1637,33 @@ async function deserializeAws_json1_1EnableStageTransitionCommandError(
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1608,17 +1716,23 @@ async function deserializeAws_json1_1GetJobDetailsCommandError(
   switch (errorCode) {
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1671,24 +1785,33 @@ async function deserializeAws_json1_1GetPipelineCommandError(
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineVersionNotFoundException":
     case "com.amazonaws.codepipeline#PipelineVersionNotFoundException":
-      response = await deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1744,24 +1867,33 @@ async function deserializeAws_json1_1GetPipelineExecutionCommandError(
   switch (errorCode) {
     case "PipelineExecutionNotFoundException":
     case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
-      response = await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1814,17 +1946,23 @@ async function deserializeAws_json1_1GetPipelineStateCommandError(
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1880,31 +2018,43 @@ async function deserializeAws_json1_1GetThirdPartyJobDetailsCommandError(
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobException":
     case "com.amazonaws.codepipeline#InvalidJobException":
-      response = await deserializeAws_json1_1InvalidJobExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1960,31 +2110,43 @@ async function deserializeAws_json1_1ListActionExecutionsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineExecutionNotFoundException":
     case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
-      response = await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2037,17 +2199,23 @@ async function deserializeAws_json1_1ListActionTypesCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2103,24 +2271,33 @@ async function deserializeAws_json1_1ListPipelineExecutionsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2173,17 +2350,23 @@ async function deserializeAws_json1_1ListPipelinesCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2239,31 +2422,43 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2316,17 +2511,23 @@ async function deserializeAws_json1_1ListWebhooksCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2379,17 +2580,23 @@ async function deserializeAws_json1_1PollForJobsCommandError(
   switch (errorCode) {
     case "ActionTypeNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ActionTypeNotFoundException":
-      response = await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2445,17 +2652,23 @@ async function deserializeAws_json1_1PollForThirdPartyJobsCommandError(
   switch (errorCode) {
     case "ActionTypeNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ActionTypeNotFoundException":
-      response = await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2508,31 +2721,43 @@ async function deserializeAws_json1_1PutActionRevisionCommandError(
   switch (errorCode) {
     case "ActionNotFoundException":
     case "com.amazonaws.codepipeline#ActionNotFoundException":
-      response = await deserializeAws_json1_1ActionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2585,45 +2810,63 @@ async function deserializeAws_json1_1PutApprovalResultCommandError(
   switch (errorCode) {
     case "ActionNotFoundException":
     case "com.amazonaws.codepipeline#ActionNotFoundException":
-      response = await deserializeAws_json1_1ActionNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActionNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalAlreadyCompletedException":
     case "com.amazonaws.codepipeline#ApprovalAlreadyCompletedException":
-      response = await deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalTokenException":
     case "com.amazonaws.codepipeline#InvalidApprovalTokenException":
-      response = await deserializeAws_json1_1InvalidApprovalTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2675,24 +2918,33 @@ async function deserializeAws_json1_1PutJobFailureResultCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2744,31 +2996,43 @@ async function deserializeAws_json1_1PutJobSuccessResultCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OutputVariablesSizeExceededException":
     case "com.amazonaws.codepipeline.common.frontend.service#OutputVariablesSizeExceededException":
-      response = await deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2820,31 +3084,43 @@ async function deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError(
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2896,31 +3172,43 @@ async function deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError(
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2973,59 +3261,83 @@ async function deserializeAws_json1_1PutWebhookCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidWebhookAuthenticationParametersException":
     case "com.amazonaws.codepipeline#InvalidWebhookAuthenticationParametersException":
-      response = await deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidWebhookFilterPatternException":
     case "com.amazonaws.codepipeline#InvalidWebhookFilterPatternException":
-      response = await deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3084,17 +3396,23 @@ async function deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError(
   switch (errorCode) {
     case "WebhookNotFoundException":
     case "com.amazonaws.codepipeline#WebhookNotFoundException":
-      response = await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3150,38 +3468,53 @@ async function deserializeAws_json1_1RetryStageExecutionCommandError(
   switch (errorCode) {
     case "NotLatestPipelineExecutionException":
     case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
-      response = await deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StageNotRetryableException":
     case "com.amazonaws.codepipeline#StageNotRetryableException":
-      response = await deserializeAws_json1_1StageNotRetryableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1StageNotRetryableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3237,17 +3570,23 @@ async function deserializeAws_json1_1StartPipelineExecutionCommandError(
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3303,31 +3642,43 @@ async function deserializeAws_json1_1StopPipelineExecutionCommandError(
   switch (errorCode) {
     case "DuplicatedStopRequestException":
     case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
-      response = await deserializeAws_json1_1DuplicatedStopRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicatedStopRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineExecutionNotStoppableException":
     case "com.amazonaws.codepipeline#PipelineExecutionNotStoppableException":
-      response = await deserializeAws_json1_1PipelineExecutionNotStoppableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineExecutionNotStoppableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3380,45 +3731,63 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3471,38 +3840,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3555,45 +3939,63 @@ async function deserializeAws_json1_1UpdatePipelineCommandError(
   switch (errorCode) {
     case "InvalidActionDeclarationException":
     case "com.amazonaws.codepipeline#InvalidActionDeclarationException":
-      response = await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBlockerDeclarationException":
     case "com.amazonaws.codepipeline#InvalidBlockerDeclarationException":
-      response = await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStageDeclarationException":
     case "com.amazonaws.codepipeline#InvalidStageDeclarationException":
-      response = await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStructureException":
     case "com.amazonaws.codepipeline#InvalidStructureException":
-      response = await deserializeAws_json1_1InvalidStructureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidStructureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

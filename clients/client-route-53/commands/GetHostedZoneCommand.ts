@@ -21,11 +21,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetHostedZoneCommandInput = GetHostedZoneRequest;
-export type GetHostedZoneCommandOutput = GetHostedZoneResponse;
+export type GetHostedZoneCommandOutput = GetHostedZoneResponse &
+  __MetadataBearer;
 
 export class GetHostedZoneCommand extends $Command<
   GetHostedZoneCommandInput,

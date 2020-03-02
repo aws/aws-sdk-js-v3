@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetMediaForFragmentListCommandInput = GetMediaForFragmentListInput;
-export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput;
+export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput &
+  __MetadataBearer;
 
 export class GetMediaForFragmentListCommand extends $Command<
   GetMediaForFragmentListCommandInput,

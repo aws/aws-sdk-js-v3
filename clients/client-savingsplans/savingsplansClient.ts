@@ -1,21 +1,35 @@
 import {
-  CreateSavingsPlanRequest,
-  CreateSavingsPlanResponse,
-  DescribeSavingsPlanRatesRequest,
-  DescribeSavingsPlanRatesResponse,
-  DescribeSavingsPlansOfferingRatesRequest,
-  DescribeSavingsPlansOfferingRatesResponse,
-  DescribeSavingsPlansOfferingsRequest,
-  DescribeSavingsPlansOfferingsResponse,
-  DescribeSavingsPlansRequest,
-  DescribeSavingsPlansResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  CreateSavingsPlanCommandInput,
+  CreateSavingsPlanCommandOutput
+} from "./commands/CreateSavingsPlanCommand";
+import {
+  DescribeSavingsPlanRatesCommandInput,
+  DescribeSavingsPlanRatesCommandOutput
+} from "./commands/DescribeSavingsPlanRatesCommand";
+import {
+  DescribeSavingsPlansCommandInput,
+  DescribeSavingsPlansCommandOutput
+} from "./commands/DescribeSavingsPlansCommand";
+import {
+  DescribeSavingsPlansOfferingRatesCommandInput,
+  DescribeSavingsPlansOfferingRatesCommandOutput
+} from "./commands/DescribeSavingsPlansOfferingRatesCommand";
+import {
+  DescribeSavingsPlansOfferingsCommandInput,
+  DescribeSavingsPlansOfferingsCommandOutput
+} from "./commands/DescribeSavingsPlansOfferingsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,24 +83,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateSavingsPlanRequest
-  | DescribeSavingsPlanRatesRequest
-  | DescribeSavingsPlansOfferingRatesRequest
-  | DescribeSavingsPlansOfferingsRequest
-  | DescribeSavingsPlansRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | CreateSavingsPlanCommandInput
+  | DescribeSavingsPlanRatesCommandInput
+  | DescribeSavingsPlansCommandInput
+  | DescribeSavingsPlansOfferingRatesCommandInput
+  | DescribeSavingsPlansOfferingsCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateSavingsPlanResponse
-  | DescribeSavingsPlanRatesResponse
-  | DescribeSavingsPlansOfferingRatesResponse
-  | DescribeSavingsPlansOfferingsResponse
-  | DescribeSavingsPlansResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | CreateSavingsPlanCommandOutput
+  | DescribeSavingsPlanRatesCommandOutput
+  | DescribeSavingsPlansCommandOutput
+  | DescribeSavingsPlansOfferingRatesCommandOutput
+  | DescribeSavingsPlansOfferingsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

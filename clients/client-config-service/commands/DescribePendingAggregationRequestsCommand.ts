@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePendingAggregationRequestsCommandInput = DescribePendingAggregationRequestsRequest;
-export type DescribePendingAggregationRequestsCommandOutput = DescribePendingAggregationRequestsResponse;
+export type DescribePendingAggregationRequestsCommandOutput = DescribePendingAggregationRequestsResponse &
+  __MetadataBearer;
 
 export class DescribePendingAggregationRequestsCommand extends $Command<
   DescribePendingAggregationRequestsCommandInput,

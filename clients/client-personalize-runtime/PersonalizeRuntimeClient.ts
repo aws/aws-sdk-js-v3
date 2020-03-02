@@ -1,9 +1,11 @@
 import {
-  GetPersonalizedRankingRequest,
-  GetPersonalizedRankingResponse,
-  GetRecommendationsRequest,
-  GetRecommendationsResponse
-} from "./models/index";
+  GetPersonalizedRankingCommandInput,
+  GetPersonalizedRankingCommandOutput
+} from "./commands/GetPersonalizedRankingCommand";
+import {
+  GetRecommendationsCommandInput,
+  GetRecommendationsCommandOutput
+} from "./commands/GetRecommendationsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -57,12 +59,12 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | GetPersonalizedRankingRequest
-  | GetRecommendationsRequest;
+  | GetPersonalizedRankingCommandInput
+  | GetRecommendationsCommandInput;
 
 export type ServiceOutputTypes =
-  | GetPersonalizedRankingResponse
-  | GetRecommendationsResponse;
+  | GetPersonalizedRankingCommandOutput
+  | GetRecommendationsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

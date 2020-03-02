@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetReservationCoverageCommandInput = GetReservationCoverageRequest;
-export type GetReservationCoverageCommandOutput = GetReservationCoverageResponse;
+export type GetReservationCoverageCommandOutput = GetReservationCoverageResponse &
+  __MetadataBearer;
 
 export class GetReservationCoverageCommand extends $Command<
   GetReservationCoverageCommandInput,

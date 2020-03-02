@@ -1399,52 +1399,73 @@ async function deserializeAws_restJson1_1AssociateCustomerGatewayCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1497,52 +1518,73 @@ async function deserializeAws_restJson1_1AssociateLinkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1592,52 +1634,73 @@ async function deserializeAws_restJson1_1CreateDeviceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1693,45 +1756,63 @@ async function deserializeAws_restJson1_1CreateGlobalNetworkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1781,52 +1862,73 @@ async function deserializeAws_restJson1_1CreateLinkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1876,52 +1978,73 @@ async function deserializeAws_restJson1_1CreateSiteCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1971,45 +2094,63 @@ async function deserializeAws_restJson1_1DeleteDeviceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2065,45 +2206,63 @@ async function deserializeAws_restJson1_1DeleteGlobalNetworkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2153,45 +2312,63 @@ async function deserializeAws_restJson1_1DeleteLinkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2241,45 +2418,63 @@ async function deserializeAws_restJson1_1DeleteSiteCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2338,45 +2533,63 @@ async function deserializeAws_restJson1_1DeregisterTransitGatewayCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2436,38 +2649,53 @@ async function deserializeAws_restJson1_1DescribeGlobalNetworksCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2526,45 +2754,63 @@ async function deserializeAws_restJson1_1DisassociateCustomerGatewayCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2620,45 +2866,63 @@ async function deserializeAws_restJson1_1DisassociateLinkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2721,45 +2985,63 @@ async function deserializeAws_restJson1_1GetCustomerGatewayAssociationsCommandEr
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2816,38 +3098,53 @@ async function deserializeAws_restJson1_1GetDevicesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2907,38 +3204,53 @@ async function deserializeAws_restJson1_1GetLinkAssociationsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2992,38 +3304,53 @@ async function deserializeAws_restJson1_1GetLinksCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3077,38 +3404,53 @@ async function deserializeAws_restJson1_1GetSitesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3171,38 +3513,53 @@ async function deserializeAws_restJson1_1GetTransitGatewayRegistrationsCommandEr
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3255,38 +3612,53 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3345,45 +3717,63 @@ async function deserializeAws_restJson1_1RegisterTransitGatewayCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3429,52 +3819,73 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3520,45 +3931,63 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3608,45 +4037,63 @@ async function deserializeAws_restJson1_1UpdateDeviceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3702,45 +4149,63 @@ async function deserializeAws_restJson1_1UpdateGlobalNetworkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3790,52 +4255,73 @@ async function deserializeAws_restJson1_1UpdateLinkCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceQuotaExceededException":
     case "com.amazonaws.networkmanager.V2019_07_05#ServiceQuotaExceededException":
-      response = await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3885,45 +4371,63 @@ async function deserializeAws_restJson1_1UpdateSiteCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.networkmanager.V2019_07_05#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictException":
     case "com.amazonaws.networkmanager.V2019_07_05#ConflictException":
-      response = await deserializeAws_restJson1_1ConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.networkmanager.V2019_07_05#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.networkmanager.V2019_07_05#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.networkmanager.V2019_07_05#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.networkmanager.V2019_07_05#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

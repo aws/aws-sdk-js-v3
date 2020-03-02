@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendCustomVerificationEmailCommandInput = SendCustomVerificationEmailRequest;
-export type SendCustomVerificationEmailCommandOutput = SendCustomVerificationEmailResponse;
+export type SendCustomVerificationEmailCommandOutput = SendCustomVerificationEmailResponse &
+  __MetadataBearer;
 
 export class SendCustomVerificationEmailCommand extends $Command<
   SendCustomVerificationEmailCommandInput,

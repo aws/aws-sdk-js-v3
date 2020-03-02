@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchSuspendUserCommandInput = BatchSuspendUserRequest;
-export type BatchSuspendUserCommandOutput = BatchSuspendUserResponse;
+export type BatchSuspendUserCommandOutput = BatchSuspendUserResponse &
+  __MetadataBearer;
 
 export class BatchSuspendUserCommand extends $Command<
   BatchSuspendUserCommandInput,

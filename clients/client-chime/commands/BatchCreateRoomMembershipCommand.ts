@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchCreateRoomMembershipCommandInput = BatchCreateRoomMembershipRequest;
-export type BatchCreateRoomMembershipCommandOutput = BatchCreateRoomMembershipResponse;
+export type BatchCreateRoomMembershipCommandOutput = BatchCreateRoomMembershipResponse &
+  __MetadataBearer;
 
 export class BatchCreateRoomMembershipCommand extends $Command<
   BatchCreateRoomMembershipCommandInput,

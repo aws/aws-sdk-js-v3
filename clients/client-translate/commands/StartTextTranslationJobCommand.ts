@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartTextTranslationJobCommandInput = StartTextTranslationJobRequest;
-export type StartTextTranslationJobCommandOutput = StartTextTranslationJobResponse;
+export type StartTextTranslationJobCommandOutput = StartTextTranslationJobResponse &
+  __MetadataBearer;
 
 export class StartTextTranslationJobCommand extends $Command<
   StartTextTranslationJobCommandInput,

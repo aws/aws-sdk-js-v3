@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVoiceTemplateCommandInput = DeleteVoiceTemplateRequest;
-export type DeleteVoiceTemplateCommandOutput = DeleteVoiceTemplateResponse;
+export type DeleteVoiceTemplateCommandOutput = DeleteVoiceTemplateResponse &
+  __MetadataBearer;
 
 export class DeleteVoiceTemplateCommand extends $Command<
   DeleteVoiceTemplateCommandInput,

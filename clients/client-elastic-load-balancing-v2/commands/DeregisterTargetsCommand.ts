@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeregisterTargetsCommandInput = DeregisterTargetsInput;
-export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput;
+export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput &
+  __MetadataBearer;
 
 export class DeregisterTargetsCommand extends $Command<
   DeregisterTargetsCommandInput,

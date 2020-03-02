@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetGroupCertificateConfigurationCommandInput = GetGroupCertificateConfigurationRequest;
-export type GetGroupCertificateConfigurationCommandOutput = GetGroupCertificateConfigurationResponse;
+export type GetGroupCertificateConfigurationCommandOutput = GetGroupCertificateConfigurationResponse &
+  __MetadataBearer;
 
 export class GetGroupCertificateConfigurationCommand extends $Command<
   GetGroupCertificateConfigurationCommandInput,

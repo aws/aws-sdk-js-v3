@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListProposalVotesCommandInput = ListProposalVotesInput;
-export type ListProposalVotesCommandOutput = ListProposalVotesOutput;
+export type ListProposalVotesCommandOutput = ListProposalVotesOutput &
+  __MetadataBearer;
 
 export class ListProposalVotesCommand extends $Command<
   ListProposalVotesCommandInput,

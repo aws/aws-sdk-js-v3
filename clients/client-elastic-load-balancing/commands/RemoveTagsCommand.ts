@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveTagsCommandInput = RemoveTagsInput;
-export type RemoveTagsCommandOutput = RemoveTagsOutput;
+export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
 
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,

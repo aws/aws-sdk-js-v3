@@ -897,24 +897,33 @@ async function deserializeAws_queryAddListenerCertificatesCommandError(
   switch (errorCode) {
     case "CertificateNotFoundException":
     case "com.amazon.elb.version_2015_12_01#CertificateNotFoundException":
-      response = await deserializeAws_queryCertificateNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCertificatesException":
     case "com.amazon.elb.version_2015_12_01#TooManyCertificatesException":
-      response = await deserializeAws_queryTooManyCertificatesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyCertificatesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -966,31 +975,43 @@ async function deserializeAws_queryAddTagsCommandError(
   switch (errorCode) {
     case "DuplicateTagKeysException":
     case "com.amazon.elb.version_2015_12_01#DuplicateTagKeysException":
-      response = await deserializeAws_queryDuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTagsException":
-      response = await deserializeAws_queryTooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1045,115 +1066,163 @@ async function deserializeAws_queryCreateListenerCommandError(
   switch (errorCode) {
     case "CertificateNotFoundException":
     case "com.amazon.elb.version_2015_12_01#CertificateNotFoundException":
-      response = await deserializeAws_queryCertificateNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateListenerException":
     case "com.amazon.elb.version_2015_12_01#DuplicateListenerException":
-      response = await deserializeAws_queryDuplicateListenerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateListenerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleProtocolsException":
     case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
-      response = await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerActionException":
     case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
-      response = await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SSLPolicyNotFoundException":
     case "com.amazon.elb.version_2015_12_01#SSLPolicyNotFoundException":
-      response = await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupAssociationLimitException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
-      response = await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyActionsException":
     case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
-      response = await deserializeAws_queryTooManyActionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyActionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCertificatesException":
     case "com.amazon.elb.version_2015_12_01#TooManyCertificatesException":
-      response = await deserializeAws_queryTooManyCertificatesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyCertificatesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyListenersException":
     case "com.amazon.elb.version_2015_12_01#TooManyListenersException":
-      response = await deserializeAws_queryTooManyListenersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyListenersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRegistrationsForTargetIdException":
     case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
-      response = await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
-      response = await deserializeAws_queryTooManyTargetsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
     case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      response = await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1208,94 +1277,133 @@ async function deserializeAws_queryCreateLoadBalancerCommandError(
   switch (errorCode) {
     case "AllocationIdNotFoundException":
     case "com.amazon.elb.version_2015_12_01#AllocationIdNotFoundException":
-      response = await deserializeAws_queryAllocationIdNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAllocationIdNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AvailabilityZoneNotSupportedException":
     case "com.amazon.elb.version_2015_12_01#AvailabilityZoneNotSupportedException":
-      response = await deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateLoadBalancerNameException":
     case "com.amazon.elb.version_2015_12_01#DuplicateLoadBalancerNameException":
-      response = await deserializeAws_queryDuplicateLoadBalancerNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateLoadBalancerNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.elb.version_2015_12_01#DuplicateTagKeysException":
-      response = await deserializeAws_queryDuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSchemeException":
     case "com.amazon.elb.version_2015_12_01#InvalidSchemeException":
-      response = await deserializeAws_queryInvalidSchemeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSchemeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSecurityGroupException":
     case "com.amazon.elb.version_2015_12_01#InvalidSecurityGroupException":
-      response = await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnetException":
     case "com.amazon.elb.version_2015_12_01#InvalidSubnetException":
-      response = await deserializeAws_queryInvalidSubnetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazon.elb.version_2015_12_01#ResourceInUseException":
-      response = await deserializeAws_queryResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetNotFoundException":
     case "com.amazon.elb.version_2015_12_01#SubnetNotFoundException":
-      response = await deserializeAws_querySubnetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyLoadBalancersException":
     case "com.amazon.elb.version_2015_12_01#TooManyLoadBalancersException":
-      response = await deserializeAws_queryTooManyLoadBalancersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyLoadBalancersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTagsException":
-      response = await deserializeAws_queryTooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1350,101 +1458,143 @@ async function deserializeAws_queryCreateRuleCommandError(
   switch (errorCode) {
     case "IncompatibleProtocolsException":
     case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
-      response = await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerActionException":
     case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
-      response = await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PriorityInUseException":
     case "com.amazon.elb.version_2015_12_01#PriorityInUseException":
-      response = await deserializeAws_queryPriorityInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPriorityInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupAssociationLimitException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
-      response = await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyActionsException":
     case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
-      response = await deserializeAws_queryTooManyActionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyActionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRegistrationsForTargetIdException":
     case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
-      response = await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRulesException":
     case "com.amazon.elb.version_2015_12_01#TooManyRulesException":
-      response = await deserializeAws_queryTooManyRulesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyRulesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetGroupsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetGroupsException":
-      response = await deserializeAws_queryTooManyTargetGroupsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetGroupsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
-      response = await deserializeAws_queryTooManyTargetsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
     case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      response = await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1499,24 +1649,33 @@ async function deserializeAws_queryCreateTargetGroupCommandError(
   switch (errorCode) {
     case "DuplicateTargetGroupNameException":
     case "com.amazon.elb.version_2015_12_01#DuplicateTargetGroupNameException":
-      response = await deserializeAws_queryDuplicateTargetGroupNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateTargetGroupNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetGroupsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetGroupsException":
-      response = await deserializeAws_queryTooManyTargetGroupsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetGroupsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1571,10 +1730,13 @@ async function deserializeAws_queryDeleteListenerCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1629,24 +1791,33 @@ async function deserializeAws_queryDeleteLoadBalancerCommandError(
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazon.elb.version_2015_12_01#ResourceInUseException":
-      response = await deserializeAws_queryResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1701,17 +1872,23 @@ async function deserializeAws_queryDeleteRuleCommandError(
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleNotFoundException":
     case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
-      response = await deserializeAws_queryRuleNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1766,10 +1943,13 @@ async function deserializeAws_queryDeleteTargetGroupCommandError(
   switch (errorCode) {
     case "ResourceInUseException":
     case "com.amazon.elb.version_2015_12_01#ResourceInUseException":
-      response = await deserializeAws_queryResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1824,17 +2004,23 @@ async function deserializeAws_queryDeregisterTargetsCommandError(
   switch (errorCode) {
     case "InvalidTargetException":
     case "com.amazon.elb.version_2015_12_01#InvalidTargetException":
-      response = await deserializeAws_queryInvalidTargetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTargetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1946,10 +2132,13 @@ async function deserializeAws_queryDescribeListenerCertificatesCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2004,24 +2193,33 @@ async function deserializeAws_queryDescribeListenersCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2079,10 +2277,13 @@ async function deserializeAws_queryDescribeLoadBalancerAttributesCommandError(
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2140,10 +2341,13 @@ async function deserializeAws_queryDescribeLoadBalancersCommandError(
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2198,24 +2402,33 @@ async function deserializeAws_queryDescribeRulesCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleNotFoundException":
     case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
-      response = await deserializeAws_queryRuleNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2270,10 +2483,13 @@ async function deserializeAws_queryDescribeSSLPoliciesCommandError(
   switch (errorCode) {
     case "SSLPolicyNotFoundException":
     case "com.amazon.elb.version_2015_12_01#SSLPolicyNotFoundException":
-      response = await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2328,31 +2544,43 @@ async function deserializeAws_queryDescribeTagsCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleNotFoundException":
     case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
-      response = await deserializeAws_queryRuleNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2410,10 +2638,13 @@ async function deserializeAws_queryDescribeTargetGroupAttributesCommandError(
   switch (errorCode) {
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2471,17 +2702,23 @@ async function deserializeAws_queryDescribeTargetGroupsCommandError(
   switch (errorCode) {
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2539,24 +2776,33 @@ async function deserializeAws_queryDescribeTargetHealthCommandError(
   switch (errorCode) {
     case "HealthUnavailableException":
     case "com.amazon.elb.version_2015_12_01#HealthUnavailableException":
-      response = await deserializeAws_queryHealthUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryHealthUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetException":
     case "com.amazon.elb.version_2015_12_01#InvalidTargetException":
-      response = await deserializeAws_queryInvalidTargetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTargetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2611,115 +2857,163 @@ async function deserializeAws_queryModifyListenerCommandError(
   switch (errorCode) {
     case "CertificateNotFoundException":
     case "com.amazon.elb.version_2015_12_01#CertificateNotFoundException":
-      response = await deserializeAws_queryCertificateNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateListenerException":
     case "com.amazon.elb.version_2015_12_01#DuplicateListenerException":
-      response = await deserializeAws_queryDuplicateListenerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateListenerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleProtocolsException":
     case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
-      response = await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerActionException":
     case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
-      response = await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SSLPolicyNotFoundException":
     case "com.amazon.elb.version_2015_12_01#SSLPolicyNotFoundException":
-      response = await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySSLPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupAssociationLimitException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
-      response = await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyActionsException":
     case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
-      response = await deserializeAws_queryTooManyActionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyActionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyCertificatesException":
     case "com.amazon.elb.version_2015_12_01#TooManyCertificatesException":
-      response = await deserializeAws_queryTooManyCertificatesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyCertificatesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyListenersException":
     case "com.amazon.elb.version_2015_12_01#TooManyListenersException":
-      response = await deserializeAws_queryTooManyListenersExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyListenersExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRegistrationsForTargetIdException":
     case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
-      response = await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
-      response = await deserializeAws_queryTooManyTargetsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
     case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      response = await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2777,17 +3071,23 @@ async function deserializeAws_queryModifyLoadBalancerAttributesCommandError(
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2842,80 +3142,113 @@ async function deserializeAws_queryModifyRuleCommandError(
   switch (errorCode) {
     case "IncompatibleProtocolsException":
     case "com.amazon.elb.version_2015_12_01#IncompatibleProtocolsException":
-      response = await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryIncompatibleProtocolsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLoadBalancerActionException":
     case "com.amazon.elb.version_2015_12_01#InvalidLoadBalancerActionException":
-      response = await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidLoadBalancerActionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleNotFoundException":
     case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
-      response = await deserializeAws_queryRuleNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupAssociationLimitException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupAssociationLimitException":
-      response = await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupAssociationLimitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyActionsException":
     case "com.amazon.elb.version_2015_12_01#TooManyActionsException":
-      response = await deserializeAws_queryTooManyActionsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyActionsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRegistrationsForTargetIdException":
     case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
-      response = await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
-      response = await deserializeAws_queryTooManyTargetsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyUniqueTargetGroupsPerLoadBalancerException":
     case "com.amazon.elb.version_2015_12_01#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      response = await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedProtocolException":
     case "com.amazon.elb.version_2015_12_01#UnsupportedProtocolException":
-      response = await deserializeAws_queryUnsupportedProtocolExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2970,17 +3303,23 @@ async function deserializeAws_queryModifyTargetGroupCommandError(
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3038,17 +3377,23 @@ async function deserializeAws_queryModifyTargetGroupAttributesCommandError(
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3103,31 +3448,43 @@ async function deserializeAws_queryRegisterTargetsCommandError(
   switch (errorCode) {
     case "InvalidTargetException":
     case "com.amazon.elb.version_2015_12_01#InvalidTargetException":
-      response = await deserializeAws_queryInvalidTargetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidTargetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRegistrationsForTargetIdException":
     case "com.amazon.elb.version_2015_12_01#TooManyRegistrationsForTargetIdException":
-      response = await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyRegistrationsForTargetIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTargetsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTargetsException":
-      response = await deserializeAws_queryTooManyTargetsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTargetsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3185,17 +3542,23 @@ async function deserializeAws_queryRemoveListenerCertificatesCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3250,38 +3613,53 @@ async function deserializeAws_queryRemoveTagsCommandError(
   switch (errorCode) {
     case "ListenerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#ListenerNotFoundException":
-      response = await deserializeAws_queryListenerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleNotFoundException":
     case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
-      response = await deserializeAws_queryRuleNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetGroupNotFoundException":
     case "com.amazon.elb.version_2015_12_01#TargetGroupNotFoundException":
-      response = await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTargetGroupNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.elb.version_2015_12_01#TooManyTagsException":
-      response = await deserializeAws_queryTooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3336,24 +3714,33 @@ async function deserializeAws_querySetIpAddressTypeCommandError(
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnetException":
     case "com.amazon.elb.version_2015_12_01#InvalidSubnetException":
-      response = await deserializeAws_queryInvalidSubnetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3408,24 +3795,33 @@ async function deserializeAws_querySetRulePrioritiesCommandError(
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazon.elb.version_2015_12_01#OperationNotPermittedException":
-      response = await deserializeAws_queryOperationNotPermittedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PriorityInUseException":
     case "com.amazon.elb.version_2015_12_01#PriorityInUseException":
-      response = await deserializeAws_queryPriorityInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPriorityInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RuleNotFoundException":
     case "com.amazon.elb.version_2015_12_01#RuleNotFoundException":
-      response = await deserializeAws_queryRuleNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3480,24 +3876,33 @@ async function deserializeAws_querySetSecurityGroupsCommandError(
   switch (errorCode) {
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSecurityGroupException":
     case "com.amazon.elb.version_2015_12_01#InvalidSecurityGroupException":
-      response = await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3552,45 +3957,63 @@ async function deserializeAws_querySetSubnetsCommandError(
   switch (errorCode) {
     case "AllocationIdNotFoundException":
     case "com.amazon.elb.version_2015_12_01#AllocationIdNotFoundException":
-      response = await deserializeAws_queryAllocationIdNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAllocationIdNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AvailabilityZoneNotSupportedException":
     case "com.amazon.elb.version_2015_12_01#AvailabilityZoneNotSupportedException":
-      response = await deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryAvailabilityZoneNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationRequestException":
     case "com.amazon.elb.version_2015_12_01#InvalidConfigurationRequestException":
-      response = await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSubnetException":
     case "com.amazon.elb.version_2015_12_01#InvalidSubnetException":
-      response = await deserializeAws_queryInvalidSubnetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LoadBalancerNotFoundException":
     case "com.amazon.elb.version_2015_12_01#LoadBalancerNotFoundException":
-      response = await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SubnetNotFoundException":
     case "com.amazon.elb.version_2015_12_01#SubnetNotFoundException":
-      response = await deserializeAws_querySubnetNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

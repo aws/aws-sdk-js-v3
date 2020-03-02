@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateApiCacheCommandInput = CreateApiCacheRequest;
-export type CreateApiCacheCommandOutput = CreateApiCacheResponse;
+export type CreateApiCacheCommandOutput = CreateApiCacheResponse &
+  __MetadataBearer;
 
 export class CreateApiCacheCommand extends $Command<
   CreateApiCacheCommandInput,

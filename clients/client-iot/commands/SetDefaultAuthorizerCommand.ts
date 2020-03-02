@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SetDefaultAuthorizerCommandInput = SetDefaultAuthorizerRequest;
-export type SetDefaultAuthorizerCommandOutput = SetDefaultAuthorizerResponse;
+export type SetDefaultAuthorizerCommandOutput = SetDefaultAuthorizerResponse &
+  __MetadataBearer;
 
 export class SetDefaultAuthorizerCommand extends $Command<
   SetDefaultAuthorizerCommandInput,

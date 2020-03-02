@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeClassicLinkInstancesCommandInput = DescribeClassicLinkInstancesRequest;
-export type DescribeClassicLinkInstancesCommandOutput = DescribeClassicLinkInstancesResult;
+export type DescribeClassicLinkInstancesCommandOutput = DescribeClassicLinkInstancesResult &
+  __MetadataBearer;
 
 export class DescribeClassicLinkInstancesCommand extends $Command<
   DescribeClassicLinkInstancesCommandInput,

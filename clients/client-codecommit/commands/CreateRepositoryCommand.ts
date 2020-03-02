@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRepositoryCommandInput = CreateRepositoryInput;
-export type CreateRepositoryCommandOutput = CreateRepositoryOutput;
+export type CreateRepositoryCommandOutput = CreateRepositoryOutput &
+  __MetadataBearer;
 
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,

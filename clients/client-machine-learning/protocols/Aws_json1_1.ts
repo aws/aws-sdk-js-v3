@@ -612,38 +612,53 @@ async function deserializeAws_json1_1AddTagsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazon.eml.v20141212#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagLimitExceededException":
     case "com.amazon.eml.v20141212#TagLimitExceededException":
-      response = await deserializeAws_json1_1TagLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -699,24 +714,33 @@ async function deserializeAws_json1_1CreateBatchPredictionCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -772,24 +796,33 @@ async function deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -848,24 +881,33 @@ async function deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -921,24 +963,33 @@ async function deserializeAws_json1_1CreateDataSourceFromS3CommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -991,24 +1042,33 @@ async function deserializeAws_json1_1CreateEvaluationCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1061,24 +1121,33 @@ async function deserializeAws_json1_1CreateMLModelCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1134,24 +1203,33 @@ async function deserializeAws_json1_1CreateRealtimeEndpointCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1207,24 +1285,33 @@ async function deserializeAws_json1_1DeleteBatchPredictionCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1277,24 +1364,33 @@ async function deserializeAws_json1_1DeleteDataSourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1347,24 +1443,33 @@ async function deserializeAws_json1_1DeleteEvaluationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1417,24 +1522,33 @@ async function deserializeAws_json1_1DeleteMLModelCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1490,24 +1604,33 @@ async function deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1560,31 +1683,43 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagException":
     case "com.amazon.eml.v20141212#InvalidTagException":
-      response = await deserializeAws_json1_1InvalidTagExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1643,17 +1778,23 @@ async function deserializeAws_json1_1DescribeBatchPredictionsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1709,17 +1850,23 @@ async function deserializeAws_json1_1DescribeDataSourcesCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1775,17 +1922,23 @@ async function deserializeAws_json1_1DescribeEvaluationsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1838,17 +1991,23 @@ async function deserializeAws_json1_1DescribeMLModelsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1901,24 +2060,33 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1974,24 +2142,33 @@ async function deserializeAws_json1_1GetBatchPredictionCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2044,24 +2221,33 @@ async function deserializeAws_json1_1GetDataSourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2114,24 +2300,33 @@ async function deserializeAws_json1_1GetEvaluationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2184,24 +2379,33 @@ async function deserializeAws_json1_1GetMLModelCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2254,38 +2458,53 @@ async function deserializeAws_json1_1PredictCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.eml.v20141212#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PredictorNotMountedException":
     case "com.amazon.eml.v20141212#PredictorNotMountedException":
-      response = await deserializeAws_json1_1PredictorNotMountedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PredictorNotMountedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2341,24 +2560,33 @@ async function deserializeAws_json1_1UpdateBatchPredictionCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2411,24 +2639,33 @@ async function deserializeAws_json1_1UpdateDataSourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2481,24 +2718,33 @@ async function deserializeAws_json1_1UpdateEvaluationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2551,24 +2797,33 @@ async function deserializeAws_json1_1UpdateMLModelCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

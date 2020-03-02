@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLogSubscriptionCommandInput = DeleteLogSubscriptionRequest;
-export type DeleteLogSubscriptionCommandOutput = DeleteLogSubscriptionResult;
+export type DeleteLogSubscriptionCommandOutput = DeleteLogSubscriptionResult &
+  __MetadataBearer;
 
 export class DeleteLogSubscriptionCommand extends $Command<
   DeleteLogSubscriptionCommandInput,

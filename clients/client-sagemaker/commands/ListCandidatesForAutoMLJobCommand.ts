@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListCandidatesForAutoMLJobCommandInput = ListCandidatesForAutoMLJobRequest;
-export type ListCandidatesForAutoMLJobCommandOutput = ListCandidatesForAutoMLJobResponse;
+export type ListCandidatesForAutoMLJobCommandOutput = ListCandidatesForAutoMLJobResponse &
+  __MetadataBearer;
 
 export class ListCandidatesForAutoMLJobCommand extends $Command<
   ListCandidatesForAutoMLJobCommandInput,

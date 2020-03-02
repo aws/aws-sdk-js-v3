@@ -1,87 +1,167 @@
 import {
-  CompareFacesRequest,
-  CompareFacesResponse,
-  CreateCollectionRequest,
-  CreateCollectionResponse,
-  CreateProjectRequest,
-  CreateProjectResponse,
-  CreateProjectVersionRequest,
-  CreateProjectVersionResponse,
-  CreateStreamProcessorRequest,
-  CreateStreamProcessorResponse,
-  DeleteCollectionRequest,
-  DeleteCollectionResponse,
-  DeleteFacesRequest,
-  DeleteFacesResponse,
-  DeleteStreamProcessorRequest,
-  DeleteStreamProcessorResponse,
-  DescribeCollectionRequest,
-  DescribeCollectionResponse,
-  DescribeProjectVersionsRequest,
-  DescribeProjectVersionsResponse,
-  DescribeProjectsRequest,
-  DescribeProjectsResponse,
-  DescribeStreamProcessorRequest,
-  DescribeStreamProcessorResponse,
-  DetectCustomLabelsRequest,
-  DetectCustomLabelsResponse,
-  DetectFacesRequest,
-  DetectFacesResponse,
-  DetectLabelsRequest,
-  DetectLabelsResponse,
-  DetectModerationLabelsRequest,
-  DetectModerationLabelsResponse,
-  DetectTextRequest,
-  DetectTextResponse,
-  GetCelebrityInfoRequest,
-  GetCelebrityInfoResponse,
-  GetCelebrityRecognitionRequest,
-  GetCelebrityRecognitionResponse,
-  GetContentModerationRequest,
-  GetContentModerationResponse,
-  GetFaceDetectionRequest,
-  GetFaceDetectionResponse,
-  GetFaceSearchRequest,
-  GetFaceSearchResponse,
-  GetLabelDetectionRequest,
-  GetLabelDetectionResponse,
-  GetPersonTrackingRequest,
-  GetPersonTrackingResponse,
-  IndexFacesRequest,
-  IndexFacesResponse,
-  ListCollectionsRequest,
-  ListCollectionsResponse,
-  ListFacesRequest,
-  ListFacesResponse,
-  ListStreamProcessorsRequest,
-  ListStreamProcessorsResponse,
-  RecognizeCelebritiesRequest,
-  RecognizeCelebritiesResponse,
-  SearchFacesByImageRequest,
-  SearchFacesByImageResponse,
-  SearchFacesRequest,
-  SearchFacesResponse,
-  StartCelebrityRecognitionRequest,
-  StartCelebrityRecognitionResponse,
-  StartContentModerationRequest,
-  StartContentModerationResponse,
-  StartFaceDetectionRequest,
-  StartFaceDetectionResponse,
-  StartFaceSearchRequest,
-  StartFaceSearchResponse,
-  StartLabelDetectionRequest,
-  StartLabelDetectionResponse,
-  StartPersonTrackingRequest,
-  StartPersonTrackingResponse,
-  StartProjectVersionRequest,
-  StartProjectVersionResponse,
-  StartStreamProcessorRequest,
-  StartStreamProcessorResponse,
-  StopProjectVersionRequest,
-  StopProjectVersionResponse,
-  StopStreamProcessorRequest,
-  StopStreamProcessorResponse
-} from "./models/index";
+  CompareFacesCommandInput,
+  CompareFacesCommandOutput
+} from "./commands/CompareFacesCommand";
+import {
+  CreateCollectionCommandInput,
+  CreateCollectionCommandOutput
+} from "./commands/CreateCollectionCommand";
+import {
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput
+} from "./commands/CreateProjectCommand";
+import {
+  CreateProjectVersionCommandInput,
+  CreateProjectVersionCommandOutput
+} from "./commands/CreateProjectVersionCommand";
+import {
+  CreateStreamProcessorCommandInput,
+  CreateStreamProcessorCommandOutput
+} from "./commands/CreateStreamProcessorCommand";
+import {
+  DeleteCollectionCommandInput,
+  DeleteCollectionCommandOutput
+} from "./commands/DeleteCollectionCommand";
+import {
+  DeleteFacesCommandInput,
+  DeleteFacesCommandOutput
+} from "./commands/DeleteFacesCommand";
+import {
+  DeleteStreamProcessorCommandInput,
+  DeleteStreamProcessorCommandOutput
+} from "./commands/DeleteStreamProcessorCommand";
+import {
+  DescribeCollectionCommandInput,
+  DescribeCollectionCommandOutput
+} from "./commands/DescribeCollectionCommand";
+import {
+  DescribeProjectVersionsCommandInput,
+  DescribeProjectVersionsCommandOutput
+} from "./commands/DescribeProjectVersionsCommand";
+import {
+  DescribeProjectsCommandInput,
+  DescribeProjectsCommandOutput
+} from "./commands/DescribeProjectsCommand";
+import {
+  DescribeStreamProcessorCommandInput,
+  DescribeStreamProcessorCommandOutput
+} from "./commands/DescribeStreamProcessorCommand";
+import {
+  DetectCustomLabelsCommandInput,
+  DetectCustomLabelsCommandOutput
+} from "./commands/DetectCustomLabelsCommand";
+import {
+  DetectFacesCommandInput,
+  DetectFacesCommandOutput
+} from "./commands/DetectFacesCommand";
+import {
+  DetectLabelsCommandInput,
+  DetectLabelsCommandOutput
+} from "./commands/DetectLabelsCommand";
+import {
+  DetectModerationLabelsCommandInput,
+  DetectModerationLabelsCommandOutput
+} from "./commands/DetectModerationLabelsCommand";
+import {
+  DetectTextCommandInput,
+  DetectTextCommandOutput
+} from "./commands/DetectTextCommand";
+import {
+  GetCelebrityInfoCommandInput,
+  GetCelebrityInfoCommandOutput
+} from "./commands/GetCelebrityInfoCommand";
+import {
+  GetCelebrityRecognitionCommandInput,
+  GetCelebrityRecognitionCommandOutput
+} from "./commands/GetCelebrityRecognitionCommand";
+import {
+  GetContentModerationCommandInput,
+  GetContentModerationCommandOutput
+} from "./commands/GetContentModerationCommand";
+import {
+  GetFaceDetectionCommandInput,
+  GetFaceDetectionCommandOutput
+} from "./commands/GetFaceDetectionCommand";
+import {
+  GetFaceSearchCommandInput,
+  GetFaceSearchCommandOutput
+} from "./commands/GetFaceSearchCommand";
+import {
+  GetLabelDetectionCommandInput,
+  GetLabelDetectionCommandOutput
+} from "./commands/GetLabelDetectionCommand";
+import {
+  GetPersonTrackingCommandInput,
+  GetPersonTrackingCommandOutput
+} from "./commands/GetPersonTrackingCommand";
+import {
+  IndexFacesCommandInput,
+  IndexFacesCommandOutput
+} from "./commands/IndexFacesCommand";
+import {
+  ListCollectionsCommandInput,
+  ListCollectionsCommandOutput
+} from "./commands/ListCollectionsCommand";
+import {
+  ListFacesCommandInput,
+  ListFacesCommandOutput
+} from "./commands/ListFacesCommand";
+import {
+  ListStreamProcessorsCommandInput,
+  ListStreamProcessorsCommandOutput
+} from "./commands/ListStreamProcessorsCommand";
+import {
+  RecognizeCelebritiesCommandInput,
+  RecognizeCelebritiesCommandOutput
+} from "./commands/RecognizeCelebritiesCommand";
+import {
+  SearchFacesByImageCommandInput,
+  SearchFacesByImageCommandOutput
+} from "./commands/SearchFacesByImageCommand";
+import {
+  SearchFacesCommandInput,
+  SearchFacesCommandOutput
+} from "./commands/SearchFacesCommand";
+import {
+  StartCelebrityRecognitionCommandInput,
+  StartCelebrityRecognitionCommandOutput
+} from "./commands/StartCelebrityRecognitionCommand";
+import {
+  StartContentModerationCommandInput,
+  StartContentModerationCommandOutput
+} from "./commands/StartContentModerationCommand";
+import {
+  StartFaceDetectionCommandInput,
+  StartFaceDetectionCommandOutput
+} from "./commands/StartFaceDetectionCommand";
+import {
+  StartFaceSearchCommandInput,
+  StartFaceSearchCommandOutput
+} from "./commands/StartFaceSearchCommand";
+import {
+  StartLabelDetectionCommandInput,
+  StartLabelDetectionCommandOutput
+} from "./commands/StartLabelDetectionCommand";
+import {
+  StartPersonTrackingCommandInput,
+  StartPersonTrackingCommandOutput
+} from "./commands/StartPersonTrackingCommand";
+import {
+  StartProjectVersionCommandInput,
+  StartProjectVersionCommandOutput
+} from "./commands/StartProjectVersionCommand";
+import {
+  StartStreamProcessorCommandInput,
+  StartStreamProcessorCommandOutput
+} from "./commands/StartStreamProcessorCommand";
+import {
+  StopProjectVersionCommandInput,
+  StopProjectVersionCommandOutput
+} from "./commands/StopProjectVersionCommand";
+import {
+  StopStreamProcessorCommandInput,
+  StopStreamProcessorCommandOutput
+} from "./commands/StopStreamProcessorCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -135,90 +215,90 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CompareFacesRequest
-  | CreateCollectionRequest
-  | CreateProjectRequest
-  | CreateProjectVersionRequest
-  | CreateStreamProcessorRequest
-  | DeleteCollectionRequest
-  | DeleteFacesRequest
-  | DeleteStreamProcessorRequest
-  | DescribeCollectionRequest
-  | DescribeProjectVersionsRequest
-  | DescribeProjectsRequest
-  | DescribeStreamProcessorRequest
-  | DetectCustomLabelsRequest
-  | DetectFacesRequest
-  | DetectLabelsRequest
-  | DetectModerationLabelsRequest
-  | DetectTextRequest
-  | GetCelebrityInfoRequest
-  | GetCelebrityRecognitionRequest
-  | GetContentModerationRequest
-  | GetFaceDetectionRequest
-  | GetFaceSearchRequest
-  | GetLabelDetectionRequest
-  | GetPersonTrackingRequest
-  | IndexFacesRequest
-  | ListCollectionsRequest
-  | ListFacesRequest
-  | ListStreamProcessorsRequest
-  | RecognizeCelebritiesRequest
-  | SearchFacesByImageRequest
-  | SearchFacesRequest
-  | StartCelebrityRecognitionRequest
-  | StartContentModerationRequest
-  | StartFaceDetectionRequest
-  | StartFaceSearchRequest
-  | StartLabelDetectionRequest
-  | StartPersonTrackingRequest
-  | StartProjectVersionRequest
-  | StartStreamProcessorRequest
-  | StopProjectVersionRequest
-  | StopStreamProcessorRequest;
+  | CompareFacesCommandInput
+  | CreateCollectionCommandInput
+  | CreateProjectCommandInput
+  | CreateProjectVersionCommandInput
+  | CreateStreamProcessorCommandInput
+  | DeleteCollectionCommandInput
+  | DeleteFacesCommandInput
+  | DeleteStreamProcessorCommandInput
+  | DescribeCollectionCommandInput
+  | DescribeProjectVersionsCommandInput
+  | DescribeProjectsCommandInput
+  | DescribeStreamProcessorCommandInput
+  | DetectCustomLabelsCommandInput
+  | DetectFacesCommandInput
+  | DetectLabelsCommandInput
+  | DetectModerationLabelsCommandInput
+  | DetectTextCommandInput
+  | GetCelebrityInfoCommandInput
+  | GetCelebrityRecognitionCommandInput
+  | GetContentModerationCommandInput
+  | GetFaceDetectionCommandInput
+  | GetFaceSearchCommandInput
+  | GetLabelDetectionCommandInput
+  | GetPersonTrackingCommandInput
+  | IndexFacesCommandInput
+  | ListCollectionsCommandInput
+  | ListFacesCommandInput
+  | ListStreamProcessorsCommandInput
+  | RecognizeCelebritiesCommandInput
+  | SearchFacesByImageCommandInput
+  | SearchFacesCommandInput
+  | StartCelebrityRecognitionCommandInput
+  | StartContentModerationCommandInput
+  | StartFaceDetectionCommandInput
+  | StartFaceSearchCommandInput
+  | StartLabelDetectionCommandInput
+  | StartPersonTrackingCommandInput
+  | StartProjectVersionCommandInput
+  | StartStreamProcessorCommandInput
+  | StopProjectVersionCommandInput
+  | StopStreamProcessorCommandInput;
 
 export type ServiceOutputTypes =
-  | CompareFacesResponse
-  | CreateCollectionResponse
-  | CreateProjectResponse
-  | CreateProjectVersionResponse
-  | CreateStreamProcessorResponse
-  | DeleteCollectionResponse
-  | DeleteFacesResponse
-  | DeleteStreamProcessorResponse
-  | DescribeCollectionResponse
-  | DescribeProjectVersionsResponse
-  | DescribeProjectsResponse
-  | DescribeStreamProcessorResponse
-  | DetectCustomLabelsResponse
-  | DetectFacesResponse
-  | DetectLabelsResponse
-  | DetectModerationLabelsResponse
-  | DetectTextResponse
-  | GetCelebrityInfoResponse
-  | GetCelebrityRecognitionResponse
-  | GetContentModerationResponse
-  | GetFaceDetectionResponse
-  | GetFaceSearchResponse
-  | GetLabelDetectionResponse
-  | GetPersonTrackingResponse
-  | IndexFacesResponse
-  | ListCollectionsResponse
-  | ListFacesResponse
-  | ListStreamProcessorsResponse
-  | RecognizeCelebritiesResponse
-  | SearchFacesByImageResponse
-  | SearchFacesResponse
-  | StartCelebrityRecognitionResponse
-  | StartContentModerationResponse
-  | StartFaceDetectionResponse
-  | StartFaceSearchResponse
-  | StartLabelDetectionResponse
-  | StartPersonTrackingResponse
-  | StartProjectVersionResponse
-  | StartStreamProcessorResponse
-  | StopProjectVersionResponse
-  | StopStreamProcessorResponse;
+  | CompareFacesCommandOutput
+  | CreateCollectionCommandOutput
+  | CreateProjectCommandOutput
+  | CreateProjectVersionCommandOutput
+  | CreateStreamProcessorCommandOutput
+  | DeleteCollectionCommandOutput
+  | DeleteFacesCommandOutput
+  | DeleteStreamProcessorCommandOutput
+  | DescribeCollectionCommandOutput
+  | DescribeProjectVersionsCommandOutput
+  | DescribeProjectsCommandOutput
+  | DescribeStreamProcessorCommandOutput
+  | DetectCustomLabelsCommandOutput
+  | DetectFacesCommandOutput
+  | DetectLabelsCommandOutput
+  | DetectModerationLabelsCommandOutput
+  | DetectTextCommandOutput
+  | GetCelebrityInfoCommandOutput
+  | GetCelebrityRecognitionCommandOutput
+  | GetContentModerationCommandOutput
+  | GetFaceDetectionCommandOutput
+  | GetFaceSearchCommandOutput
+  | GetLabelDetectionCommandOutput
+  | GetPersonTrackingCommandOutput
+  | IndexFacesCommandOutput
+  | ListCollectionsCommandOutput
+  | ListFacesCommandOutput
+  | ListStreamProcessorsCommandOutput
+  | RecognizeCelebritiesCommandOutput
+  | SearchFacesByImageCommandOutput
+  | SearchFacesCommandOutput
+  | StartCelebrityRecognitionCommandOutput
+  | StartContentModerationCommandOutput
+  | StartFaceDetectionCommandOutput
+  | StartFaceSearchCommandOutput
+  | StartLabelDetectionCommandOutput
+  | StartPersonTrackingCommandOutput
+  | StartProjectVersionCommandOutput
+  | StartStreamProcessorCommandOutput
+  | StopProjectVersionCommandOutput
+  | StopStreamProcessorCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

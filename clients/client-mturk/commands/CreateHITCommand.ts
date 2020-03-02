@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHITCommandInput = CreateHITRequest;
-export type CreateHITCommandOutput = CreateHITResponse;
+export type CreateHITCommandOutput = CreateHITResponse & __MetadataBearer;
 
 export class CreateHITCommand extends $Command<
   CreateHITCommandInput,

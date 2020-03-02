@@ -516,7 +516,7 @@ export namespace CreateClusterRequest {
   }
 }
 
-export interface CreateClusterResponse extends $MetadataBearer {
+export interface CreateClusterResponse {
   __type?: "CreateClusterResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -570,7 +570,7 @@ export namespace CreateConfigurationRequest {
   }
 }
 
-export interface CreateConfigurationResponse extends $MetadataBearer {
+export interface CreateConfigurationResponse {
   __type?: "CreateConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -618,7 +618,7 @@ export namespace DeleteClusterRequest {
   }
 }
 
-export interface DeleteClusterResponse extends $MetadataBearer {
+export interface DeleteClusterResponse {
   __type?: "DeleteClusterResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -651,7 +651,7 @@ export namespace DescribeClusterOperationRequest {
   }
 }
 
-export interface DescribeClusterOperationResponse extends $MetadataBearer {
+export interface DescribeClusterOperationResponse {
   __type?: "DescribeClusterOperationResponse";
   /**
    * <p>Cluster operation information</p>
@@ -679,7 +679,7 @@ export namespace DescribeClusterRequest {
   }
 }
 
-export interface DescribeClusterResponse extends $MetadataBearer {
+export interface DescribeClusterResponse {
   __type?: "DescribeClusterResponse";
   /**
    * <p>The cluster information.</p>
@@ -707,7 +707,7 @@ export namespace DescribeConfigurationRequest {
   }
 }
 
-export interface DescribeConfigurationResponse extends $MetadataBearer {
+export interface DescribeConfigurationResponse {
   __type?: "DescribeConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -765,7 +765,7 @@ export namespace DescribeConfigurationRevisionRequest {
   }
 }
 
-export interface DescribeConfigurationRevisionResponse extends $MetadataBearer {
+export interface DescribeConfigurationRevisionResponse {
   __type?: "DescribeConfigurationRevisionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
@@ -951,7 +951,7 @@ export namespace GetBootstrapBrokersRequest {
   }
 }
 
-export interface GetBootstrapBrokersResponse extends $MetadataBearer {
+export interface GetBootstrapBrokersResponse {
   __type?: "GetBootstrapBrokersResponse";
   /**
    * <p>A string containing one or more hostname:port pairs.</p>
@@ -1054,7 +1054,7 @@ export namespace ListClusterOperationsRequest {
   }
 }
 
-export interface ListClusterOperationsResponse extends $MetadataBearer {
+export interface ListClusterOperationsResponse {
   __type?: "ListClusterOperationsResponse";
   /**
    * <p>An array of cluster operation information objects.</p>
@@ -1098,7 +1098,7 @@ export namespace ListClustersRequest {
   }
 }
 
-export interface ListClustersResponse extends $MetadataBearer {
+export interface ListClustersResponse {
   __type?: "ListClustersResponse";
   /**
    * <p>Information on each of the MSK clusters in the response.</p>
@@ -1143,7 +1143,7 @@ export namespace ListConfigurationRevisionsRequest {
   }
 }
 
-export interface ListConfigurationRevisionsResponse extends $MetadataBearer {
+export interface ListConfigurationRevisionsResponse {
   __type?: "ListConfigurationRevisionsResponse";
   /**
    * <p>Paginated results marker.</p>
@@ -1182,7 +1182,7 @@ export namespace ListConfigurationsRequest {
   }
 }
 
-export interface ListConfigurationsResponse extends $MetadataBearer {
+export interface ListConfigurationsResponse {
   __type?: "ListConfigurationsResponse";
   /**
    * <p>An array of MSK configurations.</p>
@@ -1227,7 +1227,7 @@ export namespace ListNodesRequest {
   }
 }
 
-export interface ListNodesResponse extends $MetadataBearer {
+export interface ListNodesResponse {
   __type?: "ListNodesResponse";
   /**
    * <p>The paginated results marker. When the result of a ListNodes operation is truncated, the call returns NextToken in the response.
@@ -1261,7 +1261,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The key-value pair for the resource tag.</p>
@@ -1683,7 +1683,7 @@ export namespace UpdateBrokerCountRequest {
   }
 }
 
-export interface UpdateBrokerCountResponse extends $MetadataBearer {
+export interface UpdateBrokerCountResponse {
   __type?: "UpdateBrokerCountResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1726,7 +1726,7 @@ export namespace UpdateBrokerStorageRequest {
   }
 }
 
-export interface UpdateBrokerStorageResponse extends $MetadataBearer {
+export interface UpdateBrokerStorageResponse {
   __type?: "UpdateBrokerStorageResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1769,7 +1769,7 @@ export namespace UpdateClusterConfigurationRequest {
   }
 }
 
-export interface UpdateClusterConfigurationResponse extends $MetadataBearer {
+export interface UpdateClusterConfigurationResponse {
   __type?: "UpdateClusterConfigurationResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
@@ -1820,7 +1820,7 @@ export namespace UpdateMonitoringRequest {
   }
 }
 
-export interface UpdateMonitoringResponse extends $MetadataBearer {
+export interface UpdateMonitoringResponse {
   __type?: "UpdateMonitoringResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>

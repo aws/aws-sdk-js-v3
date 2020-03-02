@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConnectionCommandInput = CreateConnectionRequest;
-export type CreateConnectionCommandOutput = CreateConnectionResponse;
+export type CreateConnectionCommandOutput = CreateConnectionResponse &
+  __MetadataBearer;
 
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,

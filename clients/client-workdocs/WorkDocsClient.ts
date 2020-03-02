@@ -1,74 +1,167 @@
 import {
-  AbortDocumentVersionUploadRequest,
-  ActivateUserRequest,
-  ActivateUserResponse,
-  AddResourcePermissionsRequest,
-  AddResourcePermissionsResponse,
-  CreateCommentRequest,
-  CreateCommentResponse,
-  CreateCustomMetadataRequest,
-  CreateCustomMetadataResponse,
-  CreateFolderRequest,
-  CreateFolderResponse,
-  CreateLabelsRequest,
-  CreateLabelsResponse,
-  CreateNotificationSubscriptionRequest,
-  CreateNotificationSubscriptionResponse,
-  CreateUserRequest,
-  CreateUserResponse,
-  DeactivateUserRequest,
-  DeleteCommentRequest,
-  DeleteCustomMetadataRequest,
-  DeleteCustomMetadataResponse,
-  DeleteDocumentRequest,
-  DeleteFolderContentsRequest,
-  DeleteFolderRequest,
-  DeleteLabelsRequest,
-  DeleteLabelsResponse,
-  DeleteNotificationSubscriptionRequest,
-  DeleteUserRequest,
-  DescribeActivitiesRequest,
-  DescribeActivitiesResponse,
-  DescribeCommentsRequest,
-  DescribeCommentsResponse,
-  DescribeDocumentVersionsRequest,
-  DescribeDocumentVersionsResponse,
-  DescribeFolderContentsRequest,
-  DescribeFolderContentsResponse,
-  DescribeGroupsRequest,
-  DescribeGroupsResponse,
-  DescribeNotificationSubscriptionsRequest,
-  DescribeNotificationSubscriptionsResponse,
-  DescribeResourcePermissionsRequest,
-  DescribeResourcePermissionsResponse,
-  DescribeRootFoldersRequest,
-  DescribeRootFoldersResponse,
-  DescribeUsersRequest,
-  DescribeUsersResponse,
-  GetCurrentUserRequest,
-  GetCurrentUserResponse,
-  GetDocumentPathRequest,
-  GetDocumentPathResponse,
-  GetDocumentRequest,
-  GetDocumentResponse,
-  GetDocumentVersionRequest,
-  GetDocumentVersionResponse,
-  GetFolderPathRequest,
-  GetFolderPathResponse,
-  GetFolderRequest,
-  GetFolderResponse,
-  GetResourcesRequest,
-  GetResourcesResponse,
-  InitiateDocumentVersionUploadRequest,
-  InitiateDocumentVersionUploadResponse,
-  RemoveAllResourcePermissionsRequest,
-  RemoveResourcePermissionRequest,
-  UpdateDocumentRequest,
-  UpdateDocumentVersionRequest,
-  UpdateFolderRequest,
-  UpdateUserRequest,
-  UpdateUserResponse
-} from "./models/index";
+  AbortDocumentVersionUploadCommandInput,
+  AbortDocumentVersionUploadCommandOutput
+} from "./commands/AbortDocumentVersionUploadCommand";
+import {
+  ActivateUserCommandInput,
+  ActivateUserCommandOutput
+} from "./commands/ActivateUserCommand";
+import {
+  AddResourcePermissionsCommandInput,
+  AddResourcePermissionsCommandOutput
+} from "./commands/AddResourcePermissionsCommand";
+import {
+  CreateCommentCommandInput,
+  CreateCommentCommandOutput
+} from "./commands/CreateCommentCommand";
+import {
+  CreateCustomMetadataCommandInput,
+  CreateCustomMetadataCommandOutput
+} from "./commands/CreateCustomMetadataCommand";
+import {
+  CreateFolderCommandInput,
+  CreateFolderCommandOutput
+} from "./commands/CreateFolderCommand";
+import {
+  CreateLabelsCommandInput,
+  CreateLabelsCommandOutput
+} from "./commands/CreateLabelsCommand";
+import {
+  CreateNotificationSubscriptionCommandInput,
+  CreateNotificationSubscriptionCommandOutput
+} from "./commands/CreateNotificationSubscriptionCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeactivateUserCommandInput,
+  DeactivateUserCommandOutput
+} from "./commands/DeactivateUserCommand";
+import {
+  DeleteCommentCommandInput,
+  DeleteCommentCommandOutput
+} from "./commands/DeleteCommentCommand";
+import {
+  DeleteCustomMetadataCommandInput,
+  DeleteCustomMetadataCommandOutput
+} from "./commands/DeleteCustomMetadataCommand";
+import {
+  DeleteDocumentCommandInput,
+  DeleteDocumentCommandOutput
+} from "./commands/DeleteDocumentCommand";
+import {
+  DeleteFolderCommandInput,
+  DeleteFolderCommandOutput
+} from "./commands/DeleteFolderCommand";
+import {
+  DeleteFolderContentsCommandInput,
+  DeleteFolderContentsCommandOutput
+} from "./commands/DeleteFolderContentsCommand";
+import {
+  DeleteLabelsCommandInput,
+  DeleteLabelsCommandOutput
+} from "./commands/DeleteLabelsCommand";
+import {
+  DeleteNotificationSubscriptionCommandInput,
+  DeleteNotificationSubscriptionCommandOutput
+} from "./commands/DeleteNotificationSubscriptionCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DescribeActivitiesCommandInput,
+  DescribeActivitiesCommandOutput
+} from "./commands/DescribeActivitiesCommand";
+import {
+  DescribeCommentsCommandInput,
+  DescribeCommentsCommandOutput
+} from "./commands/DescribeCommentsCommand";
+import {
+  DescribeDocumentVersionsCommandInput,
+  DescribeDocumentVersionsCommandOutput
+} from "./commands/DescribeDocumentVersionsCommand";
+import {
+  DescribeFolderContentsCommandInput,
+  DescribeFolderContentsCommandOutput
+} from "./commands/DescribeFolderContentsCommand";
+import {
+  DescribeGroupsCommandInput,
+  DescribeGroupsCommandOutput
+} from "./commands/DescribeGroupsCommand";
+import {
+  DescribeNotificationSubscriptionsCommandInput,
+  DescribeNotificationSubscriptionsCommandOutput
+} from "./commands/DescribeNotificationSubscriptionsCommand";
+import {
+  DescribeResourcePermissionsCommandInput,
+  DescribeResourcePermissionsCommandOutput
+} from "./commands/DescribeResourcePermissionsCommand";
+import {
+  DescribeRootFoldersCommandInput,
+  DescribeRootFoldersCommandOutput
+} from "./commands/DescribeRootFoldersCommand";
+import {
+  DescribeUsersCommandInput,
+  DescribeUsersCommandOutput
+} from "./commands/DescribeUsersCommand";
+import {
+  GetCurrentUserCommandInput,
+  GetCurrentUserCommandOutput
+} from "./commands/GetCurrentUserCommand";
+import {
+  GetDocumentCommandInput,
+  GetDocumentCommandOutput
+} from "./commands/GetDocumentCommand";
+import {
+  GetDocumentPathCommandInput,
+  GetDocumentPathCommandOutput
+} from "./commands/GetDocumentPathCommand";
+import {
+  GetDocumentVersionCommandInput,
+  GetDocumentVersionCommandOutput
+} from "./commands/GetDocumentVersionCommand";
+import {
+  GetFolderCommandInput,
+  GetFolderCommandOutput
+} from "./commands/GetFolderCommand";
+import {
+  GetFolderPathCommandInput,
+  GetFolderPathCommandOutput
+} from "./commands/GetFolderPathCommand";
+import {
+  GetResourcesCommandInput,
+  GetResourcesCommandOutput
+} from "./commands/GetResourcesCommand";
+import {
+  InitiateDocumentVersionUploadCommandInput,
+  InitiateDocumentVersionUploadCommandOutput
+} from "./commands/InitiateDocumentVersionUploadCommand";
+import {
+  RemoveAllResourcePermissionsCommandInput,
+  RemoveAllResourcePermissionsCommandOutput
+} from "./commands/RemoveAllResourcePermissionsCommand";
+import {
+  RemoveResourcePermissionCommandInput,
+  RemoveResourcePermissionCommandOutput
+} from "./commands/RemoveResourcePermissionCommand";
+import {
+  UpdateDocumentCommandInput,
+  UpdateDocumentCommandOutput
+} from "./commands/UpdateDocumentCommand";
+import {
+  UpdateDocumentVersionCommandInput,
+  UpdateDocumentVersionCommandOutput
+} from "./commands/UpdateDocumentVersionCommand";
+import {
+  UpdateFolderCommandInput,
+  UpdateFolderCommandOutput
+} from "./commands/UpdateFolderCommand";
+import {
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput
+} from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -116,85 +209,96 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AbortDocumentVersionUploadRequest
-  | ActivateUserRequest
-  | AddResourcePermissionsRequest
-  | CreateCommentRequest
-  | CreateCustomMetadataRequest
-  | CreateFolderRequest
-  | CreateLabelsRequest
-  | CreateNotificationSubscriptionRequest
-  | CreateUserRequest
-  | DeactivateUserRequest
-  | DeleteCommentRequest
-  | DeleteCustomMetadataRequest
-  | DeleteDocumentRequest
-  | DeleteFolderContentsRequest
-  | DeleteFolderRequest
-  | DeleteLabelsRequest
-  | DeleteNotificationSubscriptionRequest
-  | DeleteUserRequest
-  | DescribeActivitiesRequest
-  | DescribeCommentsRequest
-  | DescribeDocumentVersionsRequest
-  | DescribeFolderContentsRequest
-  | DescribeGroupsRequest
-  | DescribeNotificationSubscriptionsRequest
-  | DescribeResourcePermissionsRequest
-  | DescribeRootFoldersRequest
-  | DescribeUsersRequest
-  | GetCurrentUserRequest
-  | GetDocumentPathRequest
-  | GetDocumentRequest
-  | GetDocumentVersionRequest
-  | GetFolderPathRequest
-  | GetFolderRequest
-  | GetResourcesRequest
-  | InitiateDocumentVersionUploadRequest
-  | RemoveAllResourcePermissionsRequest
-  | RemoveResourcePermissionRequest
-  | UpdateDocumentRequest
-  | UpdateDocumentVersionRequest
-  | UpdateFolderRequest
-  | UpdateUserRequest;
+  | AbortDocumentVersionUploadCommandInput
+  | ActivateUserCommandInput
+  | AddResourcePermissionsCommandInput
+  | CreateCommentCommandInput
+  | CreateCustomMetadataCommandInput
+  | CreateFolderCommandInput
+  | CreateLabelsCommandInput
+  | CreateNotificationSubscriptionCommandInput
+  | CreateUserCommandInput
+  | DeactivateUserCommandInput
+  | DeleteCommentCommandInput
+  | DeleteCustomMetadataCommandInput
+  | DeleteDocumentCommandInput
+  | DeleteFolderCommandInput
+  | DeleteFolderContentsCommandInput
+  | DeleteLabelsCommandInput
+  | DeleteNotificationSubscriptionCommandInput
+  | DeleteUserCommandInput
+  | DescribeActivitiesCommandInput
+  | DescribeCommentsCommandInput
+  | DescribeDocumentVersionsCommandInput
+  | DescribeFolderContentsCommandInput
+  | DescribeGroupsCommandInput
+  | DescribeNotificationSubscriptionsCommandInput
+  | DescribeResourcePermissionsCommandInput
+  | DescribeRootFoldersCommandInput
+  | DescribeUsersCommandInput
+  | GetCurrentUserCommandInput
+  | GetDocumentCommandInput
+  | GetDocumentPathCommandInput
+  | GetDocumentVersionCommandInput
+  | GetFolderCommandInput
+  | GetFolderPathCommandInput
+  | GetResourcesCommandInput
+  | InitiateDocumentVersionUploadCommandInput
+  | RemoveAllResourcePermissionsCommandInput
+  | RemoveResourcePermissionCommandInput
+  | UpdateDocumentCommandInput
+  | UpdateDocumentVersionCommandInput
+  | UpdateFolderCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ActivateUserResponse
-  | AddResourcePermissionsResponse
-  | CreateCommentResponse
-  | CreateCustomMetadataResponse
-  | CreateFolderResponse
-  | CreateLabelsResponse
-  | CreateNotificationSubscriptionResponse
-  | CreateUserResponse
-  | DeleteCustomMetadataResponse
-  | DeleteLabelsResponse
-  | DescribeActivitiesResponse
-  | DescribeCommentsResponse
-  | DescribeDocumentVersionsResponse
-  | DescribeFolderContentsResponse
-  | DescribeGroupsResponse
-  | DescribeNotificationSubscriptionsResponse
-  | DescribeResourcePermissionsResponse
-  | DescribeRootFoldersResponse
-  | DescribeUsersResponse
-  | GetCurrentUserResponse
-  | GetDocumentPathResponse
-  | GetDocumentResponse
-  | GetDocumentVersionResponse
-  | GetFolderPathResponse
-  | GetFolderResponse
-  | GetResourcesResponse
-  | InitiateDocumentVersionUploadResponse
-  | UpdateUserResponse;
+  | AbortDocumentVersionUploadCommandOutput
+  | ActivateUserCommandOutput
+  | AddResourcePermissionsCommandOutput
+  | CreateCommentCommandOutput
+  | CreateCustomMetadataCommandOutput
+  | CreateFolderCommandOutput
+  | CreateLabelsCommandOutput
+  | CreateNotificationSubscriptionCommandOutput
+  | CreateUserCommandOutput
+  | DeactivateUserCommandOutput
+  | DeleteCommentCommandOutput
+  | DeleteCustomMetadataCommandOutput
+  | DeleteDocumentCommandOutput
+  | DeleteFolderCommandOutput
+  | DeleteFolderContentsCommandOutput
+  | DeleteLabelsCommandOutput
+  | DeleteNotificationSubscriptionCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeActivitiesCommandOutput
+  | DescribeCommentsCommandOutput
+  | DescribeDocumentVersionsCommandOutput
+  | DescribeFolderContentsCommandOutput
+  | DescribeGroupsCommandOutput
+  | DescribeNotificationSubscriptionsCommandOutput
+  | DescribeResourcePermissionsCommandOutput
+  | DescribeRootFoldersCommandOutput
+  | DescribeUsersCommandOutput
+  | GetCurrentUserCommandOutput
+  | GetDocumentCommandOutput
+  | GetDocumentPathCommandOutput
+  | GetDocumentVersionCommandOutput
+  | GetFolderCommandOutput
+  | GetFolderPathCommandOutput
+  | GetResourcesCommandOutput
+  | InitiateDocumentVersionUploadCommandOutput
+  | RemoveAllResourcePermissionsCommandOutput
+  | RemoveResourcePermissionCommandOutput
+  | UpdateDocumentCommandOutput
+  | UpdateDocumentVersionCommandOutput
+  | UpdateFolderCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

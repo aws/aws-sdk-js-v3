@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListThreatIntelSetsCommandInput = ListThreatIntelSetsRequest;
-export type ListThreatIntelSetsCommandOutput = ListThreatIntelSetsResponse;
+export type ListThreatIntelSetsCommandOutput = ListThreatIntelSetsResponse &
+  __MetadataBearer;
 
 export class ListThreatIntelSetsCommand extends $Command<
   ListThreatIntelSetsCommandInput,

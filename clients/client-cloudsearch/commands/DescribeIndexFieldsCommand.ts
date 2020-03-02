@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIndexFieldsCommandInput = DescribeIndexFieldsRequest;
-export type DescribeIndexFieldsCommandOutput = DescribeIndexFieldsResponse;
+export type DescribeIndexFieldsCommandOutput = DescribeIndexFieldsResponse &
+  __MetadataBearer;
 
 export class DescribeIndexFieldsCommand extends $Command<
   DescribeIndexFieldsCommandInput,

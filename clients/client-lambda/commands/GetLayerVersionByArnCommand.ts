@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLayerVersionByArnCommandInput = GetLayerVersionByArnRequest;
-export type GetLayerVersionByArnCommandOutput = GetLayerVersionResponse;
+export type GetLayerVersionByArnCommandOutput = GetLayerVersionResponse &
+  __MetadataBearer;
 
 export class GetLayerVersionByArnCommand extends $Command<
   GetLayerVersionByArnCommandInput,

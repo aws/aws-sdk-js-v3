@@ -57,7 +57,7 @@ export namespace BatchDeleteBuildsInput {
   }
 }
 
-export interface BatchDeleteBuildsOutput extends $MetadataBearer {
+export interface BatchDeleteBuildsOutput {
   __type?: "BatchDeleteBuildsOutput";
   /**
    * <p>The IDs of the builds that were successfully deleted.</p>
@@ -90,7 +90,7 @@ export namespace BatchGetBuildsInput {
   }
 }
 
-export interface BatchGetBuildsOutput extends $MetadataBearer {
+export interface BatchGetBuildsOutput {
   __type?: "BatchGetBuildsOutput";
   /**
    * <p>Information about the requested builds.</p>
@@ -124,7 +124,7 @@ export namespace BatchGetProjectsInput {
   }
 }
 
-export interface BatchGetProjectsOutput extends $MetadataBearer {
+export interface BatchGetProjectsOutput {
   __type?: "BatchGetProjectsOutput";
   /**
    * <p>Information about the requested build projects.</p>
@@ -159,7 +159,7 @@ export namespace BatchGetReportGroupsInput {
   }
 }
 
-export interface BatchGetReportGroupsOutput extends $MetadataBearer {
+export interface BatchGetReportGroupsOutput {
   __type?: "BatchGetReportGroupsOutput";
   /**
    * <p>
@@ -198,7 +198,7 @@ export namespace BatchGetReportsInput {
   }
 }
 
-export interface BatchGetReportsOutput extends $MetadataBearer {
+export interface BatchGetReportsOutput {
   __type?: "BatchGetReportsOutput";
   /**
    * <p>
@@ -911,7 +911,7 @@ export namespace CreateProjectInput {
   }
 }
 
-export interface CreateProjectOutput extends $MetadataBearer {
+export interface CreateProjectOutput {
   __type?: "CreateProjectOutput";
   /**
    * <p>Information about the build project that was created.</p>
@@ -955,7 +955,7 @@ export namespace CreateReportGroupInput {
   }
 }
 
-export interface CreateReportGroupOutput extends $MetadataBearer {
+export interface CreateReportGroupOutput {
   __type?: "CreateReportGroupOutput";
   /**
    * <p>
@@ -1010,7 +1010,7 @@ export namespace CreateWebhookInput {
   }
 }
 
-export interface CreateWebhookOutput extends $MetadataBearer {
+export interface CreateWebhookOutput {
   __type?: "CreateWebhookOutput";
   /**
    * <p>Information about a webhook that connects repository events to a build project in
@@ -1043,7 +1043,7 @@ export namespace DeleteProjectInput {
   }
 }
 
-export interface DeleteProjectOutput extends $MetadataBearer {
+export interface DeleteProjectOutput {
   __type?: "DeleteProjectOutput";
 }
 
@@ -1069,7 +1069,7 @@ export namespace DeleteReportGroupInput {
   }
 }
 
-export interface DeleteReportGroupOutput extends $MetadataBearer {
+export interface DeleteReportGroupOutput {
   __type?: "DeleteReportGroupOutput";
 }
 
@@ -1095,7 +1095,7 @@ export namespace DeleteReportInput {
   }
 }
 
-export interface DeleteReportOutput extends $MetadataBearer {
+export interface DeleteReportOutput {
   __type?: "DeleteReportOutput";
 }
 
@@ -1121,7 +1121,7 @@ export namespace DeleteResourcePolicyInput {
   }
 }
 
-export interface DeleteResourcePolicyOutput extends $MetadataBearer {
+export interface DeleteResourcePolicyOutput {
   __type?: "DeleteResourcePolicyOutput";
 }
 
@@ -1145,7 +1145,7 @@ export namespace DeleteSourceCredentialsInput {
   }
 }
 
-export interface DeleteSourceCredentialsOutput extends $MetadataBearer {
+export interface DeleteSourceCredentialsOutput {
   __type?: "DeleteSourceCredentialsOutput";
   /**
    * <p>
@@ -1175,7 +1175,7 @@ export namespace DeleteWebhookInput {
   }
 }
 
-export interface DeleteWebhookOutput extends $MetadataBearer {
+export interface DeleteWebhookOutput {
   __type?: "DeleteWebhookOutput";
 }
 
@@ -1227,7 +1227,7 @@ export namespace DescribeTestCasesInput {
   }
 }
 
-export interface DescribeTestCasesOutput extends $MetadataBearer {
+export interface DescribeTestCasesOutput {
   __type?: "DescribeTestCasesOutput";
   /**
    * <p>
@@ -1437,7 +1437,7 @@ export namespace GetResourcePolicyInput {
   }
 }
 
-export interface GetResourcePolicyOutput extends $MetadataBearer {
+export interface GetResourcePolicyOutput {
   __type?: "GetResourcePolicyOutput";
   /**
    * <p>
@@ -1526,7 +1526,7 @@ export namespace ImportSourceCredentialsInput {
   }
 }
 
-export interface ImportSourceCredentialsOutput extends $MetadataBearer {
+export interface ImportSourceCredentialsOutput {
   __type?: "ImportSourceCredentialsOutput";
   /**
    * <p>
@@ -1573,7 +1573,7 @@ export namespace InvalidateProjectCacheInput {
   }
 }
 
-export interface InvalidateProjectCacheOutput extends $MetadataBearer {
+export interface InvalidateProjectCacheOutput {
   __type?: "InvalidateProjectCacheOutput";
 }
 
@@ -1635,7 +1635,7 @@ export namespace ListBuildsForProjectInput {
   }
 }
 
-export interface ListBuildsForProjectOutput extends $MetadataBearer {
+export interface ListBuildsForProjectOutput {
   __type?: "ListBuildsForProjectOutput";
   /**
    * <p>A list of build IDs for the specified build project, with each build ID representing a
@@ -1691,7 +1691,7 @@ export namespace ListBuildsInput {
   }
 }
 
-export interface ListBuildsOutput extends $MetadataBearer {
+export interface ListBuildsOutput {
   __type?: "ListBuildsOutput";
   /**
    * <p>A list of build IDs, with each build ID representing a single build.</p>
@@ -1722,7 +1722,7 @@ export namespace ListCuratedEnvironmentImagesInput {
   }
 }
 
-export interface ListCuratedEnvironmentImagesOutput extends $MetadataBearer {
+export interface ListCuratedEnvironmentImagesOutput {
   __type?: "ListCuratedEnvironmentImagesOutput";
   /**
    * <p>Information about supported platforms for Docker images that are managed by
@@ -1795,7 +1795,7 @@ export namespace ListProjectsInput {
   }
 }
 
-export interface ListProjectsOutput extends $MetadataBearer {
+export interface ListProjectsOutput {
   __type?: "ListProjectsOutput";
   /**
    * <p>If there are more than 100 items in the list, only the first 100 items are returned,
@@ -1875,7 +1875,7 @@ export namespace ListReportGroupsInput {
   }
 }
 
-export interface ListReportGroupsOutput extends $MetadataBearer {
+export interface ListReportGroupsOutput {
   __type?: "ListReportGroupsOutput";
   /**
    * <p>
@@ -1951,7 +1951,7 @@ export namespace ListReportsForReportGroupInput {
   }
 }
 
-export interface ListReportsForReportGroupOutput extends $MetadataBearer {
+export interface ListReportsForReportGroupOutput {
   __type?: "ListReportsForReportGroupOutput";
   /**
    * <p>
@@ -2032,7 +2032,7 @@ export namespace ListReportsInput {
   }
 }
 
-export interface ListReportsOutput extends $MetadataBearer {
+export interface ListReportsOutput {
   __type?: "ListReportsOutput";
   /**
    * <p>
@@ -2124,7 +2124,7 @@ export namespace ListSharedProjectsInput {
   }
 }
 
-export interface ListSharedProjectsOutput extends $MetadataBearer {
+export interface ListSharedProjectsOutput {
   __type?: "ListSharedProjectsOutput";
   /**
    * <p>
@@ -2216,7 +2216,7 @@ export namespace ListSharedReportGroupsInput {
   }
 }
 
-export interface ListSharedReportGroupsOutput extends $MetadataBearer {
+export interface ListSharedReportGroupsOutput {
   __type?: "ListSharedReportGroupsOutput";
   /**
    * <p>
@@ -2253,7 +2253,7 @@ export namespace ListSourceCredentialsInput {
   }
 }
 
-export interface ListSourceCredentialsOutput extends $MetadataBearer {
+export interface ListSourceCredentialsOutput {
   __type?: "ListSourceCredentialsOutput";
   /**
    * <p>
@@ -3382,7 +3382,7 @@ export namespace PutResourcePolicyInput {
   }
 }
 
-export interface PutResourcePolicyOutput extends $MetadataBearer {
+export interface PutResourcePolicyOutput {
   __type?: "PutResourcePolicyOutput";
   /**
    * <p>
@@ -4164,7 +4164,7 @@ export namespace StartBuildInput {
   }
 }
 
-export interface StartBuildOutput extends $MetadataBearer {
+export interface StartBuildOutput {
   __type?: "StartBuildOutput";
   /**
    * <p>Information about the build to be run.</p>
@@ -4201,7 +4201,7 @@ export namespace StopBuildInput {
   }
 }
 
-export interface StopBuildOutput extends $MetadataBearer {
+export interface StopBuildOutput {
   __type?: "StopBuildOutput";
   /**
    * <p>Information about the build.</p>
@@ -4524,7 +4524,7 @@ export namespace UpdateProjectInput {
   }
 }
 
-export interface UpdateProjectOutput extends $MetadataBearer {
+export interface UpdateProjectOutput {
   __type?: "UpdateProjectOutput";
   /**
    * <p>Information about the build project that was changed.</p>
@@ -4573,7 +4573,7 @@ export namespace UpdateReportGroupInput {
   }
 }
 
-export interface UpdateReportGroupOutput extends $MetadataBearer {
+export interface UpdateReportGroupOutput {
   __type?: "UpdateReportGroupOutput";
   /**
    * <p>
@@ -4631,7 +4631,7 @@ export namespace UpdateWebhookInput {
   }
 }
 
-export interface UpdateWebhookOutput extends $MetadataBearer {
+export interface UpdateWebhookOutput {
   __type?: "UpdateWebhookOutput";
   /**
    * <p> Information about a repository's webhook that is associated with a project in AWS CodeBuild.

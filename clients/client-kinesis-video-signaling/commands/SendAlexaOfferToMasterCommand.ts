@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendAlexaOfferToMasterCommandInput = SendAlexaOfferToMasterRequest;
-export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse;
+export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse &
+  __MetadataBearer;
 
 export class SendAlexaOfferToMasterCommand extends $Command<
   SendAlexaOfferToMasterCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartChangeSetCommandInput = StartChangeSetRequest;
-export type StartChangeSetCommandOutput = StartChangeSetResponse;
+export type StartChangeSetCommandOutput = StartChangeSetResponse &
+  __MetadataBearer;
 
 export class StartChangeSetCommand extends $Command<
   StartChangeSetCommandInput,

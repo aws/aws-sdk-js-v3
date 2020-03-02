@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export interface DeleteLexiconInput {
   __type?: "DeleteLexiconInput";
@@ -19,7 +20,7 @@ export namespace DeleteLexiconInput {
   }
 }
 
-export interface DeleteLexiconOutput extends $MetadataBearer {
+export interface DeleteLexiconOutput {
   __type?: "DeleteLexiconOutput";
 }
 
@@ -67,7 +68,7 @@ export namespace DescribeVoicesInput {
   }
 }
 
-export interface DescribeVoicesOutput extends $MetadataBearer {
+export interface DescribeVoicesOutput {
   __type?: "DescribeVoicesOutput";
   /**
    * <p>The pagination token to use in the next request to continue
@@ -127,7 +128,7 @@ export namespace GetLexiconInput {
   }
 }
 
-export interface GetLexiconOutput extends $MetadataBearer {
+export interface GetLexiconOutput {
   __type?: "GetLexiconOutput";
   /**
    * <p>Lexicon object that provides name and the string content of the
@@ -162,7 +163,7 @@ export namespace GetSpeechSynthesisTaskInput {
   }
 }
 
-export interface GetSpeechSynthesisTaskOutput extends $MetadataBearer {
+export interface GetSpeechSynthesisTaskOutput {
   __type?: "GetSpeechSynthesisTaskOutput";
   /**
    * <p>SynthesisTask object that provides information from the requested task,
@@ -513,7 +514,7 @@ export namespace ListLexiconsInput {
   }
 }
 
-export interface ListLexiconsOutput extends $MetadataBearer {
+export interface ListLexiconsOutput {
   __type?: "ListLexiconsOutput";
   /**
    * <p>A list of lexicon names and attributes.</p>
@@ -559,7 +560,7 @@ export namespace ListSpeechSynthesisTasksInput {
   }
 }
 
-export interface ListSpeechSynthesisTasksOutput extends $MetadataBearer {
+export interface ListSpeechSynthesisTasksOutput {
   __type?: "ListSpeechSynthesisTasksOutput";
   /**
    * <p>An opaque pagination token returned from the previous List operation
@@ -661,7 +662,7 @@ export namespace PutLexiconInput {
   }
 }
 
-export interface PutLexiconOutput extends $MetadataBearer {
+export interface PutLexiconOutput {
   __type?: "PutLexiconOutput";
 }
 
@@ -794,7 +795,7 @@ export namespace StartSpeechSynthesisTaskInput {
   }
 }
 
-export interface StartSpeechSynthesisTaskOutput extends $MetadataBearer {
+export interface StartSpeechSynthesisTaskOutput {
   __type?: "StartSpeechSynthesisTaskOutput";
   /**
    * <p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>
@@ -1004,14 +1005,14 @@ export namespace SynthesizeSpeechInput {
   }
 }
 
-export interface SynthesizeSpeechOutput extends $MetadataBearer {
+export interface SynthesizeSpeechOutput {
   __type?: "SynthesizeSpeechOutput";
   /**
    * <p>
    *       Stream containing the synthesized speech.
    *     </p>
    */
-  AudioStream?: Uint8Array;
+  AudioStream?: Readable | ReadableStream | Blob;
 
   /**
    * <p>

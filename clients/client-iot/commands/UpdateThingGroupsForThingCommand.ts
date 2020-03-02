@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateThingGroupsForThingCommandInput = UpdateThingGroupsForThingRequest;
-export type UpdateThingGroupsForThingCommandOutput = UpdateThingGroupsForThingResponse;
+export type UpdateThingGroupsForThingCommandOutput = UpdateThingGroupsForThingResponse &
+  __MetadataBearer;
 
 export class UpdateThingGroupsForThingCommand extends $Command<
   UpdateThingGroupsForThingCommandInput,

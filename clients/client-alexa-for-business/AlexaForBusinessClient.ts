@@ -1,191 +1,375 @@
 import {
-  ApproveSkillRequest,
-  ApproveSkillResponse,
-  AssociateContactWithAddressBookRequest,
-  AssociateContactWithAddressBookResponse,
-  AssociateDeviceWithNetworkProfileRequest,
-  AssociateDeviceWithNetworkProfileResponse,
-  AssociateDeviceWithRoomRequest,
-  AssociateDeviceWithRoomResponse,
-  AssociateSkillGroupWithRoomRequest,
-  AssociateSkillGroupWithRoomResponse,
-  AssociateSkillWithSkillGroupRequest,
-  AssociateSkillWithSkillGroupResponse,
-  AssociateSkillWithUsersRequest,
-  AssociateSkillWithUsersResponse,
-  CreateAddressBookRequest,
-  CreateAddressBookResponse,
-  CreateBusinessReportScheduleRequest,
-  CreateBusinessReportScheduleResponse,
-  CreateConferenceProviderRequest,
-  CreateConferenceProviderResponse,
-  CreateContactRequest,
-  CreateContactResponse,
-  CreateGatewayGroupRequest,
-  CreateGatewayGroupResponse,
-  CreateNetworkProfileRequest,
-  CreateNetworkProfileResponse,
-  CreateProfileRequest,
-  CreateProfileResponse,
-  CreateRoomRequest,
-  CreateRoomResponse,
-  CreateSkillGroupRequest,
-  CreateSkillGroupResponse,
-  CreateUserRequest,
-  CreateUserResponse,
-  DeleteAddressBookRequest,
-  DeleteAddressBookResponse,
-  DeleteBusinessReportScheduleRequest,
-  DeleteBusinessReportScheduleResponse,
-  DeleteConferenceProviderRequest,
-  DeleteConferenceProviderResponse,
-  DeleteContactRequest,
-  DeleteContactResponse,
-  DeleteDeviceRequest,
-  DeleteDeviceResponse,
-  DeleteDeviceUsageDataRequest,
-  DeleteDeviceUsageDataResponse,
-  DeleteGatewayGroupRequest,
-  DeleteGatewayGroupResponse,
-  DeleteNetworkProfileRequest,
-  DeleteNetworkProfileResponse,
-  DeleteProfileRequest,
-  DeleteProfileResponse,
-  DeleteRoomRequest,
-  DeleteRoomResponse,
-  DeleteRoomSkillParameterRequest,
-  DeleteRoomSkillParameterResponse,
-  DeleteSkillAuthorizationRequest,
-  DeleteSkillAuthorizationResponse,
-  DeleteSkillGroupRequest,
-  DeleteSkillGroupResponse,
-  DeleteUserRequest,
-  DeleteUserResponse,
-  DisassociateContactFromAddressBookRequest,
-  DisassociateContactFromAddressBookResponse,
-  DisassociateDeviceFromRoomRequest,
-  DisassociateDeviceFromRoomResponse,
-  DisassociateSkillFromSkillGroupRequest,
-  DisassociateSkillFromSkillGroupResponse,
-  DisassociateSkillFromUsersRequest,
-  DisassociateSkillFromUsersResponse,
-  DisassociateSkillGroupFromRoomRequest,
-  DisassociateSkillGroupFromRoomResponse,
-  ForgetSmartHomeAppliancesRequest,
-  ForgetSmartHomeAppliancesResponse,
-  GetAddressBookRequest,
-  GetAddressBookResponse,
-  GetConferencePreferenceRequest,
-  GetConferencePreferenceResponse,
-  GetConferenceProviderRequest,
-  GetConferenceProviderResponse,
-  GetContactRequest,
-  GetContactResponse,
-  GetDeviceRequest,
-  GetDeviceResponse,
-  GetGatewayGroupRequest,
-  GetGatewayGroupResponse,
-  GetGatewayRequest,
-  GetGatewayResponse,
-  GetInvitationConfigurationRequest,
-  GetInvitationConfigurationResponse,
-  GetNetworkProfileRequest,
-  GetNetworkProfileResponse,
-  GetProfileRequest,
-  GetProfileResponse,
-  GetRoomRequest,
-  GetRoomResponse,
-  GetRoomSkillParameterRequest,
-  GetRoomSkillParameterResponse,
-  GetSkillGroupRequest,
-  GetSkillGroupResponse,
-  ListBusinessReportSchedulesRequest,
-  ListBusinessReportSchedulesResponse,
-  ListConferenceProvidersRequest,
-  ListConferenceProvidersResponse,
-  ListDeviceEventsRequest,
-  ListDeviceEventsResponse,
-  ListGatewayGroupsRequest,
-  ListGatewayGroupsResponse,
-  ListGatewaysRequest,
-  ListGatewaysResponse,
-  ListSkillsRequest,
-  ListSkillsResponse,
-  ListSkillsStoreCategoriesRequest,
-  ListSkillsStoreCategoriesResponse,
-  ListSkillsStoreSkillsByCategoryRequest,
-  ListSkillsStoreSkillsByCategoryResponse,
-  ListSmartHomeAppliancesRequest,
-  ListSmartHomeAppliancesResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  PutConferencePreferenceRequest,
-  PutConferencePreferenceResponse,
-  PutInvitationConfigurationRequest,
-  PutInvitationConfigurationResponse,
-  PutRoomSkillParameterRequest,
-  PutRoomSkillParameterResponse,
-  PutSkillAuthorizationRequest,
-  PutSkillAuthorizationResponse,
-  RegisterAVSDeviceRequest,
-  RegisterAVSDeviceResponse,
-  RejectSkillRequest,
-  RejectSkillResponse,
-  ResolveRoomRequest,
-  ResolveRoomResponse,
-  RevokeInvitationRequest,
-  RevokeInvitationResponse,
-  SearchAddressBooksRequest,
-  SearchAddressBooksResponse,
-  SearchContactsRequest,
-  SearchContactsResponse,
-  SearchDevicesRequest,
-  SearchDevicesResponse,
-  SearchNetworkProfilesRequest,
-  SearchNetworkProfilesResponse,
-  SearchProfilesRequest,
-  SearchProfilesResponse,
-  SearchRoomsRequest,
-  SearchRoomsResponse,
-  SearchSkillGroupsRequest,
-  SearchSkillGroupsResponse,
-  SearchUsersRequest,
-  SearchUsersResponse,
-  SendAnnouncementRequest,
-  SendAnnouncementResponse,
-  SendInvitationRequest,
-  SendInvitationResponse,
-  StartDeviceSyncRequest,
-  StartDeviceSyncResponse,
-  StartSmartHomeApplianceDiscoveryRequest,
-  StartSmartHomeApplianceDiscoveryResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAddressBookRequest,
-  UpdateAddressBookResponse,
-  UpdateBusinessReportScheduleRequest,
-  UpdateBusinessReportScheduleResponse,
-  UpdateConferenceProviderRequest,
-  UpdateConferenceProviderResponse,
-  UpdateContactRequest,
-  UpdateContactResponse,
-  UpdateDeviceRequest,
-  UpdateDeviceResponse,
-  UpdateGatewayGroupRequest,
-  UpdateGatewayGroupResponse,
-  UpdateGatewayRequest,
-  UpdateGatewayResponse,
-  UpdateNetworkProfileRequest,
-  UpdateNetworkProfileResponse,
-  UpdateProfileRequest,
-  UpdateProfileResponse,
-  UpdateRoomRequest,
-  UpdateRoomResponse,
-  UpdateSkillGroupRequest,
-  UpdateSkillGroupResponse
-} from "./models/index";
+  ApproveSkillCommandInput,
+  ApproveSkillCommandOutput
+} from "./commands/ApproveSkillCommand";
+import {
+  AssociateContactWithAddressBookCommandInput,
+  AssociateContactWithAddressBookCommandOutput
+} from "./commands/AssociateContactWithAddressBookCommand";
+import {
+  AssociateDeviceWithNetworkProfileCommandInput,
+  AssociateDeviceWithNetworkProfileCommandOutput
+} from "./commands/AssociateDeviceWithNetworkProfileCommand";
+import {
+  AssociateDeviceWithRoomCommandInput,
+  AssociateDeviceWithRoomCommandOutput
+} from "./commands/AssociateDeviceWithRoomCommand";
+import {
+  AssociateSkillGroupWithRoomCommandInput,
+  AssociateSkillGroupWithRoomCommandOutput
+} from "./commands/AssociateSkillGroupWithRoomCommand";
+import {
+  AssociateSkillWithSkillGroupCommandInput,
+  AssociateSkillWithSkillGroupCommandOutput
+} from "./commands/AssociateSkillWithSkillGroupCommand";
+import {
+  AssociateSkillWithUsersCommandInput,
+  AssociateSkillWithUsersCommandOutput
+} from "./commands/AssociateSkillWithUsersCommand";
+import {
+  CreateAddressBookCommandInput,
+  CreateAddressBookCommandOutput
+} from "./commands/CreateAddressBookCommand";
+import {
+  CreateBusinessReportScheduleCommandInput,
+  CreateBusinessReportScheduleCommandOutput
+} from "./commands/CreateBusinessReportScheduleCommand";
+import {
+  CreateConferenceProviderCommandInput,
+  CreateConferenceProviderCommandOutput
+} from "./commands/CreateConferenceProviderCommand";
+import {
+  CreateContactCommandInput,
+  CreateContactCommandOutput
+} from "./commands/CreateContactCommand";
+import {
+  CreateGatewayGroupCommandInput,
+  CreateGatewayGroupCommandOutput
+} from "./commands/CreateGatewayGroupCommand";
+import {
+  CreateNetworkProfileCommandInput,
+  CreateNetworkProfileCommandOutput
+} from "./commands/CreateNetworkProfileCommand";
+import {
+  CreateProfileCommandInput,
+  CreateProfileCommandOutput
+} from "./commands/CreateProfileCommand";
+import {
+  CreateRoomCommandInput,
+  CreateRoomCommandOutput
+} from "./commands/CreateRoomCommand";
+import {
+  CreateSkillGroupCommandInput,
+  CreateSkillGroupCommandOutput
+} from "./commands/CreateSkillGroupCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeleteAddressBookCommandInput,
+  DeleteAddressBookCommandOutput
+} from "./commands/DeleteAddressBookCommand";
+import {
+  DeleteBusinessReportScheduleCommandInput,
+  DeleteBusinessReportScheduleCommandOutput
+} from "./commands/DeleteBusinessReportScheduleCommand";
+import {
+  DeleteConferenceProviderCommandInput,
+  DeleteConferenceProviderCommandOutput
+} from "./commands/DeleteConferenceProviderCommand";
+import {
+  DeleteContactCommandInput,
+  DeleteContactCommandOutput
+} from "./commands/DeleteContactCommand";
+import {
+  DeleteDeviceCommandInput,
+  DeleteDeviceCommandOutput
+} from "./commands/DeleteDeviceCommand";
+import {
+  DeleteDeviceUsageDataCommandInput,
+  DeleteDeviceUsageDataCommandOutput
+} from "./commands/DeleteDeviceUsageDataCommand";
+import {
+  DeleteGatewayGroupCommandInput,
+  DeleteGatewayGroupCommandOutput
+} from "./commands/DeleteGatewayGroupCommand";
+import {
+  DeleteNetworkProfileCommandInput,
+  DeleteNetworkProfileCommandOutput
+} from "./commands/DeleteNetworkProfileCommand";
+import {
+  DeleteProfileCommandInput,
+  DeleteProfileCommandOutput
+} from "./commands/DeleteProfileCommand";
+import {
+  DeleteRoomCommandInput,
+  DeleteRoomCommandOutput
+} from "./commands/DeleteRoomCommand";
+import {
+  DeleteRoomSkillParameterCommandInput,
+  DeleteRoomSkillParameterCommandOutput
+} from "./commands/DeleteRoomSkillParameterCommand";
+import {
+  DeleteSkillAuthorizationCommandInput,
+  DeleteSkillAuthorizationCommandOutput
+} from "./commands/DeleteSkillAuthorizationCommand";
+import {
+  DeleteSkillGroupCommandInput,
+  DeleteSkillGroupCommandOutput
+} from "./commands/DeleteSkillGroupCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DisassociateContactFromAddressBookCommandInput,
+  DisassociateContactFromAddressBookCommandOutput
+} from "./commands/DisassociateContactFromAddressBookCommand";
+import {
+  DisassociateDeviceFromRoomCommandInput,
+  DisassociateDeviceFromRoomCommandOutput
+} from "./commands/DisassociateDeviceFromRoomCommand";
+import {
+  DisassociateSkillFromSkillGroupCommandInput,
+  DisassociateSkillFromSkillGroupCommandOutput
+} from "./commands/DisassociateSkillFromSkillGroupCommand";
+import {
+  DisassociateSkillFromUsersCommandInput,
+  DisassociateSkillFromUsersCommandOutput
+} from "./commands/DisassociateSkillFromUsersCommand";
+import {
+  DisassociateSkillGroupFromRoomCommandInput,
+  DisassociateSkillGroupFromRoomCommandOutput
+} from "./commands/DisassociateSkillGroupFromRoomCommand";
+import {
+  ForgetSmartHomeAppliancesCommandInput,
+  ForgetSmartHomeAppliancesCommandOutput
+} from "./commands/ForgetSmartHomeAppliancesCommand";
+import {
+  GetAddressBookCommandInput,
+  GetAddressBookCommandOutput
+} from "./commands/GetAddressBookCommand";
+import {
+  GetConferencePreferenceCommandInput,
+  GetConferencePreferenceCommandOutput
+} from "./commands/GetConferencePreferenceCommand";
+import {
+  GetConferenceProviderCommandInput,
+  GetConferenceProviderCommandOutput
+} from "./commands/GetConferenceProviderCommand";
+import {
+  GetContactCommandInput,
+  GetContactCommandOutput
+} from "./commands/GetContactCommand";
+import {
+  GetDeviceCommandInput,
+  GetDeviceCommandOutput
+} from "./commands/GetDeviceCommand";
+import {
+  GetGatewayCommandInput,
+  GetGatewayCommandOutput
+} from "./commands/GetGatewayCommand";
+import {
+  GetGatewayGroupCommandInput,
+  GetGatewayGroupCommandOutput
+} from "./commands/GetGatewayGroupCommand";
+import {
+  GetInvitationConfigurationCommandInput,
+  GetInvitationConfigurationCommandOutput
+} from "./commands/GetInvitationConfigurationCommand";
+import {
+  GetNetworkProfileCommandInput,
+  GetNetworkProfileCommandOutput
+} from "./commands/GetNetworkProfileCommand";
+import {
+  GetProfileCommandInput,
+  GetProfileCommandOutput
+} from "./commands/GetProfileCommand";
+import {
+  GetRoomCommandInput,
+  GetRoomCommandOutput
+} from "./commands/GetRoomCommand";
+import {
+  GetRoomSkillParameterCommandInput,
+  GetRoomSkillParameterCommandOutput
+} from "./commands/GetRoomSkillParameterCommand";
+import {
+  GetSkillGroupCommandInput,
+  GetSkillGroupCommandOutput
+} from "./commands/GetSkillGroupCommand";
+import {
+  ListBusinessReportSchedulesCommandInput,
+  ListBusinessReportSchedulesCommandOutput
+} from "./commands/ListBusinessReportSchedulesCommand";
+import {
+  ListConferenceProvidersCommandInput,
+  ListConferenceProvidersCommandOutput
+} from "./commands/ListConferenceProvidersCommand";
+import {
+  ListDeviceEventsCommandInput,
+  ListDeviceEventsCommandOutput
+} from "./commands/ListDeviceEventsCommand";
+import {
+  ListGatewayGroupsCommandInput,
+  ListGatewayGroupsCommandOutput
+} from "./commands/ListGatewayGroupsCommand";
+import {
+  ListGatewaysCommandInput,
+  ListGatewaysCommandOutput
+} from "./commands/ListGatewaysCommand";
+import {
+  ListSkillsCommandInput,
+  ListSkillsCommandOutput
+} from "./commands/ListSkillsCommand";
+import {
+  ListSkillsStoreCategoriesCommandInput,
+  ListSkillsStoreCategoriesCommandOutput
+} from "./commands/ListSkillsStoreCategoriesCommand";
+import {
+  ListSkillsStoreSkillsByCategoryCommandInput,
+  ListSkillsStoreSkillsByCategoryCommandOutput
+} from "./commands/ListSkillsStoreSkillsByCategoryCommand";
+import {
+  ListSmartHomeAppliancesCommandInput,
+  ListSmartHomeAppliancesCommandOutput
+} from "./commands/ListSmartHomeAppliancesCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  PutConferencePreferenceCommandInput,
+  PutConferencePreferenceCommandOutput
+} from "./commands/PutConferencePreferenceCommand";
+import {
+  PutInvitationConfigurationCommandInput,
+  PutInvitationConfigurationCommandOutput
+} from "./commands/PutInvitationConfigurationCommand";
+import {
+  PutRoomSkillParameterCommandInput,
+  PutRoomSkillParameterCommandOutput
+} from "./commands/PutRoomSkillParameterCommand";
+import {
+  PutSkillAuthorizationCommandInput,
+  PutSkillAuthorizationCommandOutput
+} from "./commands/PutSkillAuthorizationCommand";
+import {
+  RegisterAVSDeviceCommandInput,
+  RegisterAVSDeviceCommandOutput
+} from "./commands/RegisterAVSDeviceCommand";
+import {
+  RejectSkillCommandInput,
+  RejectSkillCommandOutput
+} from "./commands/RejectSkillCommand";
+import {
+  ResolveRoomCommandInput,
+  ResolveRoomCommandOutput
+} from "./commands/ResolveRoomCommand";
+import {
+  RevokeInvitationCommandInput,
+  RevokeInvitationCommandOutput
+} from "./commands/RevokeInvitationCommand";
+import {
+  SearchAddressBooksCommandInput,
+  SearchAddressBooksCommandOutput
+} from "./commands/SearchAddressBooksCommand";
+import {
+  SearchContactsCommandInput,
+  SearchContactsCommandOutput
+} from "./commands/SearchContactsCommand";
+import {
+  SearchDevicesCommandInput,
+  SearchDevicesCommandOutput
+} from "./commands/SearchDevicesCommand";
+import {
+  SearchNetworkProfilesCommandInput,
+  SearchNetworkProfilesCommandOutput
+} from "./commands/SearchNetworkProfilesCommand";
+import {
+  SearchProfilesCommandInput,
+  SearchProfilesCommandOutput
+} from "./commands/SearchProfilesCommand";
+import {
+  SearchRoomsCommandInput,
+  SearchRoomsCommandOutput
+} from "./commands/SearchRoomsCommand";
+import {
+  SearchSkillGroupsCommandInput,
+  SearchSkillGroupsCommandOutput
+} from "./commands/SearchSkillGroupsCommand";
+import {
+  SearchUsersCommandInput,
+  SearchUsersCommandOutput
+} from "./commands/SearchUsersCommand";
+import {
+  SendAnnouncementCommandInput,
+  SendAnnouncementCommandOutput
+} from "./commands/SendAnnouncementCommand";
+import {
+  SendInvitationCommandInput,
+  SendInvitationCommandOutput
+} from "./commands/SendInvitationCommand";
+import {
+  StartDeviceSyncCommandInput,
+  StartDeviceSyncCommandOutput
+} from "./commands/StartDeviceSyncCommand";
+import {
+  StartSmartHomeApplianceDiscoveryCommandInput,
+  StartSmartHomeApplianceDiscoveryCommandOutput
+} from "./commands/StartSmartHomeApplianceDiscoveryCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAddressBookCommandInput,
+  UpdateAddressBookCommandOutput
+} from "./commands/UpdateAddressBookCommand";
+import {
+  UpdateBusinessReportScheduleCommandInput,
+  UpdateBusinessReportScheduleCommandOutput
+} from "./commands/UpdateBusinessReportScheduleCommand";
+import {
+  UpdateConferenceProviderCommandInput,
+  UpdateConferenceProviderCommandOutput
+} from "./commands/UpdateConferenceProviderCommand";
+import {
+  UpdateContactCommandInput,
+  UpdateContactCommandOutput
+} from "./commands/UpdateContactCommand";
+import {
+  UpdateDeviceCommandInput,
+  UpdateDeviceCommandOutput
+} from "./commands/UpdateDeviceCommand";
+import {
+  UpdateGatewayCommandInput,
+  UpdateGatewayCommandOutput
+} from "./commands/UpdateGatewayCommand";
+import {
+  UpdateGatewayGroupCommandInput,
+  UpdateGatewayGroupCommandOutput
+} from "./commands/UpdateGatewayGroupCommand";
+import {
+  UpdateNetworkProfileCommandInput,
+  UpdateNetworkProfileCommandOutput
+} from "./commands/UpdateNetworkProfileCommand";
+import {
+  UpdateProfileCommandInput,
+  UpdateProfileCommandOutput
+} from "./commands/UpdateProfileCommand";
+import {
+  UpdateRoomCommandInput,
+  UpdateRoomCommandOutput
+} from "./commands/UpdateRoomCommand";
+import {
+  UpdateSkillGroupCommandInput,
+  UpdateSkillGroupCommandOutput
+} from "./commands/UpdateSkillGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -239,194 +423,194 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | ApproveSkillRequest
-  | AssociateContactWithAddressBookRequest
-  | AssociateDeviceWithNetworkProfileRequest
-  | AssociateDeviceWithRoomRequest
-  | AssociateSkillGroupWithRoomRequest
-  | AssociateSkillWithSkillGroupRequest
-  | AssociateSkillWithUsersRequest
-  | CreateAddressBookRequest
-  | CreateBusinessReportScheduleRequest
-  | CreateConferenceProviderRequest
-  | CreateContactRequest
-  | CreateGatewayGroupRequest
-  | CreateNetworkProfileRequest
-  | CreateProfileRequest
-  | CreateRoomRequest
-  | CreateSkillGroupRequest
-  | CreateUserRequest
-  | DeleteAddressBookRequest
-  | DeleteBusinessReportScheduleRequest
-  | DeleteConferenceProviderRequest
-  | DeleteContactRequest
-  | DeleteDeviceRequest
-  | DeleteDeviceUsageDataRequest
-  | DeleteGatewayGroupRequest
-  | DeleteNetworkProfileRequest
-  | DeleteProfileRequest
-  | DeleteRoomRequest
-  | DeleteRoomSkillParameterRequest
-  | DeleteSkillAuthorizationRequest
-  | DeleteSkillGroupRequest
-  | DeleteUserRequest
-  | DisassociateContactFromAddressBookRequest
-  | DisassociateDeviceFromRoomRequest
-  | DisassociateSkillFromSkillGroupRequest
-  | DisassociateSkillFromUsersRequest
-  | DisassociateSkillGroupFromRoomRequest
-  | ForgetSmartHomeAppliancesRequest
-  | GetAddressBookRequest
-  | GetConferencePreferenceRequest
-  | GetConferenceProviderRequest
-  | GetContactRequest
-  | GetDeviceRequest
-  | GetGatewayGroupRequest
-  | GetGatewayRequest
-  | GetInvitationConfigurationRequest
-  | GetNetworkProfileRequest
-  | GetProfileRequest
-  | GetRoomRequest
-  | GetRoomSkillParameterRequest
-  | GetSkillGroupRequest
-  | ListBusinessReportSchedulesRequest
-  | ListConferenceProvidersRequest
-  | ListDeviceEventsRequest
-  | ListGatewayGroupsRequest
-  | ListGatewaysRequest
-  | ListSkillsRequest
-  | ListSkillsStoreCategoriesRequest
-  | ListSkillsStoreSkillsByCategoryRequest
-  | ListSmartHomeAppliancesRequest
-  | ListTagsRequest
-  | PutConferencePreferenceRequest
-  | PutInvitationConfigurationRequest
-  | PutRoomSkillParameterRequest
-  | PutSkillAuthorizationRequest
-  | RegisterAVSDeviceRequest
-  | RejectSkillRequest
-  | ResolveRoomRequest
-  | RevokeInvitationRequest
-  | SearchAddressBooksRequest
-  | SearchContactsRequest
-  | SearchDevicesRequest
-  | SearchNetworkProfilesRequest
-  | SearchProfilesRequest
-  | SearchRoomsRequest
-  | SearchSkillGroupsRequest
-  | SearchUsersRequest
-  | SendAnnouncementRequest
-  | SendInvitationRequest
-  | StartDeviceSyncRequest
-  | StartSmartHomeApplianceDiscoveryRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAddressBookRequest
-  | UpdateBusinessReportScheduleRequest
-  | UpdateConferenceProviderRequest
-  | UpdateContactRequest
-  | UpdateDeviceRequest
-  | UpdateGatewayGroupRequest
-  | UpdateGatewayRequest
-  | UpdateNetworkProfileRequest
-  | UpdateProfileRequest
-  | UpdateRoomRequest
-  | UpdateSkillGroupRequest;
+  | ApproveSkillCommandInput
+  | AssociateContactWithAddressBookCommandInput
+  | AssociateDeviceWithNetworkProfileCommandInput
+  | AssociateDeviceWithRoomCommandInput
+  | AssociateSkillGroupWithRoomCommandInput
+  | AssociateSkillWithSkillGroupCommandInput
+  | AssociateSkillWithUsersCommandInput
+  | CreateAddressBookCommandInput
+  | CreateBusinessReportScheduleCommandInput
+  | CreateConferenceProviderCommandInput
+  | CreateContactCommandInput
+  | CreateGatewayGroupCommandInput
+  | CreateNetworkProfileCommandInput
+  | CreateProfileCommandInput
+  | CreateRoomCommandInput
+  | CreateSkillGroupCommandInput
+  | CreateUserCommandInput
+  | DeleteAddressBookCommandInput
+  | DeleteBusinessReportScheduleCommandInput
+  | DeleteConferenceProviderCommandInput
+  | DeleteContactCommandInput
+  | DeleteDeviceCommandInput
+  | DeleteDeviceUsageDataCommandInput
+  | DeleteGatewayGroupCommandInput
+  | DeleteNetworkProfileCommandInput
+  | DeleteProfileCommandInput
+  | DeleteRoomCommandInput
+  | DeleteRoomSkillParameterCommandInput
+  | DeleteSkillAuthorizationCommandInput
+  | DeleteSkillGroupCommandInput
+  | DeleteUserCommandInput
+  | DisassociateContactFromAddressBookCommandInput
+  | DisassociateDeviceFromRoomCommandInput
+  | DisassociateSkillFromSkillGroupCommandInput
+  | DisassociateSkillFromUsersCommandInput
+  | DisassociateSkillGroupFromRoomCommandInput
+  | ForgetSmartHomeAppliancesCommandInput
+  | GetAddressBookCommandInput
+  | GetConferencePreferenceCommandInput
+  | GetConferenceProviderCommandInput
+  | GetContactCommandInput
+  | GetDeviceCommandInput
+  | GetGatewayCommandInput
+  | GetGatewayGroupCommandInput
+  | GetInvitationConfigurationCommandInput
+  | GetNetworkProfileCommandInput
+  | GetProfileCommandInput
+  | GetRoomCommandInput
+  | GetRoomSkillParameterCommandInput
+  | GetSkillGroupCommandInput
+  | ListBusinessReportSchedulesCommandInput
+  | ListConferenceProvidersCommandInput
+  | ListDeviceEventsCommandInput
+  | ListGatewayGroupsCommandInput
+  | ListGatewaysCommandInput
+  | ListSkillsCommandInput
+  | ListSkillsStoreCategoriesCommandInput
+  | ListSkillsStoreSkillsByCategoryCommandInput
+  | ListSmartHomeAppliancesCommandInput
+  | ListTagsCommandInput
+  | PutConferencePreferenceCommandInput
+  | PutInvitationConfigurationCommandInput
+  | PutRoomSkillParameterCommandInput
+  | PutSkillAuthorizationCommandInput
+  | RegisterAVSDeviceCommandInput
+  | RejectSkillCommandInput
+  | ResolveRoomCommandInput
+  | RevokeInvitationCommandInput
+  | SearchAddressBooksCommandInput
+  | SearchContactsCommandInput
+  | SearchDevicesCommandInput
+  | SearchNetworkProfilesCommandInput
+  | SearchProfilesCommandInput
+  | SearchRoomsCommandInput
+  | SearchSkillGroupsCommandInput
+  | SearchUsersCommandInput
+  | SendAnnouncementCommandInput
+  | SendInvitationCommandInput
+  | StartDeviceSyncCommandInput
+  | StartSmartHomeApplianceDiscoveryCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAddressBookCommandInput
+  | UpdateBusinessReportScheduleCommandInput
+  | UpdateConferenceProviderCommandInput
+  | UpdateContactCommandInput
+  | UpdateDeviceCommandInput
+  | UpdateGatewayCommandInput
+  | UpdateGatewayGroupCommandInput
+  | UpdateNetworkProfileCommandInput
+  | UpdateProfileCommandInput
+  | UpdateRoomCommandInput
+  | UpdateSkillGroupCommandInput;
 
 export type ServiceOutputTypes =
-  | ApproveSkillResponse
-  | AssociateContactWithAddressBookResponse
-  | AssociateDeviceWithNetworkProfileResponse
-  | AssociateDeviceWithRoomResponse
-  | AssociateSkillGroupWithRoomResponse
-  | AssociateSkillWithSkillGroupResponse
-  | AssociateSkillWithUsersResponse
-  | CreateAddressBookResponse
-  | CreateBusinessReportScheduleResponse
-  | CreateConferenceProviderResponse
-  | CreateContactResponse
-  | CreateGatewayGroupResponse
-  | CreateNetworkProfileResponse
-  | CreateProfileResponse
-  | CreateRoomResponse
-  | CreateSkillGroupResponse
-  | CreateUserResponse
-  | DeleteAddressBookResponse
-  | DeleteBusinessReportScheduleResponse
-  | DeleteConferenceProviderResponse
-  | DeleteContactResponse
-  | DeleteDeviceResponse
-  | DeleteDeviceUsageDataResponse
-  | DeleteGatewayGroupResponse
-  | DeleteNetworkProfileResponse
-  | DeleteProfileResponse
-  | DeleteRoomResponse
-  | DeleteRoomSkillParameterResponse
-  | DeleteSkillAuthorizationResponse
-  | DeleteSkillGroupResponse
-  | DeleteUserResponse
-  | DisassociateContactFromAddressBookResponse
-  | DisassociateDeviceFromRoomResponse
-  | DisassociateSkillFromSkillGroupResponse
-  | DisassociateSkillFromUsersResponse
-  | DisassociateSkillGroupFromRoomResponse
-  | ForgetSmartHomeAppliancesResponse
-  | GetAddressBookResponse
-  | GetConferencePreferenceResponse
-  | GetConferenceProviderResponse
-  | GetContactResponse
-  | GetDeviceResponse
-  | GetGatewayGroupResponse
-  | GetGatewayResponse
-  | GetInvitationConfigurationResponse
-  | GetNetworkProfileResponse
-  | GetProfileResponse
-  | GetRoomResponse
-  | GetRoomSkillParameterResponse
-  | GetSkillGroupResponse
-  | ListBusinessReportSchedulesResponse
-  | ListConferenceProvidersResponse
-  | ListDeviceEventsResponse
-  | ListGatewayGroupsResponse
-  | ListGatewaysResponse
-  | ListSkillsResponse
-  | ListSkillsStoreCategoriesResponse
-  | ListSkillsStoreSkillsByCategoryResponse
-  | ListSmartHomeAppliancesResponse
-  | ListTagsResponse
-  | PutConferencePreferenceResponse
-  | PutInvitationConfigurationResponse
-  | PutRoomSkillParameterResponse
-  | PutSkillAuthorizationResponse
-  | RegisterAVSDeviceResponse
-  | RejectSkillResponse
-  | ResolveRoomResponse
-  | RevokeInvitationResponse
-  | SearchAddressBooksResponse
-  | SearchContactsResponse
-  | SearchDevicesResponse
-  | SearchNetworkProfilesResponse
-  | SearchProfilesResponse
-  | SearchRoomsResponse
-  | SearchSkillGroupsResponse
-  | SearchUsersResponse
-  | SendAnnouncementResponse
-  | SendInvitationResponse
-  | StartDeviceSyncResponse
-  | StartSmartHomeApplianceDiscoveryResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateAddressBookResponse
-  | UpdateBusinessReportScheduleResponse
-  | UpdateConferenceProviderResponse
-  | UpdateContactResponse
-  | UpdateDeviceResponse
-  | UpdateGatewayGroupResponse
-  | UpdateGatewayResponse
-  | UpdateNetworkProfileResponse
-  | UpdateProfileResponse
-  | UpdateRoomResponse
-  | UpdateSkillGroupResponse;
+  | ApproveSkillCommandOutput
+  | AssociateContactWithAddressBookCommandOutput
+  | AssociateDeviceWithNetworkProfileCommandOutput
+  | AssociateDeviceWithRoomCommandOutput
+  | AssociateSkillGroupWithRoomCommandOutput
+  | AssociateSkillWithSkillGroupCommandOutput
+  | AssociateSkillWithUsersCommandOutput
+  | CreateAddressBookCommandOutput
+  | CreateBusinessReportScheduleCommandOutput
+  | CreateConferenceProviderCommandOutput
+  | CreateContactCommandOutput
+  | CreateGatewayGroupCommandOutput
+  | CreateNetworkProfileCommandOutput
+  | CreateProfileCommandOutput
+  | CreateRoomCommandOutput
+  | CreateSkillGroupCommandOutput
+  | CreateUserCommandOutput
+  | DeleteAddressBookCommandOutput
+  | DeleteBusinessReportScheduleCommandOutput
+  | DeleteConferenceProviderCommandOutput
+  | DeleteContactCommandOutput
+  | DeleteDeviceCommandOutput
+  | DeleteDeviceUsageDataCommandOutput
+  | DeleteGatewayGroupCommandOutput
+  | DeleteNetworkProfileCommandOutput
+  | DeleteProfileCommandOutput
+  | DeleteRoomCommandOutput
+  | DeleteRoomSkillParameterCommandOutput
+  | DeleteSkillAuthorizationCommandOutput
+  | DeleteSkillGroupCommandOutput
+  | DeleteUserCommandOutput
+  | DisassociateContactFromAddressBookCommandOutput
+  | DisassociateDeviceFromRoomCommandOutput
+  | DisassociateSkillFromSkillGroupCommandOutput
+  | DisassociateSkillFromUsersCommandOutput
+  | DisassociateSkillGroupFromRoomCommandOutput
+  | ForgetSmartHomeAppliancesCommandOutput
+  | GetAddressBookCommandOutput
+  | GetConferencePreferenceCommandOutput
+  | GetConferenceProviderCommandOutput
+  | GetContactCommandOutput
+  | GetDeviceCommandOutput
+  | GetGatewayCommandOutput
+  | GetGatewayGroupCommandOutput
+  | GetInvitationConfigurationCommandOutput
+  | GetNetworkProfileCommandOutput
+  | GetProfileCommandOutput
+  | GetRoomCommandOutput
+  | GetRoomSkillParameterCommandOutput
+  | GetSkillGroupCommandOutput
+  | ListBusinessReportSchedulesCommandOutput
+  | ListConferenceProvidersCommandOutput
+  | ListDeviceEventsCommandOutput
+  | ListGatewayGroupsCommandOutput
+  | ListGatewaysCommandOutput
+  | ListSkillsCommandOutput
+  | ListSkillsStoreCategoriesCommandOutput
+  | ListSkillsStoreSkillsByCategoryCommandOutput
+  | ListSmartHomeAppliancesCommandOutput
+  | ListTagsCommandOutput
+  | PutConferencePreferenceCommandOutput
+  | PutInvitationConfigurationCommandOutput
+  | PutRoomSkillParameterCommandOutput
+  | PutSkillAuthorizationCommandOutput
+  | RegisterAVSDeviceCommandOutput
+  | RejectSkillCommandOutput
+  | ResolveRoomCommandOutput
+  | RevokeInvitationCommandOutput
+  | SearchAddressBooksCommandOutput
+  | SearchContactsCommandOutput
+  | SearchDevicesCommandOutput
+  | SearchNetworkProfilesCommandOutput
+  | SearchProfilesCommandOutput
+  | SearchRoomsCommandOutput
+  | SearchSkillGroupsCommandOutput
+  | SearchUsersCommandOutput
+  | SendAnnouncementCommandOutput
+  | SendInvitationCommandOutput
+  | StartDeviceSyncCommandOutput
+  | StartSmartHomeApplianceDiscoveryCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAddressBookCommandOutput
+  | UpdateBusinessReportScheduleCommandOutput
+  | UpdateConferenceProviderCommandOutput
+  | UpdateContactCommandOutput
+  | UpdateDeviceCommandOutput
+  | UpdateGatewayCommandOutput
+  | UpdateGatewayGroupCommandOutput
+  | UpdateNetworkProfileCommandOutput
+  | UpdateProfileCommandOutput
+  | UpdateRoomCommandOutput
+  | UpdateSkillGroupCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

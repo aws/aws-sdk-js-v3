@@ -32,7 +32,7 @@ export namespace AssociateEntityToThingRequest {
   }
 }
 
-export interface AssociateEntityToThingResponse extends $MetadataBearer {
+export interface AssociateEntityToThingResponse {
   __type?: "AssociateEntityToThingResponse";
 }
 
@@ -62,7 +62,7 @@ export namespace CreateFlowTemplateRequest {
   }
 }
 
-export interface CreateFlowTemplateResponse extends $MetadataBearer {
+export interface CreateFlowTemplateResponse {
   __type?: "CreateFlowTemplateResponse";
   /**
    * <p>The summary object that describes the created workflow.</p>
@@ -124,7 +124,7 @@ export namespace CreateSystemInstanceRequest {
   }
 }
 
-export interface CreateSystemInstanceResponse extends $MetadataBearer {
+export interface CreateSystemInstanceResponse {
   __type?: "CreateSystemInstanceResponse";
   /**
    * <p>The summary object that describes the new system instance.</p>
@@ -158,7 +158,7 @@ export namespace CreateSystemTemplateRequest {
   }
 }
 
-export interface CreateSystemTemplateResponse extends $MetadataBearer {
+export interface CreateSystemTemplateResponse {
   __type?: "CreateSystemTemplateResponse";
   /**
    * <p>The summary object that describes the created system.</p>
@@ -190,7 +190,7 @@ export namespace DeleteFlowTemplateRequest {
   }
 }
 
-export interface DeleteFlowTemplateResponse extends $MetadataBearer {
+export interface DeleteFlowTemplateResponse {
   __type?: "DeleteFlowTemplateResponse";
 }
 
@@ -210,7 +210,7 @@ export namespace DeleteNamespaceRequest {
   }
 }
 
-export interface DeleteNamespaceResponse extends $MetadataBearer {
+export interface DeleteNamespaceResponse {
   __type?: "DeleteNamespaceResponse";
   /**
    * <p>The ARN of the namespace to be deleted.</p>
@@ -243,7 +243,7 @@ export namespace DeleteSystemInstanceRequest {
   }
 }
 
-export interface DeleteSystemInstanceResponse extends $MetadataBearer {
+export interface DeleteSystemInstanceResponse {
   __type?: "DeleteSystemInstanceResponse";
 }
 
@@ -271,7 +271,7 @@ export namespace DeleteSystemTemplateRequest {
   }
 }
 
-export interface DeleteSystemTemplateResponse extends $MetadataBearer {
+export interface DeleteSystemTemplateResponse {
   __type?: "DeleteSystemTemplateResponse";
 }
 
@@ -299,7 +299,7 @@ export namespace DeploySystemInstanceRequest {
   }
 }
 
-export interface DeploySystemInstanceResponse extends $MetadataBearer {
+export interface DeploySystemInstanceResponse {
   __type?: "DeploySystemInstanceResponse";
   /**
    * <p>The ID of the Greengrass deployment used to deploy the system instance.</p>
@@ -336,7 +336,7 @@ export namespace DeprecateFlowTemplateRequest {
   }
 }
 
-export interface DeprecateFlowTemplateResponse extends $MetadataBearer {
+export interface DeprecateFlowTemplateResponse {
   __type?: "DeprecateFlowTemplateResponse";
 }
 
@@ -364,7 +364,7 @@ export namespace DeprecateSystemTemplateRequest {
   }
 }
 
-export interface DeprecateSystemTemplateResponse extends $MetadataBearer {
+export interface DeprecateSystemTemplateResponse {
   __type?: "DeprecateSystemTemplateResponse";
 }
 
@@ -388,7 +388,7 @@ export namespace DescribeNamespaceRequest {
   }
 }
 
-export interface DescribeNamespaceResponse extends $MetadataBearer {
+export interface DescribeNamespaceResponse {
   __type?: "DescribeNamespaceResponse";
   /**
    * <p>The ARN of the namespace.</p>
@@ -441,7 +441,7 @@ export namespace DissociateEntityFromThingRequest {
   }
 }
 
-export interface DissociateEntityFromThingResponse extends $MetadataBearer {
+export interface DissociateEntityFromThingResponse {
   __type?: "DissociateEntityFromThingResponse";
 }
 
@@ -474,7 +474,7 @@ export namespace GetEntitiesRequest {
   }
 }
 
-export interface GetEntitiesResponse extends $MetadataBearer {
+export interface GetEntitiesResponse {
   __type?: "GetEntitiesResponse";
   /**
    * <p>An array of descriptions for the specified entities.</p>
@@ -511,7 +511,7 @@ export namespace GetFlowTemplateRequest {
   }
 }
 
-export interface GetFlowTemplateResponse extends $MetadataBearer {
+export interface GetFlowTemplateResponse {
   __type?: "GetFlowTemplateResponse";
   /**
    * <p>The object that describes the specified workflow.</p>
@@ -553,7 +553,7 @@ export namespace GetFlowTemplateRevisionsRequest {
   }
 }
 
-export interface GetFlowTemplateRevisionsResponse extends $MetadataBearer {
+export interface GetFlowTemplateRevisionsResponse {
   __type?: "GetFlowTemplateRevisionsResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
@@ -582,7 +582,7 @@ export namespace GetNamespaceDeletionStatusRequest {
   }
 }
 
-export interface GetNamespaceDeletionStatusResponse extends $MetadataBearer {
+export interface GetNamespaceDeletionStatusResponse {
   __type?: "GetNamespaceDeletionStatusResponse";
   /**
    * <p>An error code returned by the namespace deletion task.</p>
@@ -634,7 +634,7 @@ export namespace GetSystemInstanceRequest {
   }
 }
 
-export interface GetSystemInstanceResponse extends $MetadataBearer {
+export interface GetSystemInstanceResponse {
   __type?: "GetSystemInstanceResponse";
   /**
    * <p>An object that describes the system instance.</p>
@@ -671,7 +671,7 @@ export namespace GetSystemTemplateRequest {
   }
 }
 
-export interface GetSystemTemplateResponse extends $MetadataBearer {
+export interface GetSystemTemplateResponse {
   __type?: "GetSystemTemplateResponse";
   /**
    * <p>An object that contains summary data about the system.</p>
@@ -713,7 +713,7 @@ export namespace GetSystemTemplateRevisionsRequest {
   }
 }
 
-export interface GetSystemTemplateRevisionsResponse extends $MetadataBearer {
+export interface GetSystemTemplateRevisionsResponse {
   __type?: "GetSystemTemplateRevisionsResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
@@ -746,7 +746,7 @@ export namespace GetUploadStatusRequest {
   }
 }
 
-export interface GetUploadStatusResponse extends $MetadataBearer {
+export interface GetUploadStatusResponse {
   __type?: "GetUploadStatusResponse";
   /**
    * <p>The date at which the upload was created.</p>
@@ -814,7 +814,7 @@ export namespace ListFlowExecutionMessagesRequest {
   }
 }
 
-export interface ListFlowExecutionMessagesResponse extends $MetadataBearer {
+export interface ListFlowExecutionMessagesResponse {
   __type?: "ListFlowExecutionMessagesResponse";
   /**
    * <p>A list of objects that contain information about events in the specified flow execution.</p>
@@ -857,7 +857,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The token that specifies the next page of results to return.</p>
@@ -914,7 +914,7 @@ export namespace SearchEntitiesRequest {
   }
 }
 
-export interface SearchEntitiesResponse extends $MetadataBearer {
+export interface SearchEntitiesResponse {
   __type?: "SearchEntitiesResponse";
   /**
    * <p>An array of descriptions for each entity returned in the search result.</p>
@@ -972,7 +972,7 @@ export namespace SearchFlowExecutionsRequest {
   }
 }
 
-export interface SearchFlowExecutionsResponse extends $MetadataBearer {
+export interface SearchFlowExecutionsResponse {
   __type?: "SearchFlowExecutionsResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
@@ -1015,7 +1015,7 @@ export namespace SearchFlowTemplatesRequest {
   }
 }
 
-export interface SearchFlowTemplatesResponse extends $MetadataBearer {
+export interface SearchFlowTemplatesResponse {
   __type?: "SearchFlowTemplatesResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
@@ -1060,7 +1060,7 @@ export namespace SearchSystemInstancesRequest {
   }
 }
 
-export interface SearchSystemInstancesResponse extends $MetadataBearer {
+export interface SearchSystemInstancesResponse {
   __type?: "SearchSystemInstancesResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
@@ -1103,7 +1103,7 @@ export namespace SearchSystemTemplatesRequest {
   }
 }
 
-export interface SearchSystemTemplatesResponse extends $MetadataBearer {
+export interface SearchSystemTemplatesResponse {
   __type?: "SearchSystemTemplatesResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
@@ -1155,7 +1155,7 @@ export namespace SearchThingsRequest {
   }
 }
 
-export interface SearchThingsResponse extends $MetadataBearer {
+export interface SearchThingsResponse {
   __type?: "SearchThingsResponse";
   /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
@@ -1193,7 +1193,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1217,7 +1217,7 @@ export namespace UndeploySystemInstanceRequest {
   }
 }
 
-export interface UndeploySystemInstanceResponse extends $MetadataBearer {
+export interface UndeploySystemInstanceResponse {
   __type?: "UndeploySystemInstanceResponse";
   /**
    * <p>An object that contains summary information about the system instance that was removed from its target.</p>
@@ -1251,7 +1251,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1291,7 +1291,7 @@ export namespace UpdateFlowTemplateRequest {
   }
 }
 
-export interface UpdateFlowTemplateResponse extends $MetadataBearer {
+export interface UpdateFlowTemplateResponse {
   __type?: "UpdateFlowTemplateResponse";
   /**
    * <p>An object containing summary information about the updated workflow.</p>
@@ -1334,7 +1334,7 @@ export namespace UpdateSystemTemplateRequest {
   }
 }
 
-export interface UpdateSystemTemplateResponse extends $MetadataBearer {
+export interface UpdateSystemTemplateResponse {
   __type?: "UpdateSystemTemplateResponse";
   /**
    * <p>An object containing summary information about the updated system.</p>
@@ -1373,7 +1373,7 @@ export namespace UploadEntityDefinitionsRequest {
   }
 }
 
-export interface UploadEntityDefinitionsResponse extends $MetadataBearer {
+export interface UploadEntityDefinitionsResponse {
   __type?: "UploadEntityDefinitionsResponse";
   /**
    * <p>The ID that specifies the upload action. You can use this to track the status of the upload.</p>

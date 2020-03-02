@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListTestGridProjectsCommandInput = ListTestGridProjectsRequest;
-export type ListTestGridProjectsCommandOutput = ListTestGridProjectsResult;
+export type ListTestGridProjectsCommandOutput = ListTestGridProjectsResult &
+  __MetadataBearer;
 
 export class ListTestGridProjectsCommand extends $Command<
   ListTestGridProjectsCommandInput,

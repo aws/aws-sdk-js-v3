@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RevokeDBSecurityGroupIngressCommandInput = RevokeDBSecurityGroupIngressMessage;
-export type RevokeDBSecurityGroupIngressCommandOutput = RevokeDBSecurityGroupIngressResult;
+export type RevokeDBSecurityGroupIngressCommandOutput = RevokeDBSecurityGroupIngressResult &
+  __MetadataBearer;
 
 export class RevokeDBSecurityGroupIngressCommand extends $Command<
   RevokeDBSecurityGroupIngressCommandInput,

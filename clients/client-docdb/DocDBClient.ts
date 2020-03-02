@@ -1,84 +1,171 @@
 import {
-  AddTagsToResourceMessage,
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionResult,
-  CertificateMessage,
-  CopyDBClusterParameterGroupMessage,
-  CopyDBClusterParameterGroupResult,
-  CopyDBClusterSnapshotMessage,
-  CopyDBClusterSnapshotResult,
-  CreateDBClusterMessage,
-  CreateDBClusterParameterGroupMessage,
-  CreateDBClusterParameterGroupResult,
-  CreateDBClusterResult,
-  CreateDBClusterSnapshotMessage,
-  CreateDBClusterSnapshotResult,
-  CreateDBInstanceMessage,
-  CreateDBInstanceResult,
-  CreateDBSubnetGroupMessage,
-  CreateDBSubnetGroupResult,
-  DBClusterMessage,
-  DBClusterParameterGroupDetails,
-  DBClusterParameterGroupNameMessage,
-  DBClusterParameterGroupsMessage,
-  DBClusterSnapshotMessage,
-  DBEngineVersionMessage,
-  DBInstanceMessage,
-  DBSubnetGroupMessage,
-  DeleteDBClusterMessage,
-  DeleteDBClusterParameterGroupMessage,
-  DeleteDBClusterResult,
-  DeleteDBClusterSnapshotMessage,
-  DeleteDBClusterSnapshotResult,
-  DeleteDBInstanceMessage,
-  DeleteDBInstanceResult,
-  DeleteDBSubnetGroupMessage,
-  DescribeCertificatesMessage,
-  DescribeDBClusterParameterGroupsMessage,
-  DescribeDBClusterParametersMessage,
-  DescribeDBClusterSnapshotAttributesMessage,
-  DescribeDBClusterSnapshotAttributesResult,
-  DescribeDBClusterSnapshotsMessage,
-  DescribeDBClustersMessage,
-  DescribeDBEngineVersionsMessage,
-  DescribeDBInstancesMessage,
-  DescribeDBSubnetGroupsMessage,
-  DescribeEngineDefaultClusterParametersMessage,
-  DescribeEngineDefaultClusterParametersResult,
-  DescribeEventCategoriesMessage,
-  DescribeEventsMessage,
-  DescribeOrderableDBInstanceOptionsMessage,
-  DescribePendingMaintenanceActionsMessage,
-  EventCategoriesMessage,
-  EventsMessage,
-  FailoverDBClusterMessage,
-  FailoverDBClusterResult,
-  ListTagsForResourceMessage,
-  ModifyDBClusterMessage,
-  ModifyDBClusterParameterGroupMessage,
-  ModifyDBClusterResult,
-  ModifyDBClusterSnapshotAttributeMessage,
-  ModifyDBClusterSnapshotAttributeResult,
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceResult,
-  ModifyDBSubnetGroupMessage,
-  ModifyDBSubnetGroupResult,
-  OrderableDBInstanceOptionsMessage,
-  PendingMaintenanceActionsMessage,
-  RebootDBInstanceMessage,
-  RebootDBInstanceResult,
-  RemoveTagsFromResourceMessage,
-  ResetDBClusterParameterGroupMessage,
-  RestoreDBClusterFromSnapshotMessage,
-  RestoreDBClusterFromSnapshotResult,
-  RestoreDBClusterToPointInTimeMessage,
-  RestoreDBClusterToPointInTimeResult,
-  StartDBClusterMessage,
-  StartDBClusterResult,
-  StopDBClusterMessage,
-  StopDBClusterResult,
-  TagListMessage
-} from "./models/index";
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  ApplyPendingMaintenanceActionCommandInput,
+  ApplyPendingMaintenanceActionCommandOutput
+} from "./commands/ApplyPendingMaintenanceActionCommand";
+import {
+  CopyDBClusterParameterGroupCommandInput,
+  CopyDBClusterParameterGroupCommandOutput
+} from "./commands/CopyDBClusterParameterGroupCommand";
+import {
+  CopyDBClusterSnapshotCommandInput,
+  CopyDBClusterSnapshotCommandOutput
+} from "./commands/CopyDBClusterSnapshotCommand";
+import {
+  CreateDBClusterCommandInput,
+  CreateDBClusterCommandOutput
+} from "./commands/CreateDBClusterCommand";
+import {
+  CreateDBClusterParameterGroupCommandInput,
+  CreateDBClusterParameterGroupCommandOutput
+} from "./commands/CreateDBClusterParameterGroupCommand";
+import {
+  CreateDBClusterSnapshotCommandInput,
+  CreateDBClusterSnapshotCommandOutput
+} from "./commands/CreateDBClusterSnapshotCommand";
+import {
+  CreateDBInstanceCommandInput,
+  CreateDBInstanceCommandOutput
+} from "./commands/CreateDBInstanceCommand";
+import {
+  CreateDBSubnetGroupCommandInput,
+  CreateDBSubnetGroupCommandOutput
+} from "./commands/CreateDBSubnetGroupCommand";
+import {
+  DeleteDBClusterCommandInput,
+  DeleteDBClusterCommandOutput
+} from "./commands/DeleteDBClusterCommand";
+import {
+  DeleteDBClusterParameterGroupCommandInput,
+  DeleteDBClusterParameterGroupCommandOutput
+} from "./commands/DeleteDBClusterParameterGroupCommand";
+import {
+  DeleteDBClusterSnapshotCommandInput,
+  DeleteDBClusterSnapshotCommandOutput
+} from "./commands/DeleteDBClusterSnapshotCommand";
+import {
+  DeleteDBInstanceCommandInput,
+  DeleteDBInstanceCommandOutput
+} from "./commands/DeleteDBInstanceCommand";
+import {
+  DeleteDBSubnetGroupCommandInput,
+  DeleteDBSubnetGroupCommandOutput
+} from "./commands/DeleteDBSubnetGroupCommand";
+import {
+  DescribeCertificatesCommandInput,
+  DescribeCertificatesCommandOutput
+} from "./commands/DescribeCertificatesCommand";
+import {
+  DescribeDBClusterParameterGroupsCommandInput,
+  DescribeDBClusterParameterGroupsCommandOutput
+} from "./commands/DescribeDBClusterParameterGroupsCommand";
+import {
+  DescribeDBClusterParametersCommandInput,
+  DescribeDBClusterParametersCommandOutput
+} from "./commands/DescribeDBClusterParametersCommand";
+import {
+  DescribeDBClusterSnapshotAttributesCommandInput,
+  DescribeDBClusterSnapshotAttributesCommandOutput
+} from "./commands/DescribeDBClusterSnapshotAttributesCommand";
+import {
+  DescribeDBClusterSnapshotsCommandInput,
+  DescribeDBClusterSnapshotsCommandOutput
+} from "./commands/DescribeDBClusterSnapshotsCommand";
+import {
+  DescribeDBClustersCommandInput,
+  DescribeDBClustersCommandOutput
+} from "./commands/DescribeDBClustersCommand";
+import {
+  DescribeDBEngineVersionsCommandInput,
+  DescribeDBEngineVersionsCommandOutput
+} from "./commands/DescribeDBEngineVersionsCommand";
+import {
+  DescribeDBInstancesCommandInput,
+  DescribeDBInstancesCommandOutput
+} from "./commands/DescribeDBInstancesCommand";
+import {
+  DescribeDBSubnetGroupsCommandInput,
+  DescribeDBSubnetGroupsCommandOutput
+} from "./commands/DescribeDBSubnetGroupsCommand";
+import {
+  DescribeEngineDefaultClusterParametersCommandInput,
+  DescribeEngineDefaultClusterParametersCommandOutput
+} from "./commands/DescribeEngineDefaultClusterParametersCommand";
+import {
+  DescribeEventCategoriesCommandInput,
+  DescribeEventCategoriesCommandOutput
+} from "./commands/DescribeEventCategoriesCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeOrderableDBInstanceOptionsCommandInput,
+  DescribeOrderableDBInstanceOptionsCommandOutput
+} from "./commands/DescribeOrderableDBInstanceOptionsCommand";
+import {
+  DescribePendingMaintenanceActionsCommandInput,
+  DescribePendingMaintenanceActionsCommandOutput
+} from "./commands/DescribePendingMaintenanceActionsCommand";
+import {
+  FailoverDBClusterCommandInput,
+  FailoverDBClusterCommandOutput
+} from "./commands/FailoverDBClusterCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyDBClusterCommandInput,
+  ModifyDBClusterCommandOutput
+} from "./commands/ModifyDBClusterCommand";
+import {
+  ModifyDBClusterParameterGroupCommandInput,
+  ModifyDBClusterParameterGroupCommandOutput
+} from "./commands/ModifyDBClusterParameterGroupCommand";
+import {
+  ModifyDBClusterSnapshotAttributeCommandInput,
+  ModifyDBClusterSnapshotAttributeCommandOutput
+} from "./commands/ModifyDBClusterSnapshotAttributeCommand";
+import {
+  ModifyDBInstanceCommandInput,
+  ModifyDBInstanceCommandOutput
+} from "./commands/ModifyDBInstanceCommand";
+import {
+  ModifyDBSubnetGroupCommandInput,
+  ModifyDBSubnetGroupCommandOutput
+} from "./commands/ModifyDBSubnetGroupCommand";
+import {
+  RebootDBInstanceCommandInput,
+  RebootDBInstanceCommandOutput
+} from "./commands/RebootDBInstanceCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
+import {
+  ResetDBClusterParameterGroupCommandInput,
+  ResetDBClusterParameterGroupCommandOutput
+} from "./commands/ResetDBClusterParameterGroupCommand";
+import {
+  RestoreDBClusterFromSnapshotCommandInput,
+  RestoreDBClusterFromSnapshotCommandOutput
+} from "./commands/RestoreDBClusterFromSnapshotCommand";
+import {
+  RestoreDBClusterToPointInTimeCommandInput,
+  RestoreDBClusterToPointInTimeCommandOutput
+} from "./commands/RestoreDBClusterToPointInTimeCommand";
+import {
+  StartDBClusterCommandInput,
+  StartDBClusterCommandOutput
+} from "./commands/StartDBClusterCommand";
+import {
+  StopDBClusterCommandInput,
+  StopDBClusterCommandOutput
+} from "./commands/StopDBClusterCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -126,96 +213,98 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToResourceMessage
-  | ApplyPendingMaintenanceActionMessage
-  | CopyDBClusterParameterGroupMessage
-  | CopyDBClusterSnapshotMessage
-  | CreateDBClusterMessage
-  | CreateDBClusterParameterGroupMessage
-  | CreateDBClusterSnapshotMessage
-  | CreateDBInstanceMessage
-  | CreateDBSubnetGroupMessage
-  | DeleteDBClusterMessage
-  | DeleteDBClusterParameterGroupMessage
-  | DeleteDBClusterSnapshotMessage
-  | DeleteDBInstanceMessage
-  | DeleteDBSubnetGroupMessage
-  | DescribeCertificatesMessage
-  | DescribeDBClusterParameterGroupsMessage
-  | DescribeDBClusterParametersMessage
-  | DescribeDBClusterSnapshotAttributesMessage
-  | DescribeDBClusterSnapshotsMessage
-  | DescribeDBClustersMessage
-  | DescribeDBEngineVersionsMessage
-  | DescribeDBInstancesMessage
-  | DescribeDBSubnetGroupsMessage
-  | DescribeEngineDefaultClusterParametersMessage
-  | DescribeEventCategoriesMessage
-  | DescribeEventsMessage
-  | DescribeOrderableDBInstanceOptionsMessage
-  | DescribePendingMaintenanceActionsMessage
-  | FailoverDBClusterMessage
-  | ListTagsForResourceMessage
-  | ModifyDBClusterMessage
-  | ModifyDBClusterParameterGroupMessage
-  | ModifyDBClusterSnapshotAttributeMessage
-  | ModifyDBInstanceMessage
-  | ModifyDBSubnetGroupMessage
-  | RebootDBInstanceMessage
-  | RemoveTagsFromResourceMessage
-  | ResetDBClusterParameterGroupMessage
-  | RestoreDBClusterFromSnapshotMessage
-  | RestoreDBClusterToPointInTimeMessage
-  | StartDBClusterMessage
-  | StopDBClusterMessage;
+  | AddTagsToResourceCommandInput
+  | ApplyPendingMaintenanceActionCommandInput
+  | CopyDBClusterParameterGroupCommandInput
+  | CopyDBClusterSnapshotCommandInput
+  | CreateDBClusterCommandInput
+  | CreateDBClusterParameterGroupCommandInput
+  | CreateDBClusterSnapshotCommandInput
+  | CreateDBInstanceCommandInput
+  | CreateDBSubnetGroupCommandInput
+  | DeleteDBClusterCommandInput
+  | DeleteDBClusterParameterGroupCommandInput
+  | DeleteDBClusterSnapshotCommandInput
+  | DeleteDBInstanceCommandInput
+  | DeleteDBSubnetGroupCommandInput
+  | DescribeCertificatesCommandInput
+  | DescribeDBClusterParameterGroupsCommandInput
+  | DescribeDBClusterParametersCommandInput
+  | DescribeDBClusterSnapshotAttributesCommandInput
+  | DescribeDBClusterSnapshotsCommandInput
+  | DescribeDBClustersCommandInput
+  | DescribeDBEngineVersionsCommandInput
+  | DescribeDBInstancesCommandInput
+  | DescribeDBSubnetGroupsCommandInput
+  | DescribeEngineDefaultClusterParametersCommandInput
+  | DescribeEventCategoriesCommandInput
+  | DescribeEventsCommandInput
+  | DescribeOrderableDBInstanceOptionsCommandInput
+  | DescribePendingMaintenanceActionsCommandInput
+  | FailoverDBClusterCommandInput
+  | ListTagsForResourceCommandInput
+  | ModifyDBClusterCommandInput
+  | ModifyDBClusterParameterGroupCommandInput
+  | ModifyDBClusterSnapshotAttributeCommandInput
+  | ModifyDBInstanceCommandInput
+  | ModifyDBSubnetGroupCommandInput
+  | RebootDBInstanceCommandInput
+  | RemoveTagsFromResourceCommandInput
+  | ResetDBClusterParameterGroupCommandInput
+  | RestoreDBClusterFromSnapshotCommandInput
+  | RestoreDBClusterToPointInTimeCommandInput
+  | StartDBClusterCommandInput
+  | StopDBClusterCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | ApplyPendingMaintenanceActionResult
-  | CertificateMessage
-  | CopyDBClusterParameterGroupResult
-  | CopyDBClusterSnapshotResult
-  | CreateDBClusterParameterGroupResult
-  | CreateDBClusterResult
-  | CreateDBClusterSnapshotResult
-  | CreateDBInstanceResult
-  | CreateDBSubnetGroupResult
-  | DBClusterMessage
-  | DBClusterParameterGroupDetails
-  | DBClusterParameterGroupNameMessage
-  | DBClusterParameterGroupNameMessage
-  | DBClusterParameterGroupsMessage
-  | DBClusterSnapshotMessage
-  | DBEngineVersionMessage
-  | DBInstanceMessage
-  | DBSubnetGroupMessage
-  | DeleteDBClusterResult
-  | DeleteDBClusterSnapshotResult
-  | DeleteDBInstanceResult
-  | DescribeDBClusterSnapshotAttributesResult
-  | DescribeEngineDefaultClusterParametersResult
-  | EventCategoriesMessage
-  | EventsMessage
-  | FailoverDBClusterResult
-  | ModifyDBClusterResult
-  | ModifyDBClusterSnapshotAttributeResult
-  | ModifyDBInstanceResult
-  | ModifyDBSubnetGroupResult
-  | OrderableDBInstanceOptionsMessage
-  | PendingMaintenanceActionsMessage
-  | RebootDBInstanceResult
-  | RestoreDBClusterFromSnapshotResult
-  | RestoreDBClusterToPointInTimeResult
-  | StartDBClusterResult
-  | StopDBClusterResult
-  | TagListMessage;
+  | AddTagsToResourceCommandOutput
+  | ApplyPendingMaintenanceActionCommandOutput
+  | CopyDBClusterParameterGroupCommandOutput
+  | CopyDBClusterSnapshotCommandOutput
+  | CreateDBClusterCommandOutput
+  | CreateDBClusterParameterGroupCommandOutput
+  | CreateDBClusterSnapshotCommandOutput
+  | CreateDBInstanceCommandOutput
+  | CreateDBSubnetGroupCommandOutput
+  | DeleteDBClusterCommandOutput
+  | DeleteDBClusterParameterGroupCommandOutput
+  | DeleteDBClusterSnapshotCommandOutput
+  | DeleteDBInstanceCommandOutput
+  | DeleteDBSubnetGroupCommandOutput
+  | DescribeCertificatesCommandOutput
+  | DescribeDBClusterParameterGroupsCommandOutput
+  | DescribeDBClusterParametersCommandOutput
+  | DescribeDBClusterSnapshotAttributesCommandOutput
+  | DescribeDBClusterSnapshotsCommandOutput
+  | DescribeDBClustersCommandOutput
+  | DescribeDBEngineVersionsCommandOutput
+  | DescribeDBInstancesCommandOutput
+  | DescribeDBSubnetGroupsCommandOutput
+  | DescribeEngineDefaultClusterParametersCommandOutput
+  | DescribeEventCategoriesCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeOrderableDBInstanceOptionsCommandOutput
+  | DescribePendingMaintenanceActionsCommandOutput
+  | FailoverDBClusterCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ModifyDBClusterCommandOutput
+  | ModifyDBClusterParameterGroupCommandOutput
+  | ModifyDBClusterSnapshotAttributeCommandOutput
+  | ModifyDBInstanceCommandOutput
+  | ModifyDBSubnetGroupCommandOutput
+  | RebootDBInstanceCommandOutput
+  | RemoveTagsFromResourceCommandOutput
+  | ResetDBClusterParameterGroupCommandOutput
+  | RestoreDBClusterFromSnapshotCommandOutput
+  | RestoreDBClusterToPointInTimeCommandOutput
+  | StartDBClusterCommandOutput
+  | StopDBClusterCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

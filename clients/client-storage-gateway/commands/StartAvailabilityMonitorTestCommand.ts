@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartAvailabilityMonitorTestCommandInput = StartAvailabilityMonitorTestInput;
-export type StartAvailabilityMonitorTestCommandOutput = StartAvailabilityMonitorTestOutput;
+export type StartAvailabilityMonitorTestCommandOutput = StartAvailabilityMonitorTestOutput &
+  __MetadataBearer;
 
 export class StartAvailabilityMonitorTestCommand extends $Command<
   StartAvailabilityMonitorTestCommandInput,

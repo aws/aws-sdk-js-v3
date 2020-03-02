@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelContactCommandInput = CancelContactRequest;
-export type CancelContactCommandOutput = ContactIdResponse;
+export type CancelContactCommandOutput = ContactIdResponse & __MetadataBearer;
 
 export class CancelContactCommand extends $Command<
   CancelContactCommandInput,

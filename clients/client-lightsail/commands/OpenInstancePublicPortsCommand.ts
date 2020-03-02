@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type OpenInstancePublicPortsCommandInput = OpenInstancePublicPortsRequest;
-export type OpenInstancePublicPortsCommandOutput = OpenInstancePublicPortsResult;
+export type OpenInstancePublicPortsCommandOutput = OpenInstancePublicPortsResult &
+  __MetadataBearer;
 
 export class OpenInstancePublicPortsCommand extends $Command<
   OpenInstancePublicPortsCommandInput,

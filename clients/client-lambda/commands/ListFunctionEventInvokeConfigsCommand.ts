@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListFunctionEventInvokeConfigsCommandInput = ListFunctionEventInvokeConfigsRequest;
-export type ListFunctionEventInvokeConfigsCommandOutput = ListFunctionEventInvokeConfigsResponse;
+export type ListFunctionEventInvokeConfigsCommandOutput = ListFunctionEventInvokeConfigsResponse &
+  __MetadataBearer;
 
 export class ListFunctionEventInvokeConfigsCommand extends $Command<
   ListFunctionEventInvokeConfigsCommandInput,

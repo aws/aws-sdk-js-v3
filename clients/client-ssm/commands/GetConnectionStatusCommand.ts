@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetConnectionStatusCommandInput = GetConnectionStatusRequest;
-export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse;
+export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse &
+  __MetadataBearer;
 
 export class GetConnectionStatusCommand extends $Command<
   GetConnectionStatusCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSAMLProvidersCommandInput = ListSAMLProvidersRequest;
-export type ListSAMLProvidersCommandOutput = ListSAMLProvidersResponse;
+export type ListSAMLProvidersCommandOutput = ListSAMLProvidersResponse &
+  __MetadataBearer;
 
 export class ListSAMLProvidersCommand extends $Command<
   ListSAMLProvidersCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
-export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput;
+export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput &
+  __MetadataBearer;
 
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,

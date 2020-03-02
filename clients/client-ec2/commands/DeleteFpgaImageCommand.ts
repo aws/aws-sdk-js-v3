@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteFpgaImageCommandInput = DeleteFpgaImageRequest;
-export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult;
+export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult &
+  __MetadataBearer;
 
 export class DeleteFpgaImageCommand extends $Command<
   DeleteFpgaImageCommandInput,

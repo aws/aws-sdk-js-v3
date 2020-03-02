@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyClusterMaintenanceCommandInput = ModifyClusterMaintenanceMessage;
-export type ModifyClusterMaintenanceCommandOutput = ModifyClusterMaintenanceResult;
+export type ModifyClusterMaintenanceCommandOutput = ModifyClusterMaintenanceResult &
+  __MetadataBearer;
 
 export class ModifyClusterMaintenanceCommand extends $Command<
   ModifyClusterMaintenanceCommandInput,

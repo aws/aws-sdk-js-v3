@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSnapshotBlocksCommandInput = ListSnapshotBlocksRequest;
-export type ListSnapshotBlocksCommandOutput = ListSnapshotBlocksResponse;
+export type ListSnapshotBlocksCommandOutput = ListSnapshotBlocksResponse &
+  __MetadataBearer;
 
 export class ListSnapshotBlocksCommand extends $Command<
   ListSnapshotBlocksCommandInput,

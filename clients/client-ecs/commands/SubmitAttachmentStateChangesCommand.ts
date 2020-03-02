@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SubmitAttachmentStateChangesCommandInput = SubmitAttachmentStateChangesRequest;
-export type SubmitAttachmentStateChangesCommandOutput = SubmitAttachmentStateChangesResponse;
+export type SubmitAttachmentStateChangesCommandOutput = SubmitAttachmentStateChangesResponse &
+  __MetadataBearer;
 
 export class SubmitAttachmentStateChangesCommand extends $Command<
   SubmitAttachmentStateChangesCommandInput,

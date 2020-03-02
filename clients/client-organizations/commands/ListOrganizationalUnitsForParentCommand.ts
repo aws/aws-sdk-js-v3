@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListOrganizationalUnitsForParentCommandInput = ListOrganizationalUnitsForParentRequest;
-export type ListOrganizationalUnitsForParentCommandOutput = ListOrganizationalUnitsForParentResponse;
+export type ListOrganizationalUnitsForParentCommandOutput = ListOrganizationalUnitsForParentResponse &
+  __MetadataBearer;
 
 export class ListOrganizationalUnitsForParentCommand extends $Command<
   ListOrganizationalUnitsForParentCommandInput,

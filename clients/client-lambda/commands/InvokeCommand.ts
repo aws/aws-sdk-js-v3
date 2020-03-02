@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InvokeCommandInput = InvocationRequest;
-export type InvokeCommandOutput = InvocationResponse;
+export type InvokeCommandOutput = InvocationResponse & __MetadataBearer;
 
 export class InvokeCommand extends $Command<
   InvokeCommandInput,

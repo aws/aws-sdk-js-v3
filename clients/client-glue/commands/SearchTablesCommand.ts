@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchTablesCommandInput = SearchTablesRequest;
-export type SearchTablesCommandOutput = SearchTablesResponse;
+export type SearchTablesCommandOutput = SearchTablesResponse & __MetadataBearer;
 
 export class SearchTablesCommand extends $Command<
   SearchTablesCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateModelCommandInput = CreateModelRequest;
-export type CreateModelCommandOutput = CreateModelResponse;
+export type CreateModelCommandOutput = CreateModelResponse & __MetadataBearer;
 
 export class CreateModelCommand extends $Command<
   CreateModelCommandInput,

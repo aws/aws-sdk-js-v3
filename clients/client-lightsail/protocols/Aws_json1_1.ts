@@ -2199,52 +2199,73 @@ async function deserializeAws_json1_1AllocateStaticIpCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2297,52 +2318,73 @@ async function deserializeAws_json1_1AttachDiskCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2401,52 +2443,73 @@ async function deserializeAws_json1_1AttachInstancesToLoadBalancerCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2505,52 +2568,73 @@ async function deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2603,52 +2687,73 @@ async function deserializeAws_json1_1AttachStaticIpCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2707,52 +2812,73 @@ async function deserializeAws_json1_1CloseInstancePublicPortsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2805,52 +2931,73 @@ async function deserializeAws_json1_1CopySnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2909,52 +3056,73 @@ async function deserializeAws_json1_1CreateCloudFormationStackCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3007,52 +3175,73 @@ async function deserializeAws_json1_1CreateDiskCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3108,52 +3297,73 @@ async function deserializeAws_json1_1CreateDiskFromSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3209,52 +3419,73 @@ async function deserializeAws_json1_1CreateDiskSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3307,52 +3538,73 @@ async function deserializeAws_json1_1CreateDomainCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3405,52 +3657,73 @@ async function deserializeAws_json1_1CreateDomainEntryCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3506,52 +3779,73 @@ async function deserializeAws_json1_1CreateInstanceSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3604,52 +3898,73 @@ async function deserializeAws_json1_1CreateInstancesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3708,52 +4023,73 @@ async function deserializeAws_json1_1CreateInstancesFromSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3806,52 +4142,73 @@ async function deserializeAws_json1_1CreateKeyPairCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3907,52 +4264,73 @@ async function deserializeAws_json1_1CreateLoadBalancerCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4011,52 +4389,73 @@ async function deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4115,52 +4514,73 @@ async function deserializeAws_json1_1CreateRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4219,52 +4639,73 @@ async function deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4323,52 +4764,73 @@ async function deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4424,45 +4886,63 @@ async function deserializeAws_json1_1DeleteAutoSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4515,52 +4995,73 @@ async function deserializeAws_json1_1DeleteDiskCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4616,52 +5117,73 @@ async function deserializeAws_json1_1DeleteDiskSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4714,52 +5236,73 @@ async function deserializeAws_json1_1DeleteDomainCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4812,52 +5355,73 @@ async function deserializeAws_json1_1DeleteDomainEntryCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4910,52 +5474,73 @@ async function deserializeAws_json1_1DeleteInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5011,52 +5596,73 @@ async function deserializeAws_json1_1DeleteInstanceSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5109,52 +5715,73 @@ async function deserializeAws_json1_1DeleteKeyPairCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5210,52 +5837,73 @@ async function deserializeAws_json1_1DeleteKnownHostKeysCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5311,52 +5959,73 @@ async function deserializeAws_json1_1DeleteLoadBalancerCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5415,52 +6084,73 @@ async function deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5519,52 +6209,73 @@ async function deserializeAws_json1_1DeleteRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5623,52 +6334,73 @@ async function deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommandErro
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5721,52 +6453,73 @@ async function deserializeAws_json1_1DetachDiskCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5825,52 +6578,73 @@ async function deserializeAws_json1_1DetachInstancesFromLoadBalancerCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5923,52 +6697,73 @@ async function deserializeAws_json1_1DetachStaticIpCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6021,45 +6816,63 @@ async function deserializeAws_json1_1DisableAddOnCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6115,52 +6928,73 @@ async function deserializeAws_json1_1DownloadDefaultKeyPairCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6213,45 +7047,63 @@ async function deserializeAws_json1_1EnableAddOnCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6304,52 +7156,73 @@ async function deserializeAws_json1_1ExportSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6402,52 +7275,73 @@ async function deserializeAws_json1_1GetActiveNamesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6500,45 +7394,63 @@ async function deserializeAws_json1_1GetAutoSnapshotsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6591,52 +7503,73 @@ async function deserializeAws_json1_1GetBlueprintsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6689,52 +7622,73 @@ async function deserializeAws_json1_1GetBundlesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6793,52 +7747,73 @@ async function deserializeAws_json1_1GetCloudFormationStackRecordsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6891,52 +7866,73 @@ async function deserializeAws_json1_1GetDiskCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6989,52 +7985,73 @@ async function deserializeAws_json1_1GetDiskSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7087,52 +8104,73 @@ async function deserializeAws_json1_1GetDiskSnapshotsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7185,52 +8223,73 @@ async function deserializeAws_json1_1GetDisksCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7283,52 +8342,73 @@ async function deserializeAws_json1_1GetDomainCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7381,52 +8461,73 @@ async function deserializeAws_json1_1GetDomainsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7485,52 +8586,73 @@ async function deserializeAws_json1_1GetExportSnapshotRecordsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7583,52 +8705,73 @@ async function deserializeAws_json1_1GetInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7687,52 +8830,73 @@ async function deserializeAws_json1_1GetInstanceAccessDetailsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7788,52 +8952,73 @@ async function deserializeAws_json1_1GetInstanceMetricDataCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7889,52 +9074,73 @@ async function deserializeAws_json1_1GetInstancePortStatesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7990,52 +9196,73 @@ async function deserializeAws_json1_1GetInstanceSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8091,52 +9318,73 @@ async function deserializeAws_json1_1GetInstanceSnapshotsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8189,52 +9437,73 @@ async function deserializeAws_json1_1GetInstanceStateCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8287,52 +9556,73 @@ async function deserializeAws_json1_1GetInstancesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8385,52 +9675,73 @@ async function deserializeAws_json1_1GetKeyPairCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8483,52 +9794,73 @@ async function deserializeAws_json1_1GetKeyPairsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8581,52 +9913,73 @@ async function deserializeAws_json1_1GetLoadBalancerCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8685,52 +10038,73 @@ async function deserializeAws_json1_1GetLoadBalancerMetricDataCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8789,52 +10163,73 @@ async function deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8887,52 +10282,73 @@ async function deserializeAws_json1_1GetLoadBalancersCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8985,52 +10401,73 @@ async function deserializeAws_json1_1GetOperationCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9083,52 +10520,73 @@ async function deserializeAws_json1_1GetOperationsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9187,52 +10645,73 @@ async function deserializeAws_json1_1GetOperationsForResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9285,52 +10764,73 @@ async function deserializeAws_json1_1GetRegionsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9386,52 +10886,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9490,52 +11011,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9594,52 +11136,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseBundlesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9698,52 +11261,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseEventsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9802,52 +11386,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseLogEventsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9906,52 +11511,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10010,52 +11636,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordComm
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10114,52 +11761,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseMetricDataCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10218,52 +11886,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseParametersCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10322,52 +12011,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseSnapshotCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10426,52 +12136,73 @@ async function deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10527,52 +12258,73 @@ async function deserializeAws_json1_1GetRelationalDatabasesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10625,52 +12377,73 @@ async function deserializeAws_json1_1GetStaticIpCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10723,52 +12496,73 @@ async function deserializeAws_json1_1GetStaticIpsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10821,52 +12615,73 @@ async function deserializeAws_json1_1ImportKeyPairCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10919,52 +12734,73 @@ async function deserializeAws_json1_1IsVpcPeeredCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11020,52 +12856,73 @@ async function deserializeAws_json1_1OpenInstancePublicPortsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11118,52 +12975,73 @@ async function deserializeAws_json1_1PeerVpcCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11219,52 +13097,73 @@ async function deserializeAws_json1_1PutInstancePublicPortsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11317,52 +13216,73 @@ async function deserializeAws_json1_1RebootInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11421,52 +13341,73 @@ async function deserializeAws_json1_1RebootRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11519,52 +13460,73 @@ async function deserializeAws_json1_1ReleaseStaticIpCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11617,52 +13579,73 @@ async function deserializeAws_json1_1StartInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11718,52 +13701,73 @@ async function deserializeAws_json1_1StartRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11816,52 +13820,73 @@ async function deserializeAws_json1_1StopInstanceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11917,52 +13942,73 @@ async function deserializeAws_json1_1StopRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12015,52 +14061,73 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12113,52 +14180,73 @@ async function deserializeAws_json1_1UnpeerVpcCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12211,52 +14299,73 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12309,52 +14418,73 @@ async function deserializeAws_json1_1UpdateDomainEntryCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12413,52 +14543,73 @@ async function deserializeAws_json1_1UpdateLoadBalancerAttributeCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12517,52 +14668,73 @@ async function deserializeAws_json1_1UpdateRelationalDatabaseCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12621,52 +14793,73 @@ async function deserializeAws_json1_1UpdateRelationalDatabaseParametersCommandEr
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lightsail#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AccountSetupInProgressException":
     case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      response = await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountSetupInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.lightsail#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.lightsail#NotFoundException":
-      response = await deserializeAws_json1_1NotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OperationFailureException":
     case "com.amazonaws.lightsail#OperationFailureException":
-      response = await deserializeAws_json1_1OperationFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OperationFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceException":
     case "com.amazonaws.lightsail#ServiceException":
-      response = await deserializeAws_json1_1ServiceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthenticatedException":
     case "com.amazonaws.lightsail#UnauthenticatedException":
-      response = await deserializeAws_json1_1UnauthenticatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnauthenticatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

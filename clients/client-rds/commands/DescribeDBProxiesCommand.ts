@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDBProxiesCommandInput = DescribeDBProxiesRequest;
-export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse;
+export type DescribeDBProxiesCommandOutput = DescribeDBProxiesResponse &
+  __MetadataBearer;
 
 export class DescribeDBProxiesCommand extends $Command<
   DescribeDBProxiesCommandInput,

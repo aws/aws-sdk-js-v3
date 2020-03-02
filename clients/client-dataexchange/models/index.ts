@@ -237,7 +237,7 @@ export namespace CreateDataSetRequest {
   }
 }
 
-export interface CreateDataSetResponse extends $MetadataBearer {
+export interface CreateDataSetResponse {
   __type?: "CreateDataSetResponse";
   /**
    * <p>The ARN for the data set.</p>
@@ -323,7 +323,7 @@ export namespace CreateJobRequest {
   }
 }
 
-export interface CreateJobResponse extends $MetadataBearer {
+export interface CreateJobResponse {
   __type?: "CreateJobResponse";
   /**
    * <p>The ARN for the job.</p>
@@ -399,7 +399,7 @@ export namespace CreateRevisionRequest {
   }
 }
 
-export interface CreateRevisionResponse extends $MetadataBearer {
+export interface CreateRevisionResponse {
   __type?: "CreateRevisionResponse";
   /**
    * <p>The ARN for the revision</p>
@@ -729,7 +729,7 @@ export namespace GetAssetRequest {
   }
 }
 
-export interface GetAssetResponse extends $MetadataBearer {
+export interface GetAssetResponse {
   __type?: "GetAssetResponse";
   /**
    * <p>The ARN for the asset.</p>
@@ -802,7 +802,7 @@ export namespace GetDataSetRequest {
   }
 }
 
-export interface GetDataSetResponse extends $MetadataBearer {
+export interface GetDataSetResponse {
   __type?: "GetDataSetResponse";
   /**
    * <p>The ARN for the data set.</p>
@@ -880,7 +880,7 @@ export namespace GetJobRequest {
   }
 }
 
-export interface GetJobResponse extends $MetadataBearer {
+export interface GetJobResponse {
   __type?: "GetJobResponse";
   /**
    * <p>The ARN for the job.</p>
@@ -948,7 +948,7 @@ export namespace GetRevisionRequest {
   }
 }
 
-export interface GetRevisionResponse extends $MetadataBearer {
+export interface GetRevisionResponse {
   __type?: "GetRevisionResponse";
   /**
    * <p>The ARN for the revision</p>
@@ -1308,7 +1308,7 @@ export namespace ListDataSetRevisionsRequest {
   }
 }
 
-export interface ListDataSetRevisionsResponse extends $MetadataBearer {
+export interface ListDataSetRevisionsResponse {
   __type?: "ListDataSetRevisionsResponse";
   /**
    * <p>The token value retrieved from a previous call to access the next page of results.</p>
@@ -1351,7 +1351,7 @@ export namespace ListDataSetsRequest {
   }
 }
 
-export interface ListDataSetsResponse extends $MetadataBearer {
+export interface ListDataSetsResponse {
   __type?: "ListDataSetsResponse";
   /**
    * <p>The data set objects listed by the request.</p>
@@ -1399,7 +1399,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResponse extends $MetadataBearer {
+export interface ListJobsResponse {
   __type?: "ListJobsResponse";
   /**
    * <p>The jobs listed by the request.</p>
@@ -1447,7 +1447,7 @@ export namespace ListRevisionAssetsRequest {
   }
 }
 
-export interface ListRevisionAssetsResponse extends $MetadataBearer {
+export interface ListRevisionAssetsResponse {
   __type?: "ListRevisionAssetsResponse";
   /**
    * <p>The asset objects listed by the request.</p>
@@ -1480,7 +1480,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * A label that consists of a customer-defined key and an optional value.
@@ -1724,7 +1724,7 @@ export namespace StartJobRequest {
   }
 }
 
-export interface StartJobResponse extends $MetadataBearer {
+export interface StartJobResponse {
   __type?: "StartJobResponse";
 }
 
@@ -1843,7 +1843,7 @@ export namespace UpdateAssetRequest {
   }
 }
 
-export interface UpdateAssetResponse extends $MetadataBearer {
+export interface UpdateAssetResponse {
   __type?: "UpdateAssetResponse";
   /**
    * <p>The ARN for the asset.</p>
@@ -1929,7 +1929,7 @@ export namespace UpdateDataSetRequest {
   }
 }
 
-export interface UpdateDataSetResponse extends $MetadataBearer {
+export interface UpdateDataSetResponse {
   __type?: "UpdateDataSetResponse";
   /**
    * <p>The ARN for the data set.</p>
@@ -2020,7 +2020,7 @@ export namespace UpdateRevisionRequest {
   }
 }
 
-export interface UpdateRevisionResponse extends $MetadataBearer {
+export interface UpdateRevisionResponse {
   __type?: "UpdateRevisionResponse";
   /**
    * <p>The ARN for the revision.</p>

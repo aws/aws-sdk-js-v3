@@ -30,7 +30,7 @@ export namespace CancelRotateSecretRequest {
   }
 }
 
-export interface CancelRotateSecretResponse extends $MetadataBearer {
+export interface CancelRotateSecretResponse {
   __type?: "CancelRotateSecretResponse";
   /**
    * <p>The ARN of the secret for which rotation was canceled.</p>
@@ -230,7 +230,7 @@ export namespace CreateSecretRequest {
   }
 }
 
-export interface CreateSecretResponse extends $MetadataBearer {
+export interface CreateSecretResponse {
   __type?: "CreateSecretResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the secret that you just created.</p>
@@ -303,7 +303,7 @@ export namespace DeleteResourcePolicyRequest {
   }
 }
 
-export interface DeleteResourcePolicyResponse extends $MetadataBearer {
+export interface DeleteResourcePolicyResponse {
   __type?: "DeleteResourcePolicyResponse";
   /**
    * <p>The ARN of the secret that the resource-based policy was deleted for.</p>
@@ -374,7 +374,7 @@ export namespace DeleteSecretRequest {
   }
 }
 
-export interface DeleteSecretResponse extends $MetadataBearer {
+export interface DeleteSecretResponse {
   __type?: "DeleteSecretResponse";
   /**
    * <p>The ARN of the secret that is now scheduled for deletion.</p>
@@ -426,7 +426,7 @@ export namespace DescribeSecretRequest {
   }
 }
 
-export interface DescribeSecretResponse extends $MetadataBearer {
+export interface DescribeSecretResponse {
   __type?: "DescribeSecretResponse";
   /**
    * <p>The ARN of the secret.</p>
@@ -605,7 +605,7 @@ export namespace GetRandomPasswordRequest {
   }
 }
 
-export interface GetRandomPasswordResponse extends $MetadataBearer {
+export interface GetRandomPasswordResponse {
   __type?: "GetRandomPasswordResponse";
   /**
    * <p>A string with the generated password.</p>
@@ -645,7 +645,7 @@ export namespace GetResourcePolicyRequest {
   }
 }
 
-export interface GetResourcePolicyResponse extends $MetadataBearer {
+export interface GetResourcePolicyResponse {
   __type?: "GetResourcePolicyResponse";
   /**
    * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
@@ -721,7 +721,7 @@ export namespace GetSecretValueRequest {
   }
 }
 
-export interface GetSecretValueResponse extends $MetadataBearer {
+export interface GetSecretValueResponse {
   __type?: "GetSecretValueResponse";
   /**
    * <p>The ARN of the secret.</p>
@@ -931,7 +931,7 @@ export namespace ListSecretVersionIdsRequest {
   }
 }
 
-export interface ListSecretVersionIdsResponse extends $MetadataBearer {
+export interface ListSecretVersionIdsResponse {
   __type?: "ListSecretVersionIdsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the secret.</p>
@@ -1002,7 +1002,7 @@ export namespace ListSecretsRequest {
   }
 }
 
-export interface ListSecretsResponse extends $MetadataBearer {
+export interface ListSecretsResponse {
   __type?: "ListSecretsResponse";
   /**
    * <p>If present in the response, this value indicates that
@@ -1096,7 +1096,7 @@ export namespace PutResourcePolicyRequest {
   }
 }
 
-export interface PutResourcePolicyResponse extends $MetadataBearer {
+export interface PutResourcePolicyResponse {
   __type?: "PutResourcePolicyResponse";
   /**
    * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
@@ -1222,7 +1222,7 @@ export namespace PutSecretValueRequest {
   }
 }
 
-export interface PutSecretValueResponse extends $MetadataBearer {
+export interface PutSecretValueResponse {
   __type?: "PutSecretValueResponse";
   /**
    * <p>The Amazon Resource Name (ARN) for the secret for which you just created a version.</p>
@@ -1313,7 +1313,7 @@ export namespace RestoreSecretRequest {
   }
 }
 
-export interface RestoreSecretResponse extends $MetadataBearer {
+export interface RestoreSecretResponse {
   __type?: "RestoreSecretResponse";
   /**
    * <p>The ARN of the secret that was restored.</p>
@@ -1387,7 +1387,7 @@ export namespace RotateSecretRequest {
   }
 }
 
-export interface RotateSecretResponse extends $MetadataBearer {
+export interface RotateSecretResponse {
   __type?: "RotateSecretResponse";
   /**
    * <p>The ARN of the secret.</p>
@@ -1775,7 +1775,7 @@ export namespace UpdateSecretRequest {
   }
 }
 
-export interface UpdateSecretResponse extends $MetadataBearer {
+export interface UpdateSecretResponse {
   __type?: "UpdateSecretResponse";
   /**
    * <p>The ARN of the secret that was updated.</p>
@@ -1855,7 +1855,7 @@ export namespace UpdateSecretVersionStageRequest {
   }
 }
 
-export interface UpdateSecretVersionStageResponse extends $MetadataBearer {
+export interface UpdateSecretVersionStageResponse {
   __type?: "UpdateSecretVersionStageResponse";
   /**
    * <p>The ARN of the secret with the staging label that was modified.</p>

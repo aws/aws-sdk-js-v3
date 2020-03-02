@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RebootCacheClusterCommandInput = RebootCacheClusterMessage;
-export type RebootCacheClusterCommandOutput = RebootCacheClusterResult;
+export type RebootCacheClusterCommandOutput = RebootCacheClusterResult &
+  __MetadataBearer;
 
 export class RebootCacheClusterCommand extends $Command<
   RebootCacheClusterCommandInput,

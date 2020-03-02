@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEngineDefaultParametersCommandInput = DescribeEngineDefaultParametersMessage;
-export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult;
+export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult &
+  __MetadataBearer;
 
 export class DescribeEngineDefaultParametersCommand extends $Command<
   DescribeEngineDefaultParametersCommandInput,

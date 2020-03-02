@@ -229,7 +229,7 @@ export namespace CreateAcceleratorRequest {
   }
 }
 
-export interface CreateAcceleratorResponse extends $MetadataBearer {
+export interface CreateAcceleratorResponse {
   __type?: "CreateAcceleratorResponse";
   /**
    * <p>The accelerator that is created by specifying a listener and the supported IP address types.</p>
@@ -313,7 +313,7 @@ export namespace CreateEndpointGroupRequest {
   }
 }
 
-export interface CreateEndpointGroupResponse extends $MetadataBearer {
+export interface CreateEndpointGroupResponse {
   __type?: "CreateEndpointGroupResponse";
   /**
    * <p>The information about the endpoint group that was created.</p>
@@ -373,7 +373,7 @@ export namespace CreateListenerRequest {
   }
 }
 
-export interface CreateListenerResponse extends $MetadataBearer {
+export interface CreateListenerResponse {
   __type?: "CreateListenerResponse";
   /**
    * <p>The listener that you've created.</p>
@@ -443,7 +443,7 @@ export namespace DescribeAcceleratorAttributesRequest {
   }
 }
 
-export interface DescribeAcceleratorAttributesResponse extends $MetadataBearer {
+export interface DescribeAcceleratorAttributesResponse {
   __type?: "DescribeAcceleratorAttributesResponse";
   /**
    * <p>The attributes of the accelerator.</p>
@@ -471,7 +471,7 @@ export namespace DescribeAcceleratorRequest {
   }
 }
 
-export interface DescribeAcceleratorResponse extends $MetadataBearer {
+export interface DescribeAcceleratorResponse {
   __type?: "DescribeAcceleratorResponse";
   /**
    * <p>The description of the accelerator.</p>
@@ -499,7 +499,7 @@ export namespace DescribeEndpointGroupRequest {
   }
 }
 
-export interface DescribeEndpointGroupResponse extends $MetadataBearer {
+export interface DescribeEndpointGroupResponse {
   __type?: "DescribeEndpointGroupResponse";
   /**
    * <p>The description of an endpoint group.</p>
@@ -527,7 +527,7 @@ export namespace DescribeListenerRequest {
   }
 }
 
-export interface DescribeListenerResponse extends $MetadataBearer {
+export interface DescribeListenerResponse {
   __type?: "DescribeListenerResponse";
   /**
    * <p>The description of a listener.</p>
@@ -897,7 +897,7 @@ export namespace ListAcceleratorsRequest {
   }
 }
 
-export interface ListAcceleratorsResponse extends $MetadataBearer {
+export interface ListAcceleratorsResponse {
   __type?: "ListAcceleratorsResponse";
   /**
    * <p>The list of accelerators for a customer account.</p>
@@ -940,7 +940,7 @@ export namespace ListEndpointGroupsRequest {
   }
 }
 
-export interface ListEndpointGroupsResponse extends $MetadataBearer {
+export interface ListEndpointGroupsResponse {
   __type?: "ListEndpointGroupsResponse";
   /**
    * <p>The list of the endpoint groups associated with a listener.</p>
@@ -983,7 +983,7 @@ export namespace ListListenersRequest {
   }
 }
 
-export interface ListListenersResponse extends $MetadataBearer {
+export interface ListListenersResponse {
   __type?: "ListListenersResponse";
   /**
    * <p>The list of listeners for an accelerator.</p>
@@ -1125,7 +1125,7 @@ export namespace UpdateAcceleratorAttributesRequest {
   }
 }
 
-export interface UpdateAcceleratorAttributesResponse extends $MetadataBearer {
+export interface UpdateAcceleratorAttributesResponse {
   __type?: "UpdateAcceleratorAttributesResponse";
   /**
    * <p>Updated attributes for the accelerator.</p>
@@ -1171,7 +1171,7 @@ export namespace UpdateAcceleratorRequest {
   }
 }
 
-export interface UpdateAcceleratorResponse extends $MetadataBearer {
+export interface UpdateAcceleratorResponse {
   __type?: "UpdateAcceleratorResponse";
   /**
    * <p>Information about the updated accelerator.</p>
@@ -1243,7 +1243,7 @@ export namespace UpdateEndpointGroupRequest {
   }
 }
 
-export interface UpdateEndpointGroupResponse extends $MetadataBearer {
+export interface UpdateEndpointGroupResponse {
   __type?: "UpdateEndpointGroupResponse";
   /**
    * <p>The information about the endpoint group that was updated.</p>
@@ -1297,7 +1297,7 @@ export namespace UpdateListenerRequest {
   }
 }
 
-export interface UpdateListenerResponse extends $MetadataBearer {
+export interface UpdateListenerResponse {
   __type?: "UpdateListenerResponse";
   /**
    * <p>Information for the updated listener.</p>

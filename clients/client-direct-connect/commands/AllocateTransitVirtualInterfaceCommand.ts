@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllocateTransitVirtualInterfaceCommandInput = AllocateTransitVirtualInterfaceRequest;
-export type AllocateTransitVirtualInterfaceCommandOutput = AllocateTransitVirtualInterfaceResult;
+export type AllocateTransitVirtualInterfaceCommandOutput = AllocateTransitVirtualInterfaceResult &
+  __MetadataBearer;
 
 export class AllocateTransitVirtualInterfaceCommand extends $Command<
   AllocateTransitVirtualInterfaceCommandInput,

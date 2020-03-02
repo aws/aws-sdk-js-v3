@@ -1,34 +1,71 @@
 import {
-  AssociateAdminAccountRequest,
-  DeleteNotificationChannelRequest,
-  DeletePolicyRequest,
-  DisassociateAdminAccountRequest,
-  GetAdminAccountRequest,
-  GetAdminAccountResponse,
-  GetComplianceDetailRequest,
-  GetComplianceDetailResponse,
-  GetNotificationChannelRequest,
-  GetNotificationChannelResponse,
-  GetPolicyRequest,
-  GetPolicyResponse,
-  GetProtectionStatusRequest,
-  GetProtectionStatusResponse,
-  ListComplianceStatusRequest,
-  ListComplianceStatusResponse,
-  ListMemberAccountsRequest,
-  ListMemberAccountsResponse,
-  ListPoliciesRequest,
-  ListPoliciesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutNotificationChannelRequest,
-  PutPolicyRequest,
-  PutPolicyResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse
-} from "./models/index";
+  AssociateAdminAccountCommandInput,
+  AssociateAdminAccountCommandOutput
+} from "./commands/AssociateAdminAccountCommand";
+import {
+  DeleteNotificationChannelCommandInput,
+  DeleteNotificationChannelCommandOutput
+} from "./commands/DeleteNotificationChannelCommand";
+import {
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput
+} from "./commands/DeletePolicyCommand";
+import {
+  DisassociateAdminAccountCommandInput,
+  DisassociateAdminAccountCommandOutput
+} from "./commands/DisassociateAdminAccountCommand";
+import {
+  GetAdminAccountCommandInput,
+  GetAdminAccountCommandOutput
+} from "./commands/GetAdminAccountCommand";
+import {
+  GetComplianceDetailCommandInput,
+  GetComplianceDetailCommandOutput
+} from "./commands/GetComplianceDetailCommand";
+import {
+  GetNotificationChannelCommandInput,
+  GetNotificationChannelCommandOutput
+} from "./commands/GetNotificationChannelCommand";
+import {
+  GetPolicyCommandInput,
+  GetPolicyCommandOutput
+} from "./commands/GetPolicyCommand";
+import {
+  GetProtectionStatusCommandInput,
+  GetProtectionStatusCommandOutput
+} from "./commands/GetProtectionStatusCommand";
+import {
+  ListComplianceStatusCommandInput,
+  ListComplianceStatusCommandOutput
+} from "./commands/ListComplianceStatusCommand";
+import {
+  ListMemberAccountsCommandInput,
+  ListMemberAccountsCommandOutput
+} from "./commands/ListMemberAccountsCommand";
+import {
+  ListPoliciesCommandInput,
+  ListPoliciesCommandOutput
+} from "./commands/ListPoliciesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutNotificationChannelCommandInput,
+  PutNotificationChannelCommandOutput
+} from "./commands/PutNotificationChannelCommand";
+import {
+  PutPolicyCommandInput,
+  PutPolicyCommandOutput
+} from "./commands/PutPolicyCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -76,45 +113,48 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateAdminAccountRequest
-  | DeleteNotificationChannelRequest
-  | DeletePolicyRequest
-  | DisassociateAdminAccountRequest
-  | GetAdminAccountRequest
-  | GetComplianceDetailRequest
-  | GetNotificationChannelRequest
-  | GetPolicyRequest
-  | GetProtectionStatusRequest
-  | ListComplianceStatusRequest
-  | ListMemberAccountsRequest
-  | ListPoliciesRequest
-  | ListTagsForResourceRequest
-  | PutNotificationChannelRequest
-  | PutPolicyRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | AssociateAdminAccountCommandInput
+  | DeleteNotificationChannelCommandInput
+  | DeletePolicyCommandInput
+  | DisassociateAdminAccountCommandInput
+  | GetAdminAccountCommandInput
+  | GetComplianceDetailCommandInput
+  | GetNotificationChannelCommandInput
+  | GetPolicyCommandInput
+  | GetProtectionStatusCommandInput
+  | ListComplianceStatusCommandInput
+  | ListMemberAccountsCommandInput
+  | ListPoliciesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutNotificationChannelCommandInput
+  | PutPolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | GetAdminAccountResponse
-  | GetComplianceDetailResponse
-  | GetNotificationChannelResponse
-  | GetPolicyResponse
-  | GetProtectionStatusResponse
-  | ListComplianceStatusResponse
-  | ListMemberAccountsResponse
-  | ListPoliciesResponse
-  | ListTagsForResourceResponse
-  | PutPolicyResponse
-  | TagResourceResponse
-  | UntagResourceResponse;
+  | AssociateAdminAccountCommandOutput
+  | DeleteNotificationChannelCommandOutput
+  | DeletePolicyCommandOutput
+  | DisassociateAdminAccountCommandOutput
+  | GetAdminAccountCommandOutput
+  | GetComplianceDetailCommandOutput
+  | GetNotificationChannelCommandOutput
+  | GetPolicyCommandOutput
+  | GetProtectionStatusCommandOutput
+  | ListComplianceStatusCommandOutput
+  | ListMemberAccountsCommandOutput
+  | ListPoliciesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutNotificationChannelCommandOutput
+  | PutPolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetClusterParameterGroupCommandInput = ResetClusterParameterGroupMessage;
-export type ResetClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage;
+export type ResetClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage &
+  __MetadataBearer;
 
 export class ResetClusterParameterGroupCommand extends $Command<
   ResetClusterParameterGroupCommandInput,

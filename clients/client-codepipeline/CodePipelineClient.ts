@@ -1,71 +1,151 @@
 import {
-  AcknowledgeJobInput,
-  AcknowledgeJobOutput,
-  AcknowledgeThirdPartyJobInput,
-  AcknowledgeThirdPartyJobOutput,
-  CreateCustomActionTypeInput,
-  CreateCustomActionTypeOutput,
-  CreatePipelineInput,
-  CreatePipelineOutput,
-  DeleteCustomActionTypeInput,
-  DeletePipelineInput,
-  DeleteWebhookInput,
-  DeleteWebhookOutput,
-  DeregisterWebhookWithThirdPartyInput,
-  DeregisterWebhookWithThirdPartyOutput,
-  DisableStageTransitionInput,
-  EnableStageTransitionInput,
-  GetJobDetailsInput,
-  GetJobDetailsOutput,
-  GetPipelineExecutionInput,
-  GetPipelineExecutionOutput,
-  GetPipelineInput,
-  GetPipelineOutput,
-  GetPipelineStateInput,
-  GetPipelineStateOutput,
-  GetThirdPartyJobDetailsInput,
-  GetThirdPartyJobDetailsOutput,
-  ListActionExecutionsInput,
-  ListActionExecutionsOutput,
-  ListActionTypesInput,
-  ListActionTypesOutput,
-  ListPipelineExecutionsInput,
-  ListPipelineExecutionsOutput,
-  ListPipelinesInput,
-  ListPipelinesOutput,
-  ListTagsForResourceInput,
-  ListTagsForResourceOutput,
-  ListWebhooksInput,
-  ListWebhooksOutput,
-  PollForJobsInput,
-  PollForJobsOutput,
-  PollForThirdPartyJobsInput,
-  PollForThirdPartyJobsOutput,
-  PutActionRevisionInput,
-  PutActionRevisionOutput,
-  PutApprovalResultInput,
-  PutApprovalResultOutput,
-  PutJobFailureResultInput,
-  PutJobSuccessResultInput,
-  PutThirdPartyJobFailureResultInput,
-  PutThirdPartyJobSuccessResultInput,
-  PutWebhookInput,
-  PutWebhookOutput,
-  RegisterWebhookWithThirdPartyInput,
-  RegisterWebhookWithThirdPartyOutput,
-  RetryStageExecutionInput,
-  RetryStageExecutionOutput,
-  StartPipelineExecutionInput,
-  StartPipelineExecutionOutput,
-  StopPipelineExecutionInput,
-  StopPipelineExecutionOutput,
-  TagResourceInput,
-  TagResourceOutput,
-  UntagResourceInput,
-  UntagResourceOutput,
-  UpdatePipelineInput,
-  UpdatePipelineOutput
-} from "./models/index";
+  AcknowledgeJobCommandInput,
+  AcknowledgeJobCommandOutput
+} from "./commands/AcknowledgeJobCommand";
+import {
+  AcknowledgeThirdPartyJobCommandInput,
+  AcknowledgeThirdPartyJobCommandOutput
+} from "./commands/AcknowledgeThirdPartyJobCommand";
+import {
+  CreateCustomActionTypeCommandInput,
+  CreateCustomActionTypeCommandOutput
+} from "./commands/CreateCustomActionTypeCommand";
+import {
+  CreatePipelineCommandInput,
+  CreatePipelineCommandOutput
+} from "./commands/CreatePipelineCommand";
+import {
+  DeleteCustomActionTypeCommandInput,
+  DeleteCustomActionTypeCommandOutput
+} from "./commands/DeleteCustomActionTypeCommand";
+import {
+  DeletePipelineCommandInput,
+  DeletePipelineCommandOutput
+} from "./commands/DeletePipelineCommand";
+import {
+  DeleteWebhookCommandInput,
+  DeleteWebhookCommandOutput
+} from "./commands/DeleteWebhookCommand";
+import {
+  DeregisterWebhookWithThirdPartyCommandInput,
+  DeregisterWebhookWithThirdPartyCommandOutput
+} from "./commands/DeregisterWebhookWithThirdPartyCommand";
+import {
+  DisableStageTransitionCommandInput,
+  DisableStageTransitionCommandOutput
+} from "./commands/DisableStageTransitionCommand";
+import {
+  EnableStageTransitionCommandInput,
+  EnableStageTransitionCommandOutput
+} from "./commands/EnableStageTransitionCommand";
+import {
+  GetJobDetailsCommandInput,
+  GetJobDetailsCommandOutput
+} from "./commands/GetJobDetailsCommand";
+import {
+  GetPipelineCommandInput,
+  GetPipelineCommandOutput
+} from "./commands/GetPipelineCommand";
+import {
+  GetPipelineExecutionCommandInput,
+  GetPipelineExecutionCommandOutput
+} from "./commands/GetPipelineExecutionCommand";
+import {
+  GetPipelineStateCommandInput,
+  GetPipelineStateCommandOutput
+} from "./commands/GetPipelineStateCommand";
+import {
+  GetThirdPartyJobDetailsCommandInput,
+  GetThirdPartyJobDetailsCommandOutput
+} from "./commands/GetThirdPartyJobDetailsCommand";
+import {
+  ListActionExecutionsCommandInput,
+  ListActionExecutionsCommandOutput
+} from "./commands/ListActionExecutionsCommand";
+import {
+  ListActionTypesCommandInput,
+  ListActionTypesCommandOutput
+} from "./commands/ListActionTypesCommand";
+import {
+  ListPipelineExecutionsCommandInput,
+  ListPipelineExecutionsCommandOutput
+} from "./commands/ListPipelineExecutionsCommand";
+import {
+  ListPipelinesCommandInput,
+  ListPipelinesCommandOutput
+} from "./commands/ListPipelinesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListWebhooksCommandInput,
+  ListWebhooksCommandOutput
+} from "./commands/ListWebhooksCommand";
+import {
+  PollForJobsCommandInput,
+  PollForJobsCommandOutput
+} from "./commands/PollForJobsCommand";
+import {
+  PollForThirdPartyJobsCommandInput,
+  PollForThirdPartyJobsCommandOutput
+} from "./commands/PollForThirdPartyJobsCommand";
+import {
+  PutActionRevisionCommandInput,
+  PutActionRevisionCommandOutput
+} from "./commands/PutActionRevisionCommand";
+import {
+  PutApprovalResultCommandInput,
+  PutApprovalResultCommandOutput
+} from "./commands/PutApprovalResultCommand";
+import {
+  PutJobFailureResultCommandInput,
+  PutJobFailureResultCommandOutput
+} from "./commands/PutJobFailureResultCommand";
+import {
+  PutJobSuccessResultCommandInput,
+  PutJobSuccessResultCommandOutput
+} from "./commands/PutJobSuccessResultCommand";
+import {
+  PutThirdPartyJobFailureResultCommandInput,
+  PutThirdPartyJobFailureResultCommandOutput
+} from "./commands/PutThirdPartyJobFailureResultCommand";
+import {
+  PutThirdPartyJobSuccessResultCommandInput,
+  PutThirdPartyJobSuccessResultCommandOutput
+} from "./commands/PutThirdPartyJobSuccessResultCommand";
+import {
+  PutWebhookCommandInput,
+  PutWebhookCommandOutput
+} from "./commands/PutWebhookCommand";
+import {
+  RegisterWebhookWithThirdPartyCommandInput,
+  RegisterWebhookWithThirdPartyCommandOutput
+} from "./commands/RegisterWebhookWithThirdPartyCommand";
+import {
+  RetryStageExecutionCommandInput,
+  RetryStageExecutionCommandOutput
+} from "./commands/RetryStageExecutionCommand";
+import {
+  StartPipelineExecutionCommandInput,
+  StartPipelineExecutionCommandOutput
+} from "./commands/StartPipelineExecutionCommand";
+import {
+  StopPipelineExecutionCommandInput,
+  StopPipelineExecutionCommandOutput
+} from "./commands/StopPipelineExecutionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdatePipelineCommandInput,
+  UpdatePipelineCommandOutput
+} from "./commands/UpdatePipelineCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -113,82 +193,88 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AcknowledgeJobInput
-  | AcknowledgeThirdPartyJobInput
-  | CreateCustomActionTypeInput
-  | CreatePipelineInput
-  | DeleteCustomActionTypeInput
-  | DeletePipelineInput
-  | DeleteWebhookInput
-  | DeregisterWebhookWithThirdPartyInput
-  | DisableStageTransitionInput
-  | EnableStageTransitionInput
-  | GetJobDetailsInput
-  | GetPipelineExecutionInput
-  | GetPipelineInput
-  | GetPipelineStateInput
-  | GetThirdPartyJobDetailsInput
-  | ListActionExecutionsInput
-  | ListActionTypesInput
-  | ListPipelineExecutionsInput
-  | ListPipelinesInput
-  | ListTagsForResourceInput
-  | ListWebhooksInput
-  | PollForJobsInput
-  | PollForThirdPartyJobsInput
-  | PutActionRevisionInput
-  | PutApprovalResultInput
-  | PutJobFailureResultInput
-  | PutJobSuccessResultInput
-  | PutThirdPartyJobFailureResultInput
-  | PutThirdPartyJobSuccessResultInput
-  | PutWebhookInput
-  | RegisterWebhookWithThirdPartyInput
-  | RetryStageExecutionInput
-  | StartPipelineExecutionInput
-  | StopPipelineExecutionInput
-  | TagResourceInput
-  | UntagResourceInput
-  | UpdatePipelineInput;
+  | AcknowledgeJobCommandInput
+  | AcknowledgeThirdPartyJobCommandInput
+  | CreateCustomActionTypeCommandInput
+  | CreatePipelineCommandInput
+  | DeleteCustomActionTypeCommandInput
+  | DeletePipelineCommandInput
+  | DeleteWebhookCommandInput
+  | DeregisterWebhookWithThirdPartyCommandInput
+  | DisableStageTransitionCommandInput
+  | EnableStageTransitionCommandInput
+  | GetJobDetailsCommandInput
+  | GetPipelineCommandInput
+  | GetPipelineExecutionCommandInput
+  | GetPipelineStateCommandInput
+  | GetThirdPartyJobDetailsCommandInput
+  | ListActionExecutionsCommandInput
+  | ListActionTypesCommandInput
+  | ListPipelineExecutionsCommandInput
+  | ListPipelinesCommandInput
+  | ListTagsForResourceCommandInput
+  | ListWebhooksCommandInput
+  | PollForJobsCommandInput
+  | PollForThirdPartyJobsCommandInput
+  | PutActionRevisionCommandInput
+  | PutApprovalResultCommandInput
+  | PutJobFailureResultCommandInput
+  | PutJobSuccessResultCommandInput
+  | PutThirdPartyJobFailureResultCommandInput
+  | PutThirdPartyJobSuccessResultCommandInput
+  | PutWebhookCommandInput
+  | RegisterWebhookWithThirdPartyCommandInput
+  | RetryStageExecutionCommandInput
+  | StartPipelineExecutionCommandInput
+  | StopPipelineExecutionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdatePipelineCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AcknowledgeJobOutput
-  | AcknowledgeThirdPartyJobOutput
-  | CreateCustomActionTypeOutput
-  | CreatePipelineOutput
-  | DeleteWebhookOutput
-  | DeregisterWebhookWithThirdPartyOutput
-  | GetJobDetailsOutput
-  | GetPipelineExecutionOutput
-  | GetPipelineOutput
-  | GetPipelineStateOutput
-  | GetThirdPartyJobDetailsOutput
-  | ListActionExecutionsOutput
-  | ListActionTypesOutput
-  | ListPipelineExecutionsOutput
-  | ListPipelinesOutput
-  | ListTagsForResourceOutput
-  | ListWebhooksOutput
-  | PollForJobsOutput
-  | PollForThirdPartyJobsOutput
-  | PutActionRevisionOutput
-  | PutApprovalResultOutput
-  | PutWebhookOutput
-  | RegisterWebhookWithThirdPartyOutput
-  | RetryStageExecutionOutput
-  | StartPipelineExecutionOutput
-  | StopPipelineExecutionOutput
-  | TagResourceOutput
-  | UntagResourceOutput
-  | UpdatePipelineOutput;
+  | AcknowledgeJobCommandOutput
+  | AcknowledgeThirdPartyJobCommandOutput
+  | CreateCustomActionTypeCommandOutput
+  | CreatePipelineCommandOutput
+  | DeleteCustomActionTypeCommandOutput
+  | DeletePipelineCommandOutput
+  | DeleteWebhookCommandOutput
+  | DeregisterWebhookWithThirdPartyCommandOutput
+  | DisableStageTransitionCommandOutput
+  | EnableStageTransitionCommandOutput
+  | GetJobDetailsCommandOutput
+  | GetPipelineCommandOutput
+  | GetPipelineExecutionCommandOutput
+  | GetPipelineStateCommandOutput
+  | GetThirdPartyJobDetailsCommandOutput
+  | ListActionExecutionsCommandOutput
+  | ListActionTypesCommandOutput
+  | ListPipelineExecutionsCommandOutput
+  | ListPipelinesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListWebhooksCommandOutput
+  | PollForJobsCommandOutput
+  | PollForThirdPartyJobsCommandOutput
+  | PutActionRevisionCommandOutput
+  | PutApprovalResultCommandOutput
+  | PutJobFailureResultCommandOutput
+  | PutJobSuccessResultCommandOutput
+  | PutThirdPartyJobFailureResultCommandOutput
+  | PutThirdPartyJobSuccessResultCommandOutput
+  | PutWebhookCommandOutput
+  | RegisterWebhookWithThirdPartyCommandOutput
+  | RetryStageExecutionCommandOutput
+  | StartPipelineExecutionCommandOutput
+  | StopPipelineExecutionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdatePipelineCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

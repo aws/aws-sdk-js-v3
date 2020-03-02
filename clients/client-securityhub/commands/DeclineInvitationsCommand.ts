@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
-export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse;
+export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse &
+  __MetadataBearer;
 
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,

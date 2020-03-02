@@ -855,7 +855,7 @@ export namespace ApplyPendingMaintenanceActionMessage {
   }
 }
 
-export interface ApplyPendingMaintenanceActionResult extends $MetadataBearer {
+export interface ApplyPendingMaintenanceActionResult {
   __type?: "ApplyPendingMaintenanceActionResult";
   /**
    * <p>Represents the output of <a>ApplyPendingMaintenanceAction</a>.</p>
@@ -938,7 +938,7 @@ export namespace Certificate {
   }
 }
 
-export interface CertificateMessage extends $MetadataBearer {
+export interface CertificateMessage {
   __type?: "CertificateMessage";
   /**
    * <p>A list of certificates for this AWS account.</p>
@@ -1052,7 +1052,7 @@ export namespace CopyDBClusterParameterGroupMessage {
   }
 }
 
-export interface CopyDBClusterParameterGroupResult extends $MetadataBearer {
+export interface CopyDBClusterParameterGroupResult {
   __type?: "CopyDBClusterParameterGroupResult";
   /**
    * <p>Detailed information about a DB cluster parameter group. </p>
@@ -1191,7 +1191,7 @@ export namespace CopyDBClusterSnapshotMessage {
   }
 }
 
-export interface CopyDBClusterSnapshotResult extends $MetadataBearer {
+export interface CopyDBClusterSnapshotResult {
   __type?: "CopyDBClusterSnapshotResult";
   /**
    * <p>Detailed information about a DB cluster snapshot. </p>
@@ -1444,7 +1444,7 @@ export namespace CreateDBClusterParameterGroupMessage {
   }
 }
 
-export interface CreateDBClusterParameterGroupResult extends $MetadataBearer {
+export interface CreateDBClusterParameterGroupResult {
   __type?: "CreateDBClusterParameterGroupResult";
   /**
    * <p>Detailed information about a DB cluster parameter group. </p>
@@ -1458,7 +1458,7 @@ export namespace CreateDBClusterParameterGroupResult {
   }
 }
 
-export interface CreateDBClusterResult extends $MetadataBearer {
+export interface CreateDBClusterResult {
   __type?: "CreateDBClusterResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -1523,7 +1523,7 @@ export namespace CreateDBClusterSnapshotMessage {
   }
 }
 
-export interface CreateDBClusterSnapshotResult extends $MetadataBearer {
+export interface CreateDBClusterSnapshotResult {
   __type?: "CreateDBClusterSnapshotResult";
   /**
    * <p>Detailed information about a DB cluster snapshot. </p>
@@ -1632,7 +1632,7 @@ export namespace CreateDBInstanceMessage {
   }
 }
 
-export interface CreateDBInstanceResult extends $MetadataBearer {
+export interface CreateDBInstanceResult {
   __type?: "CreateDBInstanceResult";
   /**
    * <p>Detailed information about a DB instance. </p>
@@ -1682,7 +1682,7 @@ export namespace CreateDBSubnetGroupMessage {
   }
 }
 
-export interface CreateDBSubnetGroupResult extends $MetadataBearer {
+export interface CreateDBSubnetGroupResult {
   __type?: "CreateDBSubnetGroupResult";
   /**
    * <p>Detailed information about a DB subnet group. </p>
@@ -1917,7 +1917,7 @@ export namespace DBClusterMember {
 /**
  * <p>Represents the output of <a>DescribeDBClusters</a>.</p>
  */
-export interface DBClusterMessage extends $MetadataBearer {
+export interface DBClusterMessage {
   __type?: "DBClusterMessage";
   /**
    * <p>A list of DB clusters.</p>
@@ -1975,7 +1975,7 @@ export namespace DBClusterParameterGroup {
 /**
  * <p>Represents the output of <a>DBClusterParameterGroup</a>.</p>
  */
-export interface DBClusterParameterGroupDetails extends $MetadataBearer {
+export interface DBClusterParameterGroupDetails {
   __type?: "DBClusterParameterGroupDetails";
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
@@ -1999,7 +1999,7 @@ export namespace DBClusterParameterGroupDetails {
 /**
  * <p>Contains the name of a DB cluster parameter group.</p>
  */
-export interface DBClusterParameterGroupNameMessage extends $MetadataBearer {
+export interface DBClusterParameterGroupNameMessage {
   __type?: "DBClusterParameterGroupNameMessage";
   /**
    * <p>The name of a DB cluster parameter group.</p>
@@ -2031,7 +2031,7 @@ export namespace DBClusterParameterGroupNameMessage {
 /**
  * <p>Represents the output of <a>DBClusterParameterGroups</a>.</p>
  */
-export interface DBClusterParameterGroupsMessage extends $MetadataBearer {
+export interface DBClusterParameterGroupsMessage {
   __type?: "DBClusterParameterGroupsMessage";
   /**
    * <p>A list of DB cluster parameter groups.</p>
@@ -2256,7 +2256,7 @@ export namespace DBClusterSnapshotAttributesResult {
 /**
  * <p>Represents the output of <a>DescribeDBClusterSnapshots</a>.</p>
  */
-export interface DBClusterSnapshotMessage extends $MetadataBearer {
+export interface DBClusterSnapshotMessage {
   __type?: "DBClusterSnapshotMessage";
   /**
    * <p>Provides a list of DB cluster snapshots.</p>
@@ -2334,7 +2334,7 @@ export namespace DBEngineVersion {
 /**
  * <p>Represents the output of <a>DescribeDBEngineVersions</a>.</p>
  */
-export interface DBEngineVersionMessage extends $MetadataBearer {
+export interface DBEngineVersionMessage {
   __type?: "DBEngineVersionMessage";
   /**
    * <p>Detailed information about one or more DB engine versions.</p>
@@ -2515,7 +2515,7 @@ export namespace DBInstance {
 /**
  * <p>Represents the output of <a>DescribeDBInstances</a>.</p>
  */
-export interface DBInstanceMessage extends $MetadataBearer {
+export interface DBInstanceMessage {
   __type?: "DBInstanceMessage";
   /**
    * <p>Detailed information about one or more DB instances. </p>
@@ -2617,7 +2617,7 @@ export namespace DBSubnetGroup {
 /**
  * <p>Represents the output of <a>DescribeDBSubnetGroups</a>.</p>
  */
-export interface DBSubnetGroupMessage extends $MetadataBearer {
+export interface DBSubnetGroupMessage {
   __type?: "DBSubnetGroupMessage";
   /**
    * <p>Detailed information about one or more DB subnet groups.</p>
@@ -2727,7 +2727,7 @@ export namespace DeleteDBClusterParameterGroupMessage {
   }
 }
 
-export interface DeleteDBClusterResult extends $MetadataBearer {
+export interface DeleteDBClusterResult {
   __type?: "DeleteDBClusterResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -2760,7 +2760,7 @@ export namespace DeleteDBClusterSnapshotMessage {
   }
 }
 
-export interface DeleteDBClusterSnapshotResult extends $MetadataBearer {
+export interface DeleteDBClusterSnapshotResult {
   __type?: "DeleteDBClusterSnapshotResult";
   /**
    * <p>Detailed information about a DB cluster snapshot. </p>
@@ -2798,7 +2798,7 @@ export namespace DeleteDBInstanceMessage {
   }
 }
 
-export interface DeleteDBInstanceResult extends $MetadataBearer {
+export interface DeleteDBInstanceResult {
   __type?: "DeleteDBInstanceResult";
   /**
    * <p>Detailed information about a DB instance. </p>
@@ -3005,8 +3005,7 @@ export namespace DescribeDBClusterSnapshotAttributesMessage {
   }
 }
 
-export interface DescribeDBClusterSnapshotAttributesResult
-  extends $MetadataBearer {
+export interface DescribeDBClusterSnapshotAttributesResult {
   __type?: "DescribeDBClusterSnapshotAttributesResult";
   /**
    * <p>Detailed information about the attributes that are associated with a DB cluster
@@ -3412,8 +3411,7 @@ export namespace DescribeEngineDefaultClusterParametersMessage {
   }
 }
 
-export interface DescribeEngineDefaultClusterParametersResult
-  extends $MetadataBearer {
+export interface DescribeEngineDefaultClusterParametersResult {
   __type?: "DescribeEngineDefaultClusterParametersResult";
   /**
    * <p>Contains the result of a successful invocation of the
@@ -3794,7 +3792,7 @@ export namespace EventCategoriesMap {
 /**
  * <p>Represents the output of <a>DescribeEventCategories</a>.</p>
  */
-export interface EventCategoriesMessage extends $MetadataBearer {
+export interface EventCategoriesMessage {
   __type?: "EventCategoriesMessage";
   /**
    * <p>A list of event category maps.</p>
@@ -3811,7 +3809,7 @@ export namespace EventCategoriesMessage {
 /**
  * <p>Represents the output of <a>DescribeEvents</a>.</p>
  */
-export interface EventsMessage extends $MetadataBearer {
+export interface EventsMessage {
   __type?: "EventsMessage";
   /**
    * <p>Detailed information about one or more events. </p>
@@ -3863,7 +3861,7 @@ export namespace FailoverDBClusterMessage {
   }
 }
 
-export interface FailoverDBClusterResult extends $MetadataBearer {
+export interface FailoverDBClusterResult {
   __type?: "FailoverDBClusterResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -4104,7 +4102,7 @@ export namespace ModifyDBClusterParameterGroupMessage {
   }
 }
 
-export interface ModifyDBClusterResult extends $MetadataBearer {
+export interface ModifyDBClusterResult {
   __type?: "ModifyDBClusterResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -4165,8 +4163,7 @@ export namespace ModifyDBClusterSnapshotAttributeMessage {
   }
 }
 
-export interface ModifyDBClusterSnapshotAttributeResult
-  extends $MetadataBearer {
+export interface ModifyDBClusterSnapshotAttributeResult {
   __type?: "ModifyDBClusterSnapshotAttributeResult";
   /**
    * <p>Detailed information about the attributes that are associated with a DB cluster
@@ -4290,7 +4287,7 @@ export namespace ModifyDBInstanceMessage {
   }
 }
 
-export interface ModifyDBInstanceResult extends $MetadataBearer {
+export interface ModifyDBInstanceResult {
   __type?: "ModifyDBInstanceResult";
   /**
    * <p>Detailed information about a DB instance. </p>
@@ -4336,7 +4333,7 @@ export namespace ModifyDBSubnetGroupMessage {
   }
 }
 
-export interface ModifyDBSubnetGroupResult extends $MetadataBearer {
+export interface ModifyDBSubnetGroupResult {
   __type?: "ModifyDBSubnetGroupResult";
   /**
    * <p>Detailed information about a DB subnet group. </p>
@@ -4395,7 +4392,7 @@ export namespace OrderableDBInstanceOption {
 /**
  * <p>Represents the output of <a>DescribeOrderableDBInstanceOptions</a>.</p>
  */
-export interface OrderableDBInstanceOptionsMessage extends $MetadataBearer {
+export interface OrderableDBInstanceOptionsMessage {
   __type?: "OrderableDBInstanceOptionsMessage";
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
@@ -4556,7 +4553,7 @@ export namespace PendingMaintenanceAction {
 /**
  * <p>Represents the output of <a>DescribePendingMaintenanceActions</a>.</p>
  */
-export interface PendingMaintenanceActionsMessage extends $MetadataBearer {
+export interface PendingMaintenanceActionsMessage {
   __type?: "PendingMaintenanceActionsMessage";
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
@@ -4700,7 +4697,7 @@ export namespace RebootDBInstanceMessage {
   }
 }
 
-export interface RebootDBInstanceResult extends $MetadataBearer {
+export interface RebootDBInstanceResult {
   __type?: "RebootDBInstanceResult";
   /**
    * <p>Detailed information about a DB instance. </p>
@@ -4921,7 +4918,7 @@ export namespace RestoreDBClusterFromSnapshotMessage {
   }
 }
 
-export interface RestoreDBClusterFromSnapshotResult extends $MetadataBearer {
+export interface RestoreDBClusterFromSnapshotResult {
   __type?: "RestoreDBClusterFromSnapshotResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -5079,7 +5076,7 @@ export namespace RestoreDBClusterToPointInTimeMessage {
   }
 }
 
-export interface RestoreDBClusterToPointInTimeResult extends $MetadataBearer {
+export interface RestoreDBClusterToPointInTimeResult {
   __type?: "RestoreDBClusterToPointInTimeResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -5117,7 +5114,7 @@ export namespace StartDBClusterMessage {
   }
 }
 
-export interface StartDBClusterResult extends $MetadataBearer {
+export interface StartDBClusterResult {
   __type?: "StartDBClusterResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -5147,7 +5144,7 @@ export namespace StopDBClusterMessage {
   }
 }
 
-export interface StopDBClusterResult extends $MetadataBearer {
+export interface StopDBClusterResult {
   __type?: "StopDBClusterResult";
   /**
    * <p>Detailed information about a DB cluster. </p>
@@ -5219,7 +5216,7 @@ export namespace Tag {
 /**
  * <p>Represents the output of <a>ListTagsForResource</a>.</p>
  */
-export interface TagListMessage extends $MetadataBearer {
+export interface TagListMessage {
   __type?: "TagListMessage";
   /**
    * <p>A list of one or more tags.</p>

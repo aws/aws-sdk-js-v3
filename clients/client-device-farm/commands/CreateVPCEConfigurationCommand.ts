@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateVPCEConfigurationCommandInput = CreateVPCEConfigurationRequest;
-export type CreateVPCEConfigurationCommandOutput = CreateVPCEConfigurationResult;
+export type CreateVPCEConfigurationCommandOutput = CreateVPCEConfigurationResult &
+  __MetadataBearer;
 
 export class CreateVPCEConfigurationCommand extends $Command<
   CreateVPCEConfigurationCommandInput,

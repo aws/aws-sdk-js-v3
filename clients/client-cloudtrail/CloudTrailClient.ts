@@ -1,41 +1,75 @@
 import {
-  AddTagsRequest,
-  AddTagsResponse,
-  CreateTrailRequest,
-  CreateTrailResponse,
-  DeleteTrailRequest,
-  DeleteTrailResponse,
-  DescribeTrailsRequest,
-  DescribeTrailsResponse,
-  GetEventSelectorsRequest,
-  GetEventSelectorsResponse,
-  GetInsightSelectorsRequest,
-  GetInsightSelectorsResponse,
-  GetTrailRequest,
-  GetTrailResponse,
-  GetTrailStatusRequest,
-  GetTrailStatusResponse,
-  ListPublicKeysRequest,
-  ListPublicKeysResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  ListTrailsRequest,
-  ListTrailsResponse,
-  LookupEventsRequest,
-  LookupEventsResponse,
-  PutEventSelectorsRequest,
-  PutEventSelectorsResponse,
-  PutInsightSelectorsRequest,
-  PutInsightSelectorsResponse,
-  RemoveTagsRequest,
-  RemoveTagsResponse,
-  StartLoggingRequest,
-  StartLoggingResponse,
-  StopLoggingRequest,
-  StopLoggingResponse,
-  UpdateTrailRequest,
-  UpdateTrailResponse
-} from "./models/index";
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  CreateTrailCommandInput,
+  CreateTrailCommandOutput
+} from "./commands/CreateTrailCommand";
+import {
+  DeleteTrailCommandInput,
+  DeleteTrailCommandOutput
+} from "./commands/DeleteTrailCommand";
+import {
+  DescribeTrailsCommandInput,
+  DescribeTrailsCommandOutput
+} from "./commands/DescribeTrailsCommand";
+import {
+  GetEventSelectorsCommandInput,
+  GetEventSelectorsCommandOutput
+} from "./commands/GetEventSelectorsCommand";
+import {
+  GetInsightSelectorsCommandInput,
+  GetInsightSelectorsCommandOutput
+} from "./commands/GetInsightSelectorsCommand";
+import {
+  GetTrailCommandInput,
+  GetTrailCommandOutput
+} from "./commands/GetTrailCommand";
+import {
+  GetTrailStatusCommandInput,
+  GetTrailStatusCommandOutput
+} from "./commands/GetTrailStatusCommand";
+import {
+  ListPublicKeysCommandInput,
+  ListPublicKeysCommandOutput
+} from "./commands/ListPublicKeysCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  ListTrailsCommandInput,
+  ListTrailsCommandOutput
+} from "./commands/ListTrailsCommand";
+import {
+  LookupEventsCommandInput,
+  LookupEventsCommandOutput
+} from "./commands/LookupEventsCommand";
+import {
+  PutEventSelectorsCommandInput,
+  PutEventSelectorsCommandOutput
+} from "./commands/PutEventSelectorsCommand";
+import {
+  PutInsightSelectorsCommandInput,
+  PutInsightSelectorsCommandOutput
+} from "./commands/PutInsightSelectorsCommand";
+import {
+  RemoveTagsCommandInput,
+  RemoveTagsCommandOutput
+} from "./commands/RemoveTagsCommand";
+import {
+  StartLoggingCommandInput,
+  StartLoggingCommandOutput
+} from "./commands/StartLoggingCommand";
+import {
+  StopLoggingCommandInput,
+  StopLoggingCommandOutput
+} from "./commands/StopLoggingCommand";
+import {
+  UpdateTrailCommandInput,
+  UpdateTrailCommandOutput
+} from "./commands/UpdateTrailCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -89,44 +123,44 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsRequest
-  | CreateTrailRequest
-  | DeleteTrailRequest
-  | DescribeTrailsRequest
-  | GetEventSelectorsRequest
-  | GetInsightSelectorsRequest
-  | GetTrailRequest
-  | GetTrailStatusRequest
-  | ListPublicKeysRequest
-  | ListTagsRequest
-  | ListTrailsRequest
-  | LookupEventsRequest
-  | PutEventSelectorsRequest
-  | PutInsightSelectorsRequest
-  | RemoveTagsRequest
-  | StartLoggingRequest
-  | StopLoggingRequest
-  | UpdateTrailRequest;
+  | AddTagsCommandInput
+  | CreateTrailCommandInput
+  | DeleteTrailCommandInput
+  | DescribeTrailsCommandInput
+  | GetEventSelectorsCommandInput
+  | GetInsightSelectorsCommandInput
+  | GetTrailCommandInput
+  | GetTrailStatusCommandInput
+  | ListPublicKeysCommandInput
+  | ListTagsCommandInput
+  | ListTrailsCommandInput
+  | LookupEventsCommandInput
+  | PutEventSelectorsCommandInput
+  | PutInsightSelectorsCommandInput
+  | RemoveTagsCommandInput
+  | StartLoggingCommandInput
+  | StopLoggingCommandInput
+  | UpdateTrailCommandInput;
 
 export type ServiceOutputTypes =
-  | AddTagsResponse
-  | CreateTrailResponse
-  | DeleteTrailResponse
-  | DescribeTrailsResponse
-  | GetEventSelectorsResponse
-  | GetInsightSelectorsResponse
-  | GetTrailResponse
-  | GetTrailStatusResponse
-  | ListPublicKeysResponse
-  | ListTagsResponse
-  | ListTrailsResponse
-  | LookupEventsResponse
-  | PutEventSelectorsResponse
-  | PutInsightSelectorsResponse
-  | RemoveTagsResponse
-  | StartLoggingResponse
-  | StopLoggingResponse
-  | UpdateTrailResponse;
+  | AddTagsCommandOutput
+  | CreateTrailCommandOutput
+  | DeleteTrailCommandOutput
+  | DescribeTrailsCommandOutput
+  | GetEventSelectorsCommandOutput
+  | GetInsightSelectorsCommandOutput
+  | GetTrailCommandOutput
+  | GetTrailStatusCommandOutput
+  | ListPublicKeysCommandOutput
+  | ListTagsCommandOutput
+  | ListTrailsCommandOutput
+  | LookupEventsCommandOutput
+  | PutEventSelectorsCommandOutput
+  | PutInsightSelectorsCommandOutput
+  | RemoveTagsCommandOutput
+  | StartLoggingCommandOutput
+  | StopLoggingCommandOutput
+  | UpdateTrailCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCapacityReservationCommandInput = CreateCapacityReservationRequest;
-export type CreateCapacityReservationCommandOutput = CreateCapacityReservationResult;
+export type CreateCapacityReservationCommandOutput = CreateCapacityReservationResult &
+  __MetadataBearer;
 
 export class CreateCapacityReservationCommand extends $Command<
   CreateCapacityReservationCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetResourceSharesCommandInput = GetResourceSharesRequest;
-export type GetResourceSharesCommandOutput = GetResourceSharesResponse;
+export type GetResourceSharesCommandOutput = GetResourceSharesResponse &
+  __MetadataBearer;
 
 export class GetResourceSharesCommand extends $Command<
   GetResourceSharesCommandInput,

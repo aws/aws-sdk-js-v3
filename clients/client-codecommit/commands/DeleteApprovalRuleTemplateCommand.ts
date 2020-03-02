@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteApprovalRuleTemplateCommandInput = DeleteApprovalRuleTemplateInput;
-export type DeleteApprovalRuleTemplateCommandOutput = DeleteApprovalRuleTemplateOutput;
+export type DeleteApprovalRuleTemplateCommandOutput = DeleteApprovalRuleTemplateOutput &
+  __MetadataBearer;
 
 export class DeleteApprovalRuleTemplateCommand extends $Command<
   DeleteApprovalRuleTemplateCommandInput,

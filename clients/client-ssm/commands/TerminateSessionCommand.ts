@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateSessionCommandInput = TerminateSessionRequest;
-export type TerminateSessionCommandOutput = TerminateSessionResponse;
+export type TerminateSessionCommandOutput = TerminateSessionResponse &
+  __MetadataBearer;
 
 export class TerminateSessionCommand extends $Command<
   TerminateSessionCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartConfigRulesEvaluationCommandInput = StartConfigRulesEvaluationRequest;
-export type StartConfigRulesEvaluationCommandOutput = StartConfigRulesEvaluationResponse;
+export type StartConfigRulesEvaluationCommandOutput = StartConfigRulesEvaluationResponse &
+  __MetadataBearer;
 
 export class StartConfigRulesEvaluationCommand extends $Command<
   StartConfigRulesEvaluationCommandInput,

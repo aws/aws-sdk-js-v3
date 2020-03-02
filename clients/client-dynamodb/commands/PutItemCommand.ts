@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutItemCommandInput = PutItemInput;
-export type PutItemCommandOutput = PutItemOutput;
+export type PutItemCommandOutput = PutItemOutput & __MetadataBearer;
 
 export class PutItemCommand extends $Command<
   PutItemCommandInput,

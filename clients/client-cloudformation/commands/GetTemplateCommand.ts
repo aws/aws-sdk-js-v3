@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTemplateCommandInput = GetTemplateInput;
-export type GetTemplateCommandOutput = GetTemplateOutput;
+export type GetTemplateCommandOutput = GetTemplateOutput & __MetadataBearer;
 
 export class GetTemplateCommand extends $Command<
   GetTemplateCommandInput,

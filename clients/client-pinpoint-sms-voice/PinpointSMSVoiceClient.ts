@@ -1,21 +1,35 @@
 import {
-  CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationResponse,
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetResponse,
-  DeleteConfigurationSetEventDestinationRequest,
-  DeleteConfigurationSetEventDestinationResponse,
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetResponse,
-  GetConfigurationSetEventDestinationsRequest,
-  GetConfigurationSetEventDestinationsResponse,
-  ListConfigurationSetsRequest,
-  ListConfigurationSetsResponse,
-  SendVoiceMessageRequest,
-  SendVoiceMessageResponse,
-  UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationResponse
-} from "./models/index";
+  CreateConfigurationSetCommandInput,
+  CreateConfigurationSetCommandOutput
+} from "./commands/CreateConfigurationSetCommand";
+import {
+  CreateConfigurationSetEventDestinationCommandInput,
+  CreateConfigurationSetEventDestinationCommandOutput
+} from "./commands/CreateConfigurationSetEventDestinationCommand";
+import {
+  DeleteConfigurationSetCommandInput,
+  DeleteConfigurationSetCommandOutput
+} from "./commands/DeleteConfigurationSetCommand";
+import {
+  DeleteConfigurationSetEventDestinationCommandInput,
+  DeleteConfigurationSetEventDestinationCommandOutput
+} from "./commands/DeleteConfigurationSetEventDestinationCommand";
+import {
+  GetConfigurationSetEventDestinationsCommandInput,
+  GetConfigurationSetEventDestinationsCommandOutput
+} from "./commands/GetConfigurationSetEventDestinationsCommand";
+import {
+  ListConfigurationSetsCommandInput,
+  ListConfigurationSetsCommandOutput
+} from "./commands/ListConfigurationSetsCommand";
+import {
+  SendVoiceMessageCommandInput,
+  SendVoiceMessageCommandOutput
+} from "./commands/SendVoiceMessageCommand";
+import {
+  UpdateConfigurationSetEventDestinationCommandInput,
+  UpdateConfigurationSetEventDestinationCommandOutput
+} from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,24 +83,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateConfigurationSetEventDestinationRequest
-  | CreateConfigurationSetRequest
-  | DeleteConfigurationSetEventDestinationRequest
-  | DeleteConfigurationSetRequest
-  | GetConfigurationSetEventDestinationsRequest
-  | ListConfigurationSetsRequest
-  | SendVoiceMessageRequest
-  | UpdateConfigurationSetEventDestinationRequest;
+  | CreateConfigurationSetCommandInput
+  | CreateConfigurationSetEventDestinationCommandInput
+  | DeleteConfigurationSetCommandInput
+  | DeleteConfigurationSetEventDestinationCommandInput
+  | GetConfigurationSetEventDestinationsCommandInput
+  | ListConfigurationSetsCommandInput
+  | SendVoiceMessageCommandInput
+  | UpdateConfigurationSetEventDestinationCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateConfigurationSetEventDestinationResponse
-  | CreateConfigurationSetResponse
-  | DeleteConfigurationSetEventDestinationResponse
-  | DeleteConfigurationSetResponse
-  | GetConfigurationSetEventDestinationsResponse
-  | ListConfigurationSetsResponse
-  | SendVoiceMessageResponse
-  | UpdateConfigurationSetEventDestinationResponse;
+  | CreateConfigurationSetCommandOutput
+  | CreateConfigurationSetEventDestinationCommandOutput
+  | DeleteConfigurationSetCommandOutput
+  | DeleteConfigurationSetEventDestinationCommandOutput
+  | GetConfigurationSetEventDestinationsCommandOutput
+  | ListConfigurationSetsCommandOutput
+  | SendVoiceMessageCommandOutput
+  | UpdateConfigurationSetEventDestinationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

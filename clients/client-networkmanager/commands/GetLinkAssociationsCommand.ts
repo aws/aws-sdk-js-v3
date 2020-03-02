@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLinkAssociationsCommandInput = GetLinkAssociationsRequest;
-export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse;
+export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse &
+  __MetadataBearer;
 
 export class GetLinkAssociationsCommand extends $Command<
   GetLinkAssociationsCommandInput,

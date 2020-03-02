@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RemoveFromGlobalClusterCommandInput = RemoveFromGlobalClusterMessage;
-export type RemoveFromGlobalClusterCommandOutput = RemoveFromGlobalClusterResult;
+export type RemoveFromGlobalClusterCommandOutput = RemoveFromGlobalClusterResult &
+  __MetadataBearer;
 
 export class RemoveFromGlobalClusterCommand extends $Command<
   RemoveFromGlobalClusterCommandInput,

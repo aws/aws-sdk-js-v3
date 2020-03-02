@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAliasCommandInput = UpdateAliasInput;
-export type UpdateAliasCommandOutput = UpdateAliasOutput;
+export type UpdateAliasCommandOutput = UpdateAliasOutput & __MetadataBearer;
 
 export class UpdateAliasCommand extends $Command<
   UpdateAliasCommandInput,

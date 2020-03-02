@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeElasticGpusCommandInput = DescribeElasticGpusRequest;
-export type DescribeElasticGpusCommandOutput = DescribeElasticGpusResult;
+export type DescribeElasticGpusCommandOutput = DescribeElasticGpusResult &
+  __MetadataBearer;
 
 export class DescribeElasticGpusCommand extends $Command<
   DescribeElasticGpusCommandInput,

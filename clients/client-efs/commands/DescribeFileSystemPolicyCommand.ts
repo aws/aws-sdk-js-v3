@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeFileSystemPolicyCommandInput = DescribeFileSystemPolicyRequest;
-export type DescribeFileSystemPolicyCommandOutput = FileSystemPolicyDescription;
+export type DescribeFileSystemPolicyCommandOutput = FileSystemPolicyDescription &
+  __MetadataBearer;
 
 export class DescribeFileSystemPolicyCommand extends $Command<
   DescribeFileSystemPolicyCommandInput,

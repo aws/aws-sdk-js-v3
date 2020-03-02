@@ -1,34 +1,75 @@
 import {
-  CreateServerRequest,
-  CreateServerResponse,
-  CreateUserRequest,
-  CreateUserResponse,
-  DeleteServerRequest,
-  DeleteSshPublicKeyRequest,
-  DeleteUserRequest,
-  DescribeServerRequest,
-  DescribeServerResponse,
-  DescribeUserRequest,
-  DescribeUserResponse,
-  ImportSshPublicKeyRequest,
-  ImportSshPublicKeyResponse,
-  ListServersRequest,
-  ListServersResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListUsersRequest,
-  ListUsersResponse,
-  StartServerRequest,
-  StopServerRequest,
-  TagResourceRequest,
-  TestIdentityProviderRequest,
-  TestIdentityProviderResponse,
-  UntagResourceRequest,
-  UpdateServerRequest,
-  UpdateServerResponse,
-  UpdateUserRequest,
-  UpdateUserResponse
-} from "./models/index";
+  CreateServerCommandInput,
+  CreateServerCommandOutput
+} from "./commands/CreateServerCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeleteServerCommandInput,
+  DeleteServerCommandOutput
+} from "./commands/DeleteServerCommand";
+import {
+  DeleteSshPublicKeyCommandInput,
+  DeleteSshPublicKeyCommandOutput
+} from "./commands/DeleteSshPublicKeyCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DescribeServerCommandInput,
+  DescribeServerCommandOutput
+} from "./commands/DescribeServerCommand";
+import {
+  DescribeUserCommandInput,
+  DescribeUserCommandOutput
+} from "./commands/DescribeUserCommand";
+import {
+  ImportSshPublicKeyCommandInput,
+  ImportSshPublicKeyCommandOutput
+} from "./commands/ImportSshPublicKeyCommand";
+import {
+  ListServersCommandInput,
+  ListServersCommandOutput
+} from "./commands/ListServersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListUsersCommandInput,
+  ListUsersCommandOutput
+} from "./commands/ListUsersCommand";
+import {
+  StartServerCommandInput,
+  StartServerCommandOutput
+} from "./commands/StartServerCommand";
+import {
+  StopServerCommandInput,
+  StopServerCommandOutput
+} from "./commands/StopServerCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  TestIdentityProviderCommandInput,
+  TestIdentityProviderCommandOutput
+} from "./commands/TestIdentityProviderCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateServerCommandInput,
+  UpdateServerCommandOutput
+} from "./commands/UpdateServerCommand";
+import {
+  UpdateUserCommandInput,
+  UpdateUserCommandOutput
+} from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -76,45 +117,50 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateServerRequest
-  | CreateUserRequest
-  | DeleteServerRequest
-  | DeleteSshPublicKeyRequest
-  | DeleteUserRequest
-  | DescribeServerRequest
-  | DescribeUserRequest
-  | ImportSshPublicKeyRequest
-  | ListServersRequest
-  | ListTagsForResourceRequest
-  | ListUsersRequest
-  | StartServerRequest
-  | StopServerRequest
-  | TagResourceRequest
-  | TestIdentityProviderRequest
-  | UntagResourceRequest
-  | UpdateServerRequest
-  | UpdateUserRequest;
+  | CreateServerCommandInput
+  | CreateUserCommandInput
+  | DeleteServerCommandInput
+  | DeleteSshPublicKeyCommandInput
+  | DeleteUserCommandInput
+  | DescribeServerCommandInput
+  | DescribeUserCommandInput
+  | ImportSshPublicKeyCommandInput
+  | ListServersCommandInput
+  | ListTagsForResourceCommandInput
+  | ListUsersCommandInput
+  | StartServerCommandInput
+  | StopServerCommandInput
+  | TagResourceCommandInput
+  | TestIdentityProviderCommandInput
+  | UntagResourceCommandInput
+  | UpdateServerCommandInput
+  | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateServerResponse
-  | CreateUserResponse
-  | DescribeServerResponse
-  | DescribeUserResponse
-  | ImportSshPublicKeyResponse
-  | ListServersResponse
-  | ListTagsForResourceResponse
-  | ListUsersResponse
-  | TestIdentityProviderResponse
-  | UpdateServerResponse
-  | UpdateUserResponse;
+  | CreateServerCommandOutput
+  | CreateUserCommandOutput
+  | DeleteServerCommandOutput
+  | DeleteSshPublicKeyCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeServerCommandOutput
+  | DescribeUserCommandOutput
+  | ImportSshPublicKeyCommandOutput
+  | ListServersCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListUsersCommandOutput
+  | StartServerCommandOutput
+  | StopServerCommandOutput
+  | TagResourceCommandOutput
+  | TestIdentityProviderCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateServerCommandOutput
+  | UpdateUserCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

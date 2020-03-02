@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestFailoverCommandInput = TestFailoverMessage;
-export type TestFailoverCommandOutput = TestFailoverResult;
+export type TestFailoverCommandOutput = TestFailoverResult & __MetadataBearer;
 
 export class TestFailoverCommand extends $Command<
   TestFailoverCommandInput,

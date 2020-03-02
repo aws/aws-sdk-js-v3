@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeployablePatchSnapshotForInstanceCommandInput = GetDeployablePatchSnapshotForInstanceRequest;
-export type GetDeployablePatchSnapshotForInstanceCommandOutput = GetDeployablePatchSnapshotForInstanceResult;
+export type GetDeployablePatchSnapshotForInstanceCommandOutput = GetDeployablePatchSnapshotForInstanceResult &
+  __MetadataBearer;
 
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
   GetDeployablePatchSnapshotForInstanceCommandInput,

@@ -46,7 +46,7 @@ export namespace CreateHomeRegionControlRequest {
   }
 }
 
-export interface CreateHomeRegionControlResult extends $MetadataBearer {
+export interface CreateHomeRegionControlResult {
   __type?: "CreateHomeRegionControlResult";
   /**
    * <p>This object is the <code>HomeRegionControl</code> object that's returned by a successful call to
@@ -99,7 +99,7 @@ export namespace DescribeHomeRegionControlsRequest {
   }
 }
 
-export interface DescribeHomeRegionControlsResult extends $MetadataBearer {
+export interface DescribeHomeRegionControlsResult {
   __type?: "DescribeHomeRegionControlsResult";
   /**
    * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
@@ -146,7 +146,7 @@ export namespace GetHomeRegionRequest {
   }
 }
 
-export interface GetHomeRegionResult extends $MetadataBearer {
+export interface GetHomeRegionResult {
   __type?: "GetHomeRegionResult";
   /**
    * <p>The name of the home region of the calling account.</p>

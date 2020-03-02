@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopTrainingDocumentClassifierCommandInput = StopTrainingDocumentClassifierRequest;
-export type StopTrainingDocumentClassifierCommandOutput = StopTrainingDocumentClassifierResponse;
+export type StopTrainingDocumentClassifierCommandOutput = StopTrainingDocumentClassifierResponse &
+  __MetadataBearer;
 
 export class StopTrainingDocumentClassifierCommand extends $Command<
   StopTrainingDocumentClassifierCommandInput,

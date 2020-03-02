@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetServiceGraphCommandInput = GetServiceGraphRequest;
-export type GetServiceGraphCommandOutput = GetServiceGraphResult;
+export type GetServiceGraphCommandOutput = GetServiceGraphResult &
+  __MetadataBearer;
 
 export class GetServiceGraphCommand extends $Command<
   GetServiceGraphCommandInput,

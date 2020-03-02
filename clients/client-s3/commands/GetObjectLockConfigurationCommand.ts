@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetObjectLockConfigurationCommandInput = GetObjectLockConfigurationRequest;
-export type GetObjectLockConfigurationCommandOutput = GetObjectLockConfigurationOutput;
+export type GetObjectLockConfigurationCommandOutput = GetObjectLockConfigurationOutput &
+  __MetadataBearer;
 
 export class GetObjectLockConfigurationCommand extends $Command<
   GetObjectLockConfigurationCommandInput,

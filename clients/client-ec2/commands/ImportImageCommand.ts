@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportImageCommandInput = ImportImageRequest;
-export type ImportImageCommandOutput = ImportImageResult;
+export type ImportImageCommandOutput = ImportImageResult & __MetadataBearer;
 
 export class ImportImageCommand extends $Command<
   ImportImageCommandInput,

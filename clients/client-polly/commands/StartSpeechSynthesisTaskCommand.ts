@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartSpeechSynthesisTaskCommandInput = StartSpeechSynthesisTaskInput;
-export type StartSpeechSynthesisTaskCommandOutput = StartSpeechSynthesisTaskOutput;
+export type StartSpeechSynthesisTaskCommandOutput = StartSpeechSynthesisTaskOutput &
+  __MetadataBearer;
 
 export class StartSpeechSynthesisTaskCommand extends $Command<
   StartSpeechSynthesisTaskCommandInput,

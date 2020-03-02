@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInfrastructureConfigurationCommandInput = DeleteInfrastructureConfigurationRequest;
-export type DeleteInfrastructureConfigurationCommandOutput = DeleteInfrastructureConfigurationResponse;
+export type DeleteInfrastructureConfigurationCommandOutput = DeleteInfrastructureConfigurationResponse &
+  __MetadataBearer;
 
 export class DeleteInfrastructureConfigurationCommand extends $Command<
   DeleteInfrastructureConfigurationCommandInput,

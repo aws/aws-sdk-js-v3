@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConferenceProviderCommandInput = CreateConferenceProviderRequest;
-export type CreateConferenceProviderCommandOutput = CreateConferenceProviderResponse;
+export type CreateConferenceProviderCommandOutput = CreateConferenceProviderResponse &
+  __MetadataBearer;
 
 export class CreateConferenceProviderCommand extends $Command<
   CreateConferenceProviderCommandInput,

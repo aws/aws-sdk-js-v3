@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeWorkspaceBundlesCommandInput = DescribeWorkspaceBundlesRequest;
-export type DescribeWorkspaceBundlesCommandOutput = DescribeWorkspaceBundlesResult;
+export type DescribeWorkspaceBundlesCommandOutput = DescribeWorkspaceBundlesResult &
+  __MetadataBearer;
 
 export class DescribeWorkspaceBundlesCommand extends $Command<
   DescribeWorkspaceBundlesCommandInput,

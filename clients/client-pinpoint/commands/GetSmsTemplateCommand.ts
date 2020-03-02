@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSmsTemplateCommandInput = GetSmsTemplateRequest;
-export type GetSmsTemplateCommandOutput = GetSmsTemplateResponse;
+export type GetSmsTemplateCommandOutput = GetSmsTemplateResponse &
+  __MetadataBearer;
 
 export class GetSmsTemplateCommand extends $Command<
   GetSmsTemplateCommandInput,

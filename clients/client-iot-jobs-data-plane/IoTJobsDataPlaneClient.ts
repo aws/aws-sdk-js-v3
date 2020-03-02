@@ -1,13 +1,19 @@
 import {
-  DescribeJobExecutionRequest,
-  DescribeJobExecutionResponse,
-  GetPendingJobExecutionsRequest,
-  GetPendingJobExecutionsResponse,
-  StartNextPendingJobExecutionRequest,
-  StartNextPendingJobExecutionResponse,
-  UpdateJobExecutionRequest,
-  UpdateJobExecutionResponse
-} from "./models/index";
+  DescribeJobExecutionCommandInput,
+  DescribeJobExecutionCommandOutput
+} from "./commands/DescribeJobExecutionCommand";
+import {
+  GetPendingJobExecutionsCommandInput,
+  GetPendingJobExecutionsCommandOutput
+} from "./commands/GetPendingJobExecutionsCommand";
+import {
+  StartNextPendingJobExecutionCommandInput,
+  StartNextPendingJobExecutionCommandOutput
+} from "./commands/StartNextPendingJobExecutionCommand";
+import {
+  UpdateJobExecutionCommandInput,
+  UpdateJobExecutionCommandOutput
+} from "./commands/UpdateJobExecutionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -61,16 +67,16 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DescribeJobExecutionRequest
-  | GetPendingJobExecutionsRequest
-  | StartNextPendingJobExecutionRequest
-  | UpdateJobExecutionRequest;
+  | DescribeJobExecutionCommandInput
+  | GetPendingJobExecutionsCommandInput
+  | StartNextPendingJobExecutionCommandInput
+  | UpdateJobExecutionCommandInput;
 
 export type ServiceOutputTypes =
-  | DescribeJobExecutionResponse
-  | GetPendingJobExecutionsResponse
-  | StartNextPendingJobExecutionResponse
-  | UpdateJobExecutionResponse;
+  | DescribeJobExecutionCommandOutput
+  | GetPendingJobExecutionsCommandOutput
+  | StartNextPendingJobExecutionCommandOutput
+  | UpdateJobExecutionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

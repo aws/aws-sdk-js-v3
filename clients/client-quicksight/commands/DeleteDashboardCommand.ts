@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDashboardCommandInput = DeleteDashboardRequest;
-export type DeleteDashboardCommandOutput = DeleteDashboardResponse;
+export type DeleteDashboardCommandOutput = DeleteDashboardResponse &
+  __MetadataBearer;
 
 export class DeleteDashboardCommand extends $Command<
   DeleteDashboardCommandInput,

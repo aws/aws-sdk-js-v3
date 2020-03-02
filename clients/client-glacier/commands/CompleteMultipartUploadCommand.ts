@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadInput;
-export type CompleteMultipartUploadCommandOutput = ArchiveCreationOutput;
+export type CompleteMultipartUploadCommandOutput = ArchiveCreationOutput &
+  __MetadataBearer;
 
 export class CompleteMultipartUploadCommand extends $Command<
   CompleteMultipartUploadCommandInput,

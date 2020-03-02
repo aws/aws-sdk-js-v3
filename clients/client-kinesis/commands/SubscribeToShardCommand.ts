@@ -21,11 +21,13 @@ import {
   MiddlewareStack,
   EventStreamSerdeContext as __EventStreamSerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SubscribeToShardCommandInput = SubscribeToShardInput;
-export type SubscribeToShardCommandOutput = SubscribeToShardOutput;
+export type SubscribeToShardCommandOutput = SubscribeToShardOutput &
+  __MetadataBearer;
 
 export class SubscribeToShardCommand extends $Command<
   SubscribeToShardCommandInput,

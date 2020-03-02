@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteOriginEndpointCommandInput = DeleteOriginEndpointRequest;
-export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse;
+export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse &
+  __MetadataBearer;
 
 export class DeleteOriginEndpointCommand extends $Command<
   DeleteOriginEndpointCommandInput,

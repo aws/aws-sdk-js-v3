@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopChannelCommandInput = StopChannelRequest;
-export type StopChannelCommandOutput = StopChannelResponse;
+export type StopChannelCommandOutput = StopChannelResponse & __MetadataBearer;
 
 export class StopChannelCommand extends $Command<
   StopChannelCommandInput,

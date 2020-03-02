@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListDevicePoolsCommandInput = ListDevicePoolsRequest;
-export type ListDevicePoolsCommandOutput = ListDevicePoolsResult;
+export type ListDevicePoolsCommandOutput = ListDevicePoolsResult &
+  __MetadataBearer;
 
 export class ListDevicePoolsCommand extends $Command<
   ListDevicePoolsCommandInput,

@@ -116,31 +116,43 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
   switch (errorCode) {
     case "InternalFailure":
     case "com.amazonaws.sagemaker.runtime#InternalFailure":
-      response = await deserializeAws_restJson1_1InternalFailureResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ModelError":
     case "com.amazonaws.sagemaker.runtime#ModelError":
-      response = await deserializeAws_restJson1_1ModelErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ModelErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailable":
     case "com.amazonaws.sagemaker.runtime#ServiceUnavailable":
-      response = await deserializeAws_restJson1_1ServiceUnavailableResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationError":
     case "com.amazonaws.sagemaker.runtime#ValidationError":
-      response = await deserializeAws_restJson1_1ValidationErrorResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationErrorResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

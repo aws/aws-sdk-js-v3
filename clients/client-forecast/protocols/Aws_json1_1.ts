@@ -599,24 +599,33 @@ async function deserializeAws_json1_1CreateDatasetCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.seer.service#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -672,38 +681,53 @@ async function deserializeAws_json1_1CreateDatasetGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.seer.service#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -762,38 +786,53 @@ async function deserializeAws_json1_1CreateDatasetImportJobCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.seer.service#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -846,38 +885,53 @@ async function deserializeAws_json1_1CreateForecastCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.seer.service#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -936,38 +990,53 @@ async function deserializeAws_json1_1CreateForecastExportJobCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.seer.service#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1020,38 +1089,53 @@ async function deserializeAws_json1_1CreatePredictorCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.seer.service#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.seer.service#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1100,24 +1184,33 @@ async function deserializeAws_json1_1DeleteDatasetCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1169,24 +1262,33 @@ async function deserializeAws_json1_1DeleteDatasetGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1238,24 +1340,33 @@ async function deserializeAws_json1_1DeleteDatasetImportJobCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1304,24 +1415,33 @@ async function deserializeAws_json1_1DeleteForecastCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1373,24 +1493,33 @@ async function deserializeAws_json1_1DeleteForecastExportJobCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1439,24 +1568,33 @@ async function deserializeAws_json1_1DeletePredictorCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1509,17 +1647,23 @@ async function deserializeAws_json1_1DescribeDatasetCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1575,17 +1719,23 @@ async function deserializeAws_json1_1DescribeDatasetGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1644,17 +1794,23 @@ async function deserializeAws_json1_1DescribeDatasetImportJobCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1707,17 +1863,23 @@ async function deserializeAws_json1_1DescribeForecastCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1776,17 +1938,23 @@ async function deserializeAws_json1_1DescribeForecastExportJobCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1839,17 +2007,23 @@ async function deserializeAws_json1_1DescribePredictorCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1905,24 +2079,33 @@ async function deserializeAws_json1_1GetAccuracyMetricsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1975,10 +2158,13 @@ async function deserializeAws_json1_1ListDatasetGroupsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.service#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2034,17 +2220,23 @@ async function deserializeAws_json1_1ListDatasetImportJobsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.service#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2097,10 +2289,13 @@ async function deserializeAws_json1_1ListDatasetsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.service#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2159,17 +2354,23 @@ async function deserializeAws_json1_1ListForecastExportJobsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.service#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2222,17 +2423,23 @@ async function deserializeAws_json1_1ListForecastsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.service#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2285,17 +2492,23 @@ async function deserializeAws_json1_1ListPredictorsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.service#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2351,24 +2564,33 @@ async function deserializeAws_json1_1UpdateDatasetGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.service#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.seer.service#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -1,94 +1,195 @@
 import {
-  AddTagsToResourceMessage,
-  AllowedNodeTypeModificationsMessage,
-  AuthorizeCacheSecurityGroupIngressMessage,
-  AuthorizeCacheSecurityGroupIngressResult,
-  BatchApplyUpdateActionMessage,
-  BatchStopUpdateActionMessage,
-  CacheClusterMessage,
-  CacheEngineVersionMessage,
-  CacheParameterGroupDetails,
-  CacheParameterGroupNameMessage,
-  CacheParameterGroupsMessage,
-  CacheSecurityGroupMessage,
-  CacheSubnetGroupMessage,
-  CompleteMigrationMessage,
-  CompleteMigrationResponse,
-  CopySnapshotMessage,
-  CopySnapshotResult,
-  CreateCacheClusterMessage,
-  CreateCacheClusterResult,
-  CreateCacheParameterGroupMessage,
-  CreateCacheParameterGroupResult,
-  CreateCacheSecurityGroupMessage,
-  CreateCacheSecurityGroupResult,
-  CreateCacheSubnetGroupMessage,
-  CreateCacheSubnetGroupResult,
-  CreateReplicationGroupMessage,
-  CreateReplicationGroupResult,
-  CreateSnapshotMessage,
-  CreateSnapshotResult,
-  DecreaseReplicaCountMessage,
-  DecreaseReplicaCountResult,
-  DeleteCacheClusterMessage,
-  DeleteCacheClusterResult,
-  DeleteCacheParameterGroupMessage,
-  DeleteCacheSecurityGroupMessage,
-  DeleteCacheSubnetGroupMessage,
-  DeleteReplicationGroupMessage,
-  DeleteReplicationGroupResult,
-  DeleteSnapshotMessage,
-  DeleteSnapshotResult,
-  DescribeCacheClustersMessage,
-  DescribeCacheEngineVersionsMessage,
-  DescribeCacheParameterGroupsMessage,
-  DescribeCacheParametersMessage,
-  DescribeCacheSecurityGroupsMessage,
-  DescribeCacheSubnetGroupsMessage,
-  DescribeEngineDefaultParametersMessage,
-  DescribeEngineDefaultParametersResult,
-  DescribeEventsMessage,
-  DescribeReplicationGroupsMessage,
-  DescribeReservedCacheNodesMessage,
-  DescribeReservedCacheNodesOfferingsMessage,
-  DescribeServiceUpdatesMessage,
-  DescribeSnapshotsListMessage,
-  DescribeSnapshotsMessage,
-  DescribeUpdateActionsMessage,
-  EventsMessage,
-  IncreaseReplicaCountMessage,
-  IncreaseReplicaCountResult,
-  ListAllowedNodeTypeModificationsMessage,
-  ListTagsForResourceMessage,
-  ModifyCacheClusterMessage,
-  ModifyCacheClusterResult,
-  ModifyCacheParameterGroupMessage,
-  ModifyCacheSubnetGroupMessage,
-  ModifyCacheSubnetGroupResult,
-  ModifyReplicationGroupMessage,
-  ModifyReplicationGroupResult,
-  ModifyReplicationGroupShardConfigurationMessage,
-  ModifyReplicationGroupShardConfigurationResult,
-  PurchaseReservedCacheNodesOfferingMessage,
-  PurchaseReservedCacheNodesOfferingResult,
-  RebootCacheClusterMessage,
-  RebootCacheClusterResult,
-  RemoveTagsFromResourceMessage,
-  ReplicationGroupMessage,
-  ReservedCacheNodeMessage,
-  ReservedCacheNodesOfferingMessage,
-  ResetCacheParameterGroupMessage,
-  RevokeCacheSecurityGroupIngressMessage,
-  RevokeCacheSecurityGroupIngressResult,
-  ServiceUpdatesMessage,
-  StartMigrationMessage,
-  StartMigrationResponse,
-  TagListMessage,
-  TestFailoverMessage,
-  TestFailoverResult,
-  UpdateActionResultsMessage,
-  UpdateActionsMessage
-} from "./models/index";
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  AuthorizeCacheSecurityGroupIngressCommandInput,
+  AuthorizeCacheSecurityGroupIngressCommandOutput
+} from "./commands/AuthorizeCacheSecurityGroupIngressCommand";
+import {
+  BatchApplyUpdateActionCommandInput,
+  BatchApplyUpdateActionCommandOutput
+} from "./commands/BatchApplyUpdateActionCommand";
+import {
+  BatchStopUpdateActionCommandInput,
+  BatchStopUpdateActionCommandOutput
+} from "./commands/BatchStopUpdateActionCommand";
+import {
+  CompleteMigrationCommandInput,
+  CompleteMigrationCommandOutput
+} from "./commands/CompleteMigrationCommand";
+import {
+  CopySnapshotCommandInput,
+  CopySnapshotCommandOutput
+} from "./commands/CopySnapshotCommand";
+import {
+  CreateCacheClusterCommandInput,
+  CreateCacheClusterCommandOutput
+} from "./commands/CreateCacheClusterCommand";
+import {
+  CreateCacheParameterGroupCommandInput,
+  CreateCacheParameterGroupCommandOutput
+} from "./commands/CreateCacheParameterGroupCommand";
+import {
+  CreateCacheSecurityGroupCommandInput,
+  CreateCacheSecurityGroupCommandOutput
+} from "./commands/CreateCacheSecurityGroupCommand";
+import {
+  CreateCacheSubnetGroupCommandInput,
+  CreateCacheSubnetGroupCommandOutput
+} from "./commands/CreateCacheSubnetGroupCommand";
+import {
+  CreateReplicationGroupCommandInput,
+  CreateReplicationGroupCommandOutput
+} from "./commands/CreateReplicationGroupCommand";
+import {
+  CreateSnapshotCommandInput,
+  CreateSnapshotCommandOutput
+} from "./commands/CreateSnapshotCommand";
+import {
+  DecreaseReplicaCountCommandInput,
+  DecreaseReplicaCountCommandOutput
+} from "./commands/DecreaseReplicaCountCommand";
+import {
+  DeleteCacheClusterCommandInput,
+  DeleteCacheClusterCommandOutput
+} from "./commands/DeleteCacheClusterCommand";
+import {
+  DeleteCacheParameterGroupCommandInput,
+  DeleteCacheParameterGroupCommandOutput
+} from "./commands/DeleteCacheParameterGroupCommand";
+import {
+  DeleteCacheSecurityGroupCommandInput,
+  DeleteCacheSecurityGroupCommandOutput
+} from "./commands/DeleteCacheSecurityGroupCommand";
+import {
+  DeleteCacheSubnetGroupCommandInput,
+  DeleteCacheSubnetGroupCommandOutput
+} from "./commands/DeleteCacheSubnetGroupCommand";
+import {
+  DeleteReplicationGroupCommandInput,
+  DeleteReplicationGroupCommandOutput
+} from "./commands/DeleteReplicationGroupCommand";
+import {
+  DeleteSnapshotCommandInput,
+  DeleteSnapshotCommandOutput
+} from "./commands/DeleteSnapshotCommand";
+import {
+  DescribeCacheClustersCommandInput,
+  DescribeCacheClustersCommandOutput
+} from "./commands/DescribeCacheClustersCommand";
+import {
+  DescribeCacheEngineVersionsCommandInput,
+  DescribeCacheEngineVersionsCommandOutput
+} from "./commands/DescribeCacheEngineVersionsCommand";
+import {
+  DescribeCacheParameterGroupsCommandInput,
+  DescribeCacheParameterGroupsCommandOutput
+} from "./commands/DescribeCacheParameterGroupsCommand";
+import {
+  DescribeCacheParametersCommandInput,
+  DescribeCacheParametersCommandOutput
+} from "./commands/DescribeCacheParametersCommand";
+import {
+  DescribeCacheSecurityGroupsCommandInput,
+  DescribeCacheSecurityGroupsCommandOutput
+} from "./commands/DescribeCacheSecurityGroupsCommand";
+import {
+  DescribeCacheSubnetGroupsCommandInput,
+  DescribeCacheSubnetGroupsCommandOutput
+} from "./commands/DescribeCacheSubnetGroupsCommand";
+import {
+  DescribeEngineDefaultParametersCommandInput,
+  DescribeEngineDefaultParametersCommandOutput
+} from "./commands/DescribeEngineDefaultParametersCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeReplicationGroupsCommandInput,
+  DescribeReplicationGroupsCommandOutput
+} from "./commands/DescribeReplicationGroupsCommand";
+import {
+  DescribeReservedCacheNodesCommandInput,
+  DescribeReservedCacheNodesCommandOutput
+} from "./commands/DescribeReservedCacheNodesCommand";
+import {
+  DescribeReservedCacheNodesOfferingsCommandInput,
+  DescribeReservedCacheNodesOfferingsCommandOutput
+} from "./commands/DescribeReservedCacheNodesOfferingsCommand";
+import {
+  DescribeServiceUpdatesCommandInput,
+  DescribeServiceUpdatesCommandOutput
+} from "./commands/DescribeServiceUpdatesCommand";
+import {
+  DescribeSnapshotsCommandInput,
+  DescribeSnapshotsCommandOutput
+} from "./commands/DescribeSnapshotsCommand";
+import {
+  DescribeUpdateActionsCommandInput,
+  DescribeUpdateActionsCommandOutput
+} from "./commands/DescribeUpdateActionsCommand";
+import {
+  IncreaseReplicaCountCommandInput,
+  IncreaseReplicaCountCommandOutput
+} from "./commands/IncreaseReplicaCountCommand";
+import {
+  ListAllowedNodeTypeModificationsCommandInput,
+  ListAllowedNodeTypeModificationsCommandOutput
+} from "./commands/ListAllowedNodeTypeModificationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyCacheClusterCommandInput,
+  ModifyCacheClusterCommandOutput
+} from "./commands/ModifyCacheClusterCommand";
+import {
+  ModifyCacheParameterGroupCommandInput,
+  ModifyCacheParameterGroupCommandOutput
+} from "./commands/ModifyCacheParameterGroupCommand";
+import {
+  ModifyCacheSubnetGroupCommandInput,
+  ModifyCacheSubnetGroupCommandOutput
+} from "./commands/ModifyCacheSubnetGroupCommand";
+import {
+  ModifyReplicationGroupCommandInput,
+  ModifyReplicationGroupCommandOutput
+} from "./commands/ModifyReplicationGroupCommand";
+import {
+  ModifyReplicationGroupShardConfigurationCommandInput,
+  ModifyReplicationGroupShardConfigurationCommandOutput
+} from "./commands/ModifyReplicationGroupShardConfigurationCommand";
+import {
+  PurchaseReservedCacheNodesOfferingCommandInput,
+  PurchaseReservedCacheNodesOfferingCommandOutput
+} from "./commands/PurchaseReservedCacheNodesOfferingCommand";
+import {
+  RebootCacheClusterCommandInput,
+  RebootCacheClusterCommandOutput
+} from "./commands/RebootCacheClusterCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
+import {
+  ResetCacheParameterGroupCommandInput,
+  ResetCacheParameterGroupCommandOutput
+} from "./commands/ResetCacheParameterGroupCommand";
+import {
+  RevokeCacheSecurityGroupIngressCommandInput,
+  RevokeCacheSecurityGroupIngressCommandOutput
+} from "./commands/RevokeCacheSecurityGroupIngressCommand";
+import {
+  StartMigrationCommandInput,
+  StartMigrationCommandOutput
+} from "./commands/StartMigrationCommand";
+import {
+  TestFailoverCommandInput,
+  TestFailoverCommandOutput
+} from "./commands/TestFailoverCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -136,109 +237,110 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToResourceMessage
-  | AuthorizeCacheSecurityGroupIngressMessage
-  | BatchApplyUpdateActionMessage
-  | BatchStopUpdateActionMessage
-  | CompleteMigrationMessage
-  | CopySnapshotMessage
-  | CreateCacheClusterMessage
-  | CreateCacheParameterGroupMessage
-  | CreateCacheSecurityGroupMessage
-  | CreateCacheSubnetGroupMessage
-  | CreateReplicationGroupMessage
-  | CreateSnapshotMessage
-  | DecreaseReplicaCountMessage
-  | DeleteCacheClusterMessage
-  | DeleteCacheParameterGroupMessage
-  | DeleteCacheSecurityGroupMessage
-  | DeleteCacheSubnetGroupMessage
-  | DeleteReplicationGroupMessage
-  | DeleteSnapshotMessage
-  | DescribeCacheClustersMessage
-  | DescribeCacheEngineVersionsMessage
-  | DescribeCacheParameterGroupsMessage
-  | DescribeCacheParametersMessage
-  | DescribeCacheSecurityGroupsMessage
-  | DescribeCacheSubnetGroupsMessage
-  | DescribeEngineDefaultParametersMessage
-  | DescribeEventsMessage
-  | DescribeReplicationGroupsMessage
-  | DescribeReservedCacheNodesMessage
-  | DescribeReservedCacheNodesOfferingsMessage
-  | DescribeServiceUpdatesMessage
-  | DescribeSnapshotsMessage
-  | DescribeUpdateActionsMessage
-  | IncreaseReplicaCountMessage
-  | ListAllowedNodeTypeModificationsMessage
-  | ListTagsForResourceMessage
-  | ModifyCacheClusterMessage
-  | ModifyCacheParameterGroupMessage
-  | ModifyCacheSubnetGroupMessage
-  | ModifyReplicationGroupMessage
-  | ModifyReplicationGroupShardConfigurationMessage
-  | PurchaseReservedCacheNodesOfferingMessage
-  | RebootCacheClusterMessage
-  | RemoveTagsFromResourceMessage
-  | ResetCacheParameterGroupMessage
-  | RevokeCacheSecurityGroupIngressMessage
-  | StartMigrationMessage
-  | TestFailoverMessage;
+  | AddTagsToResourceCommandInput
+  | AuthorizeCacheSecurityGroupIngressCommandInput
+  | BatchApplyUpdateActionCommandInput
+  | BatchStopUpdateActionCommandInput
+  | CompleteMigrationCommandInput
+  | CopySnapshotCommandInput
+  | CreateCacheClusterCommandInput
+  | CreateCacheParameterGroupCommandInput
+  | CreateCacheSecurityGroupCommandInput
+  | CreateCacheSubnetGroupCommandInput
+  | CreateReplicationGroupCommandInput
+  | CreateSnapshotCommandInput
+  | DecreaseReplicaCountCommandInput
+  | DeleteCacheClusterCommandInput
+  | DeleteCacheParameterGroupCommandInput
+  | DeleteCacheSecurityGroupCommandInput
+  | DeleteCacheSubnetGroupCommandInput
+  | DeleteReplicationGroupCommandInput
+  | DeleteSnapshotCommandInput
+  | DescribeCacheClustersCommandInput
+  | DescribeCacheEngineVersionsCommandInput
+  | DescribeCacheParameterGroupsCommandInput
+  | DescribeCacheParametersCommandInput
+  | DescribeCacheSecurityGroupsCommandInput
+  | DescribeCacheSubnetGroupsCommandInput
+  | DescribeEngineDefaultParametersCommandInput
+  | DescribeEventsCommandInput
+  | DescribeReplicationGroupsCommandInput
+  | DescribeReservedCacheNodesCommandInput
+  | DescribeReservedCacheNodesOfferingsCommandInput
+  | DescribeServiceUpdatesCommandInput
+  | DescribeSnapshotsCommandInput
+  | DescribeUpdateActionsCommandInput
+  | IncreaseReplicaCountCommandInput
+  | ListAllowedNodeTypeModificationsCommandInput
+  | ListTagsForResourceCommandInput
+  | ModifyCacheClusterCommandInput
+  | ModifyCacheParameterGroupCommandInput
+  | ModifyCacheSubnetGroupCommandInput
+  | ModifyReplicationGroupCommandInput
+  | ModifyReplicationGroupShardConfigurationCommandInput
+  | PurchaseReservedCacheNodesOfferingCommandInput
+  | RebootCacheClusterCommandInput
+  | RemoveTagsFromResourceCommandInput
+  | ResetCacheParameterGroupCommandInput
+  | RevokeCacheSecurityGroupIngressCommandInput
+  | StartMigrationCommandInput
+  | TestFailoverCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AllowedNodeTypeModificationsMessage
-  | AuthorizeCacheSecurityGroupIngressResult
-  | CacheClusterMessage
-  | CacheEngineVersionMessage
-  | CacheParameterGroupDetails
-  | CacheParameterGroupNameMessage
-  | CacheParameterGroupNameMessage
-  | CacheParameterGroupsMessage
-  | CacheSecurityGroupMessage
-  | CacheSubnetGroupMessage
-  | CompleteMigrationResponse
-  | CopySnapshotResult
-  | CreateCacheClusterResult
-  | CreateCacheParameterGroupResult
-  | CreateCacheSecurityGroupResult
-  | CreateCacheSubnetGroupResult
-  | CreateReplicationGroupResult
-  | CreateSnapshotResult
-  | DecreaseReplicaCountResult
-  | DeleteCacheClusterResult
-  | DeleteReplicationGroupResult
-  | DeleteSnapshotResult
-  | DescribeEngineDefaultParametersResult
-  | DescribeSnapshotsListMessage
-  | EventsMessage
-  | IncreaseReplicaCountResult
-  | ModifyCacheClusterResult
-  | ModifyCacheSubnetGroupResult
-  | ModifyReplicationGroupResult
-  | ModifyReplicationGroupShardConfigurationResult
-  | PurchaseReservedCacheNodesOfferingResult
-  | RebootCacheClusterResult
-  | ReplicationGroupMessage
-  | ReservedCacheNodeMessage
-  | ReservedCacheNodesOfferingMessage
-  | RevokeCacheSecurityGroupIngressResult
-  | ServiceUpdatesMessage
-  | StartMigrationResponse
-  | TagListMessage
-  | TagListMessage
-  | TagListMessage
-  | TestFailoverResult
-  | UpdateActionResultsMessage
-  | UpdateActionResultsMessage
-  | UpdateActionsMessage;
+  | AddTagsToResourceCommandOutput
+  | AuthorizeCacheSecurityGroupIngressCommandOutput
+  | BatchApplyUpdateActionCommandOutput
+  | BatchStopUpdateActionCommandOutput
+  | CompleteMigrationCommandOutput
+  | CopySnapshotCommandOutput
+  | CreateCacheClusterCommandOutput
+  | CreateCacheParameterGroupCommandOutput
+  | CreateCacheSecurityGroupCommandOutput
+  | CreateCacheSubnetGroupCommandOutput
+  | CreateReplicationGroupCommandOutput
+  | CreateSnapshotCommandOutput
+  | DecreaseReplicaCountCommandOutput
+  | DeleteCacheClusterCommandOutput
+  | DeleteCacheParameterGroupCommandOutput
+  | DeleteCacheSecurityGroupCommandOutput
+  | DeleteCacheSubnetGroupCommandOutput
+  | DeleteReplicationGroupCommandOutput
+  | DeleteSnapshotCommandOutput
+  | DescribeCacheClustersCommandOutput
+  | DescribeCacheEngineVersionsCommandOutput
+  | DescribeCacheParameterGroupsCommandOutput
+  | DescribeCacheParametersCommandOutput
+  | DescribeCacheSecurityGroupsCommandOutput
+  | DescribeCacheSubnetGroupsCommandOutput
+  | DescribeEngineDefaultParametersCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeReplicationGroupsCommandOutput
+  | DescribeReservedCacheNodesCommandOutput
+  | DescribeReservedCacheNodesOfferingsCommandOutput
+  | DescribeServiceUpdatesCommandOutput
+  | DescribeSnapshotsCommandOutput
+  | DescribeUpdateActionsCommandOutput
+  | IncreaseReplicaCountCommandOutput
+  | ListAllowedNodeTypeModificationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ModifyCacheClusterCommandOutput
+  | ModifyCacheParameterGroupCommandOutput
+  | ModifyCacheSubnetGroupCommandOutput
+  | ModifyReplicationGroupCommandOutput
+  | ModifyReplicationGroupShardConfigurationCommandOutput
+  | PurchaseReservedCacheNodesOfferingCommandOutput
+  | RebootCacheClusterCommandOutput
+  | RemoveTagsFromResourceCommandOutput
+  | ResetCacheParameterGroupCommandOutput
+  | RevokeCacheSecurityGroupIngressCommandOutput
+  | StartMigrationCommandOutput
+  | TestFailoverCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

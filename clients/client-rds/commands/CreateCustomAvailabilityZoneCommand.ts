@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCustomAvailabilityZoneCommandInput = CreateCustomAvailabilityZoneMessage;
-export type CreateCustomAvailabilityZoneCommandOutput = CreateCustomAvailabilityZoneResult;
+export type CreateCustomAvailabilityZoneCommandOutput = CreateCustomAvailabilityZoneResult &
+  __MetadataBearer;
 
 export class CreateCustomAvailabilityZoneCommand extends $Command<
   CreateCustomAvailabilityZoneCommandInput,

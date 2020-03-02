@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableEnhancedMonitoringCommandInput = DisableEnhancedMonitoringInput;
-export type DisableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput;
+export type DisableEnhancedMonitoringCommandOutput = EnhancedMonitoringOutput &
+  __MetadataBearer;
 
 export class DisableEnhancedMonitoringCommand extends $Command<
   DisableEnhancedMonitoringCommandInput,

@@ -1,4 +1,7 @@
-import { GetMediaInput, GetMediaOutput } from "./models/index";
+import {
+  GetMediaCommandInput,
+  GetMediaCommandOutput
+} from "./commands/GetMediaCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -51,9 +54,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = GetMediaInput;
+export type ServiceInputTypes = GetMediaCommandInput;
 
-export type ServiceOutputTypes = GetMediaOutput;
+export type ServiceOutputTypes = GetMediaCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

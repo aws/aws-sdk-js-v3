@@ -206,7 +206,7 @@ export namespace CreateApplicationRequest {
   }
 }
 
-export interface CreateApplicationResponse extends $MetadataBearer {
+export interface CreateApplicationResponse {
   __type?: "CreateApplicationResponse";
   /**
    * <p>Information about the application.</p>
@@ -244,7 +244,7 @@ export namespace CreateComponentRequest {
   }
 }
 
-export interface CreateComponentResponse extends $MetadataBearer {
+export interface CreateComponentResponse {
   __type?: "CreateComponentResponse";
 }
 
@@ -288,7 +288,7 @@ export namespace CreateLogPatternRequest {
   }
 }
 
-export interface CreateLogPatternResponse extends $MetadataBearer {
+export interface CreateLogPatternResponse {
   __type?: "CreateLogPatternResponse";
   /**
    * <p>The successfully created log pattern.</p>
@@ -321,7 +321,7 @@ export namespace DeleteApplicationRequest {
   }
 }
 
-export interface DeleteApplicationResponse extends $MetadataBearer {
+export interface DeleteApplicationResponse {
   __type?: "DeleteApplicationResponse";
 }
 
@@ -350,7 +350,7 @@ export namespace DeleteComponentRequest {
   }
 }
 
-export interface DeleteComponentResponse extends $MetadataBearer {
+export interface DeleteComponentResponse {
   __type?: "DeleteComponentResponse";
 }
 
@@ -384,7 +384,7 @@ export namespace DeleteLogPatternRequest {
   }
 }
 
-export interface DeleteLogPatternResponse extends $MetadataBearer {
+export interface DeleteLogPatternResponse {
   __type?: "DeleteLogPatternResponse";
 }
 
@@ -408,7 +408,7 @@ export namespace DescribeApplicationRequest {
   }
 }
 
-export interface DescribeApplicationResponse extends $MetadataBearer {
+export interface DescribeApplicationResponse {
   __type?: "DescribeApplicationResponse";
   /**
    * <p>Information about the application.</p>
@@ -450,8 +450,7 @@ export namespace DescribeComponentConfigurationRecommendationRequest {
   }
 }
 
-export interface DescribeComponentConfigurationRecommendationResponse
-  extends $MetadataBearer {
+export interface DescribeComponentConfigurationRecommendationResponse {
   __type?: "DescribeComponentConfigurationRecommendationResponse";
   /**
    * <p>The recommended configuration settings of the component. The value is the escaped JSON of the configuration.</p>
@@ -486,8 +485,7 @@ export namespace DescribeComponentConfigurationRequest {
   }
 }
 
-export interface DescribeComponentConfigurationResponse
-  extends $MetadataBearer {
+export interface DescribeComponentConfigurationResponse {
   __type?: "DescribeComponentConfigurationResponse";
   /**
    * <p>The configuration settings of the component. The value is the escaped JSON of the configuration.</p>
@@ -533,7 +531,7 @@ export namespace DescribeComponentRequest {
   }
 }
 
-export interface DescribeComponentResponse extends $MetadataBearer {
+export interface DescribeComponentResponse {
   __type?: "DescribeComponentResponse";
   /**
    * <p>Describes a standalone resource or similarly grouped resources that the application is made
@@ -577,7 +575,7 @@ export namespace DescribeLogPatternRequest {
   }
 }
 
-export interface DescribeLogPatternResponse extends $MetadataBearer {
+export interface DescribeLogPatternResponse {
   __type?: "DescribeLogPatternResponse";
   /**
    * <p>The successfully created log pattern.</p>
@@ -610,7 +608,7 @@ export namespace DescribeObservationRequest {
   }
 }
 
-export interface DescribeObservationResponse extends $MetadataBearer {
+export interface DescribeObservationResponse {
   __type?: "DescribeObservationResponse";
   /**
    * <p>Information about the observation.</p>
@@ -638,7 +636,7 @@ export namespace DescribeProblemObservationsRequest {
   }
 }
 
-export interface DescribeProblemObservationsResponse extends $MetadataBearer {
+export interface DescribeProblemObservationsResponse {
   __type?: "DescribeProblemObservationsResponse";
   /**
    * <p>Observations related to the problem.</p>
@@ -666,7 +664,7 @@ export namespace DescribeProblemRequest {
   }
 }
 
-export interface DescribeProblemResponse extends $MetadataBearer {
+export interface DescribeProblemResponse {
   __type?: "DescribeProblemResponse";
   /**
    * <p>Information about the problem. </p>
@@ -721,7 +719,7 @@ export namespace ListApplicationsRequest {
   }
 }
 
-export interface ListApplicationsResponse extends $MetadataBearer {
+export interface ListApplicationsResponse {
   __type?: "ListApplicationsResponse";
   /**
    * <p>The list of applications.</p>
@@ -766,7 +764,7 @@ export namespace ListComponentsRequest {
   }
 }
 
-export interface ListComponentsResponse extends $MetadataBearer {
+export interface ListComponentsResponse {
   __type?: "ListComponentsResponse";
   /**
    * <p>The list of application components.</p>
@@ -833,7 +831,7 @@ export namespace ListConfigurationHistoryRequest {
   }
 }
 
-export interface ListConfigurationHistoryResponse extends $MetadataBearer {
+export interface ListConfigurationHistoryResponse {
   __type?: "ListConfigurationHistoryResponse";
   /**
    * <p> The list of configuration events and their corresponding details. </p>
@@ -881,7 +879,7 @@ export namespace ListLogPatternSetsRequest {
   }
 }
 
-export interface ListLogPatternSetsResponse extends $MetadataBearer {
+export interface ListLogPatternSetsResponse {
   __type?: "ListLogPatternSetsResponse";
   /**
    * <p>The list of log pattern sets.</p>
@@ -936,7 +934,7 @@ export namespace ListLogPatternsRequest {
   }
 }
 
-export interface ListLogPatternsResponse extends $MetadataBearer {
+export interface ListLogPatternsResponse {
   __type?: "ListLogPatternsResponse";
   /**
    * <p>The list of log patterns.</p>
@@ -998,7 +996,7 @@ export namespace ListProblemsRequest {
   }
 }
 
-export interface ListProblemsResponse extends $MetadataBearer {
+export interface ListProblemsResponse {
   __type?: "ListProblemsResponse";
   /**
    * <p>The token used to retrieve the next page of results. This value is <code>null</code>
@@ -1033,7 +1031,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>An array that lists all the tags that are associated with the application. Each tag
@@ -1351,7 +1349,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1430,7 +1428,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1474,7 +1472,7 @@ export namespace UpdateApplicationRequest {
   }
 }
 
-export interface UpdateApplicationResponse extends $MetadataBearer {
+export interface UpdateApplicationResponse {
   __type?: "UpdateApplicationResponse";
   /**
    * <p>Information about the application. </p>
@@ -1526,7 +1524,7 @@ export namespace UpdateComponentConfigurationRequest {
   }
 }
 
-export interface UpdateComponentConfigurationResponse extends $MetadataBearer {
+export interface UpdateComponentConfigurationResponse {
   __type?: "UpdateComponentConfigurationResponse";
 }
 
@@ -1565,7 +1563,7 @@ export namespace UpdateComponentRequest {
   }
 }
 
-export interface UpdateComponentResponse extends $MetadataBearer {
+export interface UpdateComponentResponse {
   __type?: "UpdateComponentResponse";
 }
 
@@ -1609,7 +1607,7 @@ export namespace UpdateLogPatternRequest {
   }
 }
 
-export interface UpdateLogPatternResponse extends $MetadataBearer {
+export interface UpdateLogPatternResponse {
   __type?: "UpdateLogPatternResponse";
   /**
    * <p>The successfully created log pattern.</p>

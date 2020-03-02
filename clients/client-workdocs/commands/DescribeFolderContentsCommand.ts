@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeFolderContentsCommandInput = DescribeFolderContentsRequest;
-export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse;
+export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse &
+  __MetadataBearer;
 
 export class DescribeFolderContentsCommand extends $Command<
   DescribeFolderContentsCommandInput,

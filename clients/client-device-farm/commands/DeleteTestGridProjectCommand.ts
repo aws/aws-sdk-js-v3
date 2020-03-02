@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTestGridProjectCommandInput = DeleteTestGridProjectRequest;
-export type DeleteTestGridProjectCommandOutput = DeleteTestGridProjectResult;
+export type DeleteTestGridProjectCommandOutput = DeleteTestGridProjectResult &
+  __MetadataBearer;
 
 export class DeleteTestGridProjectCommand extends $Command<
   DeleteTestGridProjectCommandInput,

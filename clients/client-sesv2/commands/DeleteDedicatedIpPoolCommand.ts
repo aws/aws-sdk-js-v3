@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteDedicatedIpPoolCommandInput = DeleteDedicatedIpPoolRequest;
-export type DeleteDedicatedIpPoolCommandOutput = DeleteDedicatedIpPoolResponse;
+export type DeleteDedicatedIpPoolCommandOutput = DeleteDedicatedIpPoolResponse &
+  __MetadataBearer;
 
 export class DeleteDedicatedIpPoolCommand extends $Command<
   DeleteDedicatedIpPoolCommandInput,

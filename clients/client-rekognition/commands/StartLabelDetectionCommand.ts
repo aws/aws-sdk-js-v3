@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartLabelDetectionCommandInput = StartLabelDetectionRequest;
-export type StartLabelDetectionCommandOutput = StartLabelDetectionResponse;
+export type StartLabelDetectionCommandOutput = StartLabelDetectionResponse &
+  __MetadataBearer;
 
 export class StartLabelDetectionCommand extends $Command<
   StartLabelDetectionCommandInput,

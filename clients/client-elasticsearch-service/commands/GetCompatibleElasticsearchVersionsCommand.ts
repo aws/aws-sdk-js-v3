@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCompatibleElasticsearchVersionsCommandInput = GetCompatibleElasticsearchVersionsRequest;
-export type GetCompatibleElasticsearchVersionsCommandOutput = GetCompatibleElasticsearchVersionsResponse;
+export type GetCompatibleElasticsearchVersionsCommandOutput = GetCompatibleElasticsearchVersionsResponse &
+  __MetadataBearer;
 
 export class GetCompatibleElasticsearchVersionsCommand extends $Command<
   GetCompatibleElasticsearchVersionsCommandInput,

@@ -1,99 +1,191 @@
 import {
-  AssociateFleetRequest,
-  AssociateFleetResult,
-  BatchAssociateUserStackRequest,
-  BatchAssociateUserStackResult,
-  BatchDisassociateUserStackRequest,
-  BatchDisassociateUserStackResult,
-  CopyImageRequest,
-  CopyImageResponse,
-  CreateDirectoryConfigRequest,
-  CreateDirectoryConfigResult,
-  CreateFleetRequest,
-  CreateFleetResult,
-  CreateImageBuilderRequest,
-  CreateImageBuilderResult,
-  CreateImageBuilderStreamingURLRequest,
-  CreateImageBuilderStreamingURLResult,
-  CreateStackRequest,
-  CreateStackResult,
-  CreateStreamingURLRequest,
-  CreateStreamingURLResult,
-  CreateUsageReportSubscriptionRequest,
-  CreateUsageReportSubscriptionResult,
-  CreateUserRequest,
-  CreateUserResult,
-  DeleteDirectoryConfigRequest,
-  DeleteDirectoryConfigResult,
-  DeleteFleetRequest,
-  DeleteFleetResult,
-  DeleteImageBuilderRequest,
-  DeleteImageBuilderResult,
-  DeleteImagePermissionsRequest,
-  DeleteImagePermissionsResult,
-  DeleteImageRequest,
-  DeleteImageResult,
-  DeleteStackRequest,
-  DeleteStackResult,
-  DeleteUsageReportSubscriptionRequest,
-  DeleteUsageReportSubscriptionResult,
-  DeleteUserRequest,
-  DeleteUserResult,
-  DescribeDirectoryConfigsRequest,
-  DescribeDirectoryConfigsResult,
-  DescribeFleetsRequest,
-  DescribeFleetsResult,
-  DescribeImageBuildersRequest,
-  DescribeImageBuildersResult,
-  DescribeImagePermissionsRequest,
-  DescribeImagePermissionsResult,
-  DescribeImagesRequest,
-  DescribeImagesResult,
-  DescribeSessionsRequest,
-  DescribeSessionsResult,
-  DescribeStacksRequest,
-  DescribeStacksResult,
-  DescribeUsageReportSubscriptionsRequest,
-  DescribeUsageReportSubscriptionsResult,
-  DescribeUserStackAssociationsRequest,
-  DescribeUserStackAssociationsResult,
-  DescribeUsersRequest,
-  DescribeUsersResult,
-  DisableUserRequest,
-  DisableUserResult,
-  DisassociateFleetRequest,
-  DisassociateFleetResult,
-  EnableUserRequest,
-  EnableUserResult,
-  ExpireSessionRequest,
-  ExpireSessionResult,
-  ListAssociatedFleetsRequest,
-  ListAssociatedFleetsResult,
-  ListAssociatedStacksRequest,
-  ListAssociatedStacksResult,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  StartFleetRequest,
-  StartFleetResult,
-  StartImageBuilderRequest,
-  StartImageBuilderResult,
-  StopFleetRequest,
-  StopFleetResult,
-  StopImageBuilderRequest,
-  StopImageBuilderResult,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDirectoryConfigRequest,
-  UpdateDirectoryConfigResult,
-  UpdateFleetRequest,
-  UpdateFleetResult,
-  UpdateImagePermissionsRequest,
-  UpdateImagePermissionsResult,
-  UpdateStackRequest,
-  UpdateStackResult
-} from "./models/index";
+  AssociateFleetCommandInput,
+  AssociateFleetCommandOutput
+} from "./commands/AssociateFleetCommand";
+import {
+  BatchAssociateUserStackCommandInput,
+  BatchAssociateUserStackCommandOutput
+} from "./commands/BatchAssociateUserStackCommand";
+import {
+  BatchDisassociateUserStackCommandInput,
+  BatchDisassociateUserStackCommandOutput
+} from "./commands/BatchDisassociateUserStackCommand";
+import {
+  CopyImageCommandInput,
+  CopyImageCommandOutput
+} from "./commands/CopyImageCommand";
+import {
+  CreateDirectoryConfigCommandInput,
+  CreateDirectoryConfigCommandOutput
+} from "./commands/CreateDirectoryConfigCommand";
+import {
+  CreateFleetCommandInput,
+  CreateFleetCommandOutput
+} from "./commands/CreateFleetCommand";
+import {
+  CreateImageBuilderCommandInput,
+  CreateImageBuilderCommandOutput
+} from "./commands/CreateImageBuilderCommand";
+import {
+  CreateImageBuilderStreamingURLCommandInput,
+  CreateImageBuilderStreamingURLCommandOutput
+} from "./commands/CreateImageBuilderStreamingURLCommand";
+import {
+  CreateStackCommandInput,
+  CreateStackCommandOutput
+} from "./commands/CreateStackCommand";
+import {
+  CreateStreamingURLCommandInput,
+  CreateStreamingURLCommandOutput
+} from "./commands/CreateStreamingURLCommand";
+import {
+  CreateUsageReportSubscriptionCommandInput,
+  CreateUsageReportSubscriptionCommandOutput
+} from "./commands/CreateUsageReportSubscriptionCommand";
+import {
+  CreateUserCommandInput,
+  CreateUserCommandOutput
+} from "./commands/CreateUserCommand";
+import {
+  DeleteDirectoryConfigCommandInput,
+  DeleteDirectoryConfigCommandOutput
+} from "./commands/DeleteDirectoryConfigCommand";
+import {
+  DeleteFleetCommandInput,
+  DeleteFleetCommandOutput
+} from "./commands/DeleteFleetCommand";
+import {
+  DeleteImageBuilderCommandInput,
+  DeleteImageBuilderCommandOutput
+} from "./commands/DeleteImageBuilderCommand";
+import {
+  DeleteImageCommandInput,
+  DeleteImageCommandOutput
+} from "./commands/DeleteImageCommand";
+import {
+  DeleteImagePermissionsCommandInput,
+  DeleteImagePermissionsCommandOutput
+} from "./commands/DeleteImagePermissionsCommand";
+import {
+  DeleteStackCommandInput,
+  DeleteStackCommandOutput
+} from "./commands/DeleteStackCommand";
+import {
+  DeleteUsageReportSubscriptionCommandInput,
+  DeleteUsageReportSubscriptionCommandOutput
+} from "./commands/DeleteUsageReportSubscriptionCommand";
+import {
+  DeleteUserCommandInput,
+  DeleteUserCommandOutput
+} from "./commands/DeleteUserCommand";
+import {
+  DescribeDirectoryConfigsCommandInput,
+  DescribeDirectoryConfigsCommandOutput
+} from "./commands/DescribeDirectoryConfigsCommand";
+import {
+  DescribeFleetsCommandInput,
+  DescribeFleetsCommandOutput
+} from "./commands/DescribeFleetsCommand";
+import {
+  DescribeImageBuildersCommandInput,
+  DescribeImageBuildersCommandOutput
+} from "./commands/DescribeImageBuildersCommand";
+import {
+  DescribeImagePermissionsCommandInput,
+  DescribeImagePermissionsCommandOutput
+} from "./commands/DescribeImagePermissionsCommand";
+import {
+  DescribeImagesCommandInput,
+  DescribeImagesCommandOutput
+} from "./commands/DescribeImagesCommand";
+import {
+  DescribeSessionsCommandInput,
+  DescribeSessionsCommandOutput
+} from "./commands/DescribeSessionsCommand";
+import {
+  DescribeStacksCommandInput,
+  DescribeStacksCommandOutput
+} from "./commands/DescribeStacksCommand";
+import {
+  DescribeUsageReportSubscriptionsCommandInput,
+  DescribeUsageReportSubscriptionsCommandOutput
+} from "./commands/DescribeUsageReportSubscriptionsCommand";
+import {
+  DescribeUserStackAssociationsCommandInput,
+  DescribeUserStackAssociationsCommandOutput
+} from "./commands/DescribeUserStackAssociationsCommand";
+import {
+  DescribeUsersCommandInput,
+  DescribeUsersCommandOutput
+} from "./commands/DescribeUsersCommand";
+import {
+  DisableUserCommandInput,
+  DisableUserCommandOutput
+} from "./commands/DisableUserCommand";
+import {
+  DisassociateFleetCommandInput,
+  DisassociateFleetCommandOutput
+} from "./commands/DisassociateFleetCommand";
+import {
+  EnableUserCommandInput,
+  EnableUserCommandOutput
+} from "./commands/EnableUserCommand";
+import {
+  ExpireSessionCommandInput,
+  ExpireSessionCommandOutput
+} from "./commands/ExpireSessionCommand";
+import {
+  ListAssociatedFleetsCommandInput,
+  ListAssociatedFleetsCommandOutput
+} from "./commands/ListAssociatedFleetsCommand";
+import {
+  ListAssociatedStacksCommandInput,
+  ListAssociatedStacksCommandOutput
+} from "./commands/ListAssociatedStacksCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  StartFleetCommandInput,
+  StartFleetCommandOutput
+} from "./commands/StartFleetCommand";
+import {
+  StartImageBuilderCommandInput,
+  StartImageBuilderCommandOutput
+} from "./commands/StartImageBuilderCommand";
+import {
+  StopFleetCommandInput,
+  StopFleetCommandOutput
+} from "./commands/StopFleetCommand";
+import {
+  StopImageBuilderCommandInput,
+  StopImageBuilderCommandOutput
+} from "./commands/StopImageBuilderCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDirectoryConfigCommandInput,
+  UpdateDirectoryConfigCommandOutput
+} from "./commands/UpdateDirectoryConfigCommand";
+import {
+  UpdateFleetCommandInput,
+  UpdateFleetCommandOutput
+} from "./commands/UpdateFleetCommand";
+import {
+  UpdateImagePermissionsCommandInput,
+  UpdateImagePermissionsCommandOutput
+} from "./commands/UpdateImagePermissionsCommand";
+import {
+  UpdateStackCommandInput,
+  UpdateStackCommandOutput
+} from "./commands/UpdateStackCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -147,102 +239,102 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateFleetRequest
-  | BatchAssociateUserStackRequest
-  | BatchDisassociateUserStackRequest
-  | CopyImageRequest
-  | CreateDirectoryConfigRequest
-  | CreateFleetRequest
-  | CreateImageBuilderRequest
-  | CreateImageBuilderStreamingURLRequest
-  | CreateStackRequest
-  | CreateStreamingURLRequest
-  | CreateUsageReportSubscriptionRequest
-  | CreateUserRequest
-  | DeleteDirectoryConfigRequest
-  | DeleteFleetRequest
-  | DeleteImageBuilderRequest
-  | DeleteImagePermissionsRequest
-  | DeleteImageRequest
-  | DeleteStackRequest
-  | DeleteUsageReportSubscriptionRequest
-  | DeleteUserRequest
-  | DescribeDirectoryConfigsRequest
-  | DescribeFleetsRequest
-  | DescribeImageBuildersRequest
-  | DescribeImagePermissionsRequest
-  | DescribeImagesRequest
-  | DescribeSessionsRequest
-  | DescribeStacksRequest
-  | DescribeUsageReportSubscriptionsRequest
-  | DescribeUserStackAssociationsRequest
-  | DescribeUsersRequest
-  | DisableUserRequest
-  | DisassociateFleetRequest
-  | EnableUserRequest
-  | ExpireSessionRequest
-  | ListAssociatedFleetsRequest
-  | ListAssociatedStacksRequest
-  | ListTagsForResourceRequest
-  | StartFleetRequest
-  | StartImageBuilderRequest
-  | StopFleetRequest
-  | StopImageBuilderRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDirectoryConfigRequest
-  | UpdateFleetRequest
-  | UpdateImagePermissionsRequest
-  | UpdateStackRequest;
+  | AssociateFleetCommandInput
+  | BatchAssociateUserStackCommandInput
+  | BatchDisassociateUserStackCommandInput
+  | CopyImageCommandInput
+  | CreateDirectoryConfigCommandInput
+  | CreateFleetCommandInput
+  | CreateImageBuilderCommandInput
+  | CreateImageBuilderStreamingURLCommandInput
+  | CreateStackCommandInput
+  | CreateStreamingURLCommandInput
+  | CreateUsageReportSubscriptionCommandInput
+  | CreateUserCommandInput
+  | DeleteDirectoryConfigCommandInput
+  | DeleteFleetCommandInput
+  | DeleteImageBuilderCommandInput
+  | DeleteImageCommandInput
+  | DeleteImagePermissionsCommandInput
+  | DeleteStackCommandInput
+  | DeleteUsageReportSubscriptionCommandInput
+  | DeleteUserCommandInput
+  | DescribeDirectoryConfigsCommandInput
+  | DescribeFleetsCommandInput
+  | DescribeImageBuildersCommandInput
+  | DescribeImagePermissionsCommandInput
+  | DescribeImagesCommandInput
+  | DescribeSessionsCommandInput
+  | DescribeStacksCommandInput
+  | DescribeUsageReportSubscriptionsCommandInput
+  | DescribeUserStackAssociationsCommandInput
+  | DescribeUsersCommandInput
+  | DisableUserCommandInput
+  | DisassociateFleetCommandInput
+  | EnableUserCommandInput
+  | ExpireSessionCommandInput
+  | ListAssociatedFleetsCommandInput
+  | ListAssociatedStacksCommandInput
+  | ListTagsForResourceCommandInput
+  | StartFleetCommandInput
+  | StartImageBuilderCommandInput
+  | StopFleetCommandInput
+  | StopImageBuilderCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDirectoryConfigCommandInput
+  | UpdateFleetCommandInput
+  | UpdateImagePermissionsCommandInput
+  | UpdateStackCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateFleetResult
-  | BatchAssociateUserStackResult
-  | BatchDisassociateUserStackResult
-  | CopyImageResponse
-  | CreateDirectoryConfigResult
-  | CreateFleetResult
-  | CreateImageBuilderResult
-  | CreateImageBuilderStreamingURLResult
-  | CreateStackResult
-  | CreateStreamingURLResult
-  | CreateUsageReportSubscriptionResult
-  | CreateUserResult
-  | DeleteDirectoryConfigResult
-  | DeleteFleetResult
-  | DeleteImageBuilderResult
-  | DeleteImagePermissionsResult
-  | DeleteImageResult
-  | DeleteStackResult
-  | DeleteUsageReportSubscriptionResult
-  | DeleteUserResult
-  | DescribeDirectoryConfigsResult
-  | DescribeFleetsResult
-  | DescribeImageBuildersResult
-  | DescribeImagePermissionsResult
-  | DescribeImagesResult
-  | DescribeSessionsResult
-  | DescribeStacksResult
-  | DescribeUsageReportSubscriptionsResult
-  | DescribeUserStackAssociationsResult
-  | DescribeUsersResult
-  | DisableUserResult
-  | DisassociateFleetResult
-  | EnableUserResult
-  | ExpireSessionResult
-  | ListAssociatedFleetsResult
-  | ListAssociatedStacksResult
-  | ListTagsForResourceResponse
-  | StartFleetResult
-  | StartImageBuilderResult
-  | StopFleetResult
-  | StopImageBuilderResult
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDirectoryConfigResult
-  | UpdateFleetResult
-  | UpdateImagePermissionsResult
-  | UpdateStackResult;
+  | AssociateFleetCommandOutput
+  | BatchAssociateUserStackCommandOutput
+  | BatchDisassociateUserStackCommandOutput
+  | CopyImageCommandOutput
+  | CreateDirectoryConfigCommandOutput
+  | CreateFleetCommandOutput
+  | CreateImageBuilderCommandOutput
+  | CreateImageBuilderStreamingURLCommandOutput
+  | CreateStackCommandOutput
+  | CreateStreamingURLCommandOutput
+  | CreateUsageReportSubscriptionCommandOutput
+  | CreateUserCommandOutput
+  | DeleteDirectoryConfigCommandOutput
+  | DeleteFleetCommandOutput
+  | DeleteImageBuilderCommandOutput
+  | DeleteImageCommandOutput
+  | DeleteImagePermissionsCommandOutput
+  | DeleteStackCommandOutput
+  | DeleteUsageReportSubscriptionCommandOutput
+  | DeleteUserCommandOutput
+  | DescribeDirectoryConfigsCommandOutput
+  | DescribeFleetsCommandOutput
+  | DescribeImageBuildersCommandOutput
+  | DescribeImagePermissionsCommandOutput
+  | DescribeImagesCommandOutput
+  | DescribeSessionsCommandOutput
+  | DescribeStacksCommandOutput
+  | DescribeUsageReportSubscriptionsCommandOutput
+  | DescribeUserStackAssociationsCommandOutput
+  | DescribeUsersCommandOutput
+  | DisableUserCommandOutput
+  | DisassociateFleetCommandOutput
+  | EnableUserCommandOutput
+  | ExpireSessionCommandOutput
+  | ListAssociatedFleetsCommandOutput
+  | ListAssociatedStacksCommandOutput
+  | ListTagsForResourceCommandOutput
+  | StartFleetCommandOutput
+  | StartImageBuilderCommandOutput
+  | StopFleetCommandOutput
+  | StopImageBuilderCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDirectoryConfigCommandOutput
+  | UpdateFleetCommandOutput
+  | UpdateImagePermissionsCommandOutput
+  | UpdateStackCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

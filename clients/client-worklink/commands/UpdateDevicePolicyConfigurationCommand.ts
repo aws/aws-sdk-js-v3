@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDevicePolicyConfigurationCommandInput = UpdateDevicePolicyConfigurationRequest;
-export type UpdateDevicePolicyConfigurationCommandOutput = UpdateDevicePolicyConfigurationResponse;
+export type UpdateDevicePolicyConfigurationCommandOutput = UpdateDevicePolicyConfigurationResponse &
+  __MetadataBearer;
 
 export class UpdateDevicePolicyConfigurationCommand extends $Command<
   UpdateDevicePolicyConfigurationCommandInput,

@@ -1,39 +1,71 @@
 import {
-  AssociateCreatedArtifactRequest,
-  AssociateCreatedArtifactResult,
-  AssociateDiscoveredResourceRequest,
-  AssociateDiscoveredResourceResult,
-  CreateProgressUpdateStreamRequest,
-  CreateProgressUpdateStreamResult,
-  DeleteProgressUpdateStreamRequest,
-  DeleteProgressUpdateStreamResult,
-  DescribeApplicationStateRequest,
-  DescribeApplicationStateResult,
-  DescribeMigrationTaskRequest,
-  DescribeMigrationTaskResult,
-  DisassociateCreatedArtifactRequest,
-  DisassociateCreatedArtifactResult,
-  DisassociateDiscoveredResourceRequest,
-  DisassociateDiscoveredResourceResult,
-  ImportMigrationTaskRequest,
-  ImportMigrationTaskResult,
-  ListApplicationStatesRequest,
-  ListApplicationStatesResult,
-  ListCreatedArtifactsRequest,
-  ListCreatedArtifactsResult,
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesResult,
-  ListMigrationTasksRequest,
-  ListMigrationTasksResult,
-  ListProgressUpdateStreamsRequest,
-  ListProgressUpdateStreamsResult,
-  NotifyApplicationStateRequest,
-  NotifyApplicationStateResult,
-  NotifyMigrationTaskStateRequest,
-  NotifyMigrationTaskStateResult,
-  PutResourceAttributesRequest,
-  PutResourceAttributesResult
-} from "./models/index";
+  AssociateCreatedArtifactCommandInput,
+  AssociateCreatedArtifactCommandOutput
+} from "./commands/AssociateCreatedArtifactCommand";
+import {
+  AssociateDiscoveredResourceCommandInput,
+  AssociateDiscoveredResourceCommandOutput
+} from "./commands/AssociateDiscoveredResourceCommand";
+import {
+  CreateProgressUpdateStreamCommandInput,
+  CreateProgressUpdateStreamCommandOutput
+} from "./commands/CreateProgressUpdateStreamCommand";
+import {
+  DeleteProgressUpdateStreamCommandInput,
+  DeleteProgressUpdateStreamCommandOutput
+} from "./commands/DeleteProgressUpdateStreamCommand";
+import {
+  DescribeApplicationStateCommandInput,
+  DescribeApplicationStateCommandOutput
+} from "./commands/DescribeApplicationStateCommand";
+import {
+  DescribeMigrationTaskCommandInput,
+  DescribeMigrationTaskCommandOutput
+} from "./commands/DescribeMigrationTaskCommand";
+import {
+  DisassociateCreatedArtifactCommandInput,
+  DisassociateCreatedArtifactCommandOutput
+} from "./commands/DisassociateCreatedArtifactCommand";
+import {
+  DisassociateDiscoveredResourceCommandInput,
+  DisassociateDiscoveredResourceCommandOutput
+} from "./commands/DisassociateDiscoveredResourceCommand";
+import {
+  ImportMigrationTaskCommandInput,
+  ImportMigrationTaskCommandOutput
+} from "./commands/ImportMigrationTaskCommand";
+import {
+  ListApplicationStatesCommandInput,
+  ListApplicationStatesCommandOutput
+} from "./commands/ListApplicationStatesCommand";
+import {
+  ListCreatedArtifactsCommandInput,
+  ListCreatedArtifactsCommandOutput
+} from "./commands/ListCreatedArtifactsCommand";
+import {
+  ListDiscoveredResourcesCommandInput,
+  ListDiscoveredResourcesCommandOutput
+} from "./commands/ListDiscoveredResourcesCommand";
+import {
+  ListMigrationTasksCommandInput,
+  ListMigrationTasksCommandOutput
+} from "./commands/ListMigrationTasksCommand";
+import {
+  ListProgressUpdateStreamsCommandInput,
+  ListProgressUpdateStreamsCommandOutput
+} from "./commands/ListProgressUpdateStreamsCommand";
+import {
+  NotifyApplicationStateCommandInput,
+  NotifyApplicationStateCommandOutput
+} from "./commands/NotifyApplicationStateCommand";
+import {
+  NotifyMigrationTaskStateCommandInput,
+  NotifyMigrationTaskStateCommandOutput
+} from "./commands/NotifyMigrationTaskStateCommand";
+import {
+  PutResourceAttributesCommandInput,
+  PutResourceAttributesCommandOutput
+} from "./commands/PutResourceAttributesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -87,42 +119,42 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateCreatedArtifactRequest
-  | AssociateDiscoveredResourceRequest
-  | CreateProgressUpdateStreamRequest
-  | DeleteProgressUpdateStreamRequest
-  | DescribeApplicationStateRequest
-  | DescribeMigrationTaskRequest
-  | DisassociateCreatedArtifactRequest
-  | DisassociateDiscoveredResourceRequest
-  | ImportMigrationTaskRequest
-  | ListApplicationStatesRequest
-  | ListCreatedArtifactsRequest
-  | ListDiscoveredResourcesRequest
-  | ListMigrationTasksRequest
-  | ListProgressUpdateStreamsRequest
-  | NotifyApplicationStateRequest
-  | NotifyMigrationTaskStateRequest
-  | PutResourceAttributesRequest;
+  | AssociateCreatedArtifactCommandInput
+  | AssociateDiscoveredResourceCommandInput
+  | CreateProgressUpdateStreamCommandInput
+  | DeleteProgressUpdateStreamCommandInput
+  | DescribeApplicationStateCommandInput
+  | DescribeMigrationTaskCommandInput
+  | DisassociateCreatedArtifactCommandInput
+  | DisassociateDiscoveredResourceCommandInput
+  | ImportMigrationTaskCommandInput
+  | ListApplicationStatesCommandInput
+  | ListCreatedArtifactsCommandInput
+  | ListDiscoveredResourcesCommandInput
+  | ListMigrationTasksCommandInput
+  | ListProgressUpdateStreamsCommandInput
+  | NotifyApplicationStateCommandInput
+  | NotifyMigrationTaskStateCommandInput
+  | PutResourceAttributesCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateCreatedArtifactResult
-  | AssociateDiscoveredResourceResult
-  | CreateProgressUpdateStreamResult
-  | DeleteProgressUpdateStreamResult
-  | DescribeApplicationStateResult
-  | DescribeMigrationTaskResult
-  | DisassociateCreatedArtifactResult
-  | DisassociateDiscoveredResourceResult
-  | ImportMigrationTaskResult
-  | ListApplicationStatesResult
-  | ListCreatedArtifactsResult
-  | ListDiscoveredResourcesResult
-  | ListMigrationTasksResult
-  | ListProgressUpdateStreamsResult
-  | NotifyApplicationStateResult
-  | NotifyMigrationTaskStateResult
-  | PutResourceAttributesResult;
+  | AssociateCreatedArtifactCommandOutput
+  | AssociateDiscoveredResourceCommandOutput
+  | CreateProgressUpdateStreamCommandOutput
+  | DeleteProgressUpdateStreamCommandOutput
+  | DescribeApplicationStateCommandOutput
+  | DescribeMigrationTaskCommandOutput
+  | DisassociateCreatedArtifactCommandOutput
+  | DisassociateDiscoveredResourceCommandOutput
+  | ImportMigrationTaskCommandOutput
+  | ListApplicationStatesCommandOutput
+  | ListCreatedArtifactsCommandOutput
+  | ListDiscoveredResourcesCommandOutput
+  | ListMigrationTasksCommandOutput
+  | ListProgressUpdateStreamsCommandOutput
+  | NotifyApplicationStateCommandOutput
+  | NotifyMigrationTaskStateCommandOutput
+  | PutResourceAttributesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

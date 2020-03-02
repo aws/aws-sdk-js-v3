@@ -1,75 +1,143 @@
 import {
-  AssociateEntityToThingRequest,
-  AssociateEntityToThingResponse,
-  CreateFlowTemplateRequest,
-  CreateFlowTemplateResponse,
-  CreateSystemInstanceRequest,
-  CreateSystemInstanceResponse,
-  CreateSystemTemplateRequest,
-  CreateSystemTemplateResponse,
-  DeleteFlowTemplateRequest,
-  DeleteFlowTemplateResponse,
-  DeleteNamespaceRequest,
-  DeleteNamespaceResponse,
-  DeleteSystemInstanceRequest,
-  DeleteSystemInstanceResponse,
-  DeleteSystemTemplateRequest,
-  DeleteSystemTemplateResponse,
-  DeploySystemInstanceRequest,
-  DeploySystemInstanceResponse,
-  DeprecateFlowTemplateRequest,
-  DeprecateFlowTemplateResponse,
-  DeprecateSystemTemplateRequest,
-  DeprecateSystemTemplateResponse,
-  DescribeNamespaceRequest,
-  DescribeNamespaceResponse,
-  DissociateEntityFromThingRequest,
-  DissociateEntityFromThingResponse,
-  GetEntitiesRequest,
-  GetEntitiesResponse,
-  GetFlowTemplateRequest,
-  GetFlowTemplateResponse,
-  GetFlowTemplateRevisionsRequest,
-  GetFlowTemplateRevisionsResponse,
-  GetNamespaceDeletionStatusRequest,
-  GetNamespaceDeletionStatusResponse,
-  GetSystemInstanceRequest,
-  GetSystemInstanceResponse,
-  GetSystemTemplateRequest,
-  GetSystemTemplateResponse,
-  GetSystemTemplateRevisionsRequest,
-  GetSystemTemplateRevisionsResponse,
-  GetUploadStatusRequest,
-  GetUploadStatusResponse,
-  ListFlowExecutionMessagesRequest,
-  ListFlowExecutionMessagesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  SearchEntitiesRequest,
-  SearchEntitiesResponse,
-  SearchFlowExecutionsRequest,
-  SearchFlowExecutionsResponse,
-  SearchFlowTemplatesRequest,
-  SearchFlowTemplatesResponse,
-  SearchSystemInstancesRequest,
-  SearchSystemInstancesResponse,
-  SearchSystemTemplatesRequest,
-  SearchSystemTemplatesResponse,
-  SearchThingsRequest,
-  SearchThingsResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UndeploySystemInstanceRequest,
-  UndeploySystemInstanceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateFlowTemplateRequest,
-  UpdateFlowTemplateResponse,
-  UpdateSystemTemplateRequest,
-  UpdateSystemTemplateResponse,
-  UploadEntityDefinitionsRequest,
-  UploadEntityDefinitionsResponse
-} from "./models/index";
+  AssociateEntityToThingCommandInput,
+  AssociateEntityToThingCommandOutput
+} from "./commands/AssociateEntityToThingCommand";
+import {
+  CreateFlowTemplateCommandInput,
+  CreateFlowTemplateCommandOutput
+} from "./commands/CreateFlowTemplateCommand";
+import {
+  CreateSystemInstanceCommandInput,
+  CreateSystemInstanceCommandOutput
+} from "./commands/CreateSystemInstanceCommand";
+import {
+  CreateSystemTemplateCommandInput,
+  CreateSystemTemplateCommandOutput
+} from "./commands/CreateSystemTemplateCommand";
+import {
+  DeleteFlowTemplateCommandInput,
+  DeleteFlowTemplateCommandOutput
+} from "./commands/DeleteFlowTemplateCommand";
+import {
+  DeleteNamespaceCommandInput,
+  DeleteNamespaceCommandOutput
+} from "./commands/DeleteNamespaceCommand";
+import {
+  DeleteSystemInstanceCommandInput,
+  DeleteSystemInstanceCommandOutput
+} from "./commands/DeleteSystemInstanceCommand";
+import {
+  DeleteSystemTemplateCommandInput,
+  DeleteSystemTemplateCommandOutput
+} from "./commands/DeleteSystemTemplateCommand";
+import {
+  DeploySystemInstanceCommandInput,
+  DeploySystemInstanceCommandOutput
+} from "./commands/DeploySystemInstanceCommand";
+import {
+  DeprecateFlowTemplateCommandInput,
+  DeprecateFlowTemplateCommandOutput
+} from "./commands/DeprecateFlowTemplateCommand";
+import {
+  DeprecateSystemTemplateCommandInput,
+  DeprecateSystemTemplateCommandOutput
+} from "./commands/DeprecateSystemTemplateCommand";
+import {
+  DescribeNamespaceCommandInput,
+  DescribeNamespaceCommandOutput
+} from "./commands/DescribeNamespaceCommand";
+import {
+  DissociateEntityFromThingCommandInput,
+  DissociateEntityFromThingCommandOutput
+} from "./commands/DissociateEntityFromThingCommand";
+import {
+  GetEntitiesCommandInput,
+  GetEntitiesCommandOutput
+} from "./commands/GetEntitiesCommand";
+import {
+  GetFlowTemplateCommandInput,
+  GetFlowTemplateCommandOutput
+} from "./commands/GetFlowTemplateCommand";
+import {
+  GetFlowTemplateRevisionsCommandInput,
+  GetFlowTemplateRevisionsCommandOutput
+} from "./commands/GetFlowTemplateRevisionsCommand";
+import {
+  GetNamespaceDeletionStatusCommandInput,
+  GetNamespaceDeletionStatusCommandOutput
+} from "./commands/GetNamespaceDeletionStatusCommand";
+import {
+  GetSystemInstanceCommandInput,
+  GetSystemInstanceCommandOutput
+} from "./commands/GetSystemInstanceCommand";
+import {
+  GetSystemTemplateCommandInput,
+  GetSystemTemplateCommandOutput
+} from "./commands/GetSystemTemplateCommand";
+import {
+  GetSystemTemplateRevisionsCommandInput,
+  GetSystemTemplateRevisionsCommandOutput
+} from "./commands/GetSystemTemplateRevisionsCommand";
+import {
+  GetUploadStatusCommandInput,
+  GetUploadStatusCommandOutput
+} from "./commands/GetUploadStatusCommand";
+import {
+  ListFlowExecutionMessagesCommandInput,
+  ListFlowExecutionMessagesCommandOutput
+} from "./commands/ListFlowExecutionMessagesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  SearchEntitiesCommandInput,
+  SearchEntitiesCommandOutput
+} from "./commands/SearchEntitiesCommand";
+import {
+  SearchFlowExecutionsCommandInput,
+  SearchFlowExecutionsCommandOutput
+} from "./commands/SearchFlowExecutionsCommand";
+import {
+  SearchFlowTemplatesCommandInput,
+  SearchFlowTemplatesCommandOutput
+} from "./commands/SearchFlowTemplatesCommand";
+import {
+  SearchSystemInstancesCommandInput,
+  SearchSystemInstancesCommandOutput
+} from "./commands/SearchSystemInstancesCommand";
+import {
+  SearchSystemTemplatesCommandInput,
+  SearchSystemTemplatesCommandOutput
+} from "./commands/SearchSystemTemplatesCommand";
+import {
+  SearchThingsCommandInput,
+  SearchThingsCommandOutput
+} from "./commands/SearchThingsCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UndeploySystemInstanceCommandInput,
+  UndeploySystemInstanceCommandOutput
+} from "./commands/UndeploySystemInstanceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateFlowTemplateCommandInput,
+  UpdateFlowTemplateCommandOutput
+} from "./commands/UpdateFlowTemplateCommand";
+import {
+  UpdateSystemTemplateCommandInput,
+  UpdateSystemTemplateCommandOutput
+} from "./commands/UpdateSystemTemplateCommand";
+import {
+  UploadEntityDefinitionsCommandInput,
+  UploadEntityDefinitionsCommandOutput
+} from "./commands/UploadEntityDefinitionsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -123,78 +191,78 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateEntityToThingRequest
-  | CreateFlowTemplateRequest
-  | CreateSystemInstanceRequest
-  | CreateSystemTemplateRequest
-  | DeleteFlowTemplateRequest
-  | DeleteNamespaceRequest
-  | DeleteSystemInstanceRequest
-  | DeleteSystemTemplateRequest
-  | DeploySystemInstanceRequest
-  | DeprecateFlowTemplateRequest
-  | DeprecateSystemTemplateRequest
-  | DescribeNamespaceRequest
-  | DissociateEntityFromThingRequest
-  | GetEntitiesRequest
-  | GetFlowTemplateRequest
-  | GetFlowTemplateRevisionsRequest
-  | GetNamespaceDeletionStatusRequest
-  | GetSystemInstanceRequest
-  | GetSystemTemplateRequest
-  | GetSystemTemplateRevisionsRequest
-  | GetUploadStatusRequest
-  | ListFlowExecutionMessagesRequest
-  | ListTagsForResourceRequest
-  | SearchEntitiesRequest
-  | SearchFlowExecutionsRequest
-  | SearchFlowTemplatesRequest
-  | SearchSystemInstancesRequest
-  | SearchSystemTemplatesRequest
-  | SearchThingsRequest
-  | TagResourceRequest
-  | UndeploySystemInstanceRequest
-  | UntagResourceRequest
-  | UpdateFlowTemplateRequest
-  | UpdateSystemTemplateRequest
-  | UploadEntityDefinitionsRequest;
+  | AssociateEntityToThingCommandInput
+  | CreateFlowTemplateCommandInput
+  | CreateSystemInstanceCommandInput
+  | CreateSystemTemplateCommandInput
+  | DeleteFlowTemplateCommandInput
+  | DeleteNamespaceCommandInput
+  | DeleteSystemInstanceCommandInput
+  | DeleteSystemTemplateCommandInput
+  | DeploySystemInstanceCommandInput
+  | DeprecateFlowTemplateCommandInput
+  | DeprecateSystemTemplateCommandInput
+  | DescribeNamespaceCommandInput
+  | DissociateEntityFromThingCommandInput
+  | GetEntitiesCommandInput
+  | GetFlowTemplateCommandInput
+  | GetFlowTemplateRevisionsCommandInput
+  | GetNamespaceDeletionStatusCommandInput
+  | GetSystemInstanceCommandInput
+  | GetSystemTemplateCommandInput
+  | GetSystemTemplateRevisionsCommandInput
+  | GetUploadStatusCommandInput
+  | ListFlowExecutionMessagesCommandInput
+  | ListTagsForResourceCommandInput
+  | SearchEntitiesCommandInput
+  | SearchFlowExecutionsCommandInput
+  | SearchFlowTemplatesCommandInput
+  | SearchSystemInstancesCommandInput
+  | SearchSystemTemplatesCommandInput
+  | SearchThingsCommandInput
+  | TagResourceCommandInput
+  | UndeploySystemInstanceCommandInput
+  | UntagResourceCommandInput
+  | UpdateFlowTemplateCommandInput
+  | UpdateSystemTemplateCommandInput
+  | UploadEntityDefinitionsCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateEntityToThingResponse
-  | CreateFlowTemplateResponse
-  | CreateSystemInstanceResponse
-  | CreateSystemTemplateResponse
-  | DeleteFlowTemplateResponse
-  | DeleteNamespaceResponse
-  | DeleteSystemInstanceResponse
-  | DeleteSystemTemplateResponse
-  | DeploySystemInstanceResponse
-  | DeprecateFlowTemplateResponse
-  | DeprecateSystemTemplateResponse
-  | DescribeNamespaceResponse
-  | DissociateEntityFromThingResponse
-  | GetEntitiesResponse
-  | GetFlowTemplateResponse
-  | GetFlowTemplateRevisionsResponse
-  | GetNamespaceDeletionStatusResponse
-  | GetSystemInstanceResponse
-  | GetSystemTemplateResponse
-  | GetSystemTemplateRevisionsResponse
-  | GetUploadStatusResponse
-  | ListFlowExecutionMessagesResponse
-  | ListTagsForResourceResponse
-  | SearchEntitiesResponse
-  | SearchFlowExecutionsResponse
-  | SearchFlowTemplatesResponse
-  | SearchSystemInstancesResponse
-  | SearchSystemTemplatesResponse
-  | SearchThingsResponse
-  | TagResourceResponse
-  | UndeploySystemInstanceResponse
-  | UntagResourceResponse
-  | UpdateFlowTemplateResponse
-  | UpdateSystemTemplateResponse
-  | UploadEntityDefinitionsResponse;
+  | AssociateEntityToThingCommandOutput
+  | CreateFlowTemplateCommandOutput
+  | CreateSystemInstanceCommandOutput
+  | CreateSystemTemplateCommandOutput
+  | DeleteFlowTemplateCommandOutput
+  | DeleteNamespaceCommandOutput
+  | DeleteSystemInstanceCommandOutput
+  | DeleteSystemTemplateCommandOutput
+  | DeploySystemInstanceCommandOutput
+  | DeprecateFlowTemplateCommandOutput
+  | DeprecateSystemTemplateCommandOutput
+  | DescribeNamespaceCommandOutput
+  | DissociateEntityFromThingCommandOutput
+  | GetEntitiesCommandOutput
+  | GetFlowTemplateCommandOutput
+  | GetFlowTemplateRevisionsCommandOutput
+  | GetNamespaceDeletionStatusCommandOutput
+  | GetSystemInstanceCommandOutput
+  | GetSystemTemplateCommandOutput
+  | GetSystemTemplateRevisionsCommandOutput
+  | GetUploadStatusCommandOutput
+  | ListFlowExecutionMessagesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | SearchEntitiesCommandOutput
+  | SearchFlowExecutionsCommandOutput
+  | SearchFlowTemplatesCommandOutput
+  | SearchSystemInstancesCommandOutput
+  | SearchSystemTemplatesCommandOutput
+  | SearchThingsCommandOutput
+  | TagResourceCommandOutput
+  | UndeploySystemInstanceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateFlowTemplateCommandOutput
+  | UpdateSystemTemplateCommandOutput
+  | UploadEntityDefinitionsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopAppReplicationCommandInput = StopAppReplicationRequest;
-export type StopAppReplicationCommandOutput = StopAppReplicationResponse;
+export type StopAppReplicationCommandOutput = StopAppReplicationResponse &
+  __MetadataBearer;
 
 export class StopAppReplicationCommand extends $Command<
   StopAppReplicationCommandInput,

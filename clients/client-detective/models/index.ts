@@ -59,7 +59,7 @@ export namespace ConflictException {
   }
 }
 
-export interface CreateGraphResponse extends $MetadataBearer {
+export interface CreateGraphResponse {
   __type?: "CreateGraphResponse";
   /**
    * <p>The ARN of the new behavior graph.</p>
@@ -101,7 +101,7 @@ export namespace CreateMembersRequest {
   }
 }
 
-export interface CreateMembersResponse extends $MetadataBearer {
+export interface CreateMembersResponse {
   __type?: "CreateMembersResponse";
   /**
    * <p>The set of member account invitation requests that Detective was able to process. This
@@ -158,7 +158,7 @@ export namespace DeleteMembersRequest {
   }
 }
 
-export interface DeleteMembersResponse extends $MetadataBearer {
+export interface DeleteMembersResponse {
   __type?: "DeleteMembersResponse";
   /**
    * <p>The list of AWS account identifiers for the member accounts that Detective successfully
@@ -218,7 +218,7 @@ export namespace GetMembersRequest {
   }
 }
 
-export interface GetMembersResponse extends $MetadataBearer {
+export interface GetMembersResponse {
   __type?: "GetMembersResponse";
   /**
    * <p>The member account details that Detective is returning in response to the request.</p>
@@ -303,7 +303,7 @@ export namespace ListGraphsRequest {
   }
 }
 
-export interface ListGraphsResponse extends $MetadataBearer {
+export interface ListGraphsResponse {
   __type?: "ListGraphsResponse";
   /**
    * <p>A list of behavior graphs that the account is a master for.</p>
@@ -346,7 +346,7 @@ export namespace ListInvitationsRequest {
   }
 }
 
-export interface ListInvitationsResponse extends $MetadataBearer {
+export interface ListInvitationsResponse {
   __type?: "ListInvitationsResponse";
   /**
    * <p>The list of behavior graphs for which the member account has open or accepted
@@ -394,7 +394,7 @@ export namespace ListMembersRequest {
   }
 }
 
-export interface ListMembersResponse extends $MetadataBearer {
+export interface ListMembersResponse {
   __type?: "ListMembersResponse";
   /**
    * <p>The list of member accounts in the behavior graph.</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateProvisionedProductPlanCommandInput = CreateProvisionedProductPlanInput;
-export type CreateProvisionedProductPlanCommandOutput = CreateProvisionedProductPlanOutput;
+export type CreateProvisionedProductPlanCommandOutput = CreateProvisionedProductPlanOutput &
+  __MetadataBearer;
 
 export class CreateProvisionedProductPlanCommand extends $Command<
   CreateProvisionedProductPlanCommandInput,

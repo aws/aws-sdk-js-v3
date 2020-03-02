@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListOfferingPromotionsCommandInput = ListOfferingPromotionsRequest;
-export type ListOfferingPromotionsCommandOutput = ListOfferingPromotionsResult;
+export type ListOfferingPromotionsCommandOutput = ListOfferingPromotionsResult &
+  __MetadataBearer;
 
 export class ListOfferingPromotionsCommand extends $Command<
   ListOfferingPromotionsCommandInput,

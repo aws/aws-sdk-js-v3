@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ScanCommandInput = ScanInput;
-export type ScanCommandOutput = ScanOutput;
+export type ScanCommandOutput = ScanOutput & __MetadataBearer;
 
 export class ScanCommand extends $Command<
   ScanCommandInput,

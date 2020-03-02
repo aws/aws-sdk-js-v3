@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCertificateAuthorityAuditReportCommandInput = CreateCertificateAuthorityAuditReportRequest;
-export type CreateCertificateAuthorityAuditReportCommandOutput = CreateCertificateAuthorityAuditReportResponse;
+export type CreateCertificateAuthorityAuditReportCommandOutput = CreateCertificateAuthorityAuditReportResponse &
+  __MetadataBearer;
 
 export class CreateCertificateAuthorityAuditReportCommand extends $Command<
   CreateCertificateAuthorityAuditReportCommandInput,

@@ -20,11 +20,15 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type UploadArchiveCommandInput = UploadArchiveInput;
-export type UploadArchiveCommandOutput = ArchiveCreationOutput;
+export type UploadArchiveCommandInput = Omit<UploadArchiveInput, "body"> & {
+  body?: UploadArchiveInput["body"] | string | Uint8Array | Buffer;
+};
+export type UploadArchiveCommandOutput = ArchiveCreationOutput &
+  __MetadataBearer;
 
 export class UploadArchiveCommand extends $Command<
   UploadArchiveCommandInput,

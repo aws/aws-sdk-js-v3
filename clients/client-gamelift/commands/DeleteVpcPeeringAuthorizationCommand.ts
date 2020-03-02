@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteVpcPeeringAuthorizationCommandInput = DeleteVpcPeeringAuthorizationInput;
-export type DeleteVpcPeeringAuthorizationCommandOutput = DeleteVpcPeeringAuthorizationOutput;
+export type DeleteVpcPeeringAuthorizationCommandOutput = DeleteVpcPeeringAuthorizationOutput &
+  __MetadataBearer;
 
 export class DeleteVpcPeeringAuthorizationCommand extends $Command<
   DeleteVpcPeeringAuthorizationCommandInput,

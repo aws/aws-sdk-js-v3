@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InstallToRemoteAccessSessionCommandInput = InstallToRemoteAccessSessionRequest;
-export type InstallToRemoteAccessSessionCommandOutput = InstallToRemoteAccessSessionResult;
+export type InstallToRemoteAccessSessionCommandOutput = InstallToRemoteAccessSessionResult &
+  __MetadataBearer;
 
 export class InstallToRemoteAccessSessionCommand extends $Command<
   InstallToRemoteAccessSessionCommandInput,

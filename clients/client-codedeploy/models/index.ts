@@ -370,7 +370,7 @@ export namespace BatchGetApplicationRevisionsInput {
 /**
  * <p>Represents the output of a BatchGetApplicationRevisions operation.</p>
  */
-export interface BatchGetApplicationRevisionsOutput extends $MetadataBearer {
+export interface BatchGetApplicationRevisionsOutput {
   __type?: "BatchGetApplicationRevisionsOutput";
   /**
    * <p>The name of the application that corresponds to the revisions.</p>
@@ -414,7 +414,7 @@ export namespace BatchGetApplicationsInput {
 /**
  * <p>Represents the output of a BatchGetApplications operation.</p>
  */
-export interface BatchGetApplicationsOutput extends $MetadataBearer {
+export interface BatchGetApplicationsOutput {
   __type?: "BatchGetApplicationsOutput";
   /**
    * <p>Information about the applications.</p>
@@ -454,7 +454,7 @@ export namespace BatchGetDeploymentGroupsInput {
 /**
  * <p>Represents the output of a BatchGetDeploymentGroups operation.</p>
  */
-export interface BatchGetDeploymentGroupsOutput extends $MetadataBearer {
+export interface BatchGetDeploymentGroupsOutput {
   __type?: "BatchGetDeploymentGroupsOutput";
   /**
    * <p>Information about the deployment groups.</p>
@@ -498,7 +498,7 @@ export namespace BatchGetDeploymentInstancesInput {
 /**
  * <p>Represents the output of a BatchGetDeploymentInstances operation.</p>
  */
-export interface BatchGetDeploymentInstancesOutput extends $MetadataBearer {
+export interface BatchGetDeploymentInstancesOutput {
   __type?: "BatchGetDeploymentInstancesOutput";
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
@@ -555,7 +555,7 @@ export namespace BatchGetDeploymentTargetsInput {
   }
 }
 
-export interface BatchGetDeploymentTargetsOutput extends $MetadataBearer {
+export interface BatchGetDeploymentTargetsOutput {
   __type?: "BatchGetDeploymentTargetsOutput";
   /**
    * <p> A list of target objects for a deployment. Each target object contains details about
@@ -608,7 +608,7 @@ export namespace BatchGetDeploymentsInput {
 /**
  * <p> Represents the output of a BatchGetDeployments operation. </p>
  */
-export interface BatchGetDeploymentsOutput extends $MetadataBearer {
+export interface BatchGetDeploymentsOutput {
   __type?: "BatchGetDeploymentsOutput";
   /**
    * <p> Information about the deployments. </p>
@@ -642,7 +642,7 @@ export namespace BatchGetOnPremisesInstancesInput {
 /**
  * <p>Represents the output of a BatchGetOnPremisesInstances operation.</p>
  */
-export interface BatchGetOnPremisesInstancesOutput extends $MetadataBearer {
+export interface BatchGetOnPremisesInstancesOutput {
   __type?: "BatchGetOnPremisesInstancesOutput";
   /**
    * <p>Information about the on-premises instances.</p>
@@ -842,7 +842,7 @@ export namespace CreateApplicationInput {
 /**
  * <p>Represents the output of a CreateApplication operation.</p>
  */
-export interface CreateApplicationOutput extends $MetadataBearer {
+export interface CreateApplicationOutput {
   __type?: "CreateApplicationOutput";
   /**
    * <p>A unique application ID.</p>
@@ -909,7 +909,7 @@ export namespace CreateDeploymentConfigInput {
 /**
  * <p>Represents the output of a CreateDeploymentConfig operation.</p>
  */
-export interface CreateDeploymentConfigOutput extends $MetadataBearer {
+export interface CreateDeploymentConfigOutput {
   __type?: "CreateDeploymentConfigOutput";
   /**
    * <p>A unique deployment configuration ID.</p>
@@ -1050,7 +1050,7 @@ export namespace CreateDeploymentGroupInput {
 /**
  * <p>Represents the output of a CreateDeploymentGroup operation.</p>
  */
-export interface CreateDeploymentGroupOutput extends $MetadataBearer {
+export interface CreateDeploymentGroupOutput {
   __type?: "CreateDeploymentGroupOutput";
   /**
    * <p>A unique deployment group ID.</p>
@@ -1177,7 +1177,7 @@ export namespace CreateDeploymentInput {
 /**
  * <p> Represents the output of a CreateDeployment operation. </p>
  */
-export interface CreateDeploymentOutput extends $MetadataBearer {
+export interface CreateDeploymentOutput {
   __type?: "CreateDeploymentOutput";
   /**
    * <p> The unique ID of a deployment. </p>
@@ -1253,7 +1253,7 @@ export namespace DeleteDeploymentGroupInput {
 /**
  * <p>Represents the output of a DeleteDeploymentGroup operation.</p>
  */
-export interface DeleteDeploymentGroupOutput extends $MetadataBearer {
+export interface DeleteDeploymentGroupOutput {
   __type?: "DeleteDeploymentGroupOutput";
   /**
    * <p>If the output contains no data, and the corresponding deployment group contained at
@@ -1291,7 +1291,7 @@ export namespace DeleteGitHubAccountTokenInput {
 /**
  * <p>Represents the output of a DeleteGitHubAccountToken operation.</p>
  */
-export interface DeleteGitHubAccountTokenOutput extends $MetadataBearer {
+export interface DeleteGitHubAccountTokenOutput {
   __type?: "DeleteGitHubAccountTokenOutput";
   /**
    * <p>The name of the GitHub account connection that was deleted.</p>
@@ -2769,7 +2769,7 @@ export namespace GetApplicationInput {
 /**
  * <p>Represents the output of a GetApplication operation.</p>
  */
-export interface GetApplicationOutput extends $MetadataBearer {
+export interface GetApplicationOutput {
   __type?: "GetApplicationOutput";
   /**
    * <p>Information about the application.</p>
@@ -2808,7 +2808,7 @@ export namespace GetApplicationRevisionInput {
 /**
  * <p>Represents the output of a GetApplicationRevision operation.</p>
  */
-export interface GetApplicationRevisionOutput extends $MetadataBearer {
+export interface GetApplicationRevisionOutput {
   __type?: "GetApplicationRevisionOutput";
   /**
    * <p>The name of the application that corresponds to the revision.</p>
@@ -2853,7 +2853,7 @@ export namespace GetDeploymentConfigInput {
 /**
  * <p>Represents the output of a GetDeploymentConfig operation.</p>
  */
-export interface GetDeploymentConfigOutput extends $MetadataBearer {
+export interface GetDeploymentConfigOutput {
   __type?: "GetDeploymentConfigOutput";
   /**
    * <p>Information about the deployment configuration.</p>
@@ -2893,7 +2893,7 @@ export namespace GetDeploymentGroupInput {
 /**
  * <p>Represents the output of a GetDeploymentGroup operation.</p>
  */
-export interface GetDeploymentGroupOutput extends $MetadataBearer {
+export interface GetDeploymentGroupOutput {
   __type?: "GetDeploymentGroupOutput";
   /**
    * <p>Information about the deployment group.</p>
@@ -2949,7 +2949,7 @@ export namespace GetDeploymentInstanceInput {
 /**
  * <p> Represents the output of a GetDeploymentInstance operation. </p>
  */
-export interface GetDeploymentInstanceOutput extends $MetadataBearer {
+export interface GetDeploymentInstanceOutput {
   __type?: "GetDeploymentInstanceOutput";
   /**
    * <p> Information about the instance. </p>
@@ -2966,7 +2966,7 @@ export namespace GetDeploymentInstanceOutput {
 /**
  * <p>Represents the output of a GetDeployment operation.</p>
  */
-export interface GetDeploymentOutput extends $MetadataBearer {
+export interface GetDeploymentOutput {
   __type?: "GetDeploymentOutput";
   /**
    * <p>Information about the deployment.</p>
@@ -2999,7 +2999,7 @@ export namespace GetDeploymentTargetInput {
   }
 }
 
-export interface GetDeploymentTargetOutput extends $MetadataBearer {
+export interface GetDeploymentTargetOutput {
   __type?: "GetDeploymentTargetOutput";
   /**
    * <p> A deployment target that contains information about a deployment such as its status,
@@ -3037,7 +3037,7 @@ export namespace GetOnPremisesInstanceInput {
 /**
  * <p> Represents the output of a GetOnPremisesInstance operation. </p>
  */
-export interface GetOnPremisesInstanceOutput extends $MetadataBearer {
+export interface GetOnPremisesInstanceOutput {
   __type?: "GetOnPremisesInstanceOutput";
   /**
    * <p> Information about the on-premises instance. </p>
@@ -5021,7 +5021,7 @@ export namespace ListApplicationRevisionsInput {
 /**
  * <p>Represents the output of a ListApplicationRevisions operation.</p>
  */
-export interface ListApplicationRevisionsOutput extends $MetadataBearer {
+export interface ListApplicationRevisionsOutput {
   __type?: "ListApplicationRevisionsOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5063,7 +5063,7 @@ export namespace ListApplicationsInput {
 /**
  * <p>Represents the output of a ListApplications operation.</p>
  */
-export interface ListApplicationsOutput extends $MetadataBearer {
+export interface ListApplicationsOutput {
   __type?: "ListApplicationsOutput";
   /**
    * <p>A list of application names.</p>
@@ -5105,7 +5105,7 @@ export namespace ListDeploymentConfigsInput {
 /**
  * <p>Represents the output of a ListDeploymentConfigs operation.</p>
  */
-export interface ListDeploymentConfigsOutput extends $MetadataBearer {
+export interface ListDeploymentConfigsOutput {
   __type?: "ListDeploymentConfigsOutput";
   /**
    * <p>A list of deployment configurations, including built-in configurations such as
@@ -5154,7 +5154,7 @@ export namespace ListDeploymentGroupsInput {
 /**
  * <p>Represents the output of a ListDeploymentGroups operation.</p>
  */
-export interface ListDeploymentGroupsOutput extends $MetadataBearer {
+export interface ListDeploymentGroupsOutput {
   __type?: "ListDeploymentGroupsOutput";
   /**
    * <p>The application name.</p>
@@ -5239,7 +5239,7 @@ export namespace ListDeploymentInstancesInput {
 /**
  * <p>Represents the output of a ListDeploymentInstances operation.</p>
  */
-export interface ListDeploymentInstancesOutput extends $MetadataBearer {
+export interface ListDeploymentInstancesOutput {
   __type?: "ListDeploymentInstancesOutput";
   /**
    * <p>A list of instance IDs.</p>
@@ -5298,7 +5298,7 @@ export namespace ListDeploymentTargetsInput {
   }
 }
 
-export interface ListDeploymentTargetsOutput extends $MetadataBearer {
+export interface ListDeploymentTargetsOutput {
   __type?: "ListDeploymentTargetsOutput";
   /**
    * <p> If a large amount of information is returned, a token identifier is also  returned.
@@ -5393,7 +5393,7 @@ export namespace ListDeploymentsInput {
 /**
  * <p>Represents the output of a ListDeployments operation.</p>
  */
-export interface ListDeploymentsOutput extends $MetadataBearer {
+export interface ListDeploymentsOutput {
   __type?: "ListDeploymentsOutput";
   /**
    * <p>A list of deployment IDs.</p>
@@ -5435,7 +5435,7 @@ export namespace ListGitHubAccountTokenNamesInput {
 /**
  * <p>Represents the output of a ListGitHubAccountTokenNames operation.</p>
  */
-export interface ListGitHubAccountTokenNamesOutput extends $MetadataBearer {
+export interface ListGitHubAccountTokenNamesOutput {
   __type?: "ListGitHubAccountTokenNamesOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5498,7 +5498,7 @@ export namespace ListOnPremisesInstancesInput {
 /**
  * <p>Represents the output of the list on-premises instances operation.</p>
  */
-export interface ListOnPremisesInstancesOutput extends $MetadataBearer {
+export interface ListOnPremisesInstancesOutput {
   __type?: "ListOnPremisesInstancesOutput";
   /**
    * <p>The list of matching on-premises instance names.</p>
@@ -5548,7 +5548,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5750,8 +5750,7 @@ export namespace PutLifecycleEventHookExecutionStatusInput {
   }
 }
 
-export interface PutLifecycleEventHookExecutionStatusOutput
-  extends $MetadataBearer {
+export interface PutLifecycleEventHookExecutionStatusOutput {
   __type?: "PutLifecycleEventHookExecutionStatusOutput";
   /**
    * <p>The execution ID of the lifecycle event hook. A hook is specified in the
@@ -6188,7 +6187,7 @@ export namespace StopDeploymentInput {
 /**
  * <p> Represents the output of a StopDeployment operation. </p>
  */
-export interface StopDeploymentOutput extends $MetadataBearer {
+export interface StopDeploymentOutput {
   __type?: "StopDeploymentOutput";
   /**
    * <p>The status of the stop deployment operation:</p>
@@ -6349,7 +6348,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -6754,7 +6753,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 
@@ -6902,7 +6901,7 @@ export namespace UpdateDeploymentGroupInput {
 /**
  * <p>Represents the output of an UpdateDeploymentGroup operation.</p>
  */
-export interface UpdateDeploymentGroupOutput extends $MetadataBearer {
+export interface UpdateDeploymentGroupOutput {
   __type?: "UpdateDeploymentGroupOutput";
   /**
    * <p>If the output contains no data, and the corresponding deployment group contained at

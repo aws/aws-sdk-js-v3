@@ -1,36 +1,67 @@
 import {
-  CreateDetectorModelRequest,
-  CreateDetectorModelResponse,
-  CreateInputRequest,
-  CreateInputResponse,
-  DeleteDetectorModelRequest,
-  DeleteDetectorModelResponse,
-  DeleteInputRequest,
-  DeleteInputResponse,
-  DescribeDetectorModelRequest,
-  DescribeDetectorModelResponse,
-  DescribeInputRequest,
-  DescribeInputResponse,
-  DescribeLoggingOptionsRequest,
-  DescribeLoggingOptionsResponse,
-  ListDetectorModelVersionsRequest,
-  ListDetectorModelVersionsResponse,
-  ListDetectorModelsRequest,
-  ListDetectorModelsResponse,
-  ListInputsRequest,
-  ListInputsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutLoggingOptionsRequest,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateDetectorModelRequest,
-  UpdateDetectorModelResponse,
-  UpdateInputRequest,
-  UpdateInputResponse
-} from "./models/index";
+  CreateDetectorModelCommandInput,
+  CreateDetectorModelCommandOutput
+} from "./commands/CreateDetectorModelCommand";
+import {
+  CreateInputCommandInput,
+  CreateInputCommandOutput
+} from "./commands/CreateInputCommand";
+import {
+  DeleteDetectorModelCommandInput,
+  DeleteDetectorModelCommandOutput
+} from "./commands/DeleteDetectorModelCommand";
+import {
+  DeleteInputCommandInput,
+  DeleteInputCommandOutput
+} from "./commands/DeleteInputCommand";
+import {
+  DescribeDetectorModelCommandInput,
+  DescribeDetectorModelCommandOutput
+} from "./commands/DescribeDetectorModelCommand";
+import {
+  DescribeInputCommandInput,
+  DescribeInputCommandOutput
+} from "./commands/DescribeInputCommand";
+import {
+  DescribeLoggingOptionsCommandInput,
+  DescribeLoggingOptionsCommandOutput
+} from "./commands/DescribeLoggingOptionsCommand";
+import {
+  ListDetectorModelVersionsCommandInput,
+  ListDetectorModelVersionsCommandOutput
+} from "./commands/ListDetectorModelVersionsCommand";
+import {
+  ListDetectorModelsCommandInput,
+  ListDetectorModelsCommandOutput
+} from "./commands/ListDetectorModelsCommand";
+import {
+  ListInputsCommandInput,
+  ListInputsCommandOutput
+} from "./commands/ListInputsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutLoggingOptionsCommandInput,
+  PutLoggingOptionsCommandOutput
+} from "./commands/PutLoggingOptionsCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateDetectorModelCommandInput,
+  UpdateDetectorModelCommandOutput
+} from "./commands/UpdateDetectorModelCommand";
+import {
+  UpdateInputCommandInput,
+  UpdateInputCommandOutput
+} from "./commands/UpdateInputCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,47 +109,46 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateDetectorModelRequest
-  | CreateInputRequest
-  | DeleteDetectorModelRequest
-  | DeleteInputRequest
-  | DescribeDetectorModelRequest
-  | DescribeInputRequest
-  | DescribeLoggingOptionsRequest
-  | ListDetectorModelVersionsRequest
-  | ListDetectorModelsRequest
-  | ListInputsRequest
-  | ListTagsForResourceRequest
-  | PutLoggingOptionsRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateDetectorModelRequest
-  | UpdateInputRequest;
+  | CreateDetectorModelCommandInput
+  | CreateInputCommandInput
+  | DeleteDetectorModelCommandInput
+  | DeleteInputCommandInput
+  | DescribeDetectorModelCommandInput
+  | DescribeInputCommandInput
+  | DescribeLoggingOptionsCommandInput
+  | ListDetectorModelVersionsCommandInput
+  | ListDetectorModelsCommandInput
+  | ListInputsCommandInput
+  | ListTagsForResourceCommandInput
+  | PutLoggingOptionsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateDetectorModelCommandInput
+  | UpdateInputCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateDetectorModelResponse
-  | CreateInputResponse
-  | DeleteDetectorModelResponse
-  | DeleteInputResponse
-  | DescribeDetectorModelResponse
-  | DescribeInputResponse
-  | DescribeLoggingOptionsResponse
-  | ListDetectorModelVersionsResponse
-  | ListDetectorModelsResponse
-  | ListInputsResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateDetectorModelResponse
-  | UpdateInputResponse;
+  | CreateDetectorModelCommandOutput
+  | CreateInputCommandOutput
+  | DeleteDetectorModelCommandOutput
+  | DeleteInputCommandOutput
+  | DescribeDetectorModelCommandOutput
+  | DescribeInputCommandOutput
+  | DescribeLoggingOptionsCommandOutput
+  | ListDetectorModelVersionsCommandOutput
+  | ListDetectorModelsCommandOutput
+  | ListInputsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutLoggingOptionsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateDetectorModelCommandOutput
+  | UpdateInputCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

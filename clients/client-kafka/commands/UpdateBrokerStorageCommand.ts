@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateBrokerStorageCommandInput = UpdateBrokerStorageRequest;
-export type UpdateBrokerStorageCommandOutput = UpdateBrokerStorageResponse;
+export type UpdateBrokerStorageCommandOutput = UpdateBrokerStorageResponse &
+  __MetadataBearer;
 
 export class UpdateBrokerStorageCommand extends $Command<
   UpdateBrokerStorageCommandInput,

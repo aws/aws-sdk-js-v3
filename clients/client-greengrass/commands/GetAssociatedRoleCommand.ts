@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAssociatedRoleCommandInput = GetAssociatedRoleRequest;
-export type GetAssociatedRoleCommandOutput = GetAssociatedRoleResponse;
+export type GetAssociatedRoleCommandOutput = GetAssociatedRoleResponse &
+  __MetadataBearer;
 
 export class GetAssociatedRoleCommand extends $Command<
   GetAssociatedRoleCommandInput,

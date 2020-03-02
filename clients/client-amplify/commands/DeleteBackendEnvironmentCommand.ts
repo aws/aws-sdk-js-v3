@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteBackendEnvironmentCommandInput = DeleteBackendEnvironmentRequest;
-export type DeleteBackendEnvironmentCommandOutput = DeleteBackendEnvironmentResult;
+export type DeleteBackendEnvironmentCommandOutput = DeleteBackendEnvironmentResult &
+  __MetadataBearer;
 
 export class DeleteBackendEnvironmentCommand extends $Command<
   DeleteBackendEnvironmentCommandInput,

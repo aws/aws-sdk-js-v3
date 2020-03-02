@@ -18,7 +18,7 @@ export namespace GetTagsRequest {
   }
 }
 
-export interface GetTagsResponse extends $MetadataBearer {
+export interface GetTagsResponse {
   __type?: "GetTagsResponse";
   /**
    * <p>The requested tags.</p>
@@ -52,7 +52,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -81,7 +81,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -449,7 +449,7 @@ export namespace BatchCreatePartitionRequest {
   }
 }
 
-export interface BatchCreatePartitionResponse extends $MetadataBearer {
+export interface BatchCreatePartitionResponse {
   __type?: "BatchCreatePartitionResponse";
   /**
    * <p>The errors encountered when trying to create the requested partitions.</p>
@@ -483,7 +483,7 @@ export namespace BatchDeleteConnectionRequest {
   }
 }
 
-export interface BatchDeleteConnectionResponse extends $MetadataBearer {
+export interface BatchDeleteConnectionResponse {
   __type?: "BatchDeleteConnectionResponse";
   /**
    * <p>A map of the names of connections that were not successfully
@@ -536,7 +536,7 @@ export namespace BatchDeletePartitionRequest {
   }
 }
 
-export interface BatchDeletePartitionResponse extends $MetadataBearer {
+export interface BatchDeletePartitionResponse {
   __type?: "BatchDeletePartitionResponse";
   /**
    * <p>The errors encountered when trying to delete the requested partitions.</p>
@@ -576,7 +576,7 @@ export namespace BatchDeleteTableRequest {
   }
 }
 
-export interface BatchDeleteTableResponse extends $MetadataBearer {
+export interface BatchDeleteTableResponse {
   __type?: "BatchDeleteTableResponse";
   /**
    * <p>A list of errors encountered in attempting to delete the specified tables.</p>
@@ -622,7 +622,7 @@ export namespace BatchDeleteTableVersionRequest {
   }
 }
 
-export interface BatchDeleteTableVersionResponse extends $MetadataBearer {
+export interface BatchDeleteTableVersionResponse {
   __type?: "BatchDeleteTableVersionResponse";
   /**
    * <p>A list of errors encountered while trying to delete
@@ -667,7 +667,7 @@ export namespace BatchGetPartitionRequest {
   }
 }
 
-export interface BatchGetPartitionResponse extends $MetadataBearer {
+export interface BatchGetPartitionResponse {
   __type?: "BatchGetPartitionResponse";
   /**
    * <p>A list of the requested partitions.</p>
@@ -1022,7 +1022,7 @@ export namespace CreateConnectionRequest {
   }
 }
 
-export interface CreateConnectionResponse extends $MetadataBearer {
+export interface CreateConnectionResponse {
   __type?: "CreateConnectionResponse";
 }
 
@@ -1052,7 +1052,7 @@ export namespace CreateDatabaseRequest {
   }
 }
 
-export interface CreateDatabaseResponse extends $MetadataBearer {
+export interface CreateDatabaseResponse {
   __type?: "CreateDatabaseResponse";
 }
 
@@ -1093,7 +1093,7 @@ export namespace CreatePartitionRequest {
   }
 }
 
-export interface CreatePartitionResponse extends $MetadataBearer {
+export interface CreatePartitionResponse {
   __type?: "CreatePartitionResponse";
 }
 
@@ -1130,7 +1130,7 @@ export namespace CreateTableRequest {
   }
 }
 
-export interface CreateTableResponse extends $MetadataBearer {
+export interface CreateTableResponse {
   __type?: "CreateTableResponse";
 }
 
@@ -1166,7 +1166,7 @@ export namespace CreateUserDefinedFunctionRequest {
   }
 }
 
-export interface CreateUserDefinedFunctionResponse extends $MetadataBearer {
+export interface CreateUserDefinedFunctionResponse {
   __type?: "CreateUserDefinedFunctionResponse";
 }
 
@@ -1324,7 +1324,7 @@ export namespace DeleteConnectionRequest {
   }
 }
 
-export interface DeleteConnectionResponse extends $MetadataBearer {
+export interface DeleteConnectionResponse {
   __type?: "DeleteConnectionResponse";
 }
 
@@ -1355,7 +1355,7 @@ export namespace DeleteDatabaseRequest {
   }
 }
 
-export interface DeleteDatabaseResponse extends $MetadataBearer {
+export interface DeleteDatabaseResponse {
   __type?: "DeleteDatabaseResponse";
 }
 
@@ -1396,7 +1396,7 @@ export namespace DeletePartitionRequest {
   }
 }
 
-export interface DeletePartitionResponse extends $MetadataBearer {
+export interface DeletePartitionResponse {
   __type?: "DeletePartitionResponse";
 }
 
@@ -1420,7 +1420,7 @@ export namespace DeleteResourcePolicyRequest {
   }
 }
 
-export interface DeleteResourcePolicyResponse extends $MetadataBearer {
+export interface DeleteResourcePolicyResponse {
   __type?: "DeleteResourcePolicyResponse";
 }
 
@@ -1457,7 +1457,7 @@ export namespace DeleteTableRequest {
   }
 }
 
-export interface DeleteTableResponse extends $MetadataBearer {
+export interface DeleteTableResponse {
   __type?: "DeleteTableResponse";
 }
 
@@ -1499,7 +1499,7 @@ export namespace DeleteTableVersionRequest {
   }
 }
 
-export interface DeleteTableVersionResponse extends $MetadataBearer {
+export interface DeleteTableVersionResponse {
   __type?: "DeleteTableVersionResponse";
 }
 
@@ -1534,7 +1534,7 @@ export namespace DeleteUserDefinedFunctionRequest {
   }
 }
 
-export interface DeleteUserDefinedFunctionResponse extends $MetadataBearer {
+export interface DeleteUserDefinedFunctionResponse {
   __type?: "DeleteUserDefinedFunctionResponse";
 }
 
@@ -1580,7 +1580,7 @@ export namespace GetCatalogImportStatusRequest {
   }
 }
 
-export interface GetCatalogImportStatusResponse extends $MetadataBearer {
+export interface GetCatalogImportStatusResponse {
   __type?: "GetCatalogImportStatusResponse";
   /**
    * <p>The status of the specified catalog migration.</p>
@@ -1623,7 +1623,7 @@ export namespace GetConnectionRequest {
   }
 }
 
-export interface GetConnectionResponse extends $MetadataBearer {
+export interface GetConnectionResponse {
   __type?: "GetConnectionResponse";
   /**
    * <p>The requested connection definition.</p>
@@ -1701,7 +1701,7 @@ export namespace GetConnectionsRequest {
   }
 }
 
-export interface GetConnectionsResponse extends $MetadataBearer {
+export interface GetConnectionsResponse {
   __type?: "GetConnectionsResponse";
   /**
    * <p>A list of requested connection definitions.</p>
@@ -1736,8 +1736,7 @@ export namespace GetDataCatalogEncryptionSettingsRequest {
   }
 }
 
-export interface GetDataCatalogEncryptionSettingsResponse
-  extends $MetadataBearer {
+export interface GetDataCatalogEncryptionSettingsResponse {
   __type?: "GetDataCatalogEncryptionSettingsResponse";
   /**
    * <p>The requested security configuration.</p>
@@ -1772,7 +1771,7 @@ export namespace GetDatabaseRequest {
   }
 }
 
-export interface GetDatabaseResponse extends $MetadataBearer {
+export interface GetDatabaseResponse {
   __type?: "GetDatabaseResponse";
   /**
    * <p>The definition of the specified database in the Data Catalog.</p>
@@ -1811,7 +1810,7 @@ export namespace GetDatabasesRequest {
   }
 }
 
-export interface GetDatabasesResponse extends $MetadataBearer {
+export interface GetDatabasesResponse {
   __type?: "GetDatabasesResponse";
   /**
    * <p>A list of <code>Database</code> objects from the specified catalog.</p>
@@ -1861,7 +1860,7 @@ export namespace GetPartitionRequest {
   }
 }
 
-export interface GetPartitionResponse extends $MetadataBearer {
+export interface GetPartitionResponse {
   __type?: "GetPartitionResponse";
   /**
    * <p>The requested information, in the form of a <code>Partition</code>
@@ -2027,7 +2026,7 @@ export namespace GetPartitionsRequest {
   }
 }
 
-export interface GetPartitionsResponse extends $MetadataBearer {
+export interface GetPartitionsResponse {
   __type?: "GetPartitionsResponse";
   /**
    * <p>A continuation token, if the returned list of partitions does not include the last
@@ -2057,7 +2056,7 @@ export namespace GetResourcePolicyRequest {
   }
 }
 
-export interface GetResourcePolicyResponse extends $MetadataBearer {
+export interface GetResourcePolicyResponse {
   __type?: "GetResourcePolicyResponse";
   /**
    * <p>The date and time at which the policy was created.</p>
@@ -2113,7 +2112,7 @@ export namespace GetTableRequest {
   }
 }
 
-export interface GetTableResponse extends $MetadataBearer {
+export interface GetTableResponse {
   __type?: "GetTableResponse";
   /**
    * <p>The <code>Table</code> object that defines the specified table.</p>
@@ -2159,7 +2158,7 @@ export namespace GetTableVersionRequest {
   }
 }
 
-export interface GetTableVersionResponse extends $MetadataBearer {
+export interface GetTableVersionResponse {
   __type?: "GetTableVersionResponse";
   /**
    * <p>The requested table version.</p>
@@ -2210,7 +2209,7 @@ export namespace GetTableVersionsRequest {
   }
 }
 
-export interface GetTableVersionsResponse extends $MetadataBearer {
+export interface GetTableVersionsResponse {
   __type?: "GetTableVersionsResponse";
   /**
    * <p>A continuation token, if the list of available versions does
@@ -2268,7 +2267,7 @@ export namespace GetTablesRequest {
   }
 }
 
-export interface GetTablesResponse extends $MetadataBearer {
+export interface GetTablesResponse {
   __type?: "GetTablesResponse";
   /**
    * <p>A continuation token, present if the current list segment is
@@ -2313,7 +2312,7 @@ export namespace GetUserDefinedFunctionRequest {
   }
 }
 
-export interface GetUserDefinedFunctionResponse extends $MetadataBearer {
+export interface GetUserDefinedFunctionResponse {
   __type?: "GetUserDefinedFunctionResponse";
   /**
    * <p>The requested function definition.</p>
@@ -2363,7 +2362,7 @@ export namespace GetUserDefinedFunctionsRequest {
   }
 }
 
-export interface GetUserDefinedFunctionsResponse extends $MetadataBearer {
+export interface GetUserDefinedFunctionsResponse {
   __type?: "GetUserDefinedFunctionsResponse";
   /**
    * <p>A continuation token, if the list of functions returned does
@@ -2397,7 +2396,7 @@ export namespace ImportCatalogToGlueRequest {
   }
 }
 
-export interface ImportCatalogToGlueResponse extends $MetadataBearer {
+export interface ImportCatalogToGlueResponse {
   __type?: "ImportCatalogToGlueResponse";
 }
 
@@ -2679,8 +2678,7 @@ export namespace PutDataCatalogEncryptionSettingsRequest {
   }
 }
 
-export interface PutDataCatalogEncryptionSettingsResponse
-  extends $MetadataBearer {
+export interface PutDataCatalogEncryptionSettingsResponse {
   __type?: "PutDataCatalogEncryptionSettingsResponse";
 }
 
@@ -2718,7 +2716,7 @@ export namespace PutResourcePolicyRequest {
   }
 }
 
-export interface PutResourcePolicyResponse extends $MetadataBearer {
+export interface PutResourcePolicyResponse {
   __type?: "PutResourcePolicyResponse";
   /**
    * <p>A hash of the policy that has just been set. This must
@@ -2803,7 +2801,7 @@ export namespace SearchTablesRequest {
   }
 }
 
-export interface SearchTablesResponse extends $MetadataBearer {
+export interface SearchTablesResponse {
   __type?: "SearchTablesResponse";
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -3298,7 +3296,7 @@ export namespace UpdateConnectionRequest {
   }
 }
 
-export interface UpdateConnectionResponse extends $MetadataBearer {
+export interface UpdateConnectionResponse {
   __type?: "UpdateConnectionResponse";
 }
 
@@ -3335,7 +3333,7 @@ export namespace UpdateDatabaseRequest {
   }
 }
 
-export interface UpdateDatabaseResponse extends $MetadataBearer {
+export interface UpdateDatabaseResponse {
   __type?: "UpdateDatabaseResponse";
 }
 
@@ -3381,7 +3379,7 @@ export namespace UpdatePartitionRequest {
   }
 }
 
-export interface UpdatePartitionResponse extends $MetadataBearer {
+export interface UpdatePartitionResponse {
   __type?: "UpdatePartitionResponse";
 }
 
@@ -3425,7 +3423,7 @@ export namespace UpdateTableRequest {
   }
 }
 
-export interface UpdateTableResponse extends $MetadataBearer {
+export interface UpdateTableResponse {
   __type?: "UpdateTableResponse";
 }
 
@@ -3467,7 +3465,7 @@ export namespace UpdateUserDefinedFunctionRequest {
   }
 }
 
-export interface UpdateUserDefinedFunctionResponse extends $MetadataBearer {
+export interface UpdateUserDefinedFunctionResponse {
   __type?: "UpdateUserDefinedFunctionResponse";
 }
 
@@ -3572,7 +3570,7 @@ export namespace BatchGetDevEndpointsRequest {
   }
 }
 
-export interface BatchGetDevEndpointsResponse extends $MetadataBearer {
+export interface BatchGetDevEndpointsResponse {
   __type?: "BatchGetDevEndpointsResponse";
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
@@ -3740,7 +3738,7 @@ export namespace CreateDevEndpointRequest {
   }
 }
 
-export interface CreateDevEndpointResponse extends $MetadataBearer {
+export interface CreateDevEndpointResponse {
   __type?: "CreateDevEndpointResponse";
   /**
    * <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
@@ -3888,7 +3886,7 @@ export namespace CreateSecurityConfigurationRequest {
   }
 }
 
-export interface CreateSecurityConfigurationResponse extends $MetadataBearer {
+export interface CreateSecurityConfigurationResponse {
   __type?: "CreateSecurityConfigurationResponse";
   /**
    * <p>The time at which the new security configuration was created.</p>
@@ -3921,7 +3919,7 @@ export namespace DeleteDevEndpointRequest {
   }
 }
 
-export interface DeleteDevEndpointResponse extends $MetadataBearer {
+export interface DeleteDevEndpointResponse {
   __type?: "DeleteDevEndpointResponse";
 }
 
@@ -3945,7 +3943,7 @@ export namespace DeleteSecurityConfigurationRequest {
   }
 }
 
-export interface DeleteSecurityConfigurationResponse extends $MetadataBearer {
+export interface DeleteSecurityConfigurationResponse {
   __type?: "DeleteSecurityConfigurationResponse";
 }
 
@@ -4238,7 +4236,7 @@ export namespace GetDevEndpointRequest {
   }
 }
 
-export interface GetDevEndpointResponse extends $MetadataBearer {
+export interface GetDevEndpointResponse {
   __type?: "GetDevEndpointResponse";
   /**
    * <p>A <code>DevEndpoint</code> definition.</p>
@@ -4271,7 +4269,7 @@ export namespace GetDevEndpointsRequest {
   }
 }
 
-export interface GetDevEndpointsResponse extends $MetadataBearer {
+export interface GetDevEndpointsResponse {
   __type?: "GetDevEndpointsResponse";
   /**
    * <p>A list of <code>DevEndpoint</code> definitions.</p>
@@ -4310,7 +4308,7 @@ export namespace GetJobBookmarkRequest {
   }
 }
 
-export interface GetJobBookmarkResponse extends $MetadataBearer {
+export interface GetJobBookmarkResponse {
   __type?: "GetJobBookmarkResponse";
   /**
    * <p>A structure that defines a point that a job can resume processing.</p>
@@ -4338,7 +4336,7 @@ export namespace GetSecurityConfigurationRequest {
   }
 }
 
-export interface GetSecurityConfigurationResponse extends $MetadataBearer {
+export interface GetSecurityConfigurationResponse {
   __type?: "GetSecurityConfigurationResponse";
   /**
    * <p>The requested security configuration.</p>
@@ -4371,7 +4369,7 @@ export namespace GetSecurityConfigurationsRequest {
   }
 }
 
-export interface GetSecurityConfigurationsResponse extends $MetadataBearer {
+export interface GetSecurityConfigurationsResponse {
   __type?: "GetSecurityConfigurationsResponse";
   /**
    * <p>A continuation token, if there are more security
@@ -4484,7 +4482,7 @@ export namespace ListDevEndpointsRequest {
   }
 }
 
-export interface ListDevEndpointsResponse extends $MetadataBearer {
+export interface ListDevEndpointsResponse {
   __type?: "ListDevEndpointsResponse";
   /**
    * <p>The names of all the <code>DevEndpoint</code>s in the account, or the
@@ -4524,7 +4522,7 @@ export namespace ResetJobBookmarkRequest {
   }
 }
 
-export interface ResetJobBookmarkResponse extends $MetadataBearer {
+export interface ResetJobBookmarkResponse {
   __type?: "ResetJobBookmarkResponse";
   /**
    * <p>The reset bookmark entry.</p>
@@ -4661,7 +4659,7 @@ export namespace UpdateDevEndpointRequest {
   }
 }
 
-export interface UpdateDevEndpointResponse extends $MetadataBearer {
+export interface UpdateDevEndpointResponse {
   __type?: "UpdateDevEndpointResponse";
 }
 
@@ -4690,7 +4688,7 @@ export namespace CancelMLTaskRunRequest {
   }
 }
 
-export interface CancelMLTaskRunResponse extends $MetadataBearer {
+export interface CancelMLTaskRunResponse {
   __type?: "CancelMLTaskRunResponse";
   /**
    * <p>The status for this run.</p>
@@ -4882,7 +4880,7 @@ export namespace CreateMLTransformRequest {
   }
 }
 
-export interface CreateMLTransformResponse extends $MetadataBearer {
+export interface CreateMLTransformResponse {
   __type?: "CreateMLTransformResponse";
   /**
    * <p>A unique identifier that is generated for the transform.</p>
@@ -4910,7 +4908,7 @@ export namespace DeleteMLTransformRequest {
   }
 }
 
-export interface DeleteMLTransformResponse extends $MetadataBearer {
+export interface DeleteMLTransformResponse {
   __type?: "DeleteMLTransformResponse";
   /**
    * <p>The unique identifier of the transform that was deleted.</p>
@@ -5109,7 +5107,7 @@ export namespace GetMLTaskRunRequest {
   }
 }
 
-export interface GetMLTaskRunResponse extends $MetadataBearer {
+export interface GetMLTaskRunResponse {
   __type?: "GetMLTaskRunResponse";
   /**
    * <p>The date and time when this task run was completed.</p>
@@ -5202,7 +5200,7 @@ export namespace GetMLTaskRunsRequest {
   }
 }
 
-export interface GetMLTaskRunsResponse extends $MetadataBearer {
+export interface GetMLTaskRunsResponse {
   __type?: "GetMLTaskRunsResponse";
   /**
    * <p>A pagination token, if more results are available.</p>
@@ -5236,7 +5234,7 @@ export namespace GetMLTransformRequest {
   }
 }
 
-export interface GetMLTransformResponse extends $MetadataBearer {
+export interface GetMLTransformResponse {
   __type?: "GetMLTransformResponse";
   /**
    * <p>The date and time when the transform was created.</p>
@@ -5383,7 +5381,7 @@ export namespace GetMLTransformsRequest {
   }
 }
 
-export interface GetMLTransformsResponse extends $MetadataBearer {
+export interface GetMLTransformsResponse {
   __type?: "GetMLTransformsResponse";
   /**
    * <p>A pagination token, if more results are available.</p>
@@ -5714,7 +5712,7 @@ export namespace StartExportLabelsTaskRunRequest {
   }
 }
 
-export interface StartExportLabelsTaskRunResponse extends $MetadataBearer {
+export interface StartExportLabelsTaskRunResponse {
   __type?: "StartExportLabelsTaskRunResponse";
   /**
    * <p>The unique identifier for the task run.</p>
@@ -5753,7 +5751,7 @@ export namespace StartImportLabelsTaskRunRequest {
   }
 }
 
-export interface StartImportLabelsTaskRunResponse extends $MetadataBearer {
+export interface StartImportLabelsTaskRunResponse {
   __type?: "StartImportLabelsTaskRunResponse";
   /**
    * <p>The unique identifier for the task run.</p>
@@ -5781,7 +5779,7 @@ export namespace StartMLEvaluationTaskRunRequest {
   }
 }
 
-export interface StartMLEvaluationTaskRunResponse extends $MetadataBearer {
+export interface StartMLEvaluationTaskRunResponse {
   __type?: "StartMLEvaluationTaskRunResponse";
   /**
    * <p>The unique identifier associated with this run.</p>
@@ -5815,8 +5813,7 @@ export namespace StartMLLabelingSetGenerationTaskRunRequest {
   }
 }
 
-export interface StartMLLabelingSetGenerationTaskRunResponse
-  extends $MetadataBearer {
+export interface StartMLLabelingSetGenerationTaskRunResponse {
   __type?: "StartMLLabelingSetGenerationTaskRunResponse";
   /**
    * <p>The unique run identifier that is associated with this task run.</p>
@@ -6222,7 +6219,7 @@ export namespace UpdateMLTransformRequest {
   }
 }
 
-export interface UpdateMLTransformResponse extends $MetadataBearer {
+export interface UpdateMLTransformResponse {
   __type?: "UpdateMLTransformResponse";
   /**
    * <p>The unique identifier for the transform that was updated.</p>
@@ -6300,7 +6297,7 @@ export namespace BatchGetJobsRequest {
   }
 }
 
-export interface BatchGetJobsResponse extends $MetadataBearer {
+export interface BatchGetJobsResponse {
   __type?: "BatchGetJobsResponse";
   /**
    * <p>A list of job definitions.</p>
@@ -6333,7 +6330,7 @@ export namespace BatchGetTriggersRequest {
   }
 }
 
-export interface BatchGetTriggersResponse extends $MetadataBearer {
+export interface BatchGetTriggersResponse {
   __type?: "BatchGetTriggersResponse";
   /**
    * <p>A list of trigger definitions.</p>
@@ -6371,7 +6368,7 @@ export namespace BatchGetWorkflowsRequest {
   }
 }
 
-export interface BatchGetWorkflowsResponse extends $MetadataBearer {
+export interface BatchGetWorkflowsResponse {
   __type?: "BatchGetWorkflowsResponse";
   /**
    * <p>A list of names of workflows not found.</p>
@@ -6438,7 +6435,7 @@ export namespace BatchStopJobRunRequest {
   }
 }
 
-export interface BatchStopJobRunResponse extends $MetadataBearer {
+export interface BatchStopJobRunResponse {
   __type?: "BatchStopJobRunResponse";
   /**
    * <p>A list of the errors that were encountered in trying to stop <code>JobRuns</code>,
@@ -6750,7 +6747,7 @@ export namespace CreateJobRequest {
   }
 }
 
-export interface CreateJobResponse extends $MetadataBearer {
+export interface CreateJobResponse {
   __type?: "CreateJobResponse";
   /**
    * <p>The unique name that was provided for this job definition.</p>
@@ -6826,7 +6823,7 @@ export namespace CreateTriggerRequest {
   }
 }
 
-export interface CreateTriggerResponse extends $MetadataBearer {
+export interface CreateTriggerResponse {
   __type?: "CreateTriggerResponse";
   /**
    * <p>The name of the trigger.</p>
@@ -6869,7 +6866,7 @@ export namespace CreateWorkflowRequest {
   }
 }
 
-export interface CreateWorkflowResponse extends $MetadataBearer {
+export interface CreateWorkflowResponse {
   __type?: "CreateWorkflowResponse";
   /**
    * <p>The name of the workflow which was provided as part of the request.</p>
@@ -6897,7 +6894,7 @@ export namespace DeleteJobRequest {
   }
 }
 
-export interface DeleteJobResponse extends $MetadataBearer {
+export interface DeleteJobResponse {
   __type?: "DeleteJobResponse";
   /**
    * <p>The name of the job definition that was deleted.</p>
@@ -6925,7 +6922,7 @@ export namespace DeleteTriggerRequest {
   }
 }
 
-export interface DeleteTriggerResponse extends $MetadataBearer {
+export interface DeleteTriggerResponse {
   __type?: "DeleteTriggerResponse";
   /**
    * <p>The name of the trigger that was deleted.</p>
@@ -6953,7 +6950,7 @@ export namespace DeleteWorkflowRequest {
   }
 }
 
-export interface DeleteWorkflowResponse extends $MetadataBearer {
+export interface DeleteWorkflowResponse {
   __type?: "DeleteWorkflowResponse";
   /**
    * <p>Name of the workflow specified in input.</p>
@@ -7023,7 +7020,7 @@ export namespace GetJobRequest {
   }
 }
 
-export interface GetJobResponse extends $MetadataBearer {
+export interface GetJobResponse {
   __type?: "GetJobResponse";
   /**
    * <p>The requested job definition.</p>
@@ -7061,7 +7058,7 @@ export namespace GetJobRunRequest {
   }
 }
 
-export interface GetJobRunResponse extends $MetadataBearer {
+export interface GetJobRunResponse {
   __type?: "GetJobRunResponse";
   /**
    * <p>The requested job-run metadata.</p>
@@ -7099,7 +7096,7 @@ export namespace GetJobRunsRequest {
   }
 }
 
-export interface GetJobRunsResponse extends $MetadataBearer {
+export interface GetJobRunsResponse {
   __type?: "GetJobRunsResponse";
   /**
    * <p>A list of job-run metadata objects.</p>
@@ -7137,7 +7134,7 @@ export namespace GetJobsRequest {
   }
 }
 
-export interface GetJobsResponse extends $MetadataBearer {
+export interface GetJobsResponse {
   __type?: "GetJobsResponse";
   /**
    * <p>A list of job definitions.</p>
@@ -7170,7 +7167,7 @@ export namespace GetTriggerRequest {
   }
 }
 
-export interface GetTriggerResponse extends $MetadataBearer {
+export interface GetTriggerResponse {
   __type?: "GetTriggerResponse";
   /**
    * <p>The requested trigger definition.</p>
@@ -7209,7 +7206,7 @@ export namespace GetTriggersRequest {
   }
 }
 
-export interface GetTriggersResponse extends $MetadataBearer {
+export interface GetTriggersResponse {
   __type?: "GetTriggersResponse";
   /**
    * <p>A continuation token, if not all the requested triggers
@@ -7248,7 +7245,7 @@ export namespace GetWorkflowRequest {
   }
 }
 
-export interface GetWorkflowResponse extends $MetadataBearer {
+export interface GetWorkflowResponse {
   __type?: "GetWorkflowResponse";
   /**
    * <p>The resource metadata for the workflow.</p>
@@ -7281,7 +7278,7 @@ export namespace GetWorkflowRunPropertiesRequest {
   }
 }
 
-export interface GetWorkflowRunPropertiesResponse extends $MetadataBearer {
+export interface GetWorkflowRunPropertiesResponse {
   __type?: "GetWorkflowRunPropertiesResponse";
   /**
    * <p>The workflow run properties which were set during the specified run.</p>
@@ -7319,7 +7316,7 @@ export namespace GetWorkflowRunRequest {
   }
 }
 
-export interface GetWorkflowRunResponse extends $MetadataBearer {
+export interface GetWorkflowRunResponse {
   __type?: "GetWorkflowRunResponse";
   /**
    * <p>The requested workflow run metadata.</p>
@@ -7362,7 +7359,7 @@ export namespace GetWorkflowRunsRequest {
   }
 }
 
-export interface GetWorkflowRunsResponse extends $MetadataBearer {
+export interface GetWorkflowRunsResponse {
   __type?: "GetWorkflowRunsResponse";
   /**
    * <p>A continuation token, if not all requested workflow runs have been returned.</p>
@@ -7931,7 +7928,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResponse extends $MetadataBearer {
+export interface ListJobsResponse {
   __type?: "ListJobsResponse";
   /**
    * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
@@ -7981,7 +7978,7 @@ export namespace ListTriggersRequest {
   }
 }
 
-export interface ListTriggersResponse extends $MetadataBearer {
+export interface ListTriggersResponse {
   __type?: "ListTriggersResponse";
   /**
    * <p>A continuation token, if the returned list does not contain the
@@ -8020,7 +8017,7 @@ export namespace ListWorkflowsRequest {
   }
 }
 
-export interface ListWorkflowsResponse extends $MetadataBearer {
+export interface ListWorkflowsResponse {
   __type?: "ListWorkflowsResponse";
   /**
    * <p>A continuation token, if not all workflow names have been returned.</p>
@@ -8184,7 +8181,7 @@ export namespace PutWorkflowRunPropertiesRequest {
   }
 }
 
-export interface PutWorkflowRunPropertiesResponse extends $MetadataBearer {
+export interface PutWorkflowRunPropertiesResponse {
   __type?: "PutWorkflowRunPropertiesResponse";
 }
 
@@ -8296,7 +8293,7 @@ export namespace StartJobRunRequest {
   }
 }
 
-export interface StartJobRunResponse extends $MetadataBearer {
+export interface StartJobRunResponse {
   __type?: "StartJobRunResponse";
   /**
    * <p>The ID assigned to this job run.</p>
@@ -8324,7 +8321,7 @@ export namespace StartTriggerRequest {
   }
 }
 
-export interface StartTriggerResponse extends $MetadataBearer {
+export interface StartTriggerResponse {
   __type?: "StartTriggerResponse";
   /**
    * <p>The name of the trigger that was started.</p>
@@ -8352,7 +8349,7 @@ export namespace StartWorkflowRunRequest {
   }
 }
 
-export interface StartWorkflowRunResponse extends $MetadataBearer {
+export interface StartWorkflowRunResponse {
   __type?: "StartWorkflowRunResponse";
   /**
    * <p>An Id for the new run.</p>
@@ -8380,7 +8377,7 @@ export namespace StopTriggerRequest {
   }
 }
 
-export interface StopTriggerResponse extends $MetadataBearer {
+export interface StopTriggerResponse {
   __type?: "StopTriggerResponse";
   /**
    * <p>The name of the trigger that was stopped.</p>
@@ -8548,7 +8545,7 @@ export namespace UpdateJobRequest {
   }
 }
 
-export interface UpdateJobResponse extends $MetadataBearer {
+export interface UpdateJobResponse {
   __type?: "UpdateJobResponse";
   /**
    * <p>Returns the name of the updated job definition.</p>
@@ -8581,7 +8578,7 @@ export namespace UpdateTriggerRequest {
   }
 }
 
-export interface UpdateTriggerResponse extends $MetadataBearer {
+export interface UpdateTriggerResponse {
   __type?: "UpdateTriggerResponse";
   /**
    * <p>The resulting trigger definition.</p>
@@ -8619,7 +8616,7 @@ export namespace UpdateWorkflowRequest {
   }
 }
 
-export interface UpdateWorkflowResponse extends $MetadataBearer {
+export interface UpdateWorkflowResponse {
   __type?: "UpdateWorkflowResponse";
   /**
    * <p>The name of the workflow which was specified in input.</p>
@@ -8820,7 +8817,7 @@ export namespace BatchGetCrawlersRequest {
   }
 }
 
-export interface BatchGetCrawlersResponse extends $MetadataBearer {
+export interface BatchGetCrawlersResponse {
   __type?: "BatchGetCrawlersResponse";
   /**
    * <p>A list of crawler definitions.</p>
@@ -9297,7 +9294,7 @@ export namespace CreateClassifierRequest {
   }
 }
 
-export interface CreateClassifierResponse extends $MetadataBearer {
+export interface CreateClassifierResponse {
   __type?: "CreateClassifierResponse";
 }
 
@@ -9387,7 +9384,7 @@ export namespace CreateCrawlerRequest {
   }
 }
 
-export interface CreateCrawlerResponse extends $MetadataBearer {
+export interface CreateCrawlerResponse {
   __type?: "CreateCrawlerResponse";
 }
 
@@ -9525,7 +9522,7 @@ export namespace CreateScriptRequest {
   }
 }
 
-export interface CreateScriptResponse extends $MetadataBearer {
+export interface CreateScriptResponse {
   __type?: "CreateScriptResponse";
   /**
    * <p>The Python script generated from the DAG.</p>
@@ -9665,7 +9662,7 @@ export namespace DeleteClassifierRequest {
   }
 }
 
-export interface DeleteClassifierResponse extends $MetadataBearer {
+export interface DeleteClassifierResponse {
   __type?: "DeleteClassifierResponse";
 }
 
@@ -9689,7 +9686,7 @@ export namespace DeleteCrawlerRequest {
   }
 }
 
-export interface DeleteCrawlerResponse extends $MetadataBearer {
+export interface DeleteCrawlerResponse {
   __type?: "DeleteCrawlerResponse";
 }
 
@@ -9730,7 +9727,7 @@ export namespace GetClassifierRequest {
   }
 }
 
-export interface GetClassifierResponse extends $MetadataBearer {
+export interface GetClassifierResponse {
   __type?: "GetClassifierResponse";
   /**
    * <p>The requested classifier.</p>
@@ -9763,7 +9760,7 @@ export namespace GetClassifiersRequest {
   }
 }
 
-export interface GetClassifiersResponse extends $MetadataBearer {
+export interface GetClassifiersResponse {
   __type?: "GetClassifiersResponse";
   /**
    * <p>The requested list of classifier
@@ -9807,7 +9804,7 @@ export namespace GetCrawlerMetricsRequest {
   }
 }
 
-export interface GetCrawlerMetricsResponse extends $MetadataBearer {
+export interface GetCrawlerMetricsResponse {
   __type?: "GetCrawlerMetricsResponse";
   /**
    * <p>A list of metrics for the specified crawler.</p>
@@ -9841,7 +9838,7 @@ export namespace GetCrawlerRequest {
   }
 }
 
-export interface GetCrawlerResponse extends $MetadataBearer {
+export interface GetCrawlerResponse {
   __type?: "GetCrawlerResponse";
   /**
    * <p>The metadata for the specified crawler.</p>
@@ -9874,7 +9871,7 @@ export namespace GetCrawlersRequest {
   }
 }
 
-export interface GetCrawlersResponse extends $MetadataBearer {
+export interface GetCrawlersResponse {
   __type?: "GetCrawlersResponse";
   /**
    * <p>A list of crawler metadata.</p>
@@ -9908,7 +9905,7 @@ export namespace GetDataflowGraphRequest {
   }
 }
 
-export interface GetDataflowGraphResponse extends $MetadataBearer {
+export interface GetDataflowGraphResponse {
   __type?: "GetDataflowGraphResponse";
   /**
    * <p>A list of the edges in the resulting DAG.</p>
@@ -9951,7 +9948,7 @@ export namespace GetMappingRequest {
   }
 }
 
-export interface GetMappingResponse extends $MetadataBearer {
+export interface GetMappingResponse {
   __type?: "GetMappingResponse";
   /**
    * <p>A list of mappings to the specified targets.</p>
@@ -9999,7 +9996,7 @@ export namespace GetPlanRequest {
   }
 }
 
-export interface GetPlanResponse extends $MetadataBearer {
+export interface GetPlanResponse {
   __type?: "GetPlanResponse";
   /**
    * <p>A Python script to perform the mapping.</p>
@@ -10212,7 +10209,7 @@ export namespace ListCrawlersRequest {
   }
 }
 
-export interface ListCrawlersResponse extends $MetadataBearer {
+export interface ListCrawlersResponse {
   __type?: "ListCrawlersResponse";
   /**
    * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
@@ -10470,7 +10467,7 @@ export namespace StartCrawlerRequest {
   }
 }
 
-export interface StartCrawlerResponse extends $MetadataBearer {
+export interface StartCrawlerResponse {
   __type?: "StartCrawlerResponse";
 }
 
@@ -10494,7 +10491,7 @@ export namespace StartCrawlerScheduleRequest {
   }
 }
 
-export interface StartCrawlerScheduleResponse extends $MetadataBearer {
+export interface StartCrawlerScheduleResponse {
   __type?: "StartCrawlerScheduleResponse";
 }
 
@@ -10518,7 +10515,7 @@ export namespace StopCrawlerRequest {
   }
 }
 
-export interface StopCrawlerResponse extends $MetadataBearer {
+export interface StopCrawlerResponse {
   __type?: "StopCrawlerResponse";
 }
 
@@ -10542,7 +10539,7 @@ export namespace StopCrawlerScheduleRequest {
   }
 }
 
-export interface StopCrawlerScheduleResponse extends $MetadataBearer {
+export interface StopCrawlerScheduleResponse {
   __type?: "StopCrawlerScheduleResponse";
 }
 
@@ -10586,7 +10583,7 @@ export namespace UpdateClassifierRequest {
   }
 }
 
-export interface UpdateClassifierResponse extends $MetadataBearer {
+export interface UpdateClassifierResponse {
   __type?: "UpdateClassifierResponse";
 }
 
@@ -10670,7 +10667,7 @@ export namespace UpdateCrawlerRequest {
   }
 }
 
-export interface UpdateCrawlerResponse extends $MetadataBearer {
+export interface UpdateCrawlerResponse {
   __type?: "UpdateCrawlerResponse";
 }
 
@@ -10701,7 +10698,7 @@ export namespace UpdateCrawlerScheduleRequest {
   }
 }
 
-export interface UpdateCrawlerScheduleResponse extends $MetadataBearer {
+export interface UpdateCrawlerScheduleResponse {
   __type?: "UpdateCrawlerScheduleResponse";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDASHStreamingSessionURLCommandInput = GetDASHStreamingSessionURLInput;
-export type GetDASHStreamingSessionURLCommandOutput = GetDASHStreamingSessionURLOutput;
+export type GetDASHStreamingSessionURLCommandOutput = GetDASHStreamingSessionURLOutput &
+  __MetadataBearer;
 
 export class GetDASHStreamingSessionURLCommand extends $Command<
   GetDASHStreamingSessionURLCommandInput,

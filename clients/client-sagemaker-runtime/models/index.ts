@@ -69,7 +69,7 @@ export namespace InvokeEndpointInput {
   }
 }
 
-export interface InvokeEndpointOutput extends $MetadataBearer {
+export interface InvokeEndpointOutput {
   __type?: "InvokeEndpointOutput";
   /**
    * <p>Includes the inference provided by the model.</p>

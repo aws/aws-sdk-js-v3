@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetUpgradeHistoryCommandInput = GetUpgradeHistoryRequest;
-export type GetUpgradeHistoryCommandOutput = GetUpgradeHistoryResponse;
+export type GetUpgradeHistoryCommandOutput = GetUpgradeHistoryResponse &
+  __MetadataBearer;
 
 export class GetUpgradeHistoryCommand extends $Command<
   GetUpgradeHistoryCommandInput,

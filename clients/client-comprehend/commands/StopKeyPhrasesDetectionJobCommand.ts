@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopKeyPhrasesDetectionJobCommandInput = StopKeyPhrasesDetectionJobRequest;
-export type StopKeyPhrasesDetectionJobCommandOutput = StopKeyPhrasesDetectionJobResponse;
+export type StopKeyPhrasesDetectionJobCommandOutput = StopKeyPhrasesDetectionJobResponse &
+  __MetadataBearer;
 
 export class StopKeyPhrasesDetectionJobCommand extends $Command<
   StopKeyPhrasesDetectionJobCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateComputerCommandInput = CreateComputerRequest;
-export type CreateComputerCommandOutput = CreateComputerResult;
+export type CreateComputerCommandOutput = CreateComputerResult &
+  __MetadataBearer;
 
 export class CreateComputerCommand extends $Command<
   CreateComputerCommandInput,

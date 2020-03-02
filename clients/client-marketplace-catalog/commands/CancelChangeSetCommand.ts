@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelChangeSetCommandInput = CancelChangeSetRequest;
-export type CancelChangeSetCommandOutput = CancelChangeSetResponse;
+export type CancelChangeSetCommandOutput = CancelChangeSetResponse &
+  __MetadataBearer;
 
 export class CancelChangeSetCommand extends $Command<
   CancelChangeSetCommandInput,

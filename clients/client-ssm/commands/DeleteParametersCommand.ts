@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteParametersCommandInput = DeleteParametersRequest;
-export type DeleteParametersCommandOutput = DeleteParametersResult;
+export type DeleteParametersCommandOutput = DeleteParametersResult &
+  __MetadataBearer;
 
 export class DeleteParametersCommand extends $Command<
   DeleteParametersCommandInput,

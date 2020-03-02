@@ -1779,87 +1779,123 @@ async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepository
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumRuleTemplatesAssociatedWithRepositoryException":
     case "com.amazonaws.codecommit#MaximumRuleTemplatesAssociatedWithRepositoryException":
-      response = await deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumRuleTemplatesAssociatedWithRepositoryExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1918,73 +1954,103 @@ async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepos
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumRepositoryNamesExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException":
-      response = await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNamesRequiredException":
     case "com.amazonaws.codecommit#RepositoryNamesRequiredException":
-      response = await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2043,150 +2109,213 @@ async function deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxConflictFilesException":
     case "com.amazonaws.codecommit#InvalidMaxConflictFilesException":
-      response = await deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxMergeHunksException":
     case "com.amazonaws.codecommit#InvalidMaxMergeHunksException":
-      response = await deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      response = await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      response = await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2245,73 +2374,103 @@ async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRe
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumRepositoryNamesExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException":
-      response = await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNamesRequiredException":
     case "com.amazonaws.codecommit#RepositoryNamesRequiredException":
-      response = await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2364,73 +2523,103 @@ async function deserializeAws_json1_1BatchGetCommitsCommandError(
   switch (errorCode) {
     case "CommitIdsLimitExceededException":
     case "com.amazonaws.codecommit#CommitIdsLimitExceededException":
-      response = await deserializeAws_json1_1CommitIdsLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdsLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdsListRequiredException":
     case "com.amazonaws.codecommit#CommitIdsListRequiredException":
-      response = await deserializeAws_json1_1CommitIdsListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdsListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2486,59 +2675,83 @@ async function deserializeAws_json1_1BatchGetRepositoriesCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumRepositoryNamesExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryNamesExceededException":
-      response = await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumRepositoryNamesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNamesRequiredException":
     case "com.amazonaws.codecommit#RepositoryNamesRequiredException":
-      response = await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNamesRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2597,52 +2810,73 @@ async function deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(
   switch (errorCode) {
     case "ApprovalRuleTemplateContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateContentRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameAlreadyExistsException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameAlreadyExistsException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateContentException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateDescriptionException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateDescriptionException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfRuleTemplatesExceededException":
     case "com.amazonaws.codecommit#NumberOfRuleTemplatesExceededException":
-      response = await deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NumberOfRuleTemplatesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2691,101 +2925,143 @@ async function deserializeAws_json1_1CreateBranchCommandError(
   switch (errorCode) {
     case "BranchNameExistsException":
     case "com.amazonaws.codecommit#BranchNameExistsException":
-      response = await deserializeAws_json1_1BranchNameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      response = await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2838,269 +3114,383 @@ async function deserializeAws_json1_1CreateCommitCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      response = await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryNameConflictsWithFileNameException":
     case "com.amazonaws.codecommit#DirectoryNameConflictsWithFileNameException":
-      response = await deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentAndSourceFileSpecifiedException":
     case "com.amazonaws.codecommit#FileContentAndSourceFileSpecifiedException":
-      response = await deserializeAws_json1_1FileContentAndSourceFileSpecifiedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentAndSourceFileSpecifiedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      response = await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileEntryRequiredException":
     case "com.amazonaws.codecommit#FileEntryRequiredException":
-      response = await deserializeAws_json1_1FileEntryRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileEntryRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      response = await deserializeAws_json1_1FileModeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileModeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileNameConflictsWithDirectoryNameException":
     case "com.amazonaws.codecommit#FileNameConflictsWithDirectoryNameException":
-      response = await deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FilePathConflictsWithSubmodulePathException":
     case "com.amazonaws.codecommit#FilePathConflictsWithSubmodulePathException":
-      response = await deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeletionParameterException":
     case "com.amazonaws.codecommit#InvalidDeletionParameterException":
-      response = await deserializeAws_json1_1InvalidDeletionParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeletionParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParentCommitIdException":
     case "com.amazonaws.codecommit#InvalidParentCommitIdException":
-      response = await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumFileEntriesExceededException":
-      response = await deserializeAws_json1_1MaximumFileEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileEntriesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoChangeException":
     case "com.amazonaws.codecommit#NoChangeException":
-      response = await deserializeAws_json1_1NoChangeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoChangeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitDoesNotExistException":
     case "com.amazonaws.codecommit#ParentCommitDoesNotExistException":
-      response = await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitIdOutdatedException":
     case "com.amazonaws.codecommit#ParentCommitIdOutdatedException":
-      response = await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitIdRequiredException":
     case "com.amazonaws.codecommit#ParentCommitIdRequiredException":
-      response = await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PutFileEntryConflictException":
     case "com.amazonaws.codecommit#PutFileEntryConflictException":
-      response = await deserializeAws_json1_1PutFileEntryConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PutFileEntryConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RestrictedSourceFileException":
     case "com.amazonaws.codecommit#RestrictedSourceFileException":
-      response = await deserializeAws_json1_1RestrictedSourceFileExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RestrictedSourceFileExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SamePathRequestException":
     case "com.amazonaws.codecommit#SamePathRequestException":
-      response = await deserializeAws_json1_1SamePathRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SamePathRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SourceFileOrContentRequiredException":
     case "com.amazonaws.codecommit#SourceFileOrContentRequiredException":
-      response = await deserializeAws_json1_1SourceFileOrContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SourceFileOrContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3153,178 +3543,253 @@ async function deserializeAws_json1_1CreatePullRequestCommandError(
   switch (errorCode) {
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      response = await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      response = await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDescriptionException":
     case "com.amazonaws.codecommit#InvalidDescriptionException":
-      response = await deserializeAws_json1_1InvalidDescriptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDescriptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReferenceNameException":
     case "com.amazonaws.codecommit#InvalidReferenceNameException":
-      response = await deserializeAws_json1_1InvalidReferenceNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReferenceNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetException":
     case "com.amazonaws.codecommit#InvalidTargetException":
-      response = await deserializeAws_json1_1InvalidTargetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetsException":
     case "com.amazonaws.codecommit#InvalidTargetsException":
-      response = await deserializeAws_json1_1InvalidTargetsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTitleException":
     case "com.amazonaws.codecommit#InvalidTitleException":
-      response = await deserializeAws_json1_1InvalidTitleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTitleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumOpenPullRequestsExceededException":
     case "com.amazonaws.codecommit#MaximumOpenPullRequestsExceededException":
-      response = await deserializeAws_json1_1MaximumOpenPullRequestsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumOpenPullRequestsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleRepositoriesInPullRequestException":
     case "com.amazonaws.codecommit#MultipleRepositoriesInPullRequestException":
-      response = await deserializeAws_json1_1MultipleRepositoriesInPullRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleRepositoriesInPullRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReferenceDoesNotExistException":
     case "com.amazonaws.codecommit#ReferenceDoesNotExistException":
-      response = await deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReferenceNameRequiredException":
     case "com.amazonaws.codecommit#ReferenceNameRequiredException":
-      response = await deserializeAws_json1_1ReferenceNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReferenceNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReferenceTypeNotSupportedException":
     case "com.amazonaws.codecommit#ReferenceTypeNotSupportedException":
-      response = await deserializeAws_json1_1ReferenceTypeNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReferenceTypeNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SourceAndDestinationAreSameException":
     case "com.amazonaws.codecommit#SourceAndDestinationAreSameException":
-      response = await deserializeAws_json1_1SourceAndDestinationAreSameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SourceAndDestinationAreSameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetRequiredException":
     case "com.amazonaws.codecommit#TargetRequiredException":
-      response = await deserializeAws_json1_1TargetRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TargetRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TargetsRequiredException":
     case "com.amazonaws.codecommit#TargetsRequiredException":
-      response = await deserializeAws_json1_1TargetsRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TargetsRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TitleRequiredException":
     case "com.amazonaws.codecommit#TitleRequiredException":
-      response = await deserializeAws_json1_1TitleRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TitleRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3383,108 +3848,153 @@ async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(
   switch (errorCode) {
     case "ApprovalRuleContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleContentRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleNameAlreadyExistsException":
     case "com.amazonaws.codecommit#ApprovalRuleNameAlreadyExistsException":
-      response = await deserializeAws_json1_1ApprovalRuleNameAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleNameAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleContentException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NumberOfRulesExceededException":
     case "com.amazonaws.codecommit#NumberOfRulesExceededException":
-      response = await deserializeAws_json1_1NumberOfRulesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NumberOfRulesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3537,101 +4047,143 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryDescriptionException":
     case "com.amazonaws.codecommit#InvalidRepositoryDescriptionException":
-      response = await deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSystemTagUsageException":
     case "com.amazonaws.codecommit#InvalidSystemTagUsageException":
-      response = await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsMapException":
     case "com.amazonaws.codecommit#InvalidTagsMapException":
-      response = await deserializeAws_json1_1InvalidTagsMapExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsMapExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryLimitExceededException":
     case "com.amazonaws.codecommit#RepositoryLimitExceededException":
-      response = await deserializeAws_json1_1RepositoryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameExistsException":
     case "com.amazonaws.codecommit#RepositoryNameExistsException":
-      response = await deserializeAws_json1_1RepositoryNameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagPolicyException":
     case "com.amazonaws.codecommit#TagPolicyException":
-      response = await deserializeAws_json1_1TagPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codecommit#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3690,255 +4242,363 @@ async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      response = await deserializeAws_json1_1FileModeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileModeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      response = await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      response = await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      response = await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      response = await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      response = await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      response = await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      response = await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      response = await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3997,24 +4657,33 @@ async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(
   switch (errorCode) {
     case "ApprovalRuleTemplateInUseException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateInUseException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateInUseExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateInUseExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4067,80 +4736,113 @@ async function deserializeAws_json1_1DeleteBranchCommandError(
   switch (errorCode) {
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DefaultBranchCannotBeDeletedException":
     case "com.amazonaws.codecommit#DefaultBranchCannotBeDeletedException":
-      response = await deserializeAws_json1_1DefaultBranchCannotBeDeletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DefaultBranchCannotBeDeletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4196,31 +4898,43 @@ async function deserializeAws_json1_1DeleteCommentContentCommandError(
   switch (errorCode) {
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      response = await deserializeAws_json1_1CommentDeletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDeletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      response = await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      response = await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      response = await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4273,157 +4987,223 @@ async function deserializeAws_json1_1DeleteFileCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      response = await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      response = await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParentCommitIdException":
     case "com.amazonaws.codecommit#InvalidParentCommitIdException":
-      response = await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitDoesNotExistException":
     case "com.amazonaws.codecommit#ParentCommitDoesNotExistException":
-      response = await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitIdOutdatedException":
     case "com.amazonaws.codecommit#ParentCommitIdOutdatedException":
-      response = await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitIdRequiredException":
     case "com.amazonaws.codecommit#ParentCommitIdRequiredException":
-      response = await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4482,87 +5262,123 @@ async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(
   switch (errorCode) {
     case "ApprovalRuleNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CannotDeleteApprovalRuleFromTemplateException":
     case "com.amazonaws.codecommit#CannotDeleteApprovalRuleFromTemplateException":
-      response = await deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CannotDeleteApprovalRuleFromTemplateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4615,52 +5431,73 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4716,164 +5553,233 @@ async function deserializeAws_json1_1DescribeMergeConflictsCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      response = await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxMergeHunksException":
     case "com.amazonaws.codecommit#InvalidMaxMergeHunksException":
-      response = await deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxMergeHunksExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      response = await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      response = await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4932,94 +5838,133 @@ async function deserializeAws_json1_1DescribePullRequestEventsCommandError(
   switch (errorCode) {
     case "ActorDoesNotExistException":
     case "com.amazonaws.codecommit#ActorDoesNotExistException":
-      response = await deserializeAws_json1_1ActorDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActorDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidActorArnException":
     case "com.amazonaws.codecommit#InvalidActorArnException":
-      response = await deserializeAws_json1_1InvalidActorArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidActorArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestEventTypeException":
     case "com.amazonaws.codecommit#InvalidPullRequestEventTypeException":
-      response = await deserializeAws_json1_1InvalidPullRequestEventTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestEventTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5071,80 +6016,113 @@ async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFromReposit
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5203,80 +6181,113 @@ async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandErro
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      response = await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      response = await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionNotCurrentException":
     case "com.amazonaws.codecommit#RevisionNotCurrentException":
-      response = await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5332,24 +6343,33 @@ async function deserializeAws_json1_1GetApprovalRuleTemplateCommandError(
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5402,87 +6422,123 @@ async function deserializeAws_json1_1GetBlobCommandError(
   switch (errorCode) {
     case "BlobIdDoesNotExistException":
     case "com.amazonaws.codecommit#BlobIdDoesNotExistException":
-      response = await deserializeAws_json1_1BlobIdDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BlobIdDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BlobIdRequiredException":
     case "com.amazonaws.codecommit#BlobIdRequiredException":
-      response = await deserializeAws_json1_1BlobIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BlobIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileTooLargeException":
     case "com.amazonaws.codecommit#FileTooLargeException":
-      response = await deserializeAws_json1_1FileTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBlobIdException":
     case "com.amazonaws.codecommit#InvalidBlobIdException":
-      response = await deserializeAws_json1_1InvalidBlobIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBlobIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5535,80 +6591,113 @@ async function deserializeAws_json1_1GetBranchCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5661,31 +6750,43 @@ async function deserializeAws_json1_1GetCommentCommandError(
   switch (errorCode) {
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      response = await deserializeAws_json1_1CommentDeletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDeletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      response = await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      response = await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      response = await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5744,94 +6845,133 @@ async function deserializeAws_json1_1GetCommentsForComparedCommitCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      response = await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5890,122 +7030,173 @@ async function deserializeAws_json1_1GetCommentsForPullRequestCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      response = await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      response = await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6058,80 +7249,113 @@ async function deserializeAws_json1_1GetCommitCommandError(
   switch (errorCode) {
     case "CommitIdDoesNotExistException":
     case "com.amazonaws.codecommit#CommitIdDoesNotExistException":
-      response = await deserializeAws_json1_1CommitIdDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      response = await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6184,115 +7408,163 @@ async function deserializeAws_json1_1GetDifferencesCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathDoesNotExistException":
     case "com.amazonaws.codecommit#PathDoesNotExistException":
-      response = await deserializeAws_json1_1PathDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6345,101 +7617,143 @@ async function deserializeAws_json1_1GetFileCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileDoesNotExistException":
     case "com.amazonaws.codecommit#FileDoesNotExistException":
-      response = await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileTooLargeException":
     case "com.amazonaws.codecommit#FileTooLargeException":
-      response = await deserializeAws_json1_1FileTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6492,94 +7806,133 @@ async function deserializeAws_json1_1GetFolderCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderDoesNotExistException":
     case "com.amazonaws.codecommit#FolderDoesNotExistException":
-      response = await deserializeAws_json1_1FolderDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6632,94 +7985,133 @@ async function deserializeAws_json1_1GetMergeCommitCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6772,157 +8164,223 @@ async function deserializeAws_json1_1GetMergeConflictsCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDestinationCommitSpecifierException":
     case "com.amazonaws.codecommit#InvalidDestinationCommitSpecifierException":
-      response = await deserializeAws_json1_1InvalidDestinationCommitSpecifierExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDestinationCommitSpecifierExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxConflictFilesException":
     case "com.amazonaws.codecommit#InvalidMaxConflictFilesException":
-      response = await deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxConflictFilesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMergeOptionException":
     case "com.amazonaws.codecommit#InvalidMergeOptionException":
-      response = await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMergeOptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSourceCommitSpecifierException":
     case "com.amazonaws.codecommit#InvalidSourceCommitSpecifierException":
-      response = await deserializeAws_json1_1InvalidSourceCommitSpecifierExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSourceCommitSpecifierExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MergeOptionRequiredException":
     case "com.amazonaws.codecommit#MergeOptionRequiredException":
-      response = await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MergeOptionRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6975,115 +8433,163 @@ async function deserializeAws_json1_1GetMergeOptionsCommandError(
   switch (errorCode) {
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7136,59 +8642,83 @@ async function deserializeAws_json1_1GetPullRequestCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7247,73 +8777,103 @@ async function deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      response = await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      response = await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7372,73 +8932,103 @@ async function deserializeAws_json1_1GetPullRequestOverrideStateCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      response = await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      response = await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7491,59 +9081,83 @@ async function deserializeAws_json1_1GetRepositoryCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7599,59 +9213,83 @@ async function deserializeAws_json1_1GetRepositoryTriggersCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7710,17 +9348,23 @@ async function deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(
   switch (errorCode) {
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7779,73 +9423,103 @@ async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepos
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7898,66 +9572,93 @@ async function deserializeAws_json1_1ListBranchesCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8010,94 +9711,133 @@ async function deserializeAws_json1_1ListPullRequestsCommandError(
   switch (errorCode) {
     case "AuthorDoesNotExistException":
     case "com.amazonaws.codecommit#AuthorDoesNotExistException":
-      response = await deserializeAws_json1_1AuthorDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AuthorDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAuthorArnException":
     case "com.amazonaws.codecommit#InvalidAuthorArnException":
-      response = await deserializeAws_json1_1InvalidAuthorArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAuthorArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestStatusException":
     case "com.amazonaws.codecommit#InvalidPullRequestStatusException":
-      response = await deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8150,24 +9890,33 @@ async function deserializeAws_json1_1ListRepositoriesCommandError(
   switch (errorCode) {
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOrderException":
     case "com.amazonaws.codecommit#InvalidOrderException":
-      response = await deserializeAws_json1_1InvalidOrderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOrderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSortByException":
     case "com.amazonaws.codecommit#InvalidSortByException":
-      response = await deserializeAws_json1_1InvalidSortByExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSortByExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8226,73 +9975,103 @@ async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateComm
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidContinuationTokenException":
     case "com.amazonaws.codecommit#InvalidContinuationTokenException":
-      response = await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidContinuationTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidMaxResultsException":
     case "com.amazonaws.codecommit#InvalidMaxResultsException":
-      response = await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidMaxResultsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8348,31 +10127,43 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceArnException":
     case "com.amazonaws.codecommit#InvalidResourceArnException":
-      response = await deserializeAws_json1_1InvalidResourceArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceArnRequiredException":
     case "com.amazonaws.codecommit#ResourceArnRequiredException":
-      response = await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8431,136 +10222,193 @@ async function deserializeAws_json1_1MergeBranchesByFastForwardCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      response = await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetBranchException":
     case "com.amazonaws.codecommit#InvalidTargetBranchException":
-      response = await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8616,276 +10464,393 @@ async function deserializeAws_json1_1MergeBranchesBySquashCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      response = await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      response = await deserializeAws_json1_1FileModeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileModeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      response = await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      response = await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetBranchException":
     case "com.amazonaws.codecommit#InvalidTargetBranchException":
-      response = await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      response = await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      response = await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      response = await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      response = await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8941,276 +10906,393 @@ async function deserializeAws_json1_1MergeBranchesByThreeWayCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      response = await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitRequiredException":
     case "com.amazonaws.codecommit#CommitRequiredException":
-      response = await deserializeAws_json1_1CommitRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileModeRequiredException":
     case "com.amazonaws.codecommit#FileModeRequiredException":
-      response = await deserializeAws_json1_1FileModeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileModeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitException":
     case "com.amazonaws.codecommit#InvalidCommitException":
-      response = await deserializeAws_json1_1InvalidCommitExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      response = await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      response = await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTargetBranchException":
     case "com.amazonaws.codecommit#InvalidTargetBranchException":
-      response = await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTargetBranchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      response = await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      response = await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      response = await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      response = await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9269,136 +11351,193 @@ async function deserializeAws_json1_1MergePullRequestByFastForwardCommandError(
   switch (errorCode) {
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestApprovalRulesNotSatisfiedException":
     case "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException":
-      response = await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReferenceDoesNotExistException":
     case "com.amazonaws.codecommit#ReferenceDoesNotExistException":
-      response = await deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReferenceDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      response = await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipOfSourceReferenceIsDifferentException":
     case "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException":
-      response = await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9457,269 +11596,383 @@ async function deserializeAws_json1_1MergePullRequestBySquashCommandError(
   switch (errorCode) {
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      response = await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      response = await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      response = await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      response = await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestApprovalRulesNotSatisfiedException":
     case "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException":
-      response = await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      response = await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      response = await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      response = await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipOfSourceReferenceIsDifferentException":
     case "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException":
-      response = await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9778,269 +12031,383 @@ async function deserializeAws_json1_1MergePullRequestByThreeWayCommandError(
   switch (errorCode) {
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConcurrentReferenceUpdateException":
     case "com.amazonaws.codecommit#ConcurrentReferenceUpdateException":
-      response = await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentReferenceUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictDetailLevelException":
     case "com.amazonaws.codecommit#InvalidConflictDetailLevelException":
-      response = await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictDetailLevelExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConflictResolutionStrategyException":
     case "com.amazonaws.codecommit#InvalidConflictResolutionStrategyException":
-      response = await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidConflictResolutionStrategyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementContentException":
     case "com.amazonaws.codecommit#InvalidReplacementContentException":
-      response = await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidReplacementTypeException":
     case "com.amazonaws.codecommit#InvalidReplacementTypeException":
-      response = await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidReplacementTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ManualMergeRequiredException":
     case "com.amazonaws.codecommit#ManualMergeRequiredException":
-      response = await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ManualMergeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumConflictResolutionEntriesExceededException":
     case "com.amazonaws.codecommit#MaximumConflictResolutionEntriesExceededException":
-      response = await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumConflictResolutionEntriesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumFileContentToLoadExceededException":
     case "com.amazonaws.codecommit#MaximumFileContentToLoadExceededException":
-      response = await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumFileContentToLoadExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumItemsToCompareExceededException":
     case "com.amazonaws.codecommit#MaximumItemsToCompareExceededException":
-      response = await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumItemsToCompareExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MultipleConflictResolutionEntriesException":
     case "com.amazonaws.codecommit#MultipleConflictResolutionEntriesException":
-      response = await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MultipleConflictResolutionEntriesExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestApprovalRulesNotSatisfiedException":
     case "com.amazonaws.codecommit#PullRequestApprovalRulesNotSatisfiedException":
-      response = await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestApprovalRulesNotSatisfiedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementContentRequiredException":
     case "com.amazonaws.codecommit#ReplacementContentRequiredException":
-      response = await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ReplacementTypeRequiredException":
     case "com.amazonaws.codecommit#ReplacementTypeRequiredException":
-      response = await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ReplacementTypeRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      response = await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipOfSourceReferenceIsDifferentException":
     case "com.amazonaws.codecommit#TipOfSourceReferenceIsDifferentException":
-      response = await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipOfSourceReferenceIsDifferentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TipsDivergenceExceededException":
     case "com.amazonaws.codecommit#TipsDivergenceExceededException":
-      response = await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TipsDivergenceExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10092,108 +12459,153 @@ async function deserializeAws_json1_1OverridePullRequestApprovalRulesCommandErro
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOverrideStatusException":
     case "com.amazonaws.codecommit#InvalidOverrideStatusException":
-      response = await deserializeAws_json1_1InvalidOverrideStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidOverrideStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      response = await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OverrideAlreadySetException":
     case "com.amazonaws.codecommit#OverrideAlreadySetException":
-      response = await deserializeAws_json1_1OverrideAlreadySetExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OverrideAlreadySetExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OverrideStatusRequiredException":
     case "com.amazonaws.codecommit#OverrideStatusRequiredException":
-      response = await deserializeAws_json1_1OverrideStatusRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OverrideStatusRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      response = await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionNotCurrentException":
     case "com.amazonaws.codecommit#RevisionNotCurrentException":
-      response = await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10252,164 +12664,233 @@ async function deserializeAws_json1_1PostCommentForComparedCommitCommandError(
   switch (errorCode) {
     case "BeforeCommitIdAndAfterCommitIdAreSameException":
     case "com.amazonaws.codecommit#BeforeCommitIdAndAfterCommitIdAreSameException":
-      response = await deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      response = await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      response = await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      response = await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      response = await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileLocationException":
     case "com.amazonaws.codecommit#InvalidFileLocationException":
-      response = await deserializeAws_json1_1InvalidFileLocationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileLocationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilePositionException":
     case "com.amazonaws.codecommit#InvalidFilePositionException":
-      response = await deserializeAws_json1_1InvalidFilePositionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilePositionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRelativeFileVersionEnumException":
     case "com.amazonaws.codecommit#InvalidRelativeFileVersionEnumException":
-      response = await deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathDoesNotExistException":
     case "com.amazonaws.codecommit#PathDoesNotExistException":
-      response = await deserializeAws_json1_1PathDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10468,192 +12949,273 @@ async function deserializeAws_json1_1PostCommentForPullRequestCommandError(
   switch (errorCode) {
     case "BeforeCommitIdAndAfterCommitIdAreSameException":
     case "com.amazonaws.codecommit#BeforeCommitIdAndAfterCommitIdAreSameException":
-      response = await deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BeforeCommitIdAndAfterCommitIdAreSameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      response = await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      response = await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitDoesNotExistException":
     case "com.amazonaws.codecommit#CommitDoesNotExistException":
-      response = await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitIdRequiredException":
     case "com.amazonaws.codecommit#CommitIdRequiredException":
-      response = await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      response = await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommitIdException":
     case "com.amazonaws.codecommit#InvalidCommitIdException":
-      response = await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileLocationException":
     case "com.amazonaws.codecommit#InvalidFileLocationException":
-      response = await deserializeAws_json1_1InvalidFileLocationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileLocationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFilePositionException":
     case "com.amazonaws.codecommit#InvalidFilePositionException":
-      response = await deserializeAws_json1_1InvalidFilePositionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFilePositionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRelativeFileVersionEnumException":
     case "com.amazonaws.codecommit#InvalidRelativeFileVersionEnumException":
-      response = await deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRelativeFileVersionEnumExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathDoesNotExistException":
     case "com.amazonaws.codecommit#PathDoesNotExistException":
-      response = await deserializeAws_json1_1PathDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotAssociatedWithPullRequestException":
     case "com.amazonaws.codecommit#RepositoryNotAssociatedWithPullRequestException":
-      response = await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotAssociatedWithPullRequestExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10706,59 +13268,83 @@ async function deserializeAws_json1_1PostCommentReplyCommandError(
   switch (errorCode) {
     case "ClientRequestTokenRequiredException":
     case "com.amazonaws.codecommit#ClientRequestTokenRequiredException":
-      response = await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClientRequestTokenRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      response = await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      response = await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      response = await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotencyParameterMismatchException":
     case "com.amazonaws.codecommit#IdempotencyParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotencyParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidClientRequestTokenException":
     case "com.amazonaws.codecommit#InvalidClientRequestTokenException":
-      response = await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidClientRequestTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      response = await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10811,213 +13397,303 @@ async function deserializeAws_json1_1PutFileCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameIsTagNameException":
     case "com.amazonaws.codecommit#BranchNameIsTagNameException":
-      response = await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameIsTagNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommitMessageLengthExceededException":
     case "com.amazonaws.codecommit#CommitMessageLengthExceededException":
-      response = await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommitMessageLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectoryNameConflictsWithFileNameException":
     case "com.amazonaws.codecommit#DirectoryNameConflictsWithFileNameException":
-      response = await deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectoryNameConflictsWithFileNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentRequiredException":
     case "com.amazonaws.codecommit#FileContentRequiredException":
-      response = await deserializeAws_json1_1FileContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FileContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileNameConflictsWithDirectoryNameException":
     case "com.amazonaws.codecommit#FileNameConflictsWithDirectoryNameException":
-      response = await deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileNameConflictsWithDirectoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FilePathConflictsWithSubmodulePathException":
     case "com.amazonaws.codecommit#FilePathConflictsWithSubmodulePathException":
-      response = await deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FilePathConflictsWithSubmodulePathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FolderContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#FolderContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FolderContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidDeletionParameterException":
     case "com.amazonaws.codecommit#InvalidDeletionParameterException":
-      response = await deserializeAws_json1_1InvalidDeletionParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDeletionParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidEmailException":
     case "com.amazonaws.codecommit#InvalidEmailException":
-      response = await deserializeAws_json1_1InvalidEmailExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidEmailExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidFileModeException":
     case "com.amazonaws.codecommit#InvalidFileModeException":
-      response = await deserializeAws_json1_1InvalidFileModeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidFileModeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParentCommitIdException":
     case "com.amazonaws.codecommit#InvalidParentCommitIdException":
-      response = await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParentCommitIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPathException":
     case "com.amazonaws.codecommit#InvalidPathException":
-      response = await deserializeAws_json1_1InvalidPathExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPathExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NameLengthExceededException":
     case "com.amazonaws.codecommit#NameLengthExceededException":
-      response = await deserializeAws_json1_1NameLengthExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NameLengthExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitDoesNotExistException":
     case "com.amazonaws.codecommit#ParentCommitDoesNotExistException":
-      response = await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitIdOutdatedException":
     case "com.amazonaws.codecommit#ParentCommitIdOutdatedException":
-      response = await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitIdOutdatedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ParentCommitIdRequiredException":
     case "com.amazonaws.codecommit#ParentCommitIdRequiredException":
-      response = await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ParentCommitIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PathRequiredException":
     case "com.amazonaws.codecommit#PathRequiredException":
-      response = await deserializeAws_json1_1PathRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PathRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SameFileContentException":
     case "com.amazonaws.codecommit#SameFileContentException":
-      response = await deserializeAws_json1_1SameFileContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1SameFileContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11073,150 +13749,213 @@ async function deserializeAws_json1_1PutRepositoryTriggersCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerBranchNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerBranchNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerCustomDataException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerCustomDataException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerDestinationArnException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerDestinationArnException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerEventsException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerEventsException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerRegionException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerRegionException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumBranchesExceededException":
     case "com.amazonaws.codecommit#MaximumBranchesExceededException":
-      response = await deserializeAws_json1_1MaximumBranchesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumBranchesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumRepositoryTriggersExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryTriggersExceededException":
-      response = await deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerBranchNameListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerBranchNameListRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerDestinationArnRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerDestinationArnRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerEventsListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerEventsListRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggersListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggersListRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11265,66 +14004,93 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceArnException":
     case "com.amazonaws.codecommit#InvalidResourceArnException":
-      response = await deserializeAws_json1_1InvalidResourceArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSystemTagUsageException":
     case "com.amazonaws.codecommit#InvalidSystemTagUsageException":
-      response = await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagsMapException":
     case "com.amazonaws.codecommit#InvalidTagsMapException":
-      response = await deserializeAws_json1_1InvalidTagsMapExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagsMapExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceArnRequiredException":
     case "com.amazonaws.codecommit#ResourceArnRequiredException":
-      response = await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagPolicyException":
     case "com.amazonaws.codecommit#TagPolicyException":
-      response = await deserializeAws_json1_1TagPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagsMapRequiredException":
     case "com.amazonaws.codecommit#TagsMapRequiredException":
-      response = await deserializeAws_json1_1TagsMapRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagsMapRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codecommit#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11380,150 +14146,213 @@ async function deserializeAws_json1_1TestRepositoryTriggersCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerBranchNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerBranchNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerCustomDataException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerCustomDataException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerCustomDataExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerDestinationArnException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerDestinationArnException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerDestinationArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerEventsException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerEventsException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerEventsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryTriggerRegionException":
     case "com.amazonaws.codecommit#InvalidRepositoryTriggerRegionException":
-      response = await deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryTriggerRegionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumBranchesExceededException":
     case "com.amazonaws.codecommit#MaximumBranchesExceededException":
-      response = await deserializeAws_json1_1MaximumBranchesExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumBranchesExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumRepositoryTriggersExceededException":
     case "com.amazonaws.codecommit#MaximumRepositoryTriggersExceededException":
-      response = await deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumRepositoryTriggersExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerBranchNameListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerBranchNameListRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerBranchNameListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerDestinationArnRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerDestinationArnRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerDestinationArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerEventsListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerEventsListRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerEventsListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggerNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggerNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggerNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryTriggersListRequiredException":
     case "com.amazonaws.codecommit#RepositoryTriggersListRequiredException":
-      response = await deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryTriggersListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11572,66 +14401,93 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceArnException":
     case "com.amazonaws.codecommit#InvalidResourceArnException":
-      response = await deserializeAws_json1_1InvalidResourceArnExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceArnExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidSystemTagUsageException":
     case "com.amazonaws.codecommit#InvalidSystemTagUsageException":
-      response = await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidSystemTagUsageExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagKeysListException":
     case "com.amazonaws.codecommit#InvalidTagKeysListException":
-      response = await deserializeAws_json1_1InvalidTagKeysListExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagKeysListExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceArnRequiredException":
     case "com.amazonaws.codecommit#ResourceArnRequiredException":
-      response = await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceArnRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagKeysListRequiredException":
     case "com.amazonaws.codecommit#TagKeysListRequiredException":
-      response = await deserializeAws_json1_1TagKeysListRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagKeysListRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TagPolicyException":
     case "com.amazonaws.codecommit#TagPolicyException":
-      response = await deserializeAws_json1_1TagPolicyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codecommit#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11690,45 +14546,63 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandErr
   switch (errorCode) {
     case "ApprovalRuleTemplateContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateContentRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateContentException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRuleContentSha256Exception":
     case "com.amazonaws.codecommit#InvalidRuleContentSha256Exception":
-      response = await deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11787,31 +14661,43 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionComman
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateDescriptionException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateDescriptionException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateDescriptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11870,31 +14756,43 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(
   switch (errorCode) {
     case "ApprovalRuleTemplateDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameAlreadyExistsException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameAlreadyExistsException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleTemplateNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleTemplateNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleTemplateNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleTemplateNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleTemplateNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleTemplateNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11947,52 +14845,73 @@ async function deserializeAws_json1_1UpdateCommentCommandError(
   switch (errorCode) {
     case "CommentContentRequiredException":
     case "com.amazonaws.codecommit#CommentContentRequiredException":
-      response = await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentContentSizeLimitExceededException":
     case "com.amazonaws.codecommit#CommentContentSizeLimitExceededException":
-      response = await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentContentSizeLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentDeletedException":
     case "com.amazonaws.codecommit#CommentDeletedException":
-      response = await deserializeAws_json1_1CommentDeletedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDeletedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentDoesNotExistException":
     case "com.amazonaws.codecommit#CommentDoesNotExistException":
-      response = await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentIdRequiredException":
     case "com.amazonaws.codecommit#CommentIdRequiredException":
-      response = await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CommentNotCreatedByCallerException":
     case "com.amazonaws.codecommit#CommentNotCreatedByCallerException":
-      response = await deserializeAws_json1_1CommentNotCreatedByCallerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CommentNotCreatedByCallerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommentIdException":
     case "com.amazonaws.codecommit#InvalidCommentIdException":
-      response = await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCommentIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12044,80 +14963,113 @@ async function deserializeAws_json1_1UpdateDefaultBranchCommandError(
   switch (errorCode) {
     case "BranchDoesNotExistException":
     case "com.amazonaws.codecommit#BranchDoesNotExistException":
-      response = await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BranchNameRequiredException":
     case "com.amazonaws.codecommit#BranchNameRequiredException":
-      response = await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BranchNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidBranchNameException":
     case "com.amazonaws.codecommit#InvalidBranchNameException":
-      response = await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidBranchNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12176,115 +15128,163 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand
   switch (errorCode) {
     case "ApprovalRuleContentRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleContentRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleContentRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleDoesNotExistException":
     case "com.amazonaws.codecommit#ApprovalRuleDoesNotExistException":
-      response = await deserializeAws_json1_1ApprovalRuleDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ApprovalRuleNameRequiredException":
     case "com.amazonaws.codecommit#ApprovalRuleNameRequiredException":
-      response = await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalRuleNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CannotModifyApprovalRuleFromTemplateException":
     case "com.amazonaws.codecommit#CannotModifyApprovalRuleFromTemplateException":
-      response = await deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1CannotModifyApprovalRuleFromTemplateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleContentException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleContentException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleContentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalRuleNameException":
     case "com.amazonaws.codecommit#InvalidApprovalRuleNameException":
-      response = await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalRuleNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRuleContentSha256Exception":
     case "com.amazonaws.codecommit#InvalidRuleContentSha256Exception":
-      response = await deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRuleContentSha256ExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12336,115 +15336,163 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(
   switch (errorCode) {
     case "ApprovalStateRequiredException":
     case "com.amazonaws.codecommit#ApprovalStateRequiredException":
-      response = await deserializeAws_json1_1ApprovalStateRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ApprovalStateRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidApprovalStateException":
     case "com.amazonaws.codecommit#InvalidApprovalStateException":
-      response = await deserializeAws_json1_1InvalidApprovalStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidApprovalStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRevisionIdException":
     case "com.amazonaws.codecommit#InvalidRevisionIdException":
-      response = await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRevisionIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MaximumNumberOfApprovalsExceededException":
     case "com.amazonaws.codecommit#MaximumNumberOfApprovalsExceededException":
-      response = await deserializeAws_json1_1MaximumNumberOfApprovalsExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MaximumNumberOfApprovalsExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestCannotBeApprovedByAuthorException":
     case "com.amazonaws.codecommit#PullRequestCannotBeApprovedByAuthorException":
-      response = await deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestCannotBeApprovedByAuthorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionIdRequiredException":
     case "com.amazonaws.codecommit#RevisionIdRequiredException":
-      response = await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RevisionNotCurrentException":
     case "com.amazonaws.codecommit#RevisionNotCurrentException":
-      response = await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RevisionNotCurrentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12503,38 +15551,53 @@ async function deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(
   switch (errorCode) {
     case "InvalidDescriptionException":
     case "com.amazonaws.codecommit#InvalidDescriptionException":
-      response = await deserializeAws_json1_1InvalidDescriptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidDescriptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12590,80 +15653,113 @@ async function deserializeAws_json1_1UpdatePullRequestStatusCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestStatusException":
     case "com.amazonaws.codecommit#InvalidPullRequestStatusException":
-      response = await deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestStatusExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPullRequestStatusUpdateException":
     case "com.amazonaws.codecommit#InvalidPullRequestStatusUpdateException":
-      response = await deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestStatusUpdateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestStatusRequiredException":
     case "com.amazonaws.codecommit#PullRequestStatusRequiredException":
-      response = await deserializeAws_json1_1PullRequestStatusRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestStatusRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12719,45 +15815,63 @@ async function deserializeAws_json1_1UpdatePullRequestTitleCommandError(
   switch (errorCode) {
     case "InvalidPullRequestIdException":
     case "com.amazonaws.codecommit#InvalidPullRequestIdException":
-      response = await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidPullRequestIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTitleException":
     case "com.amazonaws.codecommit#InvalidTitleException":
-      response = await deserializeAws_json1_1InvalidTitleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTitleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestAlreadyClosedException":
     case "com.amazonaws.codecommit#PullRequestAlreadyClosedException":
-      response = await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestAlreadyClosedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestDoesNotExistException":
     case "com.amazonaws.codecommit#PullRequestDoesNotExistException":
-      response = await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PullRequestIdRequiredException":
     case "com.amazonaws.codecommit#PullRequestIdRequiredException":
-      response = await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PullRequestIdRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TitleRequiredException":
     case "com.amazonaws.codecommit#TitleRequiredException":
-      response = await deserializeAws_json1_1TitleRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TitleRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12809,66 +15923,93 @@ async function deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(
   switch (errorCode) {
     case "EncryptionIntegrityChecksFailedException":
     case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
-      response = await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionIntegrityChecksFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyAccessDeniedException":
     case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
-      response = await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyAccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
-      response = await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyDisabledExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
-      response = await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EncryptionKeyUnavailableException":
     case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
-      response = await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EncryptionKeyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryDescriptionException":
     case "com.amazonaws.codecommit#InvalidRepositoryDescriptionException":
-      response = await deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryDescriptionExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12920,31 +16061,43 @@ async function deserializeAws_json1_1UpdateRepositoryNameCommandError(
   switch (errorCode) {
     case "InvalidRepositoryNameException":
     case "com.amazonaws.codecommit#InvalidRepositoryNameException":
-      response = await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidRepositoryNameExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryDoesNotExistException":
     case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
-      response = await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryDoesNotExistExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameExistsException":
     case "com.amazonaws.codecommit#RepositoryNameExistsException":
-      response = await deserializeAws_json1_1RepositoryNameExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNameRequiredException":
     case "com.amazonaws.codecommit#RepositoryNameRequiredException":
-      response = await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNameRequiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

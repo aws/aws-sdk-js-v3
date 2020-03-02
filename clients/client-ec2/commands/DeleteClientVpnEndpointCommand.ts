@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteClientVpnEndpointCommandInput = DeleteClientVpnEndpointRequest;
-export type DeleteClientVpnEndpointCommandOutput = DeleteClientVpnEndpointResult;
+export type DeleteClientVpnEndpointCommandOutput = DeleteClientVpnEndpointResult &
+  __MetadataBearer;
 
 export class DeleteClientVpnEndpointCommand extends $Command<
   DeleteClientVpnEndpointCommandInput,

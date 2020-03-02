@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateApprovalRuleTemplateCommandInput = CreateApprovalRuleTemplateInput;
-export type CreateApprovalRuleTemplateCommandOutput = CreateApprovalRuleTemplateOutput;
+export type CreateApprovalRuleTemplateCommandOutput = CreateApprovalRuleTemplateOutput &
+  __MetadataBearer;
 
 export class CreateApprovalRuleTemplateCommand extends $Command<
   CreateApprovalRuleTemplateCommandInput,

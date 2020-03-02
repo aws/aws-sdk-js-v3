@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutPlaybackConfigurationCommandInput = PutPlaybackConfigurationRequest;
-export type PutPlaybackConfigurationCommandOutput = PutPlaybackConfigurationResponse;
+export type PutPlaybackConfigurationCommandOutput = PutPlaybackConfigurationResponse &
+  __MetadataBearer;
 
 export class PutPlaybackConfigurationCommand extends $Command<
   PutPlaybackConfigurationCommandInput,

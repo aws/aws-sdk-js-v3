@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMessageBatchCommandInput = DeleteMessageBatchRequest;
-export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult;
+export type DeleteMessageBatchCommandOutput = DeleteMessageBatchResult &
+  __MetadataBearer;
 
 export class DeleteMessageBatchCommand extends $Command<
   DeleteMessageBatchCommandInput,

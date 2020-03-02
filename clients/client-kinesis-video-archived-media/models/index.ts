@@ -3,6 +3,7 @@ import {
   isa as __isa
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+import { Readable } from "stream";
 
 export enum ContainerFormat {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
@@ -372,7 +373,7 @@ export namespace GetDASHStreamingSessionURLInput {
   }
 }
 
-export interface GetDASHStreamingSessionURLOutput extends $MetadataBearer {
+export interface GetDASHStreamingSessionURLOutput {
   __type?: "GetDASHStreamingSessionURLOutput";
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the
@@ -588,7 +589,7 @@ export namespace GetHLSStreamingSessionURLInput {
   }
 }
 
-export interface GetHLSStreamingSessionURLOutput extends $MetadataBearer {
+export interface GetHLSStreamingSessionURLOutput {
   __type?: "GetHLSStreamingSessionURLOutput";
   /**
    * <p>The URL (containing the session token) that a media player can use to retrieve the HLS
@@ -623,7 +624,7 @@ export namespace GetMediaForFragmentListInput {
   }
 }
 
-export interface GetMediaForFragmentListOutput extends $MetadataBearer {
+export interface GetMediaForFragmentListOutput {
   __type?: "GetMediaForFragmentListOutput";
   /**
    * <p>The content type of the requested media.</p>
@@ -665,7 +666,7 @@ export interface GetMediaForFragmentListOutput extends $MetadataBearer {
    *             </li>
    *          </ul>
    */
-  Payload?: Uint8Array;
+  Payload?: Readable | ReadableStream | Blob;
 }
 
 export namespace GetMediaForFragmentListOutput {
@@ -825,7 +826,7 @@ export namespace ListFragmentsInput {
   }
 }
 
-export interface ListFragmentsOutput extends $MetadataBearer {
+export interface ListFragmentsOutput {
   __type?: "ListFragmentsOutput";
   /**
    * <p>A list of archived <a>Fragment</a> objects from the stream that meet the

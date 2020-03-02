@@ -1382,31 +1382,43 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1455,31 +1467,43 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1528,31 +1552,43 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1646,52 +1682,73 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
-      response = await deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1753,31 +1810,43 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1847,38 +1916,53 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1965,45 +2049,63 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2086,38 +2188,53 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2221,45 +2338,63 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2359,38 +2494,53 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2537,52 +2687,73 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.robomaker#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2628,24 +2799,33 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2691,24 +2871,33 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2757,24 +2946,33 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2823,24 +3021,33 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2897,31 +3104,43 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3025,31 +3244,43 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3135,31 +3366,43 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3250,31 +3493,43 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3361,31 +3616,43 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3489,31 +3756,43 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3675,31 +3954,43 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3759,31 +4050,43 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3840,31 +4143,43 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3927,24 +4242,33 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3998,31 +4322,43 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4085,24 +4421,33 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4165,24 +4510,33 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4235,31 +4589,43 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4313,38 +4679,53 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4393,38 +4774,53 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4514,52 +4910,73 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
-      response = await deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentDeploymentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4605,31 +5022,43 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4675,31 +5104,43 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4782,38 +5223,53 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4913,38 +5369,53 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
-      response = await deserializeAws_restJson1_1InternalServerExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.robomaker#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.robomaker#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

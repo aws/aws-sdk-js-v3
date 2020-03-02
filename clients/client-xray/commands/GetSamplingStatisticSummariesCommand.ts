@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSamplingStatisticSummariesCommandInput = GetSamplingStatisticSummariesRequest;
-export type GetSamplingStatisticSummariesCommandOutput = GetSamplingStatisticSummariesResult;
+export type GetSamplingStatisticSummariesCommandOutput = GetSamplingStatisticSummariesResult &
+  __MetadataBearer;
 
 export class GetSamplingStatisticSummariesCommand extends $Command<
   GetSamplingStatisticSummariesCommandInput,

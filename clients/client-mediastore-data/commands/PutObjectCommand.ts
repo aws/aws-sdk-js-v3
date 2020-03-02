@@ -20,11 +20,14 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type PutObjectCommandInput = PutObjectRequest;
-export type PutObjectCommandOutput = PutObjectResponse;
+export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
+  Body: PutObjectRequest["Body"] | string | Uint8Array | Buffer;
+};
+export type PutObjectCommandOutput = PutObjectResponse & __MetadataBearer;
 
 export class PutObjectCommand extends $Command<
   PutObjectCommandInput,

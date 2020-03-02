@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateMemberToGroupCommandInput = AssociateMemberToGroupRequest;
-export type AssociateMemberToGroupCommandOutput = AssociateMemberToGroupResponse;
+export type AssociateMemberToGroupCommandOutput = AssociateMemberToGroupResponse &
+  __MetadataBearer;
 
 export class AssociateMemberToGroupCommand extends $Command<
   AssociateMemberToGroupCommandInput,

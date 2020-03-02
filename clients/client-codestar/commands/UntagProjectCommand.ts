@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UntagProjectCommandInput = UntagProjectRequest;
-export type UntagProjectCommandOutput = UntagProjectResult;
+export type UntagProjectCommandOutput = UntagProjectResult & __MetadataBearer;
 
 export class UntagProjectCommand extends $Command<
   UntagProjectCommandInput,

@@ -1,47 +1,87 @@
 import {
-  CreateClusterRequest,
-  CreateClusterResponse,
-  CreateFargateProfileRequest,
-  CreateFargateProfileResponse,
-  CreateNodegroupRequest,
-  CreateNodegroupResponse,
-  DeleteClusterRequest,
-  DeleteClusterResponse,
-  DeleteFargateProfileRequest,
-  DeleteFargateProfileResponse,
-  DeleteNodegroupRequest,
-  DeleteNodegroupResponse,
-  DescribeClusterRequest,
-  DescribeClusterResponse,
-  DescribeFargateProfileRequest,
-  DescribeFargateProfileResponse,
-  DescribeNodegroupRequest,
-  DescribeNodegroupResponse,
-  DescribeUpdateRequest,
-  DescribeUpdateResponse,
-  ListClustersRequest,
-  ListClustersResponse,
-  ListFargateProfilesRequest,
-  ListFargateProfilesResponse,
-  ListNodegroupsRequest,
-  ListNodegroupsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListUpdatesRequest,
-  ListUpdatesResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateClusterConfigRequest,
-  UpdateClusterConfigResponse,
-  UpdateClusterVersionRequest,
-  UpdateClusterVersionResponse,
-  UpdateNodegroupConfigRequest,
-  UpdateNodegroupConfigResponse,
-  UpdateNodegroupVersionRequest,
-  UpdateNodegroupVersionResponse
-} from "./models/index";
+  CreateClusterCommandInput,
+  CreateClusterCommandOutput
+} from "./commands/CreateClusterCommand";
+import {
+  CreateFargateProfileCommandInput,
+  CreateFargateProfileCommandOutput
+} from "./commands/CreateFargateProfileCommand";
+import {
+  CreateNodegroupCommandInput,
+  CreateNodegroupCommandOutput
+} from "./commands/CreateNodegroupCommand";
+import {
+  DeleteClusterCommandInput,
+  DeleteClusterCommandOutput
+} from "./commands/DeleteClusterCommand";
+import {
+  DeleteFargateProfileCommandInput,
+  DeleteFargateProfileCommandOutput
+} from "./commands/DeleteFargateProfileCommand";
+import {
+  DeleteNodegroupCommandInput,
+  DeleteNodegroupCommandOutput
+} from "./commands/DeleteNodegroupCommand";
+import {
+  DescribeClusterCommandInput,
+  DescribeClusterCommandOutput
+} from "./commands/DescribeClusterCommand";
+import {
+  DescribeFargateProfileCommandInput,
+  DescribeFargateProfileCommandOutput
+} from "./commands/DescribeFargateProfileCommand";
+import {
+  DescribeNodegroupCommandInput,
+  DescribeNodegroupCommandOutput
+} from "./commands/DescribeNodegroupCommand";
+import {
+  DescribeUpdateCommandInput,
+  DescribeUpdateCommandOutput
+} from "./commands/DescribeUpdateCommand";
+import {
+  ListClustersCommandInput,
+  ListClustersCommandOutput
+} from "./commands/ListClustersCommand";
+import {
+  ListFargateProfilesCommandInput,
+  ListFargateProfilesCommandOutput
+} from "./commands/ListFargateProfilesCommand";
+import {
+  ListNodegroupsCommandInput,
+  ListNodegroupsCommandOutput
+} from "./commands/ListNodegroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListUpdatesCommandInput,
+  ListUpdatesCommandOutput
+} from "./commands/ListUpdatesCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateClusterConfigCommandInput,
+  UpdateClusterConfigCommandOutput
+} from "./commands/UpdateClusterConfigCommand";
+import {
+  UpdateClusterVersionCommandInput,
+  UpdateClusterVersionCommandOutput
+} from "./commands/UpdateClusterVersionCommand";
+import {
+  UpdateNodegroupConfigCommandInput,
+  UpdateNodegroupConfigCommandOutput
+} from "./commands/UpdateNodegroupConfigCommand";
+import {
+  UpdateNodegroupVersionCommandInput,
+  UpdateNodegroupVersionCommandOutput
+} from "./commands/UpdateNodegroupVersionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -95,50 +135,50 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateClusterRequest
-  | CreateFargateProfileRequest
-  | CreateNodegroupRequest
-  | DeleteClusterRequest
-  | DeleteFargateProfileRequest
-  | DeleteNodegroupRequest
-  | DescribeClusterRequest
-  | DescribeFargateProfileRequest
-  | DescribeNodegroupRequest
-  | DescribeUpdateRequest
-  | ListClustersRequest
-  | ListFargateProfilesRequest
-  | ListNodegroupsRequest
-  | ListTagsForResourceRequest
-  | ListUpdatesRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateClusterConfigRequest
-  | UpdateClusterVersionRequest
-  | UpdateNodegroupConfigRequest
-  | UpdateNodegroupVersionRequest;
+  | CreateClusterCommandInput
+  | CreateFargateProfileCommandInput
+  | CreateNodegroupCommandInput
+  | DeleteClusterCommandInput
+  | DeleteFargateProfileCommandInput
+  | DeleteNodegroupCommandInput
+  | DescribeClusterCommandInput
+  | DescribeFargateProfileCommandInput
+  | DescribeNodegroupCommandInput
+  | DescribeUpdateCommandInput
+  | ListClustersCommandInput
+  | ListFargateProfilesCommandInput
+  | ListNodegroupsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListUpdatesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateClusterConfigCommandInput
+  | UpdateClusterVersionCommandInput
+  | UpdateNodegroupConfigCommandInput
+  | UpdateNodegroupVersionCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateClusterResponse
-  | CreateFargateProfileResponse
-  | CreateNodegroupResponse
-  | DeleteClusterResponse
-  | DeleteFargateProfileResponse
-  | DeleteNodegroupResponse
-  | DescribeClusterResponse
-  | DescribeFargateProfileResponse
-  | DescribeNodegroupResponse
-  | DescribeUpdateResponse
-  | ListClustersResponse
-  | ListFargateProfilesResponse
-  | ListNodegroupsResponse
-  | ListTagsForResourceResponse
-  | ListUpdatesResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateClusterConfigResponse
-  | UpdateClusterVersionResponse
-  | UpdateNodegroupConfigResponse
-  | UpdateNodegroupVersionResponse;
+  | CreateClusterCommandOutput
+  | CreateFargateProfileCommandOutput
+  | CreateNodegroupCommandOutput
+  | DeleteClusterCommandOutput
+  | DeleteFargateProfileCommandOutput
+  | DeleteNodegroupCommandOutput
+  | DescribeClusterCommandOutput
+  | DescribeFargateProfileCommandOutput
+  | DescribeNodegroupCommandOutput
+  | DescribeUpdateCommandOutput
+  | ListClustersCommandOutput
+  | ListFargateProfilesCommandOutput
+  | ListNodegroupsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListUpdatesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateClusterConfigCommandOutput
+  | UpdateClusterVersionCommandOutput
+  | UpdateNodegroupConfigCommandOutput
+  | UpdateNodegroupVersionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

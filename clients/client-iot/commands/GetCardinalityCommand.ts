@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCardinalityCommandInput = GetCardinalityRequest;
-export type GetCardinalityCommandOutput = GetCardinalityResponse;
+export type GetCardinalityCommandOutput = GetCardinalityResponse &
+  __MetadataBearer;
 
 export class GetCardinalityCommand extends $Command<
   GetCardinalityCommandInput,

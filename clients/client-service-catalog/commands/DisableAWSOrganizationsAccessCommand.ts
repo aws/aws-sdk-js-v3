@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableAWSOrganizationsAccessCommandInput = DisableAWSOrganizationsAccessInput;
-export type DisableAWSOrganizationsAccessCommandOutput = DisableAWSOrganizationsAccessOutput;
+export type DisableAWSOrganizationsAccessCommandOutput = DisableAWSOrganizationsAccessOutput &
+  __MetadataBearer;
 
 export class DisableAWSOrganizationsAccessCommand extends $Command<
   DisableAWSOrganizationsAccessCommandInput,

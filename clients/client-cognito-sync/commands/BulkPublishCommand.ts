@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BulkPublishCommandInput = BulkPublishRequest;
-export type BulkPublishCommandOutput = BulkPublishResponse;
+export type BulkPublishCommandOutput = BulkPublishResponse & __MetadataBearer;
 
 export class BulkPublishCommand extends $Command<
   BulkPublishCommandInput,

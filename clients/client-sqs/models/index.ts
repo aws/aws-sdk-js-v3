@@ -181,7 +181,7 @@ export namespace ChangeMessageVisibilityBatchRequestEntry {
  *                <a>BatchResultErrorEntry</a>
  *             </code> tag if the message fails.</p>
  */
-export interface ChangeMessageVisibilityBatchResult extends $MetadataBearer {
+export interface ChangeMessageVisibilityBatchResult {
   __type?: "ChangeMessageVisibilityBatchResult";
   /**
    * <p>A list of <code>
@@ -441,7 +441,7 @@ export namespace CreateQueueRequest {
 /**
  * <p>Returns the <code>QueueUrl</code> attribute of the created queue.</p>
  */
-export interface CreateQueueResult extends $MetadataBearer {
+export interface CreateQueueResult {
   __type?: "CreateQueueResult";
   /**
    * <p>The URL of the created Amazon SQS queue.</p>
@@ -510,7 +510,7 @@ export namespace DeleteMessageBatchRequestEntry {
  *                <a>BatchResultErrorEntry</a>
  *             </code> tag if the message can't be deleted.</p>
  */
-export interface DeleteMessageBatchResult extends $MetadataBearer {
+export interface DeleteMessageBatchResult {
   __type?: "DeleteMessageBatchResult";
   /**
    * <p>A list of <code>
@@ -759,7 +759,7 @@ export namespace GetQueueAttributesRequest {
 /**
  * <p>A list of returned queue attributes.</p>
  */
-export interface GetQueueAttributesResult extends $MetadataBearer {
+export interface GetQueueAttributesResult {
   __type?: "GetQueueAttributesResult";
   /**
    * <p>A map of attributes to their respective values.</p>
@@ -799,7 +799,7 @@ export namespace GetQueueUrlRequest {
 /**
  * <p>For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-api-responses.html">Interpreting Responses</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
-export interface GetQueueUrlResult extends $MetadataBearer {
+export interface GetQueueUrlResult {
   __type?: "GetQueueUrlResult";
   /**
    * <p>The URL of the queue.</p>
@@ -896,7 +896,7 @@ export namespace ListDeadLetterSourceQueuesRequest {
 /**
  * <p>A list of your dead letter source queues.</p>
  */
-export interface ListDeadLetterSourceQueuesResult extends $MetadataBearer {
+export interface ListDeadLetterSourceQueuesResult {
   __type?: "ListDeadLetterSourceQueuesResult";
   /**
    * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
@@ -924,7 +924,7 @@ export namespace ListQueueTagsRequest {
   }
 }
 
-export interface ListQueueTagsResult extends $MetadataBearer {
+export interface ListQueueTagsResult {
   __type?: "ListQueueTagsResult";
   /**
    * <p>The list of all tags added to the specified queue.</p>
@@ -959,7 +959,7 @@ export namespace ListQueuesRequest {
 /**
  * <p>A list of your queues.</p>
  */
-export interface ListQueuesResult extends $MetadataBearer {
+export interface ListQueuesResult {
   __type?: "ListQueuesResult";
   /**
    * <p>A list of queue URLs, up to 1,000 entries.</p>
@@ -1479,7 +1479,7 @@ export namespace ReceiveMessageRequest {
 /**
  * <p>A list of received messages.</p>
  */
-export interface ReceiveMessageResult extends $MetadataBearer {
+export interface ReceiveMessageResult {
   __type?: "ReceiveMessageResult";
   /**
    * <p>A list of messages.</p>
@@ -1690,7 +1690,7 @@ export namespace SendMessageBatchRequestEntry {
  *                <a>BatchResultErrorEntry</a>
  *             </code> tag if the message fails.</p>
  */
-export interface SendMessageBatchResult extends $MetadataBearer {
+export interface SendMessageBatchResult {
   __type?: "SendMessageBatchResult";
   /**
    * <p>A list of <code>
@@ -1906,7 +1906,7 @@ export namespace SendMessageRequest {
 /**
  * <p>The <code>MD5OfMessageBody</code> and <code>MessageId</code> elements.</p>
  */
-export interface SendMessageResult extends $MetadataBearer {
+export interface SendMessageResult {
   __type?: "SendMessageResult";
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>

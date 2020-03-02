@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeSubscribersForNotificationCommandInput = DescribeSubscribersForNotificationRequest;
-export type DescribeSubscribersForNotificationCommandOutput = DescribeSubscribersForNotificationResponse;
+export type DescribeSubscribersForNotificationCommandOutput = DescribeSubscribersForNotificationResponse &
+  __MetadataBearer;
 
 export class DescribeSubscribersForNotificationCommand extends $Command<
   DescribeSubscribersForNotificationCommandInput,

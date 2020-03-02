@@ -1,21 +1,35 @@
 import {
-  CreateLifecyclePolicyRequest,
-  CreateLifecyclePolicyResponse,
-  DeleteLifecyclePolicyRequest,
-  DeleteLifecyclePolicyResponse,
-  GetLifecyclePoliciesRequest,
-  GetLifecyclePoliciesResponse,
-  GetLifecyclePolicyRequest,
-  GetLifecyclePolicyResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateLifecyclePolicyRequest,
-  UpdateLifecyclePolicyResponse
-} from "./models/index";
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput
+} from "./commands/CreateLifecyclePolicyCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput
+} from "./commands/DeleteLifecyclePolicyCommand";
+import {
+  GetLifecyclePoliciesCommandInput,
+  GetLifecyclePoliciesCommandOutput
+} from "./commands/GetLifecyclePoliciesCommand";
+import {
+  GetLifecyclePolicyCommandInput,
+  GetLifecyclePolicyCommandOutput
+} from "./commands/GetLifecyclePolicyCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput
+} from "./commands/UpdateLifecyclePolicyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -69,24 +83,24 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateLifecyclePolicyRequest
-  | DeleteLifecyclePolicyRequest
-  | GetLifecyclePoliciesRequest
-  | GetLifecyclePolicyRequest
-  | ListTagsForResourceRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateLifecyclePolicyRequest;
+  | CreateLifecyclePolicyCommandInput
+  | DeleteLifecyclePolicyCommandInput
+  | GetLifecyclePoliciesCommandInput
+  | GetLifecyclePolicyCommandInput
+  | ListTagsForResourceCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateLifecyclePolicyCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateLifecyclePolicyResponse
-  | DeleteLifecyclePolicyResponse
-  | GetLifecyclePoliciesResponse
-  | GetLifecyclePolicyResponse
-  | ListTagsForResourceResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateLifecyclePolicyResponse;
+  | CreateLifecyclePolicyCommandOutput
+  | DeleteLifecyclePolicyCommandOutput
+  | GetLifecyclePoliciesCommandOutput
+  | GetLifecyclePolicyCommandOutput
+  | ListTagsForResourceCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateLifecyclePolicyCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

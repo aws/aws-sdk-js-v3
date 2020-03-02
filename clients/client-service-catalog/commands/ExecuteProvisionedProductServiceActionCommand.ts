@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExecuteProvisionedProductServiceActionCommandInput = ExecuteProvisionedProductServiceActionInput;
-export type ExecuteProvisionedProductServiceActionCommandOutput = ExecuteProvisionedProductServiceActionOutput;
+export type ExecuteProvisionedProductServiceActionCommandOutput = ExecuteProvisionedProductServiceActionOutput &
+  __MetadataBearer;
 
 export class ExecuteProvisionedProductServiceActionCommand extends $Command<
   ExecuteProvisionedProductServiceActionCommandInput,

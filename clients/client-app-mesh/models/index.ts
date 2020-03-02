@@ -193,7 +193,7 @@ export namespace CreateMeshInput {
 /**
  *
  */
-export interface CreateMeshOutput extends $MetadataBearer {
+export interface CreateMeshOutput {
   __type?: "CreateMeshOutput";
   /**
    * <p>The full description of your service mesh following the create call.</p>
@@ -256,7 +256,7 @@ export namespace CreateRouteInput {
 /**
  *
  */
-export interface CreateRouteOutput extends $MetadataBearer {
+export interface CreateRouteOutput {
   __type?: "CreateRouteOutput";
   /**
    * <p>The full description of your mesh following the create call.</p>
@@ -314,7 +314,7 @@ export namespace CreateVirtualNodeInput {
 /**
  *
  */
-export interface CreateVirtualNodeOutput extends $MetadataBearer {
+export interface CreateVirtualNodeOutput {
   __type?: "CreateVirtualNodeOutput";
   /**
    * <p>The full description of your virtual node following the create call.</p>
@@ -372,7 +372,7 @@ export namespace CreateVirtualRouterInput {
 /**
  *
  */
-export interface CreateVirtualRouterOutput extends $MetadataBearer {
+export interface CreateVirtualRouterOutput {
   __type?: "CreateVirtualRouterOutput";
   /**
    * <p>The full description of your virtual router following the create call.</p>
@@ -430,7 +430,7 @@ export namespace CreateVirtualServiceInput {
 /**
  *
  */
-export interface CreateVirtualServiceOutput extends $MetadataBearer {
+export interface CreateVirtualServiceOutput {
   __type?: "CreateVirtualServiceOutput";
   /**
    * <p>The full description of your virtual service following the create call.</p>
@@ -464,7 +464,7 @@ export namespace DeleteMeshInput {
 /**
  *
  */
-export interface DeleteMeshOutput extends $MetadataBearer {
+export interface DeleteMeshOutput {
   __type?: "DeleteMeshOutput";
   /**
    * <p>The service mesh that was deleted.</p>
@@ -508,7 +508,7 @@ export namespace DeleteRouteInput {
 /**
  *
  */
-export interface DeleteRouteOutput extends $MetadataBearer {
+export interface DeleteRouteOutput {
   __type?: "DeleteRouteOutput";
   /**
    * <p>The route that was deleted.</p>
@@ -547,7 +547,7 @@ export namespace DeleteVirtualNodeInput {
 /**
  *
  */
-export interface DeleteVirtualNodeOutput extends $MetadataBearer {
+export interface DeleteVirtualNodeOutput {
   __type?: "DeleteVirtualNodeOutput";
   /**
    * <p>The virtual node that was deleted.</p>
@@ -586,7 +586,7 @@ export namespace DeleteVirtualRouterInput {
 /**
  *
  */
-export interface DeleteVirtualRouterOutput extends $MetadataBearer {
+export interface DeleteVirtualRouterOutput {
   __type?: "DeleteVirtualRouterOutput";
   /**
    * <p>The virtual router that was deleted.</p>
@@ -625,7 +625,7 @@ export namespace DeleteVirtualServiceInput {
 /**
  *
  */
-export interface DeleteVirtualServiceOutput extends $MetadataBearer {
+export interface DeleteVirtualServiceOutput {
   __type?: "DeleteVirtualServiceOutput";
   /**
    * <p>The virtual service that was deleted.</p>
@@ -659,7 +659,7 @@ export namespace DescribeMeshInput {
 /**
  *
  */
-export interface DescribeMeshOutput extends $MetadataBearer {
+export interface DescribeMeshOutput {
   __type?: "DescribeMeshOutput";
   /**
    * <p>The full description of your service mesh.</p>
@@ -703,7 +703,7 @@ export namespace DescribeRouteInput {
 /**
  *
  */
-export interface DescribeRouteOutput extends $MetadataBearer {
+export interface DescribeRouteOutput {
   __type?: "DescribeRouteOutput";
   /**
    * <p>The full description of your route.</p>
@@ -742,7 +742,7 @@ export namespace DescribeVirtualNodeInput {
 /**
  *
  */
-export interface DescribeVirtualNodeOutput extends $MetadataBearer {
+export interface DescribeVirtualNodeOutput {
   __type?: "DescribeVirtualNodeOutput";
   /**
    * <p>The full description of your virtual node.</p>
@@ -781,7 +781,7 @@ export namespace DescribeVirtualRouterInput {
 /**
  *
  */
-export interface DescribeVirtualRouterOutput extends $MetadataBearer {
+export interface DescribeVirtualRouterOutput {
   __type?: "DescribeVirtualRouterOutput";
   /**
    * <p>The full description of your virtual router.</p>
@@ -820,7 +820,7 @@ export namespace DescribeVirtualServiceInput {
 /**
  *
  */
-export interface DescribeVirtualServiceOutput extends $MetadataBearer {
+export interface DescribeVirtualServiceOutput {
   __type?: "DescribeVirtualServiceOutput";
   /**
    * <p>The full description of your virtual service.</p>
@@ -1611,7 +1611,7 @@ export namespace ListMeshesInput {
 /**
  *
  */
-export interface ListMeshesOutput extends $MetadataBearer {
+export interface ListMeshesOutput {
   __type?: "ListMeshesOutput";
   /**
    * <p>The list of existing service meshes.</p>
@@ -1678,7 +1678,7 @@ export namespace ListRoutesInput {
 /**
  *
  */
-export interface ListRoutesOutput extends $MetadataBearer {
+export interface ListRoutesOutput {
   __type?: "ListRoutesOutput";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRoutes</code> request.
@@ -1740,7 +1740,7 @@ export namespace ListTagsForResourceInput {
 /**
  *
  */
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListTagsForResource</code>
@@ -1802,7 +1802,7 @@ export namespace ListVirtualNodesInput {
 /**
  *
  */
-export interface ListVirtualNodesOutput extends $MetadataBearer {
+export interface ListVirtualNodesOutput {
   __type?: "ListVirtualNodesOutput";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualNodes</code>
@@ -1864,7 +1864,7 @@ export namespace ListVirtualRoutersInput {
 /**
  *
  */
-export interface ListVirtualRoutersOutput extends $MetadataBearer {
+export interface ListVirtualRoutersOutput {
   __type?: "ListVirtualRoutersOutput";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualRouters</code>
@@ -1926,7 +1926,7 @@ export namespace ListVirtualServicesInput {
 /**
  *
  */
-export interface ListVirtualServicesOutput extends $MetadataBearer {
+export interface ListVirtualServicesOutput {
   __type?: "ListVirtualServicesOutput";
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualServices</code>
@@ -2455,7 +2455,7 @@ export namespace TagResourceInput {
 /**
  *
  */
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -2566,7 +2566,7 @@ export namespace UntagResourceInput {
 /**
  *
  */
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 
@@ -2607,7 +2607,7 @@ export namespace UpdateMeshInput {
 /**
  *
  */
-export interface UpdateMeshOutput extends $MetadataBearer {
+export interface UpdateMeshOutput {
   __type?: "UpdateMeshOutput";
   /**
    * <p>An object that represents a service mesh returned by a describe operation.</p>
@@ -2662,7 +2662,7 @@ export namespace UpdateRouteInput {
 /**
  *
  */
-export interface UpdateRouteOutput extends $MetadataBearer {
+export interface UpdateRouteOutput {
   __type?: "UpdateRouteOutput";
   /**
    * <p>A full description of the route that was updated.</p>
@@ -2712,7 +2712,7 @@ export namespace UpdateVirtualNodeInput {
 /**
  *
  */
-export interface UpdateVirtualNodeOutput extends $MetadataBearer {
+export interface UpdateVirtualNodeOutput {
   __type?: "UpdateVirtualNodeOutput";
   /**
    * <p>A full description of the virtual node that was updated.</p>
@@ -2762,7 +2762,7 @@ export namespace UpdateVirtualRouterInput {
 /**
  *
  */
-export interface UpdateVirtualRouterOutput extends $MetadataBearer {
+export interface UpdateVirtualRouterOutput {
   __type?: "UpdateVirtualRouterOutput";
   /**
    * <p>A full description of the virtual router that was updated.</p>
@@ -2813,7 +2813,7 @@ export namespace UpdateVirtualServiceInput {
 /**
  *
  */
-export interface UpdateVirtualServiceOutput extends $MetadataBearer {
+export interface UpdateVirtualServiceOutput {
   __type?: "UpdateVirtualServiceOutput";
   /**
    * <p>A full description of the virtual service that was updated.</p>

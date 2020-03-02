@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetServiceRoleForAccountCommandInput = GetServiceRoleForAccountRequest;
-export type GetServiceRoleForAccountCommandOutput = GetServiceRoleForAccountResponse;
+export type GetServiceRoleForAccountCommandOutput = GetServiceRoleForAccountResponse &
+  __MetadataBearer;
 
 export class GetServiceRoleForAccountCommand extends $Command<
   GetServiceRoleForAccountCommandInput,

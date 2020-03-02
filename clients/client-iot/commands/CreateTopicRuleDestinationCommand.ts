@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateTopicRuleDestinationCommandInput = CreateTopicRuleDestinationRequest;
-export type CreateTopicRuleDestinationCommandOutput = CreateTopicRuleDestinationResponse;
+export type CreateTopicRuleDestinationCommandOutput = CreateTopicRuleDestinationResponse &
+  __MetadataBearer;
 
 export class CreateTopicRuleDestinationCommand extends $Command<
   CreateTopicRuleDestinationCommandInput,

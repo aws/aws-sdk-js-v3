@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAutoMLJobCommandInput = CreateAutoMLJobRequest;
-export type CreateAutoMLJobCommandOutput = CreateAutoMLJobResponse;
+export type CreateAutoMLJobCommandOutput = CreateAutoMLJobResponse &
+  __MetadataBearer;
 
 export class CreateAutoMLJobCommand extends $Command<
   CreateAutoMLJobCommandInput,

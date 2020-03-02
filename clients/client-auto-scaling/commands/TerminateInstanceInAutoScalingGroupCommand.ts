@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateInstanceInAutoScalingGroupCommandInput = TerminateInstanceInAutoScalingGroupType;
-export type TerminateInstanceInAutoScalingGroupCommandOutput = ActivityType;
+export type TerminateInstanceInAutoScalingGroupCommandOutput = ActivityType &
+  __MetadataBearer;
 
 export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
   TerminateInstanceInAutoScalingGroupCommandInput,

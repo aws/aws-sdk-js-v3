@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetArtifactUrlCommandInput = GetArtifactUrlRequest;
-export type GetArtifactUrlCommandOutput = GetArtifactUrlResult;
+export type GetArtifactUrlCommandOutput = GetArtifactUrlResult &
+  __MetadataBearer;
 
 export class GetArtifactUrlCommand extends $Command<
   GetArtifactUrlCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyCertificatesCommandInput = ModifyCertificatesMessage;
-export type ModifyCertificatesCommandOutput = ModifyCertificatesResult;
+export type ModifyCertificatesCommandOutput = ModifyCertificatesResult &
+  __MetadataBearer;
 
 export class ModifyCertificatesCommand extends $Command<
   ModifyCertificatesCommandInput,

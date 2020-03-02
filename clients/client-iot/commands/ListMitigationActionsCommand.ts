@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListMitigationActionsCommandInput = ListMitigationActionsRequest;
-export type ListMitigationActionsCommandOutput = ListMitigationActionsResponse;
+export type ListMitigationActionsCommandOutput = ListMitigationActionsResponse &
+  __MetadataBearer;
 
 export class ListMitigationActionsCommand extends $Command<
   ListMitigationActionsCommandInput,

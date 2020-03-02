@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDominantLanguageDetectionJobCommandInput = StopDominantLanguageDetectionJobRequest;
-export type StopDominantLanguageDetectionJobCommandOutput = StopDominantLanguageDetectionJobResponse;
+export type StopDominantLanguageDetectionJobCommandOutput = StopDominantLanguageDetectionJobResponse &
+  __MetadataBearer;
 
 export class StopDominantLanguageDetectionJobCommand extends $Command<
   StopDominantLanguageDetectionJobCommandInput,

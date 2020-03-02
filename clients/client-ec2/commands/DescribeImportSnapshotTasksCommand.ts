@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeImportSnapshotTasksCommandInput = DescribeImportSnapshotTasksRequest;
-export type DescribeImportSnapshotTasksCommandOutput = DescribeImportSnapshotTasksResult;
+export type DescribeImportSnapshotTasksCommandOutput = DescribeImportSnapshotTasksResult &
+  __MetadataBearer;
 
 export class DescribeImportSnapshotTasksCommand extends $Command<
   DescribeImportSnapshotTasksCommandInput,

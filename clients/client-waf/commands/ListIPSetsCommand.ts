@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListIPSetsCommandInput = ListIPSetsRequest;
-export type ListIPSetsCommandOutput = ListIPSetsResponse;
+export type ListIPSetsCommandOutput = ListIPSetsResponse & __MetadataBearer;
 
 export class ListIPSetsCommand extends $Command<
   ListIPSetsCommandInput,

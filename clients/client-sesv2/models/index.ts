@@ -396,8 +396,7 @@ export namespace CreateConfigurationSetEventDestinationRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface CreateConfigurationSetEventDestinationResponse {
   __type?: "CreateConfigurationSetEventDestinationResponse";
 }
 
@@ -466,7 +465,7 @@ export namespace CreateConfigurationSetRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateConfigurationSetResponse extends $MetadataBearer {
+export interface CreateConfigurationSetResponse {
   __type?: "CreateConfigurationSetResponse";
 }
 
@@ -503,7 +502,7 @@ export namespace CreateDedicatedIpPoolRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface CreateDedicatedIpPoolResponse extends $MetadataBearer {
+export interface CreateDedicatedIpPoolResponse {
   __type?: "CreateDedicatedIpPoolResponse";
 }
 
@@ -556,8 +555,7 @@ export namespace CreateDeliverabilityTestReportRequest {
 /**
  * <p>Information about the predictive inbox placement test that you created.</p>
  */
-export interface CreateDeliverabilityTestReportResponse
-  extends $MetadataBearer {
+export interface CreateDeliverabilityTestReportResponse {
   __type?: "CreateDeliverabilityTestReportResponse";
   /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
@@ -618,7 +616,7 @@ export namespace CreateEmailIdentityRequest {
  *             verification status for the domain.</p>
  *         <p>If the email identity is an email address, this object is empty. </p>
  */
-export interface CreateEmailIdentityResponse extends $MetadataBearer {
+export interface CreateEmailIdentityResponse {
   __type?: "CreateEmailIdentityResponse";
   /**
    * <p>An object that contains information about the DKIM attributes for the identity.</p>
@@ -753,8 +751,7 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface DeleteConfigurationSetEventDestinationResponse {
   __type?: "DeleteConfigurationSetEventDestinationResponse";
 }
 
@@ -787,7 +784,7 @@ export namespace DeleteConfigurationSetRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteConfigurationSetResponse extends $MetadataBearer {
+export interface DeleteConfigurationSetResponse {
   __type?: "DeleteConfigurationSetResponse";
 }
 
@@ -818,7 +815,7 @@ export namespace DeleteDedicatedIpPoolRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteDedicatedIpPoolResponse extends $MetadataBearer {
+export interface DeleteDedicatedIpPoolResponse {
   __type?: "DeleteDedicatedIpPoolResponse";
 }
 
@@ -851,7 +848,7 @@ export namespace DeleteEmailIdentityRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteEmailIdentityResponse extends $MetadataBearer {
+export interface DeleteEmailIdentityResponse {
   __type?: "DeleteEmailIdentityResponse";
 }
 
@@ -883,7 +880,7 @@ export namespace DeleteSuppressedDestinationRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface DeleteSuppressedDestinationResponse extends $MetadataBearer {
+export interface DeleteSuppressedDestinationResponse {
   __type?: "DeleteSuppressedDestinationResponse";
 }
 
@@ -1522,7 +1519,7 @@ export namespace GetAccountRequest {
  * <p>A list of details about the email-sending capabilities of your Amazon SES account in the
  *             current AWS Region.</p>
  */
-export interface GetAccountResponse extends $MetadataBearer {
+export interface GetAccountResponse {
   __type?: "GetAccountResponse";
   /**
    * <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP
@@ -1618,7 +1615,7 @@ export namespace GetBlacklistReportsRequest {
 /**
  * <p>An object that contains information about blacklist events.</p>
  */
-export interface GetBlacklistReportsResponse extends $MetadataBearer {
+export interface GetBlacklistReportsResponse {
   __type?: "GetBlacklistReportsResponse";
   /**
    * <p>An object that contains information about a blacklist that one of your dedicated IP
@@ -1656,8 +1653,7 @@ export namespace GetConfigurationSetEventDestinationsRequest {
 /**
  * <p>Information about an event destination for a configuration set.</p>
  */
-export interface GetConfigurationSetEventDestinationsResponse
-  extends $MetadataBearer {
+export interface GetConfigurationSetEventDestinationsResponse {
   __type?: "GetConfigurationSetEventDestinationsResponse";
   /**
    * <p>An array that includes all of the events destinations that have been configured for
@@ -1695,7 +1691,7 @@ export namespace GetConfigurationSetRequest {
 /**
  * <p>Information about a configuration set.</p>
  */
-export interface GetConfigurationSetResponse extends $MetadataBearer {
+export interface GetConfigurationSetResponse {
   __type?: "GetConfigurationSetResponse";
   /**
    * <p>The name of the configuration set.</p>
@@ -1766,7 +1762,7 @@ export namespace GetDedicatedIpRequest {
 /**
  * <p>Information about a dedicated IP address.</p>
  */
-export interface GetDedicatedIpResponse extends $MetadataBearer {
+export interface GetDedicatedIpResponse {
   __type?: "GetDedicatedIpResponse";
   /**
    * <p>An object that contains information about a dedicated IP address.</p>
@@ -1815,7 +1811,7 @@ export namespace GetDedicatedIpsRequest {
  * <p>Information about the dedicated IP addresses that are associated with your AWS
  *             account.</p>
  */
-export interface GetDedicatedIpsResponse extends $MetadataBearer {
+export interface GetDedicatedIpsResponse {
   __type?: "GetDedicatedIpsResponse";
   /**
    * <p>A list of dedicated IP addresses that are associated with your AWS account.</p>
@@ -1858,8 +1854,7 @@ export namespace GetDeliverabilityDashboardOptionsRequest {
 /**
  * <p>An object that shows the status of the Deliverability dashboard.</p>
  */
-export interface GetDeliverabilityDashboardOptionsResponse
-  extends $MetadataBearer {
+export interface GetDeliverabilityDashboardOptionsResponse {
   __type?: "GetDeliverabilityDashboardOptionsResponse";
   /**
    * <p>The current status of your Deliverability dashboard subscription. If this value is
@@ -1925,7 +1920,7 @@ export namespace GetDeliverabilityTestReportRequest {
 /**
  * <p>The results of the predictive inbox placement test.</p>
  */
-export interface GetDeliverabilityTestReportResponse extends $MetadataBearer {
+export interface GetDeliverabilityTestReportResponse {
   __type?: "GetDeliverabilityTestReportResponse";
   /**
    * <p>An object that contains the results of the predictive inbox placement test.</p>
@@ -1990,8 +1985,7 @@ export namespace GetDomainDeliverabilityCampaignRequest {
  *             is available for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for.</p>
  */
-export interface GetDomainDeliverabilityCampaignResponse
-  extends $MetadataBearer {
+export interface GetDomainDeliverabilityCampaignResponse {
   __type?: "GetDomainDeliverabilityCampaignResponse";
   /**
    * <p>An object that contains the deliverability data for the campaign.</p>
@@ -2039,7 +2033,7 @@ export namespace GetDomainStatisticsReportRequest {
  * <p>An object that includes statistics that are related to the domain that you
  *             specified.</p>
  */
-export interface GetDomainStatisticsReportResponse extends $MetadataBearer {
+export interface GetDomainStatisticsReportResponse {
   __type?: "GetDomainStatisticsReportResponse";
   /**
    * <p>An object that contains deliverability metrics for the domain that you specified. This
@@ -2082,7 +2076,7 @@ export namespace GetEmailIdentityRequest {
 /**
  * <p>Details about an email identity.</p>
  */
-export interface GetEmailIdentityResponse extends $MetadataBearer {
+export interface GetEmailIdentityResponse {
   __type?: "GetEmailIdentityResponse";
   /**
    * <p>An object that contains information about the DKIM attributes for the identity.</p>
@@ -2153,7 +2147,7 @@ export namespace GetSuppressedDestinationRequest {
 /**
  * <p>Information about the suppressed email address.</p>
  */
-export interface GetSuppressedDestinationResponse extends $MetadataBearer {
+export interface GetSuppressedDestinationResponse {
   __type?: "GetSuppressedDestinationResponse";
   /**
    * <p>An object containing information about the suppressed email address.</p>
@@ -2355,7 +2349,7 @@ export namespace ListConfigurationSetsRequest {
 /**
  * <p>A list of configuration sets in your Amazon SES account in the current AWS Region.</p>
  */
-export interface ListConfigurationSetsResponse extends $MetadataBearer {
+export interface ListConfigurationSetsResponse {
   __type?: "ListConfigurationSetsResponse";
   /**
    * <p>An array that contains all of the configuration sets in your Amazon SES account in the
@@ -2407,7 +2401,7 @@ export namespace ListDedicatedIpPoolsRequest {
 /**
  * <p>A list of dedicated IP pools.</p>
  */
-export interface ListDedicatedIpPoolsResponse extends $MetadataBearer {
+export interface ListDedicatedIpPoolsResponse {
   __type?: "ListDedicatedIpPoolsResponse";
   /**
    * <p>A list of all of the dedicated IP pools that are associated with your AWS account in
@@ -2461,7 +2455,7 @@ export namespace ListDeliverabilityTestReportsRequest {
  * <p>A list of the predictive inbox placement test reports that are available for your account, regardless of
  *             whether or not those tests are complete.</p>
  */
-export interface ListDeliverabilityTestReportsResponse extends $MetadataBearer {
+export interface ListDeliverabilityTestReportsResponse {
   __type?: "ListDeliverabilityTestReportsResponse";
   /**
    * <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
@@ -2535,8 +2529,7 @@ export namespace ListDomainDeliverabilityCampaignsRequest {
  *             specific domain to send email during a specified time range. This data is available for
  *             a domain only if you enabled the Deliverability dashboard for the domain.</p>
  */
-export interface ListDomainDeliverabilityCampaignsResponse
-  extends $MetadataBearer {
+export interface ListDomainDeliverabilityCampaignsResponse {
   __type?: "ListDomainDeliverabilityCampaignsResponse";
   /**
    * <p>An array of responses, one for each campaign that used the domain to send email during
@@ -2593,7 +2586,7 @@ export namespace ListEmailIdentitiesRequest {
  * <p>A list of all of the identities that you've attempted to verify, regardless of whether
  *             or not those identities were successfully verified.</p>
  */
-export interface ListEmailIdentitiesResponse extends $MetadataBearer {
+export interface ListEmailIdentitiesResponse {
   __type?: "ListEmailIdentitiesResponse";
   /**
    * <p>An array that includes all of the email identities associated with your AWS
@@ -2666,7 +2659,7 @@ export namespace ListSuppressedDestinationsRequest {
 /**
  * <p>A list of suppressed email addresses.</p>
  */
-export interface ListSuppressedDestinationsResponse extends $MetadataBearer {
+export interface ListSuppressedDestinationsResponse {
   __type?: "ListSuppressedDestinationsResponse";
   /**
    * <p>A token that indicates that there are additional email addresses on the suppression
@@ -2704,7 +2697,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>An array that lists all the tags that are associated with the resource. Each tag
@@ -3020,8 +3013,7 @@ export namespace PutAccountDedicatedIpWarmupAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountDedicatedIpWarmupAttributesResponse
-  extends $MetadataBearer {
+export interface PutAccountDedicatedIpWarmupAttributesResponse {
   __type?: "PutAccountDedicatedIpWarmupAttributesResponse";
 }
 
@@ -3059,7 +3051,7 @@ export namespace PutAccountSendingAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountSendingAttributesResponse extends $MetadataBearer {
+export interface PutAccountSendingAttributesResponse {
   __type?: "PutAccountSendingAttributesResponse";
 }
 
@@ -3106,8 +3098,7 @@ export namespace PutAccountSuppressionAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutAccountSuppressionAttributesResponse
-  extends $MetadataBearer {
+export interface PutAccountSuppressionAttributesResponse {
   __type?: "PutAccountSuppressionAttributesResponse";
 }
 
@@ -3153,8 +3144,7 @@ export namespace PutConfigurationSetDeliveryOptionsRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetDeliveryOptionsResponse
-  extends $MetadataBearer {
+export interface PutConfigurationSetDeliveryOptionsResponse {
   __type?: "PutConfigurationSetDeliveryOptionsResponse";
 }
 
@@ -3196,8 +3186,7 @@ export namespace PutConfigurationSetReputationOptionsRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetReputationOptionsResponse
-  extends $MetadataBearer {
+export interface PutConfigurationSetReputationOptionsResponse {
   __type?: "PutConfigurationSetReputationOptionsResponse";
 }
 
@@ -3238,8 +3227,7 @@ export namespace PutConfigurationSetSendingOptionsRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetSendingOptionsResponse
-  extends $MetadataBearer {
+export interface PutConfigurationSetSendingOptionsResponse {
   __type?: "PutConfigurationSetSendingOptionsResponse";
 }
 
@@ -3295,8 +3283,7 @@ export namespace PutConfigurationSetSuppressionOptionsRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetSuppressionOptionsResponse
-  extends $MetadataBearer {
+export interface PutConfigurationSetSuppressionOptionsResponse {
   __type?: "PutConfigurationSetSuppressionOptionsResponse";
 }
 
@@ -3336,8 +3323,7 @@ export namespace PutConfigurationSetTrackingOptionsRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutConfigurationSetTrackingOptionsResponse
-  extends $MetadataBearer {
+export interface PutConfigurationSetTrackingOptionsResponse {
   __type?: "PutConfigurationSetTrackingOptionsResponse";
 }
 
@@ -3375,7 +3361,7 @@ export namespace PutDedicatedIpInPoolRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutDedicatedIpInPoolResponse extends $MetadataBearer {
+export interface PutDedicatedIpInPoolResponse {
   __type?: "PutDedicatedIpInPoolResponse";
 }
 
@@ -3413,8 +3399,7 @@ export namespace PutDedicatedIpWarmupAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutDedicatedIpWarmupAttributesResponse
-  extends $MetadataBearer {
+export interface PutDedicatedIpWarmupAttributesResponse {
   __type?: "PutDedicatedIpWarmupAttributesResponse";
 }
 
@@ -3456,8 +3441,7 @@ export namespace PutDeliverabilityDashboardOptionRequest {
 /**
  * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
  */
-export interface PutDeliverabilityDashboardOptionResponse
-  extends $MetadataBearer {
+export interface PutDeliverabilityDashboardOptionResponse {
   __type?: "PutDeliverabilityDashboardOptionResponse";
 }
 
@@ -3497,8 +3481,7 @@ export namespace PutEmailIdentityDkimAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutEmailIdentityDkimAttributesResponse
-  extends $MetadataBearer {
+export interface PutEmailIdentityDkimAttributesResponse {
   __type?: "PutEmailIdentityDkimAttributesResponse";
 }
 
@@ -3556,8 +3539,7 @@ export namespace PutEmailIdentityDkimSigningAttributesRequest {
  * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
  *         <p>The following data is returned in JSON format by the service.</p>
  */
-export interface PutEmailIdentityDkimSigningAttributesResponse
-  extends $MetadataBearer {
+export interface PutEmailIdentityDkimSigningAttributesResponse {
   __type?: "PutEmailIdentityDkimSigningAttributesResponse";
   /**
    * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
@@ -3659,8 +3641,7 @@ export namespace PutEmailIdentityFeedbackAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutEmailIdentityFeedbackAttributesResponse
-  extends $MetadataBearer {
+export interface PutEmailIdentityFeedbackAttributesResponse {
   __type?: "PutEmailIdentityFeedbackAttributesResponse";
 }
 
@@ -3723,8 +3704,7 @@ export namespace PutEmailIdentityMailFromAttributesRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutEmailIdentityMailFromAttributesResponse
-  extends $MetadataBearer {
+export interface PutEmailIdentityMailFromAttributesResponse {
   __type?: "PutEmailIdentityMailFromAttributesResponse";
 }
 
@@ -3762,7 +3742,7 @@ export namespace PutSuppressedDestinationRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface PutSuppressedDestinationResponse extends $MetadataBearer {
+export interface PutSuppressedDestinationResponse {
   __type?: "PutSuppressedDestinationResponse";
 }
 
@@ -3899,7 +3879,7 @@ export namespace SendEmailRequest {
 /**
  * <p>A unique message ID that you receive when an email is accepted for sending.</p>
  */
-export interface SendEmailResponse extends $MetadataBearer {
+export interface SendEmailResponse {
   __type?: "SendEmailResponse";
   /**
    * <p>A unique identifier for the message that is generated when the message is
@@ -4121,7 +4101,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -4229,7 +4209,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -4274,8 +4254,7 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
-export interface UpdateConfigurationSetEventDestinationResponse
-  extends $MetadataBearer {
+export interface UpdateConfigurationSetEventDestinationResponse {
   __type?: "UpdateConfigurationSetEventDestinationResponse";
 }
 

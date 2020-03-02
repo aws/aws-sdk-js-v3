@@ -492,7 +492,7 @@ export namespace AssociateVPCWithHostedZoneRequest {
 /**
  * <p>A complex type that contains the response information for the <code>AssociateVPCWithHostedZone</code> request.</p>
  */
-export interface AssociateVPCWithHostedZoneResponse extends $MetadataBearer {
+export interface AssociateVPCWithHostedZoneResponse {
   __type?: "AssociateVPCWithHostedZoneResponse";
   /**
    * <p>A complex type that describes the changes made to your hosted zone.</p>
@@ -641,7 +641,7 @@ export namespace ChangeResourceRecordSetsRequest {
 /**
  * <p>A complex type containing the response for the request.</p>
  */
-export interface ChangeResourceRecordSetsResponse extends $MetadataBearer {
+export interface ChangeResourceRecordSetsResponse {
   __type?: "ChangeResourceRecordSetsResponse";
   /**
    * <p>A complex type that contains information about changes made to your hosted zone.</p>
@@ -706,7 +706,7 @@ export namespace ChangeTagsForResourceRequest {
 /**
  * <p>Empty response for the request.</p>
  */
-export interface ChangeTagsForResourceResponse extends $MetadataBearer {
+export interface ChangeTagsForResourceResponse {
   __type?: "ChangeTagsForResourceResponse";
 }
 
@@ -919,7 +919,7 @@ export namespace CreateHealthCheckRequest {
 /**
  * <p>A complex type containing the response information for the new health check.</p>
  */
-export interface CreateHealthCheckResponse extends $MetadataBearer {
+export interface CreateHealthCheckResponse {
   __type?: "CreateHealthCheckResponse";
   /**
    * <p>A complex type that contains identifying information about the health check.</p>
@@ -1000,7 +1000,7 @@ export namespace CreateHostedZoneRequest {
 /**
  * <p>A complex type containing the response information for the hosted zone.</p>
  */
-export interface CreateHostedZoneResponse extends $MetadataBearer {
+export interface CreateHostedZoneResponse {
   __type?: "CreateHostedZoneResponse";
   /**
    * <p>A complex type that contains information about the <code>CreateHostedZone</code> request.</p>
@@ -1062,7 +1062,7 @@ export namespace CreateQueryLoggingConfigRequest {
   }
 }
 
-export interface CreateQueryLoggingConfigResponse extends $MetadataBearer {
+export interface CreateQueryLoggingConfigResponse {
   __type?: "CreateQueryLoggingConfigResponse";
   /**
    * <p>The unique URL representing the new query logging configuration.</p>
@@ -1106,7 +1106,7 @@ export namespace CreateReusableDelegationSetRequest {
   }
 }
 
-export interface CreateReusableDelegationSetResponse extends $MetadataBearer {
+export interface CreateReusableDelegationSetResponse {
   __type?: "CreateReusableDelegationSetResponse";
   /**
    * <p>A complex type that contains name server information.</p>
@@ -1166,7 +1166,7 @@ export namespace CreateTrafficPolicyInstanceRequest {
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicyInstance</code> request.</p>
  */
-export interface CreateTrafficPolicyInstanceResponse extends $MetadataBearer {
+export interface CreateTrafficPolicyInstanceResponse {
   __type?: "CreateTrafficPolicyInstanceResponse";
   /**
    * <p>A unique URL that represents a new traffic policy instance.</p>
@@ -1216,7 +1216,7 @@ export namespace CreateTrafficPolicyRequest {
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicy</code> request.</p>
  */
-export interface CreateTrafficPolicyResponse extends $MetadataBearer {
+export interface CreateTrafficPolicyResponse {
   __type?: "CreateTrafficPolicyResponse";
   /**
    * <p>A unique URL that represents a new traffic policy.</p>
@@ -1267,7 +1267,7 @@ export namespace CreateTrafficPolicyVersionRequest {
 /**
  * <p>A complex type that contains the response information for the <code>CreateTrafficPolicyVersion</code> request.</p>
  */
-export interface CreateTrafficPolicyVersionResponse extends $MetadataBearer {
+export interface CreateTrafficPolicyVersionResponse {
   __type?: "CreateTrafficPolicyVersionResponse";
   /**
    * <p>A unique URL that represents a new traffic policy version.</p>
@@ -1313,8 +1313,7 @@ export namespace CreateVPCAssociationAuthorizationRequest {
 /**
  * <p>A complex type that contains the response information from a <code>CreateVPCAssociationAuthorization</code> request.</p>
  */
-export interface CreateVPCAssociationAuthorizationResponse
-  extends $MetadataBearer {
+export interface CreateVPCAssociationAuthorizationResponse {
   __type?: "CreateVPCAssociationAuthorizationResponse";
   /**
    * <p>The ID of the hosted zone that you authorized associating a VPC with.</p>
@@ -1482,7 +1481,7 @@ export namespace DeleteHealthCheckRequest {
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteHealthCheckResponse extends $MetadataBearer {
+export interface DeleteHealthCheckResponse {
   __type?: "DeleteHealthCheckResponse";
 }
 
@@ -1512,7 +1511,7 @@ export namespace DeleteHostedZoneRequest {
 /**
  * <p>A complex type that contains the response to a <code>DeleteHostedZone</code> request.</p>
  */
-export interface DeleteHostedZoneResponse extends $MetadataBearer {
+export interface DeleteHostedZoneResponse {
   __type?: "DeleteHostedZoneResponse";
   /**
    * <p>A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.</p>
@@ -1540,7 +1539,7 @@ export namespace DeleteQueryLoggingConfigRequest {
   }
 }
 
-export interface DeleteQueryLoggingConfigResponse extends $MetadataBearer {
+export interface DeleteQueryLoggingConfigResponse {
   __type?: "DeleteQueryLoggingConfigResponse";
 }
 
@@ -1570,7 +1569,7 @@ export namespace DeleteReusableDelegationSetRequest {
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteReusableDelegationSetResponse extends $MetadataBearer {
+export interface DeleteReusableDelegationSetResponse {
   __type?: "DeleteReusableDelegationSetResponse";
 }
 
@@ -1604,7 +1603,7 @@ export namespace DeleteTrafficPolicyInstanceRequest {
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteTrafficPolicyInstanceResponse extends $MetadataBearer {
+export interface DeleteTrafficPolicyInstanceResponse {
   __type?: "DeleteTrafficPolicyInstanceResponse";
 }
 
@@ -1639,7 +1638,7 @@ export namespace DeleteTrafficPolicyRequest {
 /**
  * <p>An empty element.</p>
  */
-export interface DeleteTrafficPolicyResponse extends $MetadataBearer {
+export interface DeleteTrafficPolicyResponse {
   __type?: "DeleteTrafficPolicyResponse";
 }
 
@@ -1677,8 +1676,7 @@ export namespace DeleteVPCAssociationAuthorizationRequest {
 /**
  * <p>Empty response for the request.</p>
  */
-export interface DeleteVPCAssociationAuthorizationResponse
-  extends $MetadataBearer {
+export interface DeleteVPCAssociationAuthorizationResponse {
   __type?: "DeleteVPCAssociationAuthorizationResponse";
 }
 
@@ -1743,7 +1741,7 @@ export namespace DisassociateVPCFromHostedZoneRequest {
 /**
  * <p>A complex type that contains the response information for the disassociate request.</p>
  */
-export interface DisassociateVPCFromHostedZoneResponse extends $MetadataBearer {
+export interface DisassociateVPCFromHostedZoneResponse {
   __type?: "DisassociateVPCFromHostedZoneResponse";
   /**
    * <p>A complex type that describes the changes made to the specified private hosted zone.</p>
@@ -1878,7 +1876,7 @@ export namespace GetAccountLimitRequest {
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
-export interface GetAccountLimitResponse extends $MetadataBearer {
+export interface GetAccountLimitResponse {
   __type?: "GetAccountLimitResponse";
   /**
    * <p>The current number of entities that you have created of the specified type. For example, if you specified
@@ -1922,7 +1920,7 @@ export namespace GetChangeRequest {
 /**
  * <p>A complex type that contains the <code>ChangeInfo</code> element.</p>
  */
-export interface GetChangeResponse extends $MetadataBearer {
+export interface GetChangeResponse {
   __type?: "GetChangeResponse";
   /**
    * <p>A complex type that contains information about the specified change batch.</p>
@@ -1952,7 +1950,7 @@ export namespace GetCheckerIpRangesRequest {
 /**
  * <p>A complex type that contains the <code>CheckerIpRanges</code> element.</p>
  */
-export interface GetCheckerIpRangesResponse extends $MetadataBearer {
+export interface GetCheckerIpRangesResponse {
   __type?: "GetCheckerIpRangesResponse";
   /**
    * <p>A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health
@@ -2030,7 +2028,7 @@ export namespace GetGeoLocationRequest {
 /**
  * <p>A complex type that contains the response information for the specified geolocation code.</p>
  */
-export interface GetGeoLocationResponse extends $MetadataBearer {
+export interface GetGeoLocationResponse {
   __type?: "GetGeoLocationResponse";
   /**
    * <p>A complex type that contains the codes and full continent, country, and subdivision names for the specified geolocation code.</p>
@@ -2060,7 +2058,7 @@ export namespace GetHealthCheckCountRequest {
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheckCount</code> request.</p>
  */
-export interface GetHealthCheckCountResponse extends $MetadataBearer {
+export interface GetHealthCheckCountResponse {
   __type?: "GetHealthCheckCountResponse";
   /**
    * <p>The number of health checks associated with the current AWS account.</p>
@@ -2099,8 +2097,7 @@ export namespace GetHealthCheckLastFailureReasonRequest {
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheckLastFailureReason</code> request.</p>
  */
-export interface GetHealthCheckLastFailureReasonResponse
-  extends $MetadataBearer {
+export interface GetHealthCheckLastFailureReasonResponse {
   __type?: "GetHealthCheckLastFailureReasonResponse";
   /**
    * <p>A list that contains one <code>Observation</code> element for each Amazon Route 53 health checker that is reporting a last failure reason. </p>
@@ -2135,7 +2132,7 @@ export namespace GetHealthCheckRequest {
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code> request.</p>
  */
-export interface GetHealthCheckResponse extends $MetadataBearer {
+export interface GetHealthCheckResponse {
   __type?: "GetHealthCheckResponse";
   /**
    * <p>A complex type that contains information about one health check that is associated with
@@ -2176,7 +2173,7 @@ export namespace GetHealthCheckStatusRequest {
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code>
  * 			request.</p>
  */
-export interface GetHealthCheckStatusResponse extends $MetadataBearer {
+export interface GetHealthCheckStatusResponse {
   __type?: "GetHealthCheckStatusResponse";
   /**
    * <p>A list that contains one <code>HealthCheckObservation</code> element for each Amazon Route 53 health checker that is reporting a status
@@ -2207,7 +2204,7 @@ export namespace GetHostedZoneCountRequest {
 /**
  * <p>A complex type that contains the response to a <code>GetHostedZoneCount</code> request.</p>
  */
-export interface GetHostedZoneCountResponse extends $MetadataBearer {
+export interface GetHostedZoneCountResponse {
   __type?: "GetHostedZoneCountResponse";
   /**
    * <p>The total number of public and private hosted zones that are associated with the current AWS account.</p>
@@ -2258,7 +2255,7 @@ export namespace GetHostedZoneLimitRequest {
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
-export interface GetHostedZoneLimitResponse extends $MetadataBearer {
+export interface GetHostedZoneLimitResponse {
   __type?: "GetHostedZoneLimitResponse";
   /**
    * <p>The current number of entities that you have created of the specified type. For example, if you specified
@@ -2301,7 +2298,7 @@ export namespace GetHostedZoneRequest {
 /**
  * <p>A complex type that contain the response to a <code>GetHostedZone</code> request.</p>
  */
-export interface GetHostedZoneResponse extends $MetadataBearer {
+export interface GetHostedZoneResponse {
   __type?: "GetHostedZoneResponse";
   /**
    * <p>A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.</p>
@@ -2339,7 +2336,7 @@ export namespace GetQueryLoggingConfigRequest {
   }
 }
 
-export interface GetQueryLoggingConfigResponse extends $MetadataBearer {
+export interface GetQueryLoggingConfigResponse {
   __type?: "GetQueryLoggingConfigResponse";
   /**
    * <p>A complex type that contains information about the query logging configuration that you specified in a
@@ -2380,7 +2377,7 @@ export namespace GetReusableDelegationSetLimitRequest {
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
-export interface GetReusableDelegationSetLimitResponse extends $MetadataBearer {
+export interface GetReusableDelegationSetLimitResponse {
   __type?: "GetReusableDelegationSetLimitResponse";
   /**
    * <p>The current number of hosted zones that you can associate with the specified reusable delegation set.</p>
@@ -2419,7 +2416,7 @@ export namespace GetReusableDelegationSetRequest {
 /**
  * <p>A complex type that contains the response to the <code>GetReusableDelegationSet</code> request.</p>
  */
-export interface GetReusableDelegationSetResponse extends $MetadataBearer {
+export interface GetReusableDelegationSetResponse {
   __type?: "GetReusableDelegationSetResponse";
   /**
    * <p>A complex type that contains information about the reusable delegation set.</p>
@@ -2449,7 +2446,7 @@ export namespace GetTrafficPolicyInstanceCountRequest {
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.</p>
  */
-export interface GetTrafficPolicyInstanceCountResponse extends $MetadataBearer {
+export interface GetTrafficPolicyInstanceCountResponse {
   __type?: "GetTrafficPolicyInstanceCountResponse";
   /**
    * <p>The number of traffic policy instances that are associated with the current AWS account.</p>
@@ -2483,7 +2480,7 @@ export namespace GetTrafficPolicyInstanceRequest {
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.</p>
  */
-export interface GetTrafficPolicyInstanceResponse extends $MetadataBearer {
+export interface GetTrafficPolicyInstanceResponse {
   __type?: "GetTrafficPolicyInstanceResponse";
   /**
    * <p>A complex type that contains settings for the traffic policy instance.</p>
@@ -2522,7 +2519,7 @@ export namespace GetTrafficPolicyRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface GetTrafficPolicyResponse extends $MetadataBearer {
+export interface GetTrafficPolicyResponse {
   __type?: "GetTrafficPolicyResponse";
   /**
    * <p>A complex type that contains settings for the specified traffic policy.</p>
@@ -3512,7 +3509,7 @@ export namespace ListGeoLocationsRequest {
 /**
  * <p>A complex type containing the response information for the request.</p>
  */
-export interface ListGeoLocationsResponse extends $MetadataBearer {
+export interface ListGeoLocationsResponse {
   __type?: "ListGeoLocationsResponse";
   /**
    * <p>A complex type that contains one <code>GeoLocationDetails</code> element for each location that Amazon Route 53 supports for geolocation.</p>
@@ -3587,7 +3584,7 @@ export namespace ListHealthChecksRequest {
 /**
  * <p>A complex type that contains the response to a <code>ListHealthChecks</code> request.</p>
  */
-export interface ListHealthChecksResponse extends $MetadataBearer {
+export interface ListHealthChecksResponse {
   __type?: "ListHealthChecksResponse";
   /**
    * <p>A complex type that contains one <code>HealthCheck</code> element for each health check that is associated with the current
@@ -3668,7 +3665,7 @@ export namespace ListHostedZonesByNameRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListHostedZonesByNameResponse extends $MetadataBearer {
+export interface ListHostedZonesByNameResponse {
   __type?: "ListHostedZonesByNameResponse";
   /**
    * <p>For the second and subsequent calls to <code>ListHostedZonesByName</code>, <code>DNSName</code> is the value that you specified for the
@@ -3756,7 +3753,7 @@ export namespace ListHostedZonesRequest {
   }
 }
 
-export interface ListHostedZonesResponse extends $MetadataBearer {
+export interface ListHostedZonesResponse {
   __type?: "ListHostedZonesResponse";
   /**
    * <p>A complex type that contains general information about the hosted zone.</p>
@@ -3832,7 +3829,7 @@ export namespace ListQueryLoggingConfigsRequest {
   }
 }
 
-export interface ListQueryLoggingConfigsResponse extends $MetadataBearer {
+export interface ListQueryLoggingConfigsResponse {
   __type?: "ListQueryLoggingConfigsResponse";
   /**
    * <p>If a response includes the last of the query logging configurations that are associated with the current AWS account,
@@ -3943,7 +3940,7 @@ export namespace ListResourceRecordSetsRequest {
 /**
  * <p>A complex type that contains list information for the resource record set.</p>
  */
-export interface ListResourceRecordSetsResponse extends $MetadataBearer {
+export interface ListResourceRecordSetsResponse {
   __type?: "ListResourceRecordSetsResponse";
   /**
    * <p>A flag that indicates whether more resource record sets remain to be listed. If your results were truncated, you can make a
@@ -4020,7 +4017,7 @@ export namespace ListReusableDelegationSetsRequest {
 /**
  * <p>A complex type that contains information about the reusable delegation sets that are associated with the current AWS account.</p>
  */
-export interface ListReusableDelegationSetsResponse extends $MetadataBearer {
+export interface ListReusableDelegationSetsResponse {
   __type?: "ListReusableDelegationSetsResponse";
   /**
    * <p>A complex type that contains one <code>DelegationSet</code> element for each reusable delegation set that was created
@@ -4092,7 +4089,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * <p>A complex type that contains information about the health checks or hosted zones for which you want to list tags.</p>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>A <code>ResourceTagSet</code> containing tags associated with the specified resource.</p>
@@ -4139,7 +4136,7 @@ export namespace ListTagsForResourcesRequest {
 /**
  * <p>A complex type containing tags for the specified resources.</p>
  */
-export interface ListTagsForResourcesResponse extends $MetadataBearer {
+export interface ListTagsForResourcesResponse {
   __type?: "ListTagsForResourcesResponse";
   /**
    * <p>A list of <code>ResourceTagSet</code>s containing tags associated with the specified resources.</p>
@@ -4186,7 +4183,7 @@ export namespace ListTrafficPoliciesRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListTrafficPoliciesResponse extends $MetadataBearer {
+export interface ListTrafficPoliciesResponse {
   __type?: "ListTrafficPoliciesResponse";
   /**
    * <p>A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of
@@ -4267,8 +4264,7 @@ export namespace ListTrafficPolicyInstancesByHostedZoneRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListTrafficPolicyInstancesByHostedZoneResponse
-  extends $MetadataBearer {
+export interface ListTrafficPolicyInstancesByHostedZoneResponse {
   __type?: "ListTrafficPolicyInstancesByHostedZoneResponse";
   /**
    * <p>A flag that indicates whether there are more traffic policy instances to be listed. If the response was truncated, you can get the
@@ -4371,8 +4367,7 @@ export namespace ListTrafficPolicyInstancesByPolicyRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListTrafficPolicyInstancesByPolicyResponse
-  extends $MetadataBearer {
+export interface ListTrafficPolicyInstancesByPolicyResponse {
   __type?: "ListTrafficPolicyInstancesByPolicyResponse";
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, <code>HostedZoneIdMarker</code> is the ID of the hosted zone of the first
@@ -4468,7 +4463,7 @@ export namespace ListTrafficPolicyInstancesRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListTrafficPolicyInstancesResponse extends $MetadataBearer {
+export interface ListTrafficPolicyInstancesResponse {
   __type?: "ListTrafficPolicyInstancesResponse";
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, <code>HostedZoneIdMarker</code> is the ID of the hosted zone of the first
@@ -4553,7 +4548,7 @@ export namespace ListTrafficPolicyVersionsRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListTrafficPolicyVersionsResponse extends $MetadataBearer {
+export interface ListTrafficPolicyVersionsResponse {
   __type?: "ListTrafficPolicyVersionsResponse";
   /**
    * <p>A flag that indicates whether there are more traffic policies to be listed. If the response was truncated, you can get the next group of
@@ -4625,8 +4620,7 @@ export namespace ListVPCAssociationAuthorizationsRequest {
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
-export interface ListVPCAssociationAuthorizationsResponse
-  extends $MetadataBearer {
+export interface ListVPCAssociationAuthorizationsResponse {
   __type?: "ListVPCAssociationAuthorizationsResponse";
   /**
    * <p>The ID of the hosted zone that you can associate the listed VPCs with.</p>
@@ -5708,7 +5702,7 @@ export namespace TestDNSAnswerRequest {
 /**
  * <p>A complex type that contains the response to a <code>TestDNSAnswer</code> request. </p>
  */
-export interface TestDNSAnswerResponse extends $MetadataBearer {
+export interface TestDNSAnswerResponse {
   __type?: "TestDNSAnswerResponse";
   /**
    * <p>The Amazon Route 53 name server used to respond to the request.</p>
@@ -6471,7 +6465,7 @@ export namespace UpdateHealthCheckRequest {
 /**
  * <p>A complex type that contains the response to the <code>UpdateHealthCheck</code> request.</p>
  */
-export interface UpdateHealthCheckResponse extends $MetadataBearer {
+export interface UpdateHealthCheckResponse {
   __type?: "UpdateHealthCheckResponse";
   /**
    * <p>A complex type that contains the response to an <code>UpdateHealthCheck</code> request.</p>
@@ -6511,7 +6505,7 @@ export namespace UpdateHostedZoneCommentRequest {
 /**
  * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.</p>
  */
-export interface UpdateHostedZoneCommentResponse extends $MetadataBearer {
+export interface UpdateHostedZoneCommentResponse {
   __type?: "UpdateHostedZoneCommentResponse";
   /**
    * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.</p>
@@ -6555,7 +6549,7 @@ export namespace UpdateTrafficPolicyCommentRequest {
 /**
  * <p>A complex type that contains the response information for the traffic policy.</p>
  */
-export interface UpdateTrafficPolicyCommentResponse extends $MetadataBearer {
+export interface UpdateTrafficPolicyCommentResponse {
   __type?: "UpdateTrafficPolicyCommentResponse";
   /**
    * <p>A complex type that contains settings for the specified traffic policy.</p>
@@ -6605,7 +6599,7 @@ export namespace UpdateTrafficPolicyInstanceRequest {
  * <p>A complex type that contains information about the resource record sets that Amazon Route 53
  * 			created based on a specified traffic policy.</p>
  */
-export interface UpdateTrafficPolicyInstanceResponse extends $MetadataBearer {
+export interface UpdateTrafficPolicyInstanceResponse {
   __type?: "UpdateTrafficPolicyInstanceResponse";
   /**
    * <p>A complex type that contains settings for the updated traffic policy instance.</p>

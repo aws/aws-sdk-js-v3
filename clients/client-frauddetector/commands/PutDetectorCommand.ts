@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutDetectorCommandInput = PutDetectorRequest;
-export type PutDetectorCommandOutput = PutDetectorResult;
+export type PutDetectorCommandOutput = PutDetectorResult & __MetadataBearer;
 
 export class PutDetectorCommand extends $Command<
   PutDetectorCommandInput,

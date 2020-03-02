@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateProductFromPortfolioCommandInput = DisassociateProductFromPortfolioInput;
-export type DisassociateProductFromPortfolioCommandOutput = DisassociateProductFromPortfolioOutput;
+export type DisassociateProductFromPortfolioCommandOutput = DisassociateProductFromPortfolioOutput &
+  __MetadataBearer;
 
 export class DisassociateProductFromPortfolioCommand extends $Command<
   DisassociateProductFromPortfolioCommandInput,

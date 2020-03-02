@@ -207,7 +207,7 @@ export namespace CreateSignalingChannelInput {
   }
 }
 
-export interface CreateSignalingChannelOutput extends $MetadataBearer {
+export interface CreateSignalingChannelOutput {
   __type?: "CreateSignalingChannelOutput";
   /**
    * <p>The ARN of the created channel.</p>
@@ -284,7 +284,7 @@ export namespace CreateStreamInput {
   }
 }
 
-export interface CreateStreamOutput extends $MetadataBearer {
+export interface CreateStreamOutput {
   __type?: "CreateStreamOutput";
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
@@ -319,7 +319,7 @@ export namespace DeleteSignalingChannelInput {
   }
 }
 
-export interface DeleteSignalingChannelOutput extends $MetadataBearer {
+export interface DeleteSignalingChannelOutput {
   __type?: "DeleteSignalingChannelOutput";
 }
 
@@ -352,7 +352,7 @@ export namespace DeleteStreamInput {
   }
 }
 
-export interface DeleteStreamOutput extends $MetadataBearer {
+export interface DeleteStreamOutput {
   __type?: "DeleteStreamOutput";
 }
 
@@ -381,7 +381,7 @@ export namespace DescribeSignalingChannelInput {
   }
 }
 
-export interface DescribeSignalingChannelOutput extends $MetadataBearer {
+export interface DescribeSignalingChannelOutput {
   __type?: "DescribeSignalingChannelOutput";
   /**
    * <p>A structure that encapsulates the specified signaling channel's metadata and
@@ -415,7 +415,7 @@ export namespace DescribeStreamInput {
   }
 }
 
-export interface DescribeStreamOutput extends $MetadataBearer {
+export interface DescribeStreamOutput {
   __type?: "DescribeStreamOutput";
   /**
    * <p>An object that describes the stream.</p>
@@ -474,7 +474,7 @@ export namespace GetDataEndpointInput {
   }
 }
 
-export interface GetDataEndpointOutput extends $MetadataBearer {
+export interface GetDataEndpointOutput {
   __type?: "GetDataEndpointOutput";
   /**
    * <p>The endpoint value. To read data from the stream or to write data to it, specify
@@ -509,7 +509,7 @@ export namespace GetSignalingChannelEndpointInput {
   }
 }
 
-export interface GetSignalingChannelEndpointOutput extends $MetadataBearer {
+export interface GetSignalingChannelEndpointOutput {
   __type?: "GetSignalingChannelEndpointOutput";
   /**
    * <p>A list of endpoints for the specified signaling channel.</p>
@@ -600,7 +600,7 @@ export namespace ListSignalingChannelsInput {
   }
 }
 
-export interface ListSignalingChannelsOutput extends $MetadataBearer {
+export interface ListSignalingChannelsOutput {
   __type?: "ListSignalingChannelsOutput";
   /**
    * <p>An array of <code>ChannelInfo</code> objects.</p>
@@ -648,7 +648,7 @@ export namespace ListStreamsInput {
   }
 }
 
-export interface ListStreamsOutput extends $MetadataBearer {
+export interface ListStreamsOutput {
   __type?: "ListStreamsOutput";
   /**
    * <p>If the response is truncated, the call returns this element with a token. To get
@@ -689,7 +689,7 @@ export namespace ListTagsForResourceInput {
   }
 }
 
-export interface ListTagsForResourceOutput extends $MetadataBearer {
+export interface ListTagsForResourceOutput {
   __type?: "ListTagsForResourceOutput";
   /**
    * <p>If you specify this parameter and the result of a ListTagsForResource call is
@@ -737,7 +737,7 @@ export namespace ListTagsForStreamInput {
   }
 }
 
-export interface ListTagsForStreamOutput extends $MetadataBearer {
+export interface ListTagsForStreamOutput {
   __type?: "ListTagsForStreamOutput";
   /**
    * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
@@ -1017,7 +1017,7 @@ export namespace TagResourceInput {
   }
 }
 
-export interface TagResourceOutput extends $MetadataBearer {
+export interface TagResourceOutput {
   __type?: "TagResourceOutput";
 }
 
@@ -1053,7 +1053,7 @@ export namespace TagStreamInput {
   }
 }
 
-export interface TagStreamOutput extends $MetadataBearer {
+export interface TagStreamOutput {
   __type?: "TagStreamOutput";
 }
 
@@ -1100,7 +1100,7 @@ export namespace UntagResourceInput {
   }
 }
 
-export interface UntagResourceOutput extends $MetadataBearer {
+export interface UntagResourceOutput {
   __type?: "UntagResourceOutput";
 }
 
@@ -1135,7 +1135,7 @@ export namespace UntagStreamInput {
   }
 }
 
-export interface UntagStreamOutput extends $MetadataBearer {
+export interface UntagStreamOutput {
   __type?: "UntagStreamOutput";
 }
 
@@ -1188,7 +1188,7 @@ export enum UpdateDataRetentionOperation {
   INCREASE_DATA_RETENTION = "INCREASE_DATA_RETENTION"
 }
 
-export interface UpdateDataRetentionOutput extends $MetadataBearer {
+export interface UpdateDataRetentionOutput {
   __type?: "UpdateDataRetentionOutput";
 }
 
@@ -1223,7 +1223,7 @@ export namespace UpdateSignalingChannelInput {
   }
 }
 
-export interface UpdateSignalingChannelOutput extends $MetadataBearer {
+export interface UpdateSignalingChannelOutput {
   __type?: "UpdateSignalingChannelOutput";
 }
 
@@ -1280,7 +1280,7 @@ export namespace UpdateStreamInput {
   }
 }
 
-export interface UpdateStreamOutput extends $MetadataBearer {
+export interface UpdateStreamOutput {
   __type?: "UpdateStreamOutput";
 }
 

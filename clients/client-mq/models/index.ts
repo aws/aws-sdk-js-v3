@@ -456,7 +456,7 @@ export namespace CreateBrokerRequest {
   }
 }
 
-export interface CreateBrokerResponse extends $MetadataBearer {
+export interface CreateBrokerResponse {
   __type?: "CreateBrokerResponse";
   /**
    * The Amazon Resource Name (ARN) of the broker.
@@ -507,7 +507,7 @@ export namespace CreateConfigurationRequest {
   }
 }
 
-export interface CreateConfigurationResponse extends $MetadataBearer {
+export interface CreateConfigurationResponse {
   __type?: "CreateConfigurationResponse";
   /**
    * Required. The Amazon Resource Name (ARN) of the configuration.
@@ -600,7 +600,7 @@ export namespace CreateUserRequest {
   }
 }
 
-export interface CreateUserResponse extends $MetadataBearer {
+export interface CreateUserResponse {
   __type?: "CreateUserResponse";
 }
 
@@ -634,7 +634,7 @@ export namespace DeleteBrokerRequest {
   }
 }
 
-export interface DeleteBrokerResponse extends $MetadataBearer {
+export interface DeleteBrokerResponse {
   __type?: "DeleteBrokerResponse";
   /**
    * The unique ID that Amazon MQ generates for the broker.
@@ -686,7 +686,7 @@ export namespace DeleteUserRequest {
   }
 }
 
-export interface DeleteUserResponse extends $MetadataBearer {
+export interface DeleteUserResponse {
   __type?: "DeleteUserResponse";
 }
 
@@ -725,7 +725,7 @@ export namespace DescribeBrokerEngineTypesRequest {
   }
 }
 
-export interface DescribeBrokerEngineTypesResponse extends $MetadataBearer {
+export interface DescribeBrokerEngineTypesResponse {
   __type?: "DescribeBrokerEngineTypesResponse";
   /**
    * List of available engine types and versions.
@@ -783,7 +783,7 @@ export namespace DescribeBrokerInstanceOptionsRequest {
   }
 }
 
-export interface DescribeBrokerInstanceOptionsResponse extends $MetadataBearer {
+export interface DescribeBrokerInstanceOptionsResponse {
   __type?: "DescribeBrokerInstanceOptionsResponse";
   /**
    * List of available broker instance options.
@@ -821,7 +821,7 @@ export namespace DescribeBrokerRequest {
   }
 }
 
-export interface DescribeBrokerResponse extends $MetadataBearer {
+export interface DescribeBrokerResponse {
   __type?: "DescribeBrokerResponse";
   /**
    * Required. Enables automatic upgrades to new minor versions for brokers, as Apache releases the versions. The automatic upgrades occur during the maintenance window of the broker or after a manual broker reboot.
@@ -964,7 +964,7 @@ export namespace DescribeConfigurationRequest {
   }
 }
 
-export interface DescribeConfigurationResponse extends $MetadataBearer {
+export interface DescribeConfigurationResponse {
   __type?: "DescribeConfigurationResponse";
   /**
    * Required. The ARN of the configuration.
@@ -1037,7 +1037,7 @@ export namespace DescribeConfigurationRevisionRequest {
   }
 }
 
-export interface DescribeConfigurationRevisionResponse extends $MetadataBearer {
+export interface DescribeConfigurationRevisionResponse {
   __type?: "DescribeConfigurationRevisionResponse";
   /**
    * Required. The unique ID that Amazon MQ generates for the configuration.
@@ -1085,7 +1085,7 @@ export namespace DescribeUserRequest {
   }
 }
 
-export interface DescribeUserResponse extends $MetadataBearer {
+export interface DescribeUserResponse {
   __type?: "DescribeUserResponse";
   /**
    * Required. The unique ID that Amazon MQ generates for the broker.
@@ -1229,7 +1229,7 @@ export namespace ListBrokersRequest {
   }
 }
 
-export interface ListBrokersResponse extends $MetadataBearer {
+export interface ListBrokersResponse {
   __type?: "ListBrokersResponse";
   /**
    * A list of information about all brokers.
@@ -1272,7 +1272,7 @@ export namespace ListConfigurationRevisionsRequest {
   }
 }
 
-export interface ListConfigurationRevisionsResponse extends $MetadataBearer {
+export interface ListConfigurationRevisionsResponse {
   __type?: "ListConfigurationRevisionsResponse";
   /**
    * The unique ID that Amazon MQ generates for the configuration.
@@ -1320,7 +1320,7 @@ export namespace ListConfigurationsRequest {
   }
 }
 
-export interface ListConfigurationsResponse extends $MetadataBearer {
+export interface ListConfigurationsResponse {
   __type?: "ListConfigurationsResponse";
   /**
    * The list of all revisions for the specified configuration.
@@ -1358,7 +1358,7 @@ export namespace ListTagsRequest {
   }
 }
 
-export interface ListTagsResponse extends $MetadataBearer {
+export interface ListTagsResponse {
   __type?: "ListTagsResponse";
   /**
    * The key-value pair for the resource tag.
@@ -1396,7 +1396,7 @@ export namespace ListUsersRequest {
   }
 }
 
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * Required. The unique ID that Amazon MQ generates for the broker.
@@ -1543,7 +1543,7 @@ export namespace RebootBrokerRequest {
   }
 }
 
-export interface RebootBrokerResponse extends $MetadataBearer {
+export interface RebootBrokerResponse {
   __type?: "RebootBrokerResponse";
 }
 
@@ -1658,7 +1658,7 @@ export namespace UpdateBrokerRequest {
   }
 }
 
-export interface UpdateBrokerResponse extends $MetadataBearer {
+export interface UpdateBrokerResponse {
   __type?: "UpdateBrokerResponse";
   /**
    * The new value of automatic upgrades to new minor version for brokers.
@@ -1729,7 +1729,7 @@ export namespace UpdateConfigurationRequest {
   }
 }
 
-export interface UpdateConfigurationResponse extends $MetadataBearer {
+export interface UpdateConfigurationResponse {
   __type?: "UpdateConfigurationResponse";
   /**
    * Required. The Amazon Resource Name (ARN) of the configuration.
@@ -1805,7 +1805,7 @@ export namespace UpdateUserRequest {
   }
 }
 
-export interface UpdateUserResponse extends $MetadataBearer {
+export interface UpdateUserResponse {
   __type?: "UpdateUserResponse";
 }
 

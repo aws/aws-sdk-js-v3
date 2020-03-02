@@ -1,15 +1,23 @@
 import {
-  DeleteHumanLoopRequest,
-  DeleteHumanLoopResponse,
-  DescribeHumanLoopRequest,
-  DescribeHumanLoopResponse,
-  ListHumanLoopsRequest,
-  ListHumanLoopsResponse,
-  StartHumanLoopRequest,
-  StartHumanLoopResponse,
-  StopHumanLoopRequest,
-  StopHumanLoopResponse
-} from "./models/index";
+  DeleteHumanLoopCommandInput,
+  DeleteHumanLoopCommandOutput
+} from "./commands/DeleteHumanLoopCommand";
+import {
+  DescribeHumanLoopCommandInput,
+  DescribeHumanLoopCommandOutput
+} from "./commands/DescribeHumanLoopCommand";
+import {
+  ListHumanLoopsCommandInput,
+  ListHumanLoopsCommandOutput
+} from "./commands/ListHumanLoopsCommand";
+import {
+  StartHumanLoopCommandInput,
+  StartHumanLoopCommandOutput
+} from "./commands/StartHumanLoopCommand";
+import {
+  StopHumanLoopCommandInput,
+  StopHumanLoopCommandOutput
+} from "./commands/StopHumanLoopCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -63,18 +71,18 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteHumanLoopRequest
-  | DescribeHumanLoopRequest
-  | ListHumanLoopsRequest
-  | StartHumanLoopRequest
-  | StopHumanLoopRequest;
+  | DeleteHumanLoopCommandInput
+  | DescribeHumanLoopCommandInput
+  | ListHumanLoopsCommandInput
+  | StartHumanLoopCommandInput
+  | StopHumanLoopCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteHumanLoopResponse
-  | DescribeHumanLoopResponse
-  | ListHumanLoopsResponse
-  | StartHumanLoopResponse
-  | StopHumanLoopResponse;
+  | DeleteHumanLoopCommandOutput
+  | DescribeHumanLoopCommandOutput
+  | ListHumanLoopsCommandOutput
+  | StartHumanLoopCommandOutput
+  | StopHumanLoopCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendUsersMessagesCommandInput = SendUsersMessagesRequest;
-export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse;
+export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse &
+  __MetadataBearer;
 
 export class SendUsersMessagesCommand extends $Command<
   SendUsersMessagesCommandInput,

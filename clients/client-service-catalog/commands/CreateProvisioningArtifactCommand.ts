@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateProvisioningArtifactCommandInput = CreateProvisioningArtifactInput;
-export type CreateProvisioningArtifactCommandOutput = CreateProvisioningArtifactOutput;
+export type CreateProvisioningArtifactCommandOutput = CreateProvisioningArtifactOutput &
+  __MetadataBearer;
 
 export class CreateProvisioningArtifactCommand extends $Command<
   CreateProvisioningArtifactCommandInput,

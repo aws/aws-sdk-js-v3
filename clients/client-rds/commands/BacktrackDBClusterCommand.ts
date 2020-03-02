@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BacktrackDBClusterCommandInput = BacktrackDBClusterMessage;
-export type BacktrackDBClusterCommandOutput = DBClusterBacktrack;
+export type BacktrackDBClusterCommandOutput = DBClusterBacktrack &
+  __MetadataBearer;
 
 export class BacktrackDBClusterCommand extends $Command<
   BacktrackDBClusterCommandInput,

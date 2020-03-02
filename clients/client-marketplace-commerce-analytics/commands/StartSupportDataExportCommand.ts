@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartSupportDataExportCommandInput = StartSupportDataExportRequest;
-export type StartSupportDataExportCommandOutput = StartSupportDataExportResult;
+export type StartSupportDataExportCommandOutput = StartSupportDataExportResult &
+  __MetadataBearer;
 
 export class StartSupportDataExportCommand extends $Command<
   StartSupportDataExportCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartMLLabelingSetGenerationTaskRunCommandInput = StartMLLabelingSetGenerationTaskRunRequest;
-export type StartMLLabelingSetGenerationTaskRunCommandOutput = StartMLLabelingSetGenerationTaskRunResponse;
+export type StartMLLabelingSetGenerationTaskRunCommandOutput = StartMLLabelingSetGenerationTaskRunResponse &
+  __MetadataBearer;
 
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
   StartMLLabelingSetGenerationTaskRunCommandInput,

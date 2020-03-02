@@ -1,33 +1,59 @@
 import {
-  AddAttachmentsToSetRequest,
-  AddAttachmentsToSetResponse,
-  AddCommunicationToCaseRequest,
-  AddCommunicationToCaseResponse,
-  CreateCaseRequest,
-  CreateCaseResponse,
-  DescribeAttachmentRequest,
-  DescribeAttachmentResponse,
-  DescribeCasesRequest,
-  DescribeCasesResponse,
-  DescribeCommunicationsRequest,
-  DescribeCommunicationsResponse,
-  DescribeServicesRequest,
-  DescribeServicesResponse,
-  DescribeSeverityLevelsRequest,
-  DescribeSeverityLevelsResponse,
-  DescribeTrustedAdvisorCheckRefreshStatusesRequest,
-  DescribeTrustedAdvisorCheckRefreshStatusesResponse,
-  DescribeTrustedAdvisorCheckResultRequest,
-  DescribeTrustedAdvisorCheckResultResponse,
-  DescribeTrustedAdvisorCheckSummariesRequest,
-  DescribeTrustedAdvisorCheckSummariesResponse,
-  DescribeTrustedAdvisorChecksRequest,
-  DescribeTrustedAdvisorChecksResponse,
-  RefreshTrustedAdvisorCheckRequest,
-  RefreshTrustedAdvisorCheckResponse,
-  ResolveCaseRequest,
-  ResolveCaseResponse
-} from "./models/index";
+  AddAttachmentsToSetCommandInput,
+  AddAttachmentsToSetCommandOutput
+} from "./commands/AddAttachmentsToSetCommand";
+import {
+  AddCommunicationToCaseCommandInput,
+  AddCommunicationToCaseCommandOutput
+} from "./commands/AddCommunicationToCaseCommand";
+import {
+  CreateCaseCommandInput,
+  CreateCaseCommandOutput
+} from "./commands/CreateCaseCommand";
+import {
+  DescribeAttachmentCommandInput,
+  DescribeAttachmentCommandOutput
+} from "./commands/DescribeAttachmentCommand";
+import {
+  DescribeCasesCommandInput,
+  DescribeCasesCommandOutput
+} from "./commands/DescribeCasesCommand";
+import {
+  DescribeCommunicationsCommandInput,
+  DescribeCommunicationsCommandOutput
+} from "./commands/DescribeCommunicationsCommand";
+import {
+  DescribeServicesCommandInput,
+  DescribeServicesCommandOutput
+} from "./commands/DescribeServicesCommand";
+import {
+  DescribeSeverityLevelsCommandInput,
+  DescribeSeverityLevelsCommandOutput
+} from "./commands/DescribeSeverityLevelsCommand";
+import {
+  DescribeTrustedAdvisorCheckRefreshStatusesCommandInput,
+  DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
+} from "./commands/DescribeTrustedAdvisorCheckRefreshStatusesCommand";
+import {
+  DescribeTrustedAdvisorCheckResultCommandInput,
+  DescribeTrustedAdvisorCheckResultCommandOutput
+} from "./commands/DescribeTrustedAdvisorCheckResultCommand";
+import {
+  DescribeTrustedAdvisorCheckSummariesCommandInput,
+  DescribeTrustedAdvisorCheckSummariesCommandOutput
+} from "./commands/DescribeTrustedAdvisorCheckSummariesCommand";
+import {
+  DescribeTrustedAdvisorChecksCommandInput,
+  DescribeTrustedAdvisorChecksCommandOutput
+} from "./commands/DescribeTrustedAdvisorChecksCommand";
+import {
+  RefreshTrustedAdvisorCheckCommandInput,
+  RefreshTrustedAdvisorCheckCommandOutput
+} from "./commands/RefreshTrustedAdvisorCheckCommand";
+import {
+  ResolveCaseCommandInput,
+  ResolveCaseCommandOutput
+} from "./commands/ResolveCaseCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,36 +107,36 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddAttachmentsToSetRequest
-  | AddCommunicationToCaseRequest
-  | CreateCaseRequest
-  | DescribeAttachmentRequest
-  | DescribeCasesRequest
-  | DescribeCommunicationsRequest
-  | DescribeServicesRequest
-  | DescribeSeverityLevelsRequest
-  | DescribeTrustedAdvisorCheckRefreshStatusesRequest
-  | DescribeTrustedAdvisorCheckResultRequest
-  | DescribeTrustedAdvisorCheckSummariesRequest
-  | DescribeTrustedAdvisorChecksRequest
-  | RefreshTrustedAdvisorCheckRequest
-  | ResolveCaseRequest;
+  | AddAttachmentsToSetCommandInput
+  | AddCommunicationToCaseCommandInput
+  | CreateCaseCommandInput
+  | DescribeAttachmentCommandInput
+  | DescribeCasesCommandInput
+  | DescribeCommunicationsCommandInput
+  | DescribeServicesCommandInput
+  | DescribeSeverityLevelsCommandInput
+  | DescribeTrustedAdvisorCheckRefreshStatusesCommandInput
+  | DescribeTrustedAdvisorCheckResultCommandInput
+  | DescribeTrustedAdvisorCheckSummariesCommandInput
+  | DescribeTrustedAdvisorChecksCommandInput
+  | RefreshTrustedAdvisorCheckCommandInput
+  | ResolveCaseCommandInput;
 
 export type ServiceOutputTypes =
-  | AddAttachmentsToSetResponse
-  | AddCommunicationToCaseResponse
-  | CreateCaseResponse
-  | DescribeAttachmentResponse
-  | DescribeCasesResponse
-  | DescribeCommunicationsResponse
-  | DescribeServicesResponse
-  | DescribeSeverityLevelsResponse
-  | DescribeTrustedAdvisorCheckRefreshStatusesResponse
-  | DescribeTrustedAdvisorCheckResultResponse
-  | DescribeTrustedAdvisorCheckSummariesResponse
-  | DescribeTrustedAdvisorChecksResponse
-  | RefreshTrustedAdvisorCheckResponse
-  | ResolveCaseResponse;
+  | AddAttachmentsToSetCommandOutput
+  | AddCommunicationToCaseCommandOutput
+  | CreateCaseCommandOutput
+  | DescribeAttachmentCommandOutput
+  | DescribeCasesCommandOutput
+  | DescribeCommunicationsCommandOutput
+  | DescribeServicesCommandOutput
+  | DescribeSeverityLevelsCommandOutput
+  | DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput
+  | DescribeTrustedAdvisorCheckResultCommandOutput
+  | DescribeTrustedAdvisorCheckSummariesCommandOutput
+  | DescribeTrustedAdvisorChecksCommandOutput
+  | RefreshTrustedAdvisorCheckCommandOutput
+  | ResolveCaseCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

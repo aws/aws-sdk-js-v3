@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTrialComponentCommandInput = DeleteTrialComponentRequest;
-export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse;
+export type DeleteTrialComponentCommandOutput = DeleteTrialComponentResponse &
+  __MetadataBearer;
 
 export class DeleteTrialComponentCommand extends $Command<
   DeleteTrialComponentCommandInput,

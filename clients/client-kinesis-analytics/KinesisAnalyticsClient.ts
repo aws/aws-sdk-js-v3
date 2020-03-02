@@ -1,45 +1,83 @@
 import {
-  AddApplicationCloudWatchLoggingOptionRequest,
-  AddApplicationCloudWatchLoggingOptionResponse,
-  AddApplicationInputProcessingConfigurationRequest,
-  AddApplicationInputProcessingConfigurationResponse,
-  AddApplicationInputRequest,
-  AddApplicationInputResponse,
-  AddApplicationOutputRequest,
-  AddApplicationOutputResponse,
-  AddApplicationReferenceDataSourceRequest,
-  AddApplicationReferenceDataSourceResponse,
-  CreateApplicationRequest,
-  CreateApplicationResponse,
-  DeleteApplicationCloudWatchLoggingOptionRequest,
-  DeleteApplicationCloudWatchLoggingOptionResponse,
-  DeleteApplicationInputProcessingConfigurationRequest,
-  DeleteApplicationInputProcessingConfigurationResponse,
-  DeleteApplicationOutputRequest,
-  DeleteApplicationOutputResponse,
-  DeleteApplicationReferenceDataSourceRequest,
-  DeleteApplicationReferenceDataSourceResponse,
-  DeleteApplicationRequest,
-  DeleteApplicationResponse,
-  DescribeApplicationRequest,
-  DescribeApplicationResponse,
-  DiscoverInputSchemaRequest,
-  DiscoverInputSchemaResponse,
-  ListApplicationsRequest,
-  ListApplicationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  StartApplicationRequest,
-  StartApplicationResponse,
-  StopApplicationRequest,
-  StopApplicationResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateApplicationRequest,
-  UpdateApplicationResponse
-} from "./models/index";
+  AddApplicationCloudWatchLoggingOptionCommandInput,
+  AddApplicationCloudWatchLoggingOptionCommandOutput
+} from "./commands/AddApplicationCloudWatchLoggingOptionCommand";
+import {
+  AddApplicationInputCommandInput,
+  AddApplicationInputCommandOutput
+} from "./commands/AddApplicationInputCommand";
+import {
+  AddApplicationInputProcessingConfigurationCommandInput,
+  AddApplicationInputProcessingConfigurationCommandOutput
+} from "./commands/AddApplicationInputProcessingConfigurationCommand";
+import {
+  AddApplicationOutputCommandInput,
+  AddApplicationOutputCommandOutput
+} from "./commands/AddApplicationOutputCommand";
+import {
+  AddApplicationReferenceDataSourceCommandInput,
+  AddApplicationReferenceDataSourceCommandOutput
+} from "./commands/AddApplicationReferenceDataSourceCommand";
+import {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  DeleteApplicationCloudWatchLoggingOptionCommandInput,
+  DeleteApplicationCloudWatchLoggingOptionCommandOutput
+} from "./commands/DeleteApplicationCloudWatchLoggingOptionCommand";
+import {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput
+} from "./commands/DeleteApplicationCommand";
+import {
+  DeleteApplicationInputProcessingConfigurationCommandInput,
+  DeleteApplicationInputProcessingConfigurationCommandOutput
+} from "./commands/DeleteApplicationInputProcessingConfigurationCommand";
+import {
+  DeleteApplicationOutputCommandInput,
+  DeleteApplicationOutputCommandOutput
+} from "./commands/DeleteApplicationOutputCommand";
+import {
+  DeleteApplicationReferenceDataSourceCommandInput,
+  DeleteApplicationReferenceDataSourceCommandOutput
+} from "./commands/DeleteApplicationReferenceDataSourceCommand";
+import {
+  DescribeApplicationCommandInput,
+  DescribeApplicationCommandOutput
+} from "./commands/DescribeApplicationCommand";
+import {
+  DiscoverInputSchemaCommandInput,
+  DiscoverInputSchemaCommandOutput
+} from "./commands/DiscoverInputSchemaCommand";
+import {
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput
+} from "./commands/ListApplicationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  StartApplicationCommandInput,
+  StartApplicationCommandOutput
+} from "./commands/StartApplicationCommand";
+import {
+  StopApplicationCommandInput,
+  StopApplicationCommandOutput
+} from "./commands/StopApplicationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -93,48 +131,48 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddApplicationCloudWatchLoggingOptionRequest
-  | AddApplicationInputProcessingConfigurationRequest
-  | AddApplicationInputRequest
-  | AddApplicationOutputRequest
-  | AddApplicationReferenceDataSourceRequest
-  | CreateApplicationRequest
-  | DeleteApplicationCloudWatchLoggingOptionRequest
-  | DeleteApplicationInputProcessingConfigurationRequest
-  | DeleteApplicationOutputRequest
-  | DeleteApplicationReferenceDataSourceRequest
-  | DeleteApplicationRequest
-  | DescribeApplicationRequest
-  | DiscoverInputSchemaRequest
-  | ListApplicationsRequest
-  | ListTagsForResourceRequest
-  | StartApplicationRequest
-  | StopApplicationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateApplicationRequest;
+  | AddApplicationCloudWatchLoggingOptionCommandInput
+  | AddApplicationInputCommandInput
+  | AddApplicationInputProcessingConfigurationCommandInput
+  | AddApplicationOutputCommandInput
+  | AddApplicationReferenceDataSourceCommandInput
+  | CreateApplicationCommandInput
+  | DeleteApplicationCloudWatchLoggingOptionCommandInput
+  | DeleteApplicationCommandInput
+  | DeleteApplicationInputProcessingConfigurationCommandInput
+  | DeleteApplicationOutputCommandInput
+  | DeleteApplicationReferenceDataSourceCommandInput
+  | DescribeApplicationCommandInput
+  | DiscoverInputSchemaCommandInput
+  | ListApplicationsCommandInput
+  | ListTagsForResourceCommandInput
+  | StartApplicationCommandInput
+  | StopApplicationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateApplicationCommandInput;
 
 export type ServiceOutputTypes =
-  | AddApplicationCloudWatchLoggingOptionResponse
-  | AddApplicationInputProcessingConfigurationResponse
-  | AddApplicationInputResponse
-  | AddApplicationOutputResponse
-  | AddApplicationReferenceDataSourceResponse
-  | CreateApplicationResponse
-  | DeleteApplicationCloudWatchLoggingOptionResponse
-  | DeleteApplicationInputProcessingConfigurationResponse
-  | DeleteApplicationOutputResponse
-  | DeleteApplicationReferenceDataSourceResponse
-  | DeleteApplicationResponse
-  | DescribeApplicationResponse
-  | DiscoverInputSchemaResponse
-  | ListApplicationsResponse
-  | ListTagsForResourceResponse
-  | StartApplicationResponse
-  | StopApplicationResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateApplicationResponse;
+  | AddApplicationCloudWatchLoggingOptionCommandOutput
+  | AddApplicationInputCommandOutput
+  | AddApplicationInputProcessingConfigurationCommandOutput
+  | AddApplicationOutputCommandOutput
+  | AddApplicationReferenceDataSourceCommandOutput
+  | CreateApplicationCommandOutput
+  | DeleteApplicationCloudWatchLoggingOptionCommandOutput
+  | DeleteApplicationCommandOutput
+  | DeleteApplicationInputProcessingConfigurationCommandOutput
+  | DeleteApplicationOutputCommandOutput
+  | DeleteApplicationReferenceDataSourceCommandOutput
+  | DescribeApplicationCommandOutput
+  | DiscoverInputSchemaCommandOutput
+  | ListApplicationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | StartApplicationCommandOutput
+  | StopApplicationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

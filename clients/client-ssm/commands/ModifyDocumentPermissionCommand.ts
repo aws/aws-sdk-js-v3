@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDocumentPermissionCommandInput = ModifyDocumentPermissionRequest;
-export type ModifyDocumentPermissionCommandOutput = ModifyDocumentPermissionResponse;
+export type ModifyDocumentPermissionCommandOutput = ModifyDocumentPermissionResponse &
+  __MetadataBearer;
 
 export class ModifyDocumentPermissionCommand extends $Command<
   ModifyDocumentPermissionCommandInput,

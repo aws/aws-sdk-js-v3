@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAuthorizerCommandInput = UpdateAuthorizerRequest;
-export type UpdateAuthorizerCommandOutput = Authorizer;
+export type UpdateAuthorizerCommandOutput = Authorizer & __MetadataBearer;
 
 export class UpdateAuthorizerCommand extends $Command<
   UpdateAuthorizerCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutSecretValueCommandInput = PutSecretValueRequest;
-export type PutSecretValueCommandOutput = PutSecretValueResponse;
+export type PutSecretValueCommandOutput = PutSecretValueResponse &
+  __MetadataBearer;
 
 export class PutSecretValueCommand extends $Command<
   PutSecretValueCommandInput,

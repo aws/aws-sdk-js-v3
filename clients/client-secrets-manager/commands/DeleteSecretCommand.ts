@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSecretCommandInput = DeleteSecretRequest;
-export type DeleteSecretCommandOutput = DeleteSecretResponse;
+export type DeleteSecretCommandOutput = DeleteSecretResponse & __MetadataBearer;
 
 export class DeleteSecretCommand extends $Command<
   DeleteSecretCommandInput,

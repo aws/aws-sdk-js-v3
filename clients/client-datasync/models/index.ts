@@ -60,7 +60,7 @@ export namespace CancelTaskExecutionRequest {
   }
 }
 
-export interface CancelTaskExecutionResponse extends $MetadataBearer {
+export interface CancelTaskExecutionResponse {
   __type?: "CancelTaskExecutionResponse";
 }
 
@@ -141,7 +141,7 @@ export namespace CreateAgentRequest {
 /**
  * <p>CreateAgentResponse</p>
  */
-export interface CreateAgentResponse extends $MetadataBearer {
+export interface CreateAgentResponse {
   __type?: "CreateAgentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the agent. Use the <code>ListAgents</code> operation
@@ -223,7 +223,7 @@ export namespace CreateLocationEfsRequest {
 /**
  * <p>CreateLocationEfs</p>
  */
-export interface CreateLocationEfsResponse extends $MetadataBearer {
+export interface CreateLocationEfsResponse {
   __type?: "CreateLocationEfsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EFS file system location that is
@@ -302,7 +302,7 @@ export namespace CreateLocationNfsRequest {
 /**
  * <p>CreateLocationNfsResponse</p>
  */
-export interface CreateLocationNfsResponse extends $MetadataBearer {
+export interface CreateLocationNfsResponse {
   __type?: "CreateLocationNfsResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the source NFS file system location that is
@@ -366,7 +366,7 @@ export namespace CreateLocationS3Request {
 /**
  * <p>CreateLocationS3Response</p>
  */
-export interface CreateLocationS3Response extends $MetadataBearer {
+export interface CreateLocationS3Response {
   __type?: "CreateLocationS3Response";
   /**
    * <p>The Amazon Resource Name (ARN) of the source Amazon S3 bucket location that is
@@ -461,7 +461,7 @@ export namespace CreateLocationSmbRequest {
 /**
  * <p>CreateLocationSmbResponse</p>
  */
-export interface CreateLocationSmbResponse extends $MetadataBearer {
+export interface CreateLocationSmbResponse {
   __type?: "CreateLocationSmbResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
@@ -555,7 +555,7 @@ export namespace CreateTaskRequest {
 /**
  * <p>CreateTaskResponse</p>
  */
-export interface CreateTaskResponse extends $MetadataBearer {
+export interface CreateTaskResponse {
   __type?: "CreateTaskResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the task.</p>
@@ -587,7 +587,7 @@ export namespace DeleteAgentRequest {
   }
 }
 
-export interface DeleteAgentResponse extends $MetadataBearer {
+export interface DeleteAgentResponse {
   __type?: "DeleteAgentResponse";
 }
 
@@ -614,7 +614,7 @@ export namespace DeleteLocationRequest {
   }
 }
 
-export interface DeleteLocationResponse extends $MetadataBearer {
+export interface DeleteLocationResponse {
   __type?: "DeleteLocationResponse";
 }
 
@@ -641,7 +641,7 @@ export namespace DeleteTaskRequest {
   }
 }
 
-export interface DeleteTaskResponse extends $MetadataBearer {
+export interface DeleteTaskResponse {
   __type?: "DeleteTaskResponse";
 }
 
@@ -671,7 +671,7 @@ export namespace DescribeAgentRequest {
 /**
  * <p>DescribeAgentResponse</p>
  */
-export interface DescribeAgentResponse extends $MetadataBearer {
+export interface DescribeAgentResponse {
   __type?: "DescribeAgentResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the agent.</p>
@@ -740,7 +740,7 @@ export namespace DescribeLocationEfsRequest {
 /**
  * <p>DescribeLocationEfsResponse</p>
  */
-export interface DescribeLocationEfsResponse extends $MetadataBearer {
+export interface DescribeLocationEfsResponse {
   __type?: "DescribeLocationEfsResponse";
   /**
    * <p>The time that the EFS location was created.</p>
@@ -792,7 +792,7 @@ export namespace DescribeLocationNfsRequest {
 /**
  * <p>DescribeLocationNfsResponse</p>
  */
-export interface DescribeLocationNfsResponse extends $MetadataBearer {
+export interface DescribeLocationNfsResponse {
   __type?: "DescribeLocationNfsResponse";
   /**
    * <p>The time that the NFS location was created.</p>
@@ -847,7 +847,7 @@ export namespace DescribeLocationS3Request {
 /**
  * <p>DescribeLocationS3Response</p>
  */
-export interface DescribeLocationS3Response extends $MetadataBearer {
+export interface DescribeLocationS3Response {
   __type?: "DescribeLocationS3Response";
   /**
    * <p>The time that the Amazon S3 bucket location was created.</p>
@@ -908,7 +908,7 @@ export namespace DescribeLocationSmbRequest {
 /**
  * <p>DescribeLocationSmbResponse</p>
  */
-export interface DescribeLocationSmbResponse extends $MetadataBearer {
+export interface DescribeLocationSmbResponse {
   __type?: "DescribeLocationSmbResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
@@ -974,7 +974,7 @@ export namespace DescribeTaskExecutionRequest {
 /**
  * <p>DescribeTaskExecutionResponse</p>
  */
-export interface DescribeTaskExecutionResponse extends $MetadataBearer {
+export interface DescribeTaskExecutionResponse {
   __type?: "DescribeTaskExecutionResponse";
   /**
    * <p>The physical number of bytes transferred over the network.</p>
@@ -1102,7 +1102,7 @@ export namespace DescribeTaskRequest {
 /**
  * <p>DescribeTaskResponse</p>
  */
-export interface DescribeTaskResponse extends $MetadataBearer {
+export interface DescribeTaskResponse {
   __type?: "DescribeTaskResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that was used to
@@ -1343,7 +1343,7 @@ export namespace ListAgentsRequest {
 /**
  * <p>ListAgentsResponse</p>
  */
-export interface ListAgentsResponse extends $MetadataBearer {
+export interface ListAgentsResponse {
   __type?: "ListAgentsResponse";
   /**
    * <p>A list of agents in your account.</p>
@@ -1389,7 +1389,7 @@ export namespace ListLocationsRequest {
 /**
  * <p>ListLocationsResponse</p>
  */
-export interface ListLocationsResponse extends $MetadataBearer {
+export interface ListLocationsResponse {
   __type?: "ListLocationsResponse";
   /**
    * <p>An array that contains a list of locations.</p>
@@ -1440,7 +1440,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * <p>ListTagsForResourceResponse</p>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
@@ -1491,7 +1491,7 @@ export namespace ListTaskExecutionsRequest {
 /**
  * <p>ListTaskExecutionsResponse</p>
  */
-export interface ListTaskExecutionsResponse extends $MetadataBearer {
+export interface ListTaskExecutionsResponse {
   __type?: "ListTaskExecutionsResponse";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
@@ -1537,7 +1537,7 @@ export namespace ListTasksRequest {
 /**
  * <p>ListTasksResponse</p>
  */
-export interface ListTasksResponse extends $MetadataBearer {
+export interface ListTasksResponse {
   __type?: "ListTasksResponse";
   /**
    * <p>An opaque string that indicates the position at which to begin returning the next list
@@ -1976,7 +1976,7 @@ export namespace StartTaskExecutionRequest {
 /**
  * <p>StartTaskExecutionResponse</p>
  */
-export interface StartTaskExecutionResponse extends $MetadataBearer {
+export interface StartTaskExecutionResponse {
   __type?: "StartTaskExecutionResponse";
   /**
    * <p>The Amazon Resource Name (ARN) of the specific task execution that was
@@ -2037,7 +2037,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -2236,7 +2236,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -2268,7 +2268,7 @@ export namespace UpdateAgentRequest {
   }
 }
 
-export interface UpdateAgentResponse extends $MetadataBearer {
+export interface UpdateAgentResponse {
   __type?: "UpdateAgentResponse";
 }
 
@@ -2335,7 +2335,7 @@ export namespace UpdateTaskRequest {
   }
 }
 
-export interface UpdateTaskResponse extends $MetadataBearer {
+export interface UpdateTaskResponse {
   __type?: "UpdateTaskResponse";
 }
 

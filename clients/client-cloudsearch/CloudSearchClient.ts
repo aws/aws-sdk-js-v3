@@ -1,56 +1,107 @@
 import {
-  BuildSuggestersRequest,
-  BuildSuggestersResponse,
-  CreateDomainRequest,
-  CreateDomainResponse,
-  DefineAnalysisSchemeRequest,
-  DefineAnalysisSchemeResponse,
-  DefineExpressionRequest,
-  DefineExpressionResponse,
-  DefineIndexFieldRequest,
-  DefineIndexFieldResponse,
-  DefineSuggesterRequest,
-  DefineSuggesterResponse,
-  DeleteAnalysisSchemeRequest,
-  DeleteAnalysisSchemeResponse,
-  DeleteDomainRequest,
-  DeleteDomainResponse,
-  DeleteExpressionRequest,
-  DeleteExpressionResponse,
-  DeleteIndexFieldRequest,
-  DeleteIndexFieldResponse,
-  DeleteSuggesterRequest,
-  DeleteSuggesterResponse,
-  DescribeAnalysisSchemesRequest,
-  DescribeAnalysisSchemesResponse,
-  DescribeAvailabilityOptionsRequest,
-  DescribeAvailabilityOptionsResponse,
-  DescribeDomainEndpointOptionsRequest,
-  DescribeDomainEndpointOptionsResponse,
-  DescribeDomainsRequest,
-  DescribeDomainsResponse,
-  DescribeExpressionsRequest,
-  DescribeExpressionsResponse,
-  DescribeIndexFieldsRequest,
-  DescribeIndexFieldsResponse,
-  DescribeScalingParametersRequest,
-  DescribeScalingParametersResponse,
-  DescribeServiceAccessPoliciesRequest,
-  DescribeServiceAccessPoliciesResponse,
-  DescribeSuggestersRequest,
-  DescribeSuggestersResponse,
-  IndexDocumentsRequest,
-  IndexDocumentsResponse,
-  ListDomainNamesResponse,
-  UpdateAvailabilityOptionsRequest,
-  UpdateAvailabilityOptionsResponse,
-  UpdateDomainEndpointOptionsRequest,
-  UpdateDomainEndpointOptionsResponse,
-  UpdateScalingParametersRequest,
-  UpdateScalingParametersResponse,
-  UpdateServiceAccessPoliciesRequest,
-  UpdateServiceAccessPoliciesResponse
-} from "./models/index";
+  BuildSuggestersCommandInput,
+  BuildSuggestersCommandOutput
+} from "./commands/BuildSuggestersCommand";
+import {
+  CreateDomainCommandInput,
+  CreateDomainCommandOutput
+} from "./commands/CreateDomainCommand";
+import {
+  DefineAnalysisSchemeCommandInput,
+  DefineAnalysisSchemeCommandOutput
+} from "./commands/DefineAnalysisSchemeCommand";
+import {
+  DefineExpressionCommandInput,
+  DefineExpressionCommandOutput
+} from "./commands/DefineExpressionCommand";
+import {
+  DefineIndexFieldCommandInput,
+  DefineIndexFieldCommandOutput
+} from "./commands/DefineIndexFieldCommand";
+import {
+  DefineSuggesterCommandInput,
+  DefineSuggesterCommandOutput
+} from "./commands/DefineSuggesterCommand";
+import {
+  DeleteAnalysisSchemeCommandInput,
+  DeleteAnalysisSchemeCommandOutput
+} from "./commands/DeleteAnalysisSchemeCommand";
+import {
+  DeleteDomainCommandInput,
+  DeleteDomainCommandOutput
+} from "./commands/DeleteDomainCommand";
+import {
+  DeleteExpressionCommandInput,
+  DeleteExpressionCommandOutput
+} from "./commands/DeleteExpressionCommand";
+import {
+  DeleteIndexFieldCommandInput,
+  DeleteIndexFieldCommandOutput
+} from "./commands/DeleteIndexFieldCommand";
+import {
+  DeleteSuggesterCommandInput,
+  DeleteSuggesterCommandOutput
+} from "./commands/DeleteSuggesterCommand";
+import {
+  DescribeAnalysisSchemesCommandInput,
+  DescribeAnalysisSchemesCommandOutput
+} from "./commands/DescribeAnalysisSchemesCommand";
+import {
+  DescribeAvailabilityOptionsCommandInput,
+  DescribeAvailabilityOptionsCommandOutput
+} from "./commands/DescribeAvailabilityOptionsCommand";
+import {
+  DescribeDomainEndpointOptionsCommandInput,
+  DescribeDomainEndpointOptionsCommandOutput
+} from "./commands/DescribeDomainEndpointOptionsCommand";
+import {
+  DescribeDomainsCommandInput,
+  DescribeDomainsCommandOutput
+} from "./commands/DescribeDomainsCommand";
+import {
+  DescribeExpressionsCommandInput,
+  DescribeExpressionsCommandOutput
+} from "./commands/DescribeExpressionsCommand";
+import {
+  DescribeIndexFieldsCommandInput,
+  DescribeIndexFieldsCommandOutput
+} from "./commands/DescribeIndexFieldsCommand";
+import {
+  DescribeScalingParametersCommandInput,
+  DescribeScalingParametersCommandOutput
+} from "./commands/DescribeScalingParametersCommand";
+import {
+  DescribeServiceAccessPoliciesCommandInput,
+  DescribeServiceAccessPoliciesCommandOutput
+} from "./commands/DescribeServiceAccessPoliciesCommand";
+import {
+  DescribeSuggestersCommandInput,
+  DescribeSuggestersCommandOutput
+} from "./commands/DescribeSuggestersCommand";
+import {
+  IndexDocumentsCommandInput,
+  IndexDocumentsCommandOutput
+} from "./commands/IndexDocumentsCommand";
+import {
+  ListDomainNamesCommandInput,
+  ListDomainNamesCommandOutput
+} from "./commands/ListDomainNamesCommand";
+import {
+  UpdateAvailabilityOptionsCommandInput,
+  UpdateAvailabilityOptionsCommandOutput
+} from "./commands/UpdateAvailabilityOptionsCommand";
+import {
+  UpdateDomainEndpointOptionsCommandInput,
+  UpdateDomainEndpointOptionsCommandOutput
+} from "./commands/UpdateDomainEndpointOptionsCommand";
+import {
+  UpdateScalingParametersCommandInput,
+  UpdateScalingParametersCommandOutput
+} from "./commands/UpdateScalingParametersCommand";
+import {
+  UpdateServiceAccessPoliciesCommandInput,
+  UpdateServiceAccessPoliciesCommandOutput
+} from "./commands/UpdateServiceAccessPoliciesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -104,60 +155,60 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | BuildSuggestersRequest
-  | CreateDomainRequest
-  | DefineAnalysisSchemeRequest
-  | DefineExpressionRequest
-  | DefineIndexFieldRequest
-  | DefineSuggesterRequest
-  | DeleteAnalysisSchemeRequest
-  | DeleteDomainRequest
-  | DeleteExpressionRequest
-  | DeleteIndexFieldRequest
-  | DeleteSuggesterRequest
-  | DescribeAnalysisSchemesRequest
-  | DescribeAvailabilityOptionsRequest
-  | DescribeDomainEndpointOptionsRequest
-  | DescribeDomainsRequest
-  | DescribeExpressionsRequest
-  | DescribeIndexFieldsRequest
-  | DescribeScalingParametersRequest
-  | DescribeServiceAccessPoliciesRequest
-  | DescribeSuggestersRequest
-  | IndexDocumentsRequest
-  | UpdateAvailabilityOptionsRequest
-  | UpdateDomainEndpointOptionsRequest
-  | UpdateScalingParametersRequest
-  | UpdateServiceAccessPoliciesRequest;
+  | BuildSuggestersCommandInput
+  | CreateDomainCommandInput
+  | DefineAnalysisSchemeCommandInput
+  | DefineExpressionCommandInput
+  | DefineIndexFieldCommandInput
+  | DefineSuggesterCommandInput
+  | DeleteAnalysisSchemeCommandInput
+  | DeleteDomainCommandInput
+  | DeleteExpressionCommandInput
+  | DeleteIndexFieldCommandInput
+  | DeleteSuggesterCommandInput
+  | DescribeAnalysisSchemesCommandInput
+  | DescribeAvailabilityOptionsCommandInput
+  | DescribeDomainEndpointOptionsCommandInput
+  | DescribeDomainsCommandInput
+  | DescribeExpressionsCommandInput
+  | DescribeIndexFieldsCommandInput
+  | DescribeScalingParametersCommandInput
+  | DescribeServiceAccessPoliciesCommandInput
+  | DescribeSuggestersCommandInput
+  | IndexDocumentsCommandInput
+  | ListDomainNamesCommandInput
+  | UpdateAvailabilityOptionsCommandInput
+  | UpdateDomainEndpointOptionsCommandInput
+  | UpdateScalingParametersCommandInput
+  | UpdateServiceAccessPoliciesCommandInput;
 
 export type ServiceOutputTypes =
-  | BuildSuggestersResponse
-  | CreateDomainResponse
-  | DefineAnalysisSchemeResponse
-  | DefineExpressionResponse
-  | DefineIndexFieldResponse
-  | DefineSuggesterResponse
-  | DeleteAnalysisSchemeResponse
-  | DeleteDomainResponse
-  | DeleteExpressionResponse
-  | DeleteIndexFieldResponse
-  | DeleteSuggesterResponse
-  | DescribeAnalysisSchemesResponse
-  | DescribeAvailabilityOptionsResponse
-  | DescribeDomainEndpointOptionsResponse
-  | DescribeDomainsResponse
-  | DescribeExpressionsResponse
-  | DescribeIndexFieldsResponse
-  | DescribeScalingParametersResponse
-  | DescribeServiceAccessPoliciesResponse
-  | DescribeSuggestersResponse
-  | IndexDocumentsResponse
-  | ListDomainNamesResponse
-  | UpdateAvailabilityOptionsResponse
-  | UpdateDomainEndpointOptionsResponse
-  | UpdateScalingParametersResponse
-  | UpdateServiceAccessPoliciesResponse;
+  | BuildSuggestersCommandOutput
+  | CreateDomainCommandOutput
+  | DefineAnalysisSchemeCommandOutput
+  | DefineExpressionCommandOutput
+  | DefineIndexFieldCommandOutput
+  | DefineSuggesterCommandOutput
+  | DeleteAnalysisSchemeCommandOutput
+  | DeleteDomainCommandOutput
+  | DeleteExpressionCommandOutput
+  | DeleteIndexFieldCommandOutput
+  | DeleteSuggesterCommandOutput
+  | DescribeAnalysisSchemesCommandOutput
+  | DescribeAvailabilityOptionsCommandOutput
+  | DescribeDomainEndpointOptionsCommandOutput
+  | DescribeDomainsCommandOutput
+  | DescribeExpressionsCommandOutput
+  | DescribeIndexFieldsCommandOutput
+  | DescribeScalingParametersCommandOutput
+  | DescribeServiceAccessPoliciesCommandOutput
+  | DescribeSuggestersCommandOutput
+  | IndexDocumentsCommandOutput
+  | ListDomainNamesCommandOutput
+  | UpdateAvailabilityOptionsCommandOutput
+  | UpdateDomainEndpointOptionsCommandOutput
+  | UpdateScalingParametersCommandOutput
+  | UpdateServiceAccessPoliciesCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

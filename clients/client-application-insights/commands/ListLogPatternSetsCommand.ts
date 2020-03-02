@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLogPatternSetsCommandInput = ListLogPatternSetsRequest;
-export type ListLogPatternSetsCommandOutput = ListLogPatternSetsResponse;
+export type ListLogPatternSetsCommandOutput = ListLogPatternSetsResponse &
+  __MetadataBearer;
 
 export class ListLogPatternSetsCommand extends $Command<
   ListLogPatternSetsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableAvailabilityZonesForLoadBalancerCommandInput = RemoveAvailabilityZonesInput;
-export type DisableAvailabilityZonesForLoadBalancerCommandOutput = RemoveAvailabilityZonesOutput;
+export type DisableAvailabilityZonesForLoadBalancerCommandOutput = RemoveAvailabilityZonesOutput &
+  __MetadataBearer;
 
 export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
   DisableAvailabilityZonesForLoadBalancerCommandInput,

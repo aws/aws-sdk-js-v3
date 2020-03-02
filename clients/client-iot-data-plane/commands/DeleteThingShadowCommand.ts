@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteThingShadowCommandInput = DeleteThingShadowRequest;
-export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse;
+export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse &
+  __MetadataBearer;
 
 export class DeleteThingShadowCommand extends $Command<
   DeleteThingShadowCommandInput,

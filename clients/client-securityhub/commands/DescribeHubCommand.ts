@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeHubCommandInput = DescribeHubRequest;
-export type DescribeHubCommandOutput = DescribeHubResponse;
+export type DescribeHubCommandOutput = DescribeHubResponse & __MetadataBearer;
 
 export class DescribeHubCommand extends $Command<
   DescribeHubCommandInput,

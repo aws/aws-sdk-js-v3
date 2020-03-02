@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListLocalDisksCommandInput = ListLocalDisksInput;
-export type ListLocalDisksCommandOutput = ListLocalDisksOutput;
+export type ListLocalDisksCommandOutput = ListLocalDisksOutput &
+  __MetadataBearer;
 
 export class ListLocalDisksCommand extends $Command<
   ListLocalDisksCommandInput,

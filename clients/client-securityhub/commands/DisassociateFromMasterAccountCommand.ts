@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateFromMasterAccountCommandInput = DisassociateFromMasterAccountRequest;
-export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse;
+export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse &
+  __MetadataBearer;
 
 export class DisassociateFromMasterAccountCommand extends $Command<
   DisassociateFromMasterAccountCommandInput,

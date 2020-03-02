@@ -1,15 +1,23 @@
 import {
-  DeleteObjectRequest,
-  DeleteObjectResponse,
-  DescribeObjectRequest,
-  DescribeObjectResponse,
-  GetObjectRequest,
-  GetObjectResponse,
-  ListItemsRequest,
-  ListItemsResponse,
-  PutObjectRequest,
-  PutObjectResponse
-} from "./models/index";
+  DeleteObjectCommandInput,
+  DeleteObjectCommandOutput
+} from "./commands/DeleteObjectCommand";
+import {
+  DescribeObjectCommandInput,
+  DescribeObjectCommandOutput
+} from "./commands/DescribeObjectCommand";
+import {
+  GetObjectCommandInput,
+  GetObjectCommandOutput
+} from "./commands/GetObjectCommand";
+import {
+  ListItemsCommandInput,
+  ListItemsCommandOutput
+} from "./commands/ListItemsCommand";
+import {
+  PutObjectCommandInput,
+  PutObjectCommandOutput
+} from "./commands/PutObjectCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -63,18 +71,18 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteObjectRequest
-  | DescribeObjectRequest
-  | GetObjectRequest
-  | ListItemsRequest
-  | PutObjectRequest;
+  | DeleteObjectCommandInput
+  | DescribeObjectCommandInput
+  | GetObjectCommandInput
+  | ListItemsCommandInput
+  | PutObjectCommandInput;
 
 export type ServiceOutputTypes =
-  | DeleteObjectResponse
-  | DescribeObjectResponse
-  | GetObjectResponse
-  | ListItemsResponse
-  | PutObjectResponse;
+  | DeleteObjectCommandOutput
+  | DescribeObjectCommandOutput
+  | GetObjectCommandOutput
+  | ListItemsCommandOutput
+  | PutObjectCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

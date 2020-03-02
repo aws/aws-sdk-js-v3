@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InitiateLayerUploadCommandInput = InitiateLayerUploadRequest;
-export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse;
+export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse &
+  __MetadataBearer;
 
 export class InitiateLayerUploadCommand extends $Command<
   InitiateLayerUploadCommandInput,

@@ -138,7 +138,7 @@ export namespace AllocateStaticIpRequest {
   }
 }
 
-export interface AllocateStaticIpResult extends $MetadataBearer {
+export interface AllocateStaticIpResult {
   __type?: "AllocateStaticIpResult";
   /**
    * <p>An array of key-value pairs containing information about the static IP address you
@@ -178,7 +178,7 @@ export namespace AttachDiskRequest {
   }
 }
 
-export interface AttachDiskResult extends $MetadataBearer {
+export interface AttachDiskResult {
   __type?: "AttachDiskResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -217,7 +217,7 @@ export namespace AttachInstancesToLoadBalancerRequest {
   }
 }
 
-export interface AttachInstancesToLoadBalancerResult extends $MetadataBearer {
+export interface AttachInstancesToLoadBalancerResult {
   __type?: "AttachInstancesToLoadBalancerResult";
   /**
    * <p>An object representing the API operations.</p>
@@ -251,8 +251,7 @@ export namespace AttachLoadBalancerTlsCertificateRequest {
   }
 }
 
-export interface AttachLoadBalancerTlsCertificateResult
-  extends $MetadataBearer {
+export interface AttachLoadBalancerTlsCertificateResult {
   __type?: "AttachLoadBalancerTlsCertificateResult";
   /**
    * <p>An object representing the API operations.</p>
@@ -287,7 +286,7 @@ export namespace AttachStaticIpRequest {
   }
 }
 
-export interface AttachStaticIpResult extends $MetadataBearer {
+export interface AttachStaticIpResult {
   __type?: "AttachStaticIpResult";
   /**
    * <p>An array of key-value pairs containing information about your API operations.</p>
@@ -630,7 +629,7 @@ export namespace CloseInstancePublicPortsRequest {
   }
 }
 
-export interface CloseInstancePublicPortsResult extends $MetadataBearer {
+export interface CloseInstancePublicPortsResult {
   __type?: "CloseInstancePublicPortsResult";
   /**
    * <p>An array of key-value pairs that contains information about the operation.</p>
@@ -817,7 +816,7 @@ export namespace CopySnapshotRequest {
   }
 }
 
-export interface CopySnapshotResult extends $MetadataBearer {
+export interface CopySnapshotResult {
   __type?: "CopySnapshotResult";
   /**
    * <p>A list of objects describing the API operation.</p>
@@ -847,7 +846,7 @@ export namespace CreateCloudFormationStackRequest {
   }
 }
 
-export interface CreateCloudFormationStackResult extends $MetadataBearer {
+export interface CreateCloudFormationStackResult {
   __type?: "CreateCloudFormationStackResult";
   /**
    * <p>A list of objects describing the API operation.</p>
@@ -971,7 +970,7 @@ export namespace CreateDiskFromSnapshotRequest {
   }
 }
 
-export interface CreateDiskFromSnapshotResult extends $MetadataBearer {
+export interface CreateDiskFromSnapshotResult {
   __type?: "CreateDiskFromSnapshotResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -1025,7 +1024,7 @@ export namespace CreateDiskRequest {
   }
 }
 
-export interface CreateDiskResult extends $MetadataBearer {
+export interface CreateDiskResult {
   __type?: "CreateDiskResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -1082,7 +1081,7 @@ export namespace CreateDiskSnapshotRequest {
   }
 }
 
-export interface CreateDiskSnapshotResult extends $MetadataBearer {
+export interface CreateDiskSnapshotResult {
   __type?: "CreateDiskSnapshotResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -1117,7 +1116,7 @@ export namespace CreateDomainEntryRequest {
   }
 }
 
-export interface CreateDomainEntryResult extends $MetadataBearer {
+export interface CreateDomainEntryResult {
   __type?: "CreateDomainEntryResult";
   /**
    * <p>An array of key-value pairs containing information about the operation.</p>
@@ -1158,7 +1157,7 @@ export namespace CreateDomainRequest {
   }
 }
 
-export interface CreateDomainResult extends $MetadataBearer {
+export interface CreateDomainResult {
   __type?: "CreateDomainResult";
   /**
    * <p>An array of key-value pairs containing information about the domain resource you
@@ -1199,7 +1198,7 @@ export namespace CreateInstanceSnapshotRequest {
   }
 }
 
-export interface CreateInstanceSnapshotResult extends $MetadataBearer {
+export interface CreateInstanceSnapshotResult {
   __type?: "CreateInstanceSnapshotResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your create
@@ -1350,7 +1349,7 @@ export namespace CreateInstancesFromSnapshotRequest {
   }
 }
 
-export interface CreateInstancesFromSnapshotResult extends $MetadataBearer {
+export interface CreateInstancesFromSnapshotResult {
   __type?: "CreateInstancesFromSnapshotResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your create
@@ -1449,7 +1448,7 @@ export namespace CreateInstancesRequest {
   }
 }
 
-export interface CreateInstancesResult extends $MetadataBearer {
+export interface CreateInstancesResult {
   __type?: "CreateInstancesResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your create
@@ -1485,7 +1484,7 @@ export namespace CreateKeyPairRequest {
   }
 }
 
-export interface CreateKeyPairResult extends $MetadataBearer {
+export interface CreateKeyPairResult {
   __type?: "CreateKeyPairResult";
   /**
    * <p>An array of key-value pairs containing information about the new key pair you just
@@ -1573,7 +1572,7 @@ export namespace CreateLoadBalancerRequest {
   }
 }
 
-export interface CreateLoadBalancerResult extends $MetadataBearer {
+export interface CreateLoadBalancerResult {
   __type?: "CreateLoadBalancerResult";
   /**
    * <p>An object containing information about the API operations.</p>
@@ -1631,8 +1630,7 @@ export namespace CreateLoadBalancerTlsCertificateRequest {
   }
 }
 
-export interface CreateLoadBalancerTlsCertificateResult
-  extends $MetadataBearer {
+export interface CreateLoadBalancerTlsCertificateResult {
   __type?: "CreateLoadBalancerTlsCertificateResult";
   /**
    * <p>An object containing information about the API operations.</p>
@@ -1749,8 +1747,7 @@ export namespace CreateRelationalDatabaseFromSnapshotRequest {
   }
 }
 
-export interface CreateRelationalDatabaseFromSnapshotResult
-  extends $MetadataBearer {
+export interface CreateRelationalDatabaseFromSnapshotResult {
   __type?: "CreateRelationalDatabaseFromSnapshotResult";
   /**
    * <p>An object describing the result of your create relational database from snapshot
@@ -1926,7 +1923,7 @@ export namespace CreateRelationalDatabaseRequest {
   }
 }
 
-export interface CreateRelationalDatabaseResult extends $MetadataBearer {
+export interface CreateRelationalDatabaseResult {
   __type?: "CreateRelationalDatabaseResult";
   /**
    * <p>An object describing the result of your create relational database request.</p>
@@ -1975,8 +1972,7 @@ export namespace CreateRelationalDatabaseSnapshotRequest {
   }
 }
 
-export interface CreateRelationalDatabaseSnapshotResult
-  extends $MetadataBearer {
+export interface CreateRelationalDatabaseSnapshotResult {
   __type?: "CreateRelationalDatabaseSnapshotResult";
   /**
    * <p>An object describing the result of your create relational database snapshot
@@ -2013,7 +2009,7 @@ export namespace DeleteAutoSnapshotRequest {
   }
 }
 
-export interface DeleteAutoSnapshotResult extends $MetadataBearer {
+export interface DeleteAutoSnapshotResult {
   __type?: "DeleteAutoSnapshotResult";
   /**
    * <p>An array of objects that describe the result of your request.</p>
@@ -2046,7 +2042,7 @@ export namespace DeleteDiskRequest {
   }
 }
 
-export interface DeleteDiskResult extends $MetadataBearer {
+export interface DeleteDiskResult {
   __type?: "DeleteDiskResult";
   /**
    * <p>An array of objects that describe the result of your request.</p>
@@ -2075,7 +2071,7 @@ export namespace DeleteDiskSnapshotRequest {
   }
 }
 
-export interface DeleteDiskSnapshotResult extends $MetadataBearer {
+export interface DeleteDiskSnapshotResult {
   __type?: "DeleteDiskSnapshotResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -2108,7 +2104,7 @@ export namespace DeleteDomainEntryRequest {
   }
 }
 
-export interface DeleteDomainEntryResult extends $MetadataBearer {
+export interface DeleteDomainEntryResult {
   __type?: "DeleteDomainEntryResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your delete
@@ -2137,7 +2133,7 @@ export namespace DeleteDomainRequest {
   }
 }
 
-export interface DeleteDomainResult extends $MetadataBearer {
+export interface DeleteDomainResult {
   __type?: "DeleteDomainResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your delete
@@ -2171,7 +2167,7 @@ export namespace DeleteInstanceRequest {
   }
 }
 
-export interface DeleteInstanceResult extends $MetadataBearer {
+export interface DeleteInstanceResult {
   __type?: "DeleteInstanceResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your delete
@@ -2200,7 +2196,7 @@ export namespace DeleteInstanceSnapshotRequest {
   }
 }
 
-export interface DeleteInstanceSnapshotResult extends $MetadataBearer {
+export interface DeleteInstanceSnapshotResult {
   __type?: "DeleteInstanceSnapshotResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your delete
@@ -2229,7 +2225,7 @@ export namespace DeleteKeyPairRequest {
   }
 }
 
-export interface DeleteKeyPairResult extends $MetadataBearer {
+export interface DeleteKeyPairResult {
   __type?: "DeleteKeyPairResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your delete key
@@ -2258,7 +2254,7 @@ export namespace DeleteKnownHostKeysRequest {
   }
 }
 
-export interface DeleteKnownHostKeysResult extends $MetadataBearer {
+export interface DeleteKnownHostKeysResult {
   __type?: "DeleteKnownHostKeysResult";
   /**
    * <p>A list of objects describing the API operation.</p>
@@ -2286,7 +2282,7 @@ export namespace DeleteLoadBalancerRequest {
   }
 }
 
-export interface DeleteLoadBalancerResult extends $MetadataBearer {
+export interface DeleteLoadBalancerResult {
   __type?: "DeleteLoadBalancerResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -2327,8 +2323,7 @@ export namespace DeleteLoadBalancerTlsCertificateRequest {
   }
 }
 
-export interface DeleteLoadBalancerTlsCertificateResult
-  extends $MetadataBearer {
+export interface DeleteLoadBalancerTlsCertificateResult {
   __type?: "DeleteLoadBalancerTlsCertificateResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -2387,7 +2382,7 @@ export namespace DeleteRelationalDatabaseRequest {
   }
 }
 
-export interface DeleteRelationalDatabaseResult extends $MetadataBearer {
+export interface DeleteRelationalDatabaseResult {
   __type?: "DeleteRelationalDatabaseResult";
   /**
    * <p>An object describing the result of your delete relational database request.</p>
@@ -2415,8 +2410,7 @@ export namespace DeleteRelationalDatabaseSnapshotRequest {
   }
 }
 
-export interface DeleteRelationalDatabaseSnapshotResult
-  extends $MetadataBearer {
+export interface DeleteRelationalDatabaseSnapshotResult {
   __type?: "DeleteRelationalDatabaseSnapshotResult";
   /**
    * <p>An object describing the result of your delete relational database snapshot
@@ -2468,7 +2462,7 @@ export namespace DetachDiskRequest {
   }
 }
 
-export interface DetachDiskResult extends $MetadataBearer {
+export interface DetachDiskResult {
   __type?: "DetachDiskResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -2502,7 +2496,7 @@ export namespace DetachInstancesFromLoadBalancerRequest {
   }
 }
 
-export interface DetachInstancesFromLoadBalancerResult extends $MetadataBearer {
+export interface DetachInstancesFromLoadBalancerResult {
   __type?: "DetachInstancesFromLoadBalancerResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -2530,7 +2524,7 @@ export namespace DetachStaticIpRequest {
   }
 }
 
-export interface DetachStaticIpResult extends $MetadataBearer {
+export interface DetachStaticIpResult {
   __type?: "DetachStaticIpResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your detach
@@ -2564,7 +2558,7 @@ export namespace DisableAddOnRequest {
   }
 }
 
-export interface DisableAddOnResult extends $MetadataBearer {
+export interface DisableAddOnResult {
   __type?: "DisableAddOnResult";
   /**
    * <p>An array of objects that describe the result of your request.</p>
@@ -3031,7 +3025,7 @@ export namespace DownloadDefaultKeyPairRequest {
   }
 }
 
-export interface DownloadDefaultKeyPairResult extends $MetadataBearer {
+export interface DownloadDefaultKeyPairResult {
   __type?: "DownloadDefaultKeyPairResult";
   /**
    * <p>A base64-encoded RSA private key.</p>
@@ -3069,7 +3063,7 @@ export namespace EnableAddOnRequest {
   }
 }
 
-export interface EnableAddOnResult extends $MetadataBearer {
+export interface EnableAddOnResult {
   __type?: "EnableAddOnResult";
   /**
    * <p>An array of objects that describe the result of your request.</p>
@@ -3207,7 +3201,7 @@ export namespace ExportSnapshotRequest {
   }
 }
 
-export interface ExportSnapshotResult extends $MetadataBearer {
+export interface ExportSnapshotResult {
   __type?: "ExportSnapshotResult";
   /**
    * <p>A list of objects describing the API operation.</p>
@@ -3235,7 +3229,7 @@ export namespace GetActiveNamesRequest {
   }
 }
 
-export interface GetActiveNamesResult extends $MetadataBearer {
+export interface GetActiveNamesResult {
   __type?: "GetActiveNamesResult";
   /**
    * <p>The list of active names returned by the get active names request.</p>
@@ -3270,7 +3264,7 @@ export namespace GetAutoSnapshotsRequest {
   }
 }
 
-export interface GetAutoSnapshotsResult extends $MetadataBearer {
+export interface GetAutoSnapshotsResult {
   __type?: "GetAutoSnapshotsResult";
   /**
    * <p>An array of objects that describe the automatic snapshots that are available for the
@@ -3316,7 +3310,7 @@ export namespace GetBlueprintsRequest {
   }
 }
 
-export interface GetBlueprintsResult extends $MetadataBearer {
+export interface GetBlueprintsResult {
   __type?: "GetBlueprintsResult";
   /**
    * <p>An array of key-value pairs that contains information about the available
@@ -3358,7 +3352,7 @@ export namespace GetBundlesRequest {
   }
 }
 
-export interface GetBundlesResult extends $MetadataBearer {
+export interface GetBundlesResult {
   __type?: "GetBundlesResult";
   /**
    * <p>An array of key-value pairs that contains information about the available
@@ -3394,7 +3388,7 @@ export namespace GetCloudFormationStackRecordsRequest {
   }
 }
 
-export interface GetCloudFormationStackRecordsResult extends $MetadataBearer {
+export interface GetCloudFormationStackRecordsResult {
   __type?: "GetCloudFormationStackRecordsResult";
   /**
    * <p>A list of objects describing the CloudFormation stack records.</p>
@@ -3428,7 +3422,7 @@ export namespace GetDiskRequest {
   }
 }
 
-export interface GetDiskResult extends $MetadataBearer {
+export interface GetDiskResult {
   __type?: "GetDiskResult";
   /**
    * <p>An object containing information about the disk.</p>
@@ -3456,7 +3450,7 @@ export namespace GetDiskSnapshotRequest {
   }
 }
 
-export interface GetDiskSnapshotResult extends $MetadataBearer {
+export interface GetDiskSnapshotResult {
   __type?: "GetDiskSnapshotResult";
   /**
    * <p>An object containing information about the disk snapshot.</p>
@@ -3485,7 +3479,7 @@ export namespace GetDiskSnapshotsRequest {
   }
 }
 
-export interface GetDiskSnapshotsResult extends $MetadataBearer {
+export interface GetDiskSnapshotsResult {
   __type?: "GetDiskSnapshotsResult";
   /**
    * <p>An array of objects containing information about all block storage disk
@@ -3521,7 +3515,7 @@ export namespace GetDisksRequest {
   }
 }
 
-export interface GetDisksResult extends $MetadataBearer {
+export interface GetDisksResult {
   __type?: "GetDisksResult";
   /**
    * <p>An array of objects containing information about all block storage disks.</p>
@@ -3555,7 +3549,7 @@ export namespace GetDomainRequest {
   }
 }
 
-export interface GetDomainResult extends $MetadataBearer {
+export interface GetDomainResult {
   __type?: "GetDomainResult";
   /**
    * <p>An array of key-value pairs containing information about your get domain
@@ -3585,7 +3579,7 @@ export namespace GetDomainsRequest {
   }
 }
 
-export interface GetDomainsResult extends $MetadataBearer {
+export interface GetDomainsResult {
   __type?: "GetDomainsResult";
   /**
    * <p>An array of key-value pairs containing information about each of the domain entries in
@@ -3621,7 +3615,7 @@ export namespace GetExportSnapshotRecordsRequest {
   }
 }
 
-export interface GetExportSnapshotRecordsResult extends $MetadataBearer {
+export interface GetExportSnapshotRecordsResult {
   __type?: "GetExportSnapshotRecordsResult";
   /**
    * <p>A list of objects describing the export snapshot records.</p>
@@ -3661,7 +3655,7 @@ export namespace GetInstanceAccessDetailsRequest {
   }
 }
 
-export interface GetInstanceAccessDetailsResult extends $MetadataBearer {
+export interface GetInstanceAccessDetailsResult {
   __type?: "GetInstanceAccessDetailsResult";
   /**
    * <p>An array of key-value pairs containing information about a get instance access
@@ -3720,7 +3714,7 @@ export namespace GetInstanceMetricDataRequest {
   }
 }
 
-export interface GetInstanceMetricDataResult extends $MetadataBearer {
+export interface GetInstanceMetricDataResult {
   __type?: "GetInstanceMetricDataResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your get
@@ -3754,7 +3748,7 @@ export namespace GetInstancePortStatesRequest {
   }
 }
 
-export interface GetInstancePortStatesResult extends $MetadataBearer {
+export interface GetInstancePortStatesResult {
   __type?: "GetInstancePortStatesResult";
   /**
    * <p>Information about the port states resulting from your request.</p>
@@ -3782,7 +3776,7 @@ export namespace GetInstanceRequest {
   }
 }
 
-export interface GetInstanceResult extends $MetadataBearer {
+export interface GetInstanceResult {
   __type?: "GetInstanceResult";
   /**
    * <p>An array of key-value pairs containing information about the specified
@@ -3811,7 +3805,7 @@ export namespace GetInstanceSnapshotRequest {
   }
 }
 
-export interface GetInstanceSnapshotResult extends $MetadataBearer {
+export interface GetInstanceSnapshotResult {
   __type?: "GetInstanceSnapshotResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your get
@@ -3841,7 +3835,7 @@ export namespace GetInstanceSnapshotsRequest {
   }
 }
 
-export interface GetInstanceSnapshotsResult extends $MetadataBearer {
+export interface GetInstanceSnapshotsResult {
   __type?: "GetInstanceSnapshotsResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your get
@@ -3876,7 +3870,7 @@ export namespace GetInstanceStateRequest {
   }
 }
 
-export interface GetInstanceStateResult extends $MetadataBearer {
+export interface GetInstanceStateResult {
   __type?: "GetInstanceStateResult";
   /**
    * <p>The state of the instance.</p>
@@ -3905,7 +3899,7 @@ export namespace GetInstancesRequest {
   }
 }
 
-export interface GetInstancesResult extends $MetadataBearer {
+export interface GetInstancesResult {
   __type?: "GetInstancesResult";
   /**
    * <p>An array of key-value pairs containing information about your instances.</p>
@@ -3939,7 +3933,7 @@ export namespace GetKeyPairRequest {
   }
 }
 
-export interface GetKeyPairResult extends $MetadataBearer {
+export interface GetKeyPairResult {
   __type?: "GetKeyPairResult";
   /**
    * <p>An array of key-value pairs containing information about the key pair.</p>
@@ -3968,7 +3962,7 @@ export namespace GetKeyPairsRequest {
   }
 }
 
-export interface GetKeyPairsResult extends $MetadataBearer {
+export interface GetKeyPairsResult {
   __type?: "GetKeyPairsResult";
   /**
    * <p>An array of key-value pairs containing information about the key pairs.</p>
@@ -4217,7 +4211,7 @@ export namespace GetLoadBalancerMetricDataRequest {
   }
 }
 
-export interface GetLoadBalancerMetricDataResult extends $MetadataBearer {
+export interface GetLoadBalancerMetricDataResult {
   __type?: "GetLoadBalancerMetricDataResult";
   /**
    * <p>An array of metric datapoint objects.</p>
@@ -4391,7 +4385,7 @@ export namespace GetLoadBalancerRequest {
   }
 }
 
-export interface GetLoadBalancerResult extends $MetadataBearer {
+export interface GetLoadBalancerResult {
   __type?: "GetLoadBalancerResult";
   /**
    * <p>An object containing information about your load balancer.</p>
@@ -4419,7 +4413,7 @@ export namespace GetLoadBalancerTlsCertificatesRequest {
   }
 }
 
-export interface GetLoadBalancerTlsCertificatesResult extends $MetadataBearer {
+export interface GetLoadBalancerTlsCertificatesResult {
   __type?: "GetLoadBalancerTlsCertificatesResult";
   /**
    * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
@@ -4448,7 +4442,7 @@ export namespace GetLoadBalancersRequest {
   }
 }
 
-export interface GetLoadBalancersResult extends $MetadataBearer {
+export interface GetLoadBalancersResult {
   __type?: "GetLoadBalancersResult";
   /**
    * <p>An array of LoadBalancer objects describing your load balancers.</p>
@@ -4482,7 +4476,7 @@ export namespace GetOperationRequest {
   }
 }
 
-export interface GetOperationResult extends $MetadataBearer {
+export interface GetOperationResult {
   __type?: "GetOperationResult";
   /**
    * <p>An array of key-value pairs containing information about the results of your get
@@ -4517,7 +4511,7 @@ export namespace GetOperationsForResourceRequest {
   }
 }
 
-export interface GetOperationsForResourceResult extends $MetadataBearer {
+export interface GetOperationsForResourceResult {
   __type?: "GetOperationsForResourceResult";
   /**
    * <p>(Deprecated) Returns the number of pages of results that remain.</p>
@@ -4563,7 +4557,7 @@ export namespace GetOperationsRequest {
   }
 }
 
-export interface GetOperationsResult extends $MetadataBearer {
+export interface GetOperationsResult {
   __type?: "GetOperationsResult";
   /**
    * <p>A token used for advancing to the next page of results from your get operations
@@ -4607,7 +4601,7 @@ export namespace GetRegionsRequest {
   }
 }
 
-export interface GetRegionsResult extends $MetadataBearer {
+export interface GetRegionsResult {
   __type?: "GetRegionsResult";
   /**
    * <p>An array of key-value pairs containing information about your get regions
@@ -4637,7 +4631,7 @@ export namespace GetRelationalDatabaseBlueprintsRequest {
   }
 }
 
-export interface GetRelationalDatabaseBlueprintsResult extends $MetadataBearer {
+export interface GetRelationalDatabaseBlueprintsResult {
   __type?: "GetRelationalDatabaseBlueprintsResult";
   /**
    * <p>An object describing the result of your get relational database blueprints
@@ -4673,7 +4667,7 @@ export namespace GetRelationalDatabaseBundlesRequest {
   }
 }
 
-export interface GetRelationalDatabaseBundlesResult extends $MetadataBearer {
+export interface GetRelationalDatabaseBundlesResult {
   __type?: "GetRelationalDatabaseBundlesResult";
   /**
    * <p>An object describing the result of your get relational database bundles
@@ -4723,7 +4717,7 @@ export namespace GetRelationalDatabaseEventsRequest {
   }
 }
 
-export interface GetRelationalDatabaseEventsResult extends $MetadataBearer {
+export interface GetRelationalDatabaseEventsResult {
   __type?: "GetRelationalDatabaseEventsResult";
   /**
    * <p>A token used for advancing to the next page of results from your get relational
@@ -4815,7 +4809,7 @@ export namespace GetRelationalDatabaseLogEventsRequest {
   }
 }
 
-export interface GetRelationalDatabaseLogEventsResult extends $MetadataBearer {
+export interface GetRelationalDatabaseLogEventsResult {
   __type?: "GetRelationalDatabaseLogEventsResult";
   /**
    * <p>A token used for advancing to the previous page of results from your get relational
@@ -4856,7 +4850,7 @@ export namespace GetRelationalDatabaseLogStreamsRequest {
   }
 }
 
-export interface GetRelationalDatabaseLogStreamsResult extends $MetadataBearer {
+export interface GetRelationalDatabaseLogStreamsResult {
   __type?: "GetRelationalDatabaseLogStreamsResult";
   /**
    * <p>An object describing the result of your get relational database log streams
@@ -4899,8 +4893,7 @@ export namespace GetRelationalDatabaseMasterUserPasswordRequest {
   }
 }
 
-export interface GetRelationalDatabaseMasterUserPasswordResult
-  extends $MetadataBearer {
+export interface GetRelationalDatabaseMasterUserPasswordResult {
   __type?: "GetRelationalDatabaseMasterUserPasswordResult";
   /**
    * <p>The timestamp when the specified version of the master user password was
@@ -4990,7 +4983,7 @@ export namespace GetRelationalDatabaseMetricDataRequest {
   }
 }
 
-export interface GetRelationalDatabaseMetricDataResult extends $MetadataBearer {
+export interface GetRelationalDatabaseMetricDataResult {
   __type?: "GetRelationalDatabaseMetricDataResult";
   /**
    * <p>An object describing the result of your get relational database metric data
@@ -5030,7 +5023,7 @@ export namespace GetRelationalDatabaseParametersRequest {
   }
 }
 
-export interface GetRelationalDatabaseParametersResult extends $MetadataBearer {
+export interface GetRelationalDatabaseParametersResult {
   __type?: "GetRelationalDatabaseParametersResult";
   /**
    * <p>A token used for advancing to the next page of results from your get static IPs
@@ -5065,7 +5058,7 @@ export namespace GetRelationalDatabaseRequest {
   }
 }
 
-export interface GetRelationalDatabaseResult extends $MetadataBearer {
+export interface GetRelationalDatabaseResult {
   __type?: "GetRelationalDatabaseResult";
   /**
    * <p>An object describing the specified database.</p>
@@ -5093,7 +5086,7 @@ export namespace GetRelationalDatabaseSnapshotRequest {
   }
 }
 
-export interface GetRelationalDatabaseSnapshotResult extends $MetadataBearer {
+export interface GetRelationalDatabaseSnapshotResult {
   __type?: "GetRelationalDatabaseSnapshotResult";
   /**
    * <p>An object describing the specified database snapshot.</p>
@@ -5122,7 +5115,7 @@ export namespace GetRelationalDatabaseSnapshotsRequest {
   }
 }
 
-export interface GetRelationalDatabaseSnapshotsResult extends $MetadataBearer {
+export interface GetRelationalDatabaseSnapshotsResult {
   __type?: "GetRelationalDatabaseSnapshotsResult";
   /**
    * <p>A token used for advancing to the next page of results from your get relational
@@ -5158,7 +5151,7 @@ export namespace GetRelationalDatabasesRequest {
   }
 }
 
-export interface GetRelationalDatabasesResult extends $MetadataBearer {
+export interface GetRelationalDatabasesResult {
   __type?: "GetRelationalDatabasesResult";
   /**
    * <p>A token used for advancing to the next page of results from your get relational
@@ -5192,7 +5185,7 @@ export namespace GetStaticIpRequest {
   }
 }
 
-export interface GetStaticIpResult extends $MetadataBearer {
+export interface GetStaticIpResult {
   __type?: "GetStaticIpResult";
   /**
    * <p>An array of key-value pairs containing information about the requested static
@@ -5222,7 +5215,7 @@ export namespace GetStaticIpsRequest {
   }
 }
 
-export interface GetStaticIpsResult extends $MetadataBearer {
+export interface GetStaticIpsResult {
   __type?: "GetStaticIpsResult";
   /**
    * <p>A token used for advancing to the next page of results from your get static IPs
@@ -5342,7 +5335,7 @@ export namespace ImportKeyPairRequest {
   }
 }
 
-export interface ImportKeyPairResult extends $MetadataBearer {
+export interface ImportKeyPairResult {
   __type?: "ImportKeyPairResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -6187,7 +6180,7 @@ export namespace IsVpcPeeredRequest {
   }
 }
 
-export interface IsVpcPeeredResult extends $MetadataBearer {
+export interface IsVpcPeeredResult {
   __type?: "IsVpcPeeredResult";
   /**
    * <p>Returns <code>true</code> if the Lightsail VPC is peered; otherwise,
@@ -6955,7 +6948,7 @@ export namespace OpenInstancePublicPortsRequest {
   }
 }
 
-export interface OpenInstancePublicPortsResult extends $MetadataBearer {
+export interface OpenInstancePublicPortsResult {
   __type?: "OpenInstancePublicPortsResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -7171,7 +7164,7 @@ export namespace PeerVpcRequest {
   }
 }
 
-export interface PeerVpcResult extends $MetadataBearer {
+export interface PeerVpcResult {
   __type?: "PeerVpcResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -7304,7 +7297,7 @@ export namespace PutInstancePublicPortsRequest {
   }
 }
 
-export interface PutInstancePublicPortsResult extends $MetadataBearer {
+export interface PutInstancePublicPortsResult {
   __type?: "PutInstancePublicPortsResult";
   /**
    * <p>Describes metadata about the operation you just executed.</p>
@@ -7332,7 +7325,7 @@ export namespace RebootInstanceRequest {
   }
 }
 
-export interface RebootInstanceResult extends $MetadataBearer {
+export interface RebootInstanceResult {
   __type?: "RebootInstanceResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -7361,7 +7354,7 @@ export namespace RebootRelationalDatabaseRequest {
   }
 }
 
-export interface RebootRelationalDatabaseResult extends $MetadataBearer {
+export interface RebootRelationalDatabaseResult {
   __type?: "RebootRelationalDatabaseResult";
   /**
    * <p>An object describing the result of your reboot relational database request.</p>
@@ -7968,7 +7961,7 @@ export namespace ReleaseStaticIpRequest {
   }
 }
 
-export interface ReleaseStaticIpResult extends $MetadataBearer {
+export interface ReleaseStaticIpResult {
   __type?: "ReleaseStaticIpResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -8055,7 +8048,7 @@ export namespace StartInstanceRequest {
   }
 }
 
-export interface StartInstanceResult extends $MetadataBearer {
+export interface StartInstanceResult {
   __type?: "StartInstanceResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -8084,7 +8077,7 @@ export namespace StartRelationalDatabaseRequest {
   }
 }
 
-export interface StartRelationalDatabaseResult extends $MetadataBearer {
+export interface StartRelationalDatabaseResult {
   __type?: "StartRelationalDatabaseResult";
   /**
    * <p>An object describing the result of your start relational database request.</p>
@@ -8185,7 +8178,7 @@ export namespace StopInstanceRequest {
   }
 }
 
-export interface StopInstanceResult extends $MetadataBearer {
+export interface StopInstanceResult {
   __type?: "StopInstanceResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -8220,7 +8213,7 @@ export namespace StopRelationalDatabaseRequest {
   }
 }
 
-export interface StopRelationalDatabaseResult extends $MetadataBearer {
+export interface StopRelationalDatabaseResult {
   __type?: "StopRelationalDatabaseResult";
   /**
    * <p>An object describing the result of your stop relational database request.</p>
@@ -8286,7 +8279,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResult extends $MetadataBearer {
+export interface TagResourceResult {
   __type?: "TagResourceResult";
   /**
    * <p>A list of objects describing the API operation.</p>
@@ -8330,7 +8323,7 @@ export namespace UnpeerVpcRequest {
   }
 }
 
-export interface UnpeerVpcResult extends $MetadataBearer {
+export interface UnpeerVpcResult {
   __type?: "UnpeerVpcResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -8369,7 +8362,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResult extends $MetadataBearer {
+export interface UntagResourceResult {
   __type?: "UntagResourceResult";
   /**
    * <p>A list of objects describing the API operation.</p>
@@ -8402,7 +8395,7 @@ export namespace UpdateDomainEntryRequest {
   }
 }
 
-export interface UpdateDomainEntryResult extends $MetadataBearer {
+export interface UpdateDomainEntryResult {
   __type?: "UpdateDomainEntryResult";
   /**
    * <p>An array of key-value pairs containing information about the request
@@ -8442,7 +8435,7 @@ export namespace UpdateLoadBalancerAttributeRequest {
   }
 }
 
-export interface UpdateLoadBalancerAttributeResult extends $MetadataBearer {
+export interface UpdateLoadBalancerAttributeResult {
   __type?: "UpdateLoadBalancerAttributeResult";
   /**
    * <p>An object describing the API operations.</p>
@@ -8475,8 +8468,7 @@ export namespace UpdateRelationalDatabaseParametersRequest {
   }
 }
 
-export interface UpdateRelationalDatabaseParametersResult
-  extends $MetadataBearer {
+export interface UpdateRelationalDatabaseParametersResult {
   __type?: "UpdateRelationalDatabaseParametersResult";
   /**
    * <p>An object describing the result of your update relational database parameters
@@ -8609,7 +8601,7 @@ export namespace UpdateRelationalDatabaseRequest {
   }
 }
 
-export interface UpdateRelationalDatabaseResult extends $MetadataBearer {
+export interface UpdateRelationalDatabaseResult {
   __type?: "UpdateRelationalDatabaseResult";
   /**
    * <p>An object describing the result of your update relational database request.</p>

@@ -633,7 +633,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
   if (input.CopySourceIfModifiedSince !== undefined) {
     headers[
       "x-amz-copy-source-if-modified-since"
-    ] = input.CopySourceIfModifiedSince.toUTCString();
+    ] = input.CopySourceIfModifiedSince.toUTCString().toString();
   }
   if (input.CopySourceIfNoneMatch !== undefined) {
     headers["x-amz-copy-source-if-none-match"] = input.CopySourceIfNoneMatch;
@@ -641,7 +641,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
   if (input.CopySourceIfUnmodifiedSince !== undefined) {
     headers[
       "x-amz-copy-source-if-unmodified-since"
-    ] = input.CopySourceIfUnmodifiedSince.toUTCString();
+    ] = input.CopySourceIfUnmodifiedSince.toUTCString().toString();
   }
   if (input.CopySourceSSECustomerAlgorithm !== undefined) {
     headers["x-amz-copy-source-server-side-encryption-customer-algorithm"] =
@@ -656,7 +656,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
       input.CopySourceSSECustomerKeyMD5;
   }
   if (input.Expires !== undefined) {
-    headers["Expires"] = input.Expires.toUTCString();
+    headers["Expires"] = input.Expires.toUTCString().toString();
   }
   if (input.GrantFullControl !== undefined) {
     headers["x-amz-grant-full-control"] = input.GrantFullControl;
@@ -682,7 +682,7 @@ export async function serializeAws_restXmlCopyObjectCommand(
   if (input.ObjectLockRetainUntilDate !== undefined) {
     headers[
       "x-amz-object-lock-retain-until-date"
-    ] = input.ObjectLockRetainUntilDate.toISOString();
+    ] = input.ObjectLockRetainUntilDate.toISOString().toString();
   }
   if (input.RequestPayer !== undefined) {
     headers["x-amz-request-payer"] = input.RequestPayer;
@@ -854,7 +854,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
     headers["Content-Type"] = input.ContentType;
   }
   if (input.Expires !== undefined) {
-    headers["Expires"] = input.Expires.toUTCString();
+    headers["Expires"] = input.Expires.toUTCString().toString();
   }
   if (input.GrantFullControl !== undefined) {
     headers["x-amz-grant-full-control"] = input.GrantFullControl;
@@ -877,7 +877,7 @@ export async function serializeAws_restXmlCreateMultipartUploadCommand(
   if (input.ObjectLockRetainUntilDate !== undefined) {
     headers[
       "x-amz-object-lock-retain-until-date"
-    ] = input.ObjectLockRetainUntilDate.toISOString();
+    ] = input.ObjectLockRetainUntilDate.toISOString().toString();
   }
   if (input.RequestPayer !== undefined) {
     headers["x-amz-request-payer"] = input.RequestPayer;
@@ -2108,13 +2108,17 @@ export async function serializeAws_restXmlGetObjectCommand(
     headers["If-Match"] = input.IfMatch;
   }
   if (input.IfModifiedSince !== undefined) {
-    headers["If-Modified-Since"] = input.IfModifiedSince.toUTCString();
+    headers[
+      "If-Modified-Since"
+    ] = input.IfModifiedSince.toUTCString().toString();
   }
   if (input.IfNoneMatch !== undefined) {
     headers["If-None-Match"] = input.IfNoneMatch;
   }
   if (input.IfUnmodifiedSince !== undefined) {
-    headers["If-Unmodified-Since"] = input.IfUnmodifiedSince.toUTCString();
+    headers[
+      "If-Unmodified-Since"
+    ] = input.IfUnmodifiedSince.toUTCString().toString();
   }
   if (input.Range !== undefined) {
     headers["Range"] = input.Range;
@@ -2183,7 +2187,7 @@ export async function serializeAws_restXmlGetObjectCommand(
     query["response-content-type"] = input.ResponseContentType;
   }
   if (input.ResponseExpires !== undefined) {
-    query["response-expires"] = input.ResponseExpires.toISOString();
+    query["response-expires"] = input.ResponseExpires.toISOString().toString();
   }
   if (input.VersionId !== undefined) {
     query["versionId"] = input.VersionId;
@@ -2559,13 +2563,17 @@ export async function serializeAws_restXmlHeadObjectCommand(
     headers["If-Match"] = input.IfMatch;
   }
   if (input.IfModifiedSince !== undefined) {
-    headers["If-Modified-Since"] = input.IfModifiedSince.toUTCString();
+    headers[
+      "If-Modified-Since"
+    ] = input.IfModifiedSince.toUTCString().toString();
   }
   if (input.IfNoneMatch !== undefined) {
     headers["If-None-Match"] = input.IfNoneMatch;
   }
   if (input.IfUnmodifiedSince !== undefined) {
-    headers["If-Unmodified-Since"] = input.IfUnmodifiedSince.toUTCString();
+    headers[
+      "If-Unmodified-Since"
+    ] = input.IfUnmodifiedSince.toUTCString().toString();
   }
   if (input.Range !== undefined) {
     headers["Range"] = input.Range;
@@ -3816,7 +3824,7 @@ export async function serializeAws_restXmlPutObjectCommand(
     headers["Content-Type"] = input.ContentType;
   }
   if (input.Expires !== undefined) {
-    headers["Expires"] = input.Expires.toUTCString();
+    headers["Expires"] = input.Expires.toUTCString().toString();
   }
   if (input.GrantFullControl !== undefined) {
     headers["x-amz-grant-full-control"] = input.GrantFullControl;
@@ -3839,7 +3847,7 @@ export async function serializeAws_restXmlPutObjectCommand(
   if (input.ObjectLockRetainUntilDate !== undefined) {
     headers[
       "x-amz-object-lock-retain-until-date"
-    ] = input.ObjectLockRetainUntilDate.toISOString();
+    ] = input.ObjectLockRetainUntilDate.toISOString().toString();
   }
   if (input.RequestPayer !== undefined) {
     headers["x-amz-request-payer"] = input.RequestPayer;
@@ -4578,7 +4586,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
   if (input.CopySourceIfModifiedSince !== undefined) {
     headers[
       "x-amz-copy-source-if-modified-since"
-    ] = input.CopySourceIfModifiedSince.toUTCString();
+    ] = input.CopySourceIfModifiedSince.toUTCString().toString();
   }
   if (input.CopySourceIfNoneMatch !== undefined) {
     headers["x-amz-copy-source-if-none-match"] = input.CopySourceIfNoneMatch;
@@ -4586,7 +4594,7 @@ export async function serializeAws_restXmlUploadPartCopyCommand(
   if (input.CopySourceIfUnmodifiedSince !== undefined) {
     headers[
       "x-amz-copy-source-if-unmodified-since"
-    ] = input.CopySourceIfUnmodifiedSince.toUTCString();
+    ] = input.CopySourceIfUnmodifiedSince.toUTCString().toString();
   }
   if (input.CopySourceRange !== undefined) {
     headers["x-amz-copy-source-range"] = input.CopySourceRange;
@@ -4700,10 +4708,13 @@ async function deserializeAws_restXmlAbortMultipartUploadCommandError(
   switch (errorCode) {
     case "NoSuchUpload":
     case "com.amazonaws.s3#NoSuchUpload":
-      response = await deserializeAws_restXmlNoSuchUploadResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchUploadResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4893,10 +4904,13 @@ async function deserializeAws_restXmlCopyObjectCommandError(
   switch (errorCode) {
     case "ObjectNotInActiveTierError":
     case "com.amazonaws.s3#ObjectNotInActiveTierError":
-      response = await deserializeAws_restXmlObjectNotInActiveTierErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlObjectNotInActiveTierErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4948,17 +4962,23 @@ async function deserializeAws_restXmlCreateBucketCommandError(
   switch (errorCode) {
     case "BucketAlreadyExists":
     case "com.amazonaws.s3#BucketAlreadyExists":
-      response = await deserializeAws_restXmlBucketAlreadyExistsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBucketAlreadyExistsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BucketAlreadyOwnedByYou":
     case "com.amazonaws.s3#BucketAlreadyOwnedByYou":
-      response = await deserializeAws_restXmlBucketAlreadyOwnedByYouResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlBucketAlreadyOwnedByYouResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6985,10 +7005,13 @@ async function deserializeAws_restXmlGetObjectCommandError(
   switch (errorCode) {
     case "NoSuchKey":
     case "com.amazonaws.s3#NoSuchKey":
-      response = await deserializeAws_restXmlNoSuchKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7058,10 +7081,13 @@ async function deserializeAws_restXmlGetObjectAclCommandError(
   switch (errorCode) {
     case "NoSuchKey":
     case "com.amazonaws.s3#NoSuchKey":
-      response = await deserializeAws_restXmlNoSuchKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7419,10 +7445,13 @@ async function deserializeAws_restXmlHeadBucketCommandError(
   switch (errorCode) {
     case "NoSuchBucket":
     case "com.amazonaws.s3#NoSuchBucket":
-      response = await deserializeAws_restXmlNoSuchBucketResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchBucketResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7603,10 +7632,13 @@ async function deserializeAws_restXmlHeadObjectCommandError(
   switch (errorCode) {
     case "NoSuchKey":
     case "com.amazonaws.s3#NoSuchKey":
-      response = await deserializeAws_restXmlNoSuchKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8230,10 +8262,13 @@ async function deserializeAws_restXmlListObjectsCommandError(
   switch (errorCode) {
     case "NoSuchBucket":
     case "com.amazonaws.s3#NoSuchBucket":
-      response = await deserializeAws_restXmlNoSuchBucketResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchBucketResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8344,10 +8379,13 @@ async function deserializeAws_restXmlListObjectsV2CommandError(
   switch (errorCode) {
     case "NoSuchBucket":
     case "com.amazonaws.s3#NoSuchBucket":
-      response = await deserializeAws_restXmlNoSuchBucketResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchBucketResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9318,10 +9356,13 @@ async function deserializeAws_restXmlPutObjectAclCommandError(
   switch (errorCode) {
     case "NoSuchKey":
     case "com.amazonaws.s3#NoSuchKey":
-      response = await deserializeAws_restXmlNoSuchKeyResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlNoSuchKeyResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9624,10 +9665,13 @@ async function deserializeAws_restXmlRestoreObjectCommandError(
   switch (errorCode) {
     case "ObjectAlreadyInActiveTierError":
     case "com.amazonaws.s3#ObjectAlreadyInActiveTierError":
-      response = await deserializeAws_restXmlObjectAlreadyInActiveTierErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restXmlObjectAlreadyInActiveTierErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

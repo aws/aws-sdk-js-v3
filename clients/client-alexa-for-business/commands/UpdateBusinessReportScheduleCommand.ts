@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateBusinessReportScheduleCommandInput = UpdateBusinessReportScheduleRequest;
-export type UpdateBusinessReportScheduleCommandOutput = UpdateBusinessReportScheduleResponse;
+export type UpdateBusinessReportScheduleCommandOutput = UpdateBusinessReportScheduleResponse &
+  __MetadataBearer;
 
 export class UpdateBusinessReportScheduleCommand extends $Command<
   UpdateBusinessReportScheduleCommandInput,

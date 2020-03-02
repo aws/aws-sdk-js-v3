@@ -347,7 +347,7 @@ export namespace SendCommandRequest {
   }
 }
 
-export interface SendCommandResult extends $MetadataBearer {
+export interface SendCommandResult {
   __type?: "SendCommandResult";
   /**
    * <p>Contains the details of the aborted transaction.</p>

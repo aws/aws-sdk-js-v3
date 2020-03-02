@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendBonusCommandInput = SendBonusRequest;
-export type SendBonusCommandOutput = SendBonusResponse;
+export type SendBonusCommandOutput = SendBonusResponse & __MetadataBearer;
 
 export class SendBonusCommand extends $Command<
   SendBonusCommandInput,

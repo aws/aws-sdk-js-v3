@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHapgCommandInput = CreateHapgRequest;
-export type CreateHapgCommandOutput = CreateHapgResponse;
+export type CreateHapgCommandOutput = CreateHapgResponse & __MetadataBearer;
 
 export class CreateHapgCommand extends $Command<
   CreateHapgCommandInput,

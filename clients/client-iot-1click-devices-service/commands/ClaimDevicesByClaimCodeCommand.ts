@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ClaimDevicesByClaimCodeCommandInput = ClaimDevicesByClaimCodeRequest;
-export type ClaimDevicesByClaimCodeCommandOutput = ClaimDevicesByClaimCodeResponse;
+export type ClaimDevicesByClaimCodeCommandOutput = ClaimDevicesByClaimCodeResponse &
+  __MetadataBearer;
 
 export class ClaimDevicesByClaimCodeCommand extends $Command<
   ClaimDevicesByClaimCodeCommandInput,

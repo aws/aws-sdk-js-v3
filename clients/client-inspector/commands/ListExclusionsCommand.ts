@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListExclusionsCommandInput = ListExclusionsRequest;
-export type ListExclusionsCommandOutput = ListExclusionsResponse;
+export type ListExclusionsCommandOutput = ListExclusionsResponse &
+  __MetadataBearer;
 
 export class ListExclusionsCommand extends $Command<
   ListExclusionsCommandInput,

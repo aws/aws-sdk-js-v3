@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIntegrationResponsesCommandInput = GetIntegrationResponsesRequest;
-export type GetIntegrationResponsesCommandOutput = GetIntegrationResponsesResponse;
+export type GetIntegrationResponsesCommandOutput = GetIntegrationResponsesResponse &
+  __MetadataBearer;
 
 export class GetIntegrationResponsesCommand extends $Command<
   GetIntegrationResponsesCommandInput,

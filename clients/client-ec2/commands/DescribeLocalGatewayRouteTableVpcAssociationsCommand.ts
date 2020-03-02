@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLocalGatewayRouteTableVpcAssociationsCommandInput = DescribeLocalGatewayRouteTableVpcAssociationsRequest;
-export type DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput = DescribeLocalGatewayRouteTableVpcAssociationsResult;
+export type DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput = DescribeLocalGatewayRouteTableVpcAssociationsResult &
+  __MetadataBearer;
 
 export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Command<
   DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,

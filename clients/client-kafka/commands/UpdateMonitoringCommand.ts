@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMonitoringCommandInput = UpdateMonitoringRequest;
-export type UpdateMonitoringCommandOutput = UpdateMonitoringResponse;
+export type UpdateMonitoringCommandOutput = UpdateMonitoringResponse &
+  __MetadataBearer;
 
 export class UpdateMonitoringCommand extends $Command<
   UpdateMonitoringCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSessionTokenCommandInput = GetSessionTokenRequest;
-export type GetSessionTokenCommandOutput = GetSessionTokenResponse;
+export type GetSessionTokenCommandOutput = GetSessionTokenResponse &
+  __MetadataBearer;
 
 export class GetSessionTokenCommand extends $Command<
   GetSessionTokenCommandInput,

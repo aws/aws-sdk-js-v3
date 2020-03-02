@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterTaskDefinitionCommandInput = RegisterTaskDefinitionRequest;
-export type RegisterTaskDefinitionCommandOutput = RegisterTaskDefinitionResponse;
+export type RegisterTaskDefinitionCommandOutput = RegisterTaskDefinitionResponse &
+  __MetadataBearer;
 
 export class RegisterTaskDefinitionCommand extends $Command<
   RegisterTaskDefinitionCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateCommitCommandInput = CreateCommitInput;
-export type CreateCommitCommandOutput = CreateCommitOutput;
+export type CreateCommitCommandOutput = CreateCommitOutput & __MetadataBearer;
 
 export class CreateCommitCommand extends $Command<
   CreateCommitCommandInput,

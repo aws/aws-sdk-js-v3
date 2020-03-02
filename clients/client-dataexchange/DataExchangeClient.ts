@@ -1,43 +1,91 @@
 import {
-  CancelJobRequest,
-  CreateDataSetRequest,
-  CreateDataSetResponse,
-  CreateJobRequest,
-  CreateJobResponse,
-  CreateRevisionRequest,
-  CreateRevisionResponse,
-  DeleteAssetRequest,
-  DeleteDataSetRequest,
-  DeleteRevisionRequest,
-  GetAssetRequest,
-  GetAssetResponse,
-  GetDataSetRequest,
-  GetDataSetResponse,
-  GetJobRequest,
-  GetJobResponse,
-  GetRevisionRequest,
-  GetRevisionResponse,
-  ListDataSetRevisionsRequest,
-  ListDataSetRevisionsResponse,
-  ListDataSetsRequest,
-  ListDataSetsResponse,
-  ListJobsRequest,
-  ListJobsResponse,
-  ListRevisionAssetsRequest,
-  ListRevisionAssetsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  StartJobRequest,
-  StartJobResponse,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateAssetRequest,
-  UpdateAssetResponse,
-  UpdateDataSetRequest,
-  UpdateDataSetResponse,
-  UpdateRevisionRequest,
-  UpdateRevisionResponse
-} from "./models/index";
+  CancelJobCommandInput,
+  CancelJobCommandOutput
+} from "./commands/CancelJobCommand";
+import {
+  CreateDataSetCommandInput,
+  CreateDataSetCommandOutput
+} from "./commands/CreateDataSetCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  CreateRevisionCommandInput,
+  CreateRevisionCommandOutput
+} from "./commands/CreateRevisionCommand";
+import {
+  DeleteAssetCommandInput,
+  DeleteAssetCommandOutput
+} from "./commands/DeleteAssetCommand";
+import {
+  DeleteDataSetCommandInput,
+  DeleteDataSetCommandOutput
+} from "./commands/DeleteDataSetCommand";
+import {
+  DeleteRevisionCommandInput,
+  DeleteRevisionCommandOutput
+} from "./commands/DeleteRevisionCommand";
+import {
+  GetAssetCommandInput,
+  GetAssetCommandOutput
+} from "./commands/GetAssetCommand";
+import {
+  GetDataSetCommandInput,
+  GetDataSetCommandOutput
+} from "./commands/GetDataSetCommand";
+import {
+  GetJobCommandInput,
+  GetJobCommandOutput
+} from "./commands/GetJobCommand";
+import {
+  GetRevisionCommandInput,
+  GetRevisionCommandOutput
+} from "./commands/GetRevisionCommand";
+import {
+  ListDataSetRevisionsCommandInput,
+  ListDataSetRevisionsCommandOutput
+} from "./commands/ListDataSetRevisionsCommand";
+import {
+  ListDataSetsCommandInput,
+  ListDataSetsCommandOutput
+} from "./commands/ListDataSetsCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  ListRevisionAssetsCommandInput,
+  ListRevisionAssetsCommandOutput
+} from "./commands/ListRevisionAssetsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  StartJobCommandInput,
+  StartJobCommandOutput
+} from "./commands/StartJobCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAssetCommandInput,
+  UpdateAssetCommandOutput
+} from "./commands/UpdateAssetCommand";
+import {
+  UpdateDataSetCommandInput,
+  UpdateDataSetCommandOutput
+} from "./commands/UpdateDataSetCommand";
+import {
+  UpdateRevisionCommandInput,
+  UpdateRevisionCommandOutput
+} from "./commands/UpdateRevisionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -85,54 +133,58 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelJobRequest
-  | CreateDataSetRequest
-  | CreateJobRequest
-  | CreateRevisionRequest
-  | DeleteAssetRequest
-  | DeleteDataSetRequest
-  | DeleteRevisionRequest
-  | GetAssetRequest
-  | GetDataSetRequest
-  | GetJobRequest
-  | GetRevisionRequest
-  | ListDataSetRevisionsRequest
-  | ListDataSetsRequest
-  | ListJobsRequest
-  | ListRevisionAssetsRequest
-  | ListTagsForResourceRequest
-  | StartJobRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAssetRequest
-  | UpdateDataSetRequest
-  | UpdateRevisionRequest;
+  | CancelJobCommandInput
+  | CreateDataSetCommandInput
+  | CreateJobCommandInput
+  | CreateRevisionCommandInput
+  | DeleteAssetCommandInput
+  | DeleteDataSetCommandInput
+  | DeleteRevisionCommandInput
+  | GetAssetCommandInput
+  | GetDataSetCommandInput
+  | GetJobCommandInput
+  | GetRevisionCommandInput
+  | ListDataSetRevisionsCommandInput
+  | ListDataSetsCommandInput
+  | ListJobsCommandInput
+  | ListRevisionAssetsCommandInput
+  | ListTagsForResourceCommandInput
+  | StartJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAssetCommandInput
+  | UpdateDataSetCommandInput
+  | UpdateRevisionCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateDataSetResponse
-  | CreateJobResponse
-  | CreateRevisionResponse
-  | GetAssetResponse
-  | GetDataSetResponse
-  | GetJobResponse
-  | GetRevisionResponse
-  | ListDataSetRevisionsResponse
-  | ListDataSetsResponse
-  | ListJobsResponse
-  | ListRevisionAssetsResponse
-  | ListTagsForResourceResponse
-  | StartJobResponse
-  | UpdateAssetResponse
-  | UpdateDataSetResponse
-  | UpdateRevisionResponse;
+  | CancelJobCommandOutput
+  | CreateDataSetCommandOutput
+  | CreateJobCommandOutput
+  | CreateRevisionCommandOutput
+  | DeleteAssetCommandOutput
+  | DeleteDataSetCommandOutput
+  | DeleteRevisionCommandOutput
+  | GetAssetCommandOutput
+  | GetDataSetCommandOutput
+  | GetJobCommandOutput
+  | GetRevisionCommandOutput
+  | ListDataSetRevisionsCommandOutput
+  | ListDataSetsCommandOutput
+  | ListJobsCommandOutput
+  | ListRevisionAssetsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | StartJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAssetCommandOutput
+  | UpdateDataSetCommandOutput
+  | UpdateRevisionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

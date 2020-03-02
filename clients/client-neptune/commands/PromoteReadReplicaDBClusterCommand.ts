@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaDBClusterCommandInput = PromoteReadReplicaDBClusterMessage;
-export type PromoteReadReplicaDBClusterCommandOutput = PromoteReadReplicaDBClusterResult;
+export type PromoteReadReplicaDBClusterCommandOutput = PromoteReadReplicaDBClusterResult &
+  __MetadataBearer;
 
 export class PromoteReadReplicaDBClusterCommand extends $Command<
   PromoteReadReplicaDBClusterCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutMailboxPermissionsCommandInput = PutMailboxPermissionsRequest;
-export type PutMailboxPermissionsCommandOutput = PutMailboxPermissionsResponse;
+export type PutMailboxPermissionsCommandOutput = PutMailboxPermissionsResponse &
+  __MetadataBearer;
 
 export class PutMailboxPermissionsCommand extends $Command<
   PutMailboxPermissionsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPipelineExecutionCommandInput = GetPipelineExecutionInput;
-export type GetPipelineExecutionCommandOutput = GetPipelineExecutionOutput;
+export type GetPipelineExecutionCommandOutput = GetPipelineExecutionOutput &
+  __MetadataBearer;
 
 export class GetPipelineExecutionCommand extends $Command<
   GetPipelineExecutionCommandInput,

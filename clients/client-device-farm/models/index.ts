@@ -389,7 +389,7 @@ export namespace CreateDevicePoolRequest {
 /**
  * <p>Represents the result of a create device pool request.</p>
  */
-export interface CreateDevicePoolResult extends $MetadataBearer {
+export interface CreateDevicePoolResult {
   __type?: "CreateDevicePoolResult";
   /**
    * <p>The newly created device pool.</p>
@@ -442,7 +442,7 @@ export namespace CreateInstanceProfileRequest {
   }
 }
 
-export interface CreateInstanceProfileResult extends $MetadataBearer {
+export interface CreateInstanceProfileResult {
   __type?: "CreateInstanceProfileResult";
   /**
    * <p>An object that contains information about your instance profile.</p>
@@ -533,7 +533,7 @@ export namespace CreateNetworkProfileRequest {
   }
 }
 
-export interface CreateNetworkProfileResult extends $MetadataBearer {
+export interface CreateNetworkProfileResult {
   __type?: "CreateNetworkProfileResult";
   /**
    * <p>The network profile that is returned by the create network profile
@@ -574,7 +574,7 @@ export namespace CreateProjectRequest {
 /**
  * <p>Represents the result of a create project request.</p>
  */
-export interface CreateProjectResult extends $MetadataBearer {
+export interface CreateProjectResult {
   __type?: "CreateProjectResult";
   /**
    * <p>The newly created project.</p>
@@ -721,7 +721,7 @@ export namespace CreateRemoteAccessSessionRequest {
  * <p>Represents the server response from a request to create a remote access
  *             session.</p>
  */
-export interface CreateRemoteAccessSessionResult extends $MetadataBearer {
+export interface CreateRemoteAccessSessionResult {
   __type?: "CreateRemoteAccessSessionResult";
   /**
    * <p>A container that describes the remote access session when the request to create a
@@ -755,7 +755,7 @@ export namespace CreateTestGridProjectRequest {
   }
 }
 
-export interface CreateTestGridProjectResult extends $MetadataBearer {
+export interface CreateTestGridProjectResult {
   __type?: "CreateTestGridProjectResult";
   /**
    * <p>ARN of the Selenium testing project that was created.</p>
@@ -789,7 +789,7 @@ export namespace CreateTestGridUrlRequest {
   }
 }
 
-export interface CreateTestGridUrlResult extends $MetadataBearer {
+export interface CreateTestGridUrlResult {
   __type?: "CreateTestGridUrlResult";
   /**
    * <p>The number of seconds the URL from <a>CreateTestGridUrlResult$url</a> stays active.</p>
@@ -948,7 +948,7 @@ export namespace CreateUploadRequest {
 /**
  * <p>Represents the result of a create upload request.</p>
  */
-export interface CreateUploadResult extends $MetadataBearer {
+export interface CreateUploadResult {
   __type?: "CreateUploadResult";
   /**
    * <p>The newly created upload.</p>
@@ -993,7 +993,7 @@ export namespace CreateVPCEConfigurationRequest {
   }
 }
 
-export interface CreateVPCEConfigurationResult extends $MetadataBearer {
+export interface CreateVPCEConfigurationResult {
   __type?: "CreateVPCEConfigurationResult";
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
@@ -1066,7 +1066,7 @@ export namespace DeleteDevicePoolRequest {
 /**
  * <p>Represents the result of a delete device pool request.</p>
  */
-export interface DeleteDevicePoolResult extends $MetadataBearer {
+export interface DeleteDevicePoolResult {
   __type?: "DeleteDevicePoolResult";
 }
 
@@ -1091,7 +1091,7 @@ export namespace DeleteInstanceProfileRequest {
   }
 }
 
-export interface DeleteInstanceProfileResult extends $MetadataBearer {
+export interface DeleteInstanceProfileResult {
   __type?: "DeleteInstanceProfileResult";
 }
 
@@ -1115,7 +1115,7 @@ export namespace DeleteNetworkProfileRequest {
   }
 }
 
-export interface DeleteNetworkProfileResult extends $MetadataBearer {
+export interface DeleteNetworkProfileResult {
   __type?: "DeleteNetworkProfileResult";
 }
 
@@ -1145,7 +1145,7 @@ export namespace DeleteProjectRequest {
 /**
  * <p>Represents the result of a delete project request.</p>
  */
-export interface DeleteProjectResult extends $MetadataBearer {
+export interface DeleteProjectResult {
   __type?: "DeleteProjectResult";
 }
 
@@ -1177,7 +1177,7 @@ export namespace DeleteRemoteAccessSessionRequest {
  * <p>The response from the server when a request is made to delete the remote access
  *             session.</p>
  */
-export interface DeleteRemoteAccessSessionResult extends $MetadataBearer {
+export interface DeleteRemoteAccessSessionResult {
   __type?: "DeleteRemoteAccessSessionResult";
 }
 
@@ -1207,7 +1207,7 @@ export namespace DeleteRunRequest {
 /**
  * <p>Represents the result of a delete run request.</p>
  */
-export interface DeleteRunResult extends $MetadataBearer {
+export interface DeleteRunResult {
   __type?: "DeleteRunResult";
 }
 
@@ -1231,7 +1231,7 @@ export namespace DeleteTestGridProjectRequest {
   }
 }
 
-export interface DeleteTestGridProjectResult extends $MetadataBearer {
+export interface DeleteTestGridProjectResult {
   __type?: "DeleteTestGridProjectResult";
 }
 
@@ -1261,7 +1261,7 @@ export namespace DeleteUploadRequest {
 /**
  * <p>Represents the result of a delete upload request.</p>
  */
-export interface DeleteUploadResult extends $MetadataBearer {
+export interface DeleteUploadResult {
   __type?: "DeleteUploadResult";
 }
 
@@ -1286,7 +1286,7 @@ export namespace DeleteVPCEConfigurationRequest {
   }
 }
 
-export interface DeleteVPCEConfigurationResult extends $MetadataBearer {
+export interface DeleteVPCEConfigurationResult {
   __type?: "DeleteVPCEConfigurationResult";
 }
 
@@ -2054,7 +2054,7 @@ export namespace GetAccountSettingsRequest {
  * <p>Represents the account settings return values from the
  *                 <code>GetAccountSettings</code> request.</p>
  */
-export interface GetAccountSettingsResult extends $MetadataBearer {
+export interface GetAccountSettingsResult {
   __type?: "GetAccountSettingsResult";
   /**
    * <p>The account settings.</p>
@@ -2083,7 +2083,7 @@ export namespace GetDeviceInstanceRequest {
   }
 }
 
-export interface GetDeviceInstanceResult extends $MetadataBearer {
+export interface GetDeviceInstanceResult {
   __type?: "GetDeviceInstanceResult";
   /**
    * <p>An object that contains information about your device instance.</p>
@@ -2195,7 +2195,7 @@ export namespace GetDevicePoolCompatibilityRequest {
 /**
  * <p>Represents the result of describe device pool compatibility request.</p>
  */
-export interface GetDevicePoolCompatibilityResult extends $MetadataBearer {
+export interface GetDevicePoolCompatibilityResult {
   __type?: "GetDevicePoolCompatibilityResult";
   /**
    * <p>Information about compatible devices.</p>
@@ -2234,7 +2234,7 @@ export namespace GetDevicePoolRequest {
 /**
  * <p>Represents the result of a get device pool request.</p>
  */
-export interface GetDevicePoolResult extends $MetadataBearer {
+export interface GetDevicePoolResult {
   __type?: "GetDevicePoolResult";
   /**
    * <p>An object that contains information about the requested device pool.</p>
@@ -2268,7 +2268,7 @@ export namespace GetDeviceRequest {
 /**
  * <p>Represents the result of a get device request.</p>
  */
-export interface GetDeviceResult extends $MetadataBearer {
+export interface GetDeviceResult {
   __type?: "GetDeviceResult";
   /**
    * <p>An object that contains information about the requested device.</p>
@@ -2296,7 +2296,7 @@ export namespace GetInstanceProfileRequest {
   }
 }
 
-export interface GetInstanceProfileResult extends $MetadataBearer {
+export interface GetInstanceProfileResult {
   __type?: "GetInstanceProfileResult";
   /**
    * <p>An object that contains information about an instance profile.</p>
@@ -2330,7 +2330,7 @@ export namespace GetJobRequest {
 /**
  * <p>Represents the result of a get job request.</p>
  */
-export interface GetJobResult extends $MetadataBearer {
+export interface GetJobResult {
   __type?: "GetJobResult";
   /**
    * <p>An object that contains information about the requested job.</p>
@@ -2358,7 +2358,7 @@ export namespace GetNetworkProfileRequest {
   }
 }
 
-export interface GetNetworkProfileResult extends $MetadataBearer {
+export interface GetNetworkProfileResult {
   __type?: "GetNetworkProfileResult";
   /**
    * <p>The network profile.</p>
@@ -2394,7 +2394,7 @@ export namespace GetOfferingStatusRequest {
 /**
  * <p>Returns the status result for a device offering.</p>
  */
-export interface GetOfferingStatusResult extends $MetadataBearer {
+export interface GetOfferingStatusResult {
   __type?: "GetOfferingStatusResult";
   /**
    * <p>When specified, gets the offering status for the current period.</p>
@@ -2439,7 +2439,7 @@ export namespace GetProjectRequest {
 /**
  * <p>Represents the result of a get project request.</p>
  */
-export interface GetProjectResult extends $MetadataBearer {
+export interface GetProjectResult {
   __type?: "GetProjectResult";
   /**
    * <p>The project to get information about.</p>
@@ -2476,7 +2476,7 @@ export namespace GetRemoteAccessSessionRequest {
  * <p>Represents the response from the server that lists detailed information about the
  *             remote access session.</p>
  */
-export interface GetRemoteAccessSessionResult extends $MetadataBearer {
+export interface GetRemoteAccessSessionResult {
   __type?: "GetRemoteAccessSessionResult";
   /**
    * <p>A container that lists detailed information about the remote access
@@ -2511,7 +2511,7 @@ export namespace GetRunRequest {
 /**
  * <p>Represents the result of a get run request.</p>
  */
-export interface GetRunResult extends $MetadataBearer {
+export interface GetRunResult {
   __type?: "GetRunResult";
   /**
    * <p>The run to get results from.</p>
@@ -2545,7 +2545,7 @@ export namespace GetSuiteRequest {
 /**
  * <p>Represents the result of a get suite request.</p>
  */
-export interface GetSuiteResult extends $MetadataBearer {
+export interface GetSuiteResult {
   __type?: "GetSuiteResult";
   /**
    * <p>A collection of one or more tests.</p>
@@ -2573,7 +2573,7 @@ export namespace GetTestGridProjectRequest {
   }
 }
 
-export interface GetTestGridProjectResult extends $MetadataBearer {
+export interface GetTestGridProjectResult {
   __type?: "GetTestGridProjectResult";
   /**
    * <p>A <a>TestGridProject</a>.</p>
@@ -2611,7 +2611,7 @@ export namespace GetTestGridSessionRequest {
   }
 }
 
-export interface GetTestGridSessionResult extends $MetadataBearer {
+export interface GetTestGridSessionResult {
   __type?: "GetTestGridSessionResult";
   /**
    * <p>The <a>TestGridSession</a> that was requested.</p>
@@ -2645,7 +2645,7 @@ export namespace GetTestRequest {
 /**
  * <p>Represents the result of a get test request.</p>
  */
-export interface GetTestResult extends $MetadataBearer {
+export interface GetTestResult {
   __type?: "GetTestResult";
   /**
    * <p>A test condition that is evaluated.</p>
@@ -2679,7 +2679,7 @@ export namespace GetUploadRequest {
 /**
  * <p>Represents the result of a get upload request.</p>
  */
-export interface GetUploadResult extends $MetadataBearer {
+export interface GetUploadResult {
   __type?: "GetUploadResult";
   /**
    * <p>An app or a set of one or more tests to upload or that have been
@@ -2709,7 +2709,7 @@ export namespace GetVPCEConfigurationRequest {
   }
 }
 
-export interface GetVPCEConfigurationResult extends $MetadataBearer {
+export interface GetVPCEConfigurationResult {
   __type?: "GetVPCEConfigurationResult";
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>
@@ -2814,7 +2814,7 @@ export namespace InstallToRemoteAccessSessionRequest {
  * <p>Represents the response from the server after AWS Device Farm makes a request to
  *             install to a remote access session.</p>
  */
-export interface InstallToRemoteAccessSessionResult extends $MetadataBearer {
+export interface InstallToRemoteAccessSessionResult {
   __type?: "InstallToRemoteAccessSessionResult";
   /**
    * <p>An app to upload or that has been uploaded.</p>
@@ -3186,7 +3186,7 @@ export namespace ListArtifactsRequest {
 /**
  * <p>Represents the result of a list artifacts operation.</p>
  */
-export interface ListArtifactsResult extends $MetadataBearer {
+export interface ListArtifactsResult {
   __type?: "ListArtifactsResult";
   /**
    * <p>Information about the artifacts.</p>
@@ -3227,7 +3227,7 @@ export namespace ListDeviceInstancesRequest {
   }
 }
 
-export interface ListDeviceInstancesResult extends $MetadataBearer {
+export interface ListDeviceInstancesResult {
   __type?: "ListDeviceInstancesResult";
   /**
    * <p>An object that contains information about your device instances.</p>
@@ -3289,7 +3289,7 @@ export namespace ListDevicePoolsRequest {
 /**
  * <p>Represents the result of a list device pools request.</p>
  */
-export interface ListDevicePoolsResult extends $MetadataBearer {
+export interface ListDevicePoolsResult {
   __type?: "ListDevicePoolsResult";
   /**
    * <p>Information about the device pools.</p>
@@ -3431,7 +3431,7 @@ export namespace ListDevicesRequest {
 /**
  * <p>Represents the result of a list devices operation.</p>
  */
-export interface ListDevicesResult extends $MetadataBearer {
+export interface ListDevicesResult {
   __type?: "ListDevicesResult";
   /**
    * <p>Information about the devices.</p>
@@ -3472,7 +3472,7 @@ export namespace ListInstanceProfilesRequest {
   }
 }
 
-export interface ListInstanceProfilesResult extends $MetadataBearer {
+export interface ListInstanceProfilesResult {
   __type?: "ListInstanceProfilesResult";
   /**
    * <p>An object that contains information about your instance profiles.</p>
@@ -3518,7 +3518,7 @@ export namespace ListJobsRequest {
 /**
  * <p>Represents the result of a list jobs request.</p>
  */
-export interface ListJobsResult extends $MetadataBearer {
+export interface ListJobsResult {
   __type?: "ListJobsResult";
   /**
    * <p>Information about the jobs.</p>
@@ -3565,7 +3565,7 @@ export namespace ListNetworkProfilesRequest {
   }
 }
 
-export interface ListNetworkProfilesResult extends $MetadataBearer {
+export interface ListNetworkProfilesResult {
   __type?: "ListNetworkProfilesResult";
   /**
    * <p>A list of the available network profiles.</p>
@@ -3600,7 +3600,7 @@ export namespace ListOfferingPromotionsRequest {
   }
 }
 
-export interface ListOfferingPromotionsResult extends $MetadataBearer {
+export interface ListOfferingPromotionsResult {
   __type?: "ListOfferingPromotionsResult";
   /**
    * <p>An identifier to be used in the next call to this operation, to return the next set
@@ -3641,7 +3641,7 @@ export namespace ListOfferingTransactionsRequest {
 /**
  * <p>Returns the transaction log of the specified offerings.</p>
  */
-export interface ListOfferingTransactionsResult extends $MetadataBearer {
+export interface ListOfferingTransactionsResult {
   __type?: "ListOfferingTransactionsResult";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -3683,7 +3683,7 @@ export namespace ListOfferingsRequest {
 /**
  * <p>Represents the return values of the list of offerings.</p>
  */
-export interface ListOfferingsResult extends $MetadataBearer {
+export interface ListOfferingsResult {
   __type?: "ListOfferingsResult";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -3731,7 +3731,7 @@ export namespace ListProjectsRequest {
 /**
  * <p>Represents the result of a list projects request.</p>
  */
-export interface ListProjectsResult extends $MetadataBearer {
+export interface ListProjectsResult {
   __type?: "ListProjectsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -3781,7 +3781,7 @@ export namespace ListRemoteAccessSessionsRequest {
  * <p>Represents the response from the server after AWS Device Farm makes a request to
  *             return information about the remote access session.</p>
  */
-export interface ListRemoteAccessSessionsResult extends $MetadataBearer {
+export interface ListRemoteAccessSessionsResult {
   __type?: "ListRemoteAccessSessionsResult";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can
@@ -3829,7 +3829,7 @@ export namespace ListRunsRequest {
 /**
  * <p>Represents the result of a list runs request.</p>
  */
-export interface ListRunsResult extends $MetadataBearer {
+export interface ListRunsResult {
   __type?: "ListRunsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -3876,7 +3876,7 @@ export namespace ListSamplesRequest {
 /**
  * <p>Represents the result of a list samples request.</p>
  */
-export interface ListSamplesResult extends $MetadataBearer {
+export interface ListSamplesResult {
   __type?: "ListSamplesResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -3923,7 +3923,7 @@ export namespace ListSuitesRequest {
 /**
  * <p>Represents the result of a list suites request.</p>
  */
-export interface ListSuitesResult extends $MetadataBearer {
+export interface ListSuitesResult {
   __type?: "ListSuitesResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -3962,7 +3962,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum
@@ -3996,7 +3996,7 @@ export namespace ListTestGridProjectsRequest {
   }
 }
 
-export interface ListTestGridProjectsResult extends $MetadataBearer {
+export interface ListTestGridProjectsResult {
   __type?: "ListTestGridProjectsResult";
   /**
    * <p>Used for pagination. Pass into <a>ListTestGridProjects</a> to get more results in a paginated
@@ -4040,7 +4040,7 @@ export namespace ListTestGridSessionActionsRequest {
   }
 }
 
-export interface ListTestGridSessionActionsResult extends $MetadataBearer {
+export interface ListTestGridSessionActionsResult {
   __type?: "ListTestGridSessionActionsResult";
   /**
    * <p>The action taken by the session.</p>
@@ -4088,7 +4088,7 @@ export namespace ListTestGridSessionArtifactsRequest {
   }
 }
 
-export interface ListTestGridSessionArtifactsResult extends $MetadataBearer {
+export interface ListTestGridSessionArtifactsResult {
   __type?: "ListTestGridSessionArtifactsResult";
   /**
    * <p>A list of test grid session artifacts for a <a>TestGridSession</a>.</p>
@@ -4156,7 +4156,7 @@ export namespace ListTestGridSessionsRequest {
   }
 }
 
-export interface ListTestGridSessionsResult extends $MetadataBearer {
+export interface ListTestGridSessionsResult {
   __type?: "ListTestGridSessionsResult";
   /**
    * <p>Pagination token.</p>
@@ -4201,7 +4201,7 @@ export namespace ListTestsRequest {
 /**
  * <p>Represents the result of a list tests request.</p>
  */
-export interface ListTestsResult extends $MetadataBearer {
+export interface ListTestsResult {
   __type?: "ListTestsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -4248,7 +4248,7 @@ export namespace ListUniqueProblemsRequest {
 /**
  * <p>Represents the result of a list unique problems request.</p>
  */
-export interface ListUniqueProblemsResult extends $MetadataBearer {
+export interface ListUniqueProblemsResult {
   __type?: "ListUniqueProblemsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -4424,7 +4424,7 @@ export namespace ListUploadsRequest {
 /**
  * <p>Represents the result of a list uploads request.</p>
  */
-export interface ListUploadsResult extends $MetadataBearer {
+export interface ListUploadsResult {
   __type?: "ListUploadsResult";
   /**
    * <p>If the number of items that are returned is significantly large, this is an identifier that is also
@@ -4465,7 +4465,7 @@ export namespace ListVPCEConfigurationsRequest {
   }
 }
 
-export interface ListVPCEConfigurationsResult extends $MetadataBearer {
+export interface ListVPCEConfigurationsResult {
   __type?: "ListVPCEConfigurationsResult";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -4950,7 +4950,7 @@ export namespace PurchaseOfferingRequest {
 /**
  * <p>The result of the purchase offering (for example, success or failure).</p>
  */
-export interface PurchaseOfferingResult extends $MetadataBearer {
+export interface PurchaseOfferingResult {
   __type?: "PurchaseOfferingResult";
   /**
    * <p>Represents the offering transaction for the purchase result.</p>
@@ -5252,7 +5252,7 @@ export namespace RenewOfferingRequest {
 /**
  * <p>The result of a renewal offering.</p>
  */
-export interface RenewOfferingResult extends $MetadataBearer {
+export interface RenewOfferingResult {
   __type?: "RenewOfferingResult";
   /**
    * <p>Represents the status of the offering transaction for the renewal.</p>
@@ -5970,7 +5970,7 @@ export namespace ScheduleRunRequest {
 /**
  * <p>Represents the result of a schedule run request.</p>
  */
-export interface ScheduleRunResult extends $MetadataBearer {
+export interface ScheduleRunResult {
   __type?: "ScheduleRunResult";
   /**
    * <p>Information about the scheduled run.</p>
@@ -6249,7 +6249,7 @@ export namespace StopJobRequest {
   }
 }
 
-export interface StopJobResult extends $MetadataBearer {
+export interface StopJobResult {
   __type?: "StopJobResult";
   /**
    * <p>The job that was stopped.</p>
@@ -6284,7 +6284,7 @@ export namespace StopRemoteAccessSessionRequest {
  * <p>Represents the response from the server that describes the remote access session
  *             when AWS Device Farm stops the session.</p>
  */
-export interface StopRemoteAccessSessionResult extends $MetadataBearer {
+export interface StopRemoteAccessSessionResult {
   __type?: "StopRemoteAccessSessionResult";
   /**
    * <p>A container that represents the metadata from the service about the remote access session you are
@@ -6319,7 +6319,7 @@ export namespace StopRunRequest {
 /**
  * <p>Represents the results of your stop run attempt.</p>
  */
-export interface StopRunResult extends $MetadataBearer {
+export interface StopRunResult {
   __type?: "StopRunResult";
   /**
    * <p>The run that was stopped.</p>
@@ -6601,7 +6601,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -7064,7 +7064,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -7098,7 +7098,7 @@ export namespace UpdateDeviceInstanceRequest {
   }
 }
 
-export interface UpdateDeviceInstanceResult extends $MetadataBearer {
+export interface UpdateDeviceInstanceResult {
   __type?: "UpdateDeviceInstanceResult";
   /**
    * <p>An object that contains information about your device instance.</p>
@@ -7170,7 +7170,7 @@ export namespace UpdateDevicePoolRequest {
 /**
  * <p>Represents the result of an update device pool request.</p>
  */
-export interface UpdateDevicePoolResult extends $MetadataBearer {
+export interface UpdateDevicePoolResult {
   __type?: "UpdateDevicePoolResult";
   /**
    * <p>The device pool you just updated.</p>
@@ -7228,7 +7228,7 @@ export namespace UpdateInstanceProfileRequest {
   }
 }
 
-export interface UpdateInstanceProfileResult extends $MetadataBearer {
+export interface UpdateInstanceProfileResult {
   __type?: "UpdateInstanceProfileResult";
   /**
    * <p>An object that contains information about your instance profile.</p>
@@ -7321,7 +7321,7 @@ export namespace UpdateNetworkProfileRequest {
   }
 }
 
-export interface UpdateNetworkProfileResult extends $MetadataBearer {
+export interface UpdateNetworkProfileResult {
   __type?: "UpdateNetworkProfileResult";
   /**
    * <p>A list of the available network profiles.</p>
@@ -7365,7 +7365,7 @@ export namespace UpdateProjectRequest {
 /**
  * <p>Represents the result of an update project request.</p>
  */
-export interface UpdateProjectResult extends $MetadataBearer {
+export interface UpdateProjectResult {
   __type?: "UpdateProjectResult";
   /**
    * <p>The project to update.</p>
@@ -7403,7 +7403,7 @@ export namespace UpdateTestGridProjectRequest {
   }
 }
 
-export interface UpdateTestGridProjectResult extends $MetadataBearer {
+export interface UpdateTestGridProjectResult {
   __type?: "UpdateTestGridProjectResult";
   /**
    * <p>The project, including updated information.</p>
@@ -7447,7 +7447,7 @@ export namespace UpdateUploadRequest {
   }
 }
 
-export interface UpdateUploadResult extends $MetadataBearer {
+export interface UpdateUploadResult {
   __type?: "UpdateUploadResult";
   /**
    * <p>A test spec uploaded to Device Farm.</p>
@@ -7498,7 +7498,7 @@ export namespace UpdateVPCEConfigurationRequest {
   }
 }
 
-export interface UpdateVPCEConfigurationResult extends $MetadataBearer {
+export interface UpdateVPCEConfigurationResult {
   __type?: "UpdateVPCEConfigurationResult";
   /**
    * <p>An object that contains information about your VPC endpoint configuration.</p>

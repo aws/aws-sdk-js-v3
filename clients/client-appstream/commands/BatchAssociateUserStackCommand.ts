@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchAssociateUserStackCommandInput = BatchAssociateUserStackRequest;
-export type BatchAssociateUserStackCommandOutput = BatchAssociateUserStackResult;
+export type BatchAssociateUserStackCommandOutput = BatchAssociateUserStackResult &
+  __MetadataBearer;
 
 export class BatchAssociateUserStackCommand extends $Command<
   BatchAssociateUserStackCommandInput,

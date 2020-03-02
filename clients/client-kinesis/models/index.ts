@@ -221,7 +221,7 @@ export namespace DescribeLimitsInput {
   }
 }
 
-export interface DescribeLimitsOutput extends $MetadataBearer {
+export interface DescribeLimitsOutput {
   __type?: "DescribeLimitsOutput";
   /**
    * <p>The number of open shards.</p>
@@ -265,7 +265,7 @@ export namespace DescribeStreamConsumerInput {
   }
 }
 
-export interface DescribeStreamConsumerOutput extends $MetadataBearer {
+export interface DescribeStreamConsumerOutput {
   __type?: "DescribeStreamConsumerOutput";
   /**
    * <p>An object that represents the details of the consumer.</p>
@@ -310,7 +310,7 @@ export namespace DescribeStreamInput {
 /**
  * <p>Represents the output for <code>DescribeStream</code>.</p>
  */
-export interface DescribeStreamOutput extends $MetadataBearer {
+export interface DescribeStreamOutput {
   __type?: "DescribeStreamOutput";
   /**
    * <p>The current status of the stream, the stream Amazon Resource Name (ARN), an array
@@ -340,7 +340,7 @@ export namespace DescribeStreamSummaryInput {
   }
 }
 
-export interface DescribeStreamSummaryOutput extends $MetadataBearer {
+export interface DescribeStreamSummaryOutput {
   __type?: "DescribeStreamSummaryOutput";
   /**
    * <p>A <a>StreamDescriptionSummary</a> containing information about the stream.</p>
@@ -566,7 +566,7 @@ export namespace EnhancedMetrics {
  * <p>Represents the output for <a>EnableEnhancedMonitoring</a> and
  *                 <a>DisableEnhancedMonitoring</a>.</p>
  */
-export interface EnhancedMonitoringOutput extends $MetadataBearer {
+export interface EnhancedMonitoringOutput {
   __type?: "EnhancedMonitoringOutput";
   /**
    * <p>Represents the current state of the metrics that are in the enhanced state before the operation.</p>
@@ -654,7 +654,7 @@ export namespace GetRecordsInput {
 /**
  * <p>Represents the output for <a>GetRecords</a>.</p>
  */
-export interface GetRecordsOutput extends $MetadataBearer {
+export interface GetRecordsOutput {
   __type?: "GetRecordsOutput";
   /**
    * <p>The number of milliseconds the <a>GetRecords</a> response is from the
@@ -750,7 +750,7 @@ export namespace GetShardIteratorInput {
 /**
  * <p>Represents the output for <code>GetShardIterator</code>.</p>
  */
-export interface GetShardIteratorOutput extends $MetadataBearer {
+export interface GetShardIteratorOutput {
   __type?: "GetShardIteratorOutput";
   /**
    * <p>The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.</p>
@@ -1053,7 +1053,7 @@ export namespace ListShardsInput {
   }
 }
 
-export interface ListShardsOutput extends $MetadataBearer {
+export interface ListShardsOutput {
   __type?: "ListShardsOutput";
   /**
    * <p>When the number of shards in the data stream is greater than the default value for
@@ -1140,7 +1140,7 @@ export namespace ListStreamConsumersInput {
   }
 }
 
-export interface ListStreamConsumersOutput extends $MetadataBearer {
+export interface ListStreamConsumersOutput {
   __type?: "ListStreamConsumersOutput";
   /**
    * <p>An array of JSON objects. Each object represents one registered consumer.</p>
@@ -1196,7 +1196,7 @@ export namespace ListStreamsInput {
 /**
  * <p>Represents the output for <code>ListStreams</code>.</p>
  */
-export interface ListStreamsOutput extends $MetadataBearer {
+export interface ListStreamsOutput {
   __type?: "ListStreamsOutput";
   /**
    * <p>If set to <code>true</code>, there are more streams available to list.</p>
@@ -1251,7 +1251,7 @@ export namespace ListTagsForStreamInput {
 /**
  * <p>Represents the output for <code>ListTagsForStream</code>.</p>
  */
-export interface ListTagsForStreamOutput extends $MetadataBearer {
+export interface ListTagsForStreamOutput {
   __type?: "ListTagsForStreamOutput";
   /**
    * <p>If set to <code>true</code>, more tags are available. To request additional tags, set
@@ -1385,7 +1385,7 @@ export namespace PutRecordInput {
 /**
  * <p>Represents the output for <code>PutRecord</code>.</p>
  */
-export interface PutRecordOutput extends $MetadataBearer {
+export interface PutRecordOutput {
   __type?: "PutRecordOutput";
   /**
    * <p>The encryption type to use on the record. This parameter can be one of the following values:</p>
@@ -1446,7 +1446,7 @@ export namespace PutRecordsInput {
  * <p>
  *             <code>PutRecords</code> results.</p>
  */
-export interface PutRecordsOutput extends $MetadataBearer {
+export interface PutRecordsOutput {
   __type?: "PutRecordsOutput";
   /**
    * <p>The encryption type used on the records. This parameter can be one of the following values:</p>
@@ -1631,7 +1631,7 @@ export namespace RegisterStreamConsumerInput {
   }
 }
 
-export interface RegisterStreamConsumerOutput extends $MetadataBearer {
+export interface RegisterStreamConsumerOutput {
   __type?: "RegisterStreamConsumerOutput";
   /**
    * <p>An object that represents the details of the consumer you registered. When you
@@ -2476,7 +2476,7 @@ export namespace SubscribeToShardInput {
   }
 }
 
-export interface SubscribeToShardOutput extends $MetadataBearer {
+export interface SubscribeToShardOutput {
   __type?: "SubscribeToShardOutput";
   /**
    * <p>The event stream that your consumer can use to read records from the shard.</p>
@@ -2536,7 +2536,7 @@ export namespace UpdateShardCountInput {
   }
 }
 
-export interface UpdateShardCountOutput extends $MetadataBearer {
+export interface UpdateShardCountOutput {
   __type?: "UpdateShardCountOutput";
   /**
    * <p>The current number of shards.</p>

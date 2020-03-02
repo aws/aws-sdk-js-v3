@@ -940,45 +940,63 @@ async function deserializeAws_restJson1_1BulkPublishCommandError(
   switch (errorCode) {
     case "AlreadyStreamedException":
     case "com.amazonaws.cognito.sync.model#AlreadyStreamedException":
-      response = await deserializeAws_restJson1_1AlreadyStreamedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AlreadyStreamedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateRequestException":
     case "com.amazonaws.cognito.sync.model#DuplicateRequestException":
-      response = await deserializeAws_restJson1_1DuplicateRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DuplicateRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1028,45 +1046,63 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceConflictException":
     case "com.amazonaws.cognito.sync.model#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1119,38 +1155,53 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1206,38 +1257,53 @@ async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1293,38 +1359,53 @@ async function deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1403,31 +1484,43 @@ async function deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1480,38 +1573,53 @@ async function deserializeAws_restJson1_1GetCognitoEventsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1578,38 +1686,53 @@ async function deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandErro
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1670,31 +1793,43 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1765,31 +1900,43 @@ async function deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1884,31 +2031,43 @@ async function deserializeAws_restJson1_1ListRecordsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1961,45 +2120,63 @@ async function deserializeAws_restJson1_1RegisterDeviceCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
-      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2047,38 +2224,53 @@ async function deserializeAws_restJson1_1SetCognitoEventsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2145,45 +2337,63 @@ async function deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandErro
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.sync.model#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2232,45 +2442,63 @@ async function deserializeAws_restJson1_1SubscribeToDatasetCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
-      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2319,45 +2547,63 @@ async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
-      response = await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2410,73 +2656,103 @@ async function deserializeAws_restJson1_1UpdateRecordsCommandError(
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
-      response = await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLambdaFunctionOutputException":
     case "com.amazonaws.cognito.sync.model#InvalidLambdaFunctionOutputException":
-      response = await deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LambdaSocketTimeoutException":
     case "com.amazonaws.cognito.sync.model#LambdaSocketTimeoutException":
-      response = await deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LambdaThrottledException":
     case "com.amazonaws.cognito.sync.model#LambdaThrottledException":
-      response = await deserializeAws_restJson1_1LambdaThrottledExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LambdaThrottledExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.cognito.sync.model#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
-      response = await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceConflictException":
     case "com.amazonaws.cognito.sync.model#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

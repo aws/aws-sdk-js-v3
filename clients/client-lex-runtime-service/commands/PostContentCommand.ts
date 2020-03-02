@@ -20,11 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type PostContentCommandInput = PostContentRequest;
-export type PostContentCommandOutput = PostContentResponse;
+export type PostContentCommandInput = Omit<
+  PostContentRequest,
+  "inputStream"
+> & {
+  inputStream: PostContentRequest["inputStream"] | string | Uint8Array | Buffer;
+};
+export type PostContentCommandOutput = PostContentResponse & __MetadataBearer;
 
 export class PostContentCommand extends $Command<
   PostContentCommandInput,

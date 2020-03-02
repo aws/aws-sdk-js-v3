@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateMaintenanceWindowTargetCommandInput = UpdateMaintenanceWindowTargetRequest;
-export type UpdateMaintenanceWindowTargetCommandOutput = UpdateMaintenanceWindowTargetResult;
+export type UpdateMaintenanceWindowTargetCommandOutput = UpdateMaintenanceWindowTargetResult &
+  __MetadataBearer;
 
 export class UpdateMaintenanceWindowTargetCommand extends $Command<
   UpdateMaintenanceWindowTargetCommandInput,

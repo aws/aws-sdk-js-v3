@@ -1,11 +1,15 @@
 import {
-  DescribeServicesRequest,
-  DescribeServicesResponse,
-  GetAttributeValuesRequest,
-  GetAttributeValuesResponse,
-  GetProductsRequest,
-  GetProductsResponse
-} from "./models/index";
+  DescribeServicesCommandInput,
+  DescribeServicesCommandOutput
+} from "./commands/DescribeServicesCommand";
+import {
+  GetAttributeValuesCommandInput,
+  GetAttributeValuesCommandOutput
+} from "./commands/GetAttributeValuesCommand";
+import {
+  GetProductsCommandInput,
+  GetProductsCommandOutput
+} from "./commands/GetProductsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -59,14 +63,14 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DescribeServicesRequest
-  | GetAttributeValuesRequest
-  | GetProductsRequest;
+  | DescribeServicesCommandInput
+  | GetAttributeValuesCommandInput
+  | GetProductsCommandInput;
 
 export type ServiceOutputTypes =
-  | DescribeServicesResponse
-  | GetAttributeValuesResponse
-  | GetProductsResponse;
+  | DescribeServicesCommandOutput
+  | GetAttributeValuesCommandOutput
+  | GetProductsCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFunctionConcurrencyCommandInput = GetFunctionConcurrencyRequest;
-export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse;
+export type GetFunctionConcurrencyCommandOutput = GetFunctionConcurrencyResponse &
+  __MetadataBearer;
 
 export class GetFunctionConcurrencyCommand extends $Command<
   GetFunctionConcurrencyCommandInput,

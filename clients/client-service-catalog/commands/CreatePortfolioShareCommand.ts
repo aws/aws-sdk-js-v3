@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePortfolioShareCommandInput = CreatePortfolioShareInput;
-export type CreatePortfolioShareCommandOutput = CreatePortfolioShareOutput;
+export type CreatePortfolioShareCommandOutput = CreatePortfolioShareOutput &
+  __MetadataBearer;
 
 export class CreatePortfolioShareCommand extends $Command<
   CreatePortfolioShareCommandInput,

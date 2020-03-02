@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTriggerCommandInput = UpdateTriggerRequest;
-export type UpdateTriggerCommandOutput = UpdateTriggerResponse;
+export type UpdateTriggerCommandOutput = UpdateTriggerResponse &
+  __MetadataBearer;
 
 export class UpdateTriggerCommand extends $Command<
   UpdateTriggerCommandInput,

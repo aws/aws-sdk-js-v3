@@ -1,136 +1,267 @@
 import {
-  AddFacetToObjectRequest,
-  AddFacetToObjectResponse,
-  ApplySchemaRequest,
-  ApplySchemaResponse,
-  AttachObjectRequest,
-  AttachObjectResponse,
-  AttachPolicyRequest,
-  AttachPolicyResponse,
-  AttachToIndexRequest,
-  AttachToIndexResponse,
-  AttachTypedLinkRequest,
-  AttachTypedLinkResponse,
-  BatchReadRequest,
-  BatchReadResponse,
-  BatchWriteRequest,
-  BatchWriteResponse,
-  CreateDirectoryRequest,
-  CreateDirectoryResponse,
-  CreateFacetRequest,
-  CreateFacetResponse,
-  CreateIndexRequest,
-  CreateIndexResponse,
-  CreateObjectRequest,
-  CreateObjectResponse,
-  CreateSchemaRequest,
-  CreateSchemaResponse,
-  CreateTypedLinkFacetRequest,
-  CreateTypedLinkFacetResponse,
-  DeleteDirectoryRequest,
-  DeleteDirectoryResponse,
-  DeleteFacetRequest,
-  DeleteFacetResponse,
-  DeleteObjectRequest,
-  DeleteObjectResponse,
-  DeleteSchemaRequest,
-  DeleteSchemaResponse,
-  DeleteTypedLinkFacetRequest,
-  DeleteTypedLinkFacetResponse,
-  DetachFromIndexRequest,
-  DetachFromIndexResponse,
-  DetachObjectRequest,
-  DetachObjectResponse,
-  DetachPolicyRequest,
-  DetachPolicyResponse,
-  DetachTypedLinkRequest,
-  DisableDirectoryRequest,
-  DisableDirectoryResponse,
-  EnableDirectoryRequest,
-  EnableDirectoryResponse,
-  GetAppliedSchemaVersionRequest,
-  GetAppliedSchemaVersionResponse,
-  GetDirectoryRequest,
-  GetDirectoryResponse,
-  GetFacetRequest,
-  GetFacetResponse,
-  GetLinkAttributesRequest,
-  GetLinkAttributesResponse,
-  GetObjectAttributesRequest,
-  GetObjectAttributesResponse,
-  GetObjectInformationRequest,
-  GetObjectInformationResponse,
-  GetSchemaAsJsonRequest,
-  GetSchemaAsJsonResponse,
-  GetTypedLinkFacetInformationRequest,
-  GetTypedLinkFacetInformationResponse,
-  ListAppliedSchemaArnsRequest,
-  ListAppliedSchemaArnsResponse,
-  ListAttachedIndicesRequest,
-  ListAttachedIndicesResponse,
-  ListDevelopmentSchemaArnsRequest,
-  ListDevelopmentSchemaArnsResponse,
-  ListDirectoriesRequest,
-  ListDirectoriesResponse,
-  ListFacetAttributesRequest,
-  ListFacetAttributesResponse,
-  ListFacetNamesRequest,
-  ListFacetNamesResponse,
-  ListIncomingTypedLinksRequest,
-  ListIncomingTypedLinksResponse,
-  ListIndexRequest,
-  ListIndexResponse,
-  ListManagedSchemaArnsRequest,
-  ListManagedSchemaArnsResponse,
-  ListObjectAttributesRequest,
-  ListObjectAttributesResponse,
-  ListObjectChildrenRequest,
-  ListObjectChildrenResponse,
-  ListObjectParentPathsRequest,
-  ListObjectParentPathsResponse,
-  ListObjectParentsRequest,
-  ListObjectParentsResponse,
-  ListObjectPoliciesRequest,
-  ListObjectPoliciesResponse,
-  ListOutgoingTypedLinksRequest,
-  ListOutgoingTypedLinksResponse,
-  ListPolicyAttachmentsRequest,
-  ListPolicyAttachmentsResponse,
-  ListPublishedSchemaArnsRequest,
-  ListPublishedSchemaArnsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTypedLinkFacetAttributesRequest,
-  ListTypedLinkFacetAttributesResponse,
-  ListTypedLinkFacetNamesRequest,
-  ListTypedLinkFacetNamesResponse,
-  LookupPolicyRequest,
-  LookupPolicyResponse,
-  PublishSchemaRequest,
-  PublishSchemaResponse,
-  PutSchemaFromJsonRequest,
-  PutSchemaFromJsonResponse,
-  RemoveFacetFromObjectRequest,
-  RemoveFacetFromObjectResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateFacetRequest,
-  UpdateFacetResponse,
-  UpdateLinkAttributesRequest,
-  UpdateLinkAttributesResponse,
-  UpdateObjectAttributesRequest,
-  UpdateObjectAttributesResponse,
-  UpdateSchemaRequest,
-  UpdateSchemaResponse,
-  UpdateTypedLinkFacetRequest,
-  UpdateTypedLinkFacetResponse,
-  UpgradeAppliedSchemaRequest,
-  UpgradeAppliedSchemaResponse,
-  UpgradePublishedSchemaRequest,
-  UpgradePublishedSchemaResponse
-} from "./models/index";
+  AddFacetToObjectCommandInput,
+  AddFacetToObjectCommandOutput
+} from "./commands/AddFacetToObjectCommand";
+import {
+  ApplySchemaCommandInput,
+  ApplySchemaCommandOutput
+} from "./commands/ApplySchemaCommand";
+import {
+  AttachObjectCommandInput,
+  AttachObjectCommandOutput
+} from "./commands/AttachObjectCommand";
+import {
+  AttachPolicyCommandInput,
+  AttachPolicyCommandOutput
+} from "./commands/AttachPolicyCommand";
+import {
+  AttachToIndexCommandInput,
+  AttachToIndexCommandOutput
+} from "./commands/AttachToIndexCommand";
+import {
+  AttachTypedLinkCommandInput,
+  AttachTypedLinkCommandOutput
+} from "./commands/AttachTypedLinkCommand";
+import {
+  BatchReadCommandInput,
+  BatchReadCommandOutput
+} from "./commands/BatchReadCommand";
+import {
+  BatchWriteCommandInput,
+  BatchWriteCommandOutput
+} from "./commands/BatchWriteCommand";
+import {
+  CreateDirectoryCommandInput,
+  CreateDirectoryCommandOutput
+} from "./commands/CreateDirectoryCommand";
+import {
+  CreateFacetCommandInput,
+  CreateFacetCommandOutput
+} from "./commands/CreateFacetCommand";
+import {
+  CreateIndexCommandInput,
+  CreateIndexCommandOutput
+} from "./commands/CreateIndexCommand";
+import {
+  CreateObjectCommandInput,
+  CreateObjectCommandOutput
+} from "./commands/CreateObjectCommand";
+import {
+  CreateSchemaCommandInput,
+  CreateSchemaCommandOutput
+} from "./commands/CreateSchemaCommand";
+import {
+  CreateTypedLinkFacetCommandInput,
+  CreateTypedLinkFacetCommandOutput
+} from "./commands/CreateTypedLinkFacetCommand";
+import {
+  DeleteDirectoryCommandInput,
+  DeleteDirectoryCommandOutput
+} from "./commands/DeleteDirectoryCommand";
+import {
+  DeleteFacetCommandInput,
+  DeleteFacetCommandOutput
+} from "./commands/DeleteFacetCommand";
+import {
+  DeleteObjectCommandInput,
+  DeleteObjectCommandOutput
+} from "./commands/DeleteObjectCommand";
+import {
+  DeleteSchemaCommandInput,
+  DeleteSchemaCommandOutput
+} from "./commands/DeleteSchemaCommand";
+import {
+  DeleteTypedLinkFacetCommandInput,
+  DeleteTypedLinkFacetCommandOutput
+} from "./commands/DeleteTypedLinkFacetCommand";
+import {
+  DetachFromIndexCommandInput,
+  DetachFromIndexCommandOutput
+} from "./commands/DetachFromIndexCommand";
+import {
+  DetachObjectCommandInput,
+  DetachObjectCommandOutput
+} from "./commands/DetachObjectCommand";
+import {
+  DetachPolicyCommandInput,
+  DetachPolicyCommandOutput
+} from "./commands/DetachPolicyCommand";
+import {
+  DetachTypedLinkCommandInput,
+  DetachTypedLinkCommandOutput
+} from "./commands/DetachTypedLinkCommand";
+import {
+  DisableDirectoryCommandInput,
+  DisableDirectoryCommandOutput
+} from "./commands/DisableDirectoryCommand";
+import {
+  EnableDirectoryCommandInput,
+  EnableDirectoryCommandOutput
+} from "./commands/EnableDirectoryCommand";
+import {
+  GetAppliedSchemaVersionCommandInput,
+  GetAppliedSchemaVersionCommandOutput
+} from "./commands/GetAppliedSchemaVersionCommand";
+import {
+  GetDirectoryCommandInput,
+  GetDirectoryCommandOutput
+} from "./commands/GetDirectoryCommand";
+import {
+  GetFacetCommandInput,
+  GetFacetCommandOutput
+} from "./commands/GetFacetCommand";
+import {
+  GetLinkAttributesCommandInput,
+  GetLinkAttributesCommandOutput
+} from "./commands/GetLinkAttributesCommand";
+import {
+  GetObjectAttributesCommandInput,
+  GetObjectAttributesCommandOutput
+} from "./commands/GetObjectAttributesCommand";
+import {
+  GetObjectInformationCommandInput,
+  GetObjectInformationCommandOutput
+} from "./commands/GetObjectInformationCommand";
+import {
+  GetSchemaAsJsonCommandInput,
+  GetSchemaAsJsonCommandOutput
+} from "./commands/GetSchemaAsJsonCommand";
+import {
+  GetTypedLinkFacetInformationCommandInput,
+  GetTypedLinkFacetInformationCommandOutput
+} from "./commands/GetTypedLinkFacetInformationCommand";
+import {
+  ListAppliedSchemaArnsCommandInput,
+  ListAppliedSchemaArnsCommandOutput
+} from "./commands/ListAppliedSchemaArnsCommand";
+import {
+  ListAttachedIndicesCommandInput,
+  ListAttachedIndicesCommandOutput
+} from "./commands/ListAttachedIndicesCommand";
+import {
+  ListDevelopmentSchemaArnsCommandInput,
+  ListDevelopmentSchemaArnsCommandOutput
+} from "./commands/ListDevelopmentSchemaArnsCommand";
+import {
+  ListDirectoriesCommandInput,
+  ListDirectoriesCommandOutput
+} from "./commands/ListDirectoriesCommand";
+import {
+  ListFacetAttributesCommandInput,
+  ListFacetAttributesCommandOutput
+} from "./commands/ListFacetAttributesCommand";
+import {
+  ListFacetNamesCommandInput,
+  ListFacetNamesCommandOutput
+} from "./commands/ListFacetNamesCommand";
+import {
+  ListIncomingTypedLinksCommandInput,
+  ListIncomingTypedLinksCommandOutput
+} from "./commands/ListIncomingTypedLinksCommand";
+import {
+  ListIndexCommandInput,
+  ListIndexCommandOutput
+} from "./commands/ListIndexCommand";
+import {
+  ListManagedSchemaArnsCommandInput,
+  ListManagedSchemaArnsCommandOutput
+} from "./commands/ListManagedSchemaArnsCommand";
+import {
+  ListObjectAttributesCommandInput,
+  ListObjectAttributesCommandOutput
+} from "./commands/ListObjectAttributesCommand";
+import {
+  ListObjectChildrenCommandInput,
+  ListObjectChildrenCommandOutput
+} from "./commands/ListObjectChildrenCommand";
+import {
+  ListObjectParentPathsCommandInput,
+  ListObjectParentPathsCommandOutput
+} from "./commands/ListObjectParentPathsCommand";
+import {
+  ListObjectParentsCommandInput,
+  ListObjectParentsCommandOutput
+} from "./commands/ListObjectParentsCommand";
+import {
+  ListObjectPoliciesCommandInput,
+  ListObjectPoliciesCommandOutput
+} from "./commands/ListObjectPoliciesCommand";
+import {
+  ListOutgoingTypedLinksCommandInput,
+  ListOutgoingTypedLinksCommandOutput
+} from "./commands/ListOutgoingTypedLinksCommand";
+import {
+  ListPolicyAttachmentsCommandInput,
+  ListPolicyAttachmentsCommandOutput
+} from "./commands/ListPolicyAttachmentsCommand";
+import {
+  ListPublishedSchemaArnsCommandInput,
+  ListPublishedSchemaArnsCommandOutput
+} from "./commands/ListPublishedSchemaArnsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTypedLinkFacetAttributesCommandInput,
+  ListTypedLinkFacetAttributesCommandOutput
+} from "./commands/ListTypedLinkFacetAttributesCommand";
+import {
+  ListTypedLinkFacetNamesCommandInput,
+  ListTypedLinkFacetNamesCommandOutput
+} from "./commands/ListTypedLinkFacetNamesCommand";
+import {
+  LookupPolicyCommandInput,
+  LookupPolicyCommandOutput
+} from "./commands/LookupPolicyCommand";
+import {
+  PublishSchemaCommandInput,
+  PublishSchemaCommandOutput
+} from "./commands/PublishSchemaCommand";
+import {
+  PutSchemaFromJsonCommandInput,
+  PutSchemaFromJsonCommandOutput
+} from "./commands/PutSchemaFromJsonCommand";
+import {
+  RemoveFacetFromObjectCommandInput,
+  RemoveFacetFromObjectCommandOutput
+} from "./commands/RemoveFacetFromObjectCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateFacetCommandInput,
+  UpdateFacetCommandOutput
+} from "./commands/UpdateFacetCommand";
+import {
+  UpdateLinkAttributesCommandInput,
+  UpdateLinkAttributesCommandOutput
+} from "./commands/UpdateLinkAttributesCommand";
+import {
+  UpdateObjectAttributesCommandInput,
+  UpdateObjectAttributesCommandOutput
+} from "./commands/UpdateObjectAttributesCommand";
+import {
+  UpdateSchemaCommandInput,
+  UpdateSchemaCommandOutput
+} from "./commands/UpdateSchemaCommand";
+import {
+  UpdateTypedLinkFacetCommandInput,
+  UpdateTypedLinkFacetCommandOutput
+} from "./commands/UpdateTypedLinkFacetCommand";
+import {
+  UpgradeAppliedSchemaCommandInput,
+  UpgradeAppliedSchemaCommandOutput
+} from "./commands/UpgradeAppliedSchemaCommand";
+import {
+  UpgradePublishedSchemaCommandInput,
+  UpgradePublishedSchemaCommandOutput
+} from "./commands/UpgradePublishedSchemaCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -178,147 +309,146 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddFacetToObjectRequest
-  | ApplySchemaRequest
-  | AttachObjectRequest
-  | AttachPolicyRequest
-  | AttachToIndexRequest
-  | AttachTypedLinkRequest
-  | BatchReadRequest
-  | BatchWriteRequest
-  | CreateDirectoryRequest
-  | CreateFacetRequest
-  | CreateIndexRequest
-  | CreateObjectRequest
-  | CreateSchemaRequest
-  | CreateTypedLinkFacetRequest
-  | DeleteDirectoryRequest
-  | DeleteFacetRequest
-  | DeleteObjectRequest
-  | DeleteSchemaRequest
-  | DeleteTypedLinkFacetRequest
-  | DetachFromIndexRequest
-  | DetachObjectRequest
-  | DetachPolicyRequest
-  | DetachTypedLinkRequest
-  | DisableDirectoryRequest
-  | EnableDirectoryRequest
-  | GetAppliedSchemaVersionRequest
-  | GetDirectoryRequest
-  | GetFacetRequest
-  | GetLinkAttributesRequest
-  | GetObjectAttributesRequest
-  | GetObjectInformationRequest
-  | GetSchemaAsJsonRequest
-  | GetTypedLinkFacetInformationRequest
-  | ListAppliedSchemaArnsRequest
-  | ListAttachedIndicesRequest
-  | ListDevelopmentSchemaArnsRequest
-  | ListDirectoriesRequest
-  | ListFacetAttributesRequest
-  | ListFacetNamesRequest
-  | ListIncomingTypedLinksRequest
-  | ListIndexRequest
-  | ListManagedSchemaArnsRequest
-  | ListObjectAttributesRequest
-  | ListObjectChildrenRequest
-  | ListObjectParentPathsRequest
-  | ListObjectParentsRequest
-  | ListObjectPoliciesRequest
-  | ListOutgoingTypedLinksRequest
-  | ListPolicyAttachmentsRequest
-  | ListPublishedSchemaArnsRequest
-  | ListTagsForResourceRequest
-  | ListTypedLinkFacetAttributesRequest
-  | ListTypedLinkFacetNamesRequest
-  | LookupPolicyRequest
-  | PublishSchemaRequest
-  | PutSchemaFromJsonRequest
-  | RemoveFacetFromObjectRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateFacetRequest
-  | UpdateLinkAttributesRequest
-  | UpdateObjectAttributesRequest
-  | UpdateSchemaRequest
-  | UpdateTypedLinkFacetRequest
-  | UpgradeAppliedSchemaRequest
-  | UpgradePublishedSchemaRequest;
+  | AddFacetToObjectCommandInput
+  | ApplySchemaCommandInput
+  | AttachObjectCommandInput
+  | AttachPolicyCommandInput
+  | AttachToIndexCommandInput
+  | AttachTypedLinkCommandInput
+  | BatchReadCommandInput
+  | BatchWriteCommandInput
+  | CreateDirectoryCommandInput
+  | CreateFacetCommandInput
+  | CreateIndexCommandInput
+  | CreateObjectCommandInput
+  | CreateSchemaCommandInput
+  | CreateTypedLinkFacetCommandInput
+  | DeleteDirectoryCommandInput
+  | DeleteFacetCommandInput
+  | DeleteObjectCommandInput
+  | DeleteSchemaCommandInput
+  | DeleteTypedLinkFacetCommandInput
+  | DetachFromIndexCommandInput
+  | DetachObjectCommandInput
+  | DetachPolicyCommandInput
+  | DetachTypedLinkCommandInput
+  | DisableDirectoryCommandInput
+  | EnableDirectoryCommandInput
+  | GetAppliedSchemaVersionCommandInput
+  | GetDirectoryCommandInput
+  | GetFacetCommandInput
+  | GetLinkAttributesCommandInput
+  | GetObjectAttributesCommandInput
+  | GetObjectInformationCommandInput
+  | GetSchemaAsJsonCommandInput
+  | GetTypedLinkFacetInformationCommandInput
+  | ListAppliedSchemaArnsCommandInput
+  | ListAttachedIndicesCommandInput
+  | ListDevelopmentSchemaArnsCommandInput
+  | ListDirectoriesCommandInput
+  | ListFacetAttributesCommandInput
+  | ListFacetNamesCommandInput
+  | ListIncomingTypedLinksCommandInput
+  | ListIndexCommandInput
+  | ListManagedSchemaArnsCommandInput
+  | ListObjectAttributesCommandInput
+  | ListObjectChildrenCommandInput
+  | ListObjectParentPathsCommandInput
+  | ListObjectParentsCommandInput
+  | ListObjectPoliciesCommandInput
+  | ListOutgoingTypedLinksCommandInput
+  | ListPolicyAttachmentsCommandInput
+  | ListPublishedSchemaArnsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTypedLinkFacetAttributesCommandInput
+  | ListTypedLinkFacetNamesCommandInput
+  | LookupPolicyCommandInput
+  | PublishSchemaCommandInput
+  | PutSchemaFromJsonCommandInput
+  | RemoveFacetFromObjectCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateFacetCommandInput
+  | UpdateLinkAttributesCommandInput
+  | UpdateObjectAttributesCommandInput
+  | UpdateSchemaCommandInput
+  | UpdateTypedLinkFacetCommandInput
+  | UpgradeAppliedSchemaCommandInput
+  | UpgradePublishedSchemaCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddFacetToObjectResponse
-  | ApplySchemaResponse
-  | AttachObjectResponse
-  | AttachPolicyResponse
-  | AttachToIndexResponse
-  | AttachTypedLinkResponse
-  | BatchReadResponse
-  | BatchWriteResponse
-  | CreateDirectoryResponse
-  | CreateFacetResponse
-  | CreateIndexResponse
-  | CreateObjectResponse
-  | CreateSchemaResponse
-  | CreateTypedLinkFacetResponse
-  | DeleteDirectoryResponse
-  | DeleteFacetResponse
-  | DeleteObjectResponse
-  | DeleteSchemaResponse
-  | DeleteTypedLinkFacetResponse
-  | DetachFromIndexResponse
-  | DetachObjectResponse
-  | DetachPolicyResponse
-  | DisableDirectoryResponse
-  | EnableDirectoryResponse
-  | GetAppliedSchemaVersionResponse
-  | GetDirectoryResponse
-  | GetFacetResponse
-  | GetLinkAttributesResponse
-  | GetObjectAttributesResponse
-  | GetObjectInformationResponse
-  | GetSchemaAsJsonResponse
-  | GetTypedLinkFacetInformationResponse
-  | ListAppliedSchemaArnsResponse
-  | ListAttachedIndicesResponse
-  | ListDevelopmentSchemaArnsResponse
-  | ListDirectoriesResponse
-  | ListFacetAttributesResponse
-  | ListFacetNamesResponse
-  | ListIncomingTypedLinksResponse
-  | ListIndexResponse
-  | ListManagedSchemaArnsResponse
-  | ListObjectAttributesResponse
-  | ListObjectChildrenResponse
-  | ListObjectParentPathsResponse
-  | ListObjectParentsResponse
-  | ListObjectPoliciesResponse
-  | ListOutgoingTypedLinksResponse
-  | ListPolicyAttachmentsResponse
-  | ListPublishedSchemaArnsResponse
-  | ListTagsForResourceResponse
-  | ListTypedLinkFacetAttributesResponse
-  | ListTypedLinkFacetNamesResponse
-  | LookupPolicyResponse
-  | PublishSchemaResponse
-  | PutSchemaFromJsonResponse
-  | RemoveFacetFromObjectResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateFacetResponse
-  | UpdateLinkAttributesResponse
-  | UpdateObjectAttributesResponse
-  | UpdateSchemaResponse
-  | UpdateTypedLinkFacetResponse
-  | UpgradeAppliedSchemaResponse
-  | UpgradePublishedSchemaResponse;
+  | AddFacetToObjectCommandOutput
+  | ApplySchemaCommandOutput
+  | AttachObjectCommandOutput
+  | AttachPolicyCommandOutput
+  | AttachToIndexCommandOutput
+  | AttachTypedLinkCommandOutput
+  | BatchReadCommandOutput
+  | BatchWriteCommandOutput
+  | CreateDirectoryCommandOutput
+  | CreateFacetCommandOutput
+  | CreateIndexCommandOutput
+  | CreateObjectCommandOutput
+  | CreateSchemaCommandOutput
+  | CreateTypedLinkFacetCommandOutput
+  | DeleteDirectoryCommandOutput
+  | DeleteFacetCommandOutput
+  | DeleteObjectCommandOutput
+  | DeleteSchemaCommandOutput
+  | DeleteTypedLinkFacetCommandOutput
+  | DetachFromIndexCommandOutput
+  | DetachObjectCommandOutput
+  | DetachPolicyCommandOutput
+  | DetachTypedLinkCommandOutput
+  | DisableDirectoryCommandOutput
+  | EnableDirectoryCommandOutput
+  | GetAppliedSchemaVersionCommandOutput
+  | GetDirectoryCommandOutput
+  | GetFacetCommandOutput
+  | GetLinkAttributesCommandOutput
+  | GetObjectAttributesCommandOutput
+  | GetObjectInformationCommandOutput
+  | GetSchemaAsJsonCommandOutput
+  | GetTypedLinkFacetInformationCommandOutput
+  | ListAppliedSchemaArnsCommandOutput
+  | ListAttachedIndicesCommandOutput
+  | ListDevelopmentSchemaArnsCommandOutput
+  | ListDirectoriesCommandOutput
+  | ListFacetAttributesCommandOutput
+  | ListFacetNamesCommandOutput
+  | ListIncomingTypedLinksCommandOutput
+  | ListIndexCommandOutput
+  | ListManagedSchemaArnsCommandOutput
+  | ListObjectAttributesCommandOutput
+  | ListObjectChildrenCommandOutput
+  | ListObjectParentPathsCommandOutput
+  | ListObjectParentsCommandOutput
+  | ListObjectPoliciesCommandOutput
+  | ListOutgoingTypedLinksCommandOutput
+  | ListPolicyAttachmentsCommandOutput
+  | ListPublishedSchemaArnsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTypedLinkFacetAttributesCommandOutput
+  | ListTypedLinkFacetNamesCommandOutput
+  | LookupPolicyCommandOutput
+  | PublishSchemaCommandOutput
+  | PutSchemaFromJsonCommandOutput
+  | RemoveFacetFromObjectCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateFacetCommandOutput
+  | UpdateLinkAttributesCommandOutput
+  | UpdateObjectAttributesCommandOutput
+  | UpdateSchemaCommandOutput
+  | UpdateTypedLinkFacetCommandOutput
+  | UpgradeAppliedSchemaCommandOutput
+  | UpgradePublishedSchemaCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

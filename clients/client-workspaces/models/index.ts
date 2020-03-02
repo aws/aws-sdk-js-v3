@@ -90,7 +90,7 @@ export namespace AssociateIpGroupsRequest {
   }
 }
 
-export interface AssociateIpGroupsResult extends $MetadataBearer {
+export interface AssociateIpGroupsResult {
   __type?: "AssociateIpGroupsResult";
 }
 
@@ -119,7 +119,7 @@ export namespace AuthorizeIpRulesRequest {
   }
 }
 
-export interface AuthorizeIpRulesResult extends $MetadataBearer {
+export interface AuthorizeIpRulesResult {
   __type?: "AuthorizeIpRulesResult";
 }
 
@@ -237,7 +237,7 @@ export namespace CopyWorkspaceImageRequest {
   }
 }
 
-export interface CopyWorkspaceImageResult extends $MetadataBearer {
+export interface CopyWorkspaceImageResult {
   __type?: "CopyWorkspaceImageResult";
   /**
    * <p>The identifier of the image.</p>
@@ -280,7 +280,7 @@ export namespace CreateIpGroupRequest {
   }
 }
 
-export interface CreateIpGroupResult extends $MetadataBearer {
+export interface CreateIpGroupResult {
   __type?: "CreateIpGroupResult";
   /**
    * <p>The identifier of the group.</p>
@@ -315,7 +315,7 @@ export namespace CreateTagsRequest {
   }
 }
 
-export interface CreateTagsResult extends $MetadataBearer {
+export interface CreateTagsResult {
   __type?: "CreateTagsResult";
 }
 
@@ -339,7 +339,7 @@ export namespace CreateWorkspacesRequest {
   }
 }
 
-export interface CreateWorkspacesResult extends $MetadataBearer {
+export interface CreateWorkspacesResult {
   __type?: "CreateWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be created.</p>
@@ -442,7 +442,7 @@ export namespace DeleteIpGroupRequest {
   }
 }
 
-export interface DeleteIpGroupResult extends $MetadataBearer {
+export interface DeleteIpGroupResult {
   __type?: "DeleteIpGroupResult";
 }
 
@@ -472,7 +472,7 @@ export namespace DeleteTagsRequest {
   }
 }
 
-export interface DeleteTagsResult extends $MetadataBearer {
+export interface DeleteTagsResult {
   __type?: "DeleteTagsResult";
 }
 
@@ -496,7 +496,7 @@ export namespace DeleteWorkspaceImageRequest {
   }
 }
 
-export interface DeleteWorkspaceImageResult extends $MetadataBearer {
+export interface DeleteWorkspaceImageResult {
   __type?: "DeleteWorkspaceImageResult";
 }
 
@@ -522,7 +522,7 @@ export namespace DeregisterWorkspaceDirectoryRequest {
   }
 }
 
-export interface DeregisterWorkspaceDirectoryResult extends $MetadataBearer {
+export interface DeregisterWorkspaceDirectoryResult {
   __type?: "DeregisterWorkspaceDirectoryResult";
 }
 
@@ -547,7 +547,7 @@ export namespace DescribeAccountModificationsRequest {
   }
 }
 
-export interface DescribeAccountModificationsResult extends $MetadataBearer {
+export interface DescribeAccountModificationsResult {
   __type?: "DescribeAccountModificationsResult";
   /**
    * <p>The list of modifications to the configuration of BYOL.</p>
@@ -577,7 +577,7 @@ export namespace DescribeAccountRequest {
   }
 }
 
-export interface DescribeAccountResult extends $MetadataBearer {
+export interface DescribeAccountResult {
   __type?: "DescribeAccountResult";
   /**
    * <p>The IP address range, specified as an IPv4 CIDR block, used for the management network
@@ -614,7 +614,7 @@ export namespace DescribeClientPropertiesRequest {
   }
 }
 
-export interface DescribeClientPropertiesResult extends $MetadataBearer {
+export interface DescribeClientPropertiesResult {
   __type?: "DescribeClientPropertiesResult";
   /**
    * <p>Information about the specified Amazon WorkSpaces clients.</p>
@@ -653,7 +653,7 @@ export namespace DescribeIpGroupsRequest {
   }
 }
 
-export interface DescribeIpGroupsResult extends $MetadataBearer {
+export interface DescribeIpGroupsResult {
   __type?: "DescribeIpGroupsResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -688,7 +688,7 @@ export namespace DescribeTagsRequest {
   }
 }
 
-export interface DescribeTagsResult extends $MetadataBearer {
+export interface DescribeTagsResult {
   __type?: "DescribeTagsResult";
   /**
    * <p>The tags.</p>
@@ -728,7 +728,7 @@ export namespace DescribeWorkspaceBundlesRequest {
   }
 }
 
-export interface DescribeWorkspaceBundlesResult extends $MetadataBearer {
+export interface DescribeWorkspaceBundlesResult {
   __type?: "DescribeWorkspaceBundlesResult";
   /**
    * <p>Information about the bundles.</p>
@@ -774,7 +774,7 @@ export namespace DescribeWorkspaceDirectoriesRequest {
   }
 }
 
-export interface DescribeWorkspaceDirectoriesResult extends $MetadataBearer {
+export interface DescribeWorkspaceDirectoriesResult {
   __type?: "DescribeWorkspaceDirectoriesResult";
   /**
    * <p>Information about the directories.</p>
@@ -819,7 +819,7 @@ export namespace DescribeWorkspaceImagesRequest {
   }
 }
 
-export interface DescribeWorkspaceImagesResult extends $MetadataBearer {
+export interface DescribeWorkspaceImagesResult {
   __type?: "DescribeWorkspaceImagesResult";
   /**
    * <p>Information about the images.</p>
@@ -853,7 +853,7 @@ export namespace DescribeWorkspaceSnapshotsRequest {
   }
 }
 
-export interface DescribeWorkspaceSnapshotsResult extends $MetadataBearer {
+export interface DescribeWorkspaceSnapshotsResult {
   __type?: "DescribeWorkspaceSnapshotsResult";
   /**
    * <p>Information about the snapshots that can be used to rebuild a WorkSpace. These snapshots include
@@ -894,8 +894,7 @@ export namespace DescribeWorkspacesConnectionStatusRequest {
   }
 }
 
-export interface DescribeWorkspacesConnectionStatusResult
-  extends $MetadataBearer {
+export interface DescribeWorkspacesConnectionStatusResult {
   __type?: "DescribeWorkspacesConnectionStatusResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -962,7 +961,7 @@ export namespace DescribeWorkspacesRequest {
   }
 }
 
-export interface DescribeWorkspacesResult extends $MetadataBearer {
+export interface DescribeWorkspacesResult {
   __type?: "DescribeWorkspacesResult";
   /**
    * <p>The token to use to retrieve the next set of results, or null if no more results are
@@ -1003,7 +1002,7 @@ export namespace DisassociateIpGroupsRequest {
   }
 }
 
-export interface DisassociateIpGroupsResult extends $MetadataBearer {
+export interface DisassociateIpGroupsResult {
   __type?: "DisassociateIpGroupsResult";
 }
 
@@ -1105,7 +1104,7 @@ export namespace ImportWorkspaceImageRequest {
   }
 }
 
-export interface ImportWorkspaceImageResult extends $MetadataBearer {
+export interface ImportWorkspaceImageResult {
   __type?: "ImportWorkspaceImageResult";
   /**
    * <p>The identifier of the WorkSpace image.</p>
@@ -1204,8 +1203,7 @@ export namespace ListAvailableManagementCidrRangesRequest {
   }
 }
 
-export interface ListAvailableManagementCidrRangesResult
-  extends $MetadataBearer {
+export interface ListAvailableManagementCidrRangesResult {
   __type?: "ListAvailableManagementCidrRangesResult";
   /**
    * <p>The list of available IP address ranges, specified as IPv4 CIDR blocks.</p>
@@ -1244,7 +1242,7 @@ export namespace MigrateWorkspaceRequest {
   }
 }
 
-export interface MigrateWorkspaceResult extends $MetadataBearer {
+export interface MigrateWorkspaceResult {
   __type?: "MigrateWorkspaceResult";
   /**
    * <p>The original identifier of the WorkSpace that is being migrated.</p>
@@ -1320,7 +1318,7 @@ export namespace ModifyAccountRequest {
   }
 }
 
-export interface ModifyAccountResult extends $MetadataBearer {
+export interface ModifyAccountResult {
   __type?: "ModifyAccountResult";
 }
 
@@ -1349,7 +1347,7 @@ export namespace ModifyClientPropertiesRequest {
   }
 }
 
-export interface ModifyClientPropertiesResult extends $MetadataBearer {
+export interface ModifyClientPropertiesResult {
   __type?: "ModifyClientPropertiesResult";
 }
 
@@ -1378,7 +1376,7 @@ export namespace ModifySelfservicePermissionsRequest {
   }
 }
 
-export interface ModifySelfservicePermissionsResult extends $MetadataBearer {
+export interface ModifySelfservicePermissionsResult {
   __type?: "ModifySelfservicePermissionsResult";
 }
 
@@ -1407,7 +1405,7 @@ export namespace ModifyWorkspaceAccessPropertiesRequest {
   }
 }
 
-export interface ModifyWorkspaceAccessPropertiesResult extends $MetadataBearer {
+export interface ModifyWorkspaceAccessPropertiesResult {
   __type?: "ModifyWorkspaceAccessPropertiesResult";
 }
 
@@ -1436,8 +1434,7 @@ export namespace ModifyWorkspaceCreationPropertiesRequest {
   }
 }
 
-export interface ModifyWorkspaceCreationPropertiesResult
-  extends $MetadataBearer {
+export interface ModifyWorkspaceCreationPropertiesResult {
   __type?: "ModifyWorkspaceCreationPropertiesResult";
 }
 
@@ -1466,7 +1463,7 @@ export namespace ModifyWorkspacePropertiesRequest {
   }
 }
 
-export interface ModifyWorkspacePropertiesResult extends $MetadataBearer {
+export interface ModifyWorkspacePropertiesResult {
   __type?: "ModifyWorkspacePropertiesResult";
 }
 
@@ -1495,7 +1492,7 @@ export namespace ModifyWorkspaceStateRequest {
   }
 }
 
-export interface ModifyWorkspaceStateResult extends $MetadataBearer {
+export interface ModifyWorkspaceStateResult {
   __type?: "ModifyWorkspaceStateResult";
 }
 
@@ -1592,7 +1589,7 @@ export namespace RebootWorkspacesRequest {
   }
 }
 
-export interface RebootWorkspacesResult extends $MetadataBearer {
+export interface RebootWorkspacesResult {
   __type?: "RebootWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be rebooted.</p>
@@ -1637,7 +1634,7 @@ export namespace RebuildWorkspacesRequest {
   }
 }
 
-export interface RebuildWorkspacesResult extends $MetadataBearer {
+export interface RebuildWorkspacesResult {
   __type?: "RebuildWorkspacesResult";
   /**
    * <p>Information about the WorkSpace that could not be rebuilt.</p>
@@ -1707,7 +1704,7 @@ export namespace RegisterWorkspaceDirectoryRequest {
   }
 }
 
-export interface RegisterWorkspaceDirectoryResult extends $MetadataBearer {
+export interface RegisterWorkspaceDirectoryResult {
   __type?: "RegisterWorkspaceDirectoryResult";
 }
 
@@ -1852,7 +1849,7 @@ export namespace RestoreWorkspaceRequest {
   }
 }
 
-export interface RestoreWorkspaceResult extends $MetadataBearer {
+export interface RestoreWorkspaceResult {
   __type?: "RestoreWorkspaceResult";
 }
 
@@ -1881,7 +1878,7 @@ export namespace RevokeIpRulesRequest {
   }
 }
 
-export interface RevokeIpRulesResult extends $MetadataBearer {
+export interface RevokeIpRulesResult {
   __type?: "RevokeIpRulesResult";
 }
 
@@ -2000,7 +1997,7 @@ export namespace StartWorkspacesRequest {
   }
 }
 
-export interface StartWorkspacesResult extends $MetadataBearer {
+export interface StartWorkspacesResult {
   __type?: "StartWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be started.</p>
@@ -2045,7 +2042,7 @@ export namespace StopWorkspacesRequest {
   }
 }
 
-export interface StopWorkspacesResult extends $MetadataBearer {
+export interface StopWorkspacesResult {
   __type?: "StopWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be stopped.</p>
@@ -2122,7 +2119,7 @@ export namespace TerminateWorkspacesRequest {
   }
 }
 
-export interface TerminateWorkspacesResult extends $MetadataBearer {
+export interface TerminateWorkspacesResult {
   __type?: "TerminateWorkspacesResult";
   /**
    * <p>Information about the WorkSpaces that could not be terminated.</p>
@@ -2194,7 +2191,7 @@ export namespace UpdateRulesOfIpGroupRequest {
   }
 }
 
-export interface UpdateRulesOfIpGroupResult extends $MetadataBearer {
+export interface UpdateRulesOfIpGroupResult {
   __type?: "UpdateRulesOfIpGroupResult";
 }
 

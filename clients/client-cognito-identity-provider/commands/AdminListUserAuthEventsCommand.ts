@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminListUserAuthEventsCommandInput = AdminListUserAuthEventsRequest;
-export type AdminListUserAuthEventsCommandOutput = AdminListUserAuthEventsResponse;
+export type AdminListUserAuthEventsCommandOutput = AdminListUserAuthEventsResponse &
+  __MetadataBearer;
 
 export class AdminListUserAuthEventsCommand extends $Command<
   AdminListUserAuthEventsCommandInput,

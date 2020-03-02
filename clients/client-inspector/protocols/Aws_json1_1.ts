@@ -827,38 +827,53 @@ async function deserializeAws_json1_1AddAttributesToFindingsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -917,52 +932,73 @@ async function deserializeAws_json1_1CreateAssessmentTargetCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1021,45 +1057,63 @@ async function deserializeAws_json1_1CreateAssessmentTemplateCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1118,45 +1172,63 @@ async function deserializeAws_json1_1CreateExclusionsPreviewCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PreviewGenerationInProgressException":
     case "com.amazonaws.inspector.v20160216#PreviewGenerationInProgressException":
-      response = await deserializeAws_json1_1PreviewGenerationInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1PreviewGenerationInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1212,38 +1284,53 @@ async function deserializeAws_json1_1CreateResourceGroupCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1295,45 +1382,63 @@ async function deserializeAws_json1_1DeleteAssessmentRunCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1385,45 +1490,63 @@ async function deserializeAws_json1_1DeleteAssessmentTargetCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1475,45 +1598,63 @@ async function deserializeAws_json1_1DeleteAssessmentTemplateCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1572,17 +1713,23 @@ async function deserializeAws_json1_1DescribeAssessmentRunsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1641,17 +1788,23 @@ async function deserializeAws_json1_1DescribeAssessmentTargetsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1710,17 +1863,23 @@ async function deserializeAws_json1_1DescribeAssessmentTemplatesCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1779,10 +1938,13 @@ async function deserializeAws_json1_1DescribeCrossAccountAccessRoleCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1838,17 +2000,23 @@ async function deserializeAws_json1_1DescribeExclusionsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1901,17 +2069,23 @@ async function deserializeAws_json1_1DescribeFindingsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1970,17 +2144,23 @@ async function deserializeAws_json1_1DescribeResourceGroupsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2036,17 +2216,23 @@ async function deserializeAws_json1_1DescribeRulesPackagesCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2102,52 +2288,73 @@ async function deserializeAws_json1_1GetAssessmentReportCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AssessmentRunInProgressException":
     case "com.amazonaws.inspector.v20160216#AssessmentRunInProgressException":
-      response = await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AssessmentRunInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedFeatureException":
     case "com.amazonaws.inspector.v20160216#UnsupportedFeatureException":
-      response = await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2203,31 +2410,43 @@ async function deserializeAws_json1_1GetExclusionsPreviewCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2283,31 +2502,43 @@ async function deserializeAws_json1_1GetTelemetryMetadataCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2366,31 +2597,43 @@ async function deserializeAws_json1_1ListAssessmentRunAgentsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2446,31 +2689,43 @@ async function deserializeAws_json1_1ListAssessmentRunsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2526,24 +2781,33 @@ async function deserializeAws_json1_1ListAssessmentTargetsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2602,31 +2866,43 @@ async function deserializeAws_json1_1ListAssessmentTemplatesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2685,31 +2961,43 @@ async function deserializeAws_json1_1ListEventSubscriptionsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2762,31 +3050,43 @@ async function deserializeAws_json1_1ListExclusionsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2839,31 +3139,43 @@ async function deserializeAws_json1_1ListFindingsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2916,24 +3228,33 @@ async function deserializeAws_json1_1ListRulesPackagesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2989,31 +3310,43 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3066,38 +3399,53 @@ async function deserializeAws_json1_1PreviewAgentsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3149,38 +3497,53 @@ async function deserializeAws_json1_1RegisterCrossAccountAccessRoleCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3239,38 +3602,53 @@ async function deserializeAws_json1_1RemoveAttributesFromFindingsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3322,38 +3700,53 @@ async function deserializeAws_json1_1SetTagsForResourceCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3409,59 +3802,83 @@ async function deserializeAws_json1_1StartAssessmentRunCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "AgentsAlreadyRunningAssessmentException":
     case "com.amazonaws.inspector.v20160216#AgentsAlreadyRunningAssessmentException":
-      response = await deserializeAws_json1_1AgentsAlreadyRunningAssessmentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AgentsAlreadyRunningAssessmentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCrossAccountRoleException":
     case "com.amazonaws.inspector.v20160216#InvalidCrossAccountRoleException":
-      response = await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidCrossAccountRoleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3510,38 +3927,53 @@ async function deserializeAws_json1_1StopAssessmentRunCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3590,45 +4022,63 @@ async function deserializeAws_json1_1SubscribeToEventCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.inspector.v20160216#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3680,38 +4130,53 @@ async function deserializeAws_json1_1UnsubscribeFromEventCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3763,38 +4228,53 @@ async function deserializeAws_json1_1UpdateAssessmentTargetCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.inspector.v20160216#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.inspector.v20160216#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.inspector.v20160216#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazonaws.inspector.v20160216#NoSuchEntityException":
-      response = await deserializeAws_json1_1NoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector.v20160216#ServiceTemporarilyUnavailableException":
-      response = await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceTemporarilyUnavailableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

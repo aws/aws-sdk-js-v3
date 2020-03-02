@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AddCommunicationToCaseCommandInput = AddCommunicationToCaseRequest;
-export type AddCommunicationToCaseCommandOutput = AddCommunicationToCaseResponse;
+export type AddCommunicationToCaseCommandOutput = AddCommunicationToCaseResponse &
+  __MetadataBearer;
 
 export class AddCommunicationToCaseCommand extends $Command<
   AddCommunicationToCaseCommandInput,

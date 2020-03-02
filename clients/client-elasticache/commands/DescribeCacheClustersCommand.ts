@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCacheClustersCommandInput = DescribeCacheClustersMessage;
-export type DescribeCacheClustersCommandOutput = CacheClusterMessage;
+export type DescribeCacheClustersCommandOutput = CacheClusterMessage &
+  __MetadataBearer;
 
 export class DescribeCacheClustersCommand extends $Command<
   DescribeCacheClustersCommandInput,

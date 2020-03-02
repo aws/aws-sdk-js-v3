@@ -1,141 +1,315 @@
 import {
-  BatchGetAggregateResourceConfigRequest,
-  BatchGetAggregateResourceConfigResponse,
-  BatchGetResourceConfigRequest,
-  BatchGetResourceConfigResponse,
-  DeleteAggregationAuthorizationRequest,
-  DeleteConfigRuleRequest,
-  DeleteConfigurationAggregatorRequest,
-  DeleteConfigurationRecorderRequest,
-  DeleteConformancePackRequest,
-  DeleteDeliveryChannelRequest,
-  DeleteEvaluationResultsRequest,
-  DeleteEvaluationResultsResponse,
-  DeleteOrganizationConfigRuleRequest,
-  DeleteOrganizationConformancePackRequest,
-  DeletePendingAggregationRequestRequest,
-  DeleteRemediationConfigurationRequest,
-  DeleteRemediationConfigurationResponse,
-  DeleteRemediationExceptionsRequest,
-  DeleteRemediationExceptionsResponse,
-  DeleteResourceConfigRequest,
-  DeleteRetentionConfigurationRequest,
-  DeliverConfigSnapshotRequest,
-  DeliverConfigSnapshotResponse,
-  DescribeAggregateComplianceByConfigRulesRequest,
-  DescribeAggregateComplianceByConfigRulesResponse,
-  DescribeAggregationAuthorizationsRequest,
-  DescribeAggregationAuthorizationsResponse,
-  DescribeComplianceByConfigRuleRequest,
-  DescribeComplianceByConfigRuleResponse,
-  DescribeComplianceByResourceRequest,
-  DescribeComplianceByResourceResponse,
-  DescribeConfigRuleEvaluationStatusRequest,
-  DescribeConfigRuleEvaluationStatusResponse,
-  DescribeConfigRulesRequest,
-  DescribeConfigRulesResponse,
-  DescribeConfigurationAggregatorSourcesStatusRequest,
-  DescribeConfigurationAggregatorSourcesStatusResponse,
-  DescribeConfigurationAggregatorsRequest,
-  DescribeConfigurationAggregatorsResponse,
-  DescribeConfigurationRecorderStatusRequest,
-  DescribeConfigurationRecorderStatusResponse,
-  DescribeConfigurationRecordersRequest,
-  DescribeConfigurationRecordersResponse,
-  DescribeConformancePackComplianceRequest,
-  DescribeConformancePackComplianceResponse,
-  DescribeConformancePackStatusRequest,
-  DescribeConformancePackStatusResponse,
-  DescribeConformancePacksRequest,
-  DescribeConformancePacksResponse,
-  DescribeDeliveryChannelStatusRequest,
-  DescribeDeliveryChannelStatusResponse,
-  DescribeDeliveryChannelsRequest,
-  DescribeDeliveryChannelsResponse,
-  DescribeOrganizationConfigRuleStatusesRequest,
-  DescribeOrganizationConfigRuleStatusesResponse,
-  DescribeOrganizationConfigRulesRequest,
-  DescribeOrganizationConfigRulesResponse,
-  DescribeOrganizationConformancePackStatusesRequest,
-  DescribeOrganizationConformancePackStatusesResponse,
-  DescribeOrganizationConformancePacksRequest,
-  DescribeOrganizationConformancePacksResponse,
-  DescribePendingAggregationRequestsRequest,
-  DescribePendingAggregationRequestsResponse,
-  DescribeRemediationConfigurationsRequest,
-  DescribeRemediationConfigurationsResponse,
-  DescribeRemediationExceptionsRequest,
-  DescribeRemediationExceptionsResponse,
-  DescribeRemediationExecutionStatusRequest,
-  DescribeRemediationExecutionStatusResponse,
-  DescribeRetentionConfigurationsRequest,
-  DescribeRetentionConfigurationsResponse,
-  GetAggregateComplianceDetailsByConfigRuleRequest,
-  GetAggregateComplianceDetailsByConfigRuleResponse,
-  GetAggregateConfigRuleComplianceSummaryRequest,
-  GetAggregateConfigRuleComplianceSummaryResponse,
-  GetAggregateDiscoveredResourceCountsRequest,
-  GetAggregateDiscoveredResourceCountsResponse,
-  GetAggregateResourceConfigRequest,
-  GetAggregateResourceConfigResponse,
-  GetComplianceDetailsByConfigRuleRequest,
-  GetComplianceDetailsByConfigRuleResponse,
-  GetComplianceDetailsByResourceRequest,
-  GetComplianceDetailsByResourceResponse,
-  GetComplianceSummaryByConfigRuleResponse,
-  GetComplianceSummaryByResourceTypeRequest,
-  GetComplianceSummaryByResourceTypeResponse,
-  GetConformancePackComplianceDetailsRequest,
-  GetConformancePackComplianceDetailsResponse,
-  GetConformancePackComplianceSummaryRequest,
-  GetConformancePackComplianceSummaryResponse,
-  GetDiscoveredResourceCountsRequest,
-  GetDiscoveredResourceCountsResponse,
-  GetOrganizationConfigRuleDetailedStatusRequest,
-  GetOrganizationConfigRuleDetailedStatusResponse,
-  GetOrganizationConformancePackDetailedStatusRequest,
-  GetOrganizationConformancePackDetailedStatusResponse,
-  GetResourceConfigHistoryRequest,
-  GetResourceConfigHistoryResponse,
-  ListAggregateDiscoveredResourcesRequest,
-  ListAggregateDiscoveredResourcesResponse,
-  ListDiscoveredResourcesRequest,
-  ListDiscoveredResourcesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutAggregationAuthorizationRequest,
-  PutAggregationAuthorizationResponse,
-  PutConfigRuleRequest,
-  PutConfigurationAggregatorRequest,
-  PutConfigurationAggregatorResponse,
-  PutConfigurationRecorderRequest,
-  PutConformancePackRequest,
-  PutConformancePackResponse,
-  PutDeliveryChannelRequest,
-  PutEvaluationsRequest,
-  PutEvaluationsResponse,
-  PutOrganizationConfigRuleRequest,
-  PutOrganizationConfigRuleResponse,
-  PutOrganizationConformancePackRequest,
-  PutOrganizationConformancePackResponse,
-  PutRemediationConfigurationsRequest,
-  PutRemediationConfigurationsResponse,
-  PutRemediationExceptionsRequest,
-  PutRemediationExceptionsResponse,
-  PutResourceConfigRequest,
-  PutRetentionConfigurationRequest,
-  PutRetentionConfigurationResponse,
-  SelectResourceConfigRequest,
-  SelectResourceConfigResponse,
-  StartConfigRulesEvaluationRequest,
-  StartConfigRulesEvaluationResponse,
-  StartConfigurationRecorderRequest,
-  StartRemediationExecutionRequest,
-  StartRemediationExecutionResponse,
-  StopConfigurationRecorderRequest,
-  TagResourceRequest,
-  UntagResourceRequest
-} from "./models/index";
+  BatchGetAggregateResourceConfigCommandInput,
+  BatchGetAggregateResourceConfigCommandOutput
+} from "./commands/BatchGetAggregateResourceConfigCommand";
+import {
+  BatchGetResourceConfigCommandInput,
+  BatchGetResourceConfigCommandOutput
+} from "./commands/BatchGetResourceConfigCommand";
+import {
+  DeleteAggregationAuthorizationCommandInput,
+  DeleteAggregationAuthorizationCommandOutput
+} from "./commands/DeleteAggregationAuthorizationCommand";
+import {
+  DeleteConfigRuleCommandInput,
+  DeleteConfigRuleCommandOutput
+} from "./commands/DeleteConfigRuleCommand";
+import {
+  DeleteConfigurationAggregatorCommandInput,
+  DeleteConfigurationAggregatorCommandOutput
+} from "./commands/DeleteConfigurationAggregatorCommand";
+import {
+  DeleteConfigurationRecorderCommandInput,
+  DeleteConfigurationRecorderCommandOutput
+} from "./commands/DeleteConfigurationRecorderCommand";
+import {
+  DeleteConformancePackCommandInput,
+  DeleteConformancePackCommandOutput
+} from "./commands/DeleteConformancePackCommand";
+import {
+  DeleteDeliveryChannelCommandInput,
+  DeleteDeliveryChannelCommandOutput
+} from "./commands/DeleteDeliveryChannelCommand";
+import {
+  DeleteEvaluationResultsCommandInput,
+  DeleteEvaluationResultsCommandOutput
+} from "./commands/DeleteEvaluationResultsCommand";
+import {
+  DeleteOrganizationConfigRuleCommandInput,
+  DeleteOrganizationConfigRuleCommandOutput
+} from "./commands/DeleteOrganizationConfigRuleCommand";
+import {
+  DeleteOrganizationConformancePackCommandInput,
+  DeleteOrganizationConformancePackCommandOutput
+} from "./commands/DeleteOrganizationConformancePackCommand";
+import {
+  DeletePendingAggregationRequestCommandInput,
+  DeletePendingAggregationRequestCommandOutput
+} from "./commands/DeletePendingAggregationRequestCommand";
+import {
+  DeleteRemediationConfigurationCommandInput,
+  DeleteRemediationConfigurationCommandOutput
+} from "./commands/DeleteRemediationConfigurationCommand";
+import {
+  DeleteRemediationExceptionsCommandInput,
+  DeleteRemediationExceptionsCommandOutput
+} from "./commands/DeleteRemediationExceptionsCommand";
+import {
+  DeleteResourceConfigCommandInput,
+  DeleteResourceConfigCommandOutput
+} from "./commands/DeleteResourceConfigCommand";
+import {
+  DeleteRetentionConfigurationCommandInput,
+  DeleteRetentionConfigurationCommandOutput
+} from "./commands/DeleteRetentionConfigurationCommand";
+import {
+  DeliverConfigSnapshotCommandInput,
+  DeliverConfigSnapshotCommandOutput
+} from "./commands/DeliverConfigSnapshotCommand";
+import {
+  DescribeAggregateComplianceByConfigRulesCommandInput,
+  DescribeAggregateComplianceByConfigRulesCommandOutput
+} from "./commands/DescribeAggregateComplianceByConfigRulesCommand";
+import {
+  DescribeAggregationAuthorizationsCommandInput,
+  DescribeAggregationAuthorizationsCommandOutput
+} from "./commands/DescribeAggregationAuthorizationsCommand";
+import {
+  DescribeComplianceByConfigRuleCommandInput,
+  DescribeComplianceByConfigRuleCommandOutput
+} from "./commands/DescribeComplianceByConfigRuleCommand";
+import {
+  DescribeComplianceByResourceCommandInput,
+  DescribeComplianceByResourceCommandOutput
+} from "./commands/DescribeComplianceByResourceCommand";
+import {
+  DescribeConfigRuleEvaluationStatusCommandInput,
+  DescribeConfigRuleEvaluationStatusCommandOutput
+} from "./commands/DescribeConfigRuleEvaluationStatusCommand";
+import {
+  DescribeConfigRulesCommandInput,
+  DescribeConfigRulesCommandOutput
+} from "./commands/DescribeConfigRulesCommand";
+import {
+  DescribeConfigurationAggregatorSourcesStatusCommandInput,
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput
+} from "./commands/DescribeConfigurationAggregatorSourcesStatusCommand";
+import {
+  DescribeConfigurationAggregatorsCommandInput,
+  DescribeConfigurationAggregatorsCommandOutput
+} from "./commands/DescribeConfigurationAggregatorsCommand";
+import {
+  DescribeConfigurationRecorderStatusCommandInput,
+  DescribeConfigurationRecorderStatusCommandOutput
+} from "./commands/DescribeConfigurationRecorderStatusCommand";
+import {
+  DescribeConfigurationRecordersCommandInput,
+  DescribeConfigurationRecordersCommandOutput
+} from "./commands/DescribeConfigurationRecordersCommand";
+import {
+  DescribeConformancePackComplianceCommandInput,
+  DescribeConformancePackComplianceCommandOutput
+} from "./commands/DescribeConformancePackComplianceCommand";
+import {
+  DescribeConformancePackStatusCommandInput,
+  DescribeConformancePackStatusCommandOutput
+} from "./commands/DescribeConformancePackStatusCommand";
+import {
+  DescribeConformancePacksCommandInput,
+  DescribeConformancePacksCommandOutput
+} from "./commands/DescribeConformancePacksCommand";
+import {
+  DescribeDeliveryChannelStatusCommandInput,
+  DescribeDeliveryChannelStatusCommandOutput
+} from "./commands/DescribeDeliveryChannelStatusCommand";
+import {
+  DescribeDeliveryChannelsCommandInput,
+  DescribeDeliveryChannelsCommandOutput
+} from "./commands/DescribeDeliveryChannelsCommand";
+import {
+  DescribeOrganizationConfigRuleStatusesCommandInput,
+  DescribeOrganizationConfigRuleStatusesCommandOutput
+} from "./commands/DescribeOrganizationConfigRuleStatusesCommand";
+import {
+  DescribeOrganizationConfigRulesCommandInput,
+  DescribeOrganizationConfigRulesCommandOutput
+} from "./commands/DescribeOrganizationConfigRulesCommand";
+import {
+  DescribeOrganizationConformancePackStatusesCommandInput,
+  DescribeOrganizationConformancePackStatusesCommandOutput
+} from "./commands/DescribeOrganizationConformancePackStatusesCommand";
+import {
+  DescribeOrganizationConformancePacksCommandInput,
+  DescribeOrganizationConformancePacksCommandOutput
+} from "./commands/DescribeOrganizationConformancePacksCommand";
+import {
+  DescribePendingAggregationRequestsCommandInput,
+  DescribePendingAggregationRequestsCommandOutput
+} from "./commands/DescribePendingAggregationRequestsCommand";
+import {
+  DescribeRemediationConfigurationsCommandInput,
+  DescribeRemediationConfigurationsCommandOutput
+} from "./commands/DescribeRemediationConfigurationsCommand";
+import {
+  DescribeRemediationExceptionsCommandInput,
+  DescribeRemediationExceptionsCommandOutput
+} from "./commands/DescribeRemediationExceptionsCommand";
+import {
+  DescribeRemediationExecutionStatusCommandInput,
+  DescribeRemediationExecutionStatusCommandOutput
+} from "./commands/DescribeRemediationExecutionStatusCommand";
+import {
+  DescribeRetentionConfigurationsCommandInput,
+  DescribeRetentionConfigurationsCommandOutput
+} from "./commands/DescribeRetentionConfigurationsCommand";
+import {
+  GetAggregateComplianceDetailsByConfigRuleCommandInput,
+  GetAggregateComplianceDetailsByConfigRuleCommandOutput
+} from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand";
+import {
+  GetAggregateConfigRuleComplianceSummaryCommandInput,
+  GetAggregateConfigRuleComplianceSummaryCommandOutput
+} from "./commands/GetAggregateConfigRuleComplianceSummaryCommand";
+import {
+  GetAggregateDiscoveredResourceCountsCommandInput,
+  GetAggregateDiscoveredResourceCountsCommandOutput
+} from "./commands/GetAggregateDiscoveredResourceCountsCommand";
+import {
+  GetAggregateResourceConfigCommandInput,
+  GetAggregateResourceConfigCommandOutput
+} from "./commands/GetAggregateResourceConfigCommand";
+import {
+  GetComplianceDetailsByConfigRuleCommandInput,
+  GetComplianceDetailsByConfigRuleCommandOutput
+} from "./commands/GetComplianceDetailsByConfigRuleCommand";
+import {
+  GetComplianceDetailsByResourceCommandInput,
+  GetComplianceDetailsByResourceCommandOutput
+} from "./commands/GetComplianceDetailsByResourceCommand";
+import {
+  GetComplianceSummaryByConfigRuleCommandInput,
+  GetComplianceSummaryByConfigRuleCommandOutput
+} from "./commands/GetComplianceSummaryByConfigRuleCommand";
+import {
+  GetComplianceSummaryByResourceTypeCommandInput,
+  GetComplianceSummaryByResourceTypeCommandOutput
+} from "./commands/GetComplianceSummaryByResourceTypeCommand";
+import {
+  GetConformancePackComplianceDetailsCommandInput,
+  GetConformancePackComplianceDetailsCommandOutput
+} from "./commands/GetConformancePackComplianceDetailsCommand";
+import {
+  GetConformancePackComplianceSummaryCommandInput,
+  GetConformancePackComplianceSummaryCommandOutput
+} from "./commands/GetConformancePackComplianceSummaryCommand";
+import {
+  GetDiscoveredResourceCountsCommandInput,
+  GetDiscoveredResourceCountsCommandOutput
+} from "./commands/GetDiscoveredResourceCountsCommand";
+import {
+  GetOrganizationConfigRuleDetailedStatusCommandInput,
+  GetOrganizationConfigRuleDetailedStatusCommandOutput
+} from "./commands/GetOrganizationConfigRuleDetailedStatusCommand";
+import {
+  GetOrganizationConformancePackDetailedStatusCommandInput,
+  GetOrganizationConformancePackDetailedStatusCommandOutput
+} from "./commands/GetOrganizationConformancePackDetailedStatusCommand";
+import {
+  GetResourceConfigHistoryCommandInput,
+  GetResourceConfigHistoryCommandOutput
+} from "./commands/GetResourceConfigHistoryCommand";
+import {
+  ListAggregateDiscoveredResourcesCommandInput,
+  ListAggregateDiscoveredResourcesCommandOutput
+} from "./commands/ListAggregateDiscoveredResourcesCommand";
+import {
+  ListDiscoveredResourcesCommandInput,
+  ListDiscoveredResourcesCommandOutput
+} from "./commands/ListDiscoveredResourcesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutAggregationAuthorizationCommandInput,
+  PutAggregationAuthorizationCommandOutput
+} from "./commands/PutAggregationAuthorizationCommand";
+import {
+  PutConfigRuleCommandInput,
+  PutConfigRuleCommandOutput
+} from "./commands/PutConfigRuleCommand";
+import {
+  PutConfigurationAggregatorCommandInput,
+  PutConfigurationAggregatorCommandOutput
+} from "./commands/PutConfigurationAggregatorCommand";
+import {
+  PutConfigurationRecorderCommandInput,
+  PutConfigurationRecorderCommandOutput
+} from "./commands/PutConfigurationRecorderCommand";
+import {
+  PutConformancePackCommandInput,
+  PutConformancePackCommandOutput
+} from "./commands/PutConformancePackCommand";
+import {
+  PutDeliveryChannelCommandInput,
+  PutDeliveryChannelCommandOutput
+} from "./commands/PutDeliveryChannelCommand";
+import {
+  PutEvaluationsCommandInput,
+  PutEvaluationsCommandOutput
+} from "./commands/PutEvaluationsCommand";
+import {
+  PutOrganizationConfigRuleCommandInput,
+  PutOrganizationConfigRuleCommandOutput
+} from "./commands/PutOrganizationConfigRuleCommand";
+import {
+  PutOrganizationConformancePackCommandInput,
+  PutOrganizationConformancePackCommandOutput
+} from "./commands/PutOrganizationConformancePackCommand";
+import {
+  PutRemediationConfigurationsCommandInput,
+  PutRemediationConfigurationsCommandOutput
+} from "./commands/PutRemediationConfigurationsCommand";
+import {
+  PutRemediationExceptionsCommandInput,
+  PutRemediationExceptionsCommandOutput
+} from "./commands/PutRemediationExceptionsCommand";
+import {
+  PutResourceConfigCommandInput,
+  PutResourceConfigCommandOutput
+} from "./commands/PutResourceConfigCommand";
+import {
+  PutRetentionConfigurationCommandInput,
+  PutRetentionConfigurationCommandOutput
+} from "./commands/PutRetentionConfigurationCommand";
+import {
+  SelectResourceConfigCommandInput,
+  SelectResourceConfigCommandOutput
+} from "./commands/SelectResourceConfigCommand";
+import {
+  StartConfigRulesEvaluationCommandInput,
+  StartConfigRulesEvaluationCommandOutput
+} from "./commands/StartConfigRulesEvaluationCommand";
+import {
+  StartConfigurationRecorderCommandInput,
+  StartConfigurationRecorderCommandOutput
+} from "./commands/StartConfigurationRecorderCommand";
+import {
+  StartRemediationExecutionCommandInput,
+  StartRemediationExecutionCommandOutput
+} from "./commands/StartRemediationExecutionCommand";
+import {
+  StopConfigurationRecorderCommandInput,
+  StopConfigurationRecorderCommandOutput
+} from "./commands/StopConfigurationRecorderCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -183,153 +357,170 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | BatchGetAggregateResourceConfigRequest
-  | BatchGetResourceConfigRequest
-  | DeleteAggregationAuthorizationRequest
-  | DeleteConfigRuleRequest
-  | DeleteConfigurationAggregatorRequest
-  | DeleteConfigurationRecorderRequest
-  | DeleteConformancePackRequest
-  | DeleteDeliveryChannelRequest
-  | DeleteEvaluationResultsRequest
-  | DeleteOrganizationConfigRuleRequest
-  | DeleteOrganizationConformancePackRequest
-  | DeletePendingAggregationRequestRequest
-  | DeleteRemediationConfigurationRequest
-  | DeleteRemediationExceptionsRequest
-  | DeleteResourceConfigRequest
-  | DeleteRetentionConfigurationRequest
-  | DeliverConfigSnapshotRequest
-  | DescribeAggregateComplianceByConfigRulesRequest
-  | DescribeAggregationAuthorizationsRequest
-  | DescribeComplianceByConfigRuleRequest
-  | DescribeComplianceByResourceRequest
-  | DescribeConfigRuleEvaluationStatusRequest
-  | DescribeConfigRulesRequest
-  | DescribeConfigurationAggregatorSourcesStatusRequest
-  | DescribeConfigurationAggregatorsRequest
-  | DescribeConfigurationRecorderStatusRequest
-  | DescribeConfigurationRecordersRequest
-  | DescribeConformancePackComplianceRequest
-  | DescribeConformancePackStatusRequest
-  | DescribeConformancePacksRequest
-  | DescribeDeliveryChannelStatusRequest
-  | DescribeDeliveryChannelsRequest
-  | DescribeOrganizationConfigRuleStatusesRequest
-  | DescribeOrganizationConfigRulesRequest
-  | DescribeOrganizationConformancePackStatusesRequest
-  | DescribeOrganizationConformancePacksRequest
-  | DescribePendingAggregationRequestsRequest
-  | DescribeRemediationConfigurationsRequest
-  | DescribeRemediationExceptionsRequest
-  | DescribeRemediationExecutionStatusRequest
-  | DescribeRetentionConfigurationsRequest
-  | GetAggregateComplianceDetailsByConfigRuleRequest
-  | GetAggregateConfigRuleComplianceSummaryRequest
-  | GetAggregateDiscoveredResourceCountsRequest
-  | GetAggregateResourceConfigRequest
-  | GetComplianceDetailsByConfigRuleRequest
-  | GetComplianceDetailsByResourceRequest
-  | GetComplianceSummaryByResourceTypeRequest
-  | GetConformancePackComplianceDetailsRequest
-  | GetConformancePackComplianceSummaryRequest
-  | GetDiscoveredResourceCountsRequest
-  | GetOrganizationConfigRuleDetailedStatusRequest
-  | GetOrganizationConformancePackDetailedStatusRequest
-  | GetResourceConfigHistoryRequest
-  | ListAggregateDiscoveredResourcesRequest
-  | ListDiscoveredResourcesRequest
-  | ListTagsForResourceRequest
-  | PutAggregationAuthorizationRequest
-  | PutConfigRuleRequest
-  | PutConfigurationAggregatorRequest
-  | PutConfigurationRecorderRequest
-  | PutConformancePackRequest
-  | PutDeliveryChannelRequest
-  | PutEvaluationsRequest
-  | PutOrganizationConfigRuleRequest
-  | PutOrganizationConformancePackRequest
-  | PutRemediationConfigurationsRequest
-  | PutRemediationExceptionsRequest
-  | PutResourceConfigRequest
-  | PutRetentionConfigurationRequest
-  | SelectResourceConfigRequest
-  | StartConfigRulesEvaluationRequest
-  | StartConfigurationRecorderRequest
-  | StartRemediationExecutionRequest
-  | StopConfigurationRecorderRequest
-  | TagResourceRequest
-  | UntagResourceRequest;
+  | BatchGetAggregateResourceConfigCommandInput
+  | BatchGetResourceConfigCommandInput
+  | DeleteAggregationAuthorizationCommandInput
+  | DeleteConfigRuleCommandInput
+  | DeleteConfigurationAggregatorCommandInput
+  | DeleteConfigurationRecorderCommandInput
+  | DeleteConformancePackCommandInput
+  | DeleteDeliveryChannelCommandInput
+  | DeleteEvaluationResultsCommandInput
+  | DeleteOrganizationConfigRuleCommandInput
+  | DeleteOrganizationConformancePackCommandInput
+  | DeletePendingAggregationRequestCommandInput
+  | DeleteRemediationConfigurationCommandInput
+  | DeleteRemediationExceptionsCommandInput
+  | DeleteResourceConfigCommandInput
+  | DeleteRetentionConfigurationCommandInput
+  | DeliverConfigSnapshotCommandInput
+  | DescribeAggregateComplianceByConfigRulesCommandInput
+  | DescribeAggregationAuthorizationsCommandInput
+  | DescribeComplianceByConfigRuleCommandInput
+  | DescribeComplianceByResourceCommandInput
+  | DescribeConfigRuleEvaluationStatusCommandInput
+  | DescribeConfigRulesCommandInput
+  | DescribeConfigurationAggregatorSourcesStatusCommandInput
+  | DescribeConfigurationAggregatorsCommandInput
+  | DescribeConfigurationRecorderStatusCommandInput
+  | DescribeConfigurationRecordersCommandInput
+  | DescribeConformancePackComplianceCommandInput
+  | DescribeConformancePackStatusCommandInput
+  | DescribeConformancePacksCommandInput
+  | DescribeDeliveryChannelStatusCommandInput
+  | DescribeDeliveryChannelsCommandInput
+  | DescribeOrganizationConfigRuleStatusesCommandInput
+  | DescribeOrganizationConfigRulesCommandInput
+  | DescribeOrganizationConformancePackStatusesCommandInput
+  | DescribeOrganizationConformancePacksCommandInput
+  | DescribePendingAggregationRequestsCommandInput
+  | DescribeRemediationConfigurationsCommandInput
+  | DescribeRemediationExceptionsCommandInput
+  | DescribeRemediationExecutionStatusCommandInput
+  | DescribeRetentionConfigurationsCommandInput
+  | GetAggregateComplianceDetailsByConfigRuleCommandInput
+  | GetAggregateConfigRuleComplianceSummaryCommandInput
+  | GetAggregateDiscoveredResourceCountsCommandInput
+  | GetAggregateResourceConfigCommandInput
+  | GetComplianceDetailsByConfigRuleCommandInput
+  | GetComplianceDetailsByResourceCommandInput
+  | GetComplianceSummaryByConfigRuleCommandInput
+  | GetComplianceSummaryByResourceTypeCommandInput
+  | GetConformancePackComplianceDetailsCommandInput
+  | GetConformancePackComplianceSummaryCommandInput
+  | GetDiscoveredResourceCountsCommandInput
+  | GetOrganizationConfigRuleDetailedStatusCommandInput
+  | GetOrganizationConformancePackDetailedStatusCommandInput
+  | GetResourceConfigHistoryCommandInput
+  | ListAggregateDiscoveredResourcesCommandInput
+  | ListDiscoveredResourcesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutAggregationAuthorizationCommandInput
+  | PutConfigRuleCommandInput
+  | PutConfigurationAggregatorCommandInput
+  | PutConfigurationRecorderCommandInput
+  | PutConformancePackCommandInput
+  | PutDeliveryChannelCommandInput
+  | PutEvaluationsCommandInput
+  | PutOrganizationConfigRuleCommandInput
+  | PutOrganizationConformancePackCommandInput
+  | PutRemediationConfigurationsCommandInput
+  | PutRemediationExceptionsCommandInput
+  | PutResourceConfigCommandInput
+  | PutRetentionConfigurationCommandInput
+  | SelectResourceConfigCommandInput
+  | StartConfigRulesEvaluationCommandInput
+  | StartConfigurationRecorderCommandInput
+  | StartRemediationExecutionCommandInput
+  | StopConfigurationRecorderCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | BatchGetAggregateResourceConfigResponse
-  | BatchGetResourceConfigResponse
-  | DeleteEvaluationResultsResponse
-  | DeleteRemediationConfigurationResponse
-  | DeleteRemediationExceptionsResponse
-  | DeliverConfigSnapshotResponse
-  | DescribeAggregateComplianceByConfigRulesResponse
-  | DescribeAggregationAuthorizationsResponse
-  | DescribeComplianceByConfigRuleResponse
-  | DescribeComplianceByResourceResponse
-  | DescribeConfigRuleEvaluationStatusResponse
-  | DescribeConfigRulesResponse
-  | DescribeConfigurationAggregatorSourcesStatusResponse
-  | DescribeConfigurationAggregatorsResponse
-  | DescribeConfigurationRecorderStatusResponse
-  | DescribeConfigurationRecordersResponse
-  | DescribeConformancePackComplianceResponse
-  | DescribeConformancePackStatusResponse
-  | DescribeConformancePacksResponse
-  | DescribeDeliveryChannelStatusResponse
-  | DescribeDeliveryChannelsResponse
-  | DescribeOrganizationConfigRuleStatusesResponse
-  | DescribeOrganizationConfigRulesResponse
-  | DescribeOrganizationConformancePackStatusesResponse
-  | DescribeOrganizationConformancePacksResponse
-  | DescribePendingAggregationRequestsResponse
-  | DescribeRemediationConfigurationsResponse
-  | DescribeRemediationExceptionsResponse
-  | DescribeRemediationExecutionStatusResponse
-  | DescribeRetentionConfigurationsResponse
-  | GetAggregateComplianceDetailsByConfigRuleResponse
-  | GetAggregateConfigRuleComplianceSummaryResponse
-  | GetAggregateDiscoveredResourceCountsResponse
-  | GetAggregateResourceConfigResponse
-  | GetComplianceDetailsByConfigRuleResponse
-  | GetComplianceDetailsByResourceResponse
-  | GetComplianceSummaryByConfigRuleResponse
-  | GetComplianceSummaryByResourceTypeResponse
-  | GetConformancePackComplianceDetailsResponse
-  | GetConformancePackComplianceSummaryResponse
-  | GetDiscoveredResourceCountsResponse
-  | GetOrganizationConfigRuleDetailedStatusResponse
-  | GetOrganizationConformancePackDetailedStatusResponse
-  | GetResourceConfigHistoryResponse
-  | ListAggregateDiscoveredResourcesResponse
-  | ListDiscoveredResourcesResponse
-  | ListTagsForResourceResponse
-  | PutAggregationAuthorizationResponse
-  | PutConfigurationAggregatorResponse
-  | PutConformancePackResponse
-  | PutEvaluationsResponse
-  | PutOrganizationConfigRuleResponse
-  | PutOrganizationConformancePackResponse
-  | PutRemediationConfigurationsResponse
-  | PutRemediationExceptionsResponse
-  | PutRetentionConfigurationResponse
-  | SelectResourceConfigResponse
-  | StartConfigRulesEvaluationResponse
-  | StartRemediationExecutionResponse;
+  | BatchGetAggregateResourceConfigCommandOutput
+  | BatchGetResourceConfigCommandOutput
+  | DeleteAggregationAuthorizationCommandOutput
+  | DeleteConfigRuleCommandOutput
+  | DeleteConfigurationAggregatorCommandOutput
+  | DeleteConfigurationRecorderCommandOutput
+  | DeleteConformancePackCommandOutput
+  | DeleteDeliveryChannelCommandOutput
+  | DeleteEvaluationResultsCommandOutput
+  | DeleteOrganizationConfigRuleCommandOutput
+  | DeleteOrganizationConformancePackCommandOutput
+  | DeletePendingAggregationRequestCommandOutput
+  | DeleteRemediationConfigurationCommandOutput
+  | DeleteRemediationExceptionsCommandOutput
+  | DeleteResourceConfigCommandOutput
+  | DeleteRetentionConfigurationCommandOutput
+  | DeliverConfigSnapshotCommandOutput
+  | DescribeAggregateComplianceByConfigRulesCommandOutput
+  | DescribeAggregationAuthorizationsCommandOutput
+  | DescribeComplianceByConfigRuleCommandOutput
+  | DescribeComplianceByResourceCommandOutput
+  | DescribeConfigRuleEvaluationStatusCommandOutput
+  | DescribeConfigRulesCommandOutput
+  | DescribeConfigurationAggregatorSourcesStatusCommandOutput
+  | DescribeConfigurationAggregatorsCommandOutput
+  | DescribeConfigurationRecorderStatusCommandOutput
+  | DescribeConfigurationRecordersCommandOutput
+  | DescribeConformancePackComplianceCommandOutput
+  | DescribeConformancePackStatusCommandOutput
+  | DescribeConformancePacksCommandOutput
+  | DescribeDeliveryChannelStatusCommandOutput
+  | DescribeDeliveryChannelsCommandOutput
+  | DescribeOrganizationConfigRuleStatusesCommandOutput
+  | DescribeOrganizationConfigRulesCommandOutput
+  | DescribeOrganizationConformancePackStatusesCommandOutput
+  | DescribeOrganizationConformancePacksCommandOutput
+  | DescribePendingAggregationRequestsCommandOutput
+  | DescribeRemediationConfigurationsCommandOutput
+  | DescribeRemediationExceptionsCommandOutput
+  | DescribeRemediationExecutionStatusCommandOutput
+  | DescribeRetentionConfigurationsCommandOutput
+  | GetAggregateComplianceDetailsByConfigRuleCommandOutput
+  | GetAggregateConfigRuleComplianceSummaryCommandOutput
+  | GetAggregateDiscoveredResourceCountsCommandOutput
+  | GetAggregateResourceConfigCommandOutput
+  | GetComplianceDetailsByConfigRuleCommandOutput
+  | GetComplianceDetailsByResourceCommandOutput
+  | GetComplianceSummaryByConfigRuleCommandOutput
+  | GetComplianceSummaryByResourceTypeCommandOutput
+  | GetConformancePackComplianceDetailsCommandOutput
+  | GetConformancePackComplianceSummaryCommandOutput
+  | GetDiscoveredResourceCountsCommandOutput
+  | GetOrganizationConfigRuleDetailedStatusCommandOutput
+  | GetOrganizationConformancePackDetailedStatusCommandOutput
+  | GetResourceConfigHistoryCommandOutput
+  | ListAggregateDiscoveredResourcesCommandOutput
+  | ListDiscoveredResourcesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutAggregationAuthorizationCommandOutput
+  | PutConfigRuleCommandOutput
+  | PutConfigurationAggregatorCommandOutput
+  | PutConfigurationRecorderCommandOutput
+  | PutConformancePackCommandOutput
+  | PutDeliveryChannelCommandOutput
+  | PutEvaluationsCommandOutput
+  | PutOrganizationConfigRuleCommandOutput
+  | PutOrganizationConformancePackCommandOutput
+  | PutRemediationConfigurationsCommandOutput
+  | PutRemediationExceptionsCommandOutput
+  | PutResourceConfigCommandOutput
+  | PutRetentionConfigurationCommandOutput
+  | SelectResourceConfigCommandOutput
+  | StartConfigRulesEvaluationCommandOutput
+  | StartConfigurationRecorderCommandOutput
+  | StartRemediationExecutionCommandOutput
+  | StopConfigurationRecorderCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

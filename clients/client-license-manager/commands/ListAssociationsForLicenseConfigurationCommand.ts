@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAssociationsForLicenseConfigurationCommandInput = ListAssociationsForLicenseConfigurationRequest;
-export type ListAssociationsForLicenseConfigurationCommandOutput = ListAssociationsForLicenseConfigurationResponse;
+export type ListAssociationsForLicenseConfigurationCommandOutput = ListAssociationsForLicenseConfigurationResponse &
+  __MetadataBearer;
 
 export class ListAssociationsForLicenseConfigurationCommand extends $Command<
   ListAssociationsForLicenseConfigurationCommandInput,

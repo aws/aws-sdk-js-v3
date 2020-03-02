@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListHostedZonesByNameCommandInput = ListHostedZonesByNameRequest;
-export type ListHostedZonesByNameCommandOutput = ListHostedZonesByNameResponse;
+export type ListHostedZonesByNameCommandOutput = ListHostedZonesByNameResponse &
+  __MetadataBearer;
 
 export class ListHostedZonesByNameCommand extends $Command<
   ListHostedZonesByNameCommandInput,

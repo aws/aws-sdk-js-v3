@@ -381,38 +381,53 @@ async function deserializeAws_json1_1CancelDataRepositoryTaskCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DataRepositoryTaskEnded":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskEnded":
-      response = await deserializeAws_json1_1DataRepositoryTaskEndedResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryTaskEndedResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DataRepositoryTaskNotFound":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound":
-      response = await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
-      response = await deserializeAws_json1_1UnsupportedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -465,52 +480,73 @@ async function deserializeAws_json1_1CreateBackupCommandError(
   switch (errorCode) {
     case "BackupInProgress":
     case "com.amazonaws.simba.api.v20180301#BackupInProgress":
-      response = await deserializeAws_json1_1BackupInProgressResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BackupInProgressResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
-      response = await deserializeAws_json1_1ServiceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
-      response = await deserializeAws_json1_1UnsupportedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -569,52 +605,73 @@ async function deserializeAws_json1_1CreateDataRepositoryTaskCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DataRepositoryTaskExecuting":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskExecuting":
-      response = await deserializeAws_json1_1DataRepositoryTaskExecutingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryTaskExecutingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
-      response = await deserializeAws_json1_1ServiceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
-      response = await deserializeAws_json1_1UnsupportedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -667,66 +724,93 @@ async function deserializeAws_json1_1CreateFileSystemCommandError(
   switch (errorCode) {
     case "ActiveDirectoryError":
     case "com.amazonaws.simba.api.v20180301#ActiveDirectoryError":
-      response = await deserializeAws_json1_1ActiveDirectoryErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActiveDirectoryErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidExportPath":
     case "com.amazonaws.simba.api.v20180301#InvalidExportPath":
-      response = await deserializeAws_json1_1InvalidExportPathResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidExportPathResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidImportPath":
     case "com.amazonaws.simba.api.v20180301#InvalidImportPath":
-      response = await deserializeAws_json1_1InvalidImportPathResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidImportPathResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNetworkSettings":
     case "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings":
-      response = await deserializeAws_json1_1InvalidNetworkSettingsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingFileSystemConfiguration":
     case "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration":
-      response = await deserializeAws_json1_1MissingFileSystemConfigurationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingFileSystemConfigurationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
-      response = await deserializeAws_json1_1ServiceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -785,59 +869,83 @@ async function deserializeAws_json1_1CreateFileSystemFromBackupCommandError(
   switch (errorCode) {
     case "ActiveDirectoryError":
     case "com.amazonaws.simba.api.v20180301#ActiveDirectoryError":
-      response = await deserializeAws_json1_1ActiveDirectoryErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ActiveDirectoryErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupNotFound":
     case "com.amazonaws.simba.api.v20180301#BackupNotFound":
-      response = await deserializeAws_json1_1BackupNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNetworkSettings":
     case "com.amazonaws.simba.api.v20180301#InvalidNetworkSettings":
-      response = await deserializeAws_json1_1InvalidNetworkSettingsResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNetworkSettingsResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingFileSystemConfiguration":
     case "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration":
-      response = await deserializeAws_json1_1MissingFileSystemConfigurationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingFileSystemConfigurationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
-      response = await deserializeAws_json1_1ServiceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -890,45 +998,63 @@ async function deserializeAws_json1_1DeleteBackupCommandError(
   switch (errorCode) {
     case "BackupInProgress":
     case "com.amazonaws.simba.api.v20180301#BackupInProgress":
-      response = await deserializeAws_json1_1BackupInProgressResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BackupInProgressResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupNotFound":
     case "com.amazonaws.simba.api.v20180301#BackupNotFound":
-      response = await deserializeAws_json1_1BackupNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BackupRestoring":
     case "com.amazonaws.simba.api.v20180301#BackupRestoring":
-      response = await deserializeAws_json1_1BackupRestoringResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BackupRestoringResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -981,38 +1107,53 @@ async function deserializeAws_json1_1DeleteFileSystemCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceLimitExceeded":
     case "com.amazonaws.simba.api.v20180301#ServiceLimitExceeded":
-      response = await deserializeAws_json1_1ServiceLimitExceededResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServiceLimitExceededResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1065,31 +1206,43 @@ async function deserializeAws_json1_1DescribeBackupsCommandError(
   switch (errorCode) {
     case "BackupNotFound":
     case "com.amazonaws.simba.api.v20180301#BackupNotFound":
-      response = await deserializeAws_json1_1BackupNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BackupNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1148,31 +1301,43 @@ async function deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DataRepositoryTaskNotFound":
     case "com.amazonaws.simba.api.v20180301#DataRepositoryTaskNotFound":
-      response = await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DataRepositoryTaskNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1228,24 +1393,33 @@ async function deserializeAws_json1_1DescribeFileSystemsCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1301,38 +1475,53 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotServiceResourceError":
     case "com.amazonaws.simba.api.v20180301#NotServiceResourceError":
-      response = await deserializeAws_json1_1NotServiceResourceErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDoesNotSupportTagging":
     case "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging":
-      response = await deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.simba.api.v20180301#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1385,38 +1574,53 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotServiceResourceError":
     case "com.amazonaws.simba.api.v20180301#NotServiceResourceError":
-      response = await deserializeAws_json1_1NotServiceResourceErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDoesNotSupportTagging":
     case "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging":
-      response = await deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.simba.api.v20180301#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1469,38 +1673,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotServiceResourceError":
     case "com.amazonaws.simba.api.v20180301#NotServiceResourceError":
-      response = await deserializeAws_json1_1NotServiceResourceErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1NotServiceResourceErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceDoesNotSupportTagging":
     case "com.amazonaws.simba.api.v20180301#ResourceDoesNotSupportTagging":
-      response = await deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceDoesNotSupportTaggingResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFound":
     case "com.amazonaws.simba.api.v20180301#ResourceNotFound":
-      response = await deserializeAws_json1_1ResourceNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1553,45 +1772,63 @@ async function deserializeAws_json1_1UpdateFileSystemCommandError(
   switch (errorCode) {
     case "BadRequest":
     case "com.amazonaws.simba.api.v20180301#BadRequest":
-      response = await deserializeAws_json1_1BadRequestResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FileSystemNotFound":
     case "com.amazonaws.simba.api.v20180301#FileSystemNotFound":
-      response = await deserializeAws_json1_1FileSystemNotFoundResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleParameterError":
     case "com.amazonaws.simba.api.v20180301#IncompatibleParameterError":
-      response = await deserializeAws_json1_1IncompatibleParameterErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IncompatibleParameterErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.simba.api.v20180301#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MissingFileSystemConfiguration":
     case "com.amazonaws.simba.api.v20180301#MissingFileSystemConfiguration":
-      response = await deserializeAws_json1_1MissingFileSystemConfigurationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1MissingFileSystemConfigurationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedOperation":
     case "com.amazonaws.simba.api.v20180301#UnsupportedOperation":
-      response = await deserializeAws_json1_1UnsupportedOperationResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

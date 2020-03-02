@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInstancePortStatesCommandInput = GetInstancePortStatesRequest;
-export type GetInstancePortStatesCommandOutput = GetInstancePortStatesResult;
+export type GetInstancePortStatesCommandOutput = GetInstancePortStatesResult &
+  __MetadataBearer;
 
 export class GetInstancePortStatesCommand extends $Command<
   GetInstancePortStatesCommandInput,

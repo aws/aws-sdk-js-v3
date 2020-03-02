@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTerminationPolicyTypesCommandInput = {};
-export type DescribeTerminationPolicyTypesCommandOutput = DescribeTerminationPolicyTypesAnswer;
+export type DescribeTerminationPolicyTypesCommandOutput = DescribeTerminationPolicyTypesAnswer &
+  __MetadataBearer;
 
 export class DescribeTerminationPolicyTypesCommand extends $Command<
   DescribeTerminationPolicyTypesCommandInput,

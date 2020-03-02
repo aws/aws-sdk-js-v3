@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetInvalidationCommandInput = GetInvalidationRequest;
-export type GetInvalidationCommandOutput = GetInvalidationResult;
+export type GetInvalidationCommandOutput = GetInvalidationResult &
+  __MetadataBearer;
 
 export class GetInvalidationCommand extends $Command<
   GetInvalidationCommandInput,

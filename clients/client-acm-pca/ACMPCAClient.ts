@@ -1,36 +1,83 @@
 import {
-  CreateCertificateAuthorityAuditReportRequest,
-  CreateCertificateAuthorityAuditReportResponse,
-  CreateCertificateAuthorityRequest,
-  CreateCertificateAuthorityResponse,
-  CreatePermissionRequest,
-  DeleteCertificateAuthorityRequest,
-  DeletePermissionRequest,
-  DescribeCertificateAuthorityAuditReportRequest,
-  DescribeCertificateAuthorityAuditReportResponse,
-  DescribeCertificateAuthorityRequest,
-  DescribeCertificateAuthorityResponse,
-  GetCertificateAuthorityCertificateRequest,
-  GetCertificateAuthorityCertificateResponse,
-  GetCertificateAuthorityCsrRequest,
-  GetCertificateAuthorityCsrResponse,
-  GetCertificateRequest,
-  GetCertificateResponse,
-  ImportCertificateAuthorityCertificateRequest,
-  IssueCertificateRequest,
-  IssueCertificateResponse,
-  ListCertificateAuthoritiesRequest,
-  ListCertificateAuthoritiesResponse,
-  ListPermissionsRequest,
-  ListPermissionsResponse,
-  ListTagsRequest,
-  ListTagsResponse,
-  RestoreCertificateAuthorityRequest,
-  RevokeCertificateRequest,
-  TagCertificateAuthorityRequest,
-  UntagCertificateAuthorityRequest,
-  UpdateCertificateAuthorityRequest
-} from "./models/index";
+  CreateCertificateAuthorityAuditReportCommandInput,
+  CreateCertificateAuthorityAuditReportCommandOutput
+} from "./commands/CreateCertificateAuthorityAuditReportCommand";
+import {
+  CreateCertificateAuthorityCommandInput,
+  CreateCertificateAuthorityCommandOutput
+} from "./commands/CreateCertificateAuthorityCommand";
+import {
+  CreatePermissionCommandInput,
+  CreatePermissionCommandOutput
+} from "./commands/CreatePermissionCommand";
+import {
+  DeleteCertificateAuthorityCommandInput,
+  DeleteCertificateAuthorityCommandOutput
+} from "./commands/DeleteCertificateAuthorityCommand";
+import {
+  DeletePermissionCommandInput,
+  DeletePermissionCommandOutput
+} from "./commands/DeletePermissionCommand";
+import {
+  DescribeCertificateAuthorityAuditReportCommandInput,
+  DescribeCertificateAuthorityAuditReportCommandOutput
+} from "./commands/DescribeCertificateAuthorityAuditReportCommand";
+import {
+  DescribeCertificateAuthorityCommandInput,
+  DescribeCertificateAuthorityCommandOutput
+} from "./commands/DescribeCertificateAuthorityCommand";
+import {
+  GetCertificateAuthorityCertificateCommandInput,
+  GetCertificateAuthorityCertificateCommandOutput
+} from "./commands/GetCertificateAuthorityCertificateCommand";
+import {
+  GetCertificateAuthorityCsrCommandInput,
+  GetCertificateAuthorityCsrCommandOutput
+} from "./commands/GetCertificateAuthorityCsrCommand";
+import {
+  GetCertificateCommandInput,
+  GetCertificateCommandOutput
+} from "./commands/GetCertificateCommand";
+import {
+  ImportCertificateAuthorityCertificateCommandInput,
+  ImportCertificateAuthorityCertificateCommandOutput
+} from "./commands/ImportCertificateAuthorityCertificateCommand";
+import {
+  IssueCertificateCommandInput,
+  IssueCertificateCommandOutput
+} from "./commands/IssueCertificateCommand";
+import {
+  ListCertificateAuthoritiesCommandInput,
+  ListCertificateAuthoritiesCommandOutput
+} from "./commands/ListCertificateAuthoritiesCommand";
+import {
+  ListPermissionsCommandInput,
+  ListPermissionsCommandOutput
+} from "./commands/ListPermissionsCommand";
+import {
+  ListTagsCommandInput,
+  ListTagsCommandOutput
+} from "./commands/ListTagsCommand";
+import {
+  RestoreCertificateAuthorityCommandInput,
+  RestoreCertificateAuthorityCommandOutput
+} from "./commands/RestoreCertificateAuthorityCommand";
+import {
+  RevokeCertificateCommandInput,
+  RevokeCertificateCommandOutput
+} from "./commands/RevokeCertificateCommand";
+import {
+  TagCertificateAuthorityCommandInput,
+  TagCertificateAuthorityCommandOutput
+} from "./commands/TagCertificateAuthorityCommand";
+import {
+  UntagCertificateAuthorityCommandInput,
+  UntagCertificateAuthorityCommandOutput
+} from "./commands/UntagCertificateAuthorityCommand";
+import {
+  UpdateCertificateAuthorityCommandInput,
+  UpdateCertificateAuthorityCommandOutput
+} from "./commands/UpdateCertificateAuthorityCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,47 +125,54 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateCertificateAuthorityAuditReportRequest
-  | CreateCertificateAuthorityRequest
-  | CreatePermissionRequest
-  | DeleteCertificateAuthorityRequest
-  | DeletePermissionRequest
-  | DescribeCertificateAuthorityAuditReportRequest
-  | DescribeCertificateAuthorityRequest
-  | GetCertificateAuthorityCertificateRequest
-  | GetCertificateAuthorityCsrRequest
-  | GetCertificateRequest
-  | ImportCertificateAuthorityCertificateRequest
-  | IssueCertificateRequest
-  | ListCertificateAuthoritiesRequest
-  | ListPermissionsRequest
-  | ListTagsRequest
-  | RestoreCertificateAuthorityRequest
-  | RevokeCertificateRequest
-  | TagCertificateAuthorityRequest
-  | UntagCertificateAuthorityRequest
-  | UpdateCertificateAuthorityRequest;
+  | CreateCertificateAuthorityAuditReportCommandInput
+  | CreateCertificateAuthorityCommandInput
+  | CreatePermissionCommandInput
+  | DeleteCertificateAuthorityCommandInput
+  | DeletePermissionCommandInput
+  | DescribeCertificateAuthorityAuditReportCommandInput
+  | DescribeCertificateAuthorityCommandInput
+  | GetCertificateAuthorityCertificateCommandInput
+  | GetCertificateAuthorityCsrCommandInput
+  | GetCertificateCommandInput
+  | ImportCertificateAuthorityCertificateCommandInput
+  | IssueCertificateCommandInput
+  | ListCertificateAuthoritiesCommandInput
+  | ListPermissionsCommandInput
+  | ListTagsCommandInput
+  | RestoreCertificateAuthorityCommandInput
+  | RevokeCertificateCommandInput
+  | TagCertificateAuthorityCommandInput
+  | UntagCertificateAuthorityCommandInput
+  | UpdateCertificateAuthorityCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateCertificateAuthorityAuditReportResponse
-  | CreateCertificateAuthorityResponse
-  | DescribeCertificateAuthorityAuditReportResponse
-  | DescribeCertificateAuthorityResponse
-  | GetCertificateAuthorityCertificateResponse
-  | GetCertificateAuthorityCsrResponse
-  | GetCertificateResponse
-  | IssueCertificateResponse
-  | ListCertificateAuthoritiesResponse
-  | ListPermissionsResponse
-  | ListTagsResponse;
+  | CreateCertificateAuthorityAuditReportCommandOutput
+  | CreateCertificateAuthorityCommandOutput
+  | CreatePermissionCommandOutput
+  | DeleteCertificateAuthorityCommandOutput
+  | DeletePermissionCommandOutput
+  | DescribeCertificateAuthorityAuditReportCommandOutput
+  | DescribeCertificateAuthorityCommandOutput
+  | GetCertificateAuthorityCertificateCommandOutput
+  | GetCertificateAuthorityCsrCommandOutput
+  | GetCertificateCommandOutput
+  | ImportCertificateAuthorityCertificateCommandOutput
+  | IssueCertificateCommandOutput
+  | ListCertificateAuthoritiesCommandOutput
+  | ListPermissionsCommandOutput
+  | ListTagsCommandOutput
+  | RestoreCertificateAuthorityCommandOutput
+  | RevokeCertificateCommandOutput
+  | TagCertificateAuthorityCommandOutput
+  | UntagCertificateAuthorityCommandOutput
+  | UpdateCertificateAuthorityCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

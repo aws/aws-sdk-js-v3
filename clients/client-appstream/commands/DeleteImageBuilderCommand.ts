@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteImageBuilderCommandInput = DeleteImageBuilderRequest;
-export type DeleteImageBuilderCommandOutput = DeleteImageBuilderResult;
+export type DeleteImageBuilderCommandOutput = DeleteImageBuilderResult &
+  __MetadataBearer;
 
 export class DeleteImageBuilderCommand extends $Command<
   DeleteImageBuilderCommandInput,

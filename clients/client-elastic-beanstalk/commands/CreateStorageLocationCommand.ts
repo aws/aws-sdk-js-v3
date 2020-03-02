@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateStorageLocationCommandInput = {};
-export type CreateStorageLocationCommandOutput = CreateStorageLocationResultMessage;
+export type CreateStorageLocationCommandOutput = CreateStorageLocationResultMessage &
+  __MetadataBearer;
 
 export class CreateStorageLocationCommand extends $Command<
   CreateStorageLocationCommandInput,

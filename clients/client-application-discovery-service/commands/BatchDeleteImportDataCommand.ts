@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDeleteImportDataCommandInput = BatchDeleteImportDataRequest;
-export type BatchDeleteImportDataCommandOutput = BatchDeleteImportDataResponse;
+export type BatchDeleteImportDataCommandOutput = BatchDeleteImportDataResponse &
+  __MetadataBearer;
 
 export class BatchDeleteImportDataCommand extends $Command<
   BatchDeleteImportDataCommandInput,

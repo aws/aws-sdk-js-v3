@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetApnsSandboxChannelCommandInput = GetApnsSandboxChannelRequest;
-export type GetApnsSandboxChannelCommandOutput = GetApnsSandboxChannelResponse;
+export type GetApnsSandboxChannelCommandOutput = GetApnsSandboxChannelResponse &
+  __MetadataBearer;
 
 export class GetApnsSandboxChannelCommand extends $Command<
   GetApnsSandboxChannelCommandInput,

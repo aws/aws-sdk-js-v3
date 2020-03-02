@@ -61,7 +61,7 @@ export namespace DescribeTextTranslationJobRequest {
   }
 }
 
-export interface DescribeTextTranslationJobResponse extends $MetadataBearer {
+export interface DescribeTextTranslationJobResponse {
   __type?: "DescribeTextTranslationJobResponse";
   /**
    * <p>An object that contains the properties associated with an asynchronous batch translation
@@ -147,7 +147,7 @@ export namespace GetTerminologyRequest {
   }
 }
 
-export interface GetTerminologyResponse extends $MetadataBearer {
+export interface GetTerminologyResponse {
   __type?: "GetTerminologyResponse";
   /**
    * <p>The data location of the custom terminology being retrieved. The custom terminology file
@@ -203,7 +203,7 @@ export namespace ImportTerminologyRequest {
   }
 }
 
-export interface ImportTerminologyResponse extends $MetadataBearer {
+export interface ImportTerminologyResponse {
   __type?: "ImportTerminologyResponse";
   /**
    * <p>The properties of the custom terminology being imported.</p>
@@ -388,7 +388,7 @@ export namespace ListTerminologiesRequest {
   }
 }
 
-export interface ListTerminologiesResponse extends $MetadataBearer {
+export interface ListTerminologiesResponse {
   __type?: "ListTerminologiesResponse";
   /**
    * <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next
@@ -433,7 +433,7 @@ export namespace ListTextTranslationJobsRequest {
   }
 }
 
-export interface ListTextTranslationJobsResponse extends $MetadataBearer {
+export interface ListTextTranslationJobsResponse {
   __type?: "ListTextTranslationJobsResponse";
   /**
    * <p>The token to use to retreive the next page of results. This value is <code>null</code>
@@ -570,7 +570,7 @@ export namespace StartTextTranslationJobRequest {
   }
 }
 
-export interface StartTextTranslationJobResponse extends $MetadataBearer {
+export interface StartTextTranslationJobResponse {
   __type?: "StartTextTranslationJobResponse";
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this ID with the
@@ -638,7 +638,7 @@ export namespace StopTextTranslationJobRequest {
   }
 }
 
-export interface StopTextTranslationJobResponse extends $MetadataBearer {
+export interface StopTextTranslationJobResponse {
   __type?: "StopTextTranslationJobResponse";
   /**
    * <p>The job ID of the stopped batch translation job.</p>
@@ -989,7 +989,7 @@ export namespace TranslateTextRequest {
   }
 }
 
-export interface TranslateTextResponse extends $MetadataBearer {
+export interface TranslateTextResponse {
   __type?: "TranslateTextResponse";
   /**
    * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the

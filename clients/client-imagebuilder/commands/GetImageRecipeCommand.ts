@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetImageRecipeCommandInput = GetImageRecipeRequest;
-export type GetImageRecipeCommandOutput = GetImageRecipeResponse;
+export type GetImageRecipeCommandOutput = GetImageRecipeResponse &
+  __MetadataBearer;
 
 export class GetImageRecipeCommand extends $Command<
   GetImageRecipeCommandInput,

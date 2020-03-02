@@ -27,11 +27,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ChangeResourceRecordSetsCommandInput = ChangeResourceRecordSetsRequest;
-export type ChangeResourceRecordSetsCommandOutput = ChangeResourceRecordSetsResponse;
+export type ChangeResourceRecordSetsCommandOutput = ChangeResourceRecordSetsResponse &
+  __MetadataBearer;
 
 export class ChangeResourceRecordSetsCommand extends $Command<
   ChangeResourceRecordSetsCommandInput,

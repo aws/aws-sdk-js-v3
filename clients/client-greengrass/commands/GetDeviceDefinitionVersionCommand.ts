@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDeviceDefinitionVersionCommandInput = GetDeviceDefinitionVersionRequest;
-export type GetDeviceDefinitionVersionCommandOutput = GetDeviceDefinitionVersionResponse;
+export type GetDeviceDefinitionVersionCommandOutput = GetDeviceDefinitionVersionResponse &
+  __MetadataBearer;
 
 export class GetDeviceDefinitionVersionCommand extends $Command<
   GetDeviceDefinitionVersionCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableLoggingCommandInput = DisableLoggingMessage;
-export type DisableLoggingCommandOutput = LoggingStatus;
+export type DisableLoggingCommandOutput = LoggingStatus & __MetadataBearer;
 
 export class DisableLoggingCommand extends $Command<
   DisableLoggingCommandInput,

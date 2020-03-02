@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteLexiconCommandInput = DeleteLexiconInput;
-export type DeleteLexiconCommandOutput = DeleteLexiconOutput;
+export type DeleteLexiconCommandOutput = DeleteLexiconOutput & __MetadataBearer;
 
 export class DeleteLexiconCommand extends $Command<
   DeleteLexiconCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableAddOnCommandInput = EnableAddOnRequest;
-export type EnableAddOnCommandOutput = EnableAddOnResult;
+export type EnableAddOnCommandOutput = EnableAddOnResult & __MetadataBearer;
 
 export class EnableAddOnCommand extends $Command<
   EnableAddOnCommandInput,

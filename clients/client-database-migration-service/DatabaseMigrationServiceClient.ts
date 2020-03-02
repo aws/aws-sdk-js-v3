@@ -1,99 +1,191 @@
 import {
-  AddTagsToResourceMessage,
-  AddTagsToResourceResponse,
-  ApplyPendingMaintenanceActionMessage,
-  ApplyPendingMaintenanceActionResponse,
-  CreateEndpointMessage,
-  CreateEndpointResponse,
-  CreateEventSubscriptionMessage,
-  CreateEventSubscriptionResponse,
-  CreateReplicationInstanceMessage,
-  CreateReplicationInstanceResponse,
-  CreateReplicationSubnetGroupMessage,
-  CreateReplicationSubnetGroupResponse,
-  CreateReplicationTaskMessage,
-  CreateReplicationTaskResponse,
-  DeleteCertificateMessage,
-  DeleteCertificateResponse,
-  DeleteConnectionMessage,
-  DeleteConnectionResponse,
-  DeleteEndpointMessage,
-  DeleteEndpointResponse,
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionResponse,
-  DeleteReplicationInstanceMessage,
-  DeleteReplicationInstanceResponse,
-  DeleteReplicationSubnetGroupMessage,
-  DeleteReplicationSubnetGroupResponse,
-  DeleteReplicationTaskMessage,
-  DeleteReplicationTaskResponse,
-  DescribeAccountAttributesMessage,
-  DescribeAccountAttributesResponse,
-  DescribeCertificatesMessage,
-  DescribeCertificatesResponse,
-  DescribeConnectionsMessage,
-  DescribeConnectionsResponse,
-  DescribeEndpointTypesMessage,
-  DescribeEndpointTypesResponse,
-  DescribeEndpointsMessage,
-  DescribeEndpointsResponse,
-  DescribeEventCategoriesMessage,
-  DescribeEventCategoriesResponse,
-  DescribeEventSubscriptionsMessage,
-  DescribeEventSubscriptionsResponse,
-  DescribeEventsMessage,
-  DescribeEventsResponse,
-  DescribeOrderableReplicationInstancesMessage,
-  DescribeOrderableReplicationInstancesResponse,
-  DescribePendingMaintenanceActionsMessage,
-  DescribePendingMaintenanceActionsResponse,
-  DescribeRefreshSchemasStatusMessage,
-  DescribeRefreshSchemasStatusResponse,
-  DescribeReplicationInstanceTaskLogsMessage,
-  DescribeReplicationInstanceTaskLogsResponse,
-  DescribeReplicationInstancesMessage,
-  DescribeReplicationInstancesResponse,
-  DescribeReplicationSubnetGroupsMessage,
-  DescribeReplicationSubnetGroupsResponse,
-  DescribeReplicationTaskAssessmentResultsMessage,
-  DescribeReplicationTaskAssessmentResultsResponse,
-  DescribeReplicationTasksMessage,
-  DescribeReplicationTasksResponse,
-  DescribeSchemasMessage,
-  DescribeSchemasResponse,
-  DescribeTableStatisticsMessage,
-  DescribeTableStatisticsResponse,
-  ImportCertificateMessage,
-  ImportCertificateResponse,
-  ListTagsForResourceMessage,
-  ListTagsForResourceResponse,
-  ModifyEndpointMessage,
-  ModifyEndpointResponse,
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionResponse,
-  ModifyReplicationInstanceMessage,
-  ModifyReplicationInstanceResponse,
-  ModifyReplicationSubnetGroupMessage,
-  ModifyReplicationSubnetGroupResponse,
-  ModifyReplicationTaskMessage,
-  ModifyReplicationTaskResponse,
-  RebootReplicationInstanceMessage,
-  RebootReplicationInstanceResponse,
-  RefreshSchemasMessage,
-  RefreshSchemasResponse,
-  ReloadTablesMessage,
-  ReloadTablesResponse,
-  RemoveTagsFromResourceMessage,
-  RemoveTagsFromResourceResponse,
-  StartReplicationTaskAssessmentMessage,
-  StartReplicationTaskAssessmentResponse,
-  StartReplicationTaskMessage,
-  StartReplicationTaskResponse,
-  StopReplicationTaskMessage,
-  StopReplicationTaskResponse,
-  TestConnectionMessage,
-  TestConnectionResponse
-} from "./models/index";
+  AddTagsToResourceCommandInput,
+  AddTagsToResourceCommandOutput
+} from "./commands/AddTagsToResourceCommand";
+import {
+  ApplyPendingMaintenanceActionCommandInput,
+  ApplyPendingMaintenanceActionCommandOutput
+} from "./commands/ApplyPendingMaintenanceActionCommand";
+import {
+  CreateEndpointCommandInput,
+  CreateEndpointCommandOutput
+} from "./commands/CreateEndpointCommand";
+import {
+  CreateEventSubscriptionCommandInput,
+  CreateEventSubscriptionCommandOutput
+} from "./commands/CreateEventSubscriptionCommand";
+import {
+  CreateReplicationInstanceCommandInput,
+  CreateReplicationInstanceCommandOutput
+} from "./commands/CreateReplicationInstanceCommand";
+import {
+  CreateReplicationSubnetGroupCommandInput,
+  CreateReplicationSubnetGroupCommandOutput
+} from "./commands/CreateReplicationSubnetGroupCommand";
+import {
+  CreateReplicationTaskCommandInput,
+  CreateReplicationTaskCommandOutput
+} from "./commands/CreateReplicationTaskCommand";
+import {
+  DeleteCertificateCommandInput,
+  DeleteCertificateCommandOutput
+} from "./commands/DeleteCertificateCommand";
+import {
+  DeleteConnectionCommandInput,
+  DeleteConnectionCommandOutput
+} from "./commands/DeleteConnectionCommand";
+import {
+  DeleteEndpointCommandInput,
+  DeleteEndpointCommandOutput
+} from "./commands/DeleteEndpointCommand";
+import {
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput
+} from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DeleteReplicationInstanceCommandInput,
+  DeleteReplicationInstanceCommandOutput
+} from "./commands/DeleteReplicationInstanceCommand";
+import {
+  DeleteReplicationSubnetGroupCommandInput,
+  DeleteReplicationSubnetGroupCommandOutput
+} from "./commands/DeleteReplicationSubnetGroupCommand";
+import {
+  DeleteReplicationTaskCommandInput,
+  DeleteReplicationTaskCommandOutput
+} from "./commands/DeleteReplicationTaskCommand";
+import {
+  DescribeAccountAttributesCommandInput,
+  DescribeAccountAttributesCommandOutput
+} from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeCertificatesCommandInput,
+  DescribeCertificatesCommandOutput
+} from "./commands/DescribeCertificatesCommand";
+import {
+  DescribeConnectionsCommandInput,
+  DescribeConnectionsCommandOutput
+} from "./commands/DescribeConnectionsCommand";
+import {
+  DescribeEndpointTypesCommandInput,
+  DescribeEndpointTypesCommandOutput
+} from "./commands/DescribeEndpointTypesCommand";
+import {
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput
+} from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeEventCategoriesCommandInput,
+  DescribeEventCategoriesCommandOutput
+} from "./commands/DescribeEventCategoriesCommand";
+import {
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput
+} from "./commands/DescribeEventSubscriptionsCommand";
+import {
+  DescribeEventsCommandInput,
+  DescribeEventsCommandOutput
+} from "./commands/DescribeEventsCommand";
+import {
+  DescribeOrderableReplicationInstancesCommandInput,
+  DescribeOrderableReplicationInstancesCommandOutput
+} from "./commands/DescribeOrderableReplicationInstancesCommand";
+import {
+  DescribePendingMaintenanceActionsCommandInput,
+  DescribePendingMaintenanceActionsCommandOutput
+} from "./commands/DescribePendingMaintenanceActionsCommand";
+import {
+  DescribeRefreshSchemasStatusCommandInput,
+  DescribeRefreshSchemasStatusCommandOutput
+} from "./commands/DescribeRefreshSchemasStatusCommand";
+import {
+  DescribeReplicationInstanceTaskLogsCommandInput,
+  DescribeReplicationInstanceTaskLogsCommandOutput
+} from "./commands/DescribeReplicationInstanceTaskLogsCommand";
+import {
+  DescribeReplicationInstancesCommandInput,
+  DescribeReplicationInstancesCommandOutput
+} from "./commands/DescribeReplicationInstancesCommand";
+import {
+  DescribeReplicationSubnetGroupsCommandInput,
+  DescribeReplicationSubnetGroupsCommandOutput
+} from "./commands/DescribeReplicationSubnetGroupsCommand";
+import {
+  DescribeReplicationTaskAssessmentResultsCommandInput,
+  DescribeReplicationTaskAssessmentResultsCommandOutput
+} from "./commands/DescribeReplicationTaskAssessmentResultsCommand";
+import {
+  DescribeReplicationTasksCommandInput,
+  DescribeReplicationTasksCommandOutput
+} from "./commands/DescribeReplicationTasksCommand";
+import {
+  DescribeSchemasCommandInput,
+  DescribeSchemasCommandOutput
+} from "./commands/DescribeSchemasCommand";
+import {
+  DescribeTableStatisticsCommandInput,
+  DescribeTableStatisticsCommandOutput
+} from "./commands/DescribeTableStatisticsCommand";
+import {
+  ImportCertificateCommandInput,
+  ImportCertificateCommandOutput
+} from "./commands/ImportCertificateCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ModifyEndpointCommandInput,
+  ModifyEndpointCommandOutput
+} from "./commands/ModifyEndpointCommand";
+import {
+  ModifyEventSubscriptionCommandInput,
+  ModifyEventSubscriptionCommandOutput
+} from "./commands/ModifyEventSubscriptionCommand";
+import {
+  ModifyReplicationInstanceCommandInput,
+  ModifyReplicationInstanceCommandOutput
+} from "./commands/ModifyReplicationInstanceCommand";
+import {
+  ModifyReplicationSubnetGroupCommandInput,
+  ModifyReplicationSubnetGroupCommandOutput
+} from "./commands/ModifyReplicationSubnetGroupCommand";
+import {
+  ModifyReplicationTaskCommandInput,
+  ModifyReplicationTaskCommandOutput
+} from "./commands/ModifyReplicationTaskCommand";
+import {
+  RebootReplicationInstanceCommandInput,
+  RebootReplicationInstanceCommandOutput
+} from "./commands/RebootReplicationInstanceCommand";
+import {
+  RefreshSchemasCommandInput,
+  RefreshSchemasCommandOutput
+} from "./commands/RefreshSchemasCommand";
+import {
+  ReloadTablesCommandInput,
+  ReloadTablesCommandOutput
+} from "./commands/ReloadTablesCommand";
+import {
+  RemoveTagsFromResourceCommandInput,
+  RemoveTagsFromResourceCommandOutput
+} from "./commands/RemoveTagsFromResourceCommand";
+import {
+  StartReplicationTaskAssessmentCommandInput,
+  StartReplicationTaskAssessmentCommandOutput
+} from "./commands/StartReplicationTaskAssessmentCommand";
+import {
+  StartReplicationTaskCommandInput,
+  StartReplicationTaskCommandOutput
+} from "./commands/StartReplicationTaskCommand";
+import {
+  StopReplicationTaskCommandInput,
+  StopReplicationTaskCommandOutput
+} from "./commands/StopReplicationTaskCommand";
+import {
+  TestConnectionCommandInput,
+  TestConnectionCommandOutput
+} from "./commands/TestConnectionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -147,102 +239,102 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddTagsToResourceMessage
-  | ApplyPendingMaintenanceActionMessage
-  | CreateEndpointMessage
-  | CreateEventSubscriptionMessage
-  | CreateReplicationInstanceMessage
-  | CreateReplicationSubnetGroupMessage
-  | CreateReplicationTaskMessage
-  | DeleteCertificateMessage
-  | DeleteConnectionMessage
-  | DeleteEndpointMessage
-  | DeleteEventSubscriptionMessage
-  | DeleteReplicationInstanceMessage
-  | DeleteReplicationSubnetGroupMessage
-  | DeleteReplicationTaskMessage
-  | DescribeAccountAttributesMessage
-  | DescribeCertificatesMessage
-  | DescribeConnectionsMessage
-  | DescribeEndpointTypesMessage
-  | DescribeEndpointsMessage
-  | DescribeEventCategoriesMessage
-  | DescribeEventSubscriptionsMessage
-  | DescribeEventsMessage
-  | DescribeOrderableReplicationInstancesMessage
-  | DescribePendingMaintenanceActionsMessage
-  | DescribeRefreshSchemasStatusMessage
-  | DescribeReplicationInstanceTaskLogsMessage
-  | DescribeReplicationInstancesMessage
-  | DescribeReplicationSubnetGroupsMessage
-  | DescribeReplicationTaskAssessmentResultsMessage
-  | DescribeReplicationTasksMessage
-  | DescribeSchemasMessage
-  | DescribeTableStatisticsMessage
-  | ImportCertificateMessage
-  | ListTagsForResourceMessage
-  | ModifyEndpointMessage
-  | ModifyEventSubscriptionMessage
-  | ModifyReplicationInstanceMessage
-  | ModifyReplicationSubnetGroupMessage
-  | ModifyReplicationTaskMessage
-  | RebootReplicationInstanceMessage
-  | RefreshSchemasMessage
-  | ReloadTablesMessage
-  | RemoveTagsFromResourceMessage
-  | StartReplicationTaskAssessmentMessage
-  | StartReplicationTaskMessage
-  | StopReplicationTaskMessage
-  | TestConnectionMessage;
+  | AddTagsToResourceCommandInput
+  | ApplyPendingMaintenanceActionCommandInput
+  | CreateEndpointCommandInput
+  | CreateEventSubscriptionCommandInput
+  | CreateReplicationInstanceCommandInput
+  | CreateReplicationSubnetGroupCommandInput
+  | CreateReplicationTaskCommandInput
+  | DeleteCertificateCommandInput
+  | DeleteConnectionCommandInput
+  | DeleteEndpointCommandInput
+  | DeleteEventSubscriptionCommandInput
+  | DeleteReplicationInstanceCommandInput
+  | DeleteReplicationSubnetGroupCommandInput
+  | DeleteReplicationTaskCommandInput
+  | DescribeAccountAttributesCommandInput
+  | DescribeCertificatesCommandInput
+  | DescribeConnectionsCommandInput
+  | DescribeEndpointTypesCommandInput
+  | DescribeEndpointsCommandInput
+  | DescribeEventCategoriesCommandInput
+  | DescribeEventSubscriptionsCommandInput
+  | DescribeEventsCommandInput
+  | DescribeOrderableReplicationInstancesCommandInput
+  | DescribePendingMaintenanceActionsCommandInput
+  | DescribeRefreshSchemasStatusCommandInput
+  | DescribeReplicationInstanceTaskLogsCommandInput
+  | DescribeReplicationInstancesCommandInput
+  | DescribeReplicationSubnetGroupsCommandInput
+  | DescribeReplicationTaskAssessmentResultsCommandInput
+  | DescribeReplicationTasksCommandInput
+  | DescribeSchemasCommandInput
+  | DescribeTableStatisticsCommandInput
+  | ImportCertificateCommandInput
+  | ListTagsForResourceCommandInput
+  | ModifyEndpointCommandInput
+  | ModifyEventSubscriptionCommandInput
+  | ModifyReplicationInstanceCommandInput
+  | ModifyReplicationSubnetGroupCommandInput
+  | ModifyReplicationTaskCommandInput
+  | RebootReplicationInstanceCommandInput
+  | RefreshSchemasCommandInput
+  | ReloadTablesCommandInput
+  | RemoveTagsFromResourceCommandInput
+  | StartReplicationTaskAssessmentCommandInput
+  | StartReplicationTaskCommandInput
+  | StopReplicationTaskCommandInput
+  | TestConnectionCommandInput;
 
 export type ServiceOutputTypes =
-  | AddTagsToResourceResponse
-  | ApplyPendingMaintenanceActionResponse
-  | CreateEndpointResponse
-  | CreateEventSubscriptionResponse
-  | CreateReplicationInstanceResponse
-  | CreateReplicationSubnetGroupResponse
-  | CreateReplicationTaskResponse
-  | DeleteCertificateResponse
-  | DeleteConnectionResponse
-  | DeleteEndpointResponse
-  | DeleteEventSubscriptionResponse
-  | DeleteReplicationInstanceResponse
-  | DeleteReplicationSubnetGroupResponse
-  | DeleteReplicationTaskResponse
-  | DescribeAccountAttributesResponse
-  | DescribeCertificatesResponse
-  | DescribeConnectionsResponse
-  | DescribeEndpointTypesResponse
-  | DescribeEndpointsResponse
-  | DescribeEventCategoriesResponse
-  | DescribeEventSubscriptionsResponse
-  | DescribeEventsResponse
-  | DescribeOrderableReplicationInstancesResponse
-  | DescribePendingMaintenanceActionsResponse
-  | DescribeRefreshSchemasStatusResponse
-  | DescribeReplicationInstanceTaskLogsResponse
-  | DescribeReplicationInstancesResponse
-  | DescribeReplicationSubnetGroupsResponse
-  | DescribeReplicationTaskAssessmentResultsResponse
-  | DescribeReplicationTasksResponse
-  | DescribeSchemasResponse
-  | DescribeTableStatisticsResponse
-  | ImportCertificateResponse
-  | ListTagsForResourceResponse
-  | ModifyEndpointResponse
-  | ModifyEventSubscriptionResponse
-  | ModifyReplicationInstanceResponse
-  | ModifyReplicationSubnetGroupResponse
-  | ModifyReplicationTaskResponse
-  | RebootReplicationInstanceResponse
-  | RefreshSchemasResponse
-  | ReloadTablesResponse
-  | RemoveTagsFromResourceResponse
-  | StartReplicationTaskAssessmentResponse
-  | StartReplicationTaskResponse
-  | StopReplicationTaskResponse
-  | TestConnectionResponse;
+  | AddTagsToResourceCommandOutput
+  | ApplyPendingMaintenanceActionCommandOutput
+  | CreateEndpointCommandOutput
+  | CreateEventSubscriptionCommandOutput
+  | CreateReplicationInstanceCommandOutput
+  | CreateReplicationSubnetGroupCommandOutput
+  | CreateReplicationTaskCommandOutput
+  | DeleteCertificateCommandOutput
+  | DeleteConnectionCommandOutput
+  | DeleteEndpointCommandOutput
+  | DeleteEventSubscriptionCommandOutput
+  | DeleteReplicationInstanceCommandOutput
+  | DeleteReplicationSubnetGroupCommandOutput
+  | DeleteReplicationTaskCommandOutput
+  | DescribeAccountAttributesCommandOutput
+  | DescribeCertificatesCommandOutput
+  | DescribeConnectionsCommandOutput
+  | DescribeEndpointTypesCommandOutput
+  | DescribeEndpointsCommandOutput
+  | DescribeEventCategoriesCommandOutput
+  | DescribeEventSubscriptionsCommandOutput
+  | DescribeEventsCommandOutput
+  | DescribeOrderableReplicationInstancesCommandOutput
+  | DescribePendingMaintenanceActionsCommandOutput
+  | DescribeRefreshSchemasStatusCommandOutput
+  | DescribeReplicationInstanceTaskLogsCommandOutput
+  | DescribeReplicationInstancesCommandOutput
+  | DescribeReplicationSubnetGroupsCommandOutput
+  | DescribeReplicationTaskAssessmentResultsCommandOutput
+  | DescribeReplicationTasksCommandOutput
+  | DescribeSchemasCommandOutput
+  | DescribeTableStatisticsCommandOutput
+  | ImportCertificateCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ModifyEndpointCommandOutput
+  | ModifyEventSubscriptionCommandOutput
+  | ModifyReplicationInstanceCommandOutput
+  | ModifyReplicationSubnetGroupCommandOutput
+  | ModifyReplicationTaskCommandOutput
+  | RebootReplicationInstanceCommandOutput
+  | RefreshSchemasCommandOutput
+  | ReloadTablesCommandOutput
+  | RemoveTagsFromResourceCommandOutput
+  | StartReplicationTaskAssessmentCommandOutput
+  | StartReplicationTaskCommandOutput
+  | StopReplicationTaskCommandOutput
+  | TestConnectionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

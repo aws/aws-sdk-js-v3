@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AdminSetUserSettingsCommandInput = AdminSetUserSettingsRequest;
-export type AdminSetUserSettingsCommandOutput = AdminSetUserSettingsResponse;
+export type AdminSetUserSettingsCommandOutput = AdminSetUserSettingsResponse &
+  __MetadataBearer;
 
 export class AdminSetUserSettingsCommand extends $Command<
   AdminSetUserSettingsCommandInput,

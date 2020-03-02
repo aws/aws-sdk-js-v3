@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchDetectSentimentCommandInput = BatchDetectSentimentRequest;
-export type BatchDetectSentimentCommandOutput = BatchDetectSentimentResponse;
+export type BatchDetectSentimentCommandOutput = BatchDetectSentimentResponse &
+  __MetadataBearer;
 
 export class BatchDetectSentimentCommand extends $Command<
   BatchDetectSentimentCommandInput,

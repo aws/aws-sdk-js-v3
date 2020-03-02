@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpgradeAppliedSchemaCommandInput = UpgradeAppliedSchemaRequest;
-export type UpgradeAppliedSchemaCommandOutput = UpgradeAppliedSchemaResponse;
+export type UpgradeAppliedSchemaCommandOutput = UpgradeAppliedSchemaResponse &
+  __MetadataBearer;
 
 export class UpgradeAppliedSchemaCommand extends $Command<
   UpgradeAppliedSchemaCommandInput,

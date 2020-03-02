@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeThingGroupCommandInput = DescribeThingGroupRequest;
-export type DescribeThingGroupCommandOutput = DescribeThingGroupResponse;
+export type DescribeThingGroupCommandOutput = DescribeThingGroupResponse &
+  __MetadataBearer;
 
 export class DescribeThingGroupCommand extends $Command<
   DescribeThingGroupCommandInput,

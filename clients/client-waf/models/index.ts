@@ -481,7 +481,7 @@ export namespace CreateByteMatchSetRequest {
   }
 }
 
-export interface CreateByteMatchSetResponse extends $MetadataBearer {
+export interface CreateByteMatchSetResponse {
   __type?: "CreateByteMatchSetResponse";
   /**
    * <p>A <a>ByteMatchSet</a> that contains no <code>ByteMatchTuple</code> objects.</p>
@@ -520,7 +520,7 @@ export namespace CreateGeoMatchSetRequest {
   }
 }
 
-export interface CreateGeoMatchSetResponse extends $MetadataBearer {
+export interface CreateGeoMatchSetResponse {
   __type?: "CreateGeoMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateGeoMatchSet</code> request. You can also use this value
@@ -559,7 +559,7 @@ export namespace CreateIPSetRequest {
   }
 }
 
-export interface CreateIPSetResponse extends $MetadataBearer {
+export interface CreateIPSetResponse {
   __type?: "CreateIPSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateIPSet</code> request. You can also use this value
@@ -628,7 +628,7 @@ export namespace CreateRateBasedRuleRequest {
   }
 }
 
-export interface CreateRateBasedRuleResponse extends $MetadataBearer {
+export interface CreateRateBasedRuleResponse {
   __type?: "CreateRateBasedRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -670,7 +670,7 @@ export namespace CreateRegexMatchSetRequest {
   }
 }
 
-export interface CreateRegexMatchSetResponse extends $MetadataBearer {
+export interface CreateRegexMatchSetResponse {
   __type?: "CreateRegexMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRegexMatchSet</code> request. You can also use this value
@@ -710,7 +710,7 @@ export namespace CreateRegexPatternSetRequest {
   }
 }
 
-export interface CreateRegexPatternSetResponse extends $MetadataBearer {
+export interface CreateRegexPatternSetResponse {
   __type?: "CreateRegexPatternSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRegexPatternSet</code> request. You can also use this value
@@ -758,7 +758,7 @@ export namespace CreateRuleGroupRequest {
   }
 }
 
-export interface CreateRuleGroupResponse extends $MetadataBearer {
+export interface CreateRuleGroupResponse {
   __type?: "CreateRuleGroupResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRuleGroup</code> request. You can also use this value
@@ -806,7 +806,7 @@ export namespace CreateRuleRequest {
   }
 }
 
-export interface CreateRuleResponse extends $MetadataBearer {
+export interface CreateRuleResponse {
   __type?: "CreateRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateRule</code> request. You can also use this value
@@ -846,7 +846,7 @@ export namespace CreateSizeConstraintSetRequest {
   }
 }
 
-export interface CreateSizeConstraintSetResponse extends $MetadataBearer {
+export interface CreateSizeConstraintSetResponse {
   __type?: "CreateSizeConstraintSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateSizeConstraintSet</code> request. You can also use this value
@@ -892,7 +892,7 @@ export namespace CreateSqlInjectionMatchSetRequest {
 /**
  * <p>The response to a <code>CreateSqlInjectionMatchSet</code> request.</p>
  */
-export interface CreateSqlInjectionMatchSetResponse extends $MetadataBearer {
+export interface CreateSqlInjectionMatchSetResponse {
   __type?: "CreateSqlInjectionMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateSqlInjectionMatchSet</code> request. You can also use this value
@@ -946,7 +946,7 @@ export namespace CreateWebACLRequest {
   }
 }
 
-export interface CreateWebACLResponse extends $MetadataBearer {
+export interface CreateWebACLResponse {
   __type?: "CreateWebACLResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateWebACL</code> request. You can also use this value
@@ -992,7 +992,7 @@ export namespace CreateXssMatchSetRequest {
 /**
  * <p>The response to a <code>CreateXssMatchSet</code> request.</p>
  */
-export interface CreateXssMatchSetResponse extends $MetadataBearer {
+export interface CreateXssMatchSetResponse {
   __type?: "CreateXssMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>CreateXssMatchSet</code> request. You can also use this value
@@ -1032,7 +1032,7 @@ export namespace DeleteByteMatchSetRequest {
   }
 }
 
-export interface DeleteByteMatchSetResponse extends $MetadataBearer {
+export interface DeleteByteMatchSetResponse {
   __type?: "DeleteByteMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteByteMatchSet</code> request. You can also use this value
@@ -1067,7 +1067,7 @@ export namespace DeleteGeoMatchSetRequest {
   }
 }
 
-export interface DeleteGeoMatchSetResponse extends $MetadataBearer {
+export interface DeleteGeoMatchSetResponse {
   __type?: "DeleteGeoMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteGeoMatchSet</code> request. You can also use this value
@@ -1102,7 +1102,7 @@ export namespace DeleteIPSetRequest {
   }
 }
 
-export interface DeleteIPSetResponse extends $MetadataBearer {
+export interface DeleteIPSetResponse {
   __type?: "DeleteIPSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteIPSet</code> request. You can also use this value
@@ -1131,7 +1131,7 @@ export namespace DeleteLoggingConfigurationRequest {
   }
 }
 
-export interface DeleteLoggingConfigurationResponse extends $MetadataBearer {
+export interface DeleteLoggingConfigurationResponse {
   __type?: "DeleteLoggingConfigurationResponse";
 }
 
@@ -1156,7 +1156,7 @@ export namespace DeletePermissionPolicyRequest {
   }
 }
 
-export interface DeletePermissionPolicyResponse extends $MetadataBearer {
+export interface DeletePermissionPolicyResponse {
   __type?: "DeletePermissionPolicyResponse";
 }
 
@@ -1187,7 +1187,7 @@ export namespace DeleteRateBasedRuleRequest {
   }
 }
 
-export interface DeleteRateBasedRuleResponse extends $MetadataBearer {
+export interface DeleteRateBasedRuleResponse {
   __type?: "DeleteRateBasedRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -1223,7 +1223,7 @@ export namespace DeleteRegexMatchSetRequest {
   }
 }
 
-export interface DeleteRegexMatchSetResponse extends $MetadataBearer {
+export interface DeleteRegexMatchSetResponse {
   __type?: "DeleteRegexMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexMatchSet</code> request. You can also use this value
@@ -1258,7 +1258,7 @@ export namespace DeleteRegexPatternSetRequest {
   }
 }
 
-export interface DeleteRegexPatternSetResponse extends $MetadataBearer {
+export interface DeleteRegexPatternSetResponse {
   __type?: "DeleteRegexPatternSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexPatternSet</code> request. You can also use this value
@@ -1293,7 +1293,7 @@ export namespace DeleteRuleGroupRequest {
   }
 }
 
-export interface DeleteRuleGroupResponse extends $MetadataBearer {
+export interface DeleteRuleGroupResponse {
   __type?: "DeleteRuleGroupResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRuleGroup</code> request. You can also use this value
@@ -1328,7 +1328,7 @@ export namespace DeleteRuleRequest {
   }
 }
 
-export interface DeleteRuleResponse extends $MetadataBearer {
+export interface DeleteRuleResponse {
   __type?: "DeleteRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRule</code> request. You can also use this value
@@ -1363,7 +1363,7 @@ export namespace DeleteSizeConstraintSetRequest {
   }
 }
 
-export interface DeleteSizeConstraintSetResponse extends $MetadataBearer {
+export interface DeleteSizeConstraintSetResponse {
   __type?: "DeleteSizeConstraintSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteSizeConstraintSet</code> request. You can also use this value
@@ -1404,7 +1404,7 @@ export namespace DeleteSqlInjectionMatchSetRequest {
 /**
  * <p>The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
  */
-export interface DeleteSqlInjectionMatchSetResponse extends $MetadataBearer {
+export interface DeleteSqlInjectionMatchSetResponse {
   __type?: "DeleteSqlInjectionMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteSqlInjectionMatchSet</code> request. You can also use this value
@@ -1439,7 +1439,7 @@ export namespace DeleteWebACLRequest {
   }
 }
 
-export interface DeleteWebACLResponse extends $MetadataBearer {
+export interface DeleteWebACLResponse {
   __type?: "DeleteWebACLResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteWebACL</code> request. You can also use this value
@@ -1480,7 +1480,7 @@ export namespace DeleteXssMatchSetRequest {
 /**
  * <p>The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
  */
-export interface DeleteXssMatchSetResponse extends $MetadataBearer {
+export interface DeleteXssMatchSetResponse {
   __type?: "DeleteXssMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteXssMatchSet</code> request. You can also use this value
@@ -1945,7 +1945,7 @@ export namespace GetByteMatchSetRequest {
   }
 }
 
-export interface GetByteMatchSetResponse extends $MetadataBearer {
+export interface GetByteMatchSetResponse {
   __type?: "GetByteMatchSetResponse";
   /**
    * <p>Information about the <a>ByteMatchSet</a> that you specified in the <code>GetByteMatchSet</code> request. For more information, see the
@@ -1989,7 +1989,7 @@ export namespace GetChangeTokenRequest {
   }
 }
 
-export interface GetChangeTokenResponse extends $MetadataBearer {
+export interface GetChangeTokenResponse {
   __type?: "GetChangeTokenResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used in the request. Use this value in a <code>GetChangeTokenStatus</code> request
@@ -2018,7 +2018,7 @@ export namespace GetChangeTokenStatusRequest {
   }
 }
 
-export interface GetChangeTokenStatusResponse extends $MetadataBearer {
+export interface GetChangeTokenStatusResponse {
   __type?: "GetChangeTokenStatusResponse";
   /**
    * <p>The status of the change token.</p>
@@ -2047,7 +2047,7 @@ export namespace GetGeoMatchSetRequest {
   }
 }
 
-export interface GetGeoMatchSetResponse extends $MetadataBearer {
+export interface GetGeoMatchSetResponse {
   __type?: "GetGeoMatchSetResponse";
   /**
    * <p>Information about the <a>GeoMatchSet</a> that you specified in the <code>GetGeoMatchSet</code> request. This includes the <code>Type</code>, which for a <code>GeoMatchContraint</code> is always <code>Country</code>, as well as the <code>Value</code>, which is the identifier for a specific country.</p>
@@ -2076,7 +2076,7 @@ export namespace GetIPSetRequest {
   }
 }
 
-export interface GetIPSetResponse extends $MetadataBearer {
+export interface GetIPSetResponse {
   __type?: "GetIPSetResponse";
   /**
    * <p>Information about the <a>IPSet</a> that you specified in the <code>GetIPSet</code> request. For more information, see the
@@ -2118,7 +2118,7 @@ export namespace GetLoggingConfigurationRequest {
   }
 }
 
-export interface GetLoggingConfigurationResponse extends $MetadataBearer {
+export interface GetLoggingConfigurationResponse {
   __type?: "GetLoggingConfigurationResponse";
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
@@ -2146,7 +2146,7 @@ export namespace GetPermissionPolicyRequest {
   }
 }
 
-export interface GetPermissionPolicyResponse extends $MetadataBearer {
+export interface GetPermissionPolicyResponse {
   __type?: "GetPermissionPolicyResponse";
   /**
    * <p>The IAM policy attached to the specified RuleGroup.</p>
@@ -2180,7 +2180,7 @@ export namespace GetRateBasedRuleManagedKeysRequest {
   }
 }
 
-export interface GetRateBasedRuleManagedKeysResponse extends $MetadataBearer {
+export interface GetRateBasedRuleManagedKeysResponse {
   __type?: "GetRateBasedRuleManagedKeysResponse";
   /**
    * <p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>
@@ -2214,7 +2214,7 @@ export namespace GetRateBasedRuleRequest {
   }
 }
 
-export interface GetRateBasedRuleResponse extends $MetadataBearer {
+export interface GetRateBasedRuleResponse {
   __type?: "GetRateBasedRuleResponse";
   /**
    * <p>Information about the <a>RateBasedRule</a> that you specified in the
@@ -2244,7 +2244,7 @@ export namespace GetRegexMatchSetRequest {
   }
 }
 
-export interface GetRegexMatchSetResponse extends $MetadataBearer {
+export interface GetRegexMatchSetResponse {
   __type?: "GetRegexMatchSetResponse";
   /**
    * <p>Information about the <a>RegexMatchSet</a> that you specified in the <code>GetRegexMatchSet</code> request. For more information, see <a>RegexMatchTuple</a>.</p>
@@ -2273,7 +2273,7 @@ export namespace GetRegexPatternSetRequest {
   }
 }
 
-export interface GetRegexPatternSetResponse extends $MetadataBearer {
+export interface GetRegexPatternSetResponse {
   __type?: "GetRegexPatternSetResponse";
   /**
    * <p>Information about the <a>RegexPatternSet</a> that you specified in the <code>GetRegexPatternSet</code> request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for. </p>
@@ -2302,7 +2302,7 @@ export namespace GetRuleGroupRequest {
   }
 }
 
-export interface GetRuleGroupResponse extends $MetadataBearer {
+export interface GetRuleGroupResponse {
   __type?: "GetRuleGroupResponse";
   /**
    * <p>Information about the <a>RuleGroup</a> that you specified in the <code>GetRuleGroup</code> request. </p>
@@ -2331,7 +2331,7 @@ export namespace GetRuleRequest {
   }
 }
 
-export interface GetRuleResponse extends $MetadataBearer {
+export interface GetRuleResponse {
   __type?: "GetRuleResponse";
   /**
    * <p>Information about the <a>Rule</a> that you specified in the <code>GetRule</code> request.
@@ -2404,7 +2404,7 @@ export namespace GetSampledRequestsRequest {
   }
 }
 
-export interface GetSampledRequestsResponse extends $MetadataBearer {
+export interface GetSampledRequestsResponse {
   __type?: "GetSampledRequestsResponse";
   /**
    * <p>The total number of requests from which <code>GetSampledRequests</code> got a sample of <code>MaxItems</code> requests.
@@ -2447,7 +2447,7 @@ export namespace GetSizeConstraintSetRequest {
   }
 }
 
-export interface GetSizeConstraintSetResponse extends $MetadataBearer {
+export interface GetSizeConstraintSetResponse {
   __type?: "GetSizeConstraintSetResponse";
   /**
    * <p>Information about the <a>SizeConstraintSet</a> that you specified in the <code>GetSizeConstraintSet</code> request. For more information, see the
@@ -2502,7 +2502,7 @@ export namespace GetSqlInjectionMatchSetRequest {
 /**
  * <p>The response to a <a>GetSqlInjectionMatchSet</a> request.</p>
  */
-export interface GetSqlInjectionMatchSetResponse extends $MetadataBearer {
+export interface GetSqlInjectionMatchSetResponse {
   __type?: "GetSqlInjectionMatchSetResponse";
   /**
    * <p>Information about the <a>SqlInjectionMatchSet</a> that you specified in the <code>GetSqlInjectionMatchSet</code> request.
@@ -2550,7 +2550,7 @@ export namespace GetWebACLRequest {
   }
 }
 
-export interface GetWebACLResponse extends $MetadataBearer {
+export interface GetWebACLResponse {
   __type?: "GetWebACLResponse";
   /**
    * <p>Information about the <a>WebACL</a> that you specified in the <code>GetWebACL</code> request.
@@ -2610,7 +2610,7 @@ export namespace GetXssMatchSetRequest {
 /**
  * <p>The response to a <a>GetXssMatchSet</a> request.</p>
  */
-export interface GetXssMatchSetResponse extends $MetadataBearer {
+export interface GetXssMatchSetResponse {
   __type?: "GetXssMatchSetResponse";
   /**
    * <p>Information about the <a>XssMatchSet</a> that you specified in the <code>GetXssMatchSet</code> request.
@@ -2883,7 +2883,7 @@ export namespace ListActivatedRulesInRuleGroupRequest {
   }
 }
 
-export interface ListActivatedRulesInRuleGroupResponse extends $MetadataBearer {
+export interface ListActivatedRulesInRuleGroupResponse {
   __type?: "ListActivatedRulesInRuleGroupResponse";
   /**
    * <p>An array of <code>ActivatedRules</code> objects.</p>
@@ -2926,7 +2926,7 @@ export namespace ListByteMatchSetsRequest {
   }
 }
 
-export interface ListByteMatchSetsResponse extends $MetadataBearer {
+export interface ListByteMatchSetsResponse {
   __type?: "ListByteMatchSetsResponse";
   /**
    * <p>An array of <a>ByteMatchSetSummary</a> objects.</p>
@@ -2972,7 +2972,7 @@ export namespace ListGeoMatchSetsRequest {
   }
 }
 
-export interface ListGeoMatchSetsResponse extends $MetadataBearer {
+export interface ListGeoMatchSetsResponse {
   __type?: "ListGeoMatchSetsResponse";
   /**
    * <p>An array of <a>GeoMatchSetSummary</a> objects.</p>
@@ -3018,7 +3018,7 @@ export namespace ListIPSetsRequest {
   }
 }
 
-export interface ListIPSetsResponse extends $MetadataBearer {
+export interface ListIPSetsResponse {
   __type?: "ListIPSetsResponse";
   /**
    * <p>An array of <a>IPSetSummary</a> objects.</p>
@@ -3061,7 +3061,7 @@ export namespace ListLoggingConfigurationsRequest {
   }
 }
 
-export interface ListLoggingConfigurationsResponse extends $MetadataBearer {
+export interface ListLoggingConfigurationsResponse {
   __type?: "ListLoggingConfigurationsResponse";
   /**
    * <p>An array of <a>LoggingConfiguration</a> objects.</p>
@@ -3107,7 +3107,7 @@ export namespace ListRateBasedRulesRequest {
   }
 }
 
-export interface ListRateBasedRulesResponse extends $MetadataBearer {
+export interface ListRateBasedRulesResponse {
   __type?: "ListRateBasedRulesResponse";
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for
@@ -3154,7 +3154,7 @@ export namespace ListRegexMatchSetsRequest {
   }
 }
 
-export interface ListRegexMatchSetsResponse extends $MetadataBearer {
+export interface ListRegexMatchSetsResponse {
   __type?: "ListRegexMatchSetsResponse";
   /**
    * <p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3200,7 +3200,7 @@ export namespace ListRegexPatternSetsRequest {
   }
 }
 
-export interface ListRegexPatternSetsResponse extends $MetadataBearer {
+export interface ListRegexPatternSetsResponse {
   __type?: "ListRegexPatternSetsResponse";
   /**
    * <p>If you have more <code>RegexPatternSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3244,7 +3244,7 @@ export namespace ListRuleGroupsRequest {
   }
 }
 
-export interface ListRuleGroupsResponse extends $MetadataBearer {
+export interface ListRuleGroupsResponse {
   __type?: "ListRuleGroupsResponse";
   /**
    * <p>If you have more <code>RuleGroups</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RuleGroups</code>, submit another <code>ListRuleGroups</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -3286,7 +3286,7 @@ export namespace ListRulesRequest {
   }
 }
 
-export interface ListRulesResponse extends $MetadataBearer {
+export interface ListRulesResponse {
   __type?: "ListRulesResponse";
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for <code>Limit</code> in the request, 			the response includes a <code>NextMarker</code> value. To list more <code>Rules</code>, submit another
@@ -3330,7 +3330,7 @@ export namespace ListSizeConstraintSetsRequest {
   }
 }
 
-export interface ListSizeConstraintSetsResponse extends $MetadataBearer {
+export interface ListSizeConstraintSetsResponse {
   __type?: "ListSizeConstraintSetsResponse";
   /**
    * <p>If you have more <code>SizeConstraintSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3382,7 +3382,7 @@ export namespace ListSqlInjectionMatchSetsRequest {
 /**
  * <p>The response to a <a>ListSqlInjectionMatchSets</a> request.</p>
  */
-export interface ListSqlInjectionMatchSetsResponse extends $MetadataBearer {
+export interface ListSqlInjectionMatchSetsResponse {
   __type?: "ListSqlInjectionMatchSetsResponse";
   /**
    * <p>If you have more <a>SqlInjectionMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3428,7 +3428,7 @@ export namespace ListSubscribedRuleGroupsRequest {
   }
 }
 
-export interface ListSubscribedRuleGroupsResponse extends $MetadataBearer {
+export interface ListSubscribedRuleGroupsResponse {
   __type?: "ListSubscribedRuleGroupsResponse";
   /**
    * <p>If you have more objects than the number that you specified for <code>Limit</code> in the request,
@@ -3463,7 +3463,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   NextMarker?: string;
   TagInfoForResource?: TagInfoForResource;
@@ -3499,7 +3499,7 @@ export namespace ListWebACLsRequest {
   }
 }
 
-export interface ListWebACLsResponse extends $MetadataBearer {
+export interface ListWebACLsResponse {
   __type?: "ListWebACLsResponse";
   /**
    * <p>If you have more <code>WebACL</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3551,7 +3551,7 @@ export namespace ListXssMatchSetsRequest {
 /**
  * <p>The response to a <a>ListXssMatchSets</a> request.</p>
  */
-export interface ListXssMatchSetsResponse extends $MetadataBearer {
+export interface ListXssMatchSetsResponse {
   __type?: "ListXssMatchSetsResponse";
   /**
    * <p>If you have more <a>XssMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request,
@@ -3719,7 +3719,7 @@ export namespace PutLoggingConfigurationRequest {
   }
 }
 
-export interface PutLoggingConfigurationResponse extends $MetadataBearer {
+export interface PutLoggingConfigurationResponse {
   __type?: "PutLoggingConfigurationResponse";
   /**
    * <p>The <a>LoggingConfiguration</a> that you submitted in the request.</p>
@@ -3752,7 +3752,7 @@ export namespace PutPermissionPolicyRequest {
   }
 }
 
-export interface PutPermissionPolicyResponse extends $MetadataBearer {
+export interface PutPermissionPolicyResponse {
   __type?: "PutPermissionPolicyResponse";
 }
 
@@ -4900,7 +4900,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -4961,7 +4961,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -5015,7 +5015,7 @@ export namespace UpdateByteMatchSetRequest {
   }
 }
 
-export interface UpdateByteMatchSetResponse extends $MetadataBearer {
+export interface UpdateByteMatchSetResponse {
   __type?: "UpdateByteMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateByteMatchSet</code> request. You can also use this value
@@ -5069,7 +5069,7 @@ export namespace UpdateGeoMatchSetRequest {
   }
 }
 
-export interface UpdateGeoMatchSetResponse extends $MetadataBearer {
+export interface UpdateGeoMatchSetResponse {
   __type?: "UpdateGeoMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateGeoMatchSet</code> request. You can also use this value
@@ -5123,7 +5123,7 @@ export namespace UpdateIPSetRequest {
   }
 }
 
-export interface UpdateIPSetResponse extends $MetadataBearer {
+export interface UpdateIPSetResponse {
   __type?: "UpdateIPSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value
@@ -5172,7 +5172,7 @@ export namespace UpdateRateBasedRuleRequest {
   }
 }
 
-export interface UpdateRateBasedRuleResponse extends $MetadataBearer {
+export interface UpdateRateBasedRuleResponse {
   __type?: "UpdateRateBasedRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -5214,7 +5214,7 @@ export namespace UpdateRegexMatchSetRequest {
   }
 }
 
-export interface UpdateRegexMatchSetResponse extends $MetadataBearer {
+export interface UpdateRegexMatchSetResponse {
   __type?: "UpdateRegexMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexMatchSet</code> request. You can also use this value
@@ -5254,7 +5254,7 @@ export namespace UpdateRegexPatternSetRequest {
   }
 }
 
-export interface UpdateRegexPatternSetResponse extends $MetadataBearer {
+export interface UpdateRegexPatternSetResponse {
   __type?: "UpdateRegexPatternSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexPatternSet</code> request. You can also use this value
@@ -5298,7 +5298,7 @@ export namespace UpdateRuleGroupRequest {
   }
 }
 
-export interface UpdateRuleGroupResponse extends $MetadataBearer {
+export interface UpdateRuleGroupResponse {
   __type?: "UpdateRuleGroupResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRuleGroup</code> request. You can also use this value
@@ -5356,7 +5356,7 @@ export namespace UpdateRuleRequest {
   }
 }
 
-export interface UpdateRuleResponse extends $MetadataBearer {
+export interface UpdateRuleResponse {
   __type?: "UpdateRuleResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRule</code> request. You can also use this value
@@ -5415,7 +5415,7 @@ export namespace UpdateSizeConstraintSetRequest {
   }
 }
 
-export interface UpdateSizeConstraintSetResponse extends $MetadataBearer {
+export interface UpdateSizeConstraintSetResponse {
   __type?: "UpdateSizeConstraintSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateSizeConstraintSet</code> request. You can also use this value
@@ -5479,7 +5479,7 @@ export namespace UpdateSqlInjectionMatchSetRequest {
 /**
  * <p>The response to an <a>UpdateSqlInjectionMatchSets</a> request.</p>
  */
-export interface UpdateSqlInjectionMatchSetResponse extends $MetadataBearer {
+export interface UpdateSqlInjectionMatchSetResponse {
   __type?: "UpdateSqlInjectionMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateSqlInjectionMatchSet</code> request. You can also use this value
@@ -5550,7 +5550,7 @@ export namespace UpdateWebACLRequest {
   }
 }
 
-export interface UpdateWebACLResponse extends $MetadataBearer {
+export interface UpdateWebACLResponse {
   __type?: "UpdateWebACLResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateWebACL</code> request. You can also use this value
@@ -5616,7 +5616,7 @@ export namespace UpdateXssMatchSetRequest {
 /**
  * <p>The response to an <a>UpdateXssMatchSets</a> request.</p>
  */
-export interface UpdateXssMatchSetResponse extends $MetadataBearer {
+export interface UpdateXssMatchSetResponse {
   __type?: "UpdateXssMatchSetResponse";
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateXssMatchSet</code> request. You can also use this value

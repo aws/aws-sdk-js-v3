@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPermissionPolicyCommandInput = GetPermissionPolicyRequest;
-export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse;
+export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse &
+  __MetadataBearer;
 
 export class GetPermissionPolicyCommand extends $Command<
   GetPermissionPolicyCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyDBSnapshotAttributeCommandInput = ModifyDBSnapshotAttributeMessage;
-export type ModifyDBSnapshotAttributeCommandOutput = ModifyDBSnapshotAttributeResult;
+export type ModifyDBSnapshotAttributeCommandOutput = ModifyDBSnapshotAttributeResult &
+  __MetadataBearer;
 
 export class ModifyDBSnapshotAttributeCommand extends $Command<
   ModifyDBSnapshotAttributeCommandInput,

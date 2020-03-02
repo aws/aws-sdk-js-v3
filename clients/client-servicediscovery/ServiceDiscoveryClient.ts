@@ -1,44 +1,83 @@
 import {
-  CreateHttpNamespaceRequest,
-  CreateHttpNamespaceResponse,
-  CreatePrivateDnsNamespaceRequest,
-  CreatePrivateDnsNamespaceResponse,
-  CreatePublicDnsNamespaceRequest,
-  CreatePublicDnsNamespaceResponse,
-  CreateServiceRequest,
-  CreateServiceResponse,
-  DeleteNamespaceRequest,
-  DeleteNamespaceResponse,
-  DeleteServiceRequest,
-  DeleteServiceResponse,
-  DeregisterInstanceRequest,
-  DeregisterInstanceResponse,
-  DiscoverInstancesRequest,
-  DiscoverInstancesResponse,
-  GetInstanceRequest,
-  GetInstanceResponse,
-  GetInstancesHealthStatusRequest,
-  GetInstancesHealthStatusResponse,
-  GetNamespaceRequest,
-  GetNamespaceResponse,
-  GetOperationRequest,
-  GetOperationResponse,
-  GetServiceRequest,
-  GetServiceResponse,
-  ListInstancesRequest,
-  ListInstancesResponse,
-  ListNamespacesRequest,
-  ListNamespacesResponse,
-  ListOperationsRequest,
-  ListOperationsResponse,
-  ListServicesRequest,
-  ListServicesResponse,
-  RegisterInstanceRequest,
-  RegisterInstanceResponse,
-  UpdateInstanceCustomHealthStatusRequest,
-  UpdateServiceRequest,
-  UpdateServiceResponse
-} from "./models/index";
+  CreateHttpNamespaceCommandInput,
+  CreateHttpNamespaceCommandOutput
+} from "./commands/CreateHttpNamespaceCommand";
+import {
+  CreatePrivateDnsNamespaceCommandInput,
+  CreatePrivateDnsNamespaceCommandOutput
+} from "./commands/CreatePrivateDnsNamespaceCommand";
+import {
+  CreatePublicDnsNamespaceCommandInput,
+  CreatePublicDnsNamespaceCommandOutput
+} from "./commands/CreatePublicDnsNamespaceCommand";
+import {
+  CreateServiceCommandInput,
+  CreateServiceCommandOutput
+} from "./commands/CreateServiceCommand";
+import {
+  DeleteNamespaceCommandInput,
+  DeleteNamespaceCommandOutput
+} from "./commands/DeleteNamespaceCommand";
+import {
+  DeleteServiceCommandInput,
+  DeleteServiceCommandOutput
+} from "./commands/DeleteServiceCommand";
+import {
+  DeregisterInstanceCommandInput,
+  DeregisterInstanceCommandOutput
+} from "./commands/DeregisterInstanceCommand";
+import {
+  DiscoverInstancesCommandInput,
+  DiscoverInstancesCommandOutput
+} from "./commands/DiscoverInstancesCommand";
+import {
+  GetInstanceCommandInput,
+  GetInstanceCommandOutput
+} from "./commands/GetInstanceCommand";
+import {
+  GetInstancesHealthStatusCommandInput,
+  GetInstancesHealthStatusCommandOutput
+} from "./commands/GetInstancesHealthStatusCommand";
+import {
+  GetNamespaceCommandInput,
+  GetNamespaceCommandOutput
+} from "./commands/GetNamespaceCommand";
+import {
+  GetOperationCommandInput,
+  GetOperationCommandOutput
+} from "./commands/GetOperationCommand";
+import {
+  GetServiceCommandInput,
+  GetServiceCommandOutput
+} from "./commands/GetServiceCommand";
+import {
+  ListInstancesCommandInput,
+  ListInstancesCommandOutput
+} from "./commands/ListInstancesCommand";
+import {
+  ListNamespacesCommandInput,
+  ListNamespacesCommandOutput
+} from "./commands/ListNamespacesCommand";
+import {
+  ListOperationsCommandInput,
+  ListOperationsCommandOutput
+} from "./commands/ListOperationsCommand";
+import {
+  ListServicesCommandInput,
+  ListServicesCommandOutput
+} from "./commands/ListServicesCommand";
+import {
+  RegisterInstanceCommandInput,
+  RegisterInstanceCommandOutput
+} from "./commands/RegisterInstanceCommand";
+import {
+  UpdateInstanceCustomHealthStatusCommandInput,
+  UpdateInstanceCustomHealthStatusCommandOutput
+} from "./commands/UpdateInstanceCustomHealthStatusCommand";
+import {
+  UpdateServiceCommandInput,
+  UpdateServiceCommandOutput
+} from "./commands/UpdateServiceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -86,55 +125,54 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateHttpNamespaceRequest
-  | CreatePrivateDnsNamespaceRequest
-  | CreatePublicDnsNamespaceRequest
-  | CreateServiceRequest
-  | DeleteNamespaceRequest
-  | DeleteServiceRequest
-  | DeregisterInstanceRequest
-  | DiscoverInstancesRequest
-  | GetInstanceRequest
-  | GetInstancesHealthStatusRequest
-  | GetNamespaceRequest
-  | GetOperationRequest
-  | GetServiceRequest
-  | ListInstancesRequest
-  | ListNamespacesRequest
-  | ListOperationsRequest
-  | ListServicesRequest
-  | RegisterInstanceRequest
-  | UpdateInstanceCustomHealthStatusRequest
-  | UpdateServiceRequest;
+  | CreateHttpNamespaceCommandInput
+  | CreatePrivateDnsNamespaceCommandInput
+  | CreatePublicDnsNamespaceCommandInput
+  | CreateServiceCommandInput
+  | DeleteNamespaceCommandInput
+  | DeleteServiceCommandInput
+  | DeregisterInstanceCommandInput
+  | DiscoverInstancesCommandInput
+  | GetInstanceCommandInput
+  | GetInstancesHealthStatusCommandInput
+  | GetNamespaceCommandInput
+  | GetOperationCommandInput
+  | GetServiceCommandInput
+  | ListInstancesCommandInput
+  | ListNamespacesCommandInput
+  | ListOperationsCommandInput
+  | ListServicesCommandInput
+  | RegisterInstanceCommandInput
+  | UpdateInstanceCustomHealthStatusCommandInput
+  | UpdateServiceCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateHttpNamespaceResponse
-  | CreatePrivateDnsNamespaceResponse
-  | CreatePublicDnsNamespaceResponse
-  | CreateServiceResponse
-  | DeleteNamespaceResponse
-  | DeleteServiceResponse
-  | DeregisterInstanceResponse
-  | DiscoverInstancesResponse
-  | GetInstanceResponse
-  | GetInstancesHealthStatusResponse
-  | GetNamespaceResponse
-  | GetOperationResponse
-  | GetServiceResponse
-  | ListInstancesResponse
-  | ListNamespacesResponse
-  | ListOperationsResponse
-  | ListServicesResponse
-  | RegisterInstanceResponse
-  | UpdateServiceResponse;
+  | CreateHttpNamespaceCommandOutput
+  | CreatePrivateDnsNamespaceCommandOutput
+  | CreatePublicDnsNamespaceCommandOutput
+  | CreateServiceCommandOutput
+  | DeleteNamespaceCommandOutput
+  | DeleteServiceCommandOutput
+  | DeregisterInstanceCommandOutput
+  | DiscoverInstancesCommandOutput
+  | GetInstanceCommandOutput
+  | GetInstancesHealthStatusCommandOutput
+  | GetNamespaceCommandOutput
+  | GetOperationCommandOutput
+  | GetServiceCommandOutput
+  | ListInstancesCommandOutput
+  | ListNamespacesCommandOutput
+  | ListOperationsCommandOutput
+  | ListServicesCommandOutput
+  | RegisterInstanceCommandOutput
+  | UpdateInstanceCustomHealthStatusCommandOutput
+  | UpdateServiceCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

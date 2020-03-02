@@ -238,7 +238,7 @@ export namespace DeleteScalingPolicyRequest {
   }
 }
 
-export interface DeleteScalingPolicyResponse extends $MetadataBearer {
+export interface DeleteScalingPolicyResponse {
   __type?: "DeleteScalingPolicyResponse";
 }
 
@@ -380,7 +380,7 @@ export namespace DeleteScheduledActionRequest {
   }
 }
 
-export interface DeleteScheduledActionResponse extends $MetadataBearer {
+export interface DeleteScheduledActionResponse {
   __type?: "DeleteScheduledActionResponse";
 }
 
@@ -518,7 +518,7 @@ export namespace DeregisterScalableTargetRequest {
   }
 }
 
-export interface DeregisterScalableTargetResponse extends $MetadataBearer {
+export interface DeregisterScalableTargetResponse {
   __type?: "DeregisterScalableTargetResponse";
 }
 
@@ -672,7 +672,7 @@ export namespace DescribeScalableTargetsRequest {
   }
 }
 
-export interface DescribeScalableTargetsResponse extends $MetadataBearer {
+export interface DescribeScalableTargetsResponse {
   __type?: "DescribeScalableTargetsResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
@@ -836,7 +836,7 @@ export namespace DescribeScalingActivitiesRequest {
   }
 }
 
-export interface DescribeScalingActivitiesResponse extends $MetadataBearer {
+export interface DescribeScalingActivitiesResponse {
   __type?: "DescribeScalingActivitiesResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
@@ -1005,7 +1005,7 @@ export namespace DescribeScalingPoliciesRequest {
   }
 }
 
-export interface DescribeScalingPoliciesResponse extends $MetadataBearer {
+export interface DescribeScalingPoliciesResponse {
   __type?: "DescribeScalingPoliciesResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
@@ -1174,7 +1174,7 @@ export namespace DescribeScheduledActionsRequest {
   }
 }
 
-export interface DescribeScheduledActionsResponse extends $MetadataBearer {
+export interface DescribeScheduledActionsResponse {
   __type?: "DescribeScheduledActionsResponse";
   /**
    * <p>The token required to get the next set of results. This value is <code>null</code> if
@@ -1542,7 +1542,7 @@ export namespace PutScalingPolicyRequest {
   }
 }
 
-export interface PutScalingPolicyResponse extends $MetadataBearer {
+export interface PutScalingPolicyResponse {
   __type?: "PutScalingPolicyResponse";
   /**
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
@@ -1732,7 +1732,7 @@ export namespace PutScheduledActionRequest {
   }
 }
 
-export interface PutScheduledActionResponse extends $MetadataBearer {
+export interface PutScheduledActionResponse {
   __type?: "PutScheduledActionResponse";
 }
 
@@ -1919,7 +1919,7 @@ export namespace RegisterScalableTargetRequest {
   }
 }
 
-export interface RegisterScalableTargetResponse extends $MetadataBearer {
+export interface RegisterScalableTargetResponse {
   __type?: "RegisterScalableTargetResponse";
 }
 

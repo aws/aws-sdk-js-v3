@@ -464,7 +464,7 @@ export namespace CreateBotVersionRequest {
   }
 }
 
-export interface CreateBotVersionResponse extends $MetadataBearer {
+export interface CreateBotVersionResponse {
   __type?: "CreateBotVersionResponse";
   /**
    * <p>The message that Amazon Lex uses to abort a conversation. For more information, see <a>PutBot</a>.</p>
@@ -605,7 +605,7 @@ export namespace CreateIntentVersionRequest {
   }
 }
 
-export interface CreateIntentVersionResponse extends $MetadataBearer {
+export interface CreateIntentVersionResponse {
   __type?: "CreateIntentVersionResponse";
   /**
    * <p>Checksum of the intent version created.</p>
@@ -718,7 +718,7 @@ export namespace CreateSlotTypeVersionRequest {
   }
 }
 
-export interface CreateSlotTypeVersionResponse extends $MetadataBearer {
+export interface CreateSlotTypeVersionResponse {
   __type?: "CreateSlotTypeVersionResponse";
   /**
    * <p>Checksum of the <code>$LATEST</code> version of the slot type.</p>
@@ -1081,7 +1081,7 @@ export namespace GetBotAliasRequest {
   }
 }
 
-export interface GetBotAliasResponse extends $MetadataBearer {
+export interface GetBotAliasResponse {
   __type?: "GetBotAliasResponse";
   /**
    * <p>The name of the bot that the alias points to.</p>
@@ -1164,7 +1164,7 @@ export namespace GetBotAliasesRequest {
   }
 }
 
-export interface GetBotAliasesResponse extends $MetadataBearer {
+export interface GetBotAliasesResponse {
   __type?: "GetBotAliasesResponse";
   /**
    * <p>An array of <code>BotAliasMetadata</code> objects, each describing a bot
@@ -1212,7 +1212,7 @@ export namespace GetBotChannelAssociationRequest {
   }
 }
 
-export interface GetBotChannelAssociationResponse extends $MetadataBearer {
+export interface GetBotChannelAssociationResponse {
   __type?: "GetBotChannelAssociationResponse";
   /**
    * <p>An alias pointing to the specific version of the Amazon Lex bot to which this association is
@@ -1325,7 +1325,7 @@ export namespace GetBotChannelAssociationsRequest {
   }
 }
 
-export interface GetBotChannelAssociationsResponse extends $MetadataBearer {
+export interface GetBotChannelAssociationsResponse {
   __type?: "GetBotChannelAssociationsResponse";
   /**
    * <p>An array of objects, one for each association, that provides information about the
@@ -1366,7 +1366,7 @@ export namespace GetBotRequest {
   }
 }
 
-export interface GetBotResponse extends $MetadataBearer {
+export interface GetBotResponse {
   __type?: "GetBotResponse";
   /**
    * <p>The message that Amazon Lex returns when the user elects to end the conversation without
@@ -1518,7 +1518,7 @@ export namespace GetBotVersionsRequest {
   }
 }
 
-export interface GetBotVersionsResponse extends $MetadataBearer {
+export interface GetBotVersionsResponse {
   __type?: "GetBotVersionsResponse";
   /**
    * <p>An array of <code>BotMetadata</code> objects, one for each numbered version of the bot
@@ -1568,7 +1568,7 @@ export namespace GetBotsRequest {
   }
 }
 
-export interface GetBotsResponse extends $MetadataBearer {
+export interface GetBotsResponse {
   __type?: "GetBotsResponse";
   /**
    * <p>An array of <code>botMetadata</code> objects, with one entry for each bot. </p>
@@ -1603,7 +1603,7 @@ export namespace GetBuiltinIntentRequest {
   }
 }
 
-export interface GetBuiltinIntentResponse extends $MetadataBearer {
+export interface GetBuiltinIntentResponse {
   __type?: "GetBuiltinIntentResponse";
   /**
    * <p>The unique identifier for a built-in intent.</p>
@@ -1661,7 +1661,7 @@ export namespace GetBuiltinIntentsRequest {
   }
 }
 
-export interface GetBuiltinIntentsResponse extends $MetadataBearer {
+export interface GetBuiltinIntentsResponse {
   __type?: "GetBuiltinIntentsResponse";
   /**
    * <p>An array of <code>builtinIntentMetadata</code> objects, one for each intent in the
@@ -1717,7 +1717,7 @@ export namespace GetBuiltinSlotTypesRequest {
   }
 }
 
-export interface GetBuiltinSlotTypesResponse extends $MetadataBearer {
+export interface GetBuiltinSlotTypesResponse {
   __type?: "GetBuiltinSlotTypesResponse";
   /**
    * <p>If the response is truncated, the response includes a pagination token that you can use
@@ -1767,7 +1767,7 @@ export namespace GetExportRequest {
   }
 }
 
-export interface GetExportResponse extends $MetadataBearer {
+export interface GetExportResponse {
   __type?: "GetExportResponse";
   /**
    * <p>The status of the export. </p>
@@ -1842,7 +1842,7 @@ export namespace GetImportRequest {
   }
 }
 
-export interface GetImportResponse extends $MetadataBearer {
+export interface GetImportResponse {
   __type?: "GetImportResponse";
   /**
    * <p>A timestamp for the date and time that the import job was created.</p>
@@ -1907,7 +1907,7 @@ export namespace GetIntentRequest {
   }
 }
 
-export interface GetIntentResponse extends $MetadataBearer {
+export interface GetIntentResponse {
   __type?: "GetIntentResponse";
   /**
    * <p>Checksum of the intent.</p>
@@ -2024,7 +2024,7 @@ export namespace GetIntentVersionsRequest {
   }
 }
 
-export interface GetIntentVersionsResponse extends $MetadataBearer {
+export interface GetIntentVersionsResponse {
   __type?: "GetIntentVersionsResponse";
   /**
    * <p>An array of <code>IntentMetadata</code> objects, one for each numbered version of the
@@ -2073,7 +2073,7 @@ export namespace GetIntentsRequest {
   }
 }
 
-export interface GetIntentsResponse extends $MetadataBearer {
+export interface GetIntentsResponse {
   __type?: "GetIntentsResponse";
   /**
    * <p>An array of <code>Intent</code> objects. For more information, see <a>PutBot</a>.</p>
@@ -2112,7 +2112,7 @@ export namespace GetSlotTypeRequest {
   }
 }
 
-export interface GetSlotTypeResponse extends $MetadataBearer {
+export interface GetSlotTypeResponse {
   __type?: "GetSlotTypeResponse";
   /**
    * <p>Checksum of the <code>$LATEST</code> version of the slot type.</p>
@@ -2191,7 +2191,7 @@ export namespace GetSlotTypeVersionsRequest {
   }
 }
 
-export interface GetSlotTypeVersionsResponse extends $MetadataBearer {
+export interface GetSlotTypeVersionsResponse {
   __type?: "GetSlotTypeVersionsResponse";
   /**
    * <p>A pagination token for fetching the next page of slot type versions. If the response to
@@ -2241,7 +2241,7 @@ export namespace GetSlotTypesRequest {
   }
 }
 
-export interface GetSlotTypesResponse extends $MetadataBearer {
+export interface GetSlotTypesResponse {
   __type?: "GetSlotTypesResponse";
   /**
    * <p>If the response is truncated, it includes a pagination token that you can specify in
@@ -2288,7 +2288,7 @@ export namespace GetUtterancesViewRequest {
   }
 }
 
-export interface GetUtterancesViewResponse extends $MetadataBearer {
+export interface GetUtterancesViewResponse {
   __type?: "GetUtterancesViewResponse";
   /**
    * <p>The name of the bot for which utterance information was returned.</p>
@@ -2586,7 +2586,7 @@ export namespace PutBotAliasRequest {
   }
 }
 
-export interface PutBotAliasResponse extends $MetadataBearer {
+export interface PutBotAliasResponse {
   __type?: "PutBotAliasResponse";
   /**
    * <p>The name of the bot that the alias points to.</p>
@@ -2805,7 +2805,7 @@ export namespace PutBotRequest {
   }
 }
 
-export interface PutBotResponse extends $MetadataBearer {
+export interface PutBotResponse {
   __type?: "PutBotResponse";
   /**
    * <p>The message that Amazon Lex uses to abort a conversation. For more information, see <a>PutBot</a>.</p>
@@ -3092,7 +3092,7 @@ export namespace PutIntentRequest {
   }
 }
 
-export interface PutIntentResponse extends $MetadataBearer {
+export interface PutIntentResponse {
   __type?: "PutIntentResponse";
   /**
    * <p>Checksum of the <code>$LATEST</code>version of the intent created or updated.</p>
@@ -3268,7 +3268,7 @@ export namespace PutSlotTypeRequest {
   }
 }
 
-export interface PutSlotTypeResponse extends $MetadataBearer {
+export interface PutSlotTypeResponse {
   __type?: "PutSlotTypeResponse";
   /**
    * <p>Checksum of the <code>$LATEST</code> version of the slot type.</p>
@@ -3573,7 +3573,7 @@ export namespace StartImportRequest {
   }
 }
 
-export interface StartImportResponse extends $MetadataBearer {
+export interface StartImportResponse {
   __type?: "StartImportResponse";
   /**
    * <p>A timestamp for the date and time that the import job was requested.</p>

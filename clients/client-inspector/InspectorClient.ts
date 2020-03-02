@@ -1,69 +1,151 @@
 import {
-  AddAttributesToFindingsRequest,
-  AddAttributesToFindingsResponse,
-  CreateAssessmentTargetRequest,
-  CreateAssessmentTargetResponse,
-  CreateAssessmentTemplateRequest,
-  CreateAssessmentTemplateResponse,
-  CreateExclusionsPreviewRequest,
-  CreateExclusionsPreviewResponse,
-  CreateResourceGroupRequest,
-  CreateResourceGroupResponse,
-  DeleteAssessmentRunRequest,
-  DeleteAssessmentTargetRequest,
-  DeleteAssessmentTemplateRequest,
-  DescribeAssessmentRunsRequest,
-  DescribeAssessmentRunsResponse,
-  DescribeAssessmentTargetsRequest,
-  DescribeAssessmentTargetsResponse,
-  DescribeAssessmentTemplatesRequest,
-  DescribeAssessmentTemplatesResponse,
-  DescribeCrossAccountAccessRoleResponse,
-  DescribeExclusionsRequest,
-  DescribeExclusionsResponse,
-  DescribeFindingsRequest,
-  DescribeFindingsResponse,
-  DescribeResourceGroupsRequest,
-  DescribeResourceGroupsResponse,
-  DescribeRulesPackagesRequest,
-  DescribeRulesPackagesResponse,
-  GetAssessmentReportRequest,
-  GetAssessmentReportResponse,
-  GetExclusionsPreviewRequest,
-  GetExclusionsPreviewResponse,
-  GetTelemetryMetadataRequest,
-  GetTelemetryMetadataResponse,
-  ListAssessmentRunAgentsRequest,
-  ListAssessmentRunAgentsResponse,
-  ListAssessmentRunsRequest,
-  ListAssessmentRunsResponse,
-  ListAssessmentTargetsRequest,
-  ListAssessmentTargetsResponse,
-  ListAssessmentTemplatesRequest,
-  ListAssessmentTemplatesResponse,
-  ListEventSubscriptionsRequest,
-  ListEventSubscriptionsResponse,
-  ListExclusionsRequest,
-  ListExclusionsResponse,
-  ListFindingsRequest,
-  ListFindingsResponse,
-  ListRulesPackagesRequest,
-  ListRulesPackagesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PreviewAgentsRequest,
-  PreviewAgentsResponse,
-  RegisterCrossAccountAccessRoleRequest,
-  RemoveAttributesFromFindingsRequest,
-  RemoveAttributesFromFindingsResponse,
-  SetTagsForResourceRequest,
-  StartAssessmentRunRequest,
-  StartAssessmentRunResponse,
-  StopAssessmentRunRequest,
-  SubscribeToEventRequest,
-  UnsubscribeFromEventRequest,
-  UpdateAssessmentTargetRequest
-} from "./models/index";
+  AddAttributesToFindingsCommandInput,
+  AddAttributesToFindingsCommandOutput
+} from "./commands/AddAttributesToFindingsCommand";
+import {
+  CreateAssessmentTargetCommandInput,
+  CreateAssessmentTargetCommandOutput
+} from "./commands/CreateAssessmentTargetCommand";
+import {
+  CreateAssessmentTemplateCommandInput,
+  CreateAssessmentTemplateCommandOutput
+} from "./commands/CreateAssessmentTemplateCommand";
+import {
+  CreateExclusionsPreviewCommandInput,
+  CreateExclusionsPreviewCommandOutput
+} from "./commands/CreateExclusionsPreviewCommand";
+import {
+  CreateResourceGroupCommandInput,
+  CreateResourceGroupCommandOutput
+} from "./commands/CreateResourceGroupCommand";
+import {
+  DeleteAssessmentRunCommandInput,
+  DeleteAssessmentRunCommandOutput
+} from "./commands/DeleteAssessmentRunCommand";
+import {
+  DeleteAssessmentTargetCommandInput,
+  DeleteAssessmentTargetCommandOutput
+} from "./commands/DeleteAssessmentTargetCommand";
+import {
+  DeleteAssessmentTemplateCommandInput,
+  DeleteAssessmentTemplateCommandOutput
+} from "./commands/DeleteAssessmentTemplateCommand";
+import {
+  DescribeAssessmentRunsCommandInput,
+  DescribeAssessmentRunsCommandOutput
+} from "./commands/DescribeAssessmentRunsCommand";
+import {
+  DescribeAssessmentTargetsCommandInput,
+  DescribeAssessmentTargetsCommandOutput
+} from "./commands/DescribeAssessmentTargetsCommand";
+import {
+  DescribeAssessmentTemplatesCommandInput,
+  DescribeAssessmentTemplatesCommandOutput
+} from "./commands/DescribeAssessmentTemplatesCommand";
+import {
+  DescribeCrossAccountAccessRoleCommandInput,
+  DescribeCrossAccountAccessRoleCommandOutput
+} from "./commands/DescribeCrossAccountAccessRoleCommand";
+import {
+  DescribeExclusionsCommandInput,
+  DescribeExclusionsCommandOutput
+} from "./commands/DescribeExclusionsCommand";
+import {
+  DescribeFindingsCommandInput,
+  DescribeFindingsCommandOutput
+} from "./commands/DescribeFindingsCommand";
+import {
+  DescribeResourceGroupsCommandInput,
+  DescribeResourceGroupsCommandOutput
+} from "./commands/DescribeResourceGroupsCommand";
+import {
+  DescribeRulesPackagesCommandInput,
+  DescribeRulesPackagesCommandOutput
+} from "./commands/DescribeRulesPackagesCommand";
+import {
+  GetAssessmentReportCommandInput,
+  GetAssessmentReportCommandOutput
+} from "./commands/GetAssessmentReportCommand";
+import {
+  GetExclusionsPreviewCommandInput,
+  GetExclusionsPreviewCommandOutput
+} from "./commands/GetExclusionsPreviewCommand";
+import {
+  GetTelemetryMetadataCommandInput,
+  GetTelemetryMetadataCommandOutput
+} from "./commands/GetTelemetryMetadataCommand";
+import {
+  ListAssessmentRunAgentsCommandInput,
+  ListAssessmentRunAgentsCommandOutput
+} from "./commands/ListAssessmentRunAgentsCommand";
+import {
+  ListAssessmentRunsCommandInput,
+  ListAssessmentRunsCommandOutput
+} from "./commands/ListAssessmentRunsCommand";
+import {
+  ListAssessmentTargetsCommandInput,
+  ListAssessmentTargetsCommandOutput
+} from "./commands/ListAssessmentTargetsCommand";
+import {
+  ListAssessmentTemplatesCommandInput,
+  ListAssessmentTemplatesCommandOutput
+} from "./commands/ListAssessmentTemplatesCommand";
+import {
+  ListEventSubscriptionsCommandInput,
+  ListEventSubscriptionsCommandOutput
+} from "./commands/ListEventSubscriptionsCommand";
+import {
+  ListExclusionsCommandInput,
+  ListExclusionsCommandOutput
+} from "./commands/ListExclusionsCommand";
+import {
+  ListFindingsCommandInput,
+  ListFindingsCommandOutput
+} from "./commands/ListFindingsCommand";
+import {
+  ListRulesPackagesCommandInput,
+  ListRulesPackagesCommandOutput
+} from "./commands/ListRulesPackagesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PreviewAgentsCommandInput,
+  PreviewAgentsCommandOutput
+} from "./commands/PreviewAgentsCommand";
+import {
+  RegisterCrossAccountAccessRoleCommandInput,
+  RegisterCrossAccountAccessRoleCommandOutput
+} from "./commands/RegisterCrossAccountAccessRoleCommand";
+import {
+  RemoveAttributesFromFindingsCommandInput,
+  RemoveAttributesFromFindingsCommandOutput
+} from "./commands/RemoveAttributesFromFindingsCommand";
+import {
+  SetTagsForResourceCommandInput,
+  SetTagsForResourceCommandOutput
+} from "./commands/SetTagsForResourceCommand";
+import {
+  StartAssessmentRunCommandInput,
+  StartAssessmentRunCommandOutput
+} from "./commands/StartAssessmentRunCommand";
+import {
+  StopAssessmentRunCommandInput,
+  StopAssessmentRunCommandOutput
+} from "./commands/StopAssessmentRunCommand";
+import {
+  SubscribeToEventCommandInput,
+  SubscribeToEventCommandOutput
+} from "./commands/SubscribeToEventCommand";
+import {
+  UnsubscribeFromEventCommandInput,
+  UnsubscribeFromEventCommandOutput
+} from "./commands/UnsubscribeFromEventCommand";
+import {
+  UpdateAssessmentTargetCommandInput,
+  UpdateAssessmentTargetCommandOutput
+} from "./commands/UpdateAssessmentTargetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -111,81 +193,88 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AddAttributesToFindingsRequest
-  | CreateAssessmentTargetRequest
-  | CreateAssessmentTemplateRequest
-  | CreateExclusionsPreviewRequest
-  | CreateResourceGroupRequest
-  | DeleteAssessmentRunRequest
-  | DeleteAssessmentTargetRequest
-  | DeleteAssessmentTemplateRequest
-  | DescribeAssessmentRunsRequest
-  | DescribeAssessmentTargetsRequest
-  | DescribeAssessmentTemplatesRequest
-  | DescribeExclusionsRequest
-  | DescribeFindingsRequest
-  | DescribeResourceGroupsRequest
-  | DescribeRulesPackagesRequest
-  | GetAssessmentReportRequest
-  | GetExclusionsPreviewRequest
-  | GetTelemetryMetadataRequest
-  | ListAssessmentRunAgentsRequest
-  | ListAssessmentRunsRequest
-  | ListAssessmentTargetsRequest
-  | ListAssessmentTemplatesRequest
-  | ListEventSubscriptionsRequest
-  | ListExclusionsRequest
-  | ListFindingsRequest
-  | ListRulesPackagesRequest
-  | ListTagsForResourceRequest
-  | PreviewAgentsRequest
-  | RegisterCrossAccountAccessRoleRequest
-  | RemoveAttributesFromFindingsRequest
-  | SetTagsForResourceRequest
-  | StartAssessmentRunRequest
-  | StopAssessmentRunRequest
-  | SubscribeToEventRequest
-  | UnsubscribeFromEventRequest
-  | UpdateAssessmentTargetRequest;
+  | AddAttributesToFindingsCommandInput
+  | CreateAssessmentTargetCommandInput
+  | CreateAssessmentTemplateCommandInput
+  | CreateExclusionsPreviewCommandInput
+  | CreateResourceGroupCommandInput
+  | DeleteAssessmentRunCommandInput
+  | DeleteAssessmentTargetCommandInput
+  | DeleteAssessmentTemplateCommandInput
+  | DescribeAssessmentRunsCommandInput
+  | DescribeAssessmentTargetsCommandInput
+  | DescribeAssessmentTemplatesCommandInput
+  | DescribeCrossAccountAccessRoleCommandInput
+  | DescribeExclusionsCommandInput
+  | DescribeFindingsCommandInput
+  | DescribeResourceGroupsCommandInput
+  | DescribeRulesPackagesCommandInput
+  | GetAssessmentReportCommandInput
+  | GetExclusionsPreviewCommandInput
+  | GetTelemetryMetadataCommandInput
+  | ListAssessmentRunAgentsCommandInput
+  | ListAssessmentRunsCommandInput
+  | ListAssessmentTargetsCommandInput
+  | ListAssessmentTemplatesCommandInput
+  | ListEventSubscriptionsCommandInput
+  | ListExclusionsCommandInput
+  | ListFindingsCommandInput
+  | ListRulesPackagesCommandInput
+  | ListTagsForResourceCommandInput
+  | PreviewAgentsCommandInput
+  | RegisterCrossAccountAccessRoleCommandInput
+  | RemoveAttributesFromFindingsCommandInput
+  | SetTagsForResourceCommandInput
+  | StartAssessmentRunCommandInput
+  | StopAssessmentRunCommandInput
+  | SubscribeToEventCommandInput
+  | UnsubscribeFromEventCommandInput
+  | UpdateAssessmentTargetCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AddAttributesToFindingsResponse
-  | CreateAssessmentTargetResponse
-  | CreateAssessmentTemplateResponse
-  | CreateExclusionsPreviewResponse
-  | CreateResourceGroupResponse
-  | DescribeAssessmentRunsResponse
-  | DescribeAssessmentTargetsResponse
-  | DescribeAssessmentTemplatesResponse
-  | DescribeCrossAccountAccessRoleResponse
-  | DescribeExclusionsResponse
-  | DescribeFindingsResponse
-  | DescribeResourceGroupsResponse
-  | DescribeRulesPackagesResponse
-  | GetAssessmentReportResponse
-  | GetExclusionsPreviewResponse
-  | GetTelemetryMetadataResponse
-  | ListAssessmentRunAgentsResponse
-  | ListAssessmentRunsResponse
-  | ListAssessmentTargetsResponse
-  | ListAssessmentTemplatesResponse
-  | ListEventSubscriptionsResponse
-  | ListExclusionsResponse
-  | ListFindingsResponse
-  | ListRulesPackagesResponse
-  | ListTagsForResourceResponse
-  | PreviewAgentsResponse
-  | RemoveAttributesFromFindingsResponse
-  | StartAssessmentRunResponse;
+  | AddAttributesToFindingsCommandOutput
+  | CreateAssessmentTargetCommandOutput
+  | CreateAssessmentTemplateCommandOutput
+  | CreateExclusionsPreviewCommandOutput
+  | CreateResourceGroupCommandOutput
+  | DeleteAssessmentRunCommandOutput
+  | DeleteAssessmentTargetCommandOutput
+  | DeleteAssessmentTemplateCommandOutput
+  | DescribeAssessmentRunsCommandOutput
+  | DescribeAssessmentTargetsCommandOutput
+  | DescribeAssessmentTemplatesCommandOutput
+  | DescribeCrossAccountAccessRoleCommandOutput
+  | DescribeExclusionsCommandOutput
+  | DescribeFindingsCommandOutput
+  | DescribeResourceGroupsCommandOutput
+  | DescribeRulesPackagesCommandOutput
+  | GetAssessmentReportCommandOutput
+  | GetExclusionsPreviewCommandOutput
+  | GetTelemetryMetadataCommandOutput
+  | ListAssessmentRunAgentsCommandOutput
+  | ListAssessmentRunsCommandOutput
+  | ListAssessmentTargetsCommandOutput
+  | ListAssessmentTemplatesCommandOutput
+  | ListEventSubscriptionsCommandOutput
+  | ListExclusionsCommandOutput
+  | ListFindingsCommandOutput
+  | ListRulesPackagesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PreviewAgentsCommandOutput
+  | RegisterCrossAccountAccessRoleCommandOutput
+  | RemoveAttributesFromFindingsCommandOutput
+  | SetTagsForResourceCommandOutput
+  | StartAssessmentRunCommandOutput
+  | StopAssessmentRunCommandOutput
+  | SubscribeToEventCommandOutput
+  | UnsubscribeFromEventCommandOutput
+  | UpdateAssessmentTargetCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

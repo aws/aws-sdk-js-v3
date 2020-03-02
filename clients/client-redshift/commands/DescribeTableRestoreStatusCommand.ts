@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeTableRestoreStatusCommandInput = DescribeTableRestoreStatusMessage;
-export type DescribeTableRestoreStatusCommandOutput = TableRestoreStatusMessage;
+export type DescribeTableRestoreStatusCommandOutput = TableRestoreStatusMessage &
+  __MetadataBearer;
 
 export class DescribeTableRestoreStatusCommand extends $Command<
   DescribeTableRestoreStatusCommandInput,

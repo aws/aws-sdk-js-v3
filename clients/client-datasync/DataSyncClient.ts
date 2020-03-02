@@ -1,59 +1,111 @@
 import {
-  CancelTaskExecutionRequest,
-  CancelTaskExecutionResponse,
-  CreateAgentRequest,
-  CreateAgentResponse,
-  CreateLocationEfsRequest,
-  CreateLocationEfsResponse,
-  CreateLocationNfsRequest,
-  CreateLocationNfsResponse,
-  CreateLocationS3Request,
-  CreateLocationS3Response,
-  CreateLocationSmbRequest,
-  CreateLocationSmbResponse,
-  CreateTaskRequest,
-  CreateTaskResponse,
-  DeleteAgentRequest,
-  DeleteAgentResponse,
-  DeleteLocationRequest,
-  DeleteLocationResponse,
-  DeleteTaskRequest,
-  DeleteTaskResponse,
-  DescribeAgentRequest,
-  DescribeAgentResponse,
-  DescribeLocationEfsRequest,
-  DescribeLocationEfsResponse,
-  DescribeLocationNfsRequest,
-  DescribeLocationNfsResponse,
-  DescribeLocationS3Request,
-  DescribeLocationS3Response,
-  DescribeLocationSmbRequest,
-  DescribeLocationSmbResponse,
-  DescribeTaskExecutionRequest,
-  DescribeTaskExecutionResponse,
-  DescribeTaskRequest,
-  DescribeTaskResponse,
-  ListAgentsRequest,
-  ListAgentsResponse,
-  ListLocationsRequest,
-  ListLocationsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTaskExecutionsRequest,
-  ListTaskExecutionsResponse,
-  ListTasksRequest,
-  ListTasksResponse,
-  StartTaskExecutionRequest,
-  StartTaskExecutionResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateAgentRequest,
-  UpdateAgentResponse,
-  UpdateTaskRequest,
-  UpdateTaskResponse
-} from "./models/index";
+  CancelTaskExecutionCommandInput,
+  CancelTaskExecutionCommandOutput
+} from "./commands/CancelTaskExecutionCommand";
+import {
+  CreateAgentCommandInput,
+  CreateAgentCommandOutput
+} from "./commands/CreateAgentCommand";
+import {
+  CreateLocationEfsCommandInput,
+  CreateLocationEfsCommandOutput
+} from "./commands/CreateLocationEfsCommand";
+import {
+  CreateLocationNfsCommandInput,
+  CreateLocationNfsCommandOutput
+} from "./commands/CreateLocationNfsCommand";
+import {
+  CreateLocationS3CommandInput,
+  CreateLocationS3CommandOutput
+} from "./commands/CreateLocationS3Command";
+import {
+  CreateLocationSmbCommandInput,
+  CreateLocationSmbCommandOutput
+} from "./commands/CreateLocationSmbCommand";
+import {
+  CreateTaskCommandInput,
+  CreateTaskCommandOutput
+} from "./commands/CreateTaskCommand";
+import {
+  DeleteAgentCommandInput,
+  DeleteAgentCommandOutput
+} from "./commands/DeleteAgentCommand";
+import {
+  DeleteLocationCommandInput,
+  DeleteLocationCommandOutput
+} from "./commands/DeleteLocationCommand";
+import {
+  DeleteTaskCommandInput,
+  DeleteTaskCommandOutput
+} from "./commands/DeleteTaskCommand";
+import {
+  DescribeAgentCommandInput,
+  DescribeAgentCommandOutput
+} from "./commands/DescribeAgentCommand";
+import {
+  DescribeLocationEfsCommandInput,
+  DescribeLocationEfsCommandOutput
+} from "./commands/DescribeLocationEfsCommand";
+import {
+  DescribeLocationNfsCommandInput,
+  DescribeLocationNfsCommandOutput
+} from "./commands/DescribeLocationNfsCommand";
+import {
+  DescribeLocationS3CommandInput,
+  DescribeLocationS3CommandOutput
+} from "./commands/DescribeLocationS3Command";
+import {
+  DescribeLocationSmbCommandInput,
+  DescribeLocationSmbCommandOutput
+} from "./commands/DescribeLocationSmbCommand";
+import {
+  DescribeTaskCommandInput,
+  DescribeTaskCommandOutput
+} from "./commands/DescribeTaskCommand";
+import {
+  DescribeTaskExecutionCommandInput,
+  DescribeTaskExecutionCommandOutput
+} from "./commands/DescribeTaskExecutionCommand";
+import {
+  ListAgentsCommandInput,
+  ListAgentsCommandOutput
+} from "./commands/ListAgentsCommand";
+import {
+  ListLocationsCommandInput,
+  ListLocationsCommandOutput
+} from "./commands/ListLocationsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTaskExecutionsCommandInput,
+  ListTaskExecutionsCommandOutput
+} from "./commands/ListTaskExecutionsCommand";
+import {
+  ListTasksCommandInput,
+  ListTasksCommandOutput
+} from "./commands/ListTasksCommand";
+import {
+  StartTaskExecutionCommandInput,
+  StartTaskExecutionCommandOutput
+} from "./commands/StartTaskExecutionCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateAgentCommandInput,
+  UpdateAgentCommandOutput
+} from "./commands/UpdateAgentCommand";
+import {
+  UpdateTaskCommandInput,
+  UpdateTaskCommandOutput
+} from "./commands/UpdateTaskCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -107,62 +159,62 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CancelTaskExecutionRequest
-  | CreateAgentRequest
-  | CreateLocationEfsRequest
-  | CreateLocationNfsRequest
-  | CreateLocationS3Request
-  | CreateLocationSmbRequest
-  | CreateTaskRequest
-  | DeleteAgentRequest
-  | DeleteLocationRequest
-  | DeleteTaskRequest
-  | DescribeAgentRequest
-  | DescribeLocationEfsRequest
-  | DescribeLocationNfsRequest
-  | DescribeLocationS3Request
-  | DescribeLocationSmbRequest
-  | DescribeTaskExecutionRequest
-  | DescribeTaskRequest
-  | ListAgentsRequest
-  | ListLocationsRequest
-  | ListTagsForResourceRequest
-  | ListTaskExecutionsRequest
-  | ListTasksRequest
-  | StartTaskExecutionRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateAgentRequest
-  | UpdateTaskRequest;
+  | CancelTaskExecutionCommandInput
+  | CreateAgentCommandInput
+  | CreateLocationEfsCommandInput
+  | CreateLocationNfsCommandInput
+  | CreateLocationS3CommandInput
+  | CreateLocationSmbCommandInput
+  | CreateTaskCommandInput
+  | DeleteAgentCommandInput
+  | DeleteLocationCommandInput
+  | DeleteTaskCommandInput
+  | DescribeAgentCommandInput
+  | DescribeLocationEfsCommandInput
+  | DescribeLocationNfsCommandInput
+  | DescribeLocationS3CommandInput
+  | DescribeLocationSmbCommandInput
+  | DescribeTaskCommandInput
+  | DescribeTaskExecutionCommandInput
+  | ListAgentsCommandInput
+  | ListLocationsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTaskExecutionsCommandInput
+  | ListTasksCommandInput
+  | StartTaskExecutionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAgentCommandInput
+  | UpdateTaskCommandInput;
 
 export type ServiceOutputTypes =
-  | CancelTaskExecutionResponse
-  | CreateAgentResponse
-  | CreateLocationEfsResponse
-  | CreateLocationNfsResponse
-  | CreateLocationS3Response
-  | CreateLocationSmbResponse
-  | CreateTaskResponse
-  | DeleteAgentResponse
-  | DeleteLocationResponse
-  | DeleteTaskResponse
-  | DescribeAgentResponse
-  | DescribeLocationEfsResponse
-  | DescribeLocationNfsResponse
-  | DescribeLocationS3Response
-  | DescribeLocationSmbResponse
-  | DescribeTaskExecutionResponse
-  | DescribeTaskResponse
-  | ListAgentsResponse
-  | ListLocationsResponse
-  | ListTagsForResourceResponse
-  | ListTaskExecutionsResponse
-  | ListTasksResponse
-  | StartTaskExecutionResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateAgentResponse
-  | UpdateTaskResponse;
+  | CancelTaskExecutionCommandOutput
+  | CreateAgentCommandOutput
+  | CreateLocationEfsCommandOutput
+  | CreateLocationNfsCommandOutput
+  | CreateLocationS3CommandOutput
+  | CreateLocationSmbCommandOutput
+  | CreateTaskCommandOutput
+  | DeleteAgentCommandOutput
+  | DeleteLocationCommandOutput
+  | DeleteTaskCommandOutput
+  | DescribeAgentCommandOutput
+  | DescribeLocationEfsCommandOutput
+  | DescribeLocationNfsCommandOutput
+  | DescribeLocationS3CommandOutput
+  | DescribeLocationSmbCommandOutput
+  | DescribeTaskCommandOutput
+  | DescribeTaskExecutionCommandOutput
+  | ListAgentsCommandOutput
+  | ListLocationsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTaskExecutionsCommandOutput
+  | ListTasksCommandOutput
+  | StartTaskExecutionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAgentCommandOutput
+  | UpdateTaskCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

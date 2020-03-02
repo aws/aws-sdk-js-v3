@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeConditionalForwardersCommandInput = DescribeConditionalForwardersRequest;
-export type DescribeConditionalForwardersCommandOutput = DescribeConditionalForwardersResult;
+export type DescribeConditionalForwardersCommandOutput = DescribeConditionalForwardersResult &
+  __MetadataBearer;
 
 export class DescribeConditionalForwardersCommand extends $Command<
   DescribeConditionalForwardersCommandInput,

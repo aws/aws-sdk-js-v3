@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterTransitGatewayMulticastGroupMembersCommandInput = RegisterTransitGatewayMulticastGroupMembersRequest;
-export type RegisterTransitGatewayMulticastGroupMembersCommandOutput = RegisterTransitGatewayMulticastGroupMembersResult;
+export type RegisterTransitGatewayMulticastGroupMembersCommandOutput = RegisterTransitGatewayMulticastGroupMembersResult &
+  __MetadataBearer;
 
 export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command<
   RegisterTransitGatewayMulticastGroupMembersCommandInput,

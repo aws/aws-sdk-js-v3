@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAggregateDiscoveredResourcesCommandInput = ListAggregateDiscoveredResourcesRequest;
-export type ListAggregateDiscoveredResourcesCommandOutput = ListAggregateDiscoveredResourcesResponse;
+export type ListAggregateDiscoveredResourcesCommandOutput = ListAggregateDiscoveredResourcesResponse &
+  __MetadataBearer;
 
 export class ListAggregateDiscoveredResourcesCommand extends $Command<
   ListAggregateDiscoveredResourcesCommandInput,

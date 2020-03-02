@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteTypedLinkFacetCommandInput = DeleteTypedLinkFacetRequest;
-export type DeleteTypedLinkFacetCommandOutput = DeleteTypedLinkFacetResponse;
+export type DeleteTypedLinkFacetCommandOutput = DeleteTypedLinkFacetResponse &
+  __MetadataBearer;
 
 export class DeleteTypedLinkFacetCommand extends $Command<
   DeleteTypedLinkFacetCommandInput,

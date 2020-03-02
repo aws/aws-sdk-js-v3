@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateJobQueueCommandInput = CreateJobQueueRequest;
-export type CreateJobQueueCommandOutput = CreateJobQueueResponse;
+export type CreateJobQueueCommandOutput = CreateJobQueueResponse &
+  __MetadataBearer;
 
 export class CreateJobQueueCommand extends $Command<
   CreateJobQueueCommandInput,

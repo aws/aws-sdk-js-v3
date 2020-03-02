@@ -136,7 +136,7 @@ export namespace GetEntitlementsRequest {
 /**
  * <p>The GetEntitlementsRequest contains results from the GetEntitlements operation.</p>
  */
-export interface GetEntitlementsResult extends $MetadataBearer {
+export interface GetEntitlementsResult {
   __type?: "GetEntitlementsResult";
   /**
    * <p>The set of entitlements found through the GetEntitlements operation. If the result

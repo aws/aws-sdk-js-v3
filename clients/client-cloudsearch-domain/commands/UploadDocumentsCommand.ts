@@ -23,11 +23,18 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type UploadDocumentsCommandInput = UploadDocumentsRequest;
-export type UploadDocumentsCommandOutput = UploadDocumentsResponse;
+export type UploadDocumentsCommandInput = Omit<
+  UploadDocumentsRequest,
+  "documents"
+> & {
+  documents: UploadDocumentsRequest["documents"] | string | Uint8Array | Buffer;
+};
+export type UploadDocumentsCommandOutput = UploadDocumentsResponse &
+  __MetadataBearer;
 
 export class UploadDocumentsCommand extends $Command<
   UploadDocumentsCommandInput,

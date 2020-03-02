@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdatePartitionCommandInput = UpdatePartitionRequest;
-export type UpdatePartitionCommandOutput = UpdatePartitionResponse;
+export type UpdatePartitionCommandOutput = UpdatePartitionResponse &
+  __MetadataBearer;
 
 export class UpdatePartitionCommand extends $Command<
   UpdatePartitionCommandInput,

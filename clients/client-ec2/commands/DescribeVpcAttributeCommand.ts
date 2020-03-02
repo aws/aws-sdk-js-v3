@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeVpcAttributeCommandInput = DescribeVpcAttributeRequest;
-export type DescribeVpcAttributeCommandOutput = DescribeVpcAttributeResult;
+export type DescribeVpcAttributeCommandOutput = DescribeVpcAttributeResult &
+  __MetadataBearer;
 
 export class DescribeVpcAttributeCommand extends $Command<
   DescribeVpcAttributeCommandInput,

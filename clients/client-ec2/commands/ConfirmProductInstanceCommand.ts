@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmProductInstanceCommandInput = ConfirmProductInstanceRequest;
-export type ConfirmProductInstanceCommandOutput = ConfirmProductInstanceResult;
+export type ConfirmProductInstanceCommandOutput = ConfirmProductInstanceResult &
+  __MetadataBearer;
 
 export class ConfirmProductInstanceCommand extends $Command<
   ConfirmProductInstanceCommandInput,

@@ -72,24 +72,33 @@ async function deserializeAws_json1_1GetEntitlementsCommandError(
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplace.entitlement#InternalServiceErrorException":
-      response = await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.marketplace.entitlement#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.marketplace.entitlement#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

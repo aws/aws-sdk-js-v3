@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RotateIngestEndpointCredentialsCommandInput = RotateIngestEndpointCredentialsRequest;
-export type RotateIngestEndpointCredentialsCommandOutput = RotateIngestEndpointCredentialsResponse;
+export type RotateIngestEndpointCredentialsCommandOutput = RotateIngestEndpointCredentialsResponse &
+  __MetadataBearer;
 
 export class RotateIngestEndpointCredentialsCommand extends $Command<
   RotateIngestEndpointCredentialsCommandInput,

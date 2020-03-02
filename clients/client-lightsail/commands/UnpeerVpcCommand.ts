@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UnpeerVpcCommandInput = UnpeerVpcRequest;
-export type UnpeerVpcCommandOutput = UnpeerVpcResult;
+export type UnpeerVpcCommandOutput = UnpeerVpcResult & __MetadataBearer;
 
 export class UnpeerVpcCommand extends $Command<
   UnpeerVpcCommandInput,

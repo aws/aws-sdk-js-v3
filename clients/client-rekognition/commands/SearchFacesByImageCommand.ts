@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SearchFacesByImageCommandInput = SearchFacesByImageRequest;
-export type SearchFacesByImageCommandOutput = SearchFacesByImageResponse;
+export type SearchFacesByImageCommandOutput = SearchFacesByImageResponse &
+  __MetadataBearer;
 
 export class SearchFacesByImageCommand extends $Command<
   SearchFacesByImageCommandInput,

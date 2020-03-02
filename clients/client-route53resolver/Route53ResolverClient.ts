@@ -1,49 +1,91 @@
 import {
-  AssociateResolverEndpointIpAddressRequest,
-  AssociateResolverEndpointIpAddressResponse,
-  AssociateResolverRuleRequest,
-  AssociateResolverRuleResponse,
-  CreateResolverEndpointRequest,
-  CreateResolverEndpointResponse,
-  CreateResolverRuleRequest,
-  CreateResolverRuleResponse,
-  DeleteResolverEndpointRequest,
-  DeleteResolverEndpointResponse,
-  DeleteResolverRuleRequest,
-  DeleteResolverRuleResponse,
-  DisassociateResolverEndpointIpAddressRequest,
-  DisassociateResolverEndpointIpAddressResponse,
-  DisassociateResolverRuleRequest,
-  DisassociateResolverRuleResponse,
-  GetResolverEndpointRequest,
-  GetResolverEndpointResponse,
-  GetResolverRuleAssociationRequest,
-  GetResolverRuleAssociationResponse,
-  GetResolverRulePolicyRequest,
-  GetResolverRulePolicyResponse,
-  GetResolverRuleRequest,
-  GetResolverRuleResponse,
-  ListResolverEndpointIpAddressesRequest,
-  ListResolverEndpointIpAddressesResponse,
-  ListResolverEndpointsRequest,
-  ListResolverEndpointsResponse,
-  ListResolverRuleAssociationsRequest,
-  ListResolverRuleAssociationsResponse,
-  ListResolverRulesRequest,
-  ListResolverRulesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutResolverRulePolicyRequest,
-  PutResolverRulePolicyResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateResolverEndpointRequest,
-  UpdateResolverEndpointResponse,
-  UpdateResolverRuleRequest,
-  UpdateResolverRuleResponse
-} from "./models/index";
+  AssociateResolverEndpointIpAddressCommandInput,
+  AssociateResolverEndpointIpAddressCommandOutput
+} from "./commands/AssociateResolverEndpointIpAddressCommand";
+import {
+  AssociateResolverRuleCommandInput,
+  AssociateResolverRuleCommandOutput
+} from "./commands/AssociateResolverRuleCommand";
+import {
+  CreateResolverEndpointCommandInput,
+  CreateResolverEndpointCommandOutput
+} from "./commands/CreateResolverEndpointCommand";
+import {
+  CreateResolverRuleCommandInput,
+  CreateResolverRuleCommandOutput
+} from "./commands/CreateResolverRuleCommand";
+import {
+  DeleteResolverEndpointCommandInput,
+  DeleteResolverEndpointCommandOutput
+} from "./commands/DeleteResolverEndpointCommand";
+import {
+  DeleteResolverRuleCommandInput,
+  DeleteResolverRuleCommandOutput
+} from "./commands/DeleteResolverRuleCommand";
+import {
+  DisassociateResolverEndpointIpAddressCommandInput,
+  DisassociateResolverEndpointIpAddressCommandOutput
+} from "./commands/DisassociateResolverEndpointIpAddressCommand";
+import {
+  DisassociateResolverRuleCommandInput,
+  DisassociateResolverRuleCommandOutput
+} from "./commands/DisassociateResolverRuleCommand";
+import {
+  GetResolverEndpointCommandInput,
+  GetResolverEndpointCommandOutput
+} from "./commands/GetResolverEndpointCommand";
+import {
+  GetResolverRuleAssociationCommandInput,
+  GetResolverRuleAssociationCommandOutput
+} from "./commands/GetResolverRuleAssociationCommand";
+import {
+  GetResolverRuleCommandInput,
+  GetResolverRuleCommandOutput
+} from "./commands/GetResolverRuleCommand";
+import {
+  GetResolverRulePolicyCommandInput,
+  GetResolverRulePolicyCommandOutput
+} from "./commands/GetResolverRulePolicyCommand";
+import {
+  ListResolverEndpointIpAddressesCommandInput,
+  ListResolverEndpointIpAddressesCommandOutput
+} from "./commands/ListResolverEndpointIpAddressesCommand";
+import {
+  ListResolverEndpointsCommandInput,
+  ListResolverEndpointsCommandOutput
+} from "./commands/ListResolverEndpointsCommand";
+import {
+  ListResolverRuleAssociationsCommandInput,
+  ListResolverRuleAssociationsCommandOutput
+} from "./commands/ListResolverRuleAssociationsCommand";
+import {
+  ListResolverRulesCommandInput,
+  ListResolverRulesCommandOutput
+} from "./commands/ListResolverRulesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutResolverRulePolicyCommandInput,
+  PutResolverRulePolicyCommandOutput
+} from "./commands/PutResolverRulePolicyCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateResolverEndpointCommandInput,
+  UpdateResolverEndpointCommandOutput
+} from "./commands/UpdateResolverEndpointCommand";
+import {
+  UpdateResolverRuleCommandInput,
+  UpdateResolverRuleCommandOutput
+} from "./commands/UpdateResolverRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -97,52 +139,52 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AssociateResolverEndpointIpAddressRequest
-  | AssociateResolverRuleRequest
-  | CreateResolverEndpointRequest
-  | CreateResolverRuleRequest
-  | DeleteResolverEndpointRequest
-  | DeleteResolverRuleRequest
-  | DisassociateResolverEndpointIpAddressRequest
-  | DisassociateResolverRuleRequest
-  | GetResolverEndpointRequest
-  | GetResolverRuleAssociationRequest
-  | GetResolverRulePolicyRequest
-  | GetResolverRuleRequest
-  | ListResolverEndpointIpAddressesRequest
-  | ListResolverEndpointsRequest
-  | ListResolverRuleAssociationsRequest
-  | ListResolverRulesRequest
-  | ListTagsForResourceRequest
-  | PutResolverRulePolicyRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateResolverEndpointRequest
-  | UpdateResolverRuleRequest;
+  | AssociateResolverEndpointIpAddressCommandInput
+  | AssociateResolverRuleCommandInput
+  | CreateResolverEndpointCommandInput
+  | CreateResolverRuleCommandInput
+  | DeleteResolverEndpointCommandInput
+  | DeleteResolverRuleCommandInput
+  | DisassociateResolverEndpointIpAddressCommandInput
+  | DisassociateResolverRuleCommandInput
+  | GetResolverEndpointCommandInput
+  | GetResolverRuleAssociationCommandInput
+  | GetResolverRuleCommandInput
+  | GetResolverRulePolicyCommandInput
+  | ListResolverEndpointIpAddressesCommandInput
+  | ListResolverEndpointsCommandInput
+  | ListResolverRuleAssociationsCommandInput
+  | ListResolverRulesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutResolverRulePolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateResolverEndpointCommandInput
+  | UpdateResolverRuleCommandInput;
 
 export type ServiceOutputTypes =
-  | AssociateResolverEndpointIpAddressResponse
-  | AssociateResolverRuleResponse
-  | CreateResolverEndpointResponse
-  | CreateResolverRuleResponse
-  | DeleteResolverEndpointResponse
-  | DeleteResolverRuleResponse
-  | DisassociateResolverEndpointIpAddressResponse
-  | DisassociateResolverRuleResponse
-  | GetResolverEndpointResponse
-  | GetResolverRuleAssociationResponse
-  | GetResolverRulePolicyResponse
-  | GetResolverRuleResponse
-  | ListResolverEndpointIpAddressesResponse
-  | ListResolverEndpointsResponse
-  | ListResolverRuleAssociationsResponse
-  | ListResolverRulesResponse
-  | ListTagsForResourceResponse
-  | PutResolverRulePolicyResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateResolverEndpointResponse
-  | UpdateResolverRuleResponse;
+  | AssociateResolverEndpointIpAddressCommandOutput
+  | AssociateResolverRuleCommandOutput
+  | CreateResolverEndpointCommandOutput
+  | CreateResolverRuleCommandOutput
+  | DeleteResolverEndpointCommandOutput
+  | DeleteResolverRuleCommandOutput
+  | DisassociateResolverEndpointIpAddressCommandOutput
+  | DisassociateResolverRuleCommandOutput
+  | GetResolverEndpointCommandOutput
+  | GetResolverRuleAssociationCommandOutput
+  | GetResolverRuleCommandOutput
+  | GetResolverRulePolicyCommandOutput
+  | ListResolverEndpointIpAddressesCommandOutput
+  | ListResolverEndpointsCommandOutput
+  | ListResolverRuleAssociationsCommandOutput
+  | ListResolverRulesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutResolverRulePolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateResolverEndpointCommandOutput
+  | UpdateResolverRuleCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

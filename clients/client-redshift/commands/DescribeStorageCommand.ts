@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeStorageCommandInput = {};
-export type DescribeStorageCommandOutput = CustomerStorageMessage;
+export type DescribeStorageCommandOutput = CustomerStorageMessage &
+  __MetadataBearer;
 
 export class DescribeStorageCommand extends $Command<
   DescribeStorageCommandInput,

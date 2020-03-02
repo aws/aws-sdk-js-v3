@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateTargetsWithJobCommandInput = AssociateTargetsWithJobRequest;
-export type AssociateTargetsWithJobCommandOutput = AssociateTargetsWithJobResponse;
+export type AssociateTargetsWithJobCommandOutput = AssociateTargetsWithJobResponse &
+  __MetadataBearer;
 
 export class AssociateTargetsWithJobCommand extends $Command<
   AssociateTargetsWithJobCommandInput,

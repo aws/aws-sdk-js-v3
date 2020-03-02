@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetTraceGraphCommandInput = GetTraceGraphRequest;
-export type GetTraceGraphCommandOutput = GetTraceGraphResult;
+export type GetTraceGraphCommandOutput = GetTraceGraphResult & __MetadataBearer;
 
 export class GetTraceGraphCommand extends $Command<
   GetTraceGraphCommandInput,

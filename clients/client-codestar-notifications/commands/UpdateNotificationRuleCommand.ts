@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateNotificationRuleCommandInput = UpdateNotificationRuleRequest;
-export type UpdateNotificationRuleCommandOutput = UpdateNotificationRuleResult;
+export type UpdateNotificationRuleCommandOutput = UpdateNotificationRuleResult &
+  __MetadataBearer;
 
 export class UpdateNotificationRuleCommand extends $Command<
   UpdateNotificationRuleCommandInput,

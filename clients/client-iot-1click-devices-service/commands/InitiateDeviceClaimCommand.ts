@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InitiateDeviceClaimCommandInput = InitiateDeviceClaimRequest;
-export type InitiateDeviceClaimCommandOutput = InitiateDeviceClaimResponse;
+export type InitiateDeviceClaimCommandOutput = InitiateDeviceClaimResponse &
+  __MetadataBearer;
 
 export class InitiateDeviceClaimCommand extends $Command<
   InitiateDeviceClaimCommandInput,

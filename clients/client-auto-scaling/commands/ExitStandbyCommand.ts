@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExitStandbyCommandInput = ExitStandbyQuery;
-export type ExitStandbyCommandOutput = ExitStandbyAnswer;
+export type ExitStandbyCommandOutput = ExitStandbyAnswer & __MetadataBearer;
 
 export class ExitStandbyCommand extends $Command<
   ExitStandbyCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBotAliasCommandInput = GetBotAliasRequest;
-export type GetBotAliasCommandOutput = GetBotAliasResponse;
+export type GetBotAliasCommandOutput = GetBotAliasResponse & __MetadataBearer;
 
 export class GetBotAliasCommand extends $Command<
   GetBotAliasCommandInput,

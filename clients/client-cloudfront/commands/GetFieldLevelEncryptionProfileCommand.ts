@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetFieldLevelEncryptionProfileCommandInput = GetFieldLevelEncryptionProfileRequest;
-export type GetFieldLevelEncryptionProfileCommandOutput = GetFieldLevelEncryptionProfileResult;
+export type GetFieldLevelEncryptionProfileCommandOutput = GetFieldLevelEncryptionProfileResult &
+  __MetadataBearer;
 
 export class GetFieldLevelEncryptionProfileCommand extends $Command<
   GetFieldLevelEncryptionProfileCommandInput,

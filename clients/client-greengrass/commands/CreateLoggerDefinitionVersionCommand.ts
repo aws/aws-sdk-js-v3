@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateLoggerDefinitionVersionCommandInput = CreateLoggerDefinitionVersionRequest;
-export type CreateLoggerDefinitionVersionCommandOutput = CreateLoggerDefinitionVersionResponse;
+export type CreateLoggerDefinitionVersionCommandOutput = CreateLoggerDefinitionVersionResponse &
+  __MetadataBearer;
 
 export class CreateLoggerDefinitionVersionCommand extends $Command<
   CreateLoggerDefinitionVersionCommandInput,

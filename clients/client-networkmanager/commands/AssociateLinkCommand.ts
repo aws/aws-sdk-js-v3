@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateLinkCommandInput = AssociateLinkRequest;
-export type AssociateLinkCommandOutput = AssociateLinkResponse;
+export type AssociateLinkCommandOutput = AssociateLinkResponse &
+  __MetadataBearer;
 
 export class AssociateLinkCommand extends $Command<
   AssociateLinkCommandInput,

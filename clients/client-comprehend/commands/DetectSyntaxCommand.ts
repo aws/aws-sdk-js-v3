@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetectSyntaxCommandInput = DetectSyntaxRequest;
-export type DetectSyntaxCommandOutput = DetectSyntaxResponse;
+export type DetectSyntaxCommandOutput = DetectSyntaxResponse & __MetadataBearer;
 
 export class DetectSyntaxCommand extends $Command<
   DetectSyntaxCommandInput,

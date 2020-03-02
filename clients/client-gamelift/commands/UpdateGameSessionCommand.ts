@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGameSessionCommandInput = UpdateGameSessionInput;
-export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput;
+export type UpdateGameSessionCommandOutput = UpdateGameSessionOutput &
+  __MetadataBearer;
 
 export class UpdateGameSessionCommand extends $Command<
   UpdateGameSessionCommandInput,

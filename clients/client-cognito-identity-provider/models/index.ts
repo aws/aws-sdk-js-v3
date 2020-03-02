@@ -146,7 +146,7 @@ export namespace AddCustomAttributesRequest {
  * <p>Represents the response from the server for the request to add custom
  *             attributes.</p>
  */
-export interface AddCustomAttributesResponse extends $MetadataBearer {
+export interface AddCustomAttributesResponse {
   __type?: "AddCustomAttributesResponse";
 }
 
@@ -241,7 +241,7 @@ export namespace AdminConfirmSignUpRequest {
  * <p>Represents the response from the server for the request to confirm
  *             registration.</p>
  */
-export interface AdminConfirmSignUpResponse extends $MetadataBearer {
+export interface AdminConfirmSignUpResponse {
   __type?: "AdminConfirmSignUpResponse";
 }
 
@@ -445,7 +445,7 @@ export namespace AdminCreateUserRequest {
 /**
  * <p>Represents the response from the server to the request to create the user.</p>
  */
-export interface AdminCreateUserResponse extends $MetadataBearer {
+export interface AdminCreateUserResponse {
   __type?: "AdminCreateUserResponse";
   /**
    * <p>The newly created user.</p>
@@ -492,7 +492,7 @@ export namespace AdminDeleteUserAttributesRequest {
  * <p>Represents the response received from the server for a request to delete user
  *             attributes.</p>
  */
-export interface AdminDeleteUserAttributesResponse extends $MetadataBearer {
+export interface AdminDeleteUserAttributesResponse {
   __type?: "AdminDeleteUserAttributesResponse";
 }
 
@@ -543,7 +543,7 @@ export namespace AdminDisableProviderForUserRequest {
   }
 }
 
-export interface AdminDisableProviderForUserResponse extends $MetadataBearer {
+export interface AdminDisableProviderForUserResponse {
   __type?: "AdminDisableProviderForUserResponse";
 }
 
@@ -579,7 +579,7 @@ export namespace AdminDisableUserRequest {
  * <p>Represents the response received from the server to disable the user as an
  *             administrator.</p>
  */
-export interface AdminDisableUserResponse extends $MetadataBearer {
+export interface AdminDisableUserResponse {
   __type?: "AdminDisableUserResponse";
 }
 
@@ -615,7 +615,7 @@ export namespace AdminEnableUserRequest {
  * <p>Represents the response from the server for the request to enable a user as an
  *             administrator.</p>
  */
-export interface AdminEnableUserResponse extends $MetadataBearer {
+export interface AdminEnableUserResponse {
   __type?: "AdminEnableUserResponse";
 }
 
@@ -682,7 +682,7 @@ export namespace AdminGetDeviceRequest {
 /**
  * <p>Gets the device response, as an administrator.</p>
  */
-export interface AdminGetDeviceResponse extends $MetadataBearer {
+export interface AdminGetDeviceResponse {
   __type?: "AdminGetDeviceResponse";
   /**
    * <p>The device.</p>
@@ -723,7 +723,7 @@ export namespace AdminGetUserRequest {
  * <p>Represents the response from the server from the request to get the specified user as
  *             an administrator.</p>
  */
-export interface AdminGetUserResponse extends $MetadataBearer {
+export interface AdminGetUserResponse {
   __type?: "AdminGetUserResponse";
   /**
    * <p>Indicates that the status is enabled.</p>
@@ -1012,7 +1012,7 @@ export namespace AdminInitiateAuthRequest {
 /**
  * <p>Initiates the authentication response, as an administrator.</p>
  */
-export interface AdminInitiateAuthResponse extends $MetadataBearer {
+export interface AdminInitiateAuthResponse {
   __type?: "AdminInitiateAuthResponse";
   /**
    * <p>The result of the authentication response. This is only returned if the caller does
@@ -1170,7 +1170,7 @@ export namespace AdminLinkProviderForUserRequest {
   }
 }
 
-export interface AdminLinkProviderForUserResponse extends $MetadataBearer {
+export interface AdminLinkProviderForUserResponse {
   __type?: "AdminLinkProviderForUserResponse";
 }
 
@@ -1215,7 +1215,7 @@ export namespace AdminListDevicesRequest {
 /**
  * <p>Lists the device's response, as an administrator.</p>
  */
-export interface AdminListDevicesResponse extends $MetadataBearer {
+export interface AdminListDevicesResponse {
   __type?: "AdminListDevicesResponse";
   /**
    * <p>The devices in the list of devices response.</p>
@@ -1264,7 +1264,7 @@ export namespace AdminListGroupsForUserRequest {
   }
 }
 
-export interface AdminListGroupsForUserResponse extends $MetadataBearer {
+export interface AdminListGroupsForUserResponse {
   __type?: "AdminListGroupsForUserResponse";
   /**
    * <p>The groups that the user belongs to.</p>
@@ -1313,7 +1313,7 @@ export namespace AdminListUserAuthEventsRequest {
   }
 }
 
-export interface AdminListUserAuthEventsResponse extends $MetadataBearer {
+export interface AdminListUserAuthEventsResponse {
   __type?: "AdminListUserAuthEventsResponse";
   /**
    * <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>,
@@ -1420,7 +1420,7 @@ export namespace AdminResetUserPasswordRequest {
  * <p>Represents the response from the server to reset a user password as an
  *             administrator.</p>
  */
-export interface AdminResetUserPasswordResponse extends $MetadataBearer {
+export interface AdminResetUserPasswordResponse {
   __type?: "AdminResetUserPasswordResponse";
 }
 
@@ -1560,7 +1560,7 @@ export namespace AdminRespondToAuthChallengeRequest {
 /**
  * <p>Responds to the authentication challenge, as an administrator.</p>
  */
-export interface AdminRespondToAuthChallengeResponse extends $MetadataBearer {
+export interface AdminRespondToAuthChallengeResponse {
   __type?: "AdminRespondToAuthChallengeResponse";
   /**
    * <p>The result returned by the server in response to the authentication request.</p>
@@ -1622,7 +1622,7 @@ export namespace AdminSetUserMFAPreferenceRequest {
   }
 }
 
-export interface AdminSetUserMFAPreferenceResponse extends $MetadataBearer {
+export interface AdminSetUserMFAPreferenceResponse {
   __type?: "AdminSetUserMFAPreferenceResponse";
 }
 
@@ -1663,7 +1663,7 @@ export namespace AdminSetUserPasswordRequest {
   }
 }
 
-export interface AdminSetUserPasswordResponse extends $MetadataBearer {
+export interface AdminSetUserPasswordResponse {
   __type?: "AdminSetUserPasswordResponse";
 }
 
@@ -1707,7 +1707,7 @@ export namespace AdminSetUserSettingsRequest {
  * <p>Represents the response from the server to set user settings as an
  *             administrator.</p>
  */
-export interface AdminSetUserSettingsResponse extends $MetadataBearer {
+export interface AdminSetUserSettingsResponse {
   __type?: "AdminSetUserSettingsResponse";
 }
 
@@ -1746,7 +1746,7 @@ export namespace AdminUpdateAuthEventFeedbackRequest {
   }
 }
 
-export interface AdminUpdateAuthEventFeedbackResponse extends $MetadataBearer {
+export interface AdminUpdateAuthEventFeedbackResponse {
   __type?: "AdminUpdateAuthEventFeedbackResponse";
 }
 
@@ -1791,7 +1791,7 @@ export namespace AdminUpdateDeviceStatusRequest {
 /**
  * <p>The status response from the request to update the device, as an administrator.</p>
  */
-export interface AdminUpdateDeviceStatusResponse extends $MetadataBearer {
+export interface AdminUpdateDeviceStatusResponse {
   __type?: "AdminUpdateDeviceStatusResponse";
 }
 
@@ -1870,7 +1870,7 @@ export namespace AdminUpdateUserAttributesRequest {
  * <p>Represents the response from the server for the request to update user attributes as
  *             an administrator.</p>
  */
-export interface AdminUpdateUserAttributesResponse extends $MetadataBearer {
+export interface AdminUpdateUserAttributesResponse {
   __type?: "AdminUpdateUserAttributesResponse";
 }
 
@@ -1905,7 +1905,7 @@ export namespace AdminUserGlobalSignOutRequest {
 /**
  * <p>The global sign-out response, as an administrator.</p>
  */
-export interface AdminUserGlobalSignOutResponse extends $MetadataBearer {
+export interface AdminUserGlobalSignOutResponse {
   __type?: "AdminUserGlobalSignOutResponse";
 }
 
@@ -2023,7 +2023,7 @@ export namespace AssociateSoftwareTokenRequest {
   }
 }
 
-export interface AssociateSoftwareTokenResponse extends $MetadataBearer {
+export interface AssociateSoftwareTokenResponse {
   __type?: "AssociateSoftwareTokenResponse";
   /**
    * <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a
@@ -2254,7 +2254,7 @@ export namespace ChangePasswordRequest {
 /**
  * <p>The response from the server to the change password request.</p>
  */
-export interface ChangePasswordResponse extends $MetadataBearer {
+export interface ChangePasswordResponse {
   __type?: "ChangePasswordResponse";
 }
 
@@ -2436,7 +2436,7 @@ export namespace ConfirmDeviceRequest {
 /**
  * <p>Confirms the device response.</p>
  */
-export interface ConfirmDeviceResponse extends $MetadataBearer {
+export interface ConfirmDeviceResponse {
   __type?: "ConfirmDeviceResponse";
   /**
    * <p>Indicates whether the user confirmation is necessary to confirm the device
@@ -2543,7 +2543,7 @@ export namespace ConfirmForgotPasswordRequest {
  * <p>The response from the server that results from a user's request to retrieve a
  *             forgotten password.</p>
  */
-export interface ConfirmForgotPasswordResponse extends $MetadataBearer {
+export interface ConfirmForgotPasswordResponse {
   __type?: "ConfirmForgotPasswordResponse";
 }
 
@@ -2647,7 +2647,7 @@ export namespace ConfirmSignUpRequest {
 /**
  * <p>Represents the response from the server for the registration confirmation.</p>
  */
-export interface ConfirmSignUpResponse extends $MetadataBearer {
+export interface ConfirmSignUpResponse {
   __type?: "ConfirmSignUpResponse";
 }
 
@@ -2743,7 +2743,7 @@ export namespace CreateGroupRequest {
   }
 }
 
-export interface CreateGroupResponse extends $MetadataBearer {
+export interface CreateGroupResponse {
   __type?: "CreateGroupResponse";
   /**
    * <p>The group object for the group.</p>
@@ -2798,7 +2798,7 @@ export namespace CreateIdentityProviderRequest {
   }
 }
 
-export interface CreateIdentityProviderResponse extends $MetadataBearer {
+export interface CreateIdentityProviderResponse {
   __type?: "CreateIdentityProviderResponse";
   /**
    * <p>The newly created identity provider object.</p>
@@ -2844,7 +2844,7 @@ export namespace CreateResourceServerRequest {
   }
 }
 
-export interface CreateResourceServerResponse extends $MetadataBearer {
+export interface CreateResourceServerResponse {
   __type?: "CreateResourceServerResponse";
   /**
    * <p>The newly created resource server.</p>
@@ -2889,7 +2889,7 @@ export namespace CreateUserImportJobRequest {
  * <p>Represents the response from the server to the request to create the user import
  *             job.</p>
  */
-export interface CreateUserImportJobResponse extends $MetadataBearer {
+export interface CreateUserImportJobResponse {
   __type?: "CreateUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
@@ -3132,7 +3132,7 @@ export namespace CreateUserPoolClientRequest {
 /**
  * <p>Represents the response from the server to create a user pool client.</p>
  */
-export interface CreateUserPoolClientResponse extends $MetadataBearer {
+export interface CreateUserPoolClientResponse {
   __type?: "CreateUserPoolClientResponse";
   /**
    * <p>The user pool client that was just created.</p>
@@ -3175,7 +3175,7 @@ export namespace CreateUserPoolDomainRequest {
   }
 }
 
-export interface CreateUserPoolDomainResponse extends $MetadataBearer {
+export interface CreateUserPoolDomainResponse {
   __type?: "CreateUserPoolDomainResponse";
   /**
    * <p>The Amazon CloudFront endpoint that you use as the target of the alias that you set up
@@ -3325,7 +3325,7 @@ export namespace CreateUserPoolRequest {
 /**
  * <p>Represents the response from the server for the request to create a user pool.</p>
  */
-export interface CreateUserPoolResponse extends $MetadataBearer {
+export interface CreateUserPoolResponse {
   __type?: "CreateUserPoolResponse";
   /**
    * <p>A container for the user pool details.</p>
@@ -3447,7 +3447,7 @@ export namespace DeleteUserAttributesRequest {
 /**
  * <p>Represents the response from the server to delete user attributes.</p>
  */
-export interface DeleteUserAttributesResponse extends $MetadataBearer {
+export interface DeleteUserAttributesResponse {
   __type?: "DeleteUserAttributesResponse";
 }
 
@@ -3498,7 +3498,7 @@ export namespace DeleteUserPoolDomainRequest {
   }
 }
 
-export interface DeleteUserPoolDomainResponse extends $MetadataBearer {
+export interface DeleteUserPoolDomainResponse {
   __type?: "DeleteUserPoolDomainResponse";
 }
 
@@ -3566,7 +3566,7 @@ export namespace DescribeIdentityProviderRequest {
   }
 }
 
-export interface DescribeIdentityProviderResponse extends $MetadataBearer {
+export interface DescribeIdentityProviderResponse {
   __type?: "DescribeIdentityProviderResponse";
   /**
    * <p>The identity provider that was deleted.</p>
@@ -3599,7 +3599,7 @@ export namespace DescribeResourceServerRequest {
   }
 }
 
-export interface DescribeResourceServerResponse extends $MetadataBearer {
+export interface DescribeResourceServerResponse {
   __type?: "DescribeResourceServerResponse";
   /**
    * <p>The resource server.</p>
@@ -3632,7 +3632,7 @@ export namespace DescribeRiskConfigurationRequest {
   }
 }
 
-export interface DescribeRiskConfigurationResponse extends $MetadataBearer {
+export interface DescribeRiskConfigurationResponse {
   __type?: "DescribeRiskConfigurationResponse";
   /**
    * <p>The risk configuration.</p>
@@ -3672,7 +3672,7 @@ export namespace DescribeUserImportJobRequest {
  * <p>Represents the response from the server to the request to describe the user import
  *             job.</p>
  */
-export interface DescribeUserImportJobResponse extends $MetadataBearer {
+export interface DescribeUserImportJobResponse {
   __type?: "DescribeUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
@@ -3712,7 +3712,7 @@ export namespace DescribeUserPoolClientRequest {
  * <p>Represents the response from the server from a request to describe the user pool
  *             client.</p>
  */
-export interface DescribeUserPoolClientResponse extends $MetadataBearer {
+export interface DescribeUserPoolClientResponse {
   __type?: "DescribeUserPoolClientResponse";
   /**
    * <p>The user pool client from a server response to describe the user pool client.</p>
@@ -3740,7 +3740,7 @@ export namespace DescribeUserPoolDomainRequest {
   }
 }
 
-export interface DescribeUserPoolDomainResponse extends $MetadataBearer {
+export interface DescribeUserPoolDomainResponse {
   __type?: "DescribeUserPoolDomainResponse";
   /**
    * <p>A domain description object containing information about the domain.</p>
@@ -3774,7 +3774,7 @@ export namespace DescribeUserPoolRequest {
 /**
  * <p>Represents the response to describe the user pool.</p>
  */
-export interface DescribeUserPoolResponse extends $MetadataBearer {
+export interface DescribeUserPoolResponse {
   __type?: "DescribeUserPoolResponse";
   /**
    * <p>The container of metadata returned by the server to describe the pool.</p>
@@ -4316,7 +4316,7 @@ export namespace ForgotPasswordRequest {
  * <p>Respresents the response from the server regarding the request to reset a
  *             password.</p>
  */
-export interface ForgotPasswordResponse extends $MetadataBearer {
+export interface ForgotPasswordResponse {
   __type?: "ForgotPasswordResponse";
   /**
    * <p>The code delivery details returned by the server in response to the request to reset a
@@ -4353,7 +4353,7 @@ export namespace GetCSVHeaderRequest {
  * <p>Represents the response from the server to the request to get the header information
  *             for the .csv file for the user import job.</p>
  */
-export interface GetCSVHeaderResponse extends $MetadataBearer {
+export interface GetCSVHeaderResponse {
   __type?: "GetCSVHeaderResponse";
   /**
    * <p>The header information for the .csv file for the user import job.</p>
@@ -4397,7 +4397,7 @@ export namespace GetDeviceRequest {
 /**
  * <p>Gets the device response.</p>
  */
-export interface GetDeviceResponse extends $MetadataBearer {
+export interface GetDeviceResponse {
   __type?: "GetDeviceResponse";
   /**
    * <p>The device.</p>
@@ -4430,7 +4430,7 @@ export namespace GetGroupRequest {
   }
 }
 
-export interface GetGroupResponse extends $MetadataBearer {
+export interface GetGroupResponse {
   __type?: "GetGroupResponse";
   /**
    * <p>The group object for the group.</p>
@@ -4463,8 +4463,7 @@ export namespace GetIdentityProviderByIdentifierRequest {
   }
 }
 
-export interface GetIdentityProviderByIdentifierResponse
-  extends $MetadataBearer {
+export interface GetIdentityProviderByIdentifierResponse {
   __type?: "GetIdentityProviderByIdentifierResponse";
   /**
    * <p>The identity provider object.</p>
@@ -4498,7 +4497,7 @@ export namespace GetSigningCertificateRequest {
 /**
  * <p>Response from Cognito for a signing certificate request.</p>
  */
-export interface GetSigningCertificateResponse extends $MetadataBearer {
+export interface GetSigningCertificateResponse {
   __type?: "GetSigningCertificateResponse";
   /**
    * <p>The signing certificate.</p>
@@ -4531,7 +4530,7 @@ export namespace GetUICustomizationRequest {
   }
 }
 
-export interface GetUICustomizationResponse extends $MetadataBearer {
+export interface GetUICustomizationResponse {
   __type?: "GetUICustomizationResponse";
   /**
    * <p>The UI customization information.</p>
@@ -4609,8 +4608,7 @@ export namespace GetUserAttributeVerificationCodeRequest {
  * <p>The verification code response returned by the server response to get the user
  *             attribute verification code.</p>
  */
-export interface GetUserAttributeVerificationCodeResponse
-  extends $MetadataBearer {
+export interface GetUserAttributeVerificationCodeResponse {
   __type?: "GetUserAttributeVerificationCodeResponse";
   /**
    * <p>The code delivery details returned by the server in response to the request to get the
@@ -4639,7 +4637,7 @@ export namespace GetUserPoolMfaConfigRequest {
   }
 }
 
-export interface GetUserPoolMfaConfigResponse extends $MetadataBearer {
+export interface GetUserPoolMfaConfigResponse {
   __type?: "GetUserPoolMfaConfigResponse";
   /**
    * <p>The multi-factor (MFA) configuration. Valid values include:</p>
@@ -4699,7 +4697,7 @@ export namespace GetUserRequest {
  * <p>Represents the response from the server from the request to get information about the
  *             user.</p>
  */
-export interface GetUserResponse extends $MetadataBearer {
+export interface GetUserResponse {
   __type?: "GetUserResponse";
   /**
    * <p>
@@ -4761,7 +4759,7 @@ export namespace GlobalSignOutRequest {
 /**
  * <p>The response to the request to sign out all devices.</p>
  */
-export interface GlobalSignOutResponse extends $MetadataBearer {
+export interface GlobalSignOutResponse {
   __type?: "GlobalSignOutResponse";
 }
 
@@ -5123,7 +5121,7 @@ export namespace InitiateAuthRequest {
 /**
  * <p>Initiates the authentication response.</p>
  */
-export interface InitiateAuthResponse extends $MetadataBearer {
+export interface InitiateAuthResponse {
   __type?: "InitiateAuthResponse";
   /**
    * <p>The result of the authentication response. This is only returned if the caller does
@@ -5508,7 +5506,7 @@ export namespace ListDevicesRequest {
 /**
  * <p>Represents the response to list devices.</p>
  */
-export interface ListDevicesResponse extends $MetadataBearer {
+export interface ListDevicesResponse {
   __type?: "ListDevicesResponse";
   /**
    * <p>The devices returned in the list devices response.</p>
@@ -5552,7 +5550,7 @@ export namespace ListGroupsRequest {
   }
 }
 
-export interface ListGroupsResponse extends $MetadataBearer {
+export interface ListGroupsResponse {
   __type?: "ListGroupsResponse";
   /**
    * <p>The group objects for the groups.</p>
@@ -5596,7 +5594,7 @@ export namespace ListIdentityProvidersRequest {
   }
 }
 
-export interface ListIdentityProvidersResponse extends $MetadataBearer {
+export interface ListIdentityProvidersResponse {
   __type?: "ListIdentityProvidersResponse";
   /**
    * <p>A pagination token.</p>
@@ -5639,7 +5637,7 @@ export namespace ListResourceServersRequest {
   }
 }
 
-export interface ListResourceServersResponse extends $MetadataBearer {
+export interface ListResourceServersResponse {
   __type?: "ListResourceServersResponse";
   /**
    * <p>A pagination token.</p>
@@ -5672,7 +5670,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are assigned to the user pool.</p>
@@ -5719,7 +5717,7 @@ export namespace ListUserImportJobsRequest {
  * <p>Represents the response from the server to the request to list the user import
  *             jobs.</p>
  */
-export interface ListUserImportJobsResponse extends $MetadataBearer {
+export interface ListUserImportJobsResponse {
   __type?: "ListUserImportJobsResponse";
   /**
    * <p>An identifier that can be used to return the next set of user import jobs in the
@@ -5771,7 +5769,7 @@ export namespace ListUserPoolClientsRequest {
 /**
  * <p>Represents the response from the server that lists user pool clients.</p>
  */
-export interface ListUserPoolClientsResponse extends $MetadataBearer {
+export interface ListUserPoolClientsResponse {
   __type?: "ListUserPoolClientsResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -5818,7 +5816,7 @@ export namespace ListUserPoolsRequest {
 /**
  * <p>Represents the response to list user pools.</p>
  */
-export interface ListUserPoolsResponse extends $MetadataBearer {
+export interface ListUserPoolsResponse {
   __type?: "ListUserPoolsResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -5868,7 +5866,7 @@ export namespace ListUsersInGroupRequest {
   }
 }
 
-export interface ListUsersInGroupResponse extends $MetadataBearer {
+export interface ListUsersInGroupResponse {
   __type?: "ListUsersInGroupResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -6009,7 +6007,7 @@ export namespace ListUsersRequest {
 /**
  * <p>The response from the request to list users.</p>
  */
-export interface ListUsersResponse extends $MetadataBearer {
+export interface ListUsersResponse {
   __type?: "ListUsersResponse";
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -6524,7 +6522,7 @@ export namespace ResendConfirmationCodeRequest {
  * <p>The response from the server when the Amazon Cognito Your User Pools service makes the
  *             request to resend a confirmation code.</p>
  */
-export interface ResendConfirmationCodeResponse extends $MetadataBearer {
+export interface ResendConfirmationCodeResponse {
   __type?: "ResendConfirmationCodeResponse";
   /**
    * <p>The code delivery details returned by the server in response to the request to resend
@@ -6746,7 +6744,7 @@ export namespace RespondToAuthChallengeRequest {
 /**
  * <p>The response to respond to the authentication challenge.</p>
  */
-export interface RespondToAuthChallengeResponse extends $MetadataBearer {
+export interface RespondToAuthChallengeResponse {
   __type?: "RespondToAuthChallengeResponse";
   /**
    * <p>The result returned by the server in response to the request to respond to the
@@ -6995,7 +6993,7 @@ export namespace SetRiskConfigurationRequest {
   }
 }
 
-export interface SetRiskConfigurationResponse extends $MetadataBearer {
+export interface SetRiskConfigurationResponse {
   __type?: "SetRiskConfigurationResponse";
   /**
    * <p>The risk configuration.</p>
@@ -7038,7 +7036,7 @@ export namespace SetUICustomizationRequest {
   }
 }
 
-export interface SetUICustomizationResponse extends $MetadataBearer {
+export interface SetUICustomizationResponse {
   __type?: "SetUICustomizationResponse";
   /**
    * <p>The UI customization information.</p>
@@ -7076,7 +7074,7 @@ export namespace SetUserMFAPreferenceRequest {
   }
 }
 
-export interface SetUserMFAPreferenceResponse extends $MetadataBearer {
+export interface SetUserMFAPreferenceResponse {
   __type?: "SetUserMFAPreferenceResponse";
 }
 
@@ -7129,7 +7127,7 @@ export namespace SetUserPoolMfaConfigRequest {
   }
 }
 
-export interface SetUserPoolMfaConfigResponse extends $MetadataBearer {
+export interface SetUserPoolMfaConfigResponse {
   __type?: "SetUserPoolMfaConfigResponse";
   /**
    * <p>The MFA configuration. Valid values include:</p>
@@ -7193,7 +7191,7 @@ export namespace SetUserSettingsRequest {
 /**
  * <p>The response from the server for a set user settings request.</p>
  */
-export interface SetUserSettingsResponse extends $MetadataBearer {
+export interface SetUserSettingsResponse {
   __type?: "SetUserSettingsResponse";
 }
 
@@ -7300,7 +7298,7 @@ export namespace SignUpRequest {
 /**
  * <p>The response from the server for a registration request.</p>
  */
-export interface SignUpResponse extends $MetadataBearer {
+export interface SignUpResponse {
   __type?: "SignUpResponse";
   /**
    * <p>The code delivery details returned by the server response to the user registration
@@ -7455,7 +7453,7 @@ export namespace StartUserImportJobRequest {
  * <p>Represents the response from the server to the request to start the user import
  *             job.</p>
  */
-export interface StartUserImportJobResponse extends $MetadataBearer {
+export interface StartUserImportJobResponse {
   __type?: "StartUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
@@ -7500,7 +7498,7 @@ export namespace StopUserImportJobRequest {
  * <p>Represents the response from the server to the request to stop the user import
  *             job.</p>
  */
-export interface StopUserImportJobResponse extends $MetadataBearer {
+export interface StopUserImportJobResponse {
   __type?: "StopUserImportJobResponse";
   /**
    * <p>The job object that represents the user import job.</p>
@@ -7555,7 +7553,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -7735,7 +7733,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -7779,7 +7777,7 @@ export namespace UpdateAuthEventFeedbackRequest {
   }
 }
 
-export interface UpdateAuthEventFeedbackResponse extends $MetadataBearer {
+export interface UpdateAuthEventFeedbackResponse {
   __type?: "UpdateAuthEventFeedbackResponse";
 }
 
@@ -7819,7 +7817,7 @@ export namespace UpdateDeviceStatusRequest {
 /**
  * <p>The response to the request to update the device status.</p>
  */
-export interface UpdateDeviceStatusResponse extends $MetadataBearer {
+export interface UpdateDeviceStatusResponse {
   __type?: "UpdateDeviceStatusResponse";
 }
 
@@ -7866,7 +7864,7 @@ export namespace UpdateGroupRequest {
   }
 }
 
-export interface UpdateGroupResponse extends $MetadataBearer {
+export interface UpdateGroupResponse {
   __type?: "UpdateGroupResponse";
   /**
    * <p>The group object for the group.</p>
@@ -7915,7 +7913,7 @@ export namespace UpdateIdentityProviderRequest {
   }
 }
 
-export interface UpdateIdentityProviderResponse extends $MetadataBearer {
+export interface UpdateIdentityProviderResponse {
   __type?: "UpdateIdentityProviderResponse";
   /**
    * <p>The identity provider object.</p>
@@ -7958,7 +7956,7 @@ export namespace UpdateResourceServerRequest {
   }
 }
 
-export interface UpdateResourceServerResponse extends $MetadataBearer {
+export interface UpdateResourceServerResponse {
   __type?: "UpdateResourceServerResponse";
   /**
    * <p>The resource server.</p>
@@ -8035,7 +8033,7 @@ export namespace UpdateUserAttributesRequest {
  * <p>Represents the response from the server for the request to update user
  *             attributes.</p>
  */
-export interface UpdateUserAttributesResponse extends $MetadataBearer {
+export interface UpdateUserAttributesResponse {
   __type?: "UpdateUserAttributesResponse";
   /**
    * <p>The code delivery details list from the server for the request to update user
@@ -8270,7 +8268,7 @@ export namespace UpdateUserPoolClientRequest {
  * <p>Represents the response from the server to the request to update the user pool
  *             client.</p>
  */
-export interface UpdateUserPoolClientResponse extends $MetadataBearer {
+export interface UpdateUserPoolClientResponse {
   __type?: "UpdateUserPoolClientResponse";
   /**
    * <p>The user pool client value from the response from the server when an update user pool
@@ -8321,7 +8319,7 @@ export namespace UpdateUserPoolDomainRequest {
 /**
  * <p>The UpdateUserPoolDomain response output.</p>
  */
-export interface UpdateUserPoolDomainResponse extends $MetadataBearer {
+export interface UpdateUserPoolDomainResponse {
   __type?: "UpdateUserPoolDomainResponse";
   /**
    * <p>The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom
@@ -8459,7 +8457,7 @@ export namespace UpdateUserPoolRequest {
  * <p>Represents the response from the server when you make a request to update the user
  *             pool.</p>
  */
-export interface UpdateUserPoolResponse extends $MetadataBearer {
+export interface UpdateUserPoolResponse {
   __type?: "UpdateUserPoolResponse";
 }
 
@@ -9450,7 +9448,7 @@ export namespace VerifySoftwareTokenRequest {
   }
 }
 
-export interface VerifySoftwareTokenResponse extends $MetadataBearer {
+export interface VerifySoftwareTokenResponse {
   __type?: "VerifySoftwareTokenResponse";
   /**
    * <p>The session which should be passed both ways in challenge-response calls to the
@@ -9506,7 +9504,7 @@ export namespace VerifyUserAttributeRequest {
  * <p>A container representing the response from the server from the request to verify user
  *             attributes.</p>
  */
-export interface VerifyUserAttributeResponse extends $MetadataBearer {
+export interface VerifyUserAttributeResponse {
   __type?: "VerifyUserAttributeResponse";
 }
 

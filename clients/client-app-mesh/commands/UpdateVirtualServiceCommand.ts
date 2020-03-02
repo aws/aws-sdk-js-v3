@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateVirtualServiceCommandInput = UpdateVirtualServiceInput;
-export type UpdateVirtualServiceCommandOutput = UpdateVirtualServiceOutput;
+export type UpdateVirtualServiceCommandOutput = UpdateVirtualServiceOutput &
+  __MetadataBearer;
 
 export class UpdateVirtualServiceCommand extends $Command<
   UpdateVirtualServiceCommandInput,

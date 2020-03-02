@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateGlobalTableCommandInput = UpdateGlobalTableInput;
-export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput;
+export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput &
+  __MetadataBearer;
 
 export class UpdateGlobalTableCommand extends $Command<
   UpdateGlobalTableCommandInput,

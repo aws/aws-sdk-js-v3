@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketRequestPaymentCommandInput = GetBucketRequestPaymentRequest;
-export type GetBucketRequestPaymentCommandOutput = GetBucketRequestPaymentOutput;
+export type GetBucketRequestPaymentCommandOutput = GetBucketRequestPaymentOutput &
+  __MetadataBearer;
 
 export class GetBucketRequestPaymentCommand extends $Command<
   GetBucketRequestPaymentCommandInput,

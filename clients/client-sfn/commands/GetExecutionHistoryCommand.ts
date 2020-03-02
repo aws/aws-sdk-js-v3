@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetExecutionHistoryCommandInput = GetExecutionHistoryInput;
-export type GetExecutionHistoryCommandOutput = GetExecutionHistoryOutput;
+export type GetExecutionHistoryCommandOutput = GetExecutionHistoryOutput &
+  __MetadataBearer;
 
 export class GetExecutionHistoryCommand extends $Command<
   GetExecutionHistoryCommandInput,

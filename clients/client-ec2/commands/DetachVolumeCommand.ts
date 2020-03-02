@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachVolumeCommandInput = DetachVolumeRequest;
-export type DetachVolumeCommandOutput = VolumeAttachment;
+export type DetachVolumeCommandOutput = VolumeAttachment & __MetadataBearer;
 
 export class DetachVolumeCommand extends $Command<
   DetachVolumeCommandInput,

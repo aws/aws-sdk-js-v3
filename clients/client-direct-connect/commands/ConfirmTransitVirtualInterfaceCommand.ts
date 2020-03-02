@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConfirmTransitVirtualInterfaceCommandInput = ConfirmTransitVirtualInterfaceRequest;
-export type ConfirmTransitVirtualInterfaceCommandOutput = ConfirmTransitVirtualInterfaceResponse;
+export type ConfirmTransitVirtualInterfaceCommandOutput = ConfirmTransitVirtualInterfaceResponse &
+  __MetadataBearer;
 
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<
   ConfirmTransitVirtualInterfaceCommandInput,

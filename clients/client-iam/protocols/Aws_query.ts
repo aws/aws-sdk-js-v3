@@ -3285,31 +3285,43 @@ async function deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandErro
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3360,38 +3372,53 @@ async function deserializeAws_queryAddRoleToInstanceProfileCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3439,24 +3466,33 @@ async function deserializeAws_queryAddUserToGroupCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3504,38 +3540,53 @@ async function deserializeAws_queryAttachGroupPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotAttachableException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyNotAttachableException":
-      response = await deserializeAws_queryPolicyNotAttachableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3583,45 +3634,63 @@ async function deserializeAws_queryAttachRolePolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotAttachableException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyNotAttachableException":
-      response = await deserializeAws_queryPolicyNotAttachableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3669,38 +3738,53 @@ async function deserializeAws_queryAttachUserPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotAttachableException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyNotAttachableException":
-      response = await deserializeAws_queryPolicyNotAttachableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3748,45 +3832,63 @@ async function deserializeAws_queryChangePasswordCommandError(
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityTemporarilyUnmodifiableException":
-      response = await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidUserTypeException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidUserTypeException":
-      response = await deserializeAws_queryInvalidUserTypeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidUserTypeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordPolicyViolationException":
     case "com.amazon.webservices.auth.identity.v20100508#PasswordPolicyViolationException":
-      response = await deserializeAws_queryPasswordPolicyViolationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3841,24 +3943,33 @@ async function deserializeAws_queryCreateAccessKeyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3906,24 +4017,33 @@ async function deserializeAws_queryCreateAccountAliasCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3978,31 +4098,43 @@ async function deserializeAws_queryCreateGroupCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4060,24 +4192,33 @@ async function deserializeAws_queryCreateInstanceProfileCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4132,38 +4273,53 @@ async function deserializeAws_queryCreateLoginProfileCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordPolicyViolationException":
     case "com.amazon.webservices.auth.identity.v20100508#PasswordPolicyViolationException":
-      response = await deserializeAws_queryPasswordPolicyViolationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4221,31 +4377,43 @@ async function deserializeAws_queryCreateOpenIDConnectProviderCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4300,38 +4468,53 @@ async function deserializeAws_queryCreatePolicyCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4386,38 +4569,53 @@ async function deserializeAws_queryCreatePolicyVersionCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4472,45 +4670,63 @@ async function deserializeAws_queryCreateRoleCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4565,31 +4781,43 @@ async function deserializeAws_queryCreateSAMLProviderCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4647,31 +4875,43 @@ async function deserializeAws_queryCreateServiceLinkedRoleCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4729,24 +4969,33 @@ async function deserializeAws_queryCreateServiceSpecificCredentialCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotSupportedException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceNotSupportedException":
-      response = await deserializeAws_queryServiceNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4801,45 +5050,63 @@ async function deserializeAws_queryCreateUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4897,24 +5164,33 @@ async function deserializeAws_queryCreateVirtualMFADeviceCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4962,31 +5238,43 @@ async function deserializeAws_queryDeactivateMFADeviceCommandError(
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityTemporarilyUnmodifiableException":
-      response = await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5034,24 +5322,33 @@ async function deserializeAws_queryDeleteAccessKeyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5099,24 +5396,33 @@ async function deserializeAws_queryDeleteAccountAliasCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5167,24 +5473,33 @@ async function deserializeAws_queryDeleteAccountPasswordPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5232,31 +5547,43 @@ async function deserializeAws_queryDeleteGroupCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5304,24 +5631,33 @@ async function deserializeAws_queryDeleteGroupPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5372,31 +5708,43 @@ async function deserializeAws_queryDeleteInstanceProfileCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5444,31 +5792,43 @@ async function deserializeAws_queryDeleteLoginProfileCommandError(
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityTemporarilyUnmodifiableException":
-      response = await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5519,24 +5879,33 @@ async function deserializeAws_queryDeleteOpenIDConnectProviderCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5584,38 +5953,53 @@ async function deserializeAws_queryDeletePolicyCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5663,38 +6047,53 @@ async function deserializeAws_queryDeletePolicyVersionCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5742,45 +6141,63 @@ async function deserializeAws_queryDeleteRoleCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5831,24 +6248,33 @@ async function deserializeAws_queryDeleteRolePermissionsBoundaryCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5896,31 +6322,43 @@ async function deserializeAws_queryDeleteRolePolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -5968,31 +6406,43 @@ async function deserializeAws_queryDeleteSAMLProviderCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6040,10 +6490,13 @@ async function deserializeAws_queryDeleteSSHPublicKeyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6094,31 +6547,43 @@ async function deserializeAws_queryDeleteServerCertificateCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6176,24 +6641,33 @@ async function deserializeAws_queryDeleteServiceLinkedRoleCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6244,10 +6718,13 @@ async function deserializeAws_queryDeleteServiceSpecificCredentialCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6298,24 +6775,33 @@ async function deserializeAws_queryDeleteSigningCertificateCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6363,38 +6849,53 @@ async function deserializeAws_queryDeleteUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6445,17 +6946,23 @@ async function deserializeAws_queryDeleteUserPermissionsBoundaryCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6503,24 +7010,33 @@ async function deserializeAws_queryDeleteUserPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6571,31 +7087,43 @@ async function deserializeAws_queryDeleteVirtualMFADeviceCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazon.webservices.auth.identity.v20100508#DeleteConflictException":
-      response = await deserializeAws_queryDeleteConflictExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDeleteConflictExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6643,31 +7171,43 @@ async function deserializeAws_queryDetachGroupPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6715,38 +7255,53 @@ async function deserializeAws_queryDetachRolePolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6794,31 +7349,43 @@ async function deserializeAws_queryDetachUserPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6866,45 +7433,63 @@ async function deserializeAws_queryEnableMFADeviceCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityTemporarilyUnmodifiableException":
-      response = await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAuthenticationCodeException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidAuthenticationCodeException":
-      response = await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -6962,17 +7547,23 @@ async function deserializeAws_queryGenerateCredentialReportCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7030,10 +7621,13 @@ async function deserializeAws_queryGenerateOrganizationsAccessReportCommandError
   switch (errorCode) {
     case "ReportGenerationLimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#ReportGenerationLimitExceededException":
-      response = await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7091,17 +7685,23 @@ async function deserializeAws_queryGenerateServiceLastAccessedDetailsCommandErro
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7213,10 +7813,13 @@ async function deserializeAws_queryGetAccountAuthorizationDetailsCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7274,17 +7877,23 @@ async function deserializeAws_queryGetAccountPasswordPolicyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7339,10 +7948,13 @@ async function deserializeAws_queryGetAccountSummaryCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7400,10 +8012,13 @@ async function deserializeAws_queryGetContextKeysForCustomPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7461,17 +8076,23 @@ async function deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7526,31 +8147,43 @@ async function deserializeAws_queryGetCredentialReportCommandError(
   switch (errorCode) {
     case "CredentialReportExpiredException":
     case "com.amazon.webservices.auth.identity.v20100508#CredentialReportExpiredException":
-      response = await deserializeAws_queryCredentialReportExpiredExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCredentialReportExpiredExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CredentialReportNotPresentException":
     case "com.amazon.webservices.auth.identity.v20100508#CredentialReportNotPresentException":
-      response = await deserializeAws_queryCredentialReportNotPresentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCredentialReportNotPresentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CredentialReportNotReadyException":
     case "com.amazon.webservices.auth.identity.v20100508#CredentialReportNotReadyException":
-      response = await deserializeAws_queryCredentialReportNotReadyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryCredentialReportNotReadyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7602,17 +8235,23 @@ async function deserializeAws_queryGetGroupCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7667,17 +8306,23 @@ async function deserializeAws_queryGetGroupPolicyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7732,17 +8377,23 @@ async function deserializeAws_queryGetInstanceProfileCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7797,17 +8448,23 @@ async function deserializeAws_queryGetLoginProfileCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7865,24 +8522,33 @@ async function deserializeAws_queryGetOpenIDConnectProviderCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7940,10 +8606,13 @@ async function deserializeAws_queryGetOrganizationsAccessReportCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -7998,24 +8667,33 @@ async function deserializeAws_queryGetPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8070,24 +8748,33 @@ async function deserializeAws_queryGetPolicyVersionCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8139,17 +8826,23 @@ async function deserializeAws_queryGetRoleCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8204,17 +8897,23 @@ async function deserializeAws_queryGetRolePolicyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8269,24 +8968,33 @@ async function deserializeAws_queryGetSAMLProviderCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8341,17 +9049,23 @@ async function deserializeAws_queryGetSSHPublicKeyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnrecognizedPublicKeyEncodingException":
     case "com.amazon.webservices.auth.identity.v20100508#UnrecognizedPublicKeyEncodingException":
-      response = await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8409,17 +9123,23 @@ async function deserializeAws_queryGetServerCertificateCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8477,17 +9197,23 @@ async function deserializeAws_queryGetServiceLastAccessedDetailsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8545,17 +9271,23 @@ async function deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesComm
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8613,24 +9345,33 @@ async function deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandErro
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8682,17 +9423,23 @@ async function deserializeAws_queryGetUserCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8747,17 +9494,23 @@ async function deserializeAws_queryGetUserPolicyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8812,17 +9565,23 @@ async function deserializeAws_queryListAccessKeysCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8877,10 +9636,13 @@ async function deserializeAws_queryListAccountAliasesCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -8938,24 +9700,33 @@ async function deserializeAws_queryListAttachedGroupPoliciesCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9013,24 +9784,33 @@ async function deserializeAws_queryListAttachedRolePoliciesCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9088,24 +9868,33 @@ async function deserializeAws_queryListAttachedUserPoliciesCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9163,24 +9952,33 @@ async function deserializeAws_queryListEntitiesForPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9235,17 +10033,23 @@ async function deserializeAws_queryListGroupPoliciesCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9300,10 +10104,13 @@ async function deserializeAws_queryListGroupsCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9358,17 +10165,23 @@ async function deserializeAws_queryListGroupsForUserCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9426,10 +10239,13 @@ async function deserializeAws_queryListInstanceProfilesCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9487,17 +10303,23 @@ async function deserializeAws_queryListInstanceProfilesForRoleCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9552,17 +10374,23 @@ async function deserializeAws_queryListMFADevicesCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9620,10 +10448,13 @@ async function deserializeAws_queryListOpenIDConnectProvidersCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9678,10 +10509,13 @@ async function deserializeAws_queryListPoliciesCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9739,17 +10573,23 @@ async function deserializeAws_queryListPoliciesGrantingServiceAccessCommandError
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9804,24 +10644,33 @@ async function deserializeAws_queryListPolicyVersionsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9876,17 +10725,23 @@ async function deserializeAws_queryListRolePoliciesCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -9941,17 +10796,23 @@ async function deserializeAws_queryListRoleTagsCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10006,10 +10867,13 @@ async function deserializeAws_queryListRolesCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10064,10 +10928,13 @@ async function deserializeAws_queryListSAMLProvidersCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10122,10 +10989,13 @@ async function deserializeAws_queryListSSHPublicKeysCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10183,10 +11053,13 @@ async function deserializeAws_queryListServerCertificatesCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10244,17 +11117,23 @@ async function deserializeAws_queryListServiceSpecificCredentialsCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceNotSupportedException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceNotSupportedException":
-      response = await deserializeAws_queryServiceNotSupportedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceNotSupportedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10312,17 +11191,23 @@ async function deserializeAws_queryListSigningCertificatesCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10377,17 +11262,23 @@ async function deserializeAws_queryListUserPoliciesCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10442,17 +11333,23 @@ async function deserializeAws_queryListUserTagsCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10507,10 +11404,13 @@ async function deserializeAws_queryListUsersCommandError(
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10612,31 +11512,43 @@ async function deserializeAws_queryPutGroupPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10687,38 +11599,53 @@ async function deserializeAws_queryPutRolePermissionsBoundaryCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotAttachableException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyNotAttachableException":
-      response = await deserializeAws_queryPolicyNotAttachableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10766,38 +11693,53 @@ async function deserializeAws_queryPutRolePolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10848,31 +11790,43 @@ async function deserializeAws_queryPutUserPermissionsBoundaryCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyNotAttachableException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyNotAttachableException":
-      response = await deserializeAws_queryPolicyNotAttachableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10920,31 +11874,43 @@ async function deserializeAws_queryPutUserPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -10995,24 +11961,33 @@ async function deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderComman
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11063,31 +12038,43 @@ async function deserializeAws_queryRemoveRoleFromInstanceProfileCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11135,24 +12122,33 @@ async function deserializeAws_queryRemoveUserFromGroupCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11210,10 +12206,13 @@ async function deserializeAws_queryResetServiceSpecificCredentialCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11261,31 +12260,43 @@ async function deserializeAws_queryResyncMFADeviceCommandError(
   switch (errorCode) {
     case "InvalidAuthenticationCodeException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidAuthenticationCodeException":
-      response = await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11336,31 +12347,43 @@ async function deserializeAws_querySetDefaultPolicyVersionCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11411,10 +12434,13 @@ async function deserializeAws_querySetSecurityTokenServicePreferencesCommandErro
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11472,17 +12498,23 @@ async function deserializeAws_querySimulateCustomPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyEvaluationException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyEvaluationException":
-      response = await deserializeAws_queryPolicyEvaluationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyEvaluationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11540,24 +12572,33 @@ async function deserializeAws_querySimulatePrincipalPolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PolicyEvaluationException":
     case "com.amazon.webservices.auth.identity.v20100508#PolicyEvaluationException":
-      response = await deserializeAws_queryPolicyEvaluationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPolicyEvaluationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11605,38 +12646,53 @@ async function deserializeAws_queryTagRoleCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11684,38 +12740,53 @@ async function deserializeAws_queryTagUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11763,24 +12834,33 @@ async function deserializeAws_queryUntagRoleCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11828,24 +12908,33 @@ async function deserializeAws_queryUntagUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11893,24 +12982,33 @@ async function deserializeAws_queryUpdateAccessKeyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -11961,31 +13059,43 @@ async function deserializeAws_queryUpdateAccountPasswordPolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12036,38 +13146,53 @@ async function deserializeAws_queryUpdateAssumeRolePolicyCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyDocumentException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException":
-      response = await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12115,31 +13240,43 @@ async function deserializeAws_queryUpdateGroupCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12187,38 +13324,53 @@ async function deserializeAws_queryUpdateLoginProfileCommandError(
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityTemporarilyUnmodifiableException":
-      response = await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "PasswordPolicyViolationException":
     case "com.amazon.webservices.auth.identity.v20100508#PasswordPolicyViolationException":
-      response = await deserializeAws_queryPasswordPolicyViolationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12269,24 +13421,33 @@ async function deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandE
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12341,24 +13502,33 @@ async function deserializeAws_queryUpdateRoleCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12416,24 +13586,33 @@ async function deserializeAws_queryUpdateRoleDescriptionCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnmodifiableEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#UnmodifiableEntityException":
-      response = await deserializeAws_queryUnmodifiableEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12488,31 +13667,43 @@ async function deserializeAws_queryUpdateSAMLProviderCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidInputException":
-      response = await deserializeAws_queryInvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12560,10 +13751,13 @@ async function deserializeAws_queryUpdateSSHPublicKeyCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12614,31 +13808,43 @@ async function deserializeAws_queryUpdateServerCertificateCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12689,10 +13895,13 @@ async function deserializeAws_queryUpdateServiceSpecificCredentialCommandError(
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12743,24 +13952,33 @@ async function deserializeAws_queryUpdateSigningCertificateCommandError(
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12808,45 +14026,63 @@ async function deserializeAws_queryUpdateUserCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationException":
-      response = await deserializeAws_queryConcurrentModificationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityTemporarilyUnmodifiableException":
-      response = await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12901,38 +14137,53 @@ async function deserializeAws_queryUploadSSHPublicKeyCommandError(
   switch (errorCode) {
     case "DuplicateSSHPublicKeyException":
     case "com.amazon.webservices.auth.identity.v20100508#DuplicateSSHPublicKeyException":
-      response = await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPublicKeyException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidPublicKeyException":
-      response = await deserializeAws_queryInvalidPublicKeyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidPublicKeyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnrecognizedPublicKeyEncodingException":
     case "com.amazon.webservices.auth.identity.v20100508#UnrecognizedPublicKeyEncodingException":
-      response = await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -12990,38 +14241,53 @@ async function deserializeAws_queryUploadServerCertificateCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KeyPairMismatchException":
     case "com.amazon.webservices.auth.identity.v20100508#KeyPairMismatchException":
-      response = await deserializeAws_queryKeyPairMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryKeyPairMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedCertificateException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedCertificateException":
-      response = await deserializeAws_queryMalformedCertificateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedCertificateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -13079,52 +14345,73 @@ async function deserializeAws_queryUploadSigningCertificateCommandError(
   switch (errorCode) {
     case "DuplicateCertificateException":
     case "com.amazon.webservices.auth.identity.v20100508#DuplicateCertificateException":
-      response = await deserializeAws_queryDuplicateCertificateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryDuplicateCertificateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.webservices.auth.identity.v20100508#EntityAlreadyExistsException":
-      response = await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCertificateException":
     case "com.amazon.webservices.auth.identity.v20100508#InvalidCertificateException":
-      response = await deserializeAws_queryInvalidCertificateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryInvalidCertificateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.webservices.auth.identity.v20100508#LimitExceededException":
-      response = await deserializeAws_queryLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedCertificateException":
     case "com.amazon.webservices.auth.identity.v20100508#MalformedCertificateException":
-      response = await deserializeAws_queryMalformedCertificateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryMalformedCertificateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NoSuchEntityException":
     case "com.amazon.webservices.auth.identity.v20100508#NoSuchEntityException":
-      response = await deserializeAws_queryNoSuchEntityExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceFailureException":
     case "com.amazon.webservices.auth.identity.v20100508#ServiceFailureException":
-      response = await deserializeAws_queryServiceFailureExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_queryServiceFailureExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

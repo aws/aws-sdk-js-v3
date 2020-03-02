@@ -200,73 +200,103 @@ async function deserializeAws_json1_1AnalyzeDocumentCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      response = await deserializeAws_json1_1BadDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      response = await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "HumanLoopQuotaExceededException":
     case "com.amazonaws.textract#HumanLoopQuotaExceededException":
-      response = await deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1HumanLoopQuotaExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      response = await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      response = await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -322,66 +352,93 @@ async function deserializeAws_json1_1DetectDocumentTextCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      response = await deserializeAws_json1_1BadDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      response = await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      response = await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      response = await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -437,45 +494,63 @@ async function deserializeAws_json1_1GetDocumentAnalysisCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      response = await deserializeAws_json1_1InvalidJobIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -534,45 +609,63 @@ async function deserializeAws_json1_1GetDocumentTextDetectionCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
-      response = await deserializeAws_json1_1InvalidJobIdExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobIdExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -628,80 +721,113 @@ async function deserializeAws_json1_1StartDocumentAnalysisCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      response = await deserializeAws_json1_1BadDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      response = await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      response = await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      response = await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -760,80 +886,113 @@ async function deserializeAws_json1_1StartDocumentTextDetectionCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
-      response = await deserializeAws_json1_1AccessDeniedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "BadDocumentException":
     case "com.amazonaws.textract#BadDocumentException":
-      response = await deserializeAws_json1_1BadDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1BadDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DocumentTooLargeException":
     case "com.amazonaws.textract#DocumentTooLargeException":
-      response = await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DocumentTooLargeExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      response = await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.textract#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.textract#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidS3ObjectException":
     case "com.amazonaws.textract#InvalidS3ObjectException":
-      response = await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.textract#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
-      response = await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedDocumentExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

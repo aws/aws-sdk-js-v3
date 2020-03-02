@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type SendTaskSuccessCommandInput = SendTaskSuccessInput;
-export type SendTaskSuccessCommandOutput = SendTaskSuccessOutput;
+export type SendTaskSuccessCommandOutput = SendTaskSuccessOutput &
+  __MetadataBearer;
 
 export class SendTaskSuccessCommand extends $Command<
   SendTaskSuccessCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListInventoryEntriesCommandInput = ListInventoryEntriesRequest;
-export type ListInventoryEntriesCommandOutput = ListInventoryEntriesResult;
+export type ListInventoryEntriesCommandOutput = ListInventoryEntriesResult &
+  __MetadataBearer;
 
 export class ListInventoryEntriesCommand extends $Command<
   ListInventoryEntriesCommandInput,

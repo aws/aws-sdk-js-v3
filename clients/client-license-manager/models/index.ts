@@ -153,7 +153,7 @@ export namespace CreateLicenseConfigurationRequest {
   }
 }
 
-export interface CreateLicenseConfigurationResponse extends $MetadataBearer {
+export interface CreateLicenseConfigurationResponse {
   __type?: "CreateLicenseConfigurationResponse";
   /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
@@ -181,7 +181,7 @@ export namespace DeleteLicenseConfigurationRequest {
   }
 }
 
-export interface DeleteLicenseConfigurationResponse extends $MetadataBearer {
+export interface DeleteLicenseConfigurationResponse {
   __type?: "DeleteLicenseConfigurationResponse";
 }
 
@@ -263,7 +263,7 @@ export namespace GetLicenseConfigurationRequest {
   }
 }
 
-export interface GetLicenseConfigurationResponse extends $MetadataBearer {
+export interface GetLicenseConfigurationResponse {
   __type?: "GetLicenseConfigurationResponse";
   /**
    * <p>Automated discovery information.</p>
@@ -362,7 +362,7 @@ export namespace GetServiceSettingsRequest {
   }
 }
 
-export interface GetServiceSettingsResponse extends $MetadataBearer {
+export interface GetServiceSettingsResponse {
   __type?: "GetServiceSettingsResponse";
   /**
    * <p>Indicates whether cross-account discovery has been enabled.</p>
@@ -758,8 +758,7 @@ export namespace ListAssociationsForLicenseConfigurationRequest {
   }
 }
 
-export interface ListAssociationsForLicenseConfigurationResponse
-  extends $MetadataBearer {
+export interface ListAssociationsForLicenseConfigurationResponse {
   __type?: "ListAssociationsForLicenseConfigurationResponse";
   /**
    * <p>Information about the associations for the license configuration.</p>
@@ -806,8 +805,7 @@ export namespace ListFailuresForLicenseConfigurationOperationsRequest {
   }
 }
 
-export interface ListFailuresForLicenseConfigurationOperationsResponse
-  extends $MetadataBearer {
+export interface ListFailuresForLicenseConfigurationOperationsResponse {
   __type?: "ListFailuresForLicenseConfigurationOperationsResponse";
   /**
    * <p>License configuration operations that failed.</p>
@@ -875,7 +873,7 @@ export namespace ListLicenseConfigurationsRequest {
   }
 }
 
-export interface ListLicenseConfigurationsResponse extends $MetadataBearer {
+export interface ListLicenseConfigurationsResponse {
   __type?: "ListLicenseConfigurationsResponse";
   /**
    * <p>Information about the license configurations.</p>
@@ -920,8 +918,7 @@ export namespace ListLicenseSpecificationsForResourceRequest {
   }
 }
 
-export interface ListLicenseSpecificationsForResourceResponse
-  extends $MetadataBearer {
+export interface ListLicenseSpecificationsForResourceResponse {
   __type?: "ListLicenseSpecificationsForResourceResponse";
   /**
    * <p>License configurations associated with a resource.</p>
@@ -998,7 +995,7 @@ export namespace ListResourceInventoryRequest {
   }
 }
 
-export interface ListResourceInventoryResponse extends $MetadataBearer {
+export interface ListResourceInventoryResponse {
   __type?: "ListResourceInventoryResponse";
   /**
    * <p>Token for the next set of results.</p>
@@ -1031,7 +1028,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>Information about the tags.</p>
@@ -1092,8 +1089,7 @@ export namespace ListUsageForLicenseConfigurationRequest {
   }
 }
 
-export interface ListUsageForLicenseConfigurationResponse
-  extends $MetadataBearer {
+export interface ListUsageForLicenseConfigurationResponse {
   __type?: "ListUsageForLicenseConfigurationResponse";
   /**
    * <p>Information about the license configurations.</p>
@@ -1401,7 +1397,7 @@ export namespace TagResourceRequest {
   }
 }
 
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1430,7 +1426,7 @@ export namespace UntagResourceRequest {
   }
 }
 
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 
@@ -1489,7 +1485,7 @@ export namespace UpdateLicenseConfigurationRequest {
   }
 }
 
-export interface UpdateLicenseConfigurationResponse extends $MetadataBearer {
+export interface UpdateLicenseConfigurationResponse {
   __type?: "UpdateLicenseConfigurationResponse";
 }
 
@@ -1525,8 +1521,7 @@ export namespace UpdateLicenseSpecificationsForResourceRequest {
   }
 }
 
-export interface UpdateLicenseSpecificationsForResourceResponse
-  extends $MetadataBearer {
+export interface UpdateLicenseSpecificationsForResourceResponse {
   __type?: "UpdateLicenseSpecificationsForResourceResponse";
 }
 
@@ -1567,7 +1562,7 @@ export namespace UpdateServiceSettingsRequest {
   }
 }
 
-export interface UpdateServiceSettingsResponse extends $MetadataBearer {
+export interface UpdateServiceSettingsResponse {
   __type?: "UpdateServiceSettingsResponse";
 }
 

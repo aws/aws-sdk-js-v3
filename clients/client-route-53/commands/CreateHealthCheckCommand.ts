@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateHealthCheckCommandInput = CreateHealthCheckRequest;
-export type CreateHealthCheckCommandOutput = CreateHealthCheckResponse;
+export type CreateHealthCheckCommandOutput = CreateHealthCheckResponse &
+  __MetadataBearer;
 
 export class CreateHealthCheckCommand extends $Command<
   CreateHealthCheckCommandInput,

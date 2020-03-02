@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ConnectCustomKeyStoreCommandInput = ConnectCustomKeyStoreRequest;
-export type ConnectCustomKeyStoreCommandOutput = ConnectCustomKeyStoreResponse;
+export type ConnectCustomKeyStoreCommandOutput = ConnectCustomKeyStoreResponse &
+  __MetadataBearer;
 
 export class ConnectCustomKeyStoreCommand extends $Command<
   ConnectCustomKeyStoreCommandInput,

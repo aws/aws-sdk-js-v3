@@ -145,7 +145,7 @@ export namespace CreateJobRequest {
   }
 }
 
-export interface CreateJobResult extends $MetadataBearer {
+export interface CreateJobResult {
   __type?: "CreateJobResult";
   /**
    * <p>The ID for this job. Amazon S3 generates this ID automatically and returns it after a
@@ -232,7 +232,7 @@ export namespace DescribeJobRequest {
   }
 }
 
-export interface DescribeJobResult extends $MetadataBearer {
+export interface DescribeJobResult {
   __type?: "DescribeJobResult";
   /**
    * <p>Contains the configuration parameters and status for the job specified in the <code>Describe Job</code> request.</p>
@@ -265,7 +265,7 @@ export namespace GetAccessPointPolicyRequest {
   }
 }
 
-export interface GetAccessPointPolicyResult extends $MetadataBearer {
+export interface GetAccessPointPolicyResult {
   __type?: "GetAccessPointPolicyResult";
   /**
    * <p>The access point policy associated with the specified access point.</p>
@@ -298,7 +298,7 @@ export namespace GetAccessPointPolicyStatusRequest {
   }
 }
 
-export interface GetAccessPointPolicyStatusResult extends $MetadataBearer {
+export interface GetAccessPointPolicyStatusResult {
   __type?: "GetAccessPointPolicyStatusResult";
   /**
    * <p>Indicates the current policy status of the specified access point.</p>
@@ -331,7 +331,7 @@ export namespace GetAccessPointRequest {
   }
 }
 
-export interface GetAccessPointResult extends $MetadataBearer {
+export interface GetAccessPointResult {
   __type?: "GetAccessPointResult";
   /**
    * <p>The name of the bucket associated with the specified access point.</p>
@@ -373,7 +373,7 @@ export namespace GetAccessPointResult {
   }
 }
 
-export interface GetPublicAccessBlockOutput extends $MetadataBearer {
+export interface GetPublicAccessBlockOutput {
   __type?: "GetPublicAccessBlockOutput";
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon Web Services
@@ -914,7 +914,7 @@ export namespace ListAccessPointsRequest {
   }
 }
 
-export interface ListAccessPointsResult extends $MetadataBearer {
+export interface ListAccessPointsResult {
   __type?: "ListAccessPointsResult";
   /**
    * <p>Contains identification and configuration information for one or more access points associated with the specified bucket.</p>
@@ -962,7 +962,7 @@ export namespace ListJobsRequest {
   }
 }
 
-export interface ListJobsResult extends $MetadataBearer {
+export interface ListJobsResult {
   __type?: "ListJobsResult";
   /**
    * <p>The list of current jobs and jobs that have ended within the last 30 days.</p>
@@ -1612,7 +1612,7 @@ export namespace UpdateJobPriorityRequest {
   }
 }
 
-export interface UpdateJobPriorityResult extends $MetadataBearer {
+export interface UpdateJobPriorityResult {
   __type?: "UpdateJobPriorityResult";
   /**
    * <p>The ID for the job whose priority Amazon S3 updated.</p>
@@ -1660,7 +1660,7 @@ export namespace UpdateJobStatusRequest {
   }
 }
 
-export interface UpdateJobStatusResult extends $MetadataBearer {
+export interface UpdateJobStatusResult {
   __type?: "UpdateJobStatusResult";
   /**
    * <p>The ID for the job whose status was updated.</p>

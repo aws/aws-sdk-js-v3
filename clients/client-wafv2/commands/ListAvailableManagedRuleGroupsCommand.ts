@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAvailableManagedRuleGroupsCommandInput = ListAvailableManagedRuleGroupsRequest;
-export type ListAvailableManagedRuleGroupsCommandOutput = ListAvailableManagedRuleGroupsResponse;
+export type ListAvailableManagedRuleGroupsCommandOutput = ListAvailableManagedRuleGroupsResponse &
+  __MetadataBearer;
 
 export class ListAvailableManagedRuleGroupsCommand extends $Command<
   ListAvailableManagedRuleGroupsCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TerminateWorkspacesCommandInput = TerminateWorkspacesRequest;
-export type TerminateWorkspacesCommandOutput = TerminateWorkspacesResult;
+export type TerminateWorkspacesCommandOutput = TerminateWorkspacesResult &
+  __MetadataBearer;
 
 export class TerminateWorkspacesCommand extends $Command<
   TerminateWorkspacesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeFileSystemsCommandInput = DescribeFileSystemsRequest;
-export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse;
+export type DescribeFileSystemsCommandOutput = DescribeFileSystemsResponse &
+  __MetadataBearer;
 
 export class DescribeFileSystemsCommand extends $Command<
   DescribeFileSystemsCommandInput,

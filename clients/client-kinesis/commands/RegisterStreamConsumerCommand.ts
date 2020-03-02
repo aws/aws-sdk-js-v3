@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterStreamConsumerCommandInput = RegisterStreamConsumerInput;
-export type RegisterStreamConsumerCommandOutput = RegisterStreamConsumerOutput;
+export type RegisterStreamConsumerCommandOutput = RegisterStreamConsumerOutput &
+  __MetadataBearer;
 
 export class RegisterStreamConsumerCommand extends $Command<
   RegisterStreamConsumerCommandInput,

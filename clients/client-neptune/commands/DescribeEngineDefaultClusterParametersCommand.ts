@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeEngineDefaultClusterParametersCommandInput = DescribeEngineDefaultClusterParametersMessage;
-export type DescribeEngineDefaultClusterParametersCommandOutput = DescribeEngineDefaultClusterParametersResult;
+export type DescribeEngineDefaultClusterParametersCommandOutput = DescribeEngineDefaultClusterParametersResult &
+  __MetadataBearer;
 
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   DescribeEngineDefaultClusterParametersCommandInput,

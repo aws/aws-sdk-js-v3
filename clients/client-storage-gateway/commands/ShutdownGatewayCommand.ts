@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ShutdownGatewayCommandInput = ShutdownGatewayInput;
-export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput;
+export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput &
+  __MetadataBearer;
 
 export class ShutdownGatewayCommand extends $Command<
   ShutdownGatewayCommandInput,

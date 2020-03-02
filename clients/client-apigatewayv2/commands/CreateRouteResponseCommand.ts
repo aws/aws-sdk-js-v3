@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateRouteResponseCommandInput = CreateRouteResponseRequest;
-export type CreateRouteResponseCommandOutput = CreateRouteResponseResponse;
+export type CreateRouteResponseCommandOutput = CreateRouteResponseResponse &
+  __MetadataBearer;
 
 export class CreateRouteResponseCommand extends $Command<
   CreateRouteResponseCommandInput,

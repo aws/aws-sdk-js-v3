@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEbsEncryptionByDefaultCommandInput = GetEbsEncryptionByDefaultRequest;
-export type GetEbsEncryptionByDefaultCommandOutput = GetEbsEncryptionByDefaultResult;
+export type GetEbsEncryptionByDefaultCommandOutput = GetEbsEncryptionByDefaultResult &
+  __MetadataBearer;
 
 export class GetEbsEncryptionByDefaultCommand extends $Command<
   GetEbsEncryptionByDefaultCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListRequestedServiceQuotaChangeHistoryCommandInput = ListRequestedServiceQuotaChangeHistoryRequest;
-export type ListRequestedServiceQuotaChangeHistoryCommandOutput = ListRequestedServiceQuotaChangeHistoryResponse;
+export type ListRequestedServiceQuotaChangeHistoryCommandOutput = ListRequestedServiceQuotaChangeHistoryResponse &
+  __MetadataBearer;
 
 export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
   ListRequestedServiceQuotaChangeHistoryCommandInput,

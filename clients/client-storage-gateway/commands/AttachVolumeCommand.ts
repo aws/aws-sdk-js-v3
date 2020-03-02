@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachVolumeCommandInput = AttachVolumeInput;
-export type AttachVolumeCommandOutput = AttachVolumeOutput;
+export type AttachVolumeCommandOutput = AttachVolumeOutput & __MetadataBearer;
 
 export class AttachVolumeCommand extends $Command<
   AttachVolumeCommandInput,

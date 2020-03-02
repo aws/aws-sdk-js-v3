@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListActiveViolationsCommandInput = ListActiveViolationsRequest;
-export type ListActiveViolationsCommandOutput = ListActiveViolationsResponse;
+export type ListActiveViolationsCommandOutput = ListActiveViolationsResponse &
+  __MetadataBearer;
 
 export class ListActiveViolationsCommand extends $Command<
   ListActiveViolationsCommandInput,

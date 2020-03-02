@@ -781,31 +781,43 @@ async function deserializeAws_restJson1_1AssociateDeviceWithPlacementCommandErro
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceConflictException":
     case "com.amazonaws.iot1click.projects#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -854,31 +866,43 @@ async function deserializeAws_restJson1_1CreatePlacementCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceConflictException":
     case "com.amazonaws.iot1click.projects#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -924,24 +948,33 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceConflictException":
     case "com.amazonaws.iot1click.projects#ResourceConflictException":
-      response = await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -990,31 +1023,43 @@ async function deserializeAws_restJson1_1DeletePlacementCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1060,31 +1105,43 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1140,24 +1197,33 @@ async function deserializeAws_restJson1_1DescribePlacementCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1213,24 +1279,33 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1279,31 +1354,43 @@ async function deserializeAws_restJson1_1DisassociateDeviceFromPlacementCommandE
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1359,24 +1446,33 @@ async function deserializeAws_restJson1_1GetDevicesInPlacementCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1436,24 +1532,33 @@ async function deserializeAws_restJson1_1ListPlacementsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1510,17 +1615,23 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1573,24 +1684,33 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1636,24 +1756,33 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1699,24 +1828,33 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1765,31 +1903,43 @@ async function deserializeAws_restJson1_1UpdatePlacementCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1835,31 +1985,43 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot1click.projects#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot1click.projects#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1click.projects#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.iot1click.projects#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

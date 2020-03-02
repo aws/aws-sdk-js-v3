@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteUserByPrincipalIdCommandInput = DeleteUserByPrincipalIdRequest;
-export type DeleteUserByPrincipalIdCommandOutput = DeleteUserByPrincipalIdResponse;
+export type DeleteUserByPrincipalIdCommandOutput = DeleteUserByPrincipalIdResponse &
+  __MetadataBearer;
 
 export class DeleteUserByPrincipalIdCommand extends $Command<
   DeleteUserByPrincipalIdCommandInput,

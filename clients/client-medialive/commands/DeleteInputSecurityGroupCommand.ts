@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteInputSecurityGroupCommandInput = DeleteInputSecurityGroupRequest;
-export type DeleteInputSecurityGroupCommandOutput = DeleteInputSecurityGroupResponse;
+export type DeleteInputSecurityGroupCommandOutput = DeleteInputSecurityGroupResponse &
+  __MetadataBearer;
 
 export class DeleteInputSecurityGroupCommand extends $Command<
   DeleteInputSecurityGroupCommandInput,

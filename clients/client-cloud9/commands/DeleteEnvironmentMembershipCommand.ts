@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteEnvironmentMembershipCommandInput = DeleteEnvironmentMembershipRequest;
-export type DeleteEnvironmentMembershipCommandOutput = DeleteEnvironmentMembershipResult;
+export type DeleteEnvironmentMembershipCommandOutput = DeleteEnvironmentMembershipResult &
+  __MetadataBearer;
 
 export class DeleteEnvironmentMembershipCommand extends $Command<
   DeleteEnvironmentMembershipCommandInput,

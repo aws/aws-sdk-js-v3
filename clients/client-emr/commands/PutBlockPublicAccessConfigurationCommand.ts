@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutBlockPublicAccessConfigurationCommandInput = PutBlockPublicAccessConfigurationInput;
-export type PutBlockPublicAccessConfigurationCommandOutput = PutBlockPublicAccessConfigurationOutput;
+export type PutBlockPublicAccessConfigurationCommandOutput = PutBlockPublicAccessConfigurationOutput &
+  __MetadataBearer;
 
 export class PutBlockPublicAccessConfigurationCommand extends $Command<
   PutBlockPublicAccessConfigurationCommandInput,

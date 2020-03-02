@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBlueprintsCommandInput = GetBlueprintsRequest;
-export type GetBlueprintsCommandOutput = GetBlueprintsResult;
+export type GetBlueprintsCommandOutput = GetBlueprintsResult & __MetadataBearer;
 
 export class GetBlueprintsCommand extends $Command<
   GetBlueprintsCommandInput,

@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachDiskCommandInput = DetachDiskRequest;
-export type DetachDiskCommandOutput = DetachDiskResult;
+export type DetachDiskCommandOutput = DetachDiskResult & __MetadataBearer;
 
 export class DetachDiskCommand extends $Command<
   DetachDiskCommandInput,

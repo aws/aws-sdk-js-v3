@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteQualificationTypeCommandInput = DeleteQualificationTypeRequest;
-export type DeleteQualificationTypeCommandOutput = DeleteQualificationTypeResponse;
+export type DeleteQualificationTypeCommandOutput = DeleteQualificationTypeResponse &
+  __MetadataBearer;
 
 export class DeleteQualificationTypeCommand extends $Command<
   DeleteQualificationTypeCommandInput,

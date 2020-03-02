@@ -193,7 +193,7 @@ export namespace BatchDeleteDocumentRequest {
   }
 }
 
-export interface BatchDeleteDocumentResponse extends $MetadataBearer {
+export interface BatchDeleteDocumentResponse {
   __type?: "BatchDeleteDocumentResponse";
   /**
    * <p>A list of documents that could not be removed from the index. Each entry contains an error
@@ -264,7 +264,7 @@ export namespace BatchPutDocumentRequest {
   }
 }
 
-export interface BatchPutDocumentResponse extends $MetadataBearer {
+export interface BatchPutDocumentResponse {
   __type?: "BatchPutDocumentResponse";
   /**
    * <p>A list of documents that were not added to the index because the document failed a
@@ -488,7 +488,7 @@ export namespace CreateDataSourceRequest {
   }
 }
 
-export interface CreateDataSourceResponse extends $MetadataBearer {
+export interface CreateDataSourceResponse {
   __type?: "CreateDataSourceResponse";
   /**
    * <p>A unique identifier for the data source.</p>
@@ -538,7 +538,7 @@ export namespace CreateFaqRequest {
   }
 }
 
-export interface CreateFaqResponse extends $MetadataBearer {
+export interface CreateFaqResponse {
   __type?: "CreateFaqResponse";
   /**
    * <p>The unique identifier of the FAQ.</p>
@@ -584,7 +584,7 @@ export namespace CreateIndexRequest {
   }
 }
 
-export interface CreateIndexResponse extends $MetadataBearer {
+export interface CreateIndexResponse {
   __type?: "CreateIndexResponse";
   /**
    * <p>The unique identifier of the index. Use this identifier when you query an index, set up a
@@ -900,7 +900,7 @@ export namespace DescribeDataSourceRequest {
   }
 }
 
-export interface DescribeDataSourceResponse extends $MetadataBearer {
+export interface DescribeDataSourceResponse {
   __type?: "DescribeDataSourceResponse";
   /**
    * <p>Information that describes where the data source is located and how the data source is
@@ -995,7 +995,7 @@ export namespace DescribeFaqRequest {
   }
 }
 
-export interface DescribeFaqResponse extends $MetadataBearer {
+export interface DescribeFaqResponse {
   __type?: "DescribeFaqResponse";
   /**
    * <p>The date and time that the FAQ was created.</p>
@@ -1071,7 +1071,7 @@ export namespace DescribeIndexRequest {
   }
 }
 
-export interface DescribeIndexResponse extends $MetadataBearer {
+export interface DescribeIndexResponse {
   __type?: "DescribeIndexResponse";
   /**
    * <p>The Unix datetime that the index was created.</p>
@@ -1602,7 +1602,7 @@ export namespace ListDataSourceSyncJobsRequest {
   }
 }
 
-export interface ListDataSourceSyncJobsResponse extends $MetadataBearer {
+export interface ListDataSourceSyncJobsResponse {
   __type?: "ListDataSourceSyncJobsResponse";
   /**
    * <p>A history of synchronization jobs for the data source.</p>
@@ -1651,7 +1651,7 @@ export namespace ListDataSourcesRequest {
   }
 }
 
-export interface ListDataSourcesResponse extends $MetadataBearer {
+export interface ListDataSourcesResponse {
   __type?: "ListDataSourcesResponse";
   /**
    * <p>If the response is truncated, Amazon Kendra returns this token that you can use in the
@@ -1697,7 +1697,7 @@ export namespace ListFaqsRequest {
   }
 }
 
-export interface ListFaqsResponse extends $MetadataBearer {
+export interface ListFaqsResponse {
   __type?: "ListFaqsResponse";
   /**
    * <p>information about the FAQs associated with the specified index.</p>
@@ -1741,7 +1741,7 @@ export namespace ListIndicesRequest {
   }
 }
 
-export interface ListIndicesResponse extends $MetadataBearer {
+export interface ListIndicesResponse {
   __type?: "ListIndicesResponse";
   /**
    * <p>An array of summary information for one or more indexes.</p>
@@ -1858,7 +1858,7 @@ export namespace QueryRequest {
   }
 }
 
-export interface QueryResult extends $MetadataBearer {
+export interface QueryResult {
   __type?: "QueryResult";
   /**
    * <p>Contains the facet results. A <code>FacetResult</code> contains the counts for each
@@ -2336,7 +2336,7 @@ export namespace StartDataSourceSyncJobRequest {
   }
 }
 
-export interface StartDataSourceSyncJobResponse extends $MetadataBearer {
+export interface StartDataSourceSyncJobResponse {
   __type?: "StartDataSourceSyncJobResponse";
   /**
    * <p>Identifies a particular synchronization job.</p>

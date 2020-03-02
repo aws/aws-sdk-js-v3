@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutActionRevisionCommandInput = PutActionRevisionInput;
-export type PutActionRevisionCommandOutput = PutActionRevisionOutput;
+export type PutActionRevisionCommandOutput = PutActionRevisionOutput &
+  __MetadataBearer;
 
 export class PutActionRevisionCommand extends $Command<
   PutActionRevisionCommandInput,

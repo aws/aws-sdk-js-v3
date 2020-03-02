@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDocumentCommandInput = CreateDocumentRequest;
-export type CreateDocumentCommandOutput = CreateDocumentResult;
+export type CreateDocumentCommandOutput = CreateDocumentResult &
+  __MetadataBearer;
 
 export class CreateDocumentCommand extends $Command<
   CreateDocumentCommandInput,

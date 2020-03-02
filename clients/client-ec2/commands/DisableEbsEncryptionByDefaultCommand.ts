@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableEbsEncryptionByDefaultCommandInput = DisableEbsEncryptionByDefaultRequest;
-export type DisableEbsEncryptionByDefaultCommandOutput = DisableEbsEncryptionByDefaultResult;
+export type DisableEbsEncryptionByDefaultCommandOutput = DisableEbsEncryptionByDefaultResult &
+  __MetadataBearer;
 
 export class DisableEbsEncryptionByDefaultCommand extends $Command<
   DisableEbsEncryptionByDefaultCommandInput,

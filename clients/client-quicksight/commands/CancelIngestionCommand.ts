@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelIngestionCommandInput = CancelIngestionRequest;
-export type CancelIngestionCommandOutput = CancelIngestionResponse;
+export type CancelIngestionCommandOutput = CancelIngestionResponse &
+  __MetadataBearer;
 
 export class CancelIngestionCommand extends $Command<
   CancelIngestionCommandInput,

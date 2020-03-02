@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateDynamicThingGroupCommandInput = UpdateDynamicThingGroupRequest;
-export type UpdateDynamicThingGroupCommandOutput = UpdateDynamicThingGroupResponse;
+export type UpdateDynamicThingGroupCommandOutput = UpdateDynamicThingGroupResponse &
+  __MetadataBearer;
 
 export class UpdateDynamicThingGroupCommand extends $Command<
   UpdateDynamicThingGroupCommandInput,

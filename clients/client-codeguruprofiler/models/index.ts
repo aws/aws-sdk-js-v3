@@ -199,7 +199,7 @@ export namespace ConfigureAgentRequest {
 /**
  * Response for ConfigureAgent operation.
  */
-export interface ConfigureAgentResponse extends $MetadataBearer {
+export interface ConfigureAgentResponse {
   __type?: "ConfigureAgentResponse";
   /**
    * The configuration for the agent to use.
@@ -262,7 +262,7 @@ export namespace CreateProfilingGroupRequest {
 /**
  * Response for CreateProfilingGroup operation.
  */
-export interface CreateProfilingGroupResponse extends $MetadataBearer {
+export interface CreateProfilingGroupResponse {
   __type?: "CreateProfilingGroupResponse";
   /**
    * The description of a profiling group.
@@ -296,7 +296,7 @@ export namespace DeleteProfilingGroupRequest {
 /**
  * Response for DeleteProfilingGroup operation.
  */
-export interface DeleteProfilingGroupResponse extends $MetadataBearer {
+export interface DeleteProfilingGroupResponse {
   __type?: "DeleteProfilingGroupResponse";
 }
 
@@ -326,7 +326,7 @@ export namespace DescribeProfilingGroupRequest {
 /**
  * Response for DescribeProfilingGroup operation.
  */
-export interface DescribeProfilingGroupResponse extends $MetadataBearer {
+export interface DescribeProfilingGroupResponse {
   __type?: "DescribeProfilingGroupResponse";
   /**
    * The description of a profiling group.
@@ -370,7 +370,7 @@ export namespace ListProfilingGroupsRequest {
 /**
  * Response for ListProfilingGroups operation.
  */
-export interface ListProfilingGroupsResponse extends $MetadataBearer {
+export interface ListProfilingGroupsResponse {
   __type?: "ListProfilingGroupsResponse";
   /**
    * Token for paginating results.
@@ -489,7 +489,7 @@ export namespace UpdateProfilingGroupRequest {
 /**
  * Response for UpdateProfilingGroup operation.
  */
-export interface UpdateProfilingGroupResponse extends $MetadataBearer {
+export interface UpdateProfilingGroupResponse {
   __type?: "UpdateProfilingGroupResponse";
   /**
    * The description of a profiling group.
@@ -551,7 +551,7 @@ export namespace GetProfileRequest {
 /**
  * Response for GetProfile operation.
  */
-export interface GetProfileResponse extends $MetadataBearer {
+export interface GetProfileResponse {
   __type?: "GetProfileResponse";
   /**
    * The content encoding of the profile in the payload.
@@ -627,7 +627,7 @@ export namespace ListProfileTimesRequest {
 /**
  * Response for ListProfileTimes operation.
  */
-export interface ListProfileTimesResponse extends $MetadataBearer {
+export interface ListProfileTimesResponse {
   __type?: "ListProfileTimesResponse";
   /**
    * Token for paginating results.
@@ -700,7 +700,7 @@ export namespace PostAgentProfileRequest {
 /**
  * Response for PostAgentProfile operation.
  */
-export interface PostAgentProfileResponse extends $MetadataBearer {
+export interface PostAgentProfileResponse {
   __type?: "PostAgentProfileResponse";
 }
 

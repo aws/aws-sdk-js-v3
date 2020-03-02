@@ -1136,17 +1136,23 @@ async function deserializeAws_json1_1AcceptDirectConnectGatewayAssociationPropos
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1202,17 +1208,23 @@ async function deserializeAws_json1_1AllocateConnectionOnInterconnectCommandErro
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1268,31 +1280,43 @@ async function deserializeAws_json1_1AllocateHostedConnectionCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1348,31 +1372,43 @@ async function deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1428,31 +1464,43 @@ async function deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1511,31 +1559,43 @@ async function deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1591,17 +1651,23 @@ async function deserializeAws_json1_1AssociateConnectionWithLagCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1657,17 +1723,23 @@ async function deserializeAws_json1_1AssociateHostedConnectionCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1723,17 +1795,23 @@ async function deserializeAws_json1_1AssociateVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1786,17 +1864,23 @@ async function deserializeAws_json1_1ConfirmConnectionCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1855,17 +1939,23 @@ async function deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1924,17 +2014,23 @@ async function deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1993,17 +2089,23 @@ async function deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2056,17 +2158,23 @@ async function deserializeAws_json1_1CreateBGPPeerCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2119,31 +2227,43 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2202,17 +2322,23 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2271,17 +2397,23 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationComman
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2340,17 +2472,23 @@ async function deserializeAws_json1_1CreateDirectConnectGatewayAssociationPropos
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2406,31 +2544,43 @@ async function deserializeAws_json1_1CreateInterconnectCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2483,31 +2633,43 @@ async function deserializeAws_json1_1CreateLagCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2563,31 +2725,43 @@ async function deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2643,31 +2817,43 @@ async function deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2726,31 +2912,43 @@ async function deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2803,17 +3001,23 @@ async function deserializeAws_json1_1DeleteBGPPeerCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2866,17 +3070,23 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2935,17 +3145,23 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3004,17 +3220,23 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationComman
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3073,17 +3295,23 @@ async function deserializeAws_json1_1DeleteDirectConnectGatewayAssociationPropos
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3139,17 +3367,23 @@ async function deserializeAws_json1_1DeleteInterconnectCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3202,17 +3436,23 @@ async function deserializeAws_json1_1DeleteLagCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3271,17 +3511,23 @@ async function deserializeAws_json1_1DeleteVirtualInterfaceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3337,17 +3583,23 @@ async function deserializeAws_json1_1DescribeConnectionLoaCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3403,17 +3655,23 @@ async function deserializeAws_json1_1DescribeConnectionsCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3469,17 +3727,23 @@ async function deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandErr
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3538,17 +3802,23 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProp
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3607,17 +3877,23 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCom
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3676,17 +3952,23 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComm
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3745,17 +4027,23 @@ async function deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3811,17 +4099,23 @@ async function deserializeAws_json1_1DescribeHostedConnectionsCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3880,17 +4174,23 @@ async function deserializeAws_json1_1DescribeInterconnectLoaCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -3946,17 +4246,23 @@ async function deserializeAws_json1_1DescribeInterconnectsCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4009,17 +4315,23 @@ async function deserializeAws_json1_1DescribeLagsCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4072,17 +4384,23 @@ async function deserializeAws_json1_1DescribeLoaCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4135,17 +4453,23 @@ async function deserializeAws_json1_1DescribeLocationsCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4198,17 +4522,23 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4264,17 +4594,23 @@ async function deserializeAws_json1_1DescribeVirtualGatewaysCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4330,17 +4666,23 @@ async function deserializeAws_json1_1DescribeVirtualInterfacesCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4396,17 +4738,23 @@ async function deserializeAws_json1_1DisassociateConnectionFromLagCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4459,31 +4807,43 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DuplicateTagKeysException":
     case "com.amazon.awsdx.overture#DuplicateTagKeysException":
-      response = await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazon.awsdx.overture#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4536,17 +4896,23 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4605,17 +4971,23 @@ async function deserializeAws_json1_1UpdateDirectConnectGatewayAssociationComman
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4668,17 +5040,23 @@ async function deserializeAws_json1_1UpdateLagCommandError(
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -4734,17 +5112,23 @@ async function deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandErro
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazon.awsdx.overture#DirectConnectClientException":
-      response = await deserializeAws_json1_1DirectConnectClientExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DirectConnectServerException":
     case "com.amazon.awsdx.overture#DirectConnectServerException":
-      response = await deserializeAws_json1_1DirectConnectServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateSkillFromSkillGroupCommandInput = DisassociateSkillFromSkillGroupRequest;
-export type DisassociateSkillFromSkillGroupCommandOutput = DisassociateSkillFromSkillGroupResponse;
+export type DisassociateSkillFromSkillGroupCommandOutput = DisassociateSkillFromSkillGroupResponse &
+  __MetadataBearer;
 
 export class DisassociateSkillFromSkillGroupCommand extends $Command<
   DisassociateSkillFromSkillGroupCommandInput,

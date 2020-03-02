@@ -199,7 +199,7 @@ export namespace AssumeRoleRequest {
  * <p>Contains the response to a successful <a>AssumeRole</a> request, including
  *       temporary AWS credentials that can be used to make AWS requests. </p>
  */
-export interface AssumeRoleResponse extends $MetadataBearer {
+export interface AssumeRoleResponse {
   __type?: "AssumeRoleResponse";
   /**
    * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
@@ -343,7 +343,7 @@ export namespace AssumeRoleWithSAMLRequest {
  * <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request,
  *       including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-export interface AssumeRoleWithSAMLResponse extends $MetadataBearer {
+export interface AssumeRoleWithSAMLResponse {
   __type?: "AssumeRoleWithSAMLResponse";
   /**
    * <p>The identifiers for the temporary security credentials that the operation
@@ -539,7 +539,7 @@ export namespace AssumeRoleWithWebIdentityRequest {
  * <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a>
  *       request, including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-export interface AssumeRoleWithWebIdentityResponse extends $MetadataBearer {
+export interface AssumeRoleWithWebIdentityResponse {
   __type?: "AssumeRoleWithWebIdentityResponse";
   /**
    * <p>The Amazon Resource Name (ARN) and the assumed role ID, which are identifiers that you
@@ -676,7 +676,7 @@ export namespace DecodeAuthorizationMessageRequest {
  * <p>A document that contains additional information about the authorization status of a
  *       request from an encoded message that is returned in response to an AWS request.</p>
  */
-export interface DecodeAuthorizationMessageResponse extends $MetadataBearer {
+export interface DecodeAuthorizationMessageResponse {
   __type?: "DecodeAuthorizationMessageResponse";
   /**
    * <p>An XML document that contains the decoded message.</p>
@@ -749,7 +749,7 @@ export namespace GetAccessKeyInfoRequest {
   }
 }
 
-export interface GetAccessKeyInfoResponse extends $MetadataBearer {
+export interface GetAccessKeyInfoResponse {
   __type?: "GetAccessKeyInfoResponse";
   /**
    * <p>The number used to identify the AWS account.</p>
@@ -777,7 +777,7 @@ export namespace GetCallerIdentityRequest {
  * <p>Contains the response to a successful <a>GetCallerIdentity</a> request,
  *          including information about the entity making the request.</p>
  */
-export interface GetCallerIdentityResponse extends $MetadataBearer {
+export interface GetCallerIdentityResponse {
   __type?: "GetCallerIdentityResponse";
   /**
    * <p>The AWS account ID number of the account that owns or contains the calling
@@ -937,7 +937,7 @@ export namespace GetFederationTokenRequest {
  * <p>Contains the response to a successful <a>GetFederationToken</a> request,
  *       including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-export interface GetFederationTokenResponse extends $MetadataBearer {
+export interface GetFederationTokenResponse {
   __type?: "GetFederationTokenResponse";
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,
@@ -1018,7 +1018,7 @@ export namespace GetSessionTokenRequest {
  * <p>Contains the response to a successful <a>GetSessionToken</a> request,
  *       including temporary AWS credentials that can be used to make AWS requests. </p>
  */
-export interface GetSessionTokenResponse extends $MetadataBearer {
+export interface GetSessionTokenResponse {
   __type?: "GetSessionTokenResponse";
   /**
    * <p>The temporary security credentials, which include an access key ID, a secret access key,

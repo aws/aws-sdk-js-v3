@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteMaintenanceWindowCommandInput = DeleteMaintenanceWindowRequest;
-export type DeleteMaintenanceWindowCommandOutput = DeleteMaintenanceWindowResult;
+export type DeleteMaintenanceWindowCommandOutput = DeleteMaintenanceWindowResult &
+  __MetadataBearer;
 
 export class DeleteMaintenanceWindowCommand extends $Command<
   DeleteMaintenanceWindowCommandInput,

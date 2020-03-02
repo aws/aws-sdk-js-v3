@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateServiceQuotaTemplateCommandInput = AssociateServiceQuotaTemplateRequest;
-export type AssociateServiceQuotaTemplateCommandOutput = AssociateServiceQuotaTemplateResponse;
+export type AssociateServiceQuotaTemplateCommandOutput = AssociateServiceQuotaTemplateResponse &
+  __MetadataBearer;
 
 export class AssociateServiceQuotaTemplateCommand extends $Command<
   AssociateServiceQuotaTemplateCommandInput,

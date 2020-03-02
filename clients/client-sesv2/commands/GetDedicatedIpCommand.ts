@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpCommandInput = GetDedicatedIpRequest;
-export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse;
+export type GetDedicatedIpCommandOutput = GetDedicatedIpResponse &
+  __MetadataBearer;
 
 export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateVariableCommandInput = UpdateVariableRequest;
-export type UpdateVariableCommandOutput = UpdateVariableResult;
+export type UpdateVariableCommandOutput = UpdateVariableResult &
+  __MetadataBearer;
 
 export class UpdateVariableCommand extends $Command<
   UpdateVariableCommandInput,

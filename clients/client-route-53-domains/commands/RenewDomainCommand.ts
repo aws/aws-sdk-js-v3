@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RenewDomainCommandInput = RenewDomainRequest;
-export type RenewDomainCommandOutput = RenewDomainResponse;
+export type RenewDomainCommandOutput = RenewDomainResponse & __MetadataBearer;
 
 export class RenewDomainCommand extends $Command<
   RenewDomainCommandInput,

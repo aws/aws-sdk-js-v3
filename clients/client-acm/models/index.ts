@@ -324,7 +324,7 @@ export namespace DescribeCertificateRequest {
   }
 }
 
-export interface DescribeCertificateResponse extends $MetadataBearer {
+export interface DescribeCertificateResponse {
   __type?: "DescribeCertificateResponse";
   /**
    * <p>Metadata about an ACM certificate.</p>
@@ -476,7 +476,7 @@ export namespace ExportCertificateRequest {
   }
 }
 
-export interface ExportCertificateResponse extends $MetadataBearer {
+export interface ExportCertificateResponse {
   __type?: "ExportCertificateResponse";
   /**
    * <p>The base64 PEM-encoded certificate.</p>
@@ -659,7 +659,7 @@ export namespace GetCertificateRequest {
   }
 }
 
-export interface GetCertificateResponse extends $MetadataBearer {
+export interface GetCertificateResponse {
   __type?: "GetCertificateResponse";
   /**
    * <p>String that contains the ACM certificate represented by the ARN specified at
@@ -717,7 +717,7 @@ export namespace ImportCertificateRequest {
   }
 }
 
-export interface ImportCertificateResponse extends $MetadataBearer {
+export interface ImportCertificateResponse {
   __type?: "ImportCertificateResponse";
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
@@ -929,7 +929,7 @@ export namespace ListCertificatesRequest {
   }
 }
 
-export interface ListCertificatesResponse extends $MetadataBearer {
+export interface ListCertificatesResponse {
   __type?: "ListCertificatesResponse";
   /**
    * <p>A list of ACM certificates.</p>
@@ -968,7 +968,7 @@ export namespace ListTagsForCertificateRequest {
   }
 }
 
-export interface ListTagsForCertificateResponse extends $MetadataBearer {
+export interface ListTagsForCertificateResponse {
   __type?: "ListTagsForCertificateResponse";
   /**
    * <p>The key-value pairs that define the applied tags.</p>
@@ -1181,7 +1181,7 @@ export namespace RequestCertificateRequest {
   }
 }
 
-export interface RequestCertificateResponse extends $MetadataBearer {
+export interface RequestCertificateResponse {
   __type?: "RequestCertificateResponse";
   /**
    * <p>String that contains the ARN of the issued certificate. This must be of the form:</p>

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPushTemplateCommandInput = GetPushTemplateRequest;
-export type GetPushTemplateCommandOutput = GetPushTemplateResponse;
+export type GetPushTemplateCommandOutput = GetPushTemplateResponse &
+  __MetadataBearer;
 
 export class GetPushTemplateCommand extends $Command<
   GetPushTemplateCommandInput,

@@ -1,22 +1,39 @@
 import {
-  DeleteTerminologyRequest,
-  DescribeTextTranslationJobRequest,
-  DescribeTextTranslationJobResponse,
-  GetTerminologyRequest,
-  GetTerminologyResponse,
-  ImportTerminologyRequest,
-  ImportTerminologyResponse,
-  ListTerminologiesRequest,
-  ListTerminologiesResponse,
-  ListTextTranslationJobsRequest,
-  ListTextTranslationJobsResponse,
-  StartTextTranslationJobRequest,
-  StartTextTranslationJobResponse,
-  StopTextTranslationJobRequest,
-  StopTextTranslationJobResponse,
-  TranslateTextRequest,
-  TranslateTextResponse
-} from "./models/index";
+  DeleteTerminologyCommandInput,
+  DeleteTerminologyCommandOutput
+} from "./commands/DeleteTerminologyCommand";
+import {
+  DescribeTextTranslationJobCommandInput,
+  DescribeTextTranslationJobCommandOutput
+} from "./commands/DescribeTextTranslationJobCommand";
+import {
+  GetTerminologyCommandInput,
+  GetTerminologyCommandOutput
+} from "./commands/GetTerminologyCommand";
+import {
+  ImportTerminologyCommandInput,
+  ImportTerminologyCommandOutput
+} from "./commands/ImportTerminologyCommand";
+import {
+  ListTerminologiesCommandInput,
+  ListTerminologiesCommandOutput
+} from "./commands/ListTerminologiesCommand";
+import {
+  ListTextTranslationJobsCommandInput,
+  ListTextTranslationJobsCommandOutput
+} from "./commands/ListTextTranslationJobsCommand";
+import {
+  StartTextTranslationJobCommandInput,
+  StartTextTranslationJobCommandOutput
+} from "./commands/StartTextTranslationJobCommand";
+import {
+  StopTextTranslationJobCommandInput,
+  StopTextTranslationJobCommandOutput
+} from "./commands/StopTextTranslationJobCommand";
+import {
+  TranslateTextCommandInput,
+  TranslateTextCommandOutput
+} from "./commands/TranslateTextCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -64,33 +81,32 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | DeleteTerminologyRequest
-  | DescribeTextTranslationJobRequest
-  | GetTerminologyRequest
-  | ImportTerminologyRequest
-  | ListTerminologiesRequest
-  | ListTextTranslationJobsRequest
-  | StartTextTranslationJobRequest
-  | StopTextTranslationJobRequest
-  | TranslateTextRequest;
+  | DeleteTerminologyCommandInput
+  | DescribeTextTranslationJobCommandInput
+  | GetTerminologyCommandInput
+  | ImportTerminologyCommandInput
+  | ListTerminologiesCommandInput
+  | ListTextTranslationJobsCommandInput
+  | StartTextTranslationJobCommandInput
+  | StopTextTranslationJobCommandInput
+  | TranslateTextCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | DescribeTextTranslationJobResponse
-  | GetTerminologyResponse
-  | ImportTerminologyResponse
-  | ListTerminologiesResponse
-  | ListTextTranslationJobsResponse
-  | StartTextTranslationJobResponse
-  | StopTextTranslationJobResponse
-  | TranslateTextResponse;
+  | DeleteTerminologyCommandOutput
+  | DescribeTextTranslationJobCommandOutput
+  | GetTerminologyCommandOutput
+  | ImportTerminologyCommandOutput
+  | ListTerminologiesCommandOutput
+  | ListTextTranslationJobsCommandOutput
+  | StartTextTranslationJobCommandOutput
+  | StopTextTranslationJobCommandOutput
+  | TranslateTextCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

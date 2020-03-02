@@ -24,11 +24,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetIdentityPoolRolesCommandInput = GetIdentityPoolRolesInput;
-export type GetIdentityPoolRolesCommandOutput = GetIdentityPoolRolesResponse;
+export type GetIdentityPoolRolesCommandOutput = GetIdentityPoolRolesResponse &
+  __MetadataBearer;
 
 export class GetIdentityPoolRolesCommand extends $Command<
   GetIdentityPoolRolesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateQualificationWithWorkerCommandInput = AssociateQualificationWithWorkerRequest;
-export type AssociateQualificationWithWorkerCommandOutput = AssociateQualificationWithWorkerResponse;
+export type AssociateQualificationWithWorkerCommandOutput = AssociateQualificationWithWorkerResponse &
+  __MetadataBearer;
 
 export class AssociateQualificationWithWorkerCommand extends $Command<
   AssociateQualificationWithWorkerCommandInput,

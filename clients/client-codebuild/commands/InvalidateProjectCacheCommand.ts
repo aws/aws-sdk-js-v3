@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type InvalidateProjectCacheCommandInput = InvalidateProjectCacheInput;
-export type InvalidateProjectCacheCommandOutput = InvalidateProjectCacheOutput;
+export type InvalidateProjectCacheCommandOutput = InvalidateProjectCacheOutput &
+  __MetadataBearer;
 
 export class InvalidateProjectCacheCommand extends $Command<
   InvalidateProjectCacheCommandInput,

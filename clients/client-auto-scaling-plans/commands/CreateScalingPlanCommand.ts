@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateScalingPlanCommandInput = CreateScalingPlanRequest;
-export type CreateScalingPlanCommandOutput = CreateScalingPlanResponse;
+export type CreateScalingPlanCommandOutput = CreateScalingPlanResponse &
+  __MetadataBearer;
 
 export class CreateScalingPlanCommand extends $Command<
   CreateScalingPlanCommandInput,

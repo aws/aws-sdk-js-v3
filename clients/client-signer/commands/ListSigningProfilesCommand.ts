@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSigningProfilesCommandInput = ListSigningProfilesRequest;
-export type ListSigningProfilesCommandOutput = ListSigningProfilesResponse;
+export type ListSigningProfilesCommandOutput = ListSigningProfilesResponse &
+  __MetadataBearer;
 
 export class ListSigningProfilesCommand extends $Command<
   ListSigningProfilesCommandInput,

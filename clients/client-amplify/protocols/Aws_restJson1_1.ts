@@ -1921,38 +1921,53 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2011,38 +2026,53 @@ async function deserializeAws_restJson1_1CreateBackendEnvironmentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2092,45 +2122,63 @@ async function deserializeAws_restJson1_1CreateBranchCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2194,31 +2242,43 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2274,45 +2334,63 @@ async function deserializeAws_restJson1_1CreateDomainAssociationCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2362,45 +2440,63 @@ async function deserializeAws_restJson1_1CreateWebhookCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2450,38 +2546,53 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2540,38 +2651,53 @@ async function deserializeAws_restJson1_1DeleteBackendEnvironmentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2621,38 +2747,53 @@ async function deserializeAws_restJson1_1DeleteBranchCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2708,38 +2849,53 @@ async function deserializeAws_restJson1_1DeleteDomainAssociationCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2792,38 +2948,53 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2873,38 +3044,53 @@ async function deserializeAws_restJson1_1DeleteWebhookCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2957,31 +3143,43 @@ async function deserializeAws_restJson1_1GenerateAccessLogsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3031,31 +3229,43 @@ async function deserializeAws_restJson1_1GetAppCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3112,38 +3322,53 @@ async function deserializeAws_restJson1_1GetArtifactUrlCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3202,31 +3427,43 @@ async function deserializeAws_restJson1_1GetBackendEnvironmentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3276,31 +3513,43 @@ async function deserializeAws_restJson1_1GetBranchCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3356,31 +3605,43 @@ async function deserializeAws_restJson1_1GetDomainAssociationCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3430,38 +3691,53 @@ async function deserializeAws_restJson1_1GetJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3511,38 +3787,53 @@ async function deserializeAws_restJson1_1GetWebhookCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3596,24 +3887,33 @@ async function deserializeAws_restJson1_1ListAppsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3670,31 +3970,43 @@ async function deserializeAws_restJson1_1ListArtifactsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3757,24 +4069,33 @@ async function deserializeAws_restJson1_1ListBackendEnvironmentsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3831,24 +4152,33 @@ async function deserializeAws_restJson1_1ListBranchesCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3911,24 +4241,33 @@ async function deserializeAws_restJson1_1ListDomainAssociationsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3985,31 +4324,43 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4062,24 +4413,33 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4136,31 +4496,43 @@ async function deserializeAws_restJson1_1ListWebhooksCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4216,38 +4588,53 @@ async function deserializeAws_restJson1_1StartDeploymentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4300,38 +4687,53 @@ async function deserializeAws_restJson1_1StartJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4384,38 +4786,53 @@ async function deserializeAws_restJson1_1StopJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.amplify#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4461,24 +4878,33 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4524,24 +4950,33 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.amplify#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4591,31 +5026,43 @@ async function deserializeAws_restJson1_1UpdateAppCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4665,38 +5112,53 @@ async function deserializeAws_restJson1_1UpdateBranchCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4752,38 +5214,53 @@ async function deserializeAws_restJson1_1UpdateDomainAssociationCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4833,38 +5310,53 @@ async function deserializeAws_restJson1_1UpdateWebhookCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DependentServiceFailureException":
     case "com.amazonaws.amplify#DependentServiceFailureException":
-      response = await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DependentServiceFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotFoundException":
     case "com.amazonaws.amplify#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

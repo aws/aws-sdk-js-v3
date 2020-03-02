@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeElasticIpsCommandInput = DescribeElasticIpsRequest;
-export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult;
+export type DescribeElasticIpsCommandOutput = DescribeElasticIpsResult &
+  __MetadataBearer;
 
 export class DescribeElasticIpsCommand extends $Command<
   DescribeElasticIpsCommandInput,

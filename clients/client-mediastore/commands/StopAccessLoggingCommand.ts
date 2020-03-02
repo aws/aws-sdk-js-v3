@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopAccessLoggingCommandInput = StopAccessLoggingInput;
-export type StopAccessLoggingCommandOutput = StopAccessLoggingOutput;
+export type StopAccessLoggingCommandOutput = StopAccessLoggingOutput &
+  __MetadataBearer;
 
 export class StopAccessLoggingCommand extends $Command<
   StopAccessLoggingCommandInput,

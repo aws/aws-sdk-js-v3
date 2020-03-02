@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ExportClientVpnClientCertificateRevocationListCommandInput = ExportClientVpnClientCertificateRevocationListRequest;
-export type ExportClientVpnClientCertificateRevocationListCommandOutput = ExportClientVpnClientCertificateRevocationListResult;
+export type ExportClientVpnClientCertificateRevocationListCommandOutput = ExportClientVpnClientCertificateRevocationListResult &
+  __MetadataBearer;
 
 export class ExportClientVpnClientCertificateRevocationListCommand extends $Command<
   ExportClientVpnClientCertificateRevocationListCommandInput,

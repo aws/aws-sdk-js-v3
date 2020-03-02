@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ReportTaskProgressCommandInput = ReportTaskProgressInput;
-export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput;
+export type ReportTaskProgressCommandOutput = ReportTaskProgressOutput &
+  __MetadataBearer;
 
 export class ReportTaskProgressCommand extends $Command<
   ReportTaskProgressCommandInput,

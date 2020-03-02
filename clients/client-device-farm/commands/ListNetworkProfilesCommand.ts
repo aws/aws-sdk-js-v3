@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListNetworkProfilesCommandInput = ListNetworkProfilesRequest;
-export type ListNetworkProfilesCommandOutput = ListNetworkProfilesResult;
+export type ListNetworkProfilesCommandOutput = ListNetworkProfilesResult &
+  __MetadataBearer;
 
 export class ListNetworkProfilesCommand extends $Command<
   ListNetworkProfilesCommandInput,

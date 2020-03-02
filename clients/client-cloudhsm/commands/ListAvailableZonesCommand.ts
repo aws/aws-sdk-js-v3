@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
-export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse;
+export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse &
+  __MetadataBearer;
 
 export class ListAvailableZonesCommand extends $Command<
   ListAvailableZonesCommandInput,

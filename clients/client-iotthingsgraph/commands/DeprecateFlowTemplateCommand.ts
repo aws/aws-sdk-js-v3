@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeprecateFlowTemplateCommandInput = DeprecateFlowTemplateRequest;
-export type DeprecateFlowTemplateCommandOutput = DeprecateFlowTemplateResponse;
+export type DeprecateFlowTemplateCommandOutput = DeprecateFlowTemplateResponse &
+  __MetadataBearer;
 
 export class DeprecateFlowTemplateCommand extends $Command<
   DeprecateFlowTemplateCommandInput,

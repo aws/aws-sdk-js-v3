@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopProjectVersionCommandInput = StopProjectVersionRequest;
-export type StopProjectVersionCommandOutput = StopProjectVersionResponse;
+export type StopProjectVersionCommandOutput = StopProjectVersionResponse &
+  __MetadataBearer;
 
 export class StopProjectVersionCommand extends $Command<
   StopProjectVersionCommandInput,

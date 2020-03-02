@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResendContactReachabilityEmailCommandInput = ResendContactReachabilityEmailRequest;
-export type ResendContactReachabilityEmailCommandOutput = ResendContactReachabilityEmailResponse;
+export type ResendContactReachabilityEmailCommandOutput = ResendContactReachabilityEmailResponse &
+  __MetadataBearer;
 
 export class ResendContactReachabilityEmailCommand extends $Command<
   ResendContactReachabilityEmailCommandInput,

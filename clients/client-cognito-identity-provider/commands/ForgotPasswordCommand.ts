@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ForgotPasswordCommandInput = ForgotPasswordRequest;
-export type ForgotPasswordCommandOutput = ForgotPasswordResponse;
+export type ForgotPasswordCommandOutput = ForgotPasswordResponse &
+  __MetadataBearer;
 
 export class ForgotPasswordCommand extends $Command<
   ForgotPasswordCommandInput,

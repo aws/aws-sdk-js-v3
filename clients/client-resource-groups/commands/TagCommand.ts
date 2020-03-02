@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TagCommandInput = TagInput;
-export type TagCommandOutput = TagOutput;
+export type TagCommandOutput = TagOutput & __MetadataBearer;
 
 export class TagCommand extends $Command<
   TagCommandInput,

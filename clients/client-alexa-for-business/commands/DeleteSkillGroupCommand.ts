@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteSkillGroupCommandInput = DeleteSkillGroupRequest;
-export type DeleteSkillGroupCommandOutput = DeleteSkillGroupResponse;
+export type DeleteSkillGroupCommandOutput = DeleteSkillGroupResponse &
+  __MetadataBearer;
 
 export class DeleteSkillGroupCommand extends $Command<
   DeleteSkillGroupCommandInput,

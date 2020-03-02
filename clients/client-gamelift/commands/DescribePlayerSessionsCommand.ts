@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribePlayerSessionsCommandInput = DescribePlayerSessionsInput;
-export type DescribePlayerSessionsCommandOutput = DescribePlayerSessionsOutput;
+export type DescribePlayerSessionsCommandOutput = DescribePlayerSessionsOutput &
+  __MetadataBearer;
 
 export class DescribePlayerSessionsCommand extends $Command<
   DescribePlayerSessionsCommandInput,

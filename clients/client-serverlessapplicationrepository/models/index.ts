@@ -250,7 +250,7 @@ export namespace CreateApplicationRequest {
   }
 }
 
-export interface CreateApplicationResponse extends $MetadataBearer {
+export interface CreateApplicationResponse {
   __type?: "CreateApplicationResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -363,7 +363,7 @@ export namespace CreateApplicationVersionRequest {
   }
 }
 
-export interface CreateApplicationVersionResponse extends $MetadataBearer {
+export interface CreateApplicationVersionResponse {
   __type?: "CreateApplicationVersionResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -548,7 +548,7 @@ export namespace CreateCloudFormationChangeSetRequest {
   }
 }
 
-export interface CreateCloudFormationChangeSetResponse extends $MetadataBearer {
+export interface CreateCloudFormationChangeSetResponse {
   __type?: "CreateCloudFormationChangeSetResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -600,7 +600,7 @@ export namespace CreateCloudFormationTemplateRequest {
   }
 }
 
-export interface CreateCloudFormationTemplateResponse extends $MetadataBearer {
+export interface CreateCloudFormationTemplateResponse {
   __type?: "CreateCloudFormationTemplateResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -700,7 +700,7 @@ export namespace GetApplicationPolicyRequest {
   }
 }
 
-export interface GetApplicationPolicyResponse extends $MetadataBearer {
+export interface GetApplicationPolicyResponse {
   __type?: "GetApplicationPolicyResponse";
   /**
    * <p>An array of policy statements applied to the application.</p>
@@ -733,7 +733,7 @@ export namespace GetApplicationRequest {
   }
 }
 
-export interface GetApplicationResponse extends $MetadataBearer {
+export interface GetApplicationResponse {
   __type?: "GetApplicationResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -826,7 +826,7 @@ export namespace GetCloudFormationTemplateRequest {
   }
 }
 
-export interface GetCloudFormationTemplateResponse extends $MetadataBearer {
+export interface GetCloudFormationTemplateResponse {
   __type?: "GetCloudFormationTemplateResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -929,7 +929,7 @@ export namespace ListApplicationDependenciesRequest {
   }
 }
 
-export interface ListApplicationDependenciesResponse extends $MetadataBearer {
+export interface ListApplicationDependenciesResponse {
   __type?: "ListApplicationDependenciesResponse";
   /**
    * <p>An array of application summaries nested in the application.</p>
@@ -972,7 +972,7 @@ export namespace ListApplicationVersionsRequest {
   }
 }
 
-export interface ListApplicationVersionsResponse extends $MetadataBearer {
+export interface ListApplicationVersionsResponse {
   __type?: "ListApplicationVersionsResponse";
   /**
    * <p>The token to request the next page of results.</p>
@@ -1010,7 +1010,7 @@ export namespace ListApplicationsRequest {
   }
 }
 
-export interface ListApplicationsResponse extends $MetadataBearer {
+export interface ListApplicationsResponse {
   __type?: "ListApplicationsResponse";
   /**
    * <p>An array of application summaries.</p>
@@ -1188,7 +1188,7 @@ export namespace PutApplicationPolicyRequest {
   }
 }
 
-export interface PutApplicationPolicyResponse extends $MetadataBearer {
+export interface PutApplicationPolicyResponse {
   __type?: "PutApplicationPolicyResponse";
   /**
    * <p>An array of policy statements applied to the application.</p>
@@ -1354,7 +1354,7 @@ export namespace UpdateApplicationRequest {
   }
 }
 
-export interface UpdateApplicationResponse extends $MetadataBearer {
+export interface UpdateApplicationResponse {
   __type?: "UpdateApplicationResponse";
   /**
    * <p>The application Amazon Resource Name (ARN).</p>

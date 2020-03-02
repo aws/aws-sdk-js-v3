@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateClusterCommandInput = CreateClusterMessage;
-export type CreateClusterCommandOutput = CreateClusterResult;
+export type CreateClusterCommandOutput = CreateClusterResult & __MetadataBearer;
 
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

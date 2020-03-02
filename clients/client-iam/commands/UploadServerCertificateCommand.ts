@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UploadServerCertificateCommandInput = UploadServerCertificateRequest;
-export type UploadServerCertificateCommandOutput = UploadServerCertificateResponse;
+export type UploadServerCertificateCommandOutput = UploadServerCertificateResponse &
+  __MetadataBearer;
 
 export class UploadServerCertificateCommand extends $Command<
   UploadServerCertificateCommandInput,

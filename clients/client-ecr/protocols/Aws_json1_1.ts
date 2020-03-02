@@ -698,24 +698,33 @@ async function deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -768,24 +777,33 @@ async function deserializeAws_json1_1BatchDeleteImageCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -838,24 +856,33 @@ async function deserializeAws_json1_1BatchGetImageCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -911,59 +938,83 @@ async function deserializeAws_json1_1CompleteLayerUploadCommandError(
   switch (errorCode) {
     case "EmptyUploadException":
     case "com.amazonaws.starport.frontend#EmptyUploadException":
-      response = await deserializeAws_json1_1EmptyUploadExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1EmptyUploadExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidLayerException":
     case "com.amazonaws.starport.frontend#InvalidLayerException":
-      response = await deserializeAws_json1_1InvalidLayerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLayerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LayerAlreadyExistsException":
     case "com.amazonaws.starport.frontend#LayerAlreadyExistsException":
-      response = await deserializeAws_json1_1LayerAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LayerAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LayerPartTooSmallException":
     case "com.amazonaws.starport.frontend#LayerPartTooSmallException":
-      response = await deserializeAws_json1_1LayerPartTooSmallExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LayerPartTooSmallExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UploadNotFoundException":
     case "com.amazonaws.starport.frontend#UploadNotFoundException":
-      response = await deserializeAws_json1_1UploadNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UploadNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1016,45 +1067,63 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagParameterException":
     case "com.amazonaws.starport.frontend#InvalidTagParameterException":
-      response = await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.starport.frontend#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryAlreadyExistsException":
     case "com.amazonaws.starport.frontend#RepositoryAlreadyExistsException":
-      response = await deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.starport.frontend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1110,31 +1179,43 @@ async function deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.starport.frontend#LifecyclePolicyNotFoundException":
-      response = await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1187,31 +1268,43 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotEmptyException":
     case "com.amazonaws.starport.frontend#RepositoryNotEmptyException":
-      response = await deserializeAws_json1_1RepositoryNotEmptyExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotEmptyExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1270,31 +1363,43 @@ async function deserializeAws_json1_1DeleteRepositoryPolicyCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryPolicyNotFoundException":
-      response = await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1353,38 +1458,53 @@ async function deserializeAws_json1_1DescribeImageScanFindingsCommandError(
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.starport.frontend#ImageNotFoundException":
-      response = await deserializeAws_json1_1ImageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ScanNotFoundException":
     case "com.amazonaws.starport.frontend#ScanNotFoundException":
-      response = await deserializeAws_json1_1ScanNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ScanNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1437,31 +1557,43 @@ async function deserializeAws_json1_1DescribeImagesCommandError(
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.starport.frontend#ImageNotFoundException":
-      response = await deserializeAws_json1_1ImageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1517,24 +1649,33 @@ async function deserializeAws_json1_1DescribeRepositoriesCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1590,17 +1731,23 @@ async function deserializeAws_json1_1GetAuthorizationTokenCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1659,38 +1806,53 @@ async function deserializeAws_json1_1GetDownloadUrlForLayerCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LayerInaccessibleException":
     case "com.amazonaws.starport.frontend#LayerInaccessibleException":
-      response = await deserializeAws_json1_1LayerInaccessibleExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LayerInaccessibleExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LayersNotFoundException":
     case "com.amazonaws.starport.frontend#LayersNotFoundException":
-      response = await deserializeAws_json1_1LayersNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LayersNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1746,31 +1908,43 @@ async function deserializeAws_json1_1GetLifecyclePolicyCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.starport.frontend#LifecyclePolicyNotFoundException":
-      response = await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1829,31 +2003,43 @@ async function deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecyclePolicyPreviewNotFoundException":
     case "com.amazonaws.starport.frontend#LifecyclePolicyPreviewNotFoundException":
-      response = await deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1909,31 +2095,43 @@ async function deserializeAws_json1_1GetRepositoryPolicyCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryPolicyNotFoundException":
-      response = await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1989,24 +2187,33 @@ async function deserializeAws_json1_1InitiateLayerUploadCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2059,24 +2266,33 @@ async function deserializeAws_json1_1ListImagesCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2132,24 +2348,33 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2202,52 +2427,73 @@ async function deserializeAws_json1_1PutImageCommandError(
   switch (errorCode) {
     case "ImageAlreadyExistsException":
     case "com.amazonaws.starport.frontend#ImageAlreadyExistsException":
-      response = await deserializeAws_json1_1ImageAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ImageAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ImageTagAlreadyExistsException":
     case "com.amazonaws.starport.frontend#ImageTagAlreadyExistsException":
-      response = await deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LayersNotFoundException":
     case "com.amazonaws.starport.frontend#LayersNotFoundException":
-      response = await deserializeAws_json1_1LayersNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LayersNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.starport.frontend#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2306,24 +2552,33 @@ async function deserializeAws_json1_1PutImageScanningConfigurationCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2379,24 +2634,33 @@ async function deserializeAws_json1_1PutImageTagMutabilityCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2452,24 +2716,33 @@ async function deserializeAws_json1_1PutLifecyclePolicyCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2525,24 +2798,33 @@ async function deserializeAws_json1_1SetRepositoryPolicyCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2595,31 +2877,43 @@ async function deserializeAws_json1_1StartImageScanCommandError(
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.starport.frontend#ImageNotFoundException":
-      response = await deserializeAws_json1_1ImageNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2678,38 +2972,53 @@ async function deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.starport.frontend#LifecyclePolicyNotFoundException":
-      response = await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LifecyclePolicyPreviewInProgressException":
     case "com.amazonaws.starport.frontend#LifecyclePolicyPreviewInProgressException":
-      response = await deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2762,38 +3071,53 @@ async function deserializeAws_json1_1TagResourceCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagParameterException":
     case "com.amazonaws.starport.frontend#InvalidTagParameterException":
-      response = await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.starport.frontend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2846,38 +3170,53 @@ async function deserializeAws_json1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidTagParameterException":
     case "com.amazonaws.starport.frontend#InvalidTagParameterException":
-      response = await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyTagsException":
     case "com.amazonaws.starport.frontend#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2930,45 +3269,63 @@ async function deserializeAws_json1_1UploadLayerPartCommandError(
   switch (errorCode) {
     case "InvalidLayerPartException":
     case "com.amazonaws.starport.frontend#InvalidLayerPartException":
-      response = await deserializeAws_json1_1InvalidLayerPartExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidLayerPartExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidParameterException":
     case "com.amazonaws.starport.frontend#InvalidParameterException":
-      response = await deserializeAws_json1_1InvalidParameterExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.starport.frontend#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RepositoryNotFoundException":
     case "com.amazonaws.starport.frontend#RepositoryNotFoundException":
-      response = await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServerException":
     case "com.amazonaws.starport.frontend#ServerException":
-      response = await deserializeAws_json1_1ServerExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ServerExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UploadNotFoundException":
     case "com.amazonaws.starport.frontend#UploadNotFoundException":
-      response = await deserializeAws_json1_1UploadNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UploadNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

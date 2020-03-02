@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateScheduledAuditCommandInput = CreateScheduledAuditRequest;
-export type CreateScheduledAuditCommandOutput = CreateScheduledAuditResponse;
+export type CreateScheduledAuditCommandOutput = CreateScheduledAuditResponse &
+  __MetadataBearer;
 
 export class CreateScheduledAuditCommand extends $Command<
   CreateScheduledAuditCommandInput,

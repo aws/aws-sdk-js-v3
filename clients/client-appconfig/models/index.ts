@@ -4,7 +4,7 @@ import {
 } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface Application extends $MetadataBearer {
+export interface Application {
   __type?: "Application";
   /**
    * <p>The description of the application.</p>
@@ -28,7 +28,7 @@ export namespace Application {
   }
 }
 
-export interface Applications extends $MetadataBearer {
+export interface Applications {
   __type?: "Applications";
   /**
    * <p>The elements from this collection.</p>
@@ -65,7 +65,7 @@ export namespace BadRequestException {
   }
 }
 
-export interface Configuration extends $MetadataBearer {
+export interface Configuration {
   __type?: "Configuration";
   /**
    * <p>The configuration version.</p>
@@ -90,7 +90,7 @@ export namespace Configuration {
   }
 }
 
-export interface ConfigurationProfile extends $MetadataBearer {
+export interface ConfigurationProfile {
   __type?: "ConfigurationProfile";
   /**
    * <p>The application ID.</p>
@@ -172,7 +172,7 @@ export namespace ConfigurationProfileSummary {
   }
 }
 
-export interface ConfigurationProfiles extends $MetadataBearer {
+export interface ConfigurationProfiles {
   __type?: "ConfigurationProfiles";
   /**
    * <p>The elements from this collection.</p>
@@ -436,7 +436,7 @@ export namespace DeleteEnvironmentRequest {
   }
 }
 
-export interface Deployment extends $MetadataBearer {
+export interface Deployment {
   __type?: "Deployment";
   /**
    * <p>The ID of the application that was deployed.</p>
@@ -541,7 +541,7 @@ export enum DeploymentState {
   VALIDATING = "VALIDATING"
 }
 
-export interface DeploymentStrategies extends $MetadataBearer {
+export interface DeploymentStrategies {
   __type?: "DeploymentStrategies";
   /**
    * <p>The elements from this collection.</p>
@@ -561,7 +561,7 @@ export namespace DeploymentStrategies {
   }
 }
 
-export interface DeploymentStrategy extends $MetadataBearer {
+export interface DeploymentStrategy {
   __type?: "DeploymentStrategy";
   /**
    * <p>Total amount of time the deployment lasted.</p>
@@ -681,7 +681,7 @@ export namespace DeploymentSummary {
   }
 }
 
-export interface Deployments extends $MetadataBearer {
+export interface Deployments {
   __type?: "Deployments";
   /**
    * <p>The elements from this collection.</p>
@@ -701,7 +701,7 @@ export namespace Deployments {
   }
 }
 
-export interface Environment extends $MetadataBearer {
+export interface Environment {
   __type?: "Environment";
   /**
    * <p>The application ID.</p>
@@ -750,7 +750,7 @@ export enum EnvironmentState {
   ROLLING_BACK = "ROLLING_BACK"
 }
 
-export interface Environments extends $MetadataBearer {
+export interface Environments {
   __type?: "Environments";
   /**
    * <p>The elements from this collection.</p>
@@ -1096,7 +1096,7 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export interface ResourceTags extends $MetadataBearer {
+export interface ResourceTags {
   __type?: "ResourceTags";
   /**
    * <p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListResolverEndpointIpAddressesCommandInput = ListResolverEndpointIpAddressesRequest;
-export type ListResolverEndpointIpAddressesCommandOutput = ListResolverEndpointIpAddressesResponse;
+export type ListResolverEndpointIpAddressesCommandOutput = ListResolverEndpointIpAddressesResponse &
+  __MetadataBearer;
 
 export class ListResolverEndpointIpAddressesCommand extends $Command<
   ListResolverEndpointIpAddressesCommandInput,

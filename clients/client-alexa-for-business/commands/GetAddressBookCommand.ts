@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetAddressBookCommandInput = GetAddressBookRequest;
-export type GetAddressBookCommandOutput = GetAddressBookResponse;
+export type GetAddressBookCommandOutput = GetAddressBookResponse &
+  __MetadataBearer;
 
 export class GetAddressBookCommand extends $Command<
   GetAddressBookCommandInput,

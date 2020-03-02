@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportTerminologyCommandInput = ImportTerminologyRequest;
-export type ImportTerminologyCommandOutput = ImportTerminologyResponse;
+export type ImportTerminologyCommandOutput = ImportTerminologyResponse &
+  __MetadataBearer;
 
 export class ImportTerminologyCommand extends $Command<
   ImportTerminologyCommandInput,

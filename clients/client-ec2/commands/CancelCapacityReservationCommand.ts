@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelCapacityReservationCommandInput = CancelCapacityReservationRequest;
-export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult;
+export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult &
+  __MetadataBearer;
 
 export class CancelCapacityReservationCommand extends $Command<
   CancelCapacityReservationCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateFleetCommandInput = AssociateFleetRequest;
-export type AssociateFleetCommandOutput = AssociateFleetResult;
+export type AssociateFleetCommandOutput = AssociateFleetResult &
+  __MetadataBearer;
 
 export class AssociateFleetCommand extends $Command<
   AssociateFleetCommandInput,

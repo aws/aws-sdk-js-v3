@@ -772,45 +772,63 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -860,45 +878,63 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -961,45 +997,63 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1053,38 +1107,53 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1133,45 +1202,63 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1217,38 +1304,53 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1305,38 +1407,53 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1393,38 +1510,53 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1481,31 +1613,43 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1559,31 +1703,43 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1633,38 +1789,53 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1724,38 +1895,53 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1805,38 +1991,53 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1893,38 +2094,53 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -1987,45 +2203,63 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2081,45 +2315,63 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2175,45 +2427,63 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

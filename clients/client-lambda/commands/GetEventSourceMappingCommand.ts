@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetEventSourceMappingCommandInput = GetEventSourceMappingRequest;
-export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration;
+export type GetEventSourceMappingCommandOutput = EventSourceMappingConfiguration &
+  __MetadataBearer;
 
 export class GetEventSourceMappingCommand extends $Command<
   GetEventSourceMappingCommandInput,

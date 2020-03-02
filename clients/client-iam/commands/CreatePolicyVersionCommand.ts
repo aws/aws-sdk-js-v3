@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreatePolicyVersionCommandInput = CreatePolicyVersionRequest;
-export type CreatePolicyVersionCommandOutput = CreatePolicyVersionResponse;
+export type CreatePolicyVersionCommandOutput = CreatePolicyVersionResponse &
+  __MetadataBearer;
 
 export class CreatePolicyVersionCommand extends $Command<
   CreatePolicyVersionCommandInput,

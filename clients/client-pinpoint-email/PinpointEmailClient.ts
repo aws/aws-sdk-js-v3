@@ -1,89 +1,171 @@
 import {
-  CreateConfigurationSetEventDestinationRequest,
-  CreateConfigurationSetEventDestinationResponse,
-  CreateConfigurationSetRequest,
-  CreateConfigurationSetResponse,
-  CreateDedicatedIpPoolRequest,
-  CreateDedicatedIpPoolResponse,
-  CreateDeliverabilityTestReportRequest,
-  CreateDeliverabilityTestReportResponse,
-  CreateEmailIdentityRequest,
-  CreateEmailIdentityResponse,
-  DeleteConfigurationSetEventDestinationRequest,
-  DeleteConfigurationSetEventDestinationResponse,
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetResponse,
-  DeleteDedicatedIpPoolRequest,
-  DeleteDedicatedIpPoolResponse,
-  DeleteEmailIdentityRequest,
-  DeleteEmailIdentityResponse,
-  GetAccountRequest,
-  GetAccountResponse,
-  GetBlacklistReportsRequest,
-  GetBlacklistReportsResponse,
-  GetConfigurationSetEventDestinationsRequest,
-  GetConfigurationSetEventDestinationsResponse,
-  GetConfigurationSetRequest,
-  GetConfigurationSetResponse,
-  GetDedicatedIpRequest,
-  GetDedicatedIpResponse,
-  GetDedicatedIpsRequest,
-  GetDedicatedIpsResponse,
-  GetDeliverabilityDashboardOptionsRequest,
-  GetDeliverabilityDashboardOptionsResponse,
-  GetDeliverabilityTestReportRequest,
-  GetDeliverabilityTestReportResponse,
-  GetDomainDeliverabilityCampaignRequest,
-  GetDomainDeliverabilityCampaignResponse,
-  GetDomainStatisticsReportRequest,
-  GetDomainStatisticsReportResponse,
-  GetEmailIdentityRequest,
-  GetEmailIdentityResponse,
-  ListConfigurationSetsRequest,
-  ListConfigurationSetsResponse,
-  ListDedicatedIpPoolsRequest,
-  ListDedicatedIpPoolsResponse,
-  ListDeliverabilityTestReportsRequest,
-  ListDeliverabilityTestReportsResponse,
-  ListDomainDeliverabilityCampaignsRequest,
-  ListDomainDeliverabilityCampaignsResponse,
-  ListEmailIdentitiesRequest,
-  ListEmailIdentitiesResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  PutAccountDedicatedIpWarmupAttributesRequest,
-  PutAccountDedicatedIpWarmupAttributesResponse,
-  PutAccountSendingAttributesRequest,
-  PutAccountSendingAttributesResponse,
-  PutConfigurationSetDeliveryOptionsRequest,
-  PutConfigurationSetDeliveryOptionsResponse,
-  PutConfigurationSetReputationOptionsRequest,
-  PutConfigurationSetReputationOptionsResponse,
-  PutConfigurationSetSendingOptionsRequest,
-  PutConfigurationSetSendingOptionsResponse,
-  PutConfigurationSetTrackingOptionsRequest,
-  PutConfigurationSetTrackingOptionsResponse,
-  PutDedicatedIpInPoolRequest,
-  PutDedicatedIpInPoolResponse,
-  PutDedicatedIpWarmupAttributesRequest,
-  PutDedicatedIpWarmupAttributesResponse,
-  PutDeliverabilityDashboardOptionRequest,
-  PutDeliverabilityDashboardOptionResponse,
-  PutEmailIdentityDkimAttributesRequest,
-  PutEmailIdentityDkimAttributesResponse,
-  PutEmailIdentityFeedbackAttributesRequest,
-  PutEmailIdentityFeedbackAttributesResponse,
-  PutEmailIdentityMailFromAttributesRequest,
-  PutEmailIdentityMailFromAttributesResponse,
-  SendEmailRequest,
-  SendEmailResponse,
-  TagResourceRequest,
-  TagResourceResponse,
-  UntagResourceRequest,
-  UntagResourceResponse,
-  UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationResponse
-} from "./models/index";
+  CreateConfigurationSetCommandInput,
+  CreateConfigurationSetCommandOutput
+} from "./commands/CreateConfigurationSetCommand";
+import {
+  CreateConfigurationSetEventDestinationCommandInput,
+  CreateConfigurationSetEventDestinationCommandOutput
+} from "./commands/CreateConfigurationSetEventDestinationCommand";
+import {
+  CreateDedicatedIpPoolCommandInput,
+  CreateDedicatedIpPoolCommandOutput
+} from "./commands/CreateDedicatedIpPoolCommand";
+import {
+  CreateDeliverabilityTestReportCommandInput,
+  CreateDeliverabilityTestReportCommandOutput
+} from "./commands/CreateDeliverabilityTestReportCommand";
+import {
+  CreateEmailIdentityCommandInput,
+  CreateEmailIdentityCommandOutput
+} from "./commands/CreateEmailIdentityCommand";
+import {
+  DeleteConfigurationSetCommandInput,
+  DeleteConfigurationSetCommandOutput
+} from "./commands/DeleteConfigurationSetCommand";
+import {
+  DeleteConfigurationSetEventDestinationCommandInput,
+  DeleteConfigurationSetEventDestinationCommandOutput
+} from "./commands/DeleteConfigurationSetEventDestinationCommand";
+import {
+  DeleteDedicatedIpPoolCommandInput,
+  DeleteDedicatedIpPoolCommandOutput
+} from "./commands/DeleteDedicatedIpPoolCommand";
+import {
+  DeleteEmailIdentityCommandInput,
+  DeleteEmailIdentityCommandOutput
+} from "./commands/DeleteEmailIdentityCommand";
+import {
+  GetAccountCommandInput,
+  GetAccountCommandOutput
+} from "./commands/GetAccountCommand";
+import {
+  GetBlacklistReportsCommandInput,
+  GetBlacklistReportsCommandOutput
+} from "./commands/GetBlacklistReportsCommand";
+import {
+  GetConfigurationSetCommandInput,
+  GetConfigurationSetCommandOutput
+} from "./commands/GetConfigurationSetCommand";
+import {
+  GetConfigurationSetEventDestinationsCommandInput,
+  GetConfigurationSetEventDestinationsCommandOutput
+} from "./commands/GetConfigurationSetEventDestinationsCommand";
+import {
+  GetDedicatedIpCommandInput,
+  GetDedicatedIpCommandOutput
+} from "./commands/GetDedicatedIpCommand";
+import {
+  GetDedicatedIpsCommandInput,
+  GetDedicatedIpsCommandOutput
+} from "./commands/GetDedicatedIpsCommand";
+import {
+  GetDeliverabilityDashboardOptionsCommandInput,
+  GetDeliverabilityDashboardOptionsCommandOutput
+} from "./commands/GetDeliverabilityDashboardOptionsCommand";
+import {
+  GetDeliverabilityTestReportCommandInput,
+  GetDeliverabilityTestReportCommandOutput
+} from "./commands/GetDeliverabilityTestReportCommand";
+import {
+  GetDomainDeliverabilityCampaignCommandInput,
+  GetDomainDeliverabilityCampaignCommandOutput
+} from "./commands/GetDomainDeliverabilityCampaignCommand";
+import {
+  GetDomainStatisticsReportCommandInput,
+  GetDomainStatisticsReportCommandOutput
+} from "./commands/GetDomainStatisticsReportCommand";
+import {
+  GetEmailIdentityCommandInput,
+  GetEmailIdentityCommandOutput
+} from "./commands/GetEmailIdentityCommand";
+import {
+  ListConfigurationSetsCommandInput,
+  ListConfigurationSetsCommandOutput
+} from "./commands/ListConfigurationSetsCommand";
+import {
+  ListDedicatedIpPoolsCommandInput,
+  ListDedicatedIpPoolsCommandOutput
+} from "./commands/ListDedicatedIpPoolsCommand";
+import {
+  ListDeliverabilityTestReportsCommandInput,
+  ListDeliverabilityTestReportsCommandOutput
+} from "./commands/ListDeliverabilityTestReportsCommand";
+import {
+  ListDomainDeliverabilityCampaignsCommandInput,
+  ListDomainDeliverabilityCampaignsCommandOutput
+} from "./commands/ListDomainDeliverabilityCampaignsCommand";
+import {
+  ListEmailIdentitiesCommandInput,
+  ListEmailIdentitiesCommandOutput
+} from "./commands/ListEmailIdentitiesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutAccountDedicatedIpWarmupAttributesCommandInput,
+  PutAccountDedicatedIpWarmupAttributesCommandOutput
+} from "./commands/PutAccountDedicatedIpWarmupAttributesCommand";
+import {
+  PutAccountSendingAttributesCommandInput,
+  PutAccountSendingAttributesCommandOutput
+} from "./commands/PutAccountSendingAttributesCommand";
+import {
+  PutConfigurationSetDeliveryOptionsCommandInput,
+  PutConfigurationSetDeliveryOptionsCommandOutput
+} from "./commands/PutConfigurationSetDeliveryOptionsCommand";
+import {
+  PutConfigurationSetReputationOptionsCommandInput,
+  PutConfigurationSetReputationOptionsCommandOutput
+} from "./commands/PutConfigurationSetReputationOptionsCommand";
+import {
+  PutConfigurationSetSendingOptionsCommandInput,
+  PutConfigurationSetSendingOptionsCommandOutput
+} from "./commands/PutConfigurationSetSendingOptionsCommand";
+import {
+  PutConfigurationSetTrackingOptionsCommandInput,
+  PutConfigurationSetTrackingOptionsCommandOutput
+} from "./commands/PutConfigurationSetTrackingOptionsCommand";
+import {
+  PutDedicatedIpInPoolCommandInput,
+  PutDedicatedIpInPoolCommandOutput
+} from "./commands/PutDedicatedIpInPoolCommand";
+import {
+  PutDedicatedIpWarmupAttributesCommandInput,
+  PutDedicatedIpWarmupAttributesCommandOutput
+} from "./commands/PutDedicatedIpWarmupAttributesCommand";
+import {
+  PutDeliverabilityDashboardOptionCommandInput,
+  PutDeliverabilityDashboardOptionCommandOutput
+} from "./commands/PutDeliverabilityDashboardOptionCommand";
+import {
+  PutEmailIdentityDkimAttributesCommandInput,
+  PutEmailIdentityDkimAttributesCommandOutput
+} from "./commands/PutEmailIdentityDkimAttributesCommand";
+import {
+  PutEmailIdentityFeedbackAttributesCommandInput,
+  PutEmailIdentityFeedbackAttributesCommandOutput
+} from "./commands/PutEmailIdentityFeedbackAttributesCommand";
+import {
+  PutEmailIdentityMailFromAttributesCommandInput,
+  PutEmailIdentityMailFromAttributesCommandOutput
+} from "./commands/PutEmailIdentityMailFromAttributesCommand";
+import {
+  SendEmailCommandInput,
+  SendEmailCommandOutput
+} from "./commands/SendEmailCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateConfigurationSetEventDestinationCommandInput,
+  UpdateConfigurationSetEventDestinationCommandOutput
+} from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -137,92 +219,92 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateConfigurationSetEventDestinationRequest
-  | CreateConfigurationSetRequest
-  | CreateDedicatedIpPoolRequest
-  | CreateDeliverabilityTestReportRequest
-  | CreateEmailIdentityRequest
-  | DeleteConfigurationSetEventDestinationRequest
-  | DeleteConfigurationSetRequest
-  | DeleteDedicatedIpPoolRequest
-  | DeleteEmailIdentityRequest
-  | GetAccountRequest
-  | GetBlacklistReportsRequest
-  | GetConfigurationSetEventDestinationsRequest
-  | GetConfigurationSetRequest
-  | GetDedicatedIpRequest
-  | GetDedicatedIpsRequest
-  | GetDeliverabilityDashboardOptionsRequest
-  | GetDeliverabilityTestReportRequest
-  | GetDomainDeliverabilityCampaignRequest
-  | GetDomainStatisticsReportRequest
-  | GetEmailIdentityRequest
-  | ListConfigurationSetsRequest
-  | ListDedicatedIpPoolsRequest
-  | ListDeliverabilityTestReportsRequest
-  | ListDomainDeliverabilityCampaignsRequest
-  | ListEmailIdentitiesRequest
-  | ListTagsForResourceRequest
-  | PutAccountDedicatedIpWarmupAttributesRequest
-  | PutAccountSendingAttributesRequest
-  | PutConfigurationSetDeliveryOptionsRequest
-  | PutConfigurationSetReputationOptionsRequest
-  | PutConfigurationSetSendingOptionsRequest
-  | PutConfigurationSetTrackingOptionsRequest
-  | PutDedicatedIpInPoolRequest
-  | PutDedicatedIpWarmupAttributesRequest
-  | PutDeliverabilityDashboardOptionRequest
-  | PutEmailIdentityDkimAttributesRequest
-  | PutEmailIdentityFeedbackAttributesRequest
-  | PutEmailIdentityMailFromAttributesRequest
-  | SendEmailRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateConfigurationSetEventDestinationRequest;
+  | CreateConfigurationSetCommandInput
+  | CreateConfigurationSetEventDestinationCommandInput
+  | CreateDedicatedIpPoolCommandInput
+  | CreateDeliverabilityTestReportCommandInput
+  | CreateEmailIdentityCommandInput
+  | DeleteConfigurationSetCommandInput
+  | DeleteConfigurationSetEventDestinationCommandInput
+  | DeleteDedicatedIpPoolCommandInput
+  | DeleteEmailIdentityCommandInput
+  | GetAccountCommandInput
+  | GetBlacklistReportsCommandInput
+  | GetConfigurationSetCommandInput
+  | GetConfigurationSetEventDestinationsCommandInput
+  | GetDedicatedIpCommandInput
+  | GetDedicatedIpsCommandInput
+  | GetDeliverabilityDashboardOptionsCommandInput
+  | GetDeliverabilityTestReportCommandInput
+  | GetDomainDeliverabilityCampaignCommandInput
+  | GetDomainStatisticsReportCommandInput
+  | GetEmailIdentityCommandInput
+  | ListConfigurationSetsCommandInput
+  | ListDedicatedIpPoolsCommandInput
+  | ListDeliverabilityTestReportsCommandInput
+  | ListDomainDeliverabilityCampaignsCommandInput
+  | ListEmailIdentitiesCommandInput
+  | ListTagsForResourceCommandInput
+  | PutAccountDedicatedIpWarmupAttributesCommandInput
+  | PutAccountSendingAttributesCommandInput
+  | PutConfigurationSetDeliveryOptionsCommandInput
+  | PutConfigurationSetReputationOptionsCommandInput
+  | PutConfigurationSetSendingOptionsCommandInput
+  | PutConfigurationSetTrackingOptionsCommandInput
+  | PutDedicatedIpInPoolCommandInput
+  | PutDedicatedIpWarmupAttributesCommandInput
+  | PutDeliverabilityDashboardOptionCommandInput
+  | PutEmailIdentityDkimAttributesCommandInput
+  | PutEmailIdentityFeedbackAttributesCommandInput
+  | PutEmailIdentityMailFromAttributesCommandInput
+  | SendEmailCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateConfigurationSetEventDestinationCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateConfigurationSetEventDestinationResponse
-  | CreateConfigurationSetResponse
-  | CreateDedicatedIpPoolResponse
-  | CreateDeliverabilityTestReportResponse
-  | CreateEmailIdentityResponse
-  | DeleteConfigurationSetEventDestinationResponse
-  | DeleteConfigurationSetResponse
-  | DeleteDedicatedIpPoolResponse
-  | DeleteEmailIdentityResponse
-  | GetAccountResponse
-  | GetBlacklistReportsResponse
-  | GetConfigurationSetEventDestinationsResponse
-  | GetConfigurationSetResponse
-  | GetDedicatedIpResponse
-  | GetDedicatedIpsResponse
-  | GetDeliverabilityDashboardOptionsResponse
-  | GetDeliverabilityTestReportResponse
-  | GetDomainDeliverabilityCampaignResponse
-  | GetDomainStatisticsReportResponse
-  | GetEmailIdentityResponse
-  | ListConfigurationSetsResponse
-  | ListDedicatedIpPoolsResponse
-  | ListDeliverabilityTestReportsResponse
-  | ListDomainDeliverabilityCampaignsResponse
-  | ListEmailIdentitiesResponse
-  | ListTagsForResourceResponse
-  | PutAccountDedicatedIpWarmupAttributesResponse
-  | PutAccountSendingAttributesResponse
-  | PutConfigurationSetDeliveryOptionsResponse
-  | PutConfigurationSetReputationOptionsResponse
-  | PutConfigurationSetSendingOptionsResponse
-  | PutConfigurationSetTrackingOptionsResponse
-  | PutDedicatedIpInPoolResponse
-  | PutDedicatedIpWarmupAttributesResponse
-  | PutDeliverabilityDashboardOptionResponse
-  | PutEmailIdentityDkimAttributesResponse
-  | PutEmailIdentityFeedbackAttributesResponse
-  | PutEmailIdentityMailFromAttributesResponse
-  | SendEmailResponse
-  | TagResourceResponse
-  | UntagResourceResponse
-  | UpdateConfigurationSetEventDestinationResponse;
+  | CreateConfigurationSetCommandOutput
+  | CreateConfigurationSetEventDestinationCommandOutput
+  | CreateDedicatedIpPoolCommandOutput
+  | CreateDeliverabilityTestReportCommandOutput
+  | CreateEmailIdentityCommandOutput
+  | DeleteConfigurationSetCommandOutput
+  | DeleteConfigurationSetEventDestinationCommandOutput
+  | DeleteDedicatedIpPoolCommandOutput
+  | DeleteEmailIdentityCommandOutput
+  | GetAccountCommandOutput
+  | GetBlacklistReportsCommandOutput
+  | GetConfigurationSetCommandOutput
+  | GetConfigurationSetEventDestinationsCommandOutput
+  | GetDedicatedIpCommandOutput
+  | GetDedicatedIpsCommandOutput
+  | GetDeliverabilityDashboardOptionsCommandOutput
+  | GetDeliverabilityTestReportCommandOutput
+  | GetDomainDeliverabilityCampaignCommandOutput
+  | GetDomainStatisticsReportCommandOutput
+  | GetEmailIdentityCommandOutput
+  | ListConfigurationSetsCommandOutput
+  | ListDedicatedIpPoolsCommandOutput
+  | ListDeliverabilityTestReportsCommandOutput
+  | ListDomainDeliverabilityCampaignsCommandOutput
+  | ListEmailIdentitiesCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutAccountDedicatedIpWarmupAttributesCommandOutput
+  | PutAccountSendingAttributesCommandOutput
+  | PutConfigurationSetDeliveryOptionsCommandOutput
+  | PutConfigurationSetReputationOptionsCommandOutput
+  | PutConfigurationSetSendingOptionsCommandOutput
+  | PutConfigurationSetTrackingOptionsCommandOutput
+  | PutDedicatedIpInPoolCommandOutput
+  | PutDedicatedIpWarmupAttributesCommandOutput
+  | PutDeliverabilityDashboardOptionCommandOutput
+  | PutEmailIdentityDkimAttributesCommandOutput
+  | PutEmailIdentityFeedbackAttributesCommandOutput
+  | PutEmailIdentityMailFromAttributesCommandOutput
+  | SendEmailCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateConfigurationSetEventDestinationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

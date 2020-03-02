@@ -343,7 +343,7 @@ export namespace CreateBudgetRequest {
 /**
  * <p> Response of CreateBudget </p>
  */
-export interface CreateBudgetResponse extends $MetadataBearer {
+export interface CreateBudgetResponse {
   __type?: "CreateBudgetResponse";
 }
 
@@ -388,7 +388,7 @@ export namespace CreateNotificationRequest {
 /**
  * <p> Response of CreateNotification </p>
  */
-export interface CreateNotificationResponse extends $MetadataBearer {
+export interface CreateNotificationResponse {
   __type?: "CreateNotificationResponse";
 }
 
@@ -433,7 +433,7 @@ export namespace CreateSubscriberRequest {
 /**
  * <p> Response of CreateSubscriber </p>
  */
-export interface CreateSubscriberResponse extends $MetadataBearer {
+export interface CreateSubscriberResponse {
   __type?: "CreateSubscriberResponse";
 }
 
@@ -488,7 +488,7 @@ export namespace DeleteBudgetRequest {
 /**
  * <p> Response of DeleteBudget </p>
  */
-export interface DeleteBudgetResponse extends $MetadataBearer {
+export interface DeleteBudgetResponse {
   __type?: "DeleteBudgetResponse";
 }
 
@@ -528,7 +528,7 @@ export namespace DeleteNotificationRequest {
 /**
  * <p> Response of DeleteNotification </p>
  */
-export interface DeleteNotificationResponse extends $MetadataBearer {
+export interface DeleteNotificationResponse {
   __type?: "DeleteNotificationResponse";
 }
 
@@ -573,7 +573,7 @@ export namespace DeleteSubscriberRequest {
 /**
  * <p> Response of DeleteSubscriber </p>
  */
-export interface DeleteSubscriberResponse extends $MetadataBearer {
+export interface DeleteSubscriberResponse {
   __type?: "DeleteSubscriberResponse";
 }
 
@@ -617,8 +617,7 @@ export namespace DescribeBudgetPerformanceHistoryRequest {
   }
 }
 
-export interface DescribeBudgetPerformanceHistoryResponse
-  extends $MetadataBearer {
+export interface DescribeBudgetPerformanceHistoryResponse {
   __type?: "DescribeBudgetPerformanceHistoryResponse";
   /**
    * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
@@ -663,7 +662,7 @@ export namespace DescribeBudgetRequest {
 /**
  * <p> Response of DescribeBudget </p>
  */
-export interface DescribeBudgetResponse extends $MetadataBearer {
+export interface DescribeBudgetResponse {
   __type?: "DescribeBudgetResponse";
   /**
    * <p>The description of the budget.</p>
@@ -707,7 +706,7 @@ export namespace DescribeBudgetsRequest {
 /**
  * <p> Response of DescribeBudgets </p>
  */
-export interface DescribeBudgetsResponse extends $MetadataBearer {
+export interface DescribeBudgetsResponse {
   __type?: "DescribeBudgetsResponse";
   /**
    * <p>A list of budgets.</p>
@@ -761,8 +760,7 @@ export namespace DescribeNotificationsForBudgetRequest {
 /**
  * <p> Response of GetNotificationsForBudget </p>
  */
-export interface DescribeNotificationsForBudgetResponse
-  extends $MetadataBearer {
+export interface DescribeNotificationsForBudgetResponse {
   __type?: "DescribeNotificationsForBudgetResponse";
   /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
@@ -821,8 +819,7 @@ export namespace DescribeSubscribersForNotificationRequest {
 /**
  * <p> Response of DescribeSubscribersForNotification </p>
  */
-export interface DescribeSubscribersForNotificationResponse
-  extends $MetadataBearer {
+export interface DescribeSubscribersForNotificationResponse {
   __type?: "DescribeSubscribersForNotificationResponse";
   /**
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
@@ -1181,7 +1178,7 @@ export namespace UpdateBudgetRequest {
 /**
  * <p> Response of UpdateBudget </p>
  */
-export interface UpdateBudgetResponse extends $MetadataBearer {
+export interface UpdateBudgetResponse {
   __type?: "UpdateBudgetResponse";
 }
 
@@ -1226,7 +1223,7 @@ export namespace UpdateNotificationRequest {
 /**
  * <p> Response of UpdateNotification </p>
  */
-export interface UpdateNotificationResponse extends $MetadataBearer {
+export interface UpdateNotificationResponse {
   __type?: "UpdateNotificationResponse";
 }
 
@@ -1276,7 +1273,7 @@ export namespace UpdateSubscriberRequest {
 /**
  * <p> Response of UpdateSubscriber </p>
  */
-export interface UpdateSubscriberResponse extends $MetadataBearer {
+export interface UpdateSubscriberResponse {
   __type?: "UpdateSubscriberResponse";
 }
 

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutSchemaFromJsonCommandInput = PutSchemaFromJsonRequest;
-export type PutSchemaFromJsonCommandOutput = PutSchemaFromJsonResponse;
+export type PutSchemaFromJsonCommandOutput = PutSchemaFromJsonResponse &
+  __MetadataBearer;
 
 export class PutSchemaFromJsonCommand extends $Command<
   PutSchemaFromJsonCommandInput,

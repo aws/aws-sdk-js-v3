@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type EnableSharingWithAwsOrganizationCommandInput = EnableSharingWithAwsOrganizationRequest;
-export type EnableSharingWithAwsOrganizationCommandOutput = EnableSharingWithAwsOrganizationResponse;
+export type EnableSharingWithAwsOrganizationCommandOutput = EnableSharingWithAwsOrganizationResponse &
+  __MetadataBearer;
 
 export class EnableSharingWithAwsOrganizationCommand extends $Command<
   EnableSharingWithAwsOrganizationCommandInput,

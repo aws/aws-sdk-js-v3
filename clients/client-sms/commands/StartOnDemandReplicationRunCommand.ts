@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StartOnDemandReplicationRunCommandInput = StartOnDemandReplicationRunRequest;
-export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse;
+export type StartOnDemandReplicationRunCommandOutput = StartOnDemandReplicationRunResponse &
+  __MetadataBearer;
 
 export class StartOnDemandReplicationRunCommand extends $Command<
   StartOnDemandReplicationRunCommandInput,

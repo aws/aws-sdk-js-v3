@@ -46,7 +46,7 @@ export namespace AddFlowOutputsRequest {
   }
 }
 
-export interface AddFlowOutputsResponse extends $MetadataBearer {
+export interface AddFlowOutputsResponse {
   __type?: "AddFlowOutputsResponse";
   /**
    * The ARN of the flow that these outputs were added to.
@@ -215,7 +215,7 @@ export namespace CreateFlowRequest {
   }
 }
 
-export interface CreateFlowResponse extends $MetadataBearer {
+export interface CreateFlowResponse {
   __type?: "CreateFlowResponse";
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
@@ -243,7 +243,7 @@ export namespace DeleteFlowRequest {
   }
 }
 
-export interface DeleteFlowResponse extends $MetadataBearer {
+export interface DeleteFlowResponse {
   __type?: "DeleteFlowResponse";
   /**
    * The ARN of the flow that was deleted.
@@ -276,7 +276,7 @@ export namespace DescribeFlowRequest {
   }
 }
 
-export interface DescribeFlowResponse extends $MetadataBearer {
+export interface DescribeFlowResponse {
   __type?: "DescribeFlowResponse";
   /**
    * The settings for a flow, including its source, outputs, and entitlements.
@@ -548,7 +548,7 @@ export namespace GrantFlowEntitlementsRequest {
   }
 }
 
-export interface GrantFlowEntitlementsResponse extends $MetadataBearer {
+export interface GrantFlowEntitlementsResponse {
   __type?: "GrantFlowEntitlementsResponse";
   /**
    * The entitlements that were just granted.
@@ -611,7 +611,7 @@ export namespace ListEntitlementsRequest {
   }
 }
 
-export interface ListEntitlementsResponse extends $MetadataBearer {
+export interface ListEntitlementsResponse {
   __type?: "ListEntitlementsResponse";
   /**
    * A list of entitlements that have been granted to you from other AWS accounts.
@@ -649,7 +649,7 @@ export namespace ListFlowsRequest {
   }
 }
 
-export interface ListFlowsResponse extends $MetadataBearer {
+export interface ListFlowsResponse {
   __type?: "ListFlowsResponse";
   /**
    * A list of flow summaries.
@@ -682,7 +682,7 @@ export namespace ListTagsForResourceRequest {
   }
 }
 
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * A map from tag keys to values. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
@@ -889,7 +889,7 @@ export namespace RemoveFlowOutputRequest {
   }
 }
 
-export interface RemoveFlowOutputResponse extends $MetadataBearer {
+export interface RemoveFlowOutputResponse {
   __type?: "RemoveFlowOutputResponse";
   /**
    * The ARN of the flow that is associated with the output you removed.
@@ -927,7 +927,7 @@ export namespace RevokeFlowEntitlementRequest {
   }
 }
 
-export interface RevokeFlowEntitlementResponse extends $MetadataBearer {
+export interface RevokeFlowEntitlementResponse {
   __type?: "RevokeFlowEntitlementResponse";
   /**
    * The ARN of the entitlement that was revoked.
@@ -1109,7 +1109,7 @@ export namespace StartFlowRequest {
   }
 }
 
-export interface StartFlowResponse extends $MetadataBearer {
+export interface StartFlowResponse {
   __type?: "StartFlowResponse";
   /**
    * The ARN of the flow that you started.
@@ -1152,7 +1152,7 @@ export namespace StopFlowRequest {
   }
 }
 
-export interface StopFlowResponse extends $MetadataBearer {
+export interface StopFlowResponse {
   __type?: "StopFlowResponse";
   /**
    * The ARN of the flow that you stopped.
@@ -1373,7 +1373,7 @@ export namespace UpdateFlowEntitlementRequest {
   }
 }
 
-export interface UpdateFlowEntitlementResponse extends $MetadataBearer {
+export interface UpdateFlowEntitlementResponse {
   __type?: "UpdateFlowEntitlementResponse";
   /**
    * The settings for a flow entitlement.
@@ -1464,7 +1464,7 @@ export namespace UpdateFlowOutputRequest {
   }
 }
 
-export interface UpdateFlowOutputResponse extends $MetadataBearer {
+export interface UpdateFlowOutputResponse {
   __type?: "UpdateFlowOutputResponse";
   /**
    * The ARN of the flow that is associated with the updated output.
@@ -1550,7 +1550,7 @@ export namespace UpdateFlowSourceRequest {
   }
 }
 
-export interface UpdateFlowSourceResponse extends $MetadataBearer {
+export interface UpdateFlowSourceResponse {
   __type?: "UpdateFlowSourceResponse";
   /**
    * The ARN of the flow that you want to update.

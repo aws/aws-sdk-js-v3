@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssumeRoleWithSAMLCommandInput = AssumeRoleWithSAMLRequest;
-export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse;
+export type AssumeRoleWithSAMLCommandOutput = AssumeRoleWithSAMLResponse &
+  __MetadataBearer;
 
 export class AssumeRoleWithSAMLCommand extends $Command<
   AssumeRoleWithSAMLCommandInput,

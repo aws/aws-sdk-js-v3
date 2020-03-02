@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssociateWebsiteCertificateAuthorityCommandInput = AssociateWebsiteCertificateAuthorityRequest;
-export type AssociateWebsiteCertificateAuthorityCommandOutput = AssociateWebsiteCertificateAuthorityResponse;
+export type AssociateWebsiteCertificateAuthorityCommandOutput = AssociateWebsiteCertificateAuthorityResponse &
+  __MetadataBearer;
 
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
   AssociateWebsiteCertificateAuthorityCommandInput,

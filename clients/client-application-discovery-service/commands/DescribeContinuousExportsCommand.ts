@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeContinuousExportsCommandInput = DescribeContinuousExportsRequest;
-export type DescribeContinuousExportsCommandOutput = DescribeContinuousExportsResponse;
+export type DescribeContinuousExportsCommandOutput = DescribeContinuousExportsResponse &
+  __MetadataBearer;
 
 export class DescribeContinuousExportsCommand extends $Command<
   DescribeContinuousExportsCommandInput,

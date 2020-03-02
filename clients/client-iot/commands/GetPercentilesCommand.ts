@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetPercentilesCommandInput = GetPercentilesRequest;
-export type GetPercentilesCommandOutput = GetPercentilesResponse;
+export type GetPercentilesCommandOutput = GetPercentilesResponse &
+  __MetadataBearer;
 
 export class GetPercentilesCommand extends $Command<
   GetPercentilesCommandInput,

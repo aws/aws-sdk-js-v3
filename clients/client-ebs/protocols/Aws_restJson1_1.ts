@@ -205,17 +205,23 @@ async function deserializeAws_restJson1_1GetSnapshotBlockCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazon.zeppelindataservice#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.zeppelindataservice#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -287,17 +293,23 @@ async function deserializeAws_restJson1_1ListChangedBlocksCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazon.zeppelindataservice#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.zeppelindataservice#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -366,17 +378,23 @@ async function deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazon.zeppelindataservice#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ValidationException":
     case "com.amazon.zeppelindataservice#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

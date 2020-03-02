@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AttachLoadBalancerTargetGroupsCommandInput = AttachLoadBalancerTargetGroupsType;
-export type AttachLoadBalancerTargetGroupsCommandOutput = AttachLoadBalancerTargetGroupsResultType;
+export type AttachLoadBalancerTargetGroupsCommandOutput = AttachLoadBalancerTargetGroupsResultType &
+  __MetadataBearer;
 
 export class AttachLoadBalancerTargetGroupsCommand extends $Command<
   AttachLoadBalancerTargetGroupsCommandInput,

@@ -1,7 +1,7 @@
 import {
-  StartStreamTranscriptionRequest,
-  StartStreamTranscriptionResponse
-} from "./models/index";
+  StartStreamTranscriptionCommandInput,
+  StartStreamTranscriptionCommandOutput
+} from "./commands/StartStreamTranscriptionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -60,9 +60,9 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = StartStreamTranscriptionRequest;
+export type ServiceInputTypes = StartStreamTranscriptionCommandInput;
 
-export type ServiceOutputTypes = StartStreamTranscriptionResponse;
+export type ServiceOutputTypes = StartStreamTranscriptionCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

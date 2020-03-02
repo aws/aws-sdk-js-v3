@@ -3727,17 +3727,23 @@ async function deserializeAws_restJson1_1AssociateRoleToGroupCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3790,17 +3796,23 @@ async function deserializeAws_restJson1_1AssociateServiceRoleToAccountCommandErr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3880,10 +3892,13 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3948,10 +3963,13 @@ async function deserializeAws_restJson1_1CreateConnectorDefinitionVersionCommand
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4031,10 +4049,13 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4099,10 +4120,13 @@ async function deserializeAws_restJson1_1CreateCoreDefinitionVersionCommandError
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4159,10 +4183,13 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4242,10 +4269,13 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4310,10 +4340,13 @@ async function deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommandErr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4393,10 +4426,13 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4461,10 +4497,13 @@ async function deserializeAws_restJson1_1CreateFunctionDefinitionVersionCommandE
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4541,10 +4580,13 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4600,17 +4642,23 @@ async function deserializeAws_restJson1_1CreateGroupCertificateAuthorityCommandE
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4675,10 +4723,13 @@ async function deserializeAws_restJson1_1CreateGroupVersionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4758,10 +4809,13 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4826,10 +4880,13 @@ async function deserializeAws_restJson1_1CreateLoggerDefinitionVersionCommandErr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4909,10 +4966,13 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4977,10 +5037,13 @@ async function deserializeAws_restJson1_1CreateResourceDefinitionVersionCommandE
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5044,17 +5107,23 @@ async function deserializeAws_restJson1_1CreateSoftwareUpdateJobCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5134,10 +5203,13 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5202,10 +5274,13 @@ async function deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionComm
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5254,10 +5329,13 @@ async function deserializeAws_restJson1_1DeleteConnectorDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5306,10 +5384,13 @@ async function deserializeAws_restJson1_1DeleteCoreDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5358,10 +5439,13 @@ async function deserializeAws_restJson1_1DeleteDeviceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5410,10 +5494,13 @@ async function deserializeAws_restJson1_1DeleteFunctionDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5459,10 +5546,13 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5511,10 +5601,13 @@ async function deserializeAws_restJson1_1DeleteLoggerDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5563,10 +5656,13 @@ async function deserializeAws_restJson1_1DeleteResourceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5615,10 +5711,13 @@ async function deserializeAws_restJson1_1DeleteSubscriptionDefinitionCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5671,17 +5770,23 @@ async function deserializeAws_restJson1_1DisassociateRoleFromGroupCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5734,10 +5839,13 @@ async function deserializeAws_restJson1_1DisassociateServiceRoleFromAccountComma
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5794,17 +5902,23 @@ async function deserializeAws_restJson1_1GetAssociatedRoleCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5889,10 +6003,13 @@ async function deserializeAws_restJson1_1GetBulkDeploymentStatusCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5952,17 +6069,23 @@ async function deserializeAws_restJson1_1GetConnectivityInfoCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6046,10 +6169,13 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6125,10 +6251,13 @@ async function deserializeAws_restJson1_1GetConnectorDefinitionVersionCommandErr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6212,10 +6341,13 @@ async function deserializeAws_restJson1_1GetCoreDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6291,10 +6423,13 @@ async function deserializeAws_restJson1_1GetCoreDefinitionVersionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6366,10 +6501,13 @@ async function deserializeAws_restJson1_1GetDeploymentStatusCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6453,10 +6591,13 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6532,10 +6673,13 @@ async function deserializeAws_restJson1_1GetDeviceDefinitionVersionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6619,10 +6763,13 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6698,10 +6845,13 @@ async function deserializeAws_restJson1_1GetFunctionDefinitionVersionCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6782,10 +6932,13 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6855,17 +7008,23 @@ async function deserializeAws_restJson1_1GetGroupCertificateAuthorityCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -6934,17 +7093,23 @@ async function deserializeAws_restJson1_1GetGroupCertificateConfigurationCommand
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7016,10 +7181,13 @@ async function deserializeAws_restJson1_1GetGroupVersionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7103,10 +7271,13 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7178,10 +7349,13 @@ async function deserializeAws_restJson1_1GetLoggerDefinitionVersionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7265,10 +7439,13 @@ async function deserializeAws_restJson1_1GetResourceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7340,10 +7517,13 @@ async function deserializeAws_restJson1_1GetResourceDefinitionVersionCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7400,10 +7580,13 @@ async function deserializeAws_restJson1_1GetServiceRoleForAccountCommandError(
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7487,10 +7670,13 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7566,10 +7752,13 @@ async function deserializeAws_restJson1_1GetSubscriptionDefinitionVersionCommand
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7629,10 +7818,13 @@ async function deserializeAws_restJson1_1ListBulkDeploymentDetailedReportsComman
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7692,10 +7884,13 @@ async function deserializeAws_restJson1_1ListBulkDeploymentsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7755,10 +7950,13 @@ async function deserializeAws_restJson1_1ListConnectorDefinitionVersionsCommandE
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7874,10 +8072,13 @@ async function deserializeAws_restJson1_1ListCoreDefinitionVersionsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -7993,10 +8194,13 @@ async function deserializeAws_restJson1_1ListDeploymentsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8056,10 +8260,13 @@ async function deserializeAws_restJson1_1ListDeviceDefinitionVersionsCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8175,10 +8382,13 @@ async function deserializeAws_restJson1_1ListFunctionDefinitionVersionsCommandEr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8293,17 +8503,23 @@ async function deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommandE
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8363,10 +8579,13 @@ async function deserializeAws_restJson1_1ListGroupVersionsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8479,10 +8698,13 @@ async function deserializeAws_restJson1_1ListLoggerDefinitionVersionsCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8598,10 +8820,13 @@ async function deserializeAws_restJson1_1ListResourceDefinitionVersionsCommandEr
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8717,10 +8942,13 @@ async function deserializeAws_restJson1_1ListSubscriptionDefinitionVersionsComma
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8829,10 +9057,13 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8889,10 +9120,13 @@ async function deserializeAws_restJson1_1ResetDeploymentsCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8949,10 +9183,13 @@ async function deserializeAws_restJson1_1StartBulkDeploymentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9001,10 +9238,13 @@ async function deserializeAws_restJson1_1StopBulkDeploymentCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9049,10 +9289,13 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9097,10 +9340,13 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9157,17 +9403,23 @@ async function deserializeAws_restJson1_1UpdateConnectivityInfoCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9216,10 +9468,13 @@ async function deserializeAws_restJson1_1UpdateConnectorDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9268,10 +9523,13 @@ async function deserializeAws_restJson1_1UpdateCoreDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9320,10 +9578,13 @@ async function deserializeAws_restJson1_1UpdateDeviceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9372,10 +9633,13 @@ async function deserializeAws_restJson1_1UpdateFunctionDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9421,10 +9685,13 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9493,17 +9760,23 @@ async function deserializeAws_restJson1_1UpdateGroupCertificateConfigurationComm
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9552,10 +9825,13 @@ async function deserializeAws_restJson1_1UpdateLoggerDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9604,10 +9880,13 @@ async function deserializeAws_restJson1_1UpdateResourceDefinitionCommandError(
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9656,10 +9935,13 @@ async function deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommandErro
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

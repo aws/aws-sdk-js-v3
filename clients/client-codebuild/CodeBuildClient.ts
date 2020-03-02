@@ -1,73 +1,139 @@
 import {
-  BatchDeleteBuildsInput,
-  BatchDeleteBuildsOutput,
-  BatchGetBuildsInput,
-  BatchGetBuildsOutput,
-  BatchGetProjectsInput,
-  BatchGetProjectsOutput,
-  BatchGetReportGroupsInput,
-  BatchGetReportGroupsOutput,
-  BatchGetReportsInput,
-  BatchGetReportsOutput,
-  CreateProjectInput,
-  CreateProjectOutput,
-  CreateReportGroupInput,
-  CreateReportGroupOutput,
-  CreateWebhookInput,
-  CreateWebhookOutput,
-  DeleteProjectInput,
-  DeleteProjectOutput,
-  DeleteReportGroupInput,
-  DeleteReportGroupOutput,
-  DeleteReportInput,
-  DeleteReportOutput,
-  DeleteResourcePolicyInput,
-  DeleteResourcePolicyOutput,
-  DeleteSourceCredentialsInput,
-  DeleteSourceCredentialsOutput,
-  DeleteWebhookInput,
-  DeleteWebhookOutput,
-  DescribeTestCasesInput,
-  DescribeTestCasesOutput,
-  GetResourcePolicyInput,
-  GetResourcePolicyOutput,
-  ImportSourceCredentialsInput,
-  ImportSourceCredentialsOutput,
-  InvalidateProjectCacheInput,
-  InvalidateProjectCacheOutput,
-  ListBuildsForProjectInput,
-  ListBuildsForProjectOutput,
-  ListBuildsInput,
-  ListBuildsOutput,
-  ListCuratedEnvironmentImagesInput,
-  ListCuratedEnvironmentImagesOutput,
-  ListProjectsInput,
-  ListProjectsOutput,
-  ListReportGroupsInput,
-  ListReportGroupsOutput,
-  ListReportsForReportGroupInput,
-  ListReportsForReportGroupOutput,
-  ListReportsInput,
-  ListReportsOutput,
-  ListSharedProjectsInput,
-  ListSharedProjectsOutput,
-  ListSharedReportGroupsInput,
-  ListSharedReportGroupsOutput,
-  ListSourceCredentialsInput,
-  ListSourceCredentialsOutput,
-  PutResourcePolicyInput,
-  PutResourcePolicyOutput,
-  StartBuildInput,
-  StartBuildOutput,
-  StopBuildInput,
-  StopBuildOutput,
-  UpdateProjectInput,
-  UpdateProjectOutput,
-  UpdateReportGroupInput,
-  UpdateReportGroupOutput,
-  UpdateWebhookInput,
-  UpdateWebhookOutput
-} from "./models/index";
+  BatchDeleteBuildsCommandInput,
+  BatchDeleteBuildsCommandOutput
+} from "./commands/BatchDeleteBuildsCommand";
+import {
+  BatchGetBuildsCommandInput,
+  BatchGetBuildsCommandOutput
+} from "./commands/BatchGetBuildsCommand";
+import {
+  BatchGetProjectsCommandInput,
+  BatchGetProjectsCommandOutput
+} from "./commands/BatchGetProjectsCommand";
+import {
+  BatchGetReportGroupsCommandInput,
+  BatchGetReportGroupsCommandOutput
+} from "./commands/BatchGetReportGroupsCommand";
+import {
+  BatchGetReportsCommandInput,
+  BatchGetReportsCommandOutput
+} from "./commands/BatchGetReportsCommand";
+import {
+  CreateProjectCommandInput,
+  CreateProjectCommandOutput
+} from "./commands/CreateProjectCommand";
+import {
+  CreateReportGroupCommandInput,
+  CreateReportGroupCommandOutput
+} from "./commands/CreateReportGroupCommand";
+import {
+  CreateWebhookCommandInput,
+  CreateWebhookCommandOutput
+} from "./commands/CreateWebhookCommand";
+import {
+  DeleteProjectCommandInput,
+  DeleteProjectCommandOutput
+} from "./commands/DeleteProjectCommand";
+import {
+  DeleteReportCommandInput,
+  DeleteReportCommandOutput
+} from "./commands/DeleteReportCommand";
+import {
+  DeleteReportGroupCommandInput,
+  DeleteReportGroupCommandOutput
+} from "./commands/DeleteReportGroupCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput
+} from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteSourceCredentialsCommandInput,
+  DeleteSourceCredentialsCommandOutput
+} from "./commands/DeleteSourceCredentialsCommand";
+import {
+  DeleteWebhookCommandInput,
+  DeleteWebhookCommandOutput
+} from "./commands/DeleteWebhookCommand";
+import {
+  DescribeTestCasesCommandInput,
+  DescribeTestCasesCommandOutput
+} from "./commands/DescribeTestCasesCommand";
+import {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput
+} from "./commands/GetResourcePolicyCommand";
+import {
+  ImportSourceCredentialsCommandInput,
+  ImportSourceCredentialsCommandOutput
+} from "./commands/ImportSourceCredentialsCommand";
+import {
+  InvalidateProjectCacheCommandInput,
+  InvalidateProjectCacheCommandOutput
+} from "./commands/InvalidateProjectCacheCommand";
+import {
+  ListBuildsCommandInput,
+  ListBuildsCommandOutput
+} from "./commands/ListBuildsCommand";
+import {
+  ListBuildsForProjectCommandInput,
+  ListBuildsForProjectCommandOutput
+} from "./commands/ListBuildsForProjectCommand";
+import {
+  ListCuratedEnvironmentImagesCommandInput,
+  ListCuratedEnvironmentImagesCommandOutput
+} from "./commands/ListCuratedEnvironmentImagesCommand";
+import {
+  ListProjectsCommandInput,
+  ListProjectsCommandOutput
+} from "./commands/ListProjectsCommand";
+import {
+  ListReportGroupsCommandInput,
+  ListReportGroupsCommandOutput
+} from "./commands/ListReportGroupsCommand";
+import {
+  ListReportsCommandInput,
+  ListReportsCommandOutput
+} from "./commands/ListReportsCommand";
+import {
+  ListReportsForReportGroupCommandInput,
+  ListReportsForReportGroupCommandOutput
+} from "./commands/ListReportsForReportGroupCommand";
+import {
+  ListSharedProjectsCommandInput,
+  ListSharedProjectsCommandOutput
+} from "./commands/ListSharedProjectsCommand";
+import {
+  ListSharedReportGroupsCommandInput,
+  ListSharedReportGroupsCommandOutput
+} from "./commands/ListSharedReportGroupsCommand";
+import {
+  ListSourceCredentialsCommandInput,
+  ListSourceCredentialsCommandOutput
+} from "./commands/ListSourceCredentialsCommand";
+import {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput
+} from "./commands/PutResourcePolicyCommand";
+import {
+  StartBuildCommandInput,
+  StartBuildCommandOutput
+} from "./commands/StartBuildCommand";
+import {
+  StopBuildCommandInput,
+  StopBuildCommandOutput
+} from "./commands/StopBuildCommand";
+import {
+  UpdateProjectCommandInput,
+  UpdateProjectCommandOutput
+} from "./commands/UpdateProjectCommand";
+import {
+  UpdateReportGroupCommandInput,
+  UpdateReportGroupCommandOutput
+} from "./commands/UpdateReportGroupCommand";
+import {
+  UpdateWebhookCommandInput,
+  UpdateWebhookCommandOutput
+} from "./commands/UpdateWebhookCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -121,76 +187,76 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | BatchDeleteBuildsInput
-  | BatchGetBuildsInput
-  | BatchGetProjectsInput
-  | BatchGetReportGroupsInput
-  | BatchGetReportsInput
-  | CreateProjectInput
-  | CreateReportGroupInput
-  | CreateWebhookInput
-  | DeleteProjectInput
-  | DeleteReportGroupInput
-  | DeleteReportInput
-  | DeleteResourcePolicyInput
-  | DeleteSourceCredentialsInput
-  | DeleteWebhookInput
-  | DescribeTestCasesInput
-  | GetResourcePolicyInput
-  | ImportSourceCredentialsInput
-  | InvalidateProjectCacheInput
-  | ListBuildsForProjectInput
-  | ListBuildsInput
-  | ListCuratedEnvironmentImagesInput
-  | ListProjectsInput
-  | ListReportGroupsInput
-  | ListReportsForReportGroupInput
-  | ListReportsInput
-  | ListSharedProjectsInput
-  | ListSharedReportGroupsInput
-  | ListSourceCredentialsInput
-  | PutResourcePolicyInput
-  | StartBuildInput
-  | StopBuildInput
-  | UpdateProjectInput
-  | UpdateReportGroupInput
-  | UpdateWebhookInput;
+  | BatchDeleteBuildsCommandInput
+  | BatchGetBuildsCommandInput
+  | BatchGetProjectsCommandInput
+  | BatchGetReportGroupsCommandInput
+  | BatchGetReportsCommandInput
+  | CreateProjectCommandInput
+  | CreateReportGroupCommandInput
+  | CreateWebhookCommandInput
+  | DeleteProjectCommandInput
+  | DeleteReportCommandInput
+  | DeleteReportGroupCommandInput
+  | DeleteResourcePolicyCommandInput
+  | DeleteSourceCredentialsCommandInput
+  | DeleteWebhookCommandInput
+  | DescribeTestCasesCommandInput
+  | GetResourcePolicyCommandInput
+  | ImportSourceCredentialsCommandInput
+  | InvalidateProjectCacheCommandInput
+  | ListBuildsCommandInput
+  | ListBuildsForProjectCommandInput
+  | ListCuratedEnvironmentImagesCommandInput
+  | ListProjectsCommandInput
+  | ListReportGroupsCommandInput
+  | ListReportsCommandInput
+  | ListReportsForReportGroupCommandInput
+  | ListSharedProjectsCommandInput
+  | ListSharedReportGroupsCommandInput
+  | ListSourceCredentialsCommandInput
+  | PutResourcePolicyCommandInput
+  | StartBuildCommandInput
+  | StopBuildCommandInput
+  | UpdateProjectCommandInput
+  | UpdateReportGroupCommandInput
+  | UpdateWebhookCommandInput;
 
 export type ServiceOutputTypes =
-  | BatchDeleteBuildsOutput
-  | BatchGetBuildsOutput
-  | BatchGetProjectsOutput
-  | BatchGetReportGroupsOutput
-  | BatchGetReportsOutput
-  | CreateProjectOutput
-  | CreateReportGroupOutput
-  | CreateWebhookOutput
-  | DeleteProjectOutput
-  | DeleteReportGroupOutput
-  | DeleteReportOutput
-  | DeleteResourcePolicyOutput
-  | DeleteSourceCredentialsOutput
-  | DeleteWebhookOutput
-  | DescribeTestCasesOutput
-  | GetResourcePolicyOutput
-  | ImportSourceCredentialsOutput
-  | InvalidateProjectCacheOutput
-  | ListBuildsForProjectOutput
-  | ListBuildsOutput
-  | ListCuratedEnvironmentImagesOutput
-  | ListProjectsOutput
-  | ListReportGroupsOutput
-  | ListReportsForReportGroupOutput
-  | ListReportsOutput
-  | ListSharedProjectsOutput
-  | ListSharedReportGroupsOutput
-  | ListSourceCredentialsOutput
-  | PutResourcePolicyOutput
-  | StartBuildOutput
-  | StopBuildOutput
-  | UpdateProjectOutput
-  | UpdateReportGroupOutput
-  | UpdateWebhookOutput;
+  | BatchDeleteBuildsCommandOutput
+  | BatchGetBuildsCommandOutput
+  | BatchGetProjectsCommandOutput
+  | BatchGetReportGroupsCommandOutput
+  | BatchGetReportsCommandOutput
+  | CreateProjectCommandOutput
+  | CreateReportGroupCommandOutput
+  | CreateWebhookCommandOutput
+  | DeleteProjectCommandOutput
+  | DeleteReportCommandOutput
+  | DeleteReportGroupCommandOutput
+  | DeleteResourcePolicyCommandOutput
+  | DeleteSourceCredentialsCommandOutput
+  | DeleteWebhookCommandOutput
+  | DescribeTestCasesCommandOutput
+  | GetResourcePolicyCommandOutput
+  | ImportSourceCredentialsCommandOutput
+  | InvalidateProjectCacheCommandOutput
+  | ListBuildsCommandOutput
+  | ListBuildsForProjectCommandOutput
+  | ListCuratedEnvironmentImagesCommandOutput
+  | ListProjectsCommandOutput
+  | ListReportGroupsCommandOutput
+  | ListReportsCommandOutput
+  | ListReportsForReportGroupCommandOutput
+  | ListSharedProjectsCommandOutput
+  | ListSharedReportGroupsCommandOutput
+  | ListSourceCredentialsCommandOutput
+  | PutResourcePolicyCommandOutput
+  | StartBuildCommandOutput
+  | StopBuildCommandOutput
+  | UpdateProjectCommandOutput
+  | UpdateReportGroupCommandOutput
+  | UpdateWebhookCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

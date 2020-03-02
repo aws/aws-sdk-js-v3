@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGameSessionQueueCommandInput = DeleteGameSessionQueueInput;
-export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput;
+export type DeleteGameSessionQueueCommandOutput = DeleteGameSessionQueueOutput &
+  __MetadataBearer;
 
 export class DeleteGameSessionQueueCommand extends $Command<
   DeleteGameSessionQueueCommandInput,

@@ -252,7 +252,7 @@ export namespace CreateAnalyzerRequest {
 /**
  * <p>The response to the request to create an analyzer.</p>
  */
-export interface CreateAnalyzerResponse extends $MetadataBearer {
+export interface CreateAnalyzerResponse {
   __type?: "CreateAnalyzerResponse";
   /**
    * <p>The ARN of the analyzer that was created by the request.</p>
@@ -557,7 +557,7 @@ export namespace GetAnalyzedResourceRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface GetAnalyzedResourceResponse extends $MetadataBearer {
+export interface GetAnalyzedResourceResponse {
   __type?: "GetAnalyzedResourceResponse";
   /**
    * <p>An <code>AnalyedResource</code> object that contains information that Access Analyzer
@@ -592,7 +592,7 @@ export namespace GetAnalyzerRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface GetAnalyzerResponse extends $MetadataBearer {
+export interface GetAnalyzerResponse {
   __type?: "GetAnalyzerResponse";
   /**
    * <p>An <code>AnalyzerSummary</code> object that contains information about the
@@ -632,7 +632,7 @@ export namespace GetArchiveRuleRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface GetArchiveRuleResponse extends $MetadataBearer {
+export interface GetArchiveRuleResponse {
   __type?: "GetArchiveRuleResponse";
   /**
    * <p>Contains information about an archive rule.</p>
@@ -671,7 +671,7 @@ export namespace GetFindingRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface GetFindingResponse extends $MetadataBearer {
+export interface GetFindingResponse {
   __type?: "GetFindingResponse";
   /**
    * <p>A <code>finding</code> object that contains finding details.</p>
@@ -764,7 +764,7 @@ export namespace ListAnalyzedResourcesRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface ListAnalyzedResourcesResponse extends $MetadataBearer {
+export interface ListAnalyzedResourcesResponse {
   __type?: "ListAnalyzedResourcesResponse";
   /**
    * <p>A list of resources that were analyzed.</p>
@@ -813,7 +813,7 @@ export namespace ListAnalyzersRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface ListAnalyzersResponse extends $MetadataBearer {
+export interface ListAnalyzersResponse {
   __type?: "ListAnalyzersResponse";
   /**
    * <p>The analyzers retrieved.</p>
@@ -862,7 +862,7 @@ export namespace ListArchiveRulesRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface ListArchiveRulesResponse extends $MetadataBearer {
+export interface ListArchiveRulesResponse {
   __type?: "ListArchiveRulesResponse";
   /**
    * <p>A list of archive rules created for the specified analyzer.</p>
@@ -921,7 +921,7 @@ export namespace ListFindingsRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface ListFindingsResponse extends $MetadataBearer {
+export interface ListFindingsResponse {
   __type?: "ListFindingsResponse";
   /**
    * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
@@ -961,7 +961,7 @@ export namespace ListTagsForResourceRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface ListTagsForResourceResponse extends $MetadataBearer {
+export interface ListTagsForResourceResponse {
   __type?: "ListTagsForResourceResponse";
   /**
    * <p>The tags that are applied to the specified resource.</p>
@@ -1107,7 +1107,7 @@ export namespace TagResourceRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface TagResourceResponse extends $MetadataBearer {
+export interface TagResourceResponse {
   __type?: "TagResourceResponse";
 }
 
@@ -1165,7 +1165,7 @@ export namespace UntagResourceRequest {
 /**
  * <p>The response to the request.</p>
  */
-export interface UntagResourceResponse extends $MetadataBearer {
+export interface UntagResourceResponse {
   __type?: "UntagResourceResponse";
 }
 

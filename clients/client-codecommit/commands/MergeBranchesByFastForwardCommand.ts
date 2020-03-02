@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type MergeBranchesByFastForwardCommandInput = MergeBranchesByFastForwardInput;
-export type MergeBranchesByFastForwardCommandOutput = MergeBranchesByFastForwardOutput;
+export type MergeBranchesByFastForwardCommandOutput = MergeBranchesByFastForwardOutput &
+  __MetadataBearer;
 
 export class MergeBranchesByFastForwardCommand extends $Command<
   MergeBranchesByFastForwardCommandInput,

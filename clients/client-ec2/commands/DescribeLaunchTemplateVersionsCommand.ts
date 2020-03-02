@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeLaunchTemplateVersionsCommandInput = DescribeLaunchTemplateVersionsRequest;
-export type DescribeLaunchTemplateVersionsCommandOutput = DescribeLaunchTemplateVersionsResult;
+export type DescribeLaunchTemplateVersionsCommandOutput = DescribeLaunchTemplateVersionsResult &
+  __MetadataBearer;
 
 export class DescribeLaunchTemplateVersionsCommand extends $Command<
   DescribeLaunchTemplateVersionsCommandInput,

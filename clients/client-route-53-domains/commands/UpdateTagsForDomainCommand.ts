@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateTagsForDomainCommandInput = UpdateTagsForDomainRequest;
-export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse;
+export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse &
+  __MetadataBearer;
 
 export class UpdateTagsForDomainCommand extends $Command<
   UpdateTagsForDomainCommandInput,

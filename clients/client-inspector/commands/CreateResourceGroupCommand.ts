@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateResourceGroupCommandInput = CreateResourceGroupRequest;
-export type CreateResourceGroupCommandOutput = CreateResourceGroupResponse;
+export type CreateResourceGroupCommandOutput = CreateResourceGroupResponse &
+  __MetadataBearer;
 
 export class CreateResourceGroupCommand extends $Command<
   CreateResourceGroupCommandInput,

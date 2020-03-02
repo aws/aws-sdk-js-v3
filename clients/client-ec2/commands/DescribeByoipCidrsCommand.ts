@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeByoipCidrsCommandInput = DescribeByoipCidrsRequest;
-export type DescribeByoipCidrsCommandOutput = DescribeByoipCidrsResult;
+export type DescribeByoipCidrsCommandOutput = DescribeByoipCidrsResult &
+  __MetadataBearer;
 
 export class DescribeByoipCidrsCommand extends $Command<
   DescribeByoipCidrsCommandInput,

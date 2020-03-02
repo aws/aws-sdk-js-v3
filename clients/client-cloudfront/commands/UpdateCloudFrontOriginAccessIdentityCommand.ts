@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateCloudFrontOriginAccessIdentityCommandInput = UpdateCloudFrontOriginAccessIdentityRequest;
-export type UpdateCloudFrontOriginAccessIdentityCommandOutput = UpdateCloudFrontOriginAccessIdentityResult;
+export type UpdateCloudFrontOriginAccessIdentityCommandOutput = UpdateCloudFrontOriginAccessIdentityResult &
+  __MetadataBearer;
 
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
   UpdateCloudFrontOriginAccessIdentityCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListHITsForQualificationTypeCommandInput = ListHITsForQualificationTypeRequest;
-export type ListHITsForQualificationTypeCommandOutput = ListHITsForQualificationTypeResponse;
+export type ListHITsForQualificationTypeCommandOutput = ListHITsForQualificationTypeResponse &
+  __MetadataBearer;
 
 export class ListHITsForQualificationTypeCommand extends $Command<
   ListHITsForQualificationTypeCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchUpdatePhoneNumberCommandInput = BatchUpdatePhoneNumberRequest;
-export type BatchUpdatePhoneNumberCommandOutput = BatchUpdatePhoneNumberResponse;
+export type BatchUpdatePhoneNumberCommandOutput = BatchUpdatePhoneNumberResponse &
+  __MetadataBearer;
 
 export class BatchUpdatePhoneNumberCommand extends $Command<
   BatchUpdatePhoneNumberCommandInput,

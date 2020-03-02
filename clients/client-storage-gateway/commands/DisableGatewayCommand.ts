@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisableGatewayCommandInput = DisableGatewayInput;
-export type DisableGatewayCommandOutput = DisableGatewayOutput;
+export type DisableGatewayCommandOutput = DisableGatewayOutput &
+  __MetadataBearer;
 
 export class DisableGatewayCommand extends $Command<
   DisableGatewayCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeIdentityProviderConfigurationCommandInput = DescribeIdentityProviderConfigurationRequest;
-export type DescribeIdentityProviderConfigurationCommandOutput = DescribeIdentityProviderConfigurationResponse;
+export type DescribeIdentityProviderConfigurationCommandOutput = DescribeIdentityProviderConfigurationResponse &
+  __MetadataBearer;
 
 export class DescribeIdentityProviderConfigurationCommand extends $Command<
   DescribeIdentityProviderConfigurationCommandInput,

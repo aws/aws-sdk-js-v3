@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetApnsVoipChannelCommandInput = GetApnsVoipChannelRequest;
-export type GetApnsVoipChannelCommandOutput = GetApnsVoipChannelResponse;
+export type GetApnsVoipChannelCommandOutput = GetApnsVoipChannelResponse &
+  __MetadataBearer;
 
 export class GetApnsVoipChannelCommand extends $Command<
   GetApnsVoipChannelCommandInput,

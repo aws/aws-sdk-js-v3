@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeCostCategoryDefinitionCommandInput = DescribeCostCategoryDefinitionRequest;
-export type DescribeCostCategoryDefinitionCommandOutput = DescribeCostCategoryDefinitionResponse;
+export type DescribeCostCategoryDefinitionCommandOutput = DescribeCostCategoryDefinitionResponse &
+  __MetadataBearer;
 
 export class DescribeCostCategoryDefinitionCommand extends $Command<
   DescribeCostCategoryDefinitionCommandInput,

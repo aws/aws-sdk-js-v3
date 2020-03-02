@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type TestInvokeAuthorizerCommandInput = TestInvokeAuthorizerRequest;
-export type TestInvokeAuthorizerCommandOutput = TestInvokeAuthorizerResponse;
+export type TestInvokeAuthorizerCommandOutput = TestInvokeAuthorizerResponse &
+  __MetadataBearer;
 
 export class TestInvokeAuthorizerCommand extends $Command<
   TestInvokeAuthorizerCommandInput,

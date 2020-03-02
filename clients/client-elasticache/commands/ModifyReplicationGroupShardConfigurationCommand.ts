@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ModifyReplicationGroupShardConfigurationCommandInput = ModifyReplicationGroupShardConfigurationMessage;
-export type ModifyReplicationGroupShardConfigurationCommandOutput = ModifyReplicationGroupShardConfigurationResult;
+export type ModifyReplicationGroupShardConfigurationCommandOutput = ModifyReplicationGroupShardConfigurationResult &
+  __MetadataBearer;
 
 export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ModifyReplicationGroupShardConfigurationCommandInput,

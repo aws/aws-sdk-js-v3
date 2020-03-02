@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateParameterGroupCommandInput = CreateParameterGroupRequest;
-export type CreateParameterGroupCommandOutput = CreateParameterGroupResponse;
+export type CreateParameterGroupCommandOutput = CreateParameterGroupResponse &
+  __MetadataBearer;
 
 export class CreateParameterGroupCommand extends $Command<
   CreateParameterGroupCommandInput,

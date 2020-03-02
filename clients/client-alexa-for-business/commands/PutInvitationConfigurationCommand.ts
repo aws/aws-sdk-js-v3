@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutInvitationConfigurationCommandInput = PutInvitationConfigurationRequest;
-export type PutInvitationConfigurationCommandOutput = PutInvitationConfigurationResponse;
+export type PutInvitationConfigurationCommandOutput = PutInvitationConfigurationResponse &
+  __MetadataBearer;
 
 export class PutInvitationConfigurationCommand extends $Command<
   PutInvitationConfigurationCommandInput,

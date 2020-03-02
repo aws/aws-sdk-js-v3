@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AllocateStaticIpCommandInput = AllocateStaticIpRequest;
-export type AllocateStaticIpCommandOutput = AllocateStaticIpResult;
+export type AllocateStaticIpCommandOutput = AllocateStaticIpResult &
+  __MetadataBearer;
 
 export class AllocateStaticIpCommand extends $Command<
   AllocateStaticIpCommandInput,

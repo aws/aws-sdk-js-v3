@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListClosedWorkflowExecutionsCommandInput = ListClosedWorkflowExecutionsInput;
-export type ListClosedWorkflowExecutionsCommandOutput = WorkflowExecutionInfos;
+export type ListClosedWorkflowExecutionsCommandOutput = WorkflowExecutionInfos &
+  __MetadataBearer;
 
 export class ListClosedWorkflowExecutionsCommand extends $Command<
   ListClosedWorkflowExecutionsCommandInput,

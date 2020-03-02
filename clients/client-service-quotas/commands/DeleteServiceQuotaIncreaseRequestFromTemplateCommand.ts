@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput = DeleteServiceQuotaIncreaseRequestFromTemplateRequest;
-export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = DeleteServiceQuotaIncreaseRequestFromTemplateResponse;
+export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = DeleteServiceQuotaIncreaseRequestFromTemplateResponse &
+  __MetadataBearer;
 
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,

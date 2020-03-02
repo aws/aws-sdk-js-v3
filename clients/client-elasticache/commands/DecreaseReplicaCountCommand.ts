@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DecreaseReplicaCountCommandInput = DecreaseReplicaCountMessage;
-export type DecreaseReplicaCountCommandOutput = DecreaseReplicaCountResult;
+export type DecreaseReplicaCountCommandOutput = DecreaseReplicaCountResult &
+  __MetadataBearer;
 
 export class DecreaseReplicaCountCommand extends $Command<
   DecreaseReplicaCountCommandInput,

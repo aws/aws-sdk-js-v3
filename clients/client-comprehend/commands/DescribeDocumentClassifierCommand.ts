@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeDocumentClassifierCommandInput = DescribeDocumentClassifierRequest;
-export type DescribeDocumentClassifierCommandOutput = DescribeDocumentClassifierResponse;
+export type DescribeDocumentClassifierCommandOutput = DescribeDocumentClassifierResponse &
+  __MetadataBearer;
 
 export class DescribeDocumentClassifierCommand extends $Command<
   DescribeDocumentClassifierCommandInput,

@@ -1,46 +1,119 @@
 import {
-  Application,
-  Applications,
-  Configuration,
-  ConfigurationProfile,
-  ConfigurationProfiles,
-  CreateApplicationRequest,
-  CreateConfigurationProfileRequest,
-  CreateDeploymentStrategyRequest,
-  CreateEnvironmentRequest,
-  DeleteApplicationRequest,
-  DeleteConfigurationProfileRequest,
-  DeleteDeploymentStrategyRequest,
-  DeleteEnvironmentRequest,
-  Deployment,
-  DeploymentStrategies,
-  DeploymentStrategy,
-  Deployments,
-  Environment,
-  Environments,
-  GetApplicationRequest,
-  GetConfigurationProfileRequest,
-  GetConfigurationRequest,
-  GetDeploymentRequest,
-  GetDeploymentStrategyRequest,
-  GetEnvironmentRequest,
-  ListApplicationsRequest,
-  ListConfigurationProfilesRequest,
-  ListDeploymentStrategiesRequest,
-  ListDeploymentsRequest,
-  ListEnvironmentsRequest,
-  ListTagsForResourceRequest,
-  ResourceTags,
-  StartDeploymentRequest,
-  StopDeploymentRequest,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateApplicationRequest,
-  UpdateConfigurationProfileRequest,
-  UpdateDeploymentStrategyRequest,
-  UpdateEnvironmentRequest,
-  ValidateConfigurationRequest
-} from "./models/index";
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput
+} from "./commands/CreateApplicationCommand";
+import {
+  CreateConfigurationProfileCommandInput,
+  CreateConfigurationProfileCommandOutput
+} from "./commands/CreateConfigurationProfileCommand";
+import {
+  CreateDeploymentStrategyCommandInput,
+  CreateDeploymentStrategyCommandOutput
+} from "./commands/CreateDeploymentStrategyCommand";
+import {
+  CreateEnvironmentCommandInput,
+  CreateEnvironmentCommandOutput
+} from "./commands/CreateEnvironmentCommand";
+import {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput
+} from "./commands/DeleteApplicationCommand";
+import {
+  DeleteConfigurationProfileCommandInput,
+  DeleteConfigurationProfileCommandOutput
+} from "./commands/DeleteConfigurationProfileCommand";
+import {
+  DeleteDeploymentStrategyCommandInput,
+  DeleteDeploymentStrategyCommandOutput
+} from "./commands/DeleteDeploymentStrategyCommand";
+import {
+  DeleteEnvironmentCommandInput,
+  DeleteEnvironmentCommandOutput
+} from "./commands/DeleteEnvironmentCommand";
+import {
+  GetApplicationCommandInput,
+  GetApplicationCommandOutput
+} from "./commands/GetApplicationCommand";
+import {
+  GetConfigurationCommandInput,
+  GetConfigurationCommandOutput
+} from "./commands/GetConfigurationCommand";
+import {
+  GetConfigurationProfileCommandInput,
+  GetConfigurationProfileCommandOutput
+} from "./commands/GetConfigurationProfileCommand";
+import {
+  GetDeploymentCommandInput,
+  GetDeploymentCommandOutput
+} from "./commands/GetDeploymentCommand";
+import {
+  GetDeploymentStrategyCommandInput,
+  GetDeploymentStrategyCommandOutput
+} from "./commands/GetDeploymentStrategyCommand";
+import {
+  GetEnvironmentCommandInput,
+  GetEnvironmentCommandOutput
+} from "./commands/GetEnvironmentCommand";
+import {
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput
+} from "./commands/ListApplicationsCommand";
+import {
+  ListConfigurationProfilesCommandInput,
+  ListConfigurationProfilesCommandOutput
+} from "./commands/ListConfigurationProfilesCommand";
+import {
+  ListDeploymentStrategiesCommandInput,
+  ListDeploymentStrategiesCommandOutput
+} from "./commands/ListDeploymentStrategiesCommand";
+import {
+  ListDeploymentsCommandInput,
+  ListDeploymentsCommandOutput
+} from "./commands/ListDeploymentsCommand";
+import {
+  ListEnvironmentsCommandInput,
+  ListEnvironmentsCommandOutput
+} from "./commands/ListEnvironmentsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  StartDeploymentCommandInput,
+  StartDeploymentCommandOutput
+} from "./commands/StartDeploymentCommand";
+import {
+  StopDeploymentCommandInput,
+  StopDeploymentCommandOutput
+} from "./commands/StopDeploymentCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput
+} from "./commands/UpdateApplicationCommand";
+import {
+  UpdateConfigurationProfileCommandInput,
+  UpdateConfigurationProfileCommandOutput
+} from "./commands/UpdateConfigurationProfileCommand";
+import {
+  UpdateDeploymentStrategyCommandInput,
+  UpdateDeploymentStrategyCommandOutput
+} from "./commands/UpdateDeploymentStrategyCommand";
+import {
+  UpdateEnvironmentCommandInput,
+  UpdateEnvironmentCommandOutput
+} from "./commands/UpdateEnvironmentCommand";
+import {
+  ValidateConfigurationCommandInput,
+  ValidateConfigurationCommandOutput
+} from "./commands/ValidateConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -88,67 +161,72 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateApplicationRequest
-  | CreateConfigurationProfileRequest
-  | CreateDeploymentStrategyRequest
-  | CreateEnvironmentRequest
-  | DeleteApplicationRequest
-  | DeleteConfigurationProfileRequest
-  | DeleteDeploymentStrategyRequest
-  | DeleteEnvironmentRequest
-  | GetApplicationRequest
-  | GetConfigurationProfileRequest
-  | GetConfigurationRequest
-  | GetDeploymentRequest
-  | GetDeploymentStrategyRequest
-  | GetEnvironmentRequest
-  | ListApplicationsRequest
-  | ListConfigurationProfilesRequest
-  | ListDeploymentStrategiesRequest
-  | ListDeploymentsRequest
-  | ListEnvironmentsRequest
-  | ListTagsForResourceRequest
-  | StartDeploymentRequest
-  | StopDeploymentRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateApplicationRequest
-  | UpdateConfigurationProfileRequest
-  | UpdateDeploymentStrategyRequest
-  | UpdateEnvironmentRequest
-  | ValidateConfigurationRequest;
+  | CreateApplicationCommandInput
+  | CreateConfigurationProfileCommandInput
+  | CreateDeploymentStrategyCommandInput
+  | CreateEnvironmentCommandInput
+  | DeleteApplicationCommandInput
+  | DeleteConfigurationProfileCommandInput
+  | DeleteDeploymentStrategyCommandInput
+  | DeleteEnvironmentCommandInput
+  | GetApplicationCommandInput
+  | GetConfigurationCommandInput
+  | GetConfigurationProfileCommandInput
+  | GetDeploymentCommandInput
+  | GetDeploymentStrategyCommandInput
+  | GetEnvironmentCommandInput
+  | ListApplicationsCommandInput
+  | ListConfigurationProfilesCommandInput
+  | ListDeploymentStrategiesCommandInput
+  | ListDeploymentsCommandInput
+  | ListEnvironmentsCommandInput
+  | ListTagsForResourceCommandInput
+  | StartDeploymentCommandInput
+  | StopDeploymentCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
+  | UpdateConfigurationProfileCommandInput
+  | UpdateDeploymentStrategyCommandInput
+  | UpdateEnvironmentCommandInput
+  | ValidateConfigurationCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | Application
-  | Application
-  | Application
-  | Applications
-  | Configuration
-  | ConfigurationProfile
-  | ConfigurationProfile
-  | ConfigurationProfile
-  | ConfigurationProfiles
-  | Deployment
-  | Deployment
-  | Deployment
-  | DeploymentStrategies
-  | DeploymentStrategy
-  | DeploymentStrategy
-  | DeploymentStrategy
-  | Deployments
-  | Environment
-  | Environment
-  | Environment
-  | Environments
-  | ResourceTags;
+  | CreateApplicationCommandOutput
+  | CreateConfigurationProfileCommandOutput
+  | CreateDeploymentStrategyCommandOutput
+  | CreateEnvironmentCommandOutput
+  | DeleteApplicationCommandOutput
+  | DeleteConfigurationProfileCommandOutput
+  | DeleteDeploymentStrategyCommandOutput
+  | DeleteEnvironmentCommandOutput
+  | GetApplicationCommandOutput
+  | GetConfigurationCommandOutput
+  | GetConfigurationProfileCommandOutput
+  | GetDeploymentCommandOutput
+  | GetDeploymentStrategyCommandOutput
+  | GetEnvironmentCommandOutput
+  | ListApplicationsCommandOutput
+  | ListConfigurationProfilesCommandOutput
+  | ListDeploymentStrategiesCommandOutput
+  | ListDeploymentsCommandOutput
+  | ListEnvironmentsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | StartDeploymentCommandOutput
+  | StopDeploymentCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
+  | UpdateConfigurationProfileCommandOutput
+  | UpdateDeploymentStrategyCommandOutput
+  | UpdateEnvironmentCommandOutput
+  | ValidateConfigurationCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

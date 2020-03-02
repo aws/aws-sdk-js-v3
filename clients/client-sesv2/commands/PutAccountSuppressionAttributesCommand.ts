@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutAccountSuppressionAttributesCommandInput = PutAccountSuppressionAttributesRequest;
-export type PutAccountSuppressionAttributesCommandOutput = PutAccountSuppressionAttributesResponse;
+export type PutAccountSuppressionAttributesCommandOutput = PutAccountSuppressionAttributesResponse &
+  __MetadataBearer;
 
 export class PutAccountSuppressionAttributesCommand extends $Command<
   PutAccountSuppressionAttributesCommandInput,

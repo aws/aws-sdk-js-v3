@@ -449,24 +449,33 @@ async function deserializeAws_json1_1CancelClusterCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSRequestFailedException":
     case "com.amazonaws.snowball#KMSRequestFailedException":
-      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -519,24 +528,33 @@ async function deserializeAws_json1_1CancelJobCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSRequestFailedException":
     case "com.amazonaws.snowball#KMSRequestFailedException":
-      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -589,17 +607,23 @@ async function deserializeAws_json1_1CreateAddressCommandError(
   switch (errorCode) {
     case "InvalidAddressException":
     case "com.amazonaws.snowball#InvalidAddressException":
-      response = await deserializeAws_json1_1InvalidAddressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidAddressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnsupportedAddressException":
     case "com.amazonaws.snowball#UnsupportedAddressException":
-      response = await deserializeAws_json1_1UnsupportedAddressExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedAddressExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -652,31 +676,43 @@ async function deserializeAws_json1_1CreateClusterCommandError(
   switch (errorCode) {
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
-      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputCombinationException":
     case "com.amazonaws.snowball#InvalidInputCombinationException":
-      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSRequestFailedException":
     case "com.amazonaws.snowball#KMSRequestFailedException":
-      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -729,38 +765,53 @@ async function deserializeAws_json1_1CreateJobCommandError(
   switch (errorCode) {
     case "ClusterLimitExceededException":
     case "com.amazonaws.snowball#ClusterLimitExceededException":
-      response = await deserializeAws_json1_1ClusterLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClusterLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
-      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputCombinationException":
     case "com.amazonaws.snowball#InvalidInputCombinationException":
-      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSRequestFailedException":
     case "com.amazonaws.snowball#KMSRequestFailedException":
-      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -813,10 +864,13 @@ async function deserializeAws_json1_1DescribeAddressCommandError(
   switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -869,17 +923,23 @@ async function deserializeAws_json1_1DescribeAddressesCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -932,10 +992,13 @@ async function deserializeAws_json1_1DescribeClusterCommandError(
   switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -988,10 +1051,13 @@ async function deserializeAws_json1_1DescribeJobCommandError(
   switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1044,17 +1110,23 @@ async function deserializeAws_json1_1GetJobManifestCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1107,17 +1179,23 @@ async function deserializeAws_json1_1GetJobUnlockCodeCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1222,17 +1300,23 @@ async function deserializeAws_json1_1GetSoftwareUpdatesCommandError(
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1285,17 +1369,23 @@ async function deserializeAws_json1_1ListClusterJobsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1348,10 +1438,13 @@ async function deserializeAws_json1_1ListClustersCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1407,17 +1500,23 @@ async function deserializeAws_json1_1ListCompatibleImagesCommandError(
   switch (errorCode) {
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
-      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1470,10 +1569,13 @@ async function deserializeAws_json1_1ListJobsCommandError(
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1526,38 +1628,53 @@ async function deserializeAws_json1_1UpdateClusterCommandError(
   switch (errorCode) {
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
-      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputCombinationException":
     case "com.amazonaws.snowball#InvalidInputCombinationException":
-      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSRequestFailedException":
     case "com.amazonaws.snowball#KMSRequestFailedException":
-      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1610,45 +1727,63 @@ async function deserializeAws_json1_1UpdateJobCommandError(
   switch (errorCode) {
     case "ClusterLimitExceededException":
     case "com.amazonaws.snowball#ClusterLimitExceededException":
-      response = await deserializeAws_json1_1ClusterLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ClusterLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
-      response = await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1Ec2RequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputCombinationException":
     case "com.amazonaws.snowball#InvalidInputCombinationException":
-      response = await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
-      response = await deserializeAws_json1_1InvalidResourceExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "KMSRequestFailedException":
     case "com.amazonaws.snowball#KMSRequestFailedException":
-      response = await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1KMSRequestFailedExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

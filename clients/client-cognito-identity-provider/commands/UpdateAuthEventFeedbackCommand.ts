@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateAuthEventFeedbackCommandInput = UpdateAuthEventFeedbackRequest;
-export type UpdateAuthEventFeedbackCommandOutput = UpdateAuthEventFeedbackResponse;
+export type UpdateAuthEventFeedbackCommandOutput = UpdateAuthEventFeedbackResponse &
+  __MetadataBearer;
 
 export class UpdateAuthEventFeedbackCommand extends $Command<
   UpdateAuthEventFeedbackCommandInput,

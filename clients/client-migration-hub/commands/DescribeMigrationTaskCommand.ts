@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeMigrationTaskCommandInput = DescribeMigrationTaskRequest;
-export type DescribeMigrationTaskCommandOutput = DescribeMigrationTaskResult;
+export type DescribeMigrationTaskCommandOutput = DescribeMigrationTaskResult &
+  __MetadataBearer;
 
 export class DescribeMigrationTaskCommand extends $Command<
   DescribeMigrationTaskCommandInput,

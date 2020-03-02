@@ -137,17 +137,23 @@ async function deserializeAws_json1_0DescribeStreamCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
-      response = await deserializeAws_json1_0InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -200,38 +206,53 @@ async function deserializeAws_json1_0GetRecordsCommandError(
   switch (errorCode) {
     case "ExpiredIteratorException":
     case "com.amazonaws.dynamodb.streams.v20120810#ExpiredIteratorException":
-      response = await deserializeAws_json1_0ExpiredIteratorExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ExpiredIteratorExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TrimmedDataAccessException":
     case "com.amazonaws.dynamodb.streams.v20120810#TrimmedDataAccessException":
-      response = await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
-      response = await deserializeAws_json1_0InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
-      response = await deserializeAws_json1_0LimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -284,24 +305,33 @@ async function deserializeAws_json1_0GetShardIteratorCommandError(
   switch (errorCode) {
     case "TrimmedDataAccessException":
     case "com.amazonaws.dynamodb.streams.v20120810#TrimmedDataAccessException":
-      response = await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0TrimmedDataAccessExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
-      response = await deserializeAws_json1_0InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -354,17 +384,23 @@ async function deserializeAws_json1_0ListStreamsCommandError(
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
-      response = await deserializeAws_json1_0InternalServerErrorResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
-      response = await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RegisterElasticIpCommandInput = RegisterElasticIpRequest;
-export type RegisterElasticIpCommandOutput = RegisterElasticIpResult;
+export type RegisterElasticIpCommandOutput = RegisterElasticIpResult &
+  __MetadataBearer;
 
 export class RegisterElasticIpCommand extends $Command<
   RegisterElasticIpCommandInput,

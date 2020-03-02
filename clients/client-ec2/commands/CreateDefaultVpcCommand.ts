@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateDefaultVpcCommandInput = CreateDefaultVpcRequest;
-export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult;
+export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult &
+  __MetadataBearer;
 
 export class CreateDefaultVpcCommand extends $Command<
   CreateDefaultVpcCommandInput,

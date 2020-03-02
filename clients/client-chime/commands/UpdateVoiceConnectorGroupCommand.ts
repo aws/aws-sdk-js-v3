@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateVoiceConnectorGroupCommandInput = UpdateVoiceConnectorGroupRequest;
-export type UpdateVoiceConnectorGroupCommandOutput = UpdateVoiceConnectorGroupResponse;
+export type UpdateVoiceConnectorGroupCommandOutput = UpdateVoiceConnectorGroupResponse &
+  __MetadataBearer;
 
 export class UpdateVoiceConnectorGroupCommand extends $Command<
   UpdateVoiceConnectorGroupCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DisassociateIamInstanceProfileCommandInput = DisassociateIamInstanceProfileRequest;
-export type DisassociateIamInstanceProfileCommandOutput = DisassociateIamInstanceProfileResult;
+export type DisassociateIamInstanceProfileCommandOutput = DisassociateIamInstanceProfileResult &
+  __MetadataBearer;
 
 export class DisassociateIamInstanceProfileCommand extends $Command<
   DisassociateIamInstanceProfileCommandInput,

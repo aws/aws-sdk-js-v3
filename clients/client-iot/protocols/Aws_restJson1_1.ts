@@ -7247,7 +7247,7 @@ export async function serializeAws_restJson1_1ListAuditMitigationActionsTasksCom
     query["auditTaskId"] = input.auditTaskId;
   }
   if (input.endTime !== undefined) {
-    query["endTime"] = input.endTime.toISOString();
+    query["endTime"] = input.endTime.toISOString().toString();
   }
   if (input.findingId !== undefined) {
     query["findingId"] = input.findingId;
@@ -7259,7 +7259,7 @@ export async function serializeAws_restJson1_1ListAuditMitigationActionsTasksCom
     query["nextToken"] = input.nextToken;
   }
   if (input.startTime !== undefined) {
-    query["startTime"] = input.startTime.toISOString();
+    query["startTime"] = input.startTime.toISOString().toString();
   }
   if (input.taskStatus !== undefined) {
     query["taskStatus"] = input.taskStatus;
@@ -7283,7 +7283,7 @@ export async function serializeAws_restJson1_1ListAuditTasksCommand(
   let resolvedPath = "/audit/tasks";
   const query: any = {};
   if (input.endTime !== undefined) {
-    query["endTime"] = input.endTime.toISOString();
+    query["endTime"] = input.endTime.toISOString().toString();
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
@@ -7292,7 +7292,7 @@ export async function serializeAws_restJson1_1ListAuditTasksCommand(
     query["nextToken"] = input.nextToken;
   }
   if (input.startTime !== undefined) {
-    query["startTime"] = input.startTime.toISOString();
+    query["startTime"] = input.startTime.toISOString().toString();
   }
   if (input.taskStatus !== undefined) {
     query["taskStatus"] = input.taskStatus;
@@ -7464,7 +7464,7 @@ export async function serializeAws_restJson1_1ListViolationEventsCommand(
   let resolvedPath = "/violation-events";
   const query: any = {};
   if (input.endTime !== undefined) {
-    query["endTime"] = input.endTime.toISOString();
+    query["endTime"] = input.endTime.toISOString().toString();
   }
   if (input.maxResults !== undefined) {
     query["maxResults"] = input.maxResults.toString();
@@ -7476,7 +7476,7 @@ export async function serializeAws_restJson1_1ListViolationEventsCommand(
     query["securityProfileName"] = input.securityProfileName;
   }
   if (input.startTime !== undefined) {
-    query["startTime"] = input.startTime.toISOString();
+    query["startTime"] = input.startTime.toISOString().toString();
   }
   if (input.thingName !== undefined) {
     query["thingName"] = input.thingName;
@@ -8010,38 +8010,53 @@ async function deserializeAws_restJson1_1ConfirmTopicRuleDestinationCommandError
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8089,45 +8104,63 @@ async function deserializeAws_restJson1_1CreateTopicRuleCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SqlParseException":
     case "com.amazonaws.iot.common.types#SqlParseException":
-      response = await deserializeAws_restJson1_1SqlParseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8186,38 +8219,53 @@ async function deserializeAws_restJson1_1CreateTopicRuleDestinationCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8265,38 +8313,53 @@ async function deserializeAws_restJson1_1DeleteTopicRuleCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8345,38 +8408,53 @@ async function deserializeAws_restJson1_1DeleteTopicRuleDestinationCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8424,24 +8502,33 @@ async function deserializeAws_restJson1_1DeleteV2LoggingLevelCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8489,38 +8576,53 @@ async function deserializeAws_restJson1_1DisableTopicRuleCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8568,38 +8670,53 @@ async function deserializeAws_restJson1_1EnableTopicRuleCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8656,24 +8773,33 @@ async function deserializeAws_restJson1_1GetLoggingOptionsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8727,31 +8853,43 @@ async function deserializeAws_restJson1_1GetTopicRuleCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8810,31 +8948,43 @@ async function deserializeAws_restJson1_1GetTopicRuleDestinationCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8895,24 +9045,33 @@ async function deserializeAws_restJson1_1GetV2LoggingOptionsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotConfiguredException":
     case "com.amazonaws.iot.common.types#NotConfiguredException":
-      response = await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -8975,31 +9134,43 @@ async function deserializeAws_restJson1_1ListTopicRuleDestinationsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9059,24 +9230,33 @@ async function deserializeAws_restJson1_1ListTopicRulesCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9139,31 +9319,43 @@ async function deserializeAws_restJson1_1ListV2LoggingLevelsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotConfiguredException":
     case "com.amazonaws.iot.common.types#NotConfiguredException":
-      response = await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9211,45 +9403,63 @@ async function deserializeAws_restJson1_1ReplaceTopicRuleCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "SqlParseException":
     case "com.amazonaws.iot.common.types#SqlParseException":
-      response = await deserializeAws_restJson1_1SqlParseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1SqlParseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9297,24 +9507,33 @@ async function deserializeAws_restJson1_1SetLoggingOptionsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9362,31 +9581,43 @@ async function deserializeAws_restJson1_1SetV2LoggingLevelCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "NotConfiguredException":
     case "com.amazonaws.iot.common.types#NotConfiguredException":
-      response = await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1NotConfiguredExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9434,24 +9665,33 @@ async function deserializeAws_restJson1_1SetV2LoggingOptionsCommandError(
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9500,38 +9740,53 @@ async function deserializeAws_restJson1_1UpdateTopicRuleDestinationCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalException":
     case "com.amazonaws.iot.common.types#InternalException":
-      response = await deserializeAws_restJson1_1InternalExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9579,52 +9834,73 @@ async function deserializeAws_restJson1_1AcceptCertificateTransferCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TransferAlreadyCompletedException":
     case "com.amazonaws.iot.common.types#TransferAlreadyCompletedException":
-      response = await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9669,52 +9945,73 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9762,52 +10059,73 @@ async function deserializeAws_restJson1_1AttachPrincipalPolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9855,52 +10173,73 @@ async function deserializeAws_restJson1_1CancelCertificateTransferCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TransferAlreadyCompletedException":
     case "com.amazonaws.iot.common.types#TransferAlreadyCompletedException":
-      response = await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -9949,45 +10288,63 @@ async function deserializeAws_restJson1_1ClearDefaultAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10044,52 +10401,73 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10150,38 +10528,53 @@ async function deserializeAws_restJson1_1CreateCertificateFromCsrCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10244,59 +10637,83 @@ async function deserializeAws_restJson1_1CreateDomainConfigurationCommandError(
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
-      response = await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10361,38 +10778,53 @@ async function deserializeAws_restJson1_1CreateKeysAndCertificateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10454,52 +10886,73 @@ async function deserializeAws_restJson1_1CreatePolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyException":
     case "com.amazonaws.iot.common.types#MalformedPolicyException":
-      response = await deserializeAws_restJson1_1MalformedPolicyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MalformedPolicyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10564,59 +11017,83 @@ async function deserializeAws_restJson1_1CreatePolicyVersionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "MalformedPolicyException":
     case "com.amazonaws.iot.common.types#MalformedPolicyException":
-      response = await deserializeAws_restJson1_1MalformedPolicyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1MalformedPolicyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionsLimitExceededException":
     case "com.amazonaws.iot.common.types#VersionsLimitExceededException":
-      response = await deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10681,45 +11158,63 @@ async function deserializeAws_restJson1_1CreateProvisioningClaimCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10780,45 +11275,63 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10883,52 +11396,73 @@ async function deserializeAws_restJson1_1CreateProvisioningTemplateVersionComman
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionsLimitExceededException":
     case "com.amazonaws.iot.common.types#VersionsLimitExceededException":
-      response = await deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionsLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -10985,52 +11519,73 @@ async function deserializeAws_restJson1_1CreateRoleAliasCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11079,52 +11634,73 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11173,52 +11749,73 @@ async function deserializeAws_restJson1_1DeleteCACertificateCommandError(
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
-      response = await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11266,59 +11863,83 @@ async function deserializeAws_restJson1_1DeleteCertificateCommandError(
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
-      response = await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11367,45 +11988,63 @@ async function deserializeAws_restJson1_1DeleteDomainConfigurationCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11450,52 +12089,73 @@ async function deserializeAws_restJson1_1DeletePolicyCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11543,52 +12203,73 @@ async function deserializeAws_restJson1_1DeletePolicyVersionCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11637,45 +12318,63 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11724,45 +12423,63 @@ async function deserializeAws_restJson1_1DeleteProvisioningTemplateVersionComman
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11811,38 +12528,53 @@ async function deserializeAws_restJson1_1DeleteRegistrationCodeCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11891,52 +12623,73 @@ async function deserializeAws_restJson1_1DeleteRoleAliasCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -11995,45 +12748,63 @@ async function deserializeAws_restJson1_1DescribeAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12102,45 +12873,63 @@ async function deserializeAws_restJson1_1DescribeCACertificateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12199,45 +12988,63 @@ async function deserializeAws_restJson1_1DescribeCertificateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12296,45 +13103,63 @@ async function deserializeAws_restJson1_1DescribeDefaultAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12433,38 +13258,53 @@ async function deserializeAws_restJson1_1DescribeDomainConfigurationCommandError
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12517,31 +13357,43 @@ async function deserializeAws_restJson1_1DescribeEndpointCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12631,38 +13483,53 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateCommandErro
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12727,38 +13594,53 @@ async function deserializeAws_restJson1_1DescribeProvisioningTemplateVersionComm
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12817,45 +13699,63 @@ async function deserializeAws_restJson1_1DescribeRoleAliasCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12900,45 +13800,63 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -12986,45 +13904,63 @@ async function deserializeAws_restJson1_1DetachPrincipalPolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13080,52 +14016,73 @@ async function deserializeAws_restJson1_1GetEffectivePoliciesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13201,45 +14158,63 @@ async function deserializeAws_restJson1_1GetPolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13322,45 +14297,63 @@ async function deserializeAws_restJson1_1GetPolicyVersionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13413,38 +14406,53 @@ async function deserializeAws_restJson1_1GetRegistrationCodeCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13504,52 +14512,73 @@ async function deserializeAws_restJson1_1ListAttachedPoliciesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13609,38 +14638,53 @@ async function deserializeAws_restJson1_1ListAuthorizersCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13700,38 +14744,53 @@ async function deserializeAws_restJson1_1ListCACertificatesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13791,38 +14850,53 @@ async function deserializeAws_restJson1_1ListCertificatesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13882,38 +14956,53 @@ async function deserializeAws_restJson1_1ListCertificatesByCACommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -13976,38 +15065,53 @@ async function deserializeAws_restJson1_1ListDomainConfigurationsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14070,38 +15174,53 @@ async function deserializeAws_restJson1_1ListOutgoingCertificatesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14158,38 +15277,53 @@ async function deserializeAws_restJson1_1ListPoliciesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14249,45 +15383,63 @@ async function deserializeAws_restJson1_1ListPolicyPrincipalsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14343,45 +15495,63 @@ async function deserializeAws_restJson1_1ListPolicyVersionsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14441,45 +15611,63 @@ async function deserializeAws_restJson1_1ListPrincipalPoliciesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14539,38 +15727,53 @@ async function deserializeAws_restJson1_1ListProvisioningTemplateVersionsCommand
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14630,31 +15833,43 @@ async function deserializeAws_restJson1_1ListProvisioningTemplatesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14714,38 +15929,53 @@ async function deserializeAws_restJson1_1ListRoleAliasesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14805,52 +16035,73 @@ async function deserializeAws_restJson1_1ListTargetsForPolicyCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -14907,66 +16158,93 @@ async function deserializeAws_restJson1_1RegisterCACertificateCommandError(
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
-      response = await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RegistrationCodeValidationException":
     case "com.amazonaws.iot.common.types#RegistrationCodeValidationException":
-      response = await deserializeAws_restJson1_1RegistrationCodeValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1RegistrationCodeValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15023,66 +16301,93 @@ async function deserializeAws_restJson1_1RegisterCertificateCommandError(
   switch (errorCode) {
     case "CertificateConflictException":
     case "com.amazonaws.iot.common.types#CertificateConflictException":
-      response = await deserializeAws_restJson1_1CertificateConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
-      response = await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
-      response = await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15139,52 +16444,73 @@ async function deserializeAws_restJson1_1RegisterThingCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceRegistrationFailureException":
     case "com.amazonaws.iot.common.types#ResourceRegistrationFailureException":
-      response = await deserializeAws_restJson1_1ResourceRegistrationFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceRegistrationFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15232,52 +16558,73 @@ async function deserializeAws_restJson1_1RejectCertificateTransferCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TransferAlreadyCompletedException":
     case "com.amazonaws.iot.common.types#TransferAlreadyCompletedException":
-      response = await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TransferAlreadyCompletedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15334,52 +16681,73 @@ async function deserializeAws_restJson1_1SetDefaultAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15427,45 +16795,63 @@ async function deserializeAws_restJson1_1SetDefaultPolicyVersionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15521,52 +16907,73 @@ async function deserializeAws_restJson1_1TestAuthorizationCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15644,52 +17051,73 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidResponseException":
     case "com.amazonaws.iot.common.types#InvalidResponseException":
-      response = await deserializeAws_restJson1_1InvalidResponseExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidResponseExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15745,59 +17173,83 @@ async function deserializeAws_restJson1_1TransferCertificateCommandError(
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
-      response = await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TransferConflictException":
     case "com.amazonaws.iot.common.types#TransferConflictException":
-      response = await deserializeAws_restJson1_1TransferConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TransferConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15854,52 +17306,73 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -15947,45 +17420,63 @@ async function deserializeAws_restJson1_1UpdateCACertificateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16033,52 +17524,73 @@ async function deserializeAws_restJson1_1UpdateCertificateCommandError(
   switch (errorCode) {
     case "CertificateStateException":
     case "com.amazonaws.iot.common.types#CertificateStateException":
-      response = await deserializeAws_restJson1_1CertificateStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16141,52 +17653,73 @@ async function deserializeAws_restJson1_1UpdateDomainConfigurationCommandError(
   switch (errorCode) {
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
-      response = await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16235,38 +17768,53 @@ async function deserializeAws_restJson1_1UpdateProvisioningTemplateCommandError(
   switch (errorCode) {
     case "ConflictingResourceUpdateException":
     case "com.amazonaws.iot.common.types#ConflictingResourceUpdateException":
-      response = await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingResourceUpdateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16323,45 +17871,63 @@ async function deserializeAws_restJson1_1UpdateRoleAliasCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16419,45 +17985,63 @@ async function deserializeAws_restJson1_1DescribeIndexCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16510,66 +18094,93 @@ async function deserializeAws_restJson1_1GetCardinalityCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAggregationException":
     case "com.amazonaws.iot.common.types#InvalidAggregationException":
-      response = await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
-      response = await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
-      response = await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16638,38 +18249,53 @@ async function deserializeAws_restJson1_1GetIndexingConfigurationCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16725,66 +18351,93 @@ async function deserializeAws_restJson1_1GetPercentilesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAggregationException":
     case "com.amazonaws.iot.common.types#InvalidAggregationException":
-      response = await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
-      response = await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
-      response = await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16837,66 +18490,93 @@ async function deserializeAws_restJson1_1GetStatisticsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidAggregationException":
     case "com.amazonaws.iot.common.types#InvalidAggregationException":
-      response = await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidAggregationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
-      response = await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
-      response = await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -16953,38 +18633,53 @@ async function deserializeAws_restJson1_1ListIndicesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17048,59 +18743,83 @@ async function deserializeAws_restJson1_1SearchIndexCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
-      response = await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IndexNotReadyException":
     case "com.amazonaws.iot.indexing#IndexNotReadyException":
-      response = await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IndexNotReadyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17149,38 +18868,53 @@ async function deserializeAws_restJson1_1UpdateIndexingConfigurationCommandError
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17241,38 +18975,53 @@ async function deserializeAws_restJson1_1AssociateTargetsWithJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17330,31 +19079,43 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17402,45 +19163,63 @@ async function deserializeAws_restJson1_1CancelJobExecutionCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
-      response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17498,45 +19277,63 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17581,45 +19378,63 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
-      response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17667,38 +19482,53 @@ async function deserializeAws_restJson1_1DeleteJobExecutionCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidStateTransitionException":
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
-      response = await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17752,31 +19582,43 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17832,31 +19674,43 @@ async function deserializeAws_restJson1_1DescribeJobExecutionCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17909,31 +19763,43 @@ async function deserializeAws_restJson1_1GetJobDocumentCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -17996,31 +19862,43 @@ async function deserializeAws_restJson1_1ListJobExecutionsForJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18083,31 +19961,43 @@ async function deserializeAws_restJson1_1ListJobExecutionsForThingCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18164,31 +20054,43 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18233,31 +20135,43 @@ async function deserializeAws_restJson1_1UpdateJobCommandError(
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18326,59 +20240,83 @@ async function deserializeAws_restJson1_1CreateOTAUpdateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18427,52 +20365,73 @@ async function deserializeAws_restJson1_1DeleteOTAUpdateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18525,45 +20484,63 @@ async function deserializeAws_restJson1_1GetOTAUpdateCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18623,38 +20600,53 @@ async function deserializeAws_restJson1_1ListOTAUpdatesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18703,31 +20695,43 @@ async function deserializeAws_restJson1_1AddThingToBillingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18776,31 +20780,43 @@ async function deserializeAws_restJson1_1AddThingToThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18849,45 +20865,63 @@ async function deserializeAws_restJson1_1AttachThingPrincipalCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -18948,31 +20982,43 @@ async function deserializeAws_restJson1_1CreateBillingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19045,52 +21091,73 @@ async function deserializeAws_restJson1_1CreateDynamicThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
-      response = await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19148,52 +21215,73 @@ async function deserializeAws_restJson1_1CreateThingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19254,31 +21342,43 @@ async function deserializeAws_restJson1_1CreateThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19339,45 +21439,63 @@ async function deserializeAws_restJson1_1CreateThingTypeCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19426,31 +21544,43 @@ async function deserializeAws_restJson1_1DeleteBillingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19499,31 +21629,43 @@ async function deserializeAws_restJson1_1DeleteDynamicThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19569,52 +21711,73 @@ async function deserializeAws_restJson1_1DeleteThingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19663,31 +21826,43 @@ async function deserializeAws_restJson1_1DeleteThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19736,45 +21911,63 @@ async function deserializeAws_restJson1_1DeleteThingTypeCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19823,45 +22016,63 @@ async function deserializeAws_restJson1_1DeprecateThingTypeCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -19946,31 +22157,43 @@ async function deserializeAws_restJson1_1DescribeBillingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20039,17 +22262,23 @@ async function deserializeAws_restJson1_1DescribeEventConfigurationsCommandError
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20130,45 +22359,63 @@ async function deserializeAws_restJson1_1DescribeThingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20269,31 +22516,43 @@ async function deserializeAws_restJson1_1DescribeThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20395,38 +22654,53 @@ async function deserializeAws_restJson1_1DescribeThingRegistrationTaskCommandErr
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20504,45 +22778,63 @@ async function deserializeAws_restJson1_1DescribeThingTypeCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20591,45 +22883,63 @@ async function deserializeAws_restJson1_1DetachThingPrincipalCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20689,31 +22999,43 @@ async function deserializeAws_restJson1_1ListBillingGroupsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20773,45 +23095,63 @@ async function deserializeAws_restJson1_1ListPrincipalThingsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20868,31 +23208,43 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -20952,24 +23304,33 @@ async function deserializeAws_restJson1_1ListThingGroupsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21029,24 +23390,33 @@ async function deserializeAws_restJson1_1ListThingGroupsForThingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21102,45 +23472,63 @@ async function deserializeAws_restJson1_1ListThingPrincipalsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21204,31 +23592,43 @@ async function deserializeAws_restJson1_1ListThingRegistrationTaskReportsCommand
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21288,31 +23688,43 @@ async function deserializeAws_restJson1_1ListThingRegistrationTasksCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21372,38 +23784,53 @@ async function deserializeAws_restJson1_1ListThingTypesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21460,38 +23887,53 @@ async function deserializeAws_restJson1_1ListThingsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21551,31 +23993,43 @@ async function deserializeAws_restJson1_1ListThingsInBillingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21635,24 +24089,33 @@ async function deserializeAws_restJson1_1ListThingsInThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21701,31 +24164,43 @@ async function deserializeAws_restJson1_1RemoveThingFromBillingGroupCommandError
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21774,31 +24249,43 @@ async function deserializeAws_restJson1_1RemoveThingFromThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21851,31 +24338,43 @@ async function deserializeAws_restJson1_1StartThingRegistrationTaskCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -21924,38 +24423,53 @@ async function deserializeAws_restJson1_1StopThingRegistrationTaskCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22001,38 +24515,53 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22078,31 +24607,43 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22155,38 +24696,53 @@ async function deserializeAws_restJson1_1UpdateBillingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22239,45 +24795,63 @@ async function deserializeAws_restJson1_1UpdateDynamicThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidQueryException":
     case "com.amazonaws.iot.common.types#InvalidQueryException":
-      response = await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidQueryExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22326,24 +24900,33 @@ async function deserializeAws_restJson1_1UpdateEventConfigurationsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22389,52 +24972,73 @@ async function deserializeAws_restJson1_1UpdateThingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22487,38 +25091,53 @@ async function deserializeAws_restJson1_1UpdateThingGroupCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22567,31 +25186,43 @@ async function deserializeAws_restJson1_1UpdateThingGroupsForThingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22640,45 +25271,63 @@ async function deserializeAws_restJson1_1AttachSecurityProfileCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22727,31 +25376,43 @@ async function deserializeAws_restJson1_1CancelAuditMitigationActionsTaskCommand
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22800,31 +25461,43 @@ async function deserializeAws_restJson1_1CancelAuditTaskCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22881,38 +25554,53 @@ async function deserializeAws_restJson1_1CreateMitigationActionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -22965,38 +25653,53 @@ async function deserializeAws_restJson1_1CreateScheduledAuditCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23059,31 +25762,43 @@ async function deserializeAws_restJson1_1CreateSecurityProfileCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23132,31 +25847,43 @@ async function deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommandE
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23205,24 +25932,33 @@ async function deserializeAws_restJson1_1DeleteMitigationActionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23271,31 +26007,43 @@ async function deserializeAws_restJson1_1DeleteScheduledAuditCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23344,31 +26092,43 @@ async function deserializeAws_restJson1_1DeleteSecurityProfileCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23441,17 +26201,23 @@ async function deserializeAws_restJson1_1DescribeAccountAuditConfigurationComman
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23507,31 +26273,43 @@ async function deserializeAws_restJson1_1DescribeAuditFindingCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23623,31 +26401,43 @@ async function deserializeAws_restJson1_1DescribeAuditMitigationActionsTaskComma
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23729,31 +26519,43 @@ async function deserializeAws_restJson1_1DescribeAuditTaskCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23839,31 +26641,43 @@ async function deserializeAws_restJson1_1DescribeMitigationActionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -23942,31 +26756,43 @@ async function deserializeAws_restJson1_1DescribeScheduledAuditCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24074,31 +26900,43 @@ async function deserializeAws_restJson1_1DescribeSecurityProfileCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24147,31 +26985,43 @@ async function deserializeAws_restJson1_1DetachSecurityProfileCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24231,31 +27081,43 @@ async function deserializeAws_restJson1_1ListActiveViolationsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24315,24 +27177,33 @@ async function deserializeAws_restJson1_1ListAuditFindingsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24392,24 +27263,33 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsExecutionsCom
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24469,24 +27349,33 @@ async function deserializeAws_restJson1_1ListAuditMitigationActionsTasksCommandE
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24546,24 +27435,33 @@ async function deserializeAws_restJson1_1ListAuditTasksCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24623,24 +27521,33 @@ async function deserializeAws_restJson1_1ListMitigationActionsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24700,24 +27607,33 @@ async function deserializeAws_restJson1_1ListScheduledAuditsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24780,24 +27696,33 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24860,31 +27785,43 @@ async function deserializeAws_restJson1_1ListSecurityProfilesForTargetCommandErr
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -24947,31 +27884,43 @@ async function deserializeAws_restJson1_1ListTargetsForSecurityProfileCommandErr
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25031,24 +27980,33 @@ async function deserializeAws_restJson1_1ListViolationEventsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25101,38 +28059,53 @@ async function deserializeAws_restJson1_1StartAuditMitigationActionsTaskCommandE
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TaskAlreadyExistsException":
     case "com.amazonaws.iot.sepio.types.audit#TaskAlreadyExistsException":
-      response = await deserializeAws_restJson1_1TaskAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TaskAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25185,31 +28158,43 @@ async function deserializeAws_restJson1_1StartOnDemandAuditTaskCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25258,24 +28243,33 @@ async function deserializeAws_restJson1_1UpdateAccountAuditConfigurationCommandE
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25332,31 +28326,43 @@ async function deserializeAws_restJson1_1UpdateMitigationActionCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25409,31 +28415,43 @@ async function deserializeAws_restJson1_1UpdateScheduledAuditCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25541,38 +28559,53 @@ async function deserializeAws_restJson1_1UpdateSecurityProfileCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "VersionConflictException":
     case "com.amazonaws.iot.common.types#VersionConflictException":
-      response = await deserializeAws_restJson1_1VersionConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1VersionConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25632,24 +28665,33 @@ async function deserializeAws_restJson1_1ValidateSecurityProfileBehaviorsCommand
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25711,59 +28753,83 @@ async function deserializeAws_restJson1_1CreateStreamCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazonaws.iot.common.types#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.iot.common.types#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25809,52 +28875,73 @@ async function deserializeAws_restJson1_1DeleteStreamCommandError(
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iot.common.types#DeleteConflictException":
-      response = await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeleteConflictExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -25910,45 +28997,63 @@ async function deserializeAws_restJson1_1DescribeStreamCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -26005,38 +29110,53 @@ async function deserializeAws_restJson1_1ListStreamsCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -26098,45 +29218,63 @@ async function deserializeAws_restJson1_1UpdateStreamCommandError(
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
-      response = await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ThrottlingException":
     case "com.amazonaws.iot.common.types#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedException":
     case "com.amazonaws.iot.common.types#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

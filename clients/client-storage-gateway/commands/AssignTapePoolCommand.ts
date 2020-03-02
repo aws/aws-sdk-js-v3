@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type AssignTapePoolCommandInput = AssignTapePoolInput;
-export type AssignTapePoolCommandOutput = AssignTapePoolOutput;
+export type AssignTapePoolCommandOutput = AssignTapePoolOutput &
+  __MetadataBearer;
 
 export class AssignTapePoolCommand extends $Command<
   AssignTapePoolCommandInput,

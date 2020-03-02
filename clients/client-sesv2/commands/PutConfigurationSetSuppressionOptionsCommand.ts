@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutConfigurationSetSuppressionOptionsCommandInput = PutConfigurationSetSuppressionOptionsRequest;
-export type PutConfigurationSetSuppressionOptionsCommandOutput = PutConfigurationSetSuppressionOptionsResponse;
+export type PutConfigurationSetSuppressionOptionsCommandOutput = PutConfigurationSetSuppressionOptionsResponse &
+  __MetadataBearer;
 
 export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
   PutConfigurationSetSuppressionOptionsCommandInput,

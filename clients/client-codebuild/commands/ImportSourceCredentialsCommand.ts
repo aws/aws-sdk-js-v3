@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportSourceCredentialsCommandInput = ImportSourceCredentialsInput;
-export type ImportSourceCredentialsCommandOutput = ImportSourceCredentialsOutput;
+export type ImportSourceCredentialsCommandOutput = ImportSourceCredentialsOutput &
+  __MetadataBearer;
 
 export class ImportSourceCredentialsCommand extends $Command<
   ImportSourceCredentialsCommandInput,

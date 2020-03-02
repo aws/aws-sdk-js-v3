@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetCostForecastCommandInput = GetCostForecastRequest;
-export type GetCostForecastCommandOutput = GetCostForecastResponse;
+export type GetCostForecastCommandOutput = GetCostForecastResponse &
+  __MetadataBearer;
 
 export class GetCostForecastCommand extends $Command<
   GetCostForecastCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateClusterSecurityGroupCommandInput = CreateClusterSecurityGroupMessage;
-export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult;
+export type CreateClusterSecurityGroupCommandOutput = CreateClusterSecurityGroupResult &
+  __MetadataBearer;
 
 export class CreateClusterSecurityGroupCommand extends $Command<
   CreateClusterSecurityGroupCommandInput,

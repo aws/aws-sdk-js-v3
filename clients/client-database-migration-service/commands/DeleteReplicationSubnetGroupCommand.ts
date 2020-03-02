@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteReplicationSubnetGroupCommandInput = DeleteReplicationSubnetGroupMessage;
-export type DeleteReplicationSubnetGroupCommandOutput = DeleteReplicationSubnetGroupResponse;
+export type DeleteReplicationSubnetGroupCommandOutput = DeleteReplicationSubnetGroupResponse &
+  __MetadataBearer;
 
 export class DeleteReplicationSubnetGroupCommand extends $Command<
   DeleteReplicationSubnetGroupCommandInput,

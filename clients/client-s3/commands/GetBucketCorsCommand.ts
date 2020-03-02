@@ -21,11 +21,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetBucketCorsCommandInput = GetBucketCorsRequest;
-export type GetBucketCorsCommandOutput = GetBucketCorsOutput;
+export type GetBucketCorsCommandOutput = GetBucketCorsOutput & __MetadataBearer;
 
 export class GetBucketCorsCommand extends $Command<
   GetBucketCorsCommandInput,

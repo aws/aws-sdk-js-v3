@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ImportKeyMaterialCommandInput = ImportKeyMaterialRequest;
-export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse;
+export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse &
+  __MetadataBearer;
 
 export class ImportKeyMaterialCommand extends $Command<
   ImportKeyMaterialCommandInput,

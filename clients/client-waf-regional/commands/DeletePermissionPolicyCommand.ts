@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeletePermissionPolicyCommandInput = DeletePermissionPolicyRequest;
-export type DeletePermissionPolicyCommandOutput = DeletePermissionPolicyResponse;
+export type DeletePermissionPolicyCommandOutput = DeletePermissionPolicyResponse &
+  __MetadataBearer;
 
 export class DeletePermissionPolicyCommand extends $Command<
   DeletePermissionPolicyCommandInput,

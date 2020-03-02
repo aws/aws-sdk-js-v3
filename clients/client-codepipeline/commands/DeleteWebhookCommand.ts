@@ -20,11 +20,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteWebhookCommandInput = DeleteWebhookInput;
-export type DeleteWebhookCommandOutput = DeleteWebhookOutput;
+export type DeleteWebhookCommandOutput = DeleteWebhookOutput & __MetadataBearer;
 
 export class DeleteWebhookCommand extends $Command<
   DeleteWebhookCommandInput,

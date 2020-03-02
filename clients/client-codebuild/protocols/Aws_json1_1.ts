@@ -747,10 +747,13 @@ async function deserializeAws_json1_1BatchDeleteBuildsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -803,10 +806,13 @@ async function deserializeAws_json1_1BatchGetBuildsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -859,10 +865,13 @@ async function deserializeAws_json1_1BatchGetProjectsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -918,10 +927,13 @@ async function deserializeAws_json1_1BatchGetReportGroupsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -974,10 +986,13 @@ async function deserializeAws_json1_1BatchGetReportsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1030,24 +1045,33 @@ async function deserializeAws_json1_1CreateProjectCommandError(
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      response = await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1100,24 +1124,33 @@ async function deserializeAws_json1_1CreateReportGroupCommandError(
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      response = await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1170,31 +1203,43 @@ async function deserializeAws_json1_1CreateWebhookCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
-      response = await deserializeAws_json1_1OAuthProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OAuthProviderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1247,10 +1292,13 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1303,10 +1351,13 @@ async function deserializeAws_json1_1DeleteReportCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1359,10 +1410,13 @@ async function deserializeAws_json1_1DeleteReportGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1418,10 +1472,13 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1477,17 +1534,23 @@ async function deserializeAws_json1_1DeleteSourceCredentialsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1540,24 +1603,33 @@ async function deserializeAws_json1_1DeleteWebhookCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
-      response = await deserializeAws_json1_1OAuthProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OAuthProviderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1610,17 +1682,23 @@ async function deserializeAws_json1_1DescribeTestCasesCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1673,17 +1751,23 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1739,24 +1823,33 @@ async function deserializeAws_json1_1ImportSourceCredentialsCommandError(
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      response = await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      response = await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1812,17 +1905,23 @@ async function deserializeAws_json1_1InvalidateProjectCacheCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1875,10 +1974,13 @@ async function deserializeAws_json1_1ListBuildsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -1934,17 +2036,23 @@ async function deserializeAws_json1_1ListBuildsForProjectCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2052,10 +2160,13 @@ async function deserializeAws_json1_1ListProjectsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2108,10 +2219,13 @@ async function deserializeAws_json1_1ListReportGroupsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2164,10 +2278,13 @@ async function deserializeAws_json1_1ListReportsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2226,17 +2343,23 @@ async function deserializeAws_json1_1ListReportsForReportGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2292,10 +2415,13 @@ async function deserializeAws_json1_1ListSharedProjectsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2351,10 +2477,13 @@ async function deserializeAws_json1_1ListSharedReportGroupsCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2459,17 +2588,23 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2522,24 +2657,33 @@ async function deserializeAws_json1_1StartBuildCommandError(
   switch (errorCode) {
     case "AccountLimitExceededException":
     case "com.amazonaws.codebuild#AccountLimitExceededException":
-      response = await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1AccountLimitExceededExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2592,17 +2736,23 @@ async function deserializeAws_json1_1StopBuildCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2655,17 +2805,23 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2718,17 +2874,23 @@ async function deserializeAws_json1_1UpdateReportGroupCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;
@@ -2781,24 +2943,33 @@ async function deserializeAws_json1_1UpdateWebhookCommandError(
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
-      response = await deserializeAws_json1_1OAuthProviderExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1OAuthProviderExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codebuild#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-        parsedOutput,
-        context
-      );
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+          parsedOutput,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = parsedOutput.body;

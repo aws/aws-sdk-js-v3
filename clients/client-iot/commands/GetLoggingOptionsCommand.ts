@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetLoggingOptionsCommandInput = GetLoggingOptionsRequest;
-export type GetLoggingOptionsCommandOutput = GetLoggingOptionsResponse;
+export type GetLoggingOptionsCommandOutput = GetLoggingOptionsResponse &
+  __MetadataBearer;
 
 export class GetLoggingOptionsCommand extends $Command<
   GetLoggingOptionsCommandInput,

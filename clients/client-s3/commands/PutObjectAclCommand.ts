@@ -21,11 +21,12 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutObjectAclCommandInput = PutObjectAclRequest;
-export type PutObjectAclCommandOutput = PutObjectAclOutput;
+export type PutObjectAclCommandOutput = PutObjectAclOutput & __MetadataBearer;
 
 export class PutObjectAclCommand extends $Command<
   PutObjectAclCommandInput,

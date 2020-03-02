@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type PutSkillAuthorizationCommandInput = PutSkillAuthorizationRequest;
-export type PutSkillAuthorizationCommandOutput = PutSkillAuthorizationResponse;
+export type PutSkillAuthorizationCommandOutput = PutSkillAuthorizationResponse &
+  __MetadataBearer;
 
 export class PutSkillAuthorizationCommand extends $Command<
   PutSkillAuthorizationCommandInput,

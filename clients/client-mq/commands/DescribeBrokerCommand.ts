@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBrokerCommandInput = DescribeBrokerRequest;
-export type DescribeBrokerCommandOutput = DescribeBrokerResponse;
+export type DescribeBrokerCommandOutput = DescribeBrokerResponse &
+  __MetadataBearer;
 
 export class DescribeBrokerCommand extends $Command<
   DescribeBrokerCommandInput,

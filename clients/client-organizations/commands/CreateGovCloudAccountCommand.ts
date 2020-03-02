@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateGovCloudAccountCommandInput = CreateGovCloudAccountRequest;
-export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse;
+export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse &
+  __MetadataBearer;
 
 export class CreateGovCloudAccountCommand extends $Command<
   CreateGovCloudAccountCommandInput,

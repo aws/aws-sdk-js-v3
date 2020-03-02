@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeBrokerEngineTypesCommandInput = DescribeBrokerEngineTypesRequest;
-export type DescribeBrokerEngineTypesCommandOutput = DescribeBrokerEngineTypesResponse;
+export type DescribeBrokerEngineTypesCommandOutput = DescribeBrokerEngineTypesResponse &
+  __MetadataBearer;
 
 export class DescribeBrokerEngineTypesCommand extends $Command<
   DescribeBrokerEngineTypesCommandInput,

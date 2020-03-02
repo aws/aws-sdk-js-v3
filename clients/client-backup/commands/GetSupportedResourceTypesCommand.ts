@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetSupportedResourceTypesCommandInput = {};
-export type GetSupportedResourceTypesCommandOutput = GetSupportedResourceTypesOutput;
+export type GetSupportedResourceTypesCommandOutput = GetSupportedResourceTypesOutput &
+  __MetadataBearer;
 
 export class GetSupportedResourceTypesCommand extends $Command<
   GetSupportedResourceTypesCommandInput,

@@ -20,11 +20,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type GetQueryResultsCommandInput = GetQueryResultsInput;
-export type GetQueryResultsCommandOutput = GetQueryResultsOutput;
+export type GetQueryResultsCommandOutput = GetQueryResultsOutput &
+  __MetadataBearer;
 
 export class GetQueryResultsCommand extends $Command<
   GetQueryResultsCommandInput,

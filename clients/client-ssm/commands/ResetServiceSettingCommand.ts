@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ResetServiceSettingCommandInput = ResetServiceSettingRequest;
-export type ResetServiceSettingCommandOutput = ResetServiceSettingResult;
+export type ResetServiceSettingCommandOutput = ResetServiceSettingResult &
+  __MetadataBearer;
 
 export class ResetServiceSettingCommand extends $Command<
   ResetServiceSettingCommandInput,

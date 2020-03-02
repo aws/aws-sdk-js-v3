@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = AccessPointDescription;
+export type CreateAccessPointCommandOutput = AccessPointDescription &
+  __MetadataBearer;
 
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,

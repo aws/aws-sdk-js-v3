@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type UpdateExpirationForHITCommandInput = UpdateExpirationForHITRequest;
-export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse;
+export type UpdateExpirationForHITCommandOutput = UpdateExpirationForHITResponse &
+  __MetadataBearer;
 
 export class UpdateExpirationForHITCommand extends $Command<
   UpdateExpirationForHITCommandInput,

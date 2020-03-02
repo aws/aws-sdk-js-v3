@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DeleteGitHubAccountTokenCommandInput = DeleteGitHubAccountTokenInput;
-export type DeleteGitHubAccountTokenCommandOutput = DeleteGitHubAccountTokenOutput;
+export type DeleteGitHubAccountTokenCommandOutput = DeleteGitHubAccountTokenOutput &
+  __MetadataBearer;
 
 export class DeleteGitHubAccountTokenCommand extends $Command<
   DeleteGitHubAccountTokenCommandInput,

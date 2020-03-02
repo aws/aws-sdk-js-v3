@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CancelRotateSecretCommandInput = CancelRotateSecretRequest;
-export type CancelRotateSecretCommandOutput = CancelRotateSecretResponse;
+export type CancelRotateSecretCommandOutput = CancelRotateSecretResponse &
+  __MetadataBearer;
 
 export class CancelRotateSecretCommand extends $Command<
   CancelRotateSecretCommandInput,

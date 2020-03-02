@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type BatchGetOnPremisesInstancesCommandInput = BatchGetOnPremisesInstancesInput;
-export type BatchGetOnPremisesInstancesCommandOutput = BatchGetOnPremisesInstancesOutput;
+export type BatchGetOnPremisesInstancesCommandOutput = BatchGetOnPremisesInstancesOutput &
+  __MetadataBearer;
 
 export class BatchGetOnPremisesInstancesCommand extends $Command<
   BatchGetOnPremisesInstancesCommandInput,

@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopPHIDetectionJobCommandInput = StopPHIDetectionJobRequest;
-export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse;
+export type StopPHIDetectionJobCommandOutput = StopPHIDetectionJobResponse &
+  __MetadataBearer;
 
 export class StopPHIDetectionJobCommand extends $Command<
   StopPHIDetectionJobCommandInput,

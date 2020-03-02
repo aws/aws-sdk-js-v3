@@ -1,31 +1,67 @@
 import {
-  CreateAccessPointRequest,
-  CreateJobRequest,
-  CreateJobResult,
-  DeleteAccessPointPolicyRequest,
-  DeleteAccessPointRequest,
-  DeletePublicAccessBlockRequest,
-  DescribeJobRequest,
-  DescribeJobResult,
-  GetAccessPointPolicyRequest,
-  GetAccessPointPolicyResult,
-  GetAccessPointPolicyStatusRequest,
-  GetAccessPointPolicyStatusResult,
-  GetAccessPointRequest,
-  GetAccessPointResult,
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockRequest,
-  ListAccessPointsRequest,
-  ListAccessPointsResult,
-  ListJobsRequest,
-  ListJobsResult,
-  PutAccessPointPolicyRequest,
-  PutPublicAccessBlockRequest,
-  UpdateJobPriorityRequest,
-  UpdateJobPriorityResult,
-  UpdateJobStatusRequest,
-  UpdateJobStatusResult
-} from "./models/index";
+  CreateAccessPointCommandInput,
+  CreateAccessPointCommandOutput
+} from "./commands/CreateAccessPointCommand";
+import {
+  CreateJobCommandInput,
+  CreateJobCommandOutput
+} from "./commands/CreateJobCommand";
+import {
+  DeleteAccessPointCommandInput,
+  DeleteAccessPointCommandOutput
+} from "./commands/DeleteAccessPointCommand";
+import {
+  DeleteAccessPointPolicyCommandInput,
+  DeleteAccessPointPolicyCommandOutput
+} from "./commands/DeleteAccessPointPolicyCommand";
+import {
+  DeletePublicAccessBlockCommandInput,
+  DeletePublicAccessBlockCommandOutput
+} from "./commands/DeletePublicAccessBlockCommand";
+import {
+  DescribeJobCommandInput,
+  DescribeJobCommandOutput
+} from "./commands/DescribeJobCommand";
+import {
+  GetAccessPointCommandInput,
+  GetAccessPointCommandOutput
+} from "./commands/GetAccessPointCommand";
+import {
+  GetAccessPointPolicyCommandInput,
+  GetAccessPointPolicyCommandOutput
+} from "./commands/GetAccessPointPolicyCommand";
+import {
+  GetAccessPointPolicyStatusCommandInput,
+  GetAccessPointPolicyStatusCommandOutput
+} from "./commands/GetAccessPointPolicyStatusCommand";
+import {
+  GetPublicAccessBlockCommandInput,
+  GetPublicAccessBlockCommandOutput
+} from "./commands/GetPublicAccessBlockCommand";
+import {
+  ListAccessPointsCommandInput,
+  ListAccessPointsCommandOutput
+} from "./commands/ListAccessPointsCommand";
+import {
+  ListJobsCommandInput,
+  ListJobsCommandOutput
+} from "./commands/ListJobsCommand";
+import {
+  PutAccessPointPolicyCommandInput,
+  PutAccessPointPolicyCommandOutput
+} from "./commands/PutAccessPointPolicyCommand";
+import {
+  PutPublicAccessBlockCommandInput,
+  PutPublicAccessBlockCommandOutput
+} from "./commands/PutPublicAccessBlockCommand";
+import {
+  UpdateJobPriorityCommandInput,
+  UpdateJobPriorityCommandOutput
+} from "./commands/UpdateJobPriorityCommand";
+import {
+  UpdateJobStatusCommandInput,
+  UpdateJobStatusCommandOutput
+} from "./commands/UpdateJobStatusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -74,42 +110,46 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateAccessPointRequest
-  | CreateJobRequest
-  | DeleteAccessPointPolicyRequest
-  | DeleteAccessPointRequest
-  | DeletePublicAccessBlockRequest
-  | DescribeJobRequest
-  | GetAccessPointPolicyRequest
-  | GetAccessPointPolicyStatusRequest
-  | GetAccessPointRequest
-  | GetPublicAccessBlockRequest
-  | ListAccessPointsRequest
-  | ListJobsRequest
-  | PutAccessPointPolicyRequest
-  | PutPublicAccessBlockRequest
-  | UpdateJobPriorityRequest
-  | UpdateJobStatusRequest;
+  | CreateAccessPointCommandInput
+  | CreateJobCommandInput
+  | DeleteAccessPointCommandInput
+  | DeleteAccessPointPolicyCommandInput
+  | DeletePublicAccessBlockCommandInput
+  | DescribeJobCommandInput
+  | GetAccessPointCommandInput
+  | GetAccessPointPolicyCommandInput
+  | GetAccessPointPolicyStatusCommandInput
+  | GetPublicAccessBlockCommandInput
+  | ListAccessPointsCommandInput
+  | ListJobsCommandInput
+  | PutAccessPointPolicyCommandInput
+  | PutPublicAccessBlockCommandInput
+  | UpdateJobPriorityCommandInput
+  | UpdateJobStatusCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | CreateJobResult
-  | DescribeJobResult
-  | GetAccessPointPolicyResult
-  | GetAccessPointPolicyStatusResult
-  | GetAccessPointResult
-  | GetPublicAccessBlockOutput
-  | ListAccessPointsResult
-  | ListJobsResult
-  | UpdateJobPriorityResult
-  | UpdateJobStatusResult;
+  | CreateAccessPointCommandOutput
+  | CreateJobCommandOutput
+  | DeleteAccessPointCommandOutput
+  | DeleteAccessPointPolicyCommandOutput
+  | DeletePublicAccessBlockCommandOutput
+  | DescribeJobCommandOutput
+  | GetAccessPointCommandOutput
+  | GetAccessPointPolicyCommandOutput
+  | GetAccessPointPolicyStatusCommandOutput
+  | GetPublicAccessBlockCommandOutput
+  | ListAccessPointsCommandOutput
+  | ListJobsCommandOutput
+  | PutAccessPointPolicyCommandOutput
+  | PutPublicAccessBlockCommandOutput
+  | UpdateJobPriorityCommandOutput
+  | UpdateJobStatusCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

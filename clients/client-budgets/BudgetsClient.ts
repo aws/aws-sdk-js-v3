@@ -1,33 +1,59 @@
 import {
-  CreateBudgetRequest,
-  CreateBudgetResponse,
-  CreateNotificationRequest,
-  CreateNotificationResponse,
-  CreateSubscriberRequest,
-  CreateSubscriberResponse,
-  DeleteBudgetRequest,
-  DeleteBudgetResponse,
-  DeleteNotificationRequest,
-  DeleteNotificationResponse,
-  DeleteSubscriberRequest,
-  DeleteSubscriberResponse,
-  DescribeBudgetPerformanceHistoryRequest,
-  DescribeBudgetPerformanceHistoryResponse,
-  DescribeBudgetRequest,
-  DescribeBudgetResponse,
-  DescribeBudgetsRequest,
-  DescribeBudgetsResponse,
-  DescribeNotificationsForBudgetRequest,
-  DescribeNotificationsForBudgetResponse,
-  DescribeSubscribersForNotificationRequest,
-  DescribeSubscribersForNotificationResponse,
-  UpdateBudgetRequest,
-  UpdateBudgetResponse,
-  UpdateNotificationRequest,
-  UpdateNotificationResponse,
-  UpdateSubscriberRequest,
-  UpdateSubscriberResponse
-} from "./models/index";
+  CreateBudgetCommandInput,
+  CreateBudgetCommandOutput
+} from "./commands/CreateBudgetCommand";
+import {
+  CreateNotificationCommandInput,
+  CreateNotificationCommandOutput
+} from "./commands/CreateNotificationCommand";
+import {
+  CreateSubscriberCommandInput,
+  CreateSubscriberCommandOutput
+} from "./commands/CreateSubscriberCommand";
+import {
+  DeleteBudgetCommandInput,
+  DeleteBudgetCommandOutput
+} from "./commands/DeleteBudgetCommand";
+import {
+  DeleteNotificationCommandInput,
+  DeleteNotificationCommandOutput
+} from "./commands/DeleteNotificationCommand";
+import {
+  DeleteSubscriberCommandInput,
+  DeleteSubscriberCommandOutput
+} from "./commands/DeleteSubscriberCommand";
+import {
+  DescribeBudgetCommandInput,
+  DescribeBudgetCommandOutput
+} from "./commands/DescribeBudgetCommand";
+import {
+  DescribeBudgetPerformanceHistoryCommandInput,
+  DescribeBudgetPerformanceHistoryCommandOutput
+} from "./commands/DescribeBudgetPerformanceHistoryCommand";
+import {
+  DescribeBudgetsCommandInput,
+  DescribeBudgetsCommandOutput
+} from "./commands/DescribeBudgetsCommand";
+import {
+  DescribeNotificationsForBudgetCommandInput,
+  DescribeNotificationsForBudgetCommandOutput
+} from "./commands/DescribeNotificationsForBudgetCommand";
+import {
+  DescribeSubscribersForNotificationCommandInput,
+  DescribeSubscribersForNotificationCommandOutput
+} from "./commands/DescribeSubscribersForNotificationCommand";
+import {
+  UpdateBudgetCommandInput,
+  UpdateBudgetCommandOutput
+} from "./commands/UpdateBudgetCommand";
+import {
+  UpdateNotificationCommandInput,
+  UpdateNotificationCommandOutput
+} from "./commands/UpdateNotificationCommand";
+import {
+  UpdateSubscriberCommandInput,
+  UpdateSubscriberCommandOutput
+} from "./commands/UpdateSubscriberCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -81,36 +107,36 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | CreateBudgetRequest
-  | CreateNotificationRequest
-  | CreateSubscriberRequest
-  | DeleteBudgetRequest
-  | DeleteNotificationRequest
-  | DeleteSubscriberRequest
-  | DescribeBudgetPerformanceHistoryRequest
-  | DescribeBudgetRequest
-  | DescribeBudgetsRequest
-  | DescribeNotificationsForBudgetRequest
-  | DescribeSubscribersForNotificationRequest
-  | UpdateBudgetRequest
-  | UpdateNotificationRequest
-  | UpdateSubscriberRequest;
+  | CreateBudgetCommandInput
+  | CreateNotificationCommandInput
+  | CreateSubscriberCommandInput
+  | DeleteBudgetCommandInput
+  | DeleteNotificationCommandInput
+  | DeleteSubscriberCommandInput
+  | DescribeBudgetCommandInput
+  | DescribeBudgetPerformanceHistoryCommandInput
+  | DescribeBudgetsCommandInput
+  | DescribeNotificationsForBudgetCommandInput
+  | DescribeSubscribersForNotificationCommandInput
+  | UpdateBudgetCommandInput
+  | UpdateNotificationCommandInput
+  | UpdateSubscriberCommandInput;
 
 export type ServiceOutputTypes =
-  | CreateBudgetResponse
-  | CreateNotificationResponse
-  | CreateSubscriberResponse
-  | DeleteBudgetResponse
-  | DeleteNotificationResponse
-  | DeleteSubscriberResponse
-  | DescribeBudgetPerformanceHistoryResponse
-  | DescribeBudgetResponse
-  | DescribeBudgetsResponse
-  | DescribeNotificationsForBudgetResponse
-  | DescribeSubscribersForNotificationResponse
-  | UpdateBudgetResponse
-  | UpdateNotificationResponse
-  | UpdateSubscriberResponse;
+  | CreateBudgetCommandOutput
+  | CreateNotificationCommandOutput
+  | CreateSubscriberCommandOutput
+  | DeleteBudgetCommandOutput
+  | DeleteNotificationCommandOutput
+  | DeleteSubscriberCommandOutput
+  | DescribeBudgetCommandOutput
+  | DescribeBudgetPerformanceHistoryCommandOutput
+  | DescribeBudgetsCommandOutput
+  | DescribeNotificationsForBudgetCommandOutput
+  | DescribeSubscribersForNotificationCommandOutput
+  | UpdateBudgetCommandOutput
+  | UpdateNotificationCommandOutput
+  | UpdateSubscriberCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

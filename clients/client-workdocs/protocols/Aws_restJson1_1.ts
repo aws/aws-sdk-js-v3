@@ -973,7 +973,7 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
     query["activityTypes"] = input.ActivityTypes;
   }
   if (input.EndTime !== undefined) {
-    query["endTime"] = input.EndTime.toISOString();
+    query["endTime"] = input.EndTime.toISOString().toString();
   }
   if (input.IncludeIndirectActivities !== undefined) {
     query[
@@ -993,7 +993,7 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
     query["resourceId"] = input.ResourceId;
   }
   if (input.StartTime !== undefined) {
-    query["startTime"] = input.StartTime.toISOString();
+    query["startTime"] = input.StartTime.toISOString().toString();
   }
   if (input.UserId !== undefined) {
     query["userId"] = input.UserId;
@@ -1958,45 +1958,63 @@ async function deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2046,38 +2064,53 @@ async function deserializeAws_restJson1_1ActivateUserCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2133,31 +2166,43 @@ async function deserializeAws_restJson1_1AddResourcePermissionsCommandError(
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2207,59 +2252,83 @@ async function deserializeAws_restJson1_1CreateCommentCommandError(
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazon.aws.gorillaboy#DocumentLockedForCommentsException":
-      response = await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidCommentOperationException":
     case "com.amazon.aws.gorillaboy#InvalidCommentOperationException":
-      response = await deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2308,52 +2377,73 @@ async function deserializeAws_restJson1_1CreateCustomMetadataCommandError(
   switch (errorCode) {
     case "CustomMetadataLimitExceededException":
     case "com.amazon.aws.gorillaboy#CustomMetadataLimitExceededException":
-      response = await deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2406,66 +2496,93 @@ async function deserializeAws_restJson1_1CreateFolderCommandError(
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2511,45 +2628,63 @@ async function deserializeAws_restJson1_1CreateLabelsCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManyLabelsException":
     case "com.amazon.aws.gorillaboy#TooManyLabelsException":
-      response = await deserializeAws_restJson1_1TooManyLabelsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManyLabelsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2605,24 +2740,33 @@ async function deserializeAws_restJson1_1CreateNotificationSubscriptionCommandEr
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "TooManySubscriptionsException":
     case "com.amazon.aws.gorillaboy#TooManySubscriptionsException":
-      response = await deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2672,38 +2816,53 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2751,38 +2910,53 @@ async function deserializeAws_restJson1_1DeactivateUserCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2827,52 +3001,73 @@ async function deserializeAws_restJson1_1DeleteCommentCommandError(
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazon.aws.gorillaboy#DocumentLockedForCommentsException":
-      response = await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -2921,45 +3116,63 @@ async function deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3007,59 +3220,83 @@ async function deserializeAws_restJson1_1DeleteDocumentCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3104,59 +3341,83 @@ async function deserializeAws_restJson1_1DeleteFolderCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3204,52 +3465,73 @@ async function deserializeAws_restJson1_1DeleteFolderContentsCommandError(
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3295,38 +3577,53 @@ async function deserializeAws_restJson1_1DeleteLabelsCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3374,31 +3671,43 @@ async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandEr
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3443,38 +3752,53 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3534,38 +3858,53 @@ async function deserializeAws_restJson1_1DescribeActivitiesCommandError(
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3625,45 +3964,63 @@ async function deserializeAws_restJson1_1DescribeCommentsCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3723,52 +4080,73 @@ async function deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3835,45 +4213,63 @@ async function deserializeAws_restJson1_1DescribeFolderContentsCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -3933,31 +4329,43 @@ async function deserializeAws_restJson1_1DescribeGroupsCommandError(
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4017,24 +4425,33 @@ async function deserializeAws_restJson1_1DescribeNotificationSubscriptionsComman
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4094,31 +4511,43 @@ async function deserializeAws_restJson1_1DescribeResourcePermissionsCommandError
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4178,38 +4607,53 @@ async function deserializeAws_restJson1_1DescribeRootFoldersCommandError(
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4273,52 +4717,73 @@ async function deserializeAws_restJson1_1DescribeUsersCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "RequestedEntityTooLargeException":
     case "com.amazon.aws.gorillaboy#RequestedEntityTooLargeException":
-      response = await deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4371,38 +4836,53 @@ async function deserializeAws_restJson1_1GetCurrentUserCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4462,52 +4942,73 @@ async function deserializeAws_restJson1_1GetDocumentCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazon.aws.gorillaboy#InvalidPasswordException":
-      response = await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4560,38 +5061,53 @@ async function deserializeAws_restJson1_1GetDocumentPathCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4654,52 +5170,73 @@ async function deserializeAws_restJson1_1GetDocumentVersionCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidPasswordException":
     case "com.amazon.aws.gorillaboy#InvalidPasswordException":
-      response = await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4759,52 +5296,73 @@ async function deserializeAws_restJson1_1GetFolderCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4854,38 +5412,53 @@ async function deserializeAws_restJson1_1GetFolderPathCommandError(
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -4949,38 +5522,53 @@ async function deserializeAws_restJson1_1GetResourcesCommandError(
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5043,80 +5631,113 @@ async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandErr
   switch (errorCode) {
     case "DraftUploadOutOfSyncException":
     case "com.amazon.aws.gorillaboy#DraftUploadOutOfSyncException":
-      response = await deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ResourceAlreadyCheckedOutException":
     case "com.amazon.aws.gorillaboy#ResourceAlreadyCheckedOutException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageLimitExceededException":
     case "com.amazon.aws.gorillaboy#StorageLimitExceededException":
-      response = await deserializeAws_restJson1_1StorageLimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1StorageLimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "StorageLimitWillExceedException":
     case "com.amazon.aws.gorillaboy#StorageLimitWillExceedException":
-      response = await deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5164,31 +5785,43 @@ async function deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandErro
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5236,31 +5869,43 @@ async function deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5308,73 +5953,103 @@ async function deserializeAws_restJson1_1UpdateDocumentCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5422,59 +6097,83 @@ async function deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidOperationException":
     case "com.amazon.aws.gorillaboy#InvalidOperationException":
-      response = await deserializeAws_restJson1_1InvalidOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5519,73 +6218,103 @@ async function deserializeAws_restJson1_1UpdateFolderCommandError(
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);
@@ -5635,59 +6364,83 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
   switch (errorCode) {
     case "DeactivatingLastSystemUserException":
     case "com.amazon.aws.gorillaboy#DeactivatingLastSystemUserException":
-      response = await deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "IllegalUserStateException":
     case "com.amazon.aws.gorillaboy#IllegalUserStateException":
-      response = await deserializeAws_restJson1_1IllegalUserStateExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1IllegalUserStateExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
-        output,
-        context
-      );
+      response = {
+        ...(await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+          output,
+          context
+        )),
+        $metadata: deserializeMetadata(output)
+      };
       break;
     default:
       const parsedBody = await parseBody(output.body, context);

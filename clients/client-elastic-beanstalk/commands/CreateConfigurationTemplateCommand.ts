@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type CreateConfigurationTemplateCommandInput = CreateConfigurationTemplateMessage;
-export type CreateConfigurationTemplateCommandOutput = ConfigurationSettingsDescription;
+export type CreateConfigurationTemplateCommandOutput = ConfigurationSettingsDescription &
+  __MetadataBearer;
 
 export class CreateConfigurationTemplateCommand extends $Command<
   CreateConfigurationTemplateCommandInput,

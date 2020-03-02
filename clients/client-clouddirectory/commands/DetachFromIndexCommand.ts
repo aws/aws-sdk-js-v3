@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DetachFromIndexCommandInput = DetachFromIndexRequest;
-export type DetachFromIndexCommandOutput = DetachFromIndexResponse;
+export type DetachFromIndexCommandOutput = DetachFromIndexResponse &
+  __MetadataBearer;
 
 export class DetachFromIndexCommand extends $Command<
   DetachFromIndexCommandInput,

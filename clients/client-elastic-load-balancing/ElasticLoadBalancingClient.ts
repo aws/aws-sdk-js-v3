@@ -1,63 +1,119 @@
 import {
-  AddAvailabilityZonesInput,
-  AddAvailabilityZonesOutput,
-  AddTagsInput,
-  AddTagsOutput,
-  ApplySecurityGroupsToLoadBalancerInput,
-  ApplySecurityGroupsToLoadBalancerOutput,
-  AttachLoadBalancerToSubnetsInput,
-  AttachLoadBalancerToSubnetsOutput,
-  ConfigureHealthCheckInput,
-  ConfigureHealthCheckOutput,
-  CreateAccessPointInput,
-  CreateAccessPointOutput,
-  CreateAppCookieStickinessPolicyInput,
-  CreateAppCookieStickinessPolicyOutput,
-  CreateLBCookieStickinessPolicyInput,
-  CreateLBCookieStickinessPolicyOutput,
-  CreateLoadBalancerListenerInput,
-  CreateLoadBalancerListenerOutput,
-  CreateLoadBalancerPolicyInput,
-  CreateLoadBalancerPolicyOutput,
-  DeleteAccessPointInput,
-  DeleteAccessPointOutput,
-  DeleteLoadBalancerListenerInput,
-  DeleteLoadBalancerListenerOutput,
-  DeleteLoadBalancerPolicyInput,
-  DeleteLoadBalancerPolicyOutput,
-  DeregisterEndPointsInput,
-  DeregisterEndPointsOutput,
-  DescribeAccessPointsInput,
-  DescribeAccessPointsOutput,
-  DescribeAccountLimitsInput,
-  DescribeAccountLimitsOutput,
-  DescribeEndPointStateInput,
-  DescribeEndPointStateOutput,
-  DescribeLoadBalancerAttributesInput,
-  DescribeLoadBalancerAttributesOutput,
-  DescribeLoadBalancerPoliciesInput,
-  DescribeLoadBalancerPoliciesOutput,
-  DescribeLoadBalancerPolicyTypesInput,
-  DescribeLoadBalancerPolicyTypesOutput,
-  DescribeTagsInput,
-  DescribeTagsOutput,
-  DetachLoadBalancerFromSubnetsInput,
-  DetachLoadBalancerFromSubnetsOutput,
-  ModifyLoadBalancerAttributesInput,
-  ModifyLoadBalancerAttributesOutput,
-  RegisterEndPointsInput,
-  RegisterEndPointsOutput,
-  RemoveAvailabilityZonesInput,
-  RemoveAvailabilityZonesOutput,
-  RemoveTagsInput,
-  RemoveTagsOutput,
-  SetLoadBalancerListenerSSLCertificateInput,
-  SetLoadBalancerListenerSSLCertificateOutput,
-  SetLoadBalancerPoliciesForBackendServerInput,
-  SetLoadBalancerPoliciesForBackendServerOutput,
-  SetLoadBalancerPoliciesOfListenerInput,
-  SetLoadBalancerPoliciesOfListenerOutput
-} from "./models/index";
+  AddTagsCommandInput,
+  AddTagsCommandOutput
+} from "./commands/AddTagsCommand";
+import {
+  ApplySecurityGroupsToLoadBalancerCommandInput,
+  ApplySecurityGroupsToLoadBalancerCommandOutput
+} from "./commands/ApplySecurityGroupsToLoadBalancerCommand";
+import {
+  AttachLoadBalancerToSubnetsCommandInput,
+  AttachLoadBalancerToSubnetsCommandOutput
+} from "./commands/AttachLoadBalancerToSubnetsCommand";
+import {
+  ConfigureHealthCheckCommandInput,
+  ConfigureHealthCheckCommandOutput
+} from "./commands/ConfigureHealthCheckCommand";
+import {
+  CreateAppCookieStickinessPolicyCommandInput,
+  CreateAppCookieStickinessPolicyCommandOutput
+} from "./commands/CreateAppCookieStickinessPolicyCommand";
+import {
+  CreateLBCookieStickinessPolicyCommandInput,
+  CreateLBCookieStickinessPolicyCommandOutput
+} from "./commands/CreateLBCookieStickinessPolicyCommand";
+import {
+  CreateLoadBalancerCommandInput,
+  CreateLoadBalancerCommandOutput
+} from "./commands/CreateLoadBalancerCommand";
+import {
+  CreateLoadBalancerListenersCommandInput,
+  CreateLoadBalancerListenersCommandOutput
+} from "./commands/CreateLoadBalancerListenersCommand";
+import {
+  CreateLoadBalancerPolicyCommandInput,
+  CreateLoadBalancerPolicyCommandOutput
+} from "./commands/CreateLoadBalancerPolicyCommand";
+import {
+  DeleteLoadBalancerCommandInput,
+  DeleteLoadBalancerCommandOutput
+} from "./commands/DeleteLoadBalancerCommand";
+import {
+  DeleteLoadBalancerListenersCommandInput,
+  DeleteLoadBalancerListenersCommandOutput
+} from "./commands/DeleteLoadBalancerListenersCommand";
+import {
+  DeleteLoadBalancerPolicyCommandInput,
+  DeleteLoadBalancerPolicyCommandOutput
+} from "./commands/DeleteLoadBalancerPolicyCommand";
+import {
+  DeregisterInstancesFromLoadBalancerCommandInput,
+  DeregisterInstancesFromLoadBalancerCommandOutput
+} from "./commands/DeregisterInstancesFromLoadBalancerCommand";
+import {
+  DescribeAccountLimitsCommandInput,
+  DescribeAccountLimitsCommandOutput
+} from "./commands/DescribeAccountLimitsCommand";
+import {
+  DescribeInstanceHealthCommandInput,
+  DescribeInstanceHealthCommandOutput
+} from "./commands/DescribeInstanceHealthCommand";
+import {
+  DescribeLoadBalancerAttributesCommandInput,
+  DescribeLoadBalancerAttributesCommandOutput
+} from "./commands/DescribeLoadBalancerAttributesCommand";
+import {
+  DescribeLoadBalancerPoliciesCommandInput,
+  DescribeLoadBalancerPoliciesCommandOutput
+} from "./commands/DescribeLoadBalancerPoliciesCommand";
+import {
+  DescribeLoadBalancerPolicyTypesCommandInput,
+  DescribeLoadBalancerPolicyTypesCommandOutput
+} from "./commands/DescribeLoadBalancerPolicyTypesCommand";
+import {
+  DescribeLoadBalancersCommandInput,
+  DescribeLoadBalancersCommandOutput
+} from "./commands/DescribeLoadBalancersCommand";
+import {
+  DescribeTagsCommandInput,
+  DescribeTagsCommandOutput
+} from "./commands/DescribeTagsCommand";
+import {
+  DetachLoadBalancerFromSubnetsCommandInput,
+  DetachLoadBalancerFromSubnetsCommandOutput
+} from "./commands/DetachLoadBalancerFromSubnetsCommand";
+import {
+  DisableAvailabilityZonesForLoadBalancerCommandInput,
+  DisableAvailabilityZonesForLoadBalancerCommandOutput
+} from "./commands/DisableAvailabilityZonesForLoadBalancerCommand";
+import {
+  EnableAvailabilityZonesForLoadBalancerCommandInput,
+  EnableAvailabilityZonesForLoadBalancerCommandOutput
+} from "./commands/EnableAvailabilityZonesForLoadBalancerCommand";
+import {
+  ModifyLoadBalancerAttributesCommandInput,
+  ModifyLoadBalancerAttributesCommandOutput
+} from "./commands/ModifyLoadBalancerAttributesCommand";
+import {
+  RegisterInstancesWithLoadBalancerCommandInput,
+  RegisterInstancesWithLoadBalancerCommandOutput
+} from "./commands/RegisterInstancesWithLoadBalancerCommand";
+import {
+  RemoveTagsCommandInput,
+  RemoveTagsCommandOutput
+} from "./commands/RemoveTagsCommand";
+import {
+  SetLoadBalancerListenerSSLCertificateCommandInput,
+  SetLoadBalancerListenerSSLCertificateCommandOutput
+} from "./commands/SetLoadBalancerListenerSSLCertificateCommand";
+import {
+  SetLoadBalancerPoliciesForBackendServerCommandInput,
+  SetLoadBalancerPoliciesForBackendServerCommandOutput
+} from "./commands/SetLoadBalancerPoliciesForBackendServerCommand";
+import {
+  SetLoadBalancerPoliciesOfListenerCommandInput,
+  SetLoadBalancerPoliciesOfListenerCommandOutput
+} from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -111,66 +167,66 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | AddAvailabilityZonesInput
-  | AddTagsInput
-  | ApplySecurityGroupsToLoadBalancerInput
-  | AttachLoadBalancerToSubnetsInput
-  | ConfigureHealthCheckInput
-  | CreateAccessPointInput
-  | CreateAppCookieStickinessPolicyInput
-  | CreateLBCookieStickinessPolicyInput
-  | CreateLoadBalancerListenerInput
-  | CreateLoadBalancerPolicyInput
-  | DeleteAccessPointInput
-  | DeleteLoadBalancerListenerInput
-  | DeleteLoadBalancerPolicyInput
-  | DeregisterEndPointsInput
-  | DescribeAccessPointsInput
-  | DescribeAccountLimitsInput
-  | DescribeEndPointStateInput
-  | DescribeLoadBalancerAttributesInput
-  | DescribeLoadBalancerPoliciesInput
-  | DescribeLoadBalancerPolicyTypesInput
-  | DescribeTagsInput
-  | DetachLoadBalancerFromSubnetsInput
-  | ModifyLoadBalancerAttributesInput
-  | RegisterEndPointsInput
-  | RemoveAvailabilityZonesInput
-  | RemoveTagsInput
-  | SetLoadBalancerListenerSSLCertificateInput
-  | SetLoadBalancerPoliciesForBackendServerInput
-  | SetLoadBalancerPoliciesOfListenerInput;
+  | AddTagsCommandInput
+  | ApplySecurityGroupsToLoadBalancerCommandInput
+  | AttachLoadBalancerToSubnetsCommandInput
+  | ConfigureHealthCheckCommandInput
+  | CreateAppCookieStickinessPolicyCommandInput
+  | CreateLBCookieStickinessPolicyCommandInput
+  | CreateLoadBalancerCommandInput
+  | CreateLoadBalancerListenersCommandInput
+  | CreateLoadBalancerPolicyCommandInput
+  | DeleteLoadBalancerCommandInput
+  | DeleteLoadBalancerListenersCommandInput
+  | DeleteLoadBalancerPolicyCommandInput
+  | DeregisterInstancesFromLoadBalancerCommandInput
+  | DescribeAccountLimitsCommandInput
+  | DescribeInstanceHealthCommandInput
+  | DescribeLoadBalancerAttributesCommandInput
+  | DescribeLoadBalancerPoliciesCommandInput
+  | DescribeLoadBalancerPolicyTypesCommandInput
+  | DescribeLoadBalancersCommandInput
+  | DescribeTagsCommandInput
+  | DetachLoadBalancerFromSubnetsCommandInput
+  | DisableAvailabilityZonesForLoadBalancerCommandInput
+  | EnableAvailabilityZonesForLoadBalancerCommandInput
+  | ModifyLoadBalancerAttributesCommandInput
+  | RegisterInstancesWithLoadBalancerCommandInput
+  | RemoveTagsCommandInput
+  | SetLoadBalancerListenerSSLCertificateCommandInput
+  | SetLoadBalancerPoliciesForBackendServerCommandInput
+  | SetLoadBalancerPoliciesOfListenerCommandInput;
 
 export type ServiceOutputTypes =
-  | AddAvailabilityZonesOutput
-  | AddTagsOutput
-  | ApplySecurityGroupsToLoadBalancerOutput
-  | AttachLoadBalancerToSubnetsOutput
-  | ConfigureHealthCheckOutput
-  | CreateAccessPointOutput
-  | CreateAppCookieStickinessPolicyOutput
-  | CreateLBCookieStickinessPolicyOutput
-  | CreateLoadBalancerListenerOutput
-  | CreateLoadBalancerPolicyOutput
-  | DeleteAccessPointOutput
-  | DeleteLoadBalancerListenerOutput
-  | DeleteLoadBalancerPolicyOutput
-  | DeregisterEndPointsOutput
-  | DescribeAccessPointsOutput
-  | DescribeAccountLimitsOutput
-  | DescribeEndPointStateOutput
-  | DescribeLoadBalancerAttributesOutput
-  | DescribeLoadBalancerPoliciesOutput
-  | DescribeLoadBalancerPolicyTypesOutput
-  | DescribeTagsOutput
-  | DetachLoadBalancerFromSubnetsOutput
-  | ModifyLoadBalancerAttributesOutput
-  | RegisterEndPointsOutput
-  | RemoveAvailabilityZonesOutput
-  | RemoveTagsOutput
-  | SetLoadBalancerListenerSSLCertificateOutput
-  | SetLoadBalancerPoliciesForBackendServerOutput
-  | SetLoadBalancerPoliciesOfListenerOutput;
+  | AddTagsCommandOutput
+  | ApplySecurityGroupsToLoadBalancerCommandOutput
+  | AttachLoadBalancerToSubnetsCommandOutput
+  | ConfigureHealthCheckCommandOutput
+  | CreateAppCookieStickinessPolicyCommandOutput
+  | CreateLBCookieStickinessPolicyCommandOutput
+  | CreateLoadBalancerCommandOutput
+  | CreateLoadBalancerListenersCommandOutput
+  | CreateLoadBalancerPolicyCommandOutput
+  | DeleteLoadBalancerCommandOutput
+  | DeleteLoadBalancerListenersCommandOutput
+  | DeleteLoadBalancerPolicyCommandOutput
+  | DeregisterInstancesFromLoadBalancerCommandOutput
+  | DescribeAccountLimitsCommandOutput
+  | DescribeInstanceHealthCommandOutput
+  | DescribeLoadBalancerAttributesCommandOutput
+  | DescribeLoadBalancerPoliciesCommandOutput
+  | DescribeLoadBalancerPolicyTypesCommandOutput
+  | DescribeLoadBalancersCommandOutput
+  | DescribeTagsCommandOutput
+  | DetachLoadBalancerFromSubnetsCommandOutput
+  | DisableAvailabilityZonesForLoadBalancerCommandOutput
+  | EnableAvailabilityZonesForLoadBalancerCommandOutput
+  | ModifyLoadBalancerAttributesCommandOutput
+  | RegisterInstancesWithLoadBalancerCommandOutput
+  | RemoveTagsCommandOutput
+  | SetLoadBalancerListenerSSLCertificateCommandOutput
+  | SetLoadBalancerPoliciesForBackendServerCommandOutput
+  | SetLoadBalancerPoliciesOfListenerCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

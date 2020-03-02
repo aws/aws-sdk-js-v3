@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type RequestUploadCredentialsCommandInput = RequestUploadCredentialsInput;
-export type RequestUploadCredentialsCommandOutput = RequestUploadCredentialsOutput;
+export type RequestUploadCredentialsCommandOutput = RequestUploadCredentialsOutput &
+  __MetadataBearer;
 
 export class RequestUploadCredentialsCommand extends $Command<
   RequestUploadCredentialsCommandInput,

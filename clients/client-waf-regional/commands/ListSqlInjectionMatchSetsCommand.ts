@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type ListSqlInjectionMatchSetsCommandInput = ListSqlInjectionMatchSetsRequest;
-export type ListSqlInjectionMatchSetsCommandOutput = ListSqlInjectionMatchSetsResponse;
+export type ListSqlInjectionMatchSetsCommandOutput = ListSqlInjectionMatchSetsResponse &
+  __MetadataBearer;
 
 export class ListSqlInjectionMatchSetsCommand extends $Command<
   ListSqlInjectionMatchSetsCommandInput,

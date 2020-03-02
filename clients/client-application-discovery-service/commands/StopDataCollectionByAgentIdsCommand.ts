@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type StopDataCollectionByAgentIdsCommandInput = StopDataCollectionByAgentIdsRequest;
-export type StopDataCollectionByAgentIdsCommandOutput = StopDataCollectionByAgentIdsResponse;
+export type StopDataCollectionByAgentIdsCommandOutput = StopDataCollectionByAgentIdsResponse &
+  __MetadataBearer;
 
 export class StopDataCollectionByAgentIdsCommand extends $Command<
   StopDataCollectionByAgentIdsCommandInput,

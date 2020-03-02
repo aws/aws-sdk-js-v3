@@ -1,84 +1,191 @@
 import {
-  AcceptHandshakeRequest,
-  AcceptHandshakeResponse,
-  AttachPolicyRequest,
-  CancelHandshakeRequest,
-  CancelHandshakeResponse,
-  CreateAccountRequest,
-  CreateAccountResponse,
-  CreateGovCloudAccountRequest,
-  CreateGovCloudAccountResponse,
-  CreateOrganizationRequest,
-  CreateOrganizationResponse,
-  CreateOrganizationalUnitRequest,
-  CreateOrganizationalUnitResponse,
-  CreatePolicyRequest,
-  CreatePolicyResponse,
-  DeclineHandshakeRequest,
-  DeclineHandshakeResponse,
-  DeleteOrganizationalUnitRequest,
-  DeletePolicyRequest,
-  DescribeAccountRequest,
-  DescribeAccountResponse,
-  DescribeCreateAccountStatusRequest,
-  DescribeCreateAccountStatusResponse,
-  DescribeEffectivePolicyRequest,
-  DescribeEffectivePolicyResponse,
-  DescribeHandshakeRequest,
-  DescribeHandshakeResponse,
-  DescribeOrganizationResponse,
-  DescribeOrganizationalUnitRequest,
-  DescribeOrganizationalUnitResponse,
-  DescribePolicyRequest,
-  DescribePolicyResponse,
-  DetachPolicyRequest,
-  DisableAWSServiceAccessRequest,
-  DisablePolicyTypeRequest,
-  DisablePolicyTypeResponse,
-  EnableAWSServiceAccessRequest,
-  EnableAllFeaturesRequest,
-  EnableAllFeaturesResponse,
-  EnablePolicyTypeRequest,
-  EnablePolicyTypeResponse,
-  InviteAccountToOrganizationRequest,
-  InviteAccountToOrganizationResponse,
-  ListAWSServiceAccessForOrganizationRequest,
-  ListAWSServiceAccessForOrganizationResponse,
-  ListAccountsForParentRequest,
-  ListAccountsForParentResponse,
-  ListAccountsRequest,
-  ListAccountsResponse,
-  ListChildrenRequest,
-  ListChildrenResponse,
-  ListCreateAccountStatusRequest,
-  ListCreateAccountStatusResponse,
-  ListHandshakesForAccountRequest,
-  ListHandshakesForAccountResponse,
-  ListHandshakesForOrganizationRequest,
-  ListHandshakesForOrganizationResponse,
-  ListOrganizationalUnitsForParentRequest,
-  ListOrganizationalUnitsForParentResponse,
-  ListParentsRequest,
-  ListParentsResponse,
-  ListPoliciesForTargetRequest,
-  ListPoliciesForTargetResponse,
-  ListPoliciesRequest,
-  ListPoliciesResponse,
-  ListRootsRequest,
-  ListRootsResponse,
-  ListTagsForResourceRequest,
-  ListTagsForResourceResponse,
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyResponse,
-  MoveAccountRequest,
-  RemoveAccountFromOrganizationRequest,
-  TagResourceRequest,
-  UntagResourceRequest,
-  UpdateOrganizationalUnitRequest,
-  UpdateOrganizationalUnitResponse,
-  UpdatePolicyRequest,
-  UpdatePolicyResponse
-} from "./models/index";
+  AcceptHandshakeCommandInput,
+  AcceptHandshakeCommandOutput
+} from "./commands/AcceptHandshakeCommand";
+import {
+  AttachPolicyCommandInput,
+  AttachPolicyCommandOutput
+} from "./commands/AttachPolicyCommand";
+import {
+  CancelHandshakeCommandInput,
+  CancelHandshakeCommandOutput
+} from "./commands/CancelHandshakeCommand";
+import {
+  CreateAccountCommandInput,
+  CreateAccountCommandOutput
+} from "./commands/CreateAccountCommand";
+import {
+  CreateGovCloudAccountCommandInput,
+  CreateGovCloudAccountCommandOutput
+} from "./commands/CreateGovCloudAccountCommand";
+import {
+  CreateOrganizationCommandInput,
+  CreateOrganizationCommandOutput
+} from "./commands/CreateOrganizationCommand";
+import {
+  CreateOrganizationalUnitCommandInput,
+  CreateOrganizationalUnitCommandOutput
+} from "./commands/CreateOrganizationalUnitCommand";
+import {
+  CreatePolicyCommandInput,
+  CreatePolicyCommandOutput
+} from "./commands/CreatePolicyCommand";
+import {
+  DeclineHandshakeCommandInput,
+  DeclineHandshakeCommandOutput
+} from "./commands/DeclineHandshakeCommand";
+import {
+  DeleteOrganizationCommandInput,
+  DeleteOrganizationCommandOutput
+} from "./commands/DeleteOrganizationCommand";
+import {
+  DeleteOrganizationalUnitCommandInput,
+  DeleteOrganizationalUnitCommandOutput
+} from "./commands/DeleteOrganizationalUnitCommand";
+import {
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput
+} from "./commands/DeletePolicyCommand";
+import {
+  DescribeAccountCommandInput,
+  DescribeAccountCommandOutput
+} from "./commands/DescribeAccountCommand";
+import {
+  DescribeCreateAccountStatusCommandInput,
+  DescribeCreateAccountStatusCommandOutput
+} from "./commands/DescribeCreateAccountStatusCommand";
+import {
+  DescribeEffectivePolicyCommandInput,
+  DescribeEffectivePolicyCommandOutput
+} from "./commands/DescribeEffectivePolicyCommand";
+import {
+  DescribeHandshakeCommandInput,
+  DescribeHandshakeCommandOutput
+} from "./commands/DescribeHandshakeCommand";
+import {
+  DescribeOrganizationCommandInput,
+  DescribeOrganizationCommandOutput
+} from "./commands/DescribeOrganizationCommand";
+import {
+  DescribeOrganizationalUnitCommandInput,
+  DescribeOrganizationalUnitCommandOutput
+} from "./commands/DescribeOrganizationalUnitCommand";
+import {
+  DescribePolicyCommandInput,
+  DescribePolicyCommandOutput
+} from "./commands/DescribePolicyCommand";
+import {
+  DetachPolicyCommandInput,
+  DetachPolicyCommandOutput
+} from "./commands/DetachPolicyCommand";
+import {
+  DisableAWSServiceAccessCommandInput,
+  DisableAWSServiceAccessCommandOutput
+} from "./commands/DisableAWSServiceAccessCommand";
+import {
+  DisablePolicyTypeCommandInput,
+  DisablePolicyTypeCommandOutput
+} from "./commands/DisablePolicyTypeCommand";
+import {
+  EnableAWSServiceAccessCommandInput,
+  EnableAWSServiceAccessCommandOutput
+} from "./commands/EnableAWSServiceAccessCommand";
+import {
+  EnableAllFeaturesCommandInput,
+  EnableAllFeaturesCommandOutput
+} from "./commands/EnableAllFeaturesCommand";
+import {
+  EnablePolicyTypeCommandInput,
+  EnablePolicyTypeCommandOutput
+} from "./commands/EnablePolicyTypeCommand";
+import {
+  InviteAccountToOrganizationCommandInput,
+  InviteAccountToOrganizationCommandOutput
+} from "./commands/InviteAccountToOrganizationCommand";
+import {
+  LeaveOrganizationCommandInput,
+  LeaveOrganizationCommandOutput
+} from "./commands/LeaveOrganizationCommand";
+import {
+  ListAWSServiceAccessForOrganizationCommandInput,
+  ListAWSServiceAccessForOrganizationCommandOutput
+} from "./commands/ListAWSServiceAccessForOrganizationCommand";
+import {
+  ListAccountsCommandInput,
+  ListAccountsCommandOutput
+} from "./commands/ListAccountsCommand";
+import {
+  ListAccountsForParentCommandInput,
+  ListAccountsForParentCommandOutput
+} from "./commands/ListAccountsForParentCommand";
+import {
+  ListChildrenCommandInput,
+  ListChildrenCommandOutput
+} from "./commands/ListChildrenCommand";
+import {
+  ListCreateAccountStatusCommandInput,
+  ListCreateAccountStatusCommandOutput
+} from "./commands/ListCreateAccountStatusCommand";
+import {
+  ListHandshakesForAccountCommandInput,
+  ListHandshakesForAccountCommandOutput
+} from "./commands/ListHandshakesForAccountCommand";
+import {
+  ListHandshakesForOrganizationCommandInput,
+  ListHandshakesForOrganizationCommandOutput
+} from "./commands/ListHandshakesForOrganizationCommand";
+import {
+  ListOrganizationalUnitsForParentCommandInput,
+  ListOrganizationalUnitsForParentCommandOutput
+} from "./commands/ListOrganizationalUnitsForParentCommand";
+import {
+  ListParentsCommandInput,
+  ListParentsCommandOutput
+} from "./commands/ListParentsCommand";
+import {
+  ListPoliciesCommandInput,
+  ListPoliciesCommandOutput
+} from "./commands/ListPoliciesCommand";
+import {
+  ListPoliciesForTargetCommandInput,
+  ListPoliciesForTargetCommandOutput
+} from "./commands/ListPoliciesForTargetCommand";
+import {
+  ListRootsCommandInput,
+  ListRootsCommandOutput
+} from "./commands/ListRootsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput
+} from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetsForPolicyCommandInput,
+  ListTargetsForPolicyCommandOutput
+} from "./commands/ListTargetsForPolicyCommand";
+import {
+  MoveAccountCommandInput,
+  MoveAccountCommandOutput
+} from "./commands/MoveAccountCommand";
+import {
+  RemoveAccountFromOrganizationCommandInput,
+  RemoveAccountFromOrganizationCommandOutput
+} from "./commands/RemoveAccountFromOrganizationCommand";
+import {
+  TagResourceCommandInput,
+  TagResourceCommandOutput
+} from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput
+} from "./commands/UntagResourceCommand";
+import {
+  UpdateOrganizationalUnitCommandInput,
+  UpdateOrganizationalUnitCommandOutput
+} from "./commands/UpdateOrganizationalUnitCommand";
+import {
+  UpdatePolicyCommandInput,
+  UpdatePolicyCommandOutput
+} from "./commands/UpdatePolicyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -126,96 +233,108 @@ import {
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
-  | {}
-  | AcceptHandshakeRequest
-  | AttachPolicyRequest
-  | CancelHandshakeRequest
-  | CreateAccountRequest
-  | CreateGovCloudAccountRequest
-  | CreateOrganizationRequest
-  | CreateOrganizationalUnitRequest
-  | CreatePolicyRequest
-  | DeclineHandshakeRequest
-  | DeleteOrganizationalUnitRequest
-  | DeletePolicyRequest
-  | DescribeAccountRequest
-  | DescribeCreateAccountStatusRequest
-  | DescribeEffectivePolicyRequest
-  | DescribeHandshakeRequest
-  | DescribeOrganizationalUnitRequest
-  | DescribePolicyRequest
-  | DetachPolicyRequest
-  | DisableAWSServiceAccessRequest
-  | DisablePolicyTypeRequest
-  | EnableAWSServiceAccessRequest
-  | EnableAllFeaturesRequest
-  | EnablePolicyTypeRequest
-  | InviteAccountToOrganizationRequest
-  | ListAWSServiceAccessForOrganizationRequest
-  | ListAccountsForParentRequest
-  | ListAccountsRequest
-  | ListChildrenRequest
-  | ListCreateAccountStatusRequest
-  | ListHandshakesForAccountRequest
-  | ListHandshakesForOrganizationRequest
-  | ListOrganizationalUnitsForParentRequest
-  | ListParentsRequest
-  | ListPoliciesForTargetRequest
-  | ListPoliciesRequest
-  | ListRootsRequest
-  | ListTagsForResourceRequest
-  | ListTargetsForPolicyRequest
-  | MoveAccountRequest
-  | RemoveAccountFromOrganizationRequest
-  | TagResourceRequest
-  | UntagResourceRequest
-  | UpdateOrganizationalUnitRequest
-  | UpdatePolicyRequest;
+  | AcceptHandshakeCommandInput
+  | AttachPolicyCommandInput
+  | CancelHandshakeCommandInput
+  | CreateAccountCommandInput
+  | CreateGovCloudAccountCommandInput
+  | CreateOrganizationCommandInput
+  | CreateOrganizationalUnitCommandInput
+  | CreatePolicyCommandInput
+  | DeclineHandshakeCommandInput
+  | DeleteOrganizationCommandInput
+  | DeleteOrganizationalUnitCommandInput
+  | DeletePolicyCommandInput
+  | DescribeAccountCommandInput
+  | DescribeCreateAccountStatusCommandInput
+  | DescribeEffectivePolicyCommandInput
+  | DescribeHandshakeCommandInput
+  | DescribeOrganizationCommandInput
+  | DescribeOrganizationalUnitCommandInput
+  | DescribePolicyCommandInput
+  | DetachPolicyCommandInput
+  | DisableAWSServiceAccessCommandInput
+  | DisablePolicyTypeCommandInput
+  | EnableAWSServiceAccessCommandInput
+  | EnableAllFeaturesCommandInput
+  | EnablePolicyTypeCommandInput
+  | InviteAccountToOrganizationCommandInput
+  | LeaveOrganizationCommandInput
+  | ListAWSServiceAccessForOrganizationCommandInput
+  | ListAccountsCommandInput
+  | ListAccountsForParentCommandInput
+  | ListChildrenCommandInput
+  | ListCreateAccountStatusCommandInput
+  | ListHandshakesForAccountCommandInput
+  | ListHandshakesForOrganizationCommandInput
+  | ListOrganizationalUnitsForParentCommandInput
+  | ListParentsCommandInput
+  | ListPoliciesCommandInput
+  | ListPoliciesForTargetCommandInput
+  | ListRootsCommandInput
+  | ListTagsForResourceCommandInput
+  | ListTargetsForPolicyCommandInput
+  | MoveAccountCommandInput
+  | RemoveAccountFromOrganizationCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateOrganizationalUnitCommandInput
+  | UpdatePolicyCommandInput;
 
 export type ServiceOutputTypes =
-  | __MetadataBearer
-  | AcceptHandshakeResponse
-  | CancelHandshakeResponse
-  | CreateAccountResponse
-  | CreateGovCloudAccountResponse
-  | CreateOrganizationResponse
-  | CreateOrganizationalUnitResponse
-  | CreatePolicyResponse
-  | DeclineHandshakeResponse
-  | DescribeAccountResponse
-  | DescribeCreateAccountStatusResponse
-  | DescribeEffectivePolicyResponse
-  | DescribeHandshakeResponse
-  | DescribeOrganizationResponse
-  | DescribeOrganizationalUnitResponse
-  | DescribePolicyResponse
-  | DisablePolicyTypeResponse
-  | EnableAllFeaturesResponse
-  | EnablePolicyTypeResponse
-  | InviteAccountToOrganizationResponse
-  | ListAWSServiceAccessForOrganizationResponse
-  | ListAccountsForParentResponse
-  | ListAccountsResponse
-  | ListChildrenResponse
-  | ListCreateAccountStatusResponse
-  | ListHandshakesForAccountResponse
-  | ListHandshakesForOrganizationResponse
-  | ListOrganizationalUnitsForParentResponse
-  | ListParentsResponse
-  | ListPoliciesForTargetResponse
-  | ListPoliciesResponse
-  | ListRootsResponse
-  | ListTagsForResourceResponse
-  | ListTargetsForPolicyResponse
-  | UpdateOrganizationalUnitResponse
-  | UpdatePolicyResponse;
+  | AcceptHandshakeCommandOutput
+  | AttachPolicyCommandOutput
+  | CancelHandshakeCommandOutput
+  | CreateAccountCommandOutput
+  | CreateGovCloudAccountCommandOutput
+  | CreateOrganizationCommandOutput
+  | CreateOrganizationalUnitCommandOutput
+  | CreatePolicyCommandOutput
+  | DeclineHandshakeCommandOutput
+  | DeleteOrganizationCommandOutput
+  | DeleteOrganizationalUnitCommandOutput
+  | DeletePolicyCommandOutput
+  | DescribeAccountCommandOutput
+  | DescribeCreateAccountStatusCommandOutput
+  | DescribeEffectivePolicyCommandOutput
+  | DescribeHandshakeCommandOutput
+  | DescribeOrganizationCommandOutput
+  | DescribeOrganizationalUnitCommandOutput
+  | DescribePolicyCommandOutput
+  | DetachPolicyCommandOutput
+  | DisableAWSServiceAccessCommandOutput
+  | DisablePolicyTypeCommandOutput
+  | EnableAWSServiceAccessCommandOutput
+  | EnableAllFeaturesCommandOutput
+  | EnablePolicyTypeCommandOutput
+  | InviteAccountToOrganizationCommandOutput
+  | LeaveOrganizationCommandOutput
+  | ListAWSServiceAccessForOrganizationCommandOutput
+  | ListAccountsCommandOutput
+  | ListAccountsForParentCommandOutput
+  | ListChildrenCommandOutput
+  | ListCreateAccountStatusCommandOutput
+  | ListHandshakesForAccountCommandOutput
+  | ListHandshakesForOrganizationCommandOutput
+  | ListOrganizationalUnitsForParentCommandOutput
+  | ListParentsCommandOutput
+  | ListPoliciesCommandOutput
+  | ListPoliciesForTargetCommandOutput
+  | ListRootsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | ListTargetsForPolicyCommandOutput
+  | MoveAccountCommandOutput
+  | RemoveAccountFromOrganizationCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateOrganizationalUnitCommandOutput
+  | UpdatePolicyCommandOutput;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

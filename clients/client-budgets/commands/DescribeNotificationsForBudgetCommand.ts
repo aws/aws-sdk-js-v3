@@ -23,11 +23,13 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export type DescribeNotificationsForBudgetCommandInput = DescribeNotificationsForBudgetRequest;
-export type DescribeNotificationsForBudgetCommandOutput = DescribeNotificationsForBudgetResponse;
+export type DescribeNotificationsForBudgetCommandOutput = DescribeNotificationsForBudgetResponse &
+  __MetadataBearer;
 
 export class DescribeNotificationsForBudgetCommand extends $Command<
   DescribeNotificationsForBudgetCommandInput,
